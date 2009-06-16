@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Transportation Data Plugin
+Bundle-SymbolicName: org.eclipse.stem.data.geography.infrastructure.transportation;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-Activator: org.eclipse.stem.data.geography.infrastructure.transportation.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.stem.data.geography
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.eclipse.stem.data.geography.infrastructure.transportation
