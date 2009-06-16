@@ -1,0 +1,6 @@
+<FindBugsFilter>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.core.*" />
+        <Bug code="IC,UrF,SIC,ST,MS,EC,Eq,BC,DLS" />
+    </Match>
+</FindBugsFilter>

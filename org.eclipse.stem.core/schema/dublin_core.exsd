@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.almaden.stem.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.almaden.stem.core" id="dublin_core" name="Dublin Core Definition"/>
+      </appinfo>
+      <documentation>
+         This is a specification of the Dublin Core metadata elements.
+      </documentation>
+   </annotation>
+
+   <element name="dublin_core">
+      <annotation>
+         <documentation>
+            Dublin Core Metadata is a set of &quot;terms&quot; that describe the content and orgin of a resource.  See &lt;a href=&quot;http://www.dublincore.org/documents/dcmi-terms/&quot;&gt; http://www.dublincore.org/documents/dcmi-terms/&lt;/a&gt; for the offical definitions of the terms and their refinements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="title" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A name given to the resource. e.g., &quot;Base United states Administration Level 2&quot;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="identifier" type="string" use="required">
+            <annotation>
+               <documentation>
+                  An unambiguous reference to the resource within a given context.  In our case this is always a URI.  e.g. &quot;stem:/graphs/sample/sample1.graph&quot;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  An account of the content of the resource.  Basically, a description of the content of the resource. e.g., &quot;Only the counties of the United States as nodes with no edges or labels of any kind.&quot;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="creator" type="string">
+            <annotation>
+               <documentation>
+                  An entity primarily responsible for making the content of the resource.  e.g., Daniel Ford, IBM
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="date" type="string">
+            <annotation>
+               <documentation>
+                  A date associated with an event in the life cycle of the resource.  Encoded in ISO 8601 &lt;a href=&quot;http://www.w3.org/TR/NOTE-datetime&quot;&gt;http://www.w3.org/TR/NOTE-datetime&lt;/a&gt;.  Basically, the format is: YYYY-MM-DD e.g.,  2006-03-29
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="format" type="string">
+            <annotation>
+               <documentation>
+                  The physical or digital manifestation of the resource.  For STEM this is the name space URI of the coresponding ecore model. e.g., http:///com/ibm/almaden/stem/graph.ecore
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="publisher" type="string">
+            <annotation>
+               <documentation>
+                  An entity responsible for making the resource available. e.g., IBM
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="coverage" type="string">
+            <annotation>
+               <documentation>
+                  The extent or scope of the content of the resource.  For spatial resources this would typically include the name selected from the &lt;a href=&quot;http://www.getty.edu/research/tools/vocabulary/tgn/index.html&quot;&gt;Thesaurus of Geographic Names &lt;/a&gt;. e.g., Santa Clara County
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="contributor" type="string">
+            <annotation>
+               <documentation>
+                  An entity responsible for making contributions to the content of the resource.  e.g., IBM
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="relation" type="string">
+            <annotation>
+               <documentation>
+                  A reference to a related resource. In the case of STEM that will be the URI specified as the identifier of the related resource. e.g. &quot;stem:/graphs/sample/sample1.graph&quot;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="rights" type="string">
+            <annotation>
+               <documentation>
+                  Information about rights held in and over the resource. e.g.,  &amp;copy;Copyright STEM corporation 2006
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="source" type="string">
+            <annotation>
+               <documentation>
+                  A reference to a resource from which the present resource is derived.  e.g., US Census Tiger files
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="subject" type="string">
+            <annotation>
+               <documentation>
+                  The topic of the content of the resource.  Keywords or key phrases the describe the topic of the resource. e.g., United States
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" type="string">
+            <annotation>
+               <documentation>
+                  The nature or genre of the content of the resource.  See &lt;a href=&quot;http://dublincore.org/documents/dcmi-type-vocabulary/&quot;&gt;http://dublincore.org/documents/dcmi-type-vocabulary/&lt;/a&gt; e.g,  http://purl.org/dc/dcmitype/Dataset for a set of data or
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="language" type="string">
+            <annotation>
+               <documentation>
+                  A language of the intellectual content of the resource. Use 
+&lt;a href=&quot;http://www.ietf.org/rfc/rfc3066.txt&quot;&gt;
+RFC&amp;nbsp;3066 &lt;/a&gt; and &lt;a href=&quot;http://www.loc.gov/standards/iso639-2/&quot;&gt;ISO&amp;nbsp;639&lt;/a&gt; e.g., en-GB for English used in the United Kingdom.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="bibliographicCitation" type="string">
+            <annotation>
+               <documentation>
+                  A bibliographic reference for the resource. e.g., Ford, D.A., &quot;STEM and the art of computer maintenance&quot;, Journal of Foobar, 2006.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="created" type="string">
+            <annotation>
+               <documentation>
+                  Date of creation of the resource. Encoded in ISO&amp;nbsp;8601 &lt;a href=&quot;http://www.w3.org/TR/NOTE-datetime&quot;&gt;http://www.w3.org/TR/NOTE-datetime&lt;/a&gt;.  Basically, the format is: YYYY-MM-DD e.g.,  2006-03-29
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="license" type="string">
+            <annotation>
+               <documentation>
+                  A legal document giving official permission to do something with the resource.  Best practice is to use a URI to the specific license.  e.g., http://creativecommons.org/license/
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="requires" type="string">
+            <annotation>
+               <documentation>
+                  The described resource requires the referenced resource to support its function, delivery, or coherence of content.  In STEM this is the URI that is the identifier of the required resource.  e.g., stem:/graphs/sample/sample1.graph
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="spatial" type="string">
+            <annotation>
+               <documentation>
+                  Spatial characteristics of the intellectual content of the resource.  See &lt;a href=&quot;http://www.dublincore.org/documents/dcmi-point/&quot;&gt;http://www.dublincore.org/documents/dcmi-point/&lt;/a&gt;  However, this should probably be a URI to a file that contains the actual lat/long data that describes a polygon that defines the spatial outline of a place.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="valid" type="string">
+            <annotation>
+               <documentation>
+                  Date (often a range) of validty of a resource encoded in ISO&amp;nbsp;8601 &lt;a href=&quot;http://www.w3.org/TR/NOTE-datetime&quot;&gt;http://www.w3.org/TR/NOTE-datetime&lt;/a&gt;. e.g. start=2006-03-29; end=2006-03-29; or simply start=2006-03-29; if there is no end to the validity
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="category_id" type="string" use="default" value="/">
+            <annotation>
+               <documentation>
+                  If the resource that this Dublin Core instance describes is in a category then this is the unique identifier of the category. &lt;samp&gt;com.ibm.almaden.stem.test.category.graph.test&lt;/samp&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

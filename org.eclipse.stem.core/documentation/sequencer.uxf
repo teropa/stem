@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><umlet_diagram><help_text>//Uncomment the following line to change the fontsize:
+//fontsize=14
+
+//Welcome to UMLet!
+
+// *Double-click on UML elements to add them to the diagram.
+// *Edit element properties by modifying the text in this panel.
+// *Edit the files in the 'palettes' directory to store your own element palettes.
+// *Press Del or Backspace to remove elements from the diagram.
+// *Hold down Ctrl key to select multiple elements.
+// *Press c to copy the UML diagram to the system clipboard.
+// * This text will be stored with each diagram. Feel free to use the area for notes.
+</help_text><element><type>com.umlet.element.base.Class</type><coordinates><x>400</x><y>180</y><w>210</w><h>240</h></coordinates><panel_attributes>/Sequencer/
+--
+- timeDelta: long
+- workComplete: double
+- duration: int
+- cycle: int
+--
++getNextTime(): STEMTime
++getTimeDelta(): long
++getDuration(): long
++isTimeToStop(): boolean
++reset(): void
++getWorkComplete(): double
++getWorkIncrement(): int
++getCycle(): int
+ 
+ </panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>480</x><y>540</y><w>40</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;80</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>480</x><y>400</y><w>40</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;70</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>400</x><y>620</y><w>210</w><h>70</h></coordinates><panel_attributes>RealTimeSequencer
+--
+ 
+--
+ 
+ </panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Class</type><coordinates><x>400</x><y>470</y><w>210</w><h>90</h></coordinates><panel_attributes>SequntialSequencer
+--
+-timeIncrement: long
+--
++getTimeIncrement(): long
++setTimeIncrement(long)
+</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>262</x><y>300</y><w>158</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1
+r2=currentTime</panel_attributes><additional_attributes>138;20;38;20;38;70</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>182</x><y>250</y><w>238</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..1
+r2=endTime</panel_attributes><additional_attributes>218;20;28;20;28;120</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>70</x><y>200</y><w>350</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1
+r2=startTime</panel_attributes><additional_attributes>330;20;30;20;30;170</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>70</x><y>370</y><w>290</w><h>30</h></coordinates><panel_attributes>org.eclipse.stem.core.model::STEMTime</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>380</x><y>130</y><w>250</w><h>30</h></coordinates><panel_attributes>org.eclipse.stem.core.sequencer</panel_attributes><additional_attributes/></element></umlet_diagram>

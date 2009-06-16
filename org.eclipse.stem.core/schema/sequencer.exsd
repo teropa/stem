@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.almaden.stem.core">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.ibm.almaden.stem.core" id="sequencer" name="STEM sequencer extension point"/>
+      </appInfo>
+      <documentation>
+         The STEM system allows &quot;sequencers&quot; to control changes to the underlying graph. A plug-in that extends the &quot;sequencer&quot; extension point provides an implementation of a sequencer.
+      </documentation>
+   </annotation>
+
+   <include schemaLocation="stem_category.exsd"/>
+
+   <include schemaLocation="dublin_core.exsd"/>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <element ref="stem_category" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="dublin_core" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         0.0.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         The following is an example of the sequencer extension point usage.
+&lt;p&gt;
+&lt;pre&gt;
+ &lt;extension point=&quot;com.ibm.almaden.stem.core.observer&quot;&gt;
+  &lt;sequencer
+   name=&quot;Sequential Sequencer&quot;
+   class=&quot;com.ibm.almaden.stem.sequencer.SequentialSequencer&quot; /&gt;
+ &lt;/extension&gt;
+&lt;/pre&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

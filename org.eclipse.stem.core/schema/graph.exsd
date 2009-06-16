@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.almaden.stem.core">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.ibm.almaden.stem.core" id="graph" name="STEM graph extension point"/>
+      </appInfo>
+      <documentation>
+         The STEM system can incorporate Graph definitions and fragments of Graph definitions provided by plug-ins.  A plug-in that extends the &quot;graph&quot; extension point provides the definition of a Graph or Graph fragment.  It can also define &quot;catagories&quot; into which Graphs can be grouped.
+      </documentation>
+   </annotation>
+
+   <include schemaLocation="dublin_core.exsd"/>
+
+   <include schemaLocation="stem_category.exsd"/>
+
+   <element name="extension">
+      <complexType>
+         <choice>
+            <element ref="stem_category" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="dublin_core" minOccurs="1" maxOccurs="unbounded"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         0.0.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         The following is an example of the graph extension point usage.
+&lt;p&gt;
+&lt;pre&gt;
+ &lt;extension
+         point=&quot;com.ibm.almaden.stem.core.graph&quot;&gt;
+      &lt;category
+            id=&quot;com.ibm.almaden.stem.test.category.graph.basic&quot;
+            name=&quot;Basic&quot;
+            parent_id=&quot;com.ibm.almaden.stem.test.category.graph.test&quot;/&gt;
+      &lt;dublin_core
+            category_id=&quot;com.ibm.almaden.stem.test.category.graph.basic&quot;
+            created=&quot;2006-04-24&quot;
+            creator=&quot;Daniel Ford&quot;
+            date=&quot;2006-04-24&quot;
+            description=&quot;A graph with a single node, nothing else, for testing&quot;
+            format=&quot;http:///com/ibm/almaden/stem/graph.ecore&quot;
+            identifier=&quot;stem:com.ibm.almaden.stem.test.graph.onenode1&quot;
+            subject=&quot;Testing&quot;
+            title=&quot;One Node #1&quot;
+            valid=&quot;start=2006-03-29;&quot;/&gt;
+      &lt;dublin_core
+            category_id=&quot;com.ibm.almaden.stem.test.category.graph.basic&quot;
+            created=&quot;2006-04-24&quot;
+            creator=&quot;Daniel Ford&quot;
+            date=&quot;2006-04-24&quot;
+            description=&quot;A graph with a single node, nothing else, for testing&quot;
+            format=&quot;http:///com/ibm/almaden/stem/graph.ecore&quot;
+            identifier=&quot;stem:com.ibm.almaden.stem.test.graph.onenode2&quot;
+            subject=&quot;Testing&quot;
+            title=&quot;One Node #2&quot;
+            valid=&quot;start=2006-03-29;&quot;/&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         None
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         None.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

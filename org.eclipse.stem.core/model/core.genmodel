@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.core/src"
+    editDirectory="/org.eclipse.stem.core/src" editorDirectory="/org.eclipse.stem.ui/src"
+    modelPluginID="org.eclipse.stem.core" modelName="Core" modelPluginClass=""
+    editorPluginClass="org.eclipse.stem.core.common.presentation.CoreEditorPlugin"
+    nonNLSMarkers="true" testsDirectory="/org.eclipse.stem.tests.core/src" importerID="org.eclipse.emf.importer.java"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Common" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      contentTypeIdentifier="" ecorePackage="common.ecore#/">
+    <genDataTypes ecoreDataType="common.ecore#//URI"/>
+    <genClasses image="false" ecoreClass="common.ecore#//DublinCore">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/title"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/creator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/date"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/publisher"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/coverage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/contributor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/relation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/rights"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/subject"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/bibliographicCitation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/created"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/license"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/spatial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//DublinCore/valid"/>
+      <genOperations ecoreOperation="common.ecore#//DublinCore/populate"/>
+    </genClasses>
+    <genClasses ecoreClass="common.ecore#//Identifiable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Identifiable/uRI"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Identifiable/typeURI"/>
+      <genFeatures property="None" createChild="false" propertyCategory="" ecoreFeature="ecore:EReference common.ecore#//Identifiable/dublinCore"/>
+      <genOperations ecoreOperation="common.ecore#//Identifiable/sane"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="common.ecore#//Comparable">
+      <genTypeParameters ecoreTypeParameter="common.ecore#//Comparable/T"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Experiment" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="experiment.ecore#/">
+    <genDataTypes ecoreDataType="experiment.ecore#//URI"/>
+    <genClasses image="false" ecoreClass="experiment.ecore#//Experiment">
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference experiment.ecore#//Experiment/modifiers"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute experiment.ecore#//Experiment/complete"/>
+      <genFeatures property="None" children="true" createChild="false" propertyCategory=""
+          propertyDescription="" ecoreFeature="ecore:EReference experiment.ecore#//Experiment/scenario"/>
+      <genOperations ecoreOperation="experiment.ecore#//Experiment/updateScenario"/>
+      <genOperations ecoreOperation="experiment.ecore#//Experiment/initScenario"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Graph" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="graph.ecore#/">
+    <genDataTypes ecoreDataType="graph.ecore#//URI"/>
+    <genDataTypes ecoreDataType="graph.ecore#//IllegalArgumentException"/>
+    <genClasses image="false" ecoreClass="graph.ecore#//DynamicLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//DynamicLabel/nextValueValid"/>
+      <genFeatures property="None" createChild="false" propertyDescription="" ecoreFeature="ecore:EReference graph.ecore#//DynamicLabel/nextValue"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//DynamicLabel/decorator"/>
+      <genOperations ecoreOperation="graph.ecore#//DynamicLabel/reset"/>
+      <genOperations ecoreOperation="graph.ecore#//DynamicLabel/switchToNextValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="graph.ecore#//DynamicNodeLabel"/>
+    <genClasses image="false" ecoreClass="graph.ecore#//Edge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//Edge/a"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Edge/nodeAURI"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//Edge/b"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Edge/nodeBURI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Edge/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Edge/directed"/>
+      <genOperations ecoreOperation="graph.ecore#//Edge/getOtherNode">
+        <genParameters ecoreParameter="graph.ecore#//Edge/getOtherNode/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Edge/isDirectedAt">
+        <genParameters ecoreParameter="graph.ecore#//Edge/isDirectedAt/node"/>
+      </genOperations>
+    </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="graph.ecore#//Graph">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/edges"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/nodes"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/graphLabels"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/nodeLabels"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graph.ecore#//Graph/dynamicLabels"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Graph/numEdges"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Graph/numNodes"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Graph/numGraphLabels"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Graph/numNodeLabels"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Graph/numDynamicLabels"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/unresolvedIdentifiables"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/decorators"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graph.ecore#//Graph/time"/>
+      <genOperations ecoreOperation="graph.ecore#//Graph/getNodeLabelsByTypeURI">
+        <genParameters ecoreParameter="graph.ecore#//Graph/getNodeLabelsByTypeURI/typeURI"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/addGraph">
+        <genParameters ecoreParameter="graph.ecore#//Graph/addGraph/graph"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/putEdge">
+        <genParameters ecoreParameter="graph.ecore#//Graph/putEdge/edge"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/getEdge">
+        <genParameters ecoreParameter="graph.ecore#//Graph/getEdge/uri"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/putNode">
+        <genParameters ecoreParameter="graph.ecore#//Graph/putNode/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/getNode">
+        <genParameters ecoreParameter="graph.ecore#//Graph/getNode/uri"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/putNodeLabel">
+        <genParameters ecoreParameter="graph.ecore#//Graph/putNodeLabel/label"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/getNodeLabel">
+        <genParameters ecoreParameter="graph.ecore#//Graph/getNodeLabel/uri"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/putGraphLabel">
+        <genParameters ecoreParameter="graph.ecore#//Graph/putGraphLabel/label"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/getGraphLabel">
+        <genParameters ecoreParameter="graph.ecore#//Graph/getGraphLabel/uri"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/addDynamicLabel">
+        <genParameters ecoreParameter="graph.ecore#//Graph/addDynamicLabel/dynamiclabel"/>
+      </genOperations>
+      <genOperations ecoreOperation="graph.ecore#//Graph/switchToNextValue">
+        <genParameters ecoreParameter="graph.ecore#//Graph/switchToNextValue/currentTime"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="graph.ecore#//Label">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Label/uRIOfIdentifiableToBeLabeled"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Label/currentValue"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Label/identifiable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="graph.ecore#//LabelValue">
+      <genOperations ecoreOperation="graph.ecore#//LabelValue/reset"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="graph.ecore#//Node">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//Node/edges"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//Node/labels"/>
+    </genClasses>
+    <genClasses ecoreClass="graph.ecore#//NodeLabel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//NodeLabel/node"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="graph.ecore#//StaticNodeLabel"/>
+    <genClasses provider="None" image="false" ecoreClass="graph.ecore#//UnresolvedIdentifiable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//UnresolvedIdentifiable/scenario"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//UnresolvedIdentifiable/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//UnresolvedIdentifiable/graph"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//UnresolvedIdentifiable/identifiable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//UnresolvedIdentifiable/unresolvedURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//UnresolvedIdentifiable/fieldName"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="graph.ecore#//URIToIdentifiableMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//URIToIdentifiableMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//URIToIdentifiableMapEntry/value"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="graph.ecore#//SanityChecker"/>
+    <genClasses image="false" ecoreClass="graph.ecore#//DynamicEdgeLabel"/>
+    <genClasses image="false" ecoreClass="graph.ecore#//EdgeLabel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//EdgeLabel/edge"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="graph.ecore#//StaticEdgeLabel"/>
+    <genClasses provider="None" image="false" ecoreClass="graph.ecore#//URIToEdgeMapEntry">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//URIToEdgeMapEntry/key"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graph.ecore#//URIToEdgeMapEntry/value"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="graph.ecore#//URIToNodeMapEntry">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//URIToNodeMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//URIToNodeMapEntry/value"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="graph.ecore#//URIToLabelMapEntry">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//URIToLabelMapEntry/key"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graph.ecore#//URIToLabelMapEntry/value"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="graph.ecore#//URIToNodeLabelMapEntry">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//URIToNodeLabelMapEntry/key"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graph.ecore#//URIToNodeLabelMapEntry/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="graph.ecore#//StaticLabel"/>
+  </genPackages>
+  <genPackages prefix="Model" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="model.ecore#/">
+    <genDataTypes ecoreDataType="model.ecore#//URI"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Decorator">
+      <genFeatures property="None" notify="false" children="true" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Decorator/labelsToUpdate"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Decorator/graph"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/enabled"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/graphDecorated"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/progress"/>
+      <genOperations ecoreOperation="model.ecore#//Decorator/decorateGraph"/>
+      <genOperations ecoreOperation="model.ecore#//Decorator/updateLabels">
+        <genParameters ecoreParameter="model.ecore#//Decorator/updateLabels/time"/>
+        <genParameters ecoreParameter="model.ecore#//Decorator/updateLabels/timerPeriod"/>
+        <genParameters ecoreParameter="model.ecore#//Decorator/updateLabels/cycle"/>
+      </genOperations>
+      <genOperations ecoreOperation="model.ecore#//Decorator/resetLabels"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//EdgeDecorator"/>
+    <genClasses image="false" ecoreClass="model.ecore#//GraphDecorator"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Model/models"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Model/graphs"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Model/graphDecorators"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Model/nodeDecorators"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Model/edgeDecorators"/>
+      <genOperations ecoreOperation="model.ecore#//Model/getCanonicalGraph">
+        <genParameters ecoreParameter="model.ecore#//Model/getCanonicalGraph/uri"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//NodeDecorator"/>
+    <genClasses ecoreClass="model.ecore#//STEMTime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//STEMTime/time"/>
+      <genOperations ecoreOperation="model.ecore#//STEMTime/addIncrement">
+        <genParameters ecoreParameter="model.ecore#//STEMTime/addIncrement/timeIncrement"/>
+      </genOperations>
+      <genOperations ecoreOperation="model.ecore#//STEMTime/hashCode"/>
+      <genOperations ecoreOperation="model.ecore#//STEMTime/equals">
+        <genParameters ecoreParameter="model.ecore#//STEMTime/equals/obj"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Comparable">
+      <genTypeParameters ecoreTypeParameter="model.ecore#//Comparable/T"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Modifier" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="modifier.ecore#/">
+    <genDataTypes ecoreDataType="modifier.ecore#//URI"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//DoubleNOPModifier"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//DoubleRangeModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleRangeModifier/startValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleRangeModifier/endValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleRangeModifier/increment"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleRangeModifier/nextValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleRangeModifier/originalValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//DoubleSequenceModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleSequenceModifier/sequence"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//FeatureModifier">
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference modifier.ecore#//FeatureModifier/target"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference modifier.ecore#//FeatureModifier/eStructuralFeature"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//FeatureModifier/featureName"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//FeatureModifier/featureId"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//FeatureModifier/currentValueText"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//FeatureModifier/complete"/>
+      <genOperations ecoreOperation="modifier.ecore#//FeatureModifier/updateFeature"/>
+      <genOperations ecoreOperation="modifier.ecore#//FeatureModifier/reset"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//IntegerNOPModifier"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//IntegerRangeModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerRangeModifier/startValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerRangeModifier/endValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerRangeModifier/increment"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerRangeModifier/nextValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerRangeModifier/originalValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//IntegerSequenceModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerSequenceModifier/sequence"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//LongNOPModifier"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//LongRangeModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongRangeModifier/startValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongRangeModifier/endValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongRangeModifier/increment"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongRangeModifier/nextValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongRangeModifier/originalValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//LongSequenceModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongSequenceModifier/sequence"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//Modifier">
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyDescription=""
+          ecoreFeature="ecore:EAttribute modifier.ecore#//Modifier/targetURI"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference modifier.ecore#//Modifier/featureModifiers"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//Modifier/complete"/>
+      <genOperations ecoreOperation="modifier.ecore#//Modifier/updateScenario">
+        <genParameters ecoreParameter="modifier.ecore#//Modifier/updateScenario/baseScenario"/>
+      </genOperations>
+      <genOperations ecoreOperation="modifier.ecore#//Modifier/reset"/>
+    </genClasses>
+    <genClasses ecoreClass="modifier.ecore#//NOPModifier"/>
+    <genClasses ecoreClass="modifier.ecore#//RangeModifier"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//STEMTimeNOPModifier"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//STEMTimeRangeModifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modifier.ecore#//STEMTimeRangeModifier/startValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modifier.ecore#//STEMTimeRangeModifier/endValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//STEMTimeRangeModifier/increment"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference modifier.ecore#//STEMTimeRangeModifier/nextValue"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference modifier.ecore#//STEMTimeRangeModifier/originalValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//STEMTimeSequenceModifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modifier.ecore#//STEMTimeSequenceModifier/sequence"/>
+    </genClasses>
+    <genClasses ecoreClass="modifier.ecore#//SequenceModifier">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/sequenceSize"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/currentSequenceIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/nextValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/originalValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modifier.ecore#//StringNOPModifier"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//StringSequenceModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//StringSequenceModifier/sequence"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="modifier.ecore#//Modifiable"/>
+  </genPackages>
+  <genPackages prefix="Predicate" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="predicate.ecore#/">
+    <genClasses ecoreClass="predicate.ecore#//And"/>
+    <genClasses image="false" ecoreClass="predicate.ecore#//BooleanExpression"/>
+    <genClasses image="false" ecoreClass="predicate.ecore#//BooleanOperator"/>
+    <genClasses ecoreClass="predicate.ecore#//False"/>
+    <genClasses image="false" ecoreClass="predicate.ecore#//NaryBooleanOperator">
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference predicate.ecore#//NaryBooleanOperator/operands"/>
+    </genClasses>
+    <genClasses ecoreClass="predicate.ecore#//Not"/>
+    <genClasses ecoreClass="predicate.ecore#//Or"/>
+    <genClasses ecoreClass="predicate.ecore#//Predicate">
+      <genOperations ecoreOperation="predicate.ecore#//Predicate/evaluate">
+        <genParameters ecoreParameter="predicate.ecore#//Predicate/evaluate/time"/>
+        <genParameters ecoreParameter="predicate.ecore#//Predicate/evaluate/timerPeriod"/>
+        <genParameters ecoreParameter="predicate.ecore#//Predicate/evaluate/action"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="predicate.ecore#//PredicateReference">
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference predicate.ecore#//PredicateReference/predicate"/>
+    </genClasses>
+    <genClasses ecoreClass="predicate.ecore#//Test"/>
+    <genClasses ecoreClass="predicate.ecore#//True"/>
+    <genClasses image="false" ecoreClass="predicate.ecore#//UnaryBooleanOperator">
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference predicate.ecore#//UnaryBooleanOperator/operand"/>
+    </genClasses>
+    <genClasses ecoreClass="predicate.ecore#//PredicateExpression">
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference predicate.ecore#//PredicateExpression/predicate"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="predicate.ecore#//IdentifiablePredicate"/>
+    <genClasses ecoreClass="predicate.ecore#//IdentifiablePredicateExpression"/>
+    <genClasses image="false" ecoreClass="predicate.ecore#//IdentifiableTest"/>
+    <genClasses image="false" ecoreClass="predicate.ecore#//TimeTest"/>
+    <genClasses ecoreClass="predicate.ecore#//AbsoluteTimeTest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference predicate.ecore#//AbsoluteTimeTest/time"/>
+    </genClasses>
+    <genClasses ecoreClass="predicate.ecore#//ElapsedTimeTest">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute predicate.ecore#//ElapsedTimeTest/referenceTimeValid"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute predicate.ecore#//ElapsedTimeTest/elapsedMilliseconds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute predicate.ecore#//ElapsedTimeTest/numberofDays"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference predicate.ecore#//ElapsedTimeTest/referenceTime"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Scenario" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="scenario.ecore#/">
+    <genClasses image="false" ecoreClass="scenario.ecore#//Scenario">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scenario.ecore#//Scenario/model"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scenario.ecore#//Scenario/sequencer"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference scenario.ecore#//Scenario/scenarioDecorators"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scenario.ecore#//Scenario/canonicalGraph"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute scenario.ecore#//Scenario/progress"/>
+      <genOperations ecoreOperation="scenario.ecore#//Scenario/step"/>
+      <genOperations ecoreOperation="scenario.ecore#//Scenario/reset"/>
+      <genOperations ecoreOperation="scenario.ecore#//Scenario/initialize"/>
+      <genOperations ecoreOperation="scenario.ecore#//Scenario/produceTitle"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Sequencer" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="sequencer.ecore#/">
+    <genClasses image="false" ecoreClass="sequencer.ecore#//RealTimeSequencer"/>
+    <genClasses image="false" ecoreClass="sequencer.ecore#//Sequencer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference sequencer.ecore#//Sequencer/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference sequencer.ecore#//Sequencer/endTime"/>
+      <genFeatures property="Readonly" createChild="false" propertyDescription=""
+          ecoreFeature="ecore:EReference sequencer.ecore#//Sequencer/currentTime"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference sequencer.ecore#//Sequencer/nextTime"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//Sequencer/timeDelta"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//Sequencer/duration"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//Sequencer/timeToStop"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//Sequencer/workComplete"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//Sequencer/workIncrement"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//Sequencer/cycle"/>
+      <genOperations ecoreOperation="sequencer.ecore#//Sequencer/reset"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sequencer.ecore#//SequentialSequencer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//SequentialSequencer/timeIncrement"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Trigger" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="trigger.ecore#/">
+    <genClasses ecoreClass="trigger.ecore#//Trigger">
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference trigger.ecore#//Trigger/predicate"/>
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference trigger.ecore#//Trigger/action"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
