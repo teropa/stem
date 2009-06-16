@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http:///org/eclipse/stem/definitions/edges.ecore"
+            class="org.eclipse.stem.definitions.edges.provider.EdgesItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http:///org/eclipse/stem/definitions/labels.ecore"
+            class="org.eclipse.stem.definitions.labels.provider.LabelsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http:///org/eclipse/stem/definitions/nodes.ecore"
+            class="org.eclipse.stem.definitions.nodes.provider.NodesItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///org/eclipse/stem/definitions/edges.ecore"
+            class="org.eclipse.stem.definitions.edges.EdgesPackage"
+            genModel="model/definitions.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///org/eclipse/stem/definitions/labels.ecore"
+            class="org.eclipse.stem.definitions.labels.LabelsPackage"
+            genModel="model/definitions.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///org/eclipse/stem/definitions/nodes.ecore"
+            class="org.eclipse.stem.definitions.nodes.NodesPackage"
+            genModel="model/definitions.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.stem.definitions.edges.presentation.EdgesEditorID"
+            name="%_UI_EdgesEditor_label"
+            icon="icons/full/obj16/EdgesModelFile.gif"
+            extensions="edges"
+            class="org.eclipse.stem.definitions.edges.presentation.EdgesEditor"
+            contributorClass="org.eclipse.stem.definitions.edges.presentation.EdgesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.stem.definitions.labels.presentation.LabelsEditorID"
+            name="%_UI_LabelsEditor_label"
+            icon="icons/full/obj16/LabelsModelFile.gif"
+            extensions="labels"
+            class="org.eclipse.stem.definitions.labels.presentation.LabelsEditor"
+            contributorClass="org.eclipse.stem.definitions.labels.presentation.LabelsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.stem.definitions.nodes.presentation.NodesEditorID"
+            name="%_UI_NodesEditor_label"
+            icon="icons/full/obj16/NodesModelFile.gif"
+            extensions="nodes"
+            class="org.eclipse.stem.definitions.nodes.presentation.NodesEditor"
+            contributorClass="org.eclipse.stem.definitions.nodes.presentation.NodesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

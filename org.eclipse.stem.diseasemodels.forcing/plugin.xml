@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.1 2009/03/13 00:05:49 sedlund Exp $
+-->
+
+<plugin>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http:///org/eclipse/stem/diseasemodels/forcing.ecore" 
+       class = "org.eclipse.stem.diseasemodels.forcing.provider.ForcingItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http:///org/eclipse/stem/diseasemodels/forcing.ecore"
+       class = "org.eclipse.stem.diseasemodels.forcing.ForcingPackage"
+       genModel = "model/forcing.genmodel" /> 
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.forcing.impl.ForcingDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_edlund"
+           description="%dc_desc_E_S_SEIR"
+           identifier="org.eclipse.stem.diseasemodels.experimental.dublin_core4"
+           title="%dc_title_E_S_SEIR">
+     </dublin_core>
+  </extension>
+
+</plugin>

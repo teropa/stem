@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http:///org/eclipse/stem/diseasemodels/experimental.ecore" 
+       class = "org.eclipse.stem.diseasemodels.experimental.provider.ExperimentalItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http:///org/eclipse/stem/diseasemodels/experimental.ecore"
+       class = "org.eclipse.stem.diseasemodels.experimental.ExperimentalPackage"
+       genModel = "model/experimental.genmodel" /> 
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.experimental.impl.PercolationDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="Kaufman"
+           description="Percolation SEIR Stochastic Disease Model"
+           identifier="org.eclipse.stem.diseasemodels.experimental.dublin_core4"
+           title="Percolation SEIR Disease Model">
+     </dublin_core>
+  </extension>
+
+</plugin>

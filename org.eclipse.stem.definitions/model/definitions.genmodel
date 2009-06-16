@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=""
+    modelDirectory="/org.eclipse.stem.definitions/src" editDirectory="/org.eclipse.stem.definitions/src"
+    editorDirectory="/org.eclipse.stem.definitions/src" modelPluginID="org.eclipse.stem.definitions"
+    redirection="" modelName="Definitions" nonNLSMarkers="true" testsDirectory="/org.eclipse.stem.tests.definitions/src"
+    importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Edges" basePackage="org.eclipse.stem.definitions" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="edges.ecore#/">
+    <genClasses image="false" ecoreClass="edges.ecore#//MigrationEdge"/>
+    <genClasses image="false" ecoreClass="edges.ecore#//MigrationEdgeLabel"/>
+    <genClasses image="false" ecoreClass="edges.ecore#//MigrationEdgeLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edges.ecore#//MigrationEdgeLabelValue/migrationRate"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="edges.ecore#//MixingEdge"/>
+    <genClasses image="false" ecoreClass="edges.ecore#//MixingEdgeLabel"/>
+    <genClasses image="false" ecoreClass="edges.ecore#//MixingEdgeLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute edges.ecore#//MixingEdgeLabelValue/mixingRate"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Labels" basePackage="org.eclipse.stem.definitions" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="labels.ecore#/">
+    <genEnums ecoreEnum="labels.ecore#//RelativePhysicalRelationship">
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/Unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/Above"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/Below"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/RightOf"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/LeftOf"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/NorthOf"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/SouthOf"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/WestOf"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/EastOf"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/Contains"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/ContainedBy"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/Overlaps"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//RelativePhysicalRelationship/Orbits"/>
+    </genEnums>
+    <genEnums ecoreEnum="labels.ecore#//TransportMode">
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//TransportMode/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//TransportMode/air"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//TransportMode/road"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//TransportMode/rail"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//TransportMode/marine"/>
+      <genEnumLiterals ecoreEnumLiteral="labels.ecore#//TransportMode/foot"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="labels.ecore#//AreaLabel">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference labels.ecore#//AreaLabel/currentAreaValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//AreaLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//AreaLabelValue/area"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//CommonBorderRelationshipLabel"/>
+    <genClasses image="false" ecoreClass="labels.ecore#//CommonBorderRelationshipLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//CommonBorderRelationshipLabelValue/borderLength"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//PhysicalRelationshipLabel"/>
+    <genClasses image="false" ecoreClass="labels.ecore#//PopulationLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabel/populationIdentifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabel/name"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference labels.ecore#//PopulationLabel/currentPopulationValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabel/populatedArea"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//PopulationLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabelValue/count"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//RelativePhysicalRelationshipLabel">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference labels.ecore#//RelativePhysicalRelationshipLabel/currentRelationship"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//RelativePhysicalRelationshipLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//RelativePhysicalRelationshipLabelValue/adjacent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//RelativePhysicalRelationshipLabelValue/relationship"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//TransportRelationshipLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/transportMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/populationIdentifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/transportIdentifier"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference labels.ecore#//TransportRelationshipLabel/currentTransportRelationshipLabelValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/rateTimePeriod"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/departureCapacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/maximumDepartureCapacity"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/capacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/maximumCapacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/transitTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabel/startUpDelay"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//TransportRelationshipLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TransportRelationshipLabelValue/availableDepartureCapacityProportion"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="labels.ecore#//PhysicalRelationshipLabelValue"/>
+    <genClasses image="false" ecoreClass="labels.ecore#//RoadTransportRelationshipLabel"/>
+    <genClasses image="false" ecoreClass="labels.ecore#//RoadTransportRelationshipLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//RoadTransportRelationshipLabelValue/roadName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//RoadTransportRelationshipLabelValue/roadClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//RoadTransportRelationshipLabelValue/numberCrossings"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Nodes" basePackage="org.eclipse.stem.definitions" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      contentTypeIdentifier="" ecorePackage="nodes.ecore#/">
+    <genClasses image="false" ecoreClass="nodes.ecore#//GeographicFeature"/>
+    <genClasses image="false" ecoreClass="nodes.ecore#//Region"/>
+    <genClasses image="false" ecoreClass="nodes.ecore#//Node"/>
+  </genPackages>
+  <genPackages prefix="Types" basePackage="org.eclipse.stem.definitions" disposableProviderFactory="true"
+      ecorePackage="types.ecore#/">
+    <genClasses image="false" ecoreClass="types.ecore#//CategorizedType"/>
+    <genClasses image="false" ecoreClass="types.ecore#//Rate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute types.ecore#//Rate/rate"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

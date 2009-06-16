@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="disease" name="%EP_Disease" schema="schema/disease.exsd"/>
+   <extension-point id="diseasemodel" name="%EP_Disease_Model" schema="schema/diseasemodel.exsd"/>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http:///org/eclipse/stem/diseasemodels/standard.ecore" 
+       class = "org.eclipse.stem.diseasemodels.standard.provider.StandardItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http:///org/eclipse/stem/diseasemodels/standard.ecore"
+       class = "org.eclipse.stem.diseasemodels.standard.StandardPackage"
+       genModel = "model/diseasemodels.genmodel" /> 
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef class="org.eclipse.stem.diseasemodels.standard.impl.DeterministicSIDiseaseModelImpl"/>
+     <dublin_core
+           category_id="/"
+           creator="%dc_creator_daford"
+           description="%dc_desc_D_SI"
+           identifier="foo"
+           title="%dc_desc_D_SI"/>
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef class="org.eclipse.stem.diseasemodels.standard.impl.DeterministicSEIRDiseaseModelImpl"/>
+     <dublin_core
+           category_id="/"
+           creator="%dc_creator_daford"
+           description="%dc_desc_D_SEIR"
+           identifier="foo"
+           title="%dc_desc_D_SEIR"/>
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef class="org.eclipse.stem.diseasemodels.standard.impl.DeterministicSIRDiseaseModelImpl"/>
+     <dublin_core
+           category_id="/"
+           creator="%dc_creator_daford"
+           description="%dc_desc_D_SIR"
+           identifier="foo"
+           title="%dc_desc_D_SIR"/>
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.standard.impl.StochasticSEIRDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_kaufman"
+           description="%dc_desc_S_SEIR"
+           identifier="foo"
+           title="%dc_desc_S_SEIR">
+     </dublin_core>
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_kaufman"
+           description="%dc_desc_S_SIR"
+           identifier="foo"
+           title="%dc_desc_S_SIR">
+     </dublin_core>
+  </extension>
+  <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.standard.impl.StochasticSIDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_kaufman"
+           description="%dc_desc_S_SI"
+           identifier="foo"
+           title="%dc_desc_S_SI">
+     </dublin_core>
+  </extension>
+  <extension
+        point="org.eclipse.ui.preferencePages">
+     <page
+           category="org.eclipse.stem.ui.preferences.STEMPreferencePage"
+           class="org.eclipse.stem.diseasemodels.preferences.DiseaseModelingPreferencePage"
+           id="org.eclipse.stem.diseasemodels.preferences.DiseaseModelingPreferencePage"
+           name="%_UI_DiseaseModelingPPage">
+     </page>
+  </extension>
+  <extension
+        point="org.eclipse.core.runtime.preferences">
+     <initializer
+           class="org.eclipse.stem.diseasemodels.preferences.PreferenceInitializer">
+     </initializer>
+  </extension>
+
+</plugin>
+

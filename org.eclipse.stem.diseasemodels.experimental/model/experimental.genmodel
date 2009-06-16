@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.diseasemodels.experimental/src"
+    editDirectory="/org.eclipse.stem.diseasemodels.experimental/src" editorDirectory="/org.eclipse.stem.ui.diseasemodels.experimental/src"
+    modelPluginID="org.eclipse.stem.diseasemodels.experimental" modelName="Experimental"
+    testsDirectory="/org.eclipse.stem.diseasemodels.tests.experimental/src" importerID="org.eclipse.emf.importer.java"
+    complianceLevel="5.0" usedGenPackages="../../org.eclipse.stem.diseasemodels/model/diseasemodels.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Experimental" basePackage="org.eclipse.stem.diseasemodels"
+      disposableProviderFactory="true" ecorePackage="experimental.ecore#/">
+    <genClasses ecoreClass="experimental.ecore#//PerculationDiseaseModel"/>
+  </genPackages>
+</genmodel:GenModel>

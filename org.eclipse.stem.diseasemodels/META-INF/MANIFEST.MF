@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.stem.diseasemodels; singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.stem.diseasemodels.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.stem.diseasemodels,
+ org.eclipse.stem.diseasemodels.standard,
+ org.eclipse.stem.diseasemodels.standard.impl,
+ org.eclipse.stem.diseasemodels.standard.provider,
+ org.eclipse.stem.diseasemodels.standard.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.stem.definitions;visibility:=reexport,
+ org.eclipse.stem.transport;bundle-version="0.5.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
