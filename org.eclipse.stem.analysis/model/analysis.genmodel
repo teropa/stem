@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.analysis/src"
+    modelPluginID="org.eclipse.stem.analysis" modelName="Analysis" importerID="org.eclipse.emf.importer.java"
+    complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Analysis" basePackage="org.eclipse.stem" disposableProviderFactory="true"
+      ecorePackage="analysis.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="analysis.ecore#//ReferenceScenarioDataMap"/>
+    <genClasses ecoreClass="analysis.ecore#//ErrorFunction"/>
+    <genClasses ecoreClass="analysis.ecore#//ThresholdErrorFunction"/>
+  </genPackages>
+</genmodel:GenModel>
