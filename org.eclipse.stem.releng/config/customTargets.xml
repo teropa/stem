@@ -1,0 +1,263 @@
+<project name="Build specific targets and properties" default="noDefault">
+
+	<!-- ===================================================================== -->
+	<!-- Run a given ${target} on all elements being built -->
+	<!-- Add on <ant> task for each top level element being built. -->
+	<!-- ===================================================================== -->	
+	<property name="allElementsFile" value="${builder}/allElements.xml" />
+	<import file="${allElementsFile}" />
+	<target name="allElements">
+		<antcall target="allElementsDelegator" />		
+	</target>
+	
+	<!-- ===================================================================== -->
+	<!-- ===================================================================== -->
+	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
+		<get src="${eclipseBaseURL}" dest="${buildDirectory}/../temp-base.zip" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
+	</target>
+
+	<target name="checkLocalBase">
+		<available file="${base}" property="skipBase" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Check out map files from correct repository -->
+	<!-- Replace values for mapsCheckoutTag as desired. -->
+	<!-- ===================================================================== -->
+	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">		
+		<property name="mapsCheckoutTag" value="HEAD" />
+		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
+	</target>
+
+	<target name="checkLocalMaps">
+		<available property="skipMaps" file="${buildDirectory}/maps" />
+	</target>
+
+	<target name="tagMapFiles" if="tagMaps">
+		<cvs dest="${buildDirectory}/maps/${mapsRoot}" command="tag ${mapsTagTag}" />
+	</target>
+
+	<!-- ===================================================================== -->
+
+	<target name="clean" unless="noclean">
+		<antcall target="allElements">
+			<param name="target" value="cleanElement" />
+		</antcall>
+	</target>
+
+	<target name="gatherLogs">
+		<mkdir dir="${buildDirectory}/${buildLabel}/compilelogs" />
+		<antcall target="allElements">
+			<param name="target" value="gatherLogs" />
+		</antcall>
+		<unzip dest="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true">
+			<fileset dir="${buildDirectory}/features">
+				<include name="**/*.log.zip" />
+			</fileset>
+		</unzip>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before setup -->
+	<!-- ===================================================================== -->
+	<target name="preSetup">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after setup but before starting the build proper -->
+	<!-- ===================================================================== -->
+	<target name="postSetup">
+		<antcall target="getBaseComponents" />
+		<!-- Get the UI plugin first because that's where the stem.product file is -->
+		<ant antfile="${genericTargets}" target="fetchElement">
+			<property name="type" value="plugin"/>
+			<property name="id" value="org.eclipse.stem.ui"/>
+		</ant>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="preFetch">		
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="postFetch">
+		<!-- This call was added to get the internal data plugin out of the    -->
+		<!-- repository to be used later to build the stem.geography plugin    -->    
+		<ant antfile="${genericTargets}" target="fetchElement">
+			<property name="type" value="plugin"/>
+			<property name="id" value="org.eclipse.stem.internal.data"/>
+		</ant>
+		<ant antfile="${genericTargets}" target="fetchElement">
+			<property name="type" value="plugin"/>
+			<property name="id" value="org.eclipse.stem.transport"/>
+		</ant>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="preGenerate">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="postGenerate">
+		<ant antfile="${genericTargets}" target="generateScript">
+			<property name="type" value="plugin"/>
+			<property name="id" value="org.eclipse.stem.transport"/>
+		</ant>
+		<ant antfile="${genericTargets}" target="generateScript">
+			<property name="type" value="plugin"/>
+			<property name="id" value="org.eclipse.stem.internal.data"/>
+		</ant>
+		<!--antcall target="clean" /-->
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="preProcess">
+		<!-- We are first running the builds that are required for generating the classes used by the update.xml script-->
+		<!--ant dir="${buildDirectory}/plugins/org.eclipse.stem.core"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.definitions"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.population.human"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography.population"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.models"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography.models"
+			 antfile="build.xml" target="@dot"/>
+			 <ant dir="${buildDirectory}/plugins/org.eclipse.stem.transport"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.infrastructure.transportation"
+			 antfile="build.xml" target="@dot"/>
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography.infrastructure.transportation"
+			 antfile="build.xml" target="@dot"/-->		
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="postProcess">
+		<!-- Run the update.xml script from the internal.data plugin to generate all internal data  -->
+		<ant antfile="${buildDirectory}/plugins/org.eclipse.stem.internal.data/update.xml"/>
+		<!-- We are building the data.geography plugin again so that the files   -->
+		<!-- that were generated in the previous ant call (xxx_names.properties) -->
+		<!-- will be copied to the binary folder to be included in the final jar.-->
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography"
+			 antfile="build.xml" target="@dot"/>
+		
+		<!-- We are building the plugin again so that the files that were -->
+		<!-- generated in the previous ant call will be included in the final jar.-->
+		<!--ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.infrastructure.transportation"
+			 antfile="build.xml" target="@dot"/-->
+		
+		<!--ant dir="${buildDirectory}/plugins/org.eclipse.stem.transport"
+			 antfile="build.xml" target="@dot"/-->
+			 
+		<!-- The internal data plugin isn't compiled even though we generate its -->
+		<!-- build.xml file above in postGenerate -->
+		<!--ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data"
+			 antfile="build.xml" target="@dot"/-->
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running assemble. -->
+	<!-- ===================================================================== -->
+	<!--property name="allElementsFile" value="${eclipse.pdebuild.scripts}/productBuild/allElements.xml"/>
+	<import file="${eclipse.pdebuild.scripts}/build.xml"/-->
+	<target name="preAssemble">		
+		<!-- Running the process target again so that resources that were generated by the update.xml script will be added to the plugins-->
+		<!--antcall target="process" /-->
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running assemble. -->
+	<!-- ===================================================================== -->
+	<target name="postAssemble">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running package. -->
+	<!-- ===================================================================== -->
+	<target name="prePackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running package. -->
+	<!-- ===================================================================== -->
+	<target name="postPackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after the build is done. -->
+	<!-- ===================================================================== -->
+	<property name="packagesDir" value="${buildDirectory}/${buildLabel}" />
+	<property name="packagePostfix" value="${majorVersion}.${forceContextQualifier}" />
+	<target name="postBuild">
+		<antcall target="gatherLogs" />
+		<move file="${packagesDir}/${buildId}-linux.gtk.x86.zip" tofile="${packagesDir}/STEM-linux.gtk.x86-${packagePostfix}.zip"/>
+		<move file="${packagesDir}/${buildId}-linux.gtk.x86_64.zip" tofile="${packagesDir}/STEM-linux.gtk.x86_64-${packagePostfix}.zip"/>
+		<move file="${packagesDir}/${buildId}-win32.win32.x86.zip" tofile="${packagesDir}/STEM-win32-${packagePostfix}.zip"/>
+		<move file="${packagesDir}/${buildId}-macosx.carbon.ppc.zip" tofile="${packagesDir}/STEM-macosx.carbon.ppc-${packagePostfix}.zip"/>
+		<move file="${packagesDir}/${buildId}-macosx.cocoa.x86.zip" tofile="${packagesDir}/STEM-macosx.cocoa.x86-${packagePostfix}.zip"/>
+		
+		<!-- Add the default workspace to all zip files -->
+		<zip destfile="${packagesDir}/STEM-linux.gtk.x86-${packagePostfix}.zip" update="true">
+			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+		</zip>
+		<zip destfile="${packagesDir}/STEM-linux.gtk.x86_64-${packagePostfix}.zip" update="true">
+			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+		</zip>
+		<zip destfile="${packagesDir}/STEM-win32-${packagePostfix}.zip" update="true">
+			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+		</zip>
+		<zip destfile="${packagesDir}/STEM-macosx.carbon.ppc-${packagePostfix}.zip" update="true">
+			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+		</zip>
+		<zip destfile="${packagesDir}/STEM-macosx.cocoa.x86-${packagePostfix}.zip" update="true">
+			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+		</zip>
+		<!--antcall target="publish" /-->
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to test the build results -->
+	<!-- ===================================================================== -->
+	<target name="test">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to publish the build results -->
+	<!-- ===================================================================== -->
+	<target name="publish">
+		<scp todir="username:password@download1.eclipse.org:~/downloads/stem">
+			<fileset dir="${packagesDir}">
+				<include name="STEM-*-${packagePostfix}.zip"/>
+			</fileset>
+		</scp>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Default target                                                        -->
+	<!-- ===================================================================== -->
+	<target name="noDefault">
+		<echo message="You must specify a target when invoking this file" />
+	</target>
+
+</project>

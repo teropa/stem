@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="11" version="2.0">
+<workbenchAdvisor/>
+<window height="934" width="1609" x="22" y="39">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="org.eclipse.stem.ui.toolbar.newwizards" itemType="typeToolBarContribution" x="269" y="22"/>
+<coolItem id="org.eclipse.stem.ui.toolbar" itemType="typeToolBarContribution" x="131" y="22"/>
+</coolbarLayout>
+<page focus="true" label="Workspace - Simulation">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</editorArea>
+</editors>
+<views>
+<view id="org.eclipse.stem.ui.views.sequencers" partName="Sequencers"/>
+<view id="org.eclipse.stem.ui.views.graphs" partName="Graphs"/>
+<view id="org.eclipse.stem.ui.views.predicates" partName="Predicates"/>
+<view id="org.eclipse.stem.util.analysis.views.lyapunov" partName="Lyapunov"/>
+<view id="org.eclipse.stem.ui.views.reports.phaseSpace" partName="Phase Space">
+<viewState/>
+</view>
+<view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
+<viewState activate="true" allSessions="true" column2="448" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.stem.ui.views.simulationcontrolview" partName="Simulation Control">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.stem.util.analysis.views.aggregate" partName="Epidemic"/>
+<view id="org.eclipse.stem.ui.views.models" partName="Models"/>
+<view id="org.eclipse.stem.ui.views.decorators" partName="Decorators"/>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.stem.util.loggers" partName="CSV Logger">
+<viewState/>
+</view>
+<view id="org.eclipse.stem.ui.views.diseases" partName="Diseases"/>
+<view id="org.eclipse.stem.util.analysis.views.processor" partName="Processor">
+<viewState/>
+</view>
+<view id="org.eclipse.stem.ui.views.scenarios" partName="Scenarios">
+<viewState/>
+</view>
+<view id="org.eclipse.stem.util.analysis.views.estimator" partName="Estimator"/>
+<view id="org.eclipse.stem.util.analysis.views.comparison" partName="ScenarioComparison"/>
+<view id="org.eclipse.stem.ui.views.triggers" partName="Triggers"/>
+<view id="org.eclipse.stem.ui.views.geographic.map" partName="Map">
+<viewState/>
+</view>
+<view id="org.eclipse.stem.ui.views.reports" partName="Time Series">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.stem.ui.views.scenarios" activePerspective="org.eclipse.stem.ui.STEMSimulationPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="0" fixed="0" version="0.016">
+<descriptor class="org.eclipse.stem.util.analysis.perspectives.Analysis" id="org.eclipse.stem.util.analysis.perspectives.STEMAnalysisPerspective" label="Analysis"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.stem.util.analysis.views.processor"/>
+<show_view_action id="org.eclipse.stem.util.analysis.views.estimator"/>
+<show_view_action id="org.eclipse.stem.util.analysis.views.comparison"/>
+<show_view_action id="org.eclipse.stem.util.analysis.views.lyapunov"/>
+<show_view_action id="org.eclipse.stem.util.analysis.views.aggregate"/>
+<perspective_action id="org.eclipse.stem.util.analysis.perspectives.STEMAnalysisPerspective"/>
+<view id="org.eclipse.stem.util.analysis.views.processor"/>
+<view id="org.eclipse.stem.util.analysis.views.estimator"/>
+<view id="org.eclipse.stem.util.analysis.views.comparison"/>
+<view id="org.eclipse.stem.util.analysis.views.lyapunov"/>
+<view id="org.eclipse.stem.util.analysis.views.aggregate"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="top">
+<folder activePageID="org.eclipse.stem.util.analysis.views.processor" appearance="2" expanded="2">
+<page content="org.eclipse.stem.util.analysis.views.processor" label="Processor"/>
+<page content="org.eclipse.stem.util.analysis.views.estimator" label="Estimator"/>
+<page content="org.eclipse.stem.util.analysis.views.comparison" label="ScenarioComparison"/>
+<page content="org.eclipse.stem.util.analysis.views.lyapunov" label="Lyapunov"/>
+<page content="org.eclipse.stem.util.analysis.views.aggregate" label="Epidemic"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="756" ratioRight="252" relationship="2" relative="top">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.94983816" ratioLeft="587" ratioRight="31" relationship="4" relative="top"/>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.stem.ui.perspectives.Designer" id="org.eclipse.stem.ui.STEMDesignerPerspective" label="Designer"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.stem.ui.views.simulationcontrolview"/>
+<show_view_action id="org.eclipse.stem.ui.views.graphs"/>
+<show_view_action id="org.eclipse.stem.ui.views.models"/>
+<show_view_action id="org.eclipse.stem.ui.views.scenarios"/>
+<show_view_action id="org.eclipse.stem.ui.views.sequencers"/>
+<show_view_action id="org.eclipse.stem.ui.views.decorators"/>
+<show_view_action id="org.eclipse.stem.ui.views.triggers"/>
+<show_view_action id="org.eclipse.stem.ui.views.predicates"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.stem.ui.views.diseases"/>
+<new_wizard_action id="org.eclipse.stem.ui.wizards.newstemproject"/>
+<perspective_action id="org.eclipse.stem.ui.STEMDesignerPerspective"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.stem.ui.views.scenarios"/>
+<view id="org.eclipse.stem.ui.views.models"/>
+<view id="org.eclipse.stem.ui.views.graphs"/>
+<view id="org.eclipse.stem.ui.views.triggers"/>
+<view id="org.eclipse.stem.ui.views.predicates"/>
+<view id="org.eclipse.stem.ui.views.sequencers"/>
+<view id="org.eclipse.stem.ui.views.decorators"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.pde.runtime.LogView"/>
+<view id="org.eclipse.stem.ui.views.diseases"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="756" ratioRight="252" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="252" ratioRight="756" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.6585761" ratioLeft="407" ratioRight="211" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.stem.ui.views.scenarios" appearance="2" expanded="2">
+<page content="org.eclipse.stem.ui.views.scenarios" label="Scenarios"/>
+<page content="org.eclipse.stem.ui.views.models" label="Models"/>
+<page content="org.eclipse.stem.ui.views.graphs" label="Graphs"/>
+<page content="org.eclipse.stem.ui.views.triggers" label="Triggers"/>
+<page content="org.eclipse.stem.ui.views.predicates" label="Predicates"/>
+<page content="org.eclipse.stem.ui.views.sequencers" label="Sequencers"/>
+<page content="org.eclipse.stem.ui.views.decorators" label="Decorators"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.pde.runtime.LogView" label="Error Log"/>
+<page content="org.eclipse.stem.ui.views.diseases" label="Diseases"/>
+<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1280c85" ratio="0.75" ratioLeft="567" ratioRight="189" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="0" fixed="0" version="0.016">
+<descriptor class="org.eclipse.stem.ui.perspectives.Simulation" id="org.eclipse.stem.ui.STEMSimulationPerspective" label="Simulation"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.stem.ui.views.simulationcontrolview"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.stem.ui.views.scenarios"/>
+<show_view_action id="org.eclipse.stem.ui.views.activesimulations"/>
+<show_view_action id="org.eclipse.stem.ui.views.activebatches"/>
+<show_view_action id="org.eclipse.stem.ui.views.geographic.map"/>
+<show_view_action id="org.eclipse.stem.ui.views.ge"/>
+<show_view_action id="org.eclipse.stem.ui.views.reports"/>
+<show_view_action id="org.eclipse.stem.ui.views.reports.phaseSpace"/>
+<perspective_action id="org.eclipse.stem.ui.STEMSimulationPerspective"/>
+<view id="org.eclipse.stem.ui.views.geographic.map"/>
+<view id="org.eclipse.stem.ui.views.simulationcontrolview"/>
+<view id="org.eclipse.pde.runtime.LogView"/>
+<view id="org.eclipse.stem.ui.views.reports.phaseSpace"/>
+<view id="org.eclipse.stem.ui.views.reports"/>
+<view id="org.eclipse.stem.util.loggers"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.stem.ui.views.scenarios"/>
+<fastViewBars/>
+<viewLayoutRec id="org.eclipse.stem.ui.views.geographic.map" showTitle="true" standalone="true"/>
+<layout>
+<mainWindow>
+<info part="org.eclipse.ui.editorss"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="756" ratioRight="252" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@675039" ratio="0.049603175" ratioLeft="50" ratioRight="958" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.stem.ui.views.scenarios" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="org.eclipse.stem.ui.views.scenarios" label="Scenarios"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="left" ratio="0.59903383" ratioLeft="372" ratioRight="249" relationship="4" relative="org.eclipse.ui.internal.ViewStack@675039">
+<folder activePageID="org.eclipse.stem.ui.views.simulationcontrolview" appearance="2" expanded="2">
+<page content="org.eclipse.stem.ui.views.simulationcontrolview" label="Simulation Control"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="bottom" ratio="0.29958245" ratioLeft="287" ratioRight="671" relationship="2" relative="left">
+<folder activePageID="org.eclipse.stem.ui.views.reports" appearance="2" expanded="2">
+<page content="org.eclipse.pde.runtime.LogView" label="Error Log"/>
+<page content="org.eclipse.stem.ui.views.reports.phaseSpace" label="Phase Space"/>
+<page content="org.eclipse.stem.ui.views.reports" label="Time Series"/>
+<page content="org.eclipse.stem.util.loggers" label="CSV Logger"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="2"/>
+<part id="1"/>
+<part id="3"/>
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@13f5841" ratio="0.2995025" ratioLeft="301" ratioRight="704" relationship="2" relative="org.eclipse.ui.internal.ViewStack@675039">
+<folder activePageID="org.eclipse.stem.ui.views.geographic.map" appearance="3" expanded="2">
+<page content="org.eclipse.stem.ui.views.geographic.map" label="Map"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory/>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList/>
+</workbench>

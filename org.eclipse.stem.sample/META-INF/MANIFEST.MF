@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.stem.sample;singleton:=true
+Bundle-Version: 0.3.0.qualifier
+Bundle-Activator: org.eclipse.stem.sample.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.stem.jobs,
+ org.junit,
+ org.eclipse.stem.tests.diseasemodels
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.stem.sample,
+ org.eclipse.stem.sample.adaption
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

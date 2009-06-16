@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+ <extension
+        point="org.eclipse.stem.core.sequencer">
+     <stem_category
+           id="org.eclipse.stem.sequencers.category.stem"
+           name="%_UI_Common_STEM"
+           parent_id="/"/>
+     <stem_category
+           id="org.eclipse.stem.sequencers.category.sequential"
+           name="%_UI_Sequential_Sequencer"
+           parent_id="org.eclipse.stem.sequencers.category.stem"/>
+     <dublin_core
+           category_id="org.eclipse.stem.sequencers.category.sequential"
+           creator="%dc_creator_daford"
+           format="http:///org/eclipse/stem/core/sequencer.ecore"
+           identifier="platform:/plugin/org.eclipse.stem.sequencers/resources/sequencers/2000-01-01_2000-12-31_sequentialsequencer.sequencer"
+           publisher="%dc_pub"
+           title="%dc_seqseq2000_title"
+           valid="start=2000-01-01; end=2000-01-10"/>
+  </extension>
+ 
+</plugin>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.stem.ui.views"
+            class="org.eclipse.stem.sample.adaption.ViewExample1"
+            id="org.eclipse.stem.sample.adapter.viewexample1"
+            name="%v1Name"/>
+      <view
+            category="org.eclipse.stem.ui.views"
+            class="org.eclipse.stem.sample.adaption.RelativeValueViewExample"
+            id="org.eclipse.stem.sample.adapter.relativevalueviewexample"
+            name="%v2Name"/>
+      <view
+            category="org.eclipse.stem.ui.views"
+            class="org.eclipse.stem.sample.UtilityView"
+            id="org.eclipse.stem.sample.utilityview"
+            name="%v3Name"/>
+   </extension>
+
+</plugin>

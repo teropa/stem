@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.stem.ui.preferences.STEMPreferencePage"
+            class="org.eclipse.stem.jobs.preferences.SimulationManagementPreferencePage"
+            id="org.eclipse.stem.jobs.preferences.SimulationManagementPreferencePage"
+            name="%_UI_SimMgmtPPage"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="org.eclipse.stem.jobs.preferences.PreferenceInitializer"/>
+      <initializer class="org.eclipse.stem.jobs.preferences.PreferenceInitializer"/>
+   </extension>
+ <extension
+        point="org.eclipse.core.runtime.adapters">
+         <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.FileExecutableAdapterFactory" 
+            adaptableType="org.eclipse.core.resources.IFile">
+            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
+         </factory>
+          <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.ConfigurationElementExecutableAdapterFactory" 
+            adaptableType="org.eclipse.core.runtime.IConfigurationElement">
+            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
+         </factory>
+          <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.IdentifiableExecutableAdapterFactory" 
+            adaptableType="org.eclipse.stem.core.Experiment">
+            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
+         </factory>
+          <factory
+                adaptableType="org.eclipse.stem.core.experiment.impl.ExperimentImpl"
+                class="org.eclipse.stem.jobs.adapters.executable.IdentifiableExecutableAdapterFactory">
+             <adapter
+                   type="org.eclipse.stem.jobs.execution.IExecutable">
+             </adapter>
+          </factory>
+          <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.IdentifiableExecutableAdapterFactory" 
+            adaptableType="org.eclipse.stem.core.Scenario">
+            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
+         </factory>
+          <factory
+                adaptableType="org.eclipse.stem.core.scenario.impl.ScenarioImpl"
+                class="org.eclipse.stem.jobs.adapters.executable.IdentifiableExecutableAdapterFactory">
+             <adapter
+                   type="org.eclipse.stem.jobs.execution.IExecutable">
+             </adapter>
+          </factory>
+          <factory
+                adaptableType="org.eclipse.stem.jobs.simulation.ISimulation"
+                class="org.eclipse.stem.jobs.adapters.executable.SimulationExecutableAdapterFactory">
+             <adapter
+                   type="org.eclipse.stem.jobs.execution.IExecutable">
+             </adapter>
+          </factory>
+           <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.SimulationExecutableAdapterFactory" 
+            adaptableType="org.eclipse.stem.jobs.simulation.Simulation">
+            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
+         </factory>
+          <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.BatchExecutionAdapterFactory" 
+            adaptableType="org.eclipse.stem.jobs.batch.Batch">
+            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
+         </factory>
+          <factory
+                adaptableType="org.eclipse.stem.jobs.batch.IBatch"
+                class="org.eclipse.stem.jobs.adapters.executable.BatchExecutionAdapterFactory">
+             <adapter
+                   type="org.eclipse.stem.jobs.execution.IExecutable">
+             </adapter>
+          </factory>
+  </extension>
+ <extension
+       point="org.eclipse.core.runtime.adapters">
+    <factory
+          adaptableType="org.eclipse.core.runtime.IConfigurationElement"
+          class="org.eclipse.stem.jobs.adapters.identifiable.ConfigurationElementIdentifiableAdapterFactory">
+       <adapter
+             type="org.eclipse.stem.core.common.Identifiable">
+       </adapter>
+    </factory>
+    <factory
+          adaptableType="org.eclipse.core.resources.IFile"
+          class="org.eclipse.stem.jobs.adapters.identifiable.FileIdentifiableAdapterFactory">
+       <adapter
+             type="org.eclipse.stem.core.common.Identifiable">
+       </adapter>
+    </factory>
+    <factory
+          adaptableType="org.eclipse.emf.common.util.URI"
+          class="org.eclipse.stem.jobs.adapters.identifiable.URIIdentifiableAdapterFactory">
+       <adapter
+             type="org.eclipse.stem.core.common.Identifiable">
+       </adapter>
+    </factory>
+ </extension>
+</plugin>
