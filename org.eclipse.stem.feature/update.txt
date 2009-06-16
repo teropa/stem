@@ -1,0 +1,87 @@
+STEM Creating Updates based on features.
+
+Assume that you have STEM version 0.2.1M1  distributed on the download 
+site as zip files for each supported platform (Win,Linux,Mac) 
+and you later want to publish an update for 0.2.1M2. 
+
+The users had originally installed STEM by downloading the 
+appropriate 0.2.1M1 zip file and unziping it and running the STEM rcp.  
+They will use the Help->update feature to install the updates for 0.2.1M2.  
+For simplicity, the 0.2.1M2 updates consist of code for all the 
+org.eclipse.stem projects but none of the plugin dependencies 
+or platform dependencies.   
+Ability to update only parts of the STEM code is left as a future feature.   
+
+If you are going to generate a STEM application for platforms other
+than the platform that you are running Eclipse on, then you need to 
+download and install the 3.3 delta-pack
+
+http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.3-200706251500/eclipse-RCP-3.3-delta-pack.zip
+
+STEM projects.
+  org.eclipse.stem.feature
+   feature.xml 
+     Contains the stem plugins
+      - Update as required:
+      - Version should be 0.2.1M1
+      - Update Site URL should be specified
+        Point to org.eclipse download site where the 
+        update feature will be placed.  ?????
+        (For testing you can point to a local file system
+         like file:/c:eclipse/updatesite )
+  org.eclipse.stem.feature.prereq
+   feature.xml
+      Contains a list of all the prereq plugins.
+      The list was generated from stem.product which was used to 
+      generate the initial STEM rcp. 
+      
+       Update Site URL should be specified same as above.
+  org.eclipse.stem.ui
+    stem.product
+      This is the original product file and can still be used 
+      to run the application within eclipse with debug. 
+
+    feature.product 
+      Now used to generate the STEM rcp from the above 2 features.
+      It includes the following features. 
+         org.eclipse.stem.feature
+         org.eclipse.stem.feature.prereq
+         org.eclipse.rcp
+         org.eclipse.platform
+         
+  create the distributable rcp by using the export selection in 
+     feature.product -> overview
+     It will prompt you for the platforms to generate for.
+        It will run about an hour for each one.
+     You will now have one or more zip files containing the STEM application.
+     Place them on the download site. 
+     
+   Platform dependent generation.
+     The feature.prereq zip file contains the platform independent 
+     files and should not need to be regenerated. It is generated 
+     similar to the feature.zip but using the feature.xml file from
+     the feature.prereq file.  This contains all of the prereq plugins 
+     and should not need to be updated except when Eclpse platform 
+     changes.  
+     
+
+To create an update 
+      
+    - Import the org.eclipse.stem.feature project if not already 
+      available.
+    - Select the feature.xml file
+    - Select the overview tab. 
+    - Update as required:
+      - Version should be 0.2.1M2
+      - Update Site URL should be specified
+        Point to org.eclipse download site where the 
+        update feature will be placed.  
+    - Select "export" on the "overview" tab for feature.xml.
+    - The generated zip file should be unzipped into the 
+      update site.  
+    - A new distribution zip file for the 0.2.2M2 STEM RCP should also 
+      be created as above and uploaded to the download site for 
+      new users.  
+      
+      
+        

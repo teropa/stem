@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>SI Disease Model Mathematics</title>
+</head>
+<body>
+<h1>SI(S) Disease Model Mathematics</h1>
+<img src="images/sis.gif" align=CENTER HSPACE=10 VSPACE=10 border=0>
+<p>The basic <em>SI</em> (Susceptible, Infectious)
+and <em>SIS</em> (Susceptible, Infectious Susceptible) 
+disease models assume a uniform population 
+at a single location and that the
+population members are well "mixed", meaning that they are equally
+likely to meet and infect each other. This model, for a normalized
+population, can be defined by the two difference equations below:
+<ul>
+	<li><em>&Delta;s = &mu; &minus; &beta;s i + &gamma;i &minus;
+	&mu;s</em></li>
+	<li><em>&Delta;i = &beta;s i &minus; &gamma;i &minus; &mu;i</em></li>
+</ul>
+<p>Where:
+<ul>
+	<li><em>s</em> is the proportion of the population <em>Susceptible</em> to the disease. </li>
+	<li><em>i</em> is the proportion of the population that is <em>Infectious</em></li>
+	<li><em>&mu;</em> both the rate of immigration (e.g., by birth) and emigration
+		(e.g., by death) from the population. These rates are assumed to be equal
+		over the time period of interest (this simplifies the mathematics).</li>
+	<li><em>&beta;</em> is the disease transmission (infection) rate.
+	The rate at which infectious individuals infect susceptible individuals. Once
+	infected, susceptible individuals instantly become infectious themselves. In the STEM 
+	new disease wizard, <em>&beta;</em> is specified using  the "Transmission Rate" property.</li>
+	<li>&gamma; is the rate at which individuals clear infection. In this model these
+		individuals become susceptible again after clearing infection. In a pure <em>SI</em> model,
+		this rate is 0. In the STEM  new disease wizard, <em>&gamma;</em> is specified using 
+		the "Infectious Recovery Rate" property.</li>
+</ul>
+</p>
+<p>In the first equation, the <em>Susceptible</em> population
+increases when new members are born. This value is the birth rate &mu;
+multiplied by the total population which, since the values are normalized, is 1. It also increases 
+due to <em>Infectious</em> population members recovering. The <em>Susceptible</em> population
+decreases by members who die. That value is &mu;, the mortality rate,
+multiplied by the <em>Susceptible</em> population, <em>s</em>. The <em>Susceptible</em>
+population also decreases by having members become <em>infected</em>.
+The product of <em>&beta;</em> and <em>i</em> gives the normalized
+number of <em>Susceptible</em> population members that would become
+infected for each <em>Infectious</em> population member assuming all
+population members are in the <em>Susceptible</em> state. Multiplying
+that by <em>s</em>, the fraction that actually are <em>Susceptible</em>,
+gives the normalized amount that become <em>Infectious</em>.</p>
+<p>In the second equation, the <em>Infectious</em> population
+increases by the number of <em>Susceptible</em> population members that
+become <em>Infectious</em> (the first term). It also decreases by the
+proportion that <em>Recover</em> from the disease (middle term) and by
+the proportion that die (last term).</p>
+<p>Frequently, being infected by a disease will increase the
+likelihood that a population member will die. The model above needs to
+be enhanced to include the likelihood of a fatal infection and a
+potentially different rate at which infected members die.</p>
+<p>Let
+<ul>
+	<li><em>&mu;<sub>i</sub></em> be the <em>Infectious Mortality
+	Rate</em>. This is the increased rate at which infected population members die
+	specifically due to the disease. The actual mortality rate at which infected population
+	members die is <em>&mu;+&mu;<sub>i</sub></em> (the background mortality rate plus 
+	the infectious mortality rate) </li>
+</ul>
+</p>
+
+<p>We modify our model to include this additional rate
+
+<ul>
+	<li><em>&Delta;s = &mu;P &minus; &beta;s i + &gamma;i
+	&minus; &mu; s</em></li>
+	<li><em>&Delta;i = &beta;s i &minus;
+	&gamma;i &minus; (&mu;+&mu;<sub>i</sub>)i</em></li>
+</ul>
+</p>
+<h3>Spatial Adaptation</h3>
+<p>The "SI" disease model computations in STEM enhance these
+equations by adapting them to populations that are spatially
+distributed. This relaxes the assumption that the populations are at a
+single location and opens up the possibility that different locations
+could have different areas and numbers of population members (i.e.,
+different population densities). To accommodate this situation STEM
+maintains separate disease state values for each location and uses
+unnormalized versions of the equations presented above. We develop those
+below.
+<p>To account for population differences at different locations, we
+define a new parameter <em>P<sub>l</sub></em> which is the number of
+population members at location <em>l</em> (Note: <em>P<sub>l</sub>
+= S<sub>l</sub> + I<sub>l</sub></em>). We also need to account for variability in the disease
+transmission (infection) rate, &beta;, due to potentially different
+population densities. This modification is based upon the assumption
+that locations with greater population densities will have a higher
+effective transmission rates than locations with lower densities (i.e.,
+one value can't be used for all locations). Thus, we need to replace the
+<em>&beta;</em> in the non-spatial versions of the equations with a <em>&beta;
+<sub>l</sub></em> that is specific to the location.</p>
+Making the substitution for
+<em>&beta;</em>
+and multiply both sides of the equations by
+<em>P<sub>l</sub></em>
+, we obtain:
+</p>
+
+<ul>
+	<li><em>&Delta;s P<sub>l</sub>= &mu;P<sub>l</sub> &minus;
+	&beta;<sub>l</sub> s i P<sub>l</sub> + &gamma; i P<sub>l</sub>
+	&minus; &mu; s P<sub>l</sub></em></li>
+	<li><em>&Delta;i P<sub>l</sub> = &beta;<sub>l</sub>
+	s i P<sub>l</sub> &minus; &gamma; i P<sub>l</sub> &minus;
+	(&mu;+&mu;<sub>i</sub>i P<sub>l</sub></em></li>
+	</li>
+</ul>
+
+We choose the value for
+<em>&beta;<sub>l</sub></em>
+to be original
+<em>&beta;</em>
+scaled by the ratio between the population density at the location and
+the average population density of all locations.
+<ul>
+	<li><em> &beta;<sub>l</sub> = &beta; d<sub>l</sub>/APD</em></li>
+</ul>
+Where
+<em>d<sub>l</sub></em>
+is the population density at location
+<em>l</em>
+, and
+<em>APD</em>
+is the average population density for all locations.
+
+<p>Let <em>S<sub>l</sub> = s P<sub>l</sub></em> be the number of <em>Susceptible</em>
+population members at location <em>l</em>. , let <em>I<sub>l</sub>
+= i P<sub>l</sub></em> be the number of population members at location <em>l</em>
+that are <em>Infectious</em> (both states combined). For readability, we
+drop the <em>l</em> subscript and substitute.</p>
+
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; &beta;<sub>l</sub>
+	S i + &gamma;I  &minus; &mu; S</em></li>
+	<li><em>&Delta;I = &beta;<sub>l</sub> S i
+	&minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I  </em></li>
+</ul>
+
+Continuing with
+<em> i = I/P<sub>l</sub></em>
+, we have:
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; (&beta;<sub>l</sub>/P<sub>l</sub>)
+	S I + &gamma;I &minus; &mu; S</em></li>
+	<li><em>&Delta;I = (&beta;<sub>l</sub>/P<sub>l</sub>)
+	S I &minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I </em></li>
+</ul>
+
+Letting
+<em>&beta;<sup>*</sup> = &beta;<sub>l</sub>/P<sub>l</sub> = &beta;
+(d<sub>l</sub>/(APDP<sub>l</sub>)) </em>
+gives:
+
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; &beta;<sup>*</sup>
+	S I + &gamma;I &minus; &mu; S</em></li>
+	<li><em>&Delta;I = &beta;<sup>*</sup> S I
+	&minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I </em></li>
+</ul>
+
+<p>Computing <em>&beta;<sup>*</sup></em> is straightforward. Let <em>TSF<sub>l</sub>
+= (d<sub>l</sub>/(APDP<sub>l</sub>)</em> be the <em>transmission scale
+factor</em> at location <em>l</em>.</p>
+<p>Thus
+<ul>
+	<li><em>&beta;<sup>*</sup> = &beta; TSF<sub>l</sub></em></li>
+</ul>
+</p>
+<p>Substituting <em>P<sub>l</sub> = S + I</em>, <em>APD =
+P/Area</em> and <em>d<sub>l</sub> = (S+I)/Area<sub>l</sub></em>, where <em>P</em>
+is the total population for all locations, <em>Area<sub>l</sub></em> is
+the area of location <em>l</em>, and <em>Area</em> is the total area of
+all locations, we get:
+<ul>
+	<li><em>TSF<sub>l</sub> = ((S+I)/Area<sub>l</sub>) / (P/Area
+	(S+I))</em></li>
+	<li><em>TSF<sub>l</sub> = (1/Area<sub>l</sub>) / (P/Area )</em></li>
+	<li><em>TSF<sub>l</sub> = Area / (P *Area<sub>l</sub> )</em></li>
+	<li><em>TSF<sub>l</sub> = (1 / P)* (Area/Area<sub>l</sub> )</em></li>
+</ul>
+So the
+<em>TSF<sub>l</sub></em>
+is the product of the reciprocal of the total population of all
+locations and the constant ratio between the area of the location and
+the total area of all locations. The former can be computed by
+accumulating the population of all locations as they are generated and
+the later ratio can be computed once at the start of the simulation.
+</p>
+
+<h3>Neighboring Infectious Populations</h3>
+<p>The extension of the non-spatial model into a spatial one in STEM
+also needs to account for infectious population members that reside in a
+location's "neighbors". Consider a location with no infections that is
+physically adjacent to several locations that have large infectious
+populations. This physical adjacency would naturally lead to
+population-to-population contact and eventually to disease transmission.
+We need to further extend the equations we are here to incorporate this
+aspect of a spatially distributed population.</p>
+<p>In STEM, a location has another location as a neighbor <em>Relationship</em>
+that links it to that location. If the <em>Relationship</em> represents
+the exchange of of population members (i.e., some kind of transportation
+relationship like pathways, roads or air travel) then it would be
+possible for <em>Infectious</em> population members from a neighbor to
+"visit" a location. We need to account for this potential by increasing
+the "effective" <em>Infectious</em> population at a location when doing
+our computations. Each Relationship has a rate at which population
+members travel from one location to another. It is assumed that the
+visitors would have the same level of "infectious contact" as an
+infectious member of the population at the current location (i.e., that
+they could could be counted as an infectious member of the population at
+the current location).</p>
+<p>The equations become:</p>
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; &beta;<sup>*</sup>
+	S (I + I<sub>neighbor</sub>() ) + &gamma;I &minus; &mu; S</em>
+	</li>
+	<li><em>&Delta;I = &beta;<sup>*</sup> S (I
+	+ I<sub>neighbor</sub>() ) &minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I
+	</em></li>
+</ul>
+</p>
+<p>Where
+<ul>
+	<li><em>I<sub>neighbor</sub>() = (&sum; <sub>m</sub> I <sub>m</sub>mixingfactor)/(&sum;<sub>m</sub>P<sub>m</sub>mixingfactor)</em>
+	is the number of <em>Infectious</em> visitors from neighbor <em>m</em>.</li>
+	<li><em>mixingfactor</em> is a constant that varies depending on the type of relationship. For neighboring locations
+	(i.e. people migrating across border) STEM uses the "Phys.Adj.Inf.Proportion" property on the new disease 
+	wizard to specify the mixing factor. For road transportation, STEM uses "Road.Net.Inf.Proportion" to 
+	specify the mixing factor for roads between locations.</li>
+	<li>P<sub>m</sub> is the number of population members at neighbor
+	<em>m</em></li>
+	<li>I<sub>m</sub> is the number of <em>Infectious</em> population
+	members at neighbor <em>m</em></li>
+</ul>
+</p>
+<p>Specific statistics on the total number of births, deaths and
+deaths due to the disease can be computed by adding the appropriate
+terms of the equations above.
+<ul>
+	<li><em>B= &mu; (S + I)</em>, is the number of <em>Births</em></li>
+	<li><em>D = &mu; S + (&mu; + &mu;<sub>i</sub> )</em>,is the total number of <em>Deaths</em></li>
+	<li><em>DD= &mu;<sub>i</sub> I</em>, is the number of
+	<em>Disease Deaths</em></li>
+</ul>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>SIR Disease Model Mathematics</title>
+</head>
+<body>
+<h1>SIR(S) Disease Model Mathematics</h1>
+<img src="images/sirs.gif" align=CENTER HSPACE=10 VSPACE=10 border=0 width=80%>
+
+<p>The basic <em>SIR</em> (Susceptible, Infectious, Removed)
+and  <em>SIRS</em> (Susceptible, Infectious, Recovered, Susceptible)
+disease models assume a uniform population at a single location and that
+the population members are well "mixed", meaning that they are equally
+likely to meet and infect each other. This model, for a normalized
+population, is defined by the three equations below:
+<ul>
+	<li><em>&Delta;s = &mu; &minus; &beta;s i + &sigma;r &minus;
+	&mu;s</em></li>
+	<li><em>&Delta;i = &beta;s i &minus; &gamma;i &minus; &mu;i</em></li>
+	<li><em>&Delta;r = &gamma;i &minus; &sigma;r &minus; &mu;r</em></li>
+</ul>
+
+<p>Where:
+<ul>
+	<li><em>s</em> is the proportion of the population that is
+		<em>Susceptible</em></li>
+	<li><em>i</em> is the proportion of the population
+		that is <em>Infectious</em></li>
+	<li><em>r</em> is the proportion of the population
+		that is <em>Removed</em> from the infectious and susceptible populations, 
+		and therefore cannot be infected.</li>
+	<li><em>&mu;</em> both the rate of immigration (e.g., by birth) and emigration
+		(e.g., by death) from the population. These rates are assumed to be equal
+		over the time period of interest (this simplifies the mathematics).</li>
+	<li><em>&beta;</em> is the disease transmission (infection) rate.
+	 The rate at which infectious individuals infect susceptible individuals. Once
+	 infected, susceptible individuals instantly become infectious themselves.</li>
+	<li>&gamma; is the rate at which individuals clear infection. In this model these
+		individuals cannot be re-infected for some period of time after infection (whether through
+		immunity or removal from the population).</li>
+	<li><em>&sigma;</em> is the immunity loss rate. This coefficient
+		determines the rate at which <em>Removed</em> population members lose
+		their immunity to the disease and become <em>Susceptible</em> again. For an SIR
+		model, this rate is 0.
+	</li>
+</ul>
+</p>
+Following basically the same derivation as outlined for the
+<a href="simath.html">SI</a>
+model, these become:
+
+<p>Let
+<ul>
+	<li><em>&mu;<sub>i</sub></em> be the <em>Infectious Mortality
+	Rate</em>. This is the increased rate at which infected population members die
+	specifically due to the disease.</li>
+</ul>
+</p>
+<p>We modify our model to include this additional rate.
+
+<ul>
+	<li><em>&Delta;s = &mu; &minus; &beta;s i + &sigma;r &minus;
+	&mu; s</em></li>
+	<li><em>&Delta;i = &beta;s i &minus;
+	&gamma;i &minus; (&mu;+&mu;<sub>i</sub>)i</em></li>
+	<li><em>&Delta;r = &gamma;i &minus; &sigma;r
+	&minus; &mu;r</em></li>
+</ul>
+</p>
+<h3>Spatial Adaptation</h3>
+<p>
+<ul>
+	<li><em>&Delta;s P<sub>l</sub>= &mu;P<sub>l</sub> &minus;
+	&beta;<sub>l</sub> s i P<sub>l</sub> + &sigma; r P<sub>l</sub> &minus;
+	&mu; s P<sub>l</sub></em></li>
+	<li><em>&Delta;i P<sub>l</sub> = &beta;<sub>l</sub>
+	s i P<sub>l</sub> &minus; &gamma; i P<sub>l</sub> &minus;
+	(&mu;+&mu;<sub>i</sub>)i P<sub>l</sub></em></li>
+	<li><em>&Delta;r P<sub>l</sub>= &gamma;iP<sub>l</sub>
+	&minus; &sigma;r P<sub>l</sub>&minus; &mu;r P<sub>l</sub></em></li>
+</ul>
+
+<p>Let <em>S<sub>l</sub> = s P<sub>l</sub></em> be the number of <em>Susceptible</em>
+population members at location <em>l</em>. Similarly, let <em>I<sub>l</sub>
+= i P<sub>l</sub></em> be the number of population members at location <em>l</em>
+that are <em>Infectious</em>, and let <em>r
+P<sub>l</sub></em> be the <em>Recovered</em> population. For readability, we
+drop the <em>l</em> subscript and substitute. </p>
+Substituting
+
+</p>
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; &beta;<sub>l</sub>
+	S i + &sigma;R &minus; &mu; S</em></li>
+	<li><em>&Delta;I = &beta;<sub>l</sub> S i
+	&minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I </em></li>
+	<li><em>&Delta;R= &gamma;I &minus; &sigma;R
+	&minus; &mu;R</em></li>
+</ul>
+
+Continuing with
+<em> i = I/P<sub>l</sub></em>
+, we have:
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; (&beta;<sub>l</sub>/P<sub>l</sub>)
+	S I + &sigma;R &minus; &mu; S</em></li>
+	<li><em>&Delta;I = (&beta;<sub>l</sub>/P<sub>l</sub>)
+	S I &minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I </em></li>
+	<li><em>&Delta;R= &gamma;I &minus; &sigma;R
+	&minus; &mu;R</em></li>
+</ul>
+
+Letting
+<em>&beta;<sup>*</sup> = &beta;<sub>l</sub>/P<sub>l</sub> = &beta;
+(d<sub>l</sub>/(APDP<sub>l</sub>)) </em>
+gives:
+
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; &beta;<sup>*</sup>
+	S I + &sigma;R &minus; &mu; S</em></li>
+	<li><em>&Delta;I = &beta;<sup>*</sup> S I
+	&minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I </em></li>
+	<li><em>&Delta;R= &gamma;I &minus; &sigma;R
+	&minus; &mu;R</em></li>
+</ul>
+TSF
+<ul>
+	<li><em>TSF<sub>l</sub> = ((S+I+R)/Area<sub>l</sub>) /
+	(P/Area(S+I+R))</em></li>
+	<li><em>TSF<sub>l</sub> = (1/Area<sub>l</sub>) / (P/Area )</em></li>
+	<li><em>TSF<sub>l</sub> = Area / (P *Area<sub>l</sub> )</em></li>
+	<li><em>TSF<sub>l</sub> = (1 / P)* (Area/Area<sub>l</sub> )</em></li>
+</ul>
+<h3>Neighboring Infectious Populations</h3>
+</p>
+<ul>
+	<li><em>&Delta;S = &mu;P<sub>l</sub> &minus; &beta;<sup>*</sup>
+	S (I + I<sub>neighbor</sub>() ) + &sigma;R &minus; &mu; S</em></li>
+	<li><em>&Delta;I = &beta;<sup>*</sup> S (I
+	+ I<sub>neighbor</sub>() ) &minus; &gamma;I &minus; (&mu;+&mu;<sub>i</sub>)I
+	</em></li>
+	<li><em>&Delta;R = &gamma;I &minus; &sigma;R
+	&minus; &mu;R</em></li>
+</ul>
+
+Specific statistics on the total number of births, deaths and deaths due
+to the disease can be computed by adding the appropriate terms of the
+equations above.
+<ul>
+	<li><em>B= &mu; (S + I + R)</em>, is the number of <em>Births</em>
+	</li>
+	<li><em>D = &mu; S + (&mu; + &mu;<sub>i</sub> )I + &mu;R</em>,is the total number of <em>Deaths</em></li>
+	<li><em>DD= &mu;<sub>i</sub> I</em>, is the number of
+	<em>Disease Deaths</em></li>
+</ul>
+</body>
+</html>

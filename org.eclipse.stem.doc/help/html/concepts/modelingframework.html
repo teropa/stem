@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>STEM Concepts</title>
+</head>
+
+<body>
+
+<h2>The STEM Modeling Framework</h2>
+<p>At its core STEM is a discrete event simulation system. It
+begins with an initial "simulation state" and then proceeds in step-wise
+fashion to determine the next state of the Simulation as a function of
+the current state and a parameter that specifies the current "time". It
+uses a "graph" to represent the state of the Simulation at each of its
+steps.</p>
+<p>A graph is a simple, but powerful, mathematical abstraction for
+representing "entities" (i.e., things in the world) and their
+relationships. More formally, a graph is a set of "nodes", "edges" and
+"labels", where Nodes generally correspond to entities and edges link
+two nodes and represent some relationship between them. Labels are
+attached to either a node or an edge and represent some aspect of their
+host (like the name of the entity, or the name of the relationship).
+Each node may have more than one label, but each edge will only have
+one.</p>
+
+<h4 id=canonicalgraph>The Canonical Graph</h4>
+<p>
+In STEM, nodes typically represent geographic regions while edges 
+represent relationships between geographic regions. There may be 
+any number of edges between any two nodes, as there may be any number 
+of relationships between any two geographic locations. A label on a node 
+might represent the physical area of the corresponding geographic location, 
+the number of population members of a particular type that live there, 
+or a mathematical representation of the state of a particular disease at 
+that location. An edge between two nodes might represent a relationship 
+such as the sharing of a common border (i.e., two regions are physically 
+adjacent and could easily exchange population members); a different edge 
+between the same two nodes might represent a road that connects the two 
+locations.  In the first case, the label for a border edge might record 
+the length of the border between the two locations; in the later case, 
+the label might indicate the type of road and how much traffic it carries. 
+Completely different edges could also exist, for instance ones that represent 
+the flight path of migratory birds. The graph that includes all of the nodes, 
+edges and labels necessary to represent the state of the simulation is called 
+the <em>canonical graph</em>.
+</p>
+<h4 id=simulation>Simulation</h4>
+<p>
+A <em>Simulation</em> in STEM is created from a 
+<a href="#canonicalgraph">canonical graph</a>.  The specification of how
+to create the graph is represented by a <a href="#scenario">Scenario</a>
+(defined below).  
+<p>
+</p>
+The execution of a Simulation begins with an <em>initialized</em>
+canonical graph and a starting <em>time</em>. The first step in a
+Simulation is to determine the next point in time that will be used to
+update the state of the <a href="#canonicalgraph">canonical graph</a>. 
+With this value determined the internal STEM Simulation "engine" invokes,
+in a very specific order, a set of computations associated with the 
+<a href="#canonicalgraph">canonical graph</a>.  These
+computations take the time point as input and compute the "next" state
+of the graph as it will be at that time. When these computations are
+complete, the state of the entire graph is changed to the "next" value
+just computed. This process continues until stopped by the user, or, if
+specified, a predetermined end-time is reached.</p>
+
+
+<h3>The STEM Compositional Modeling Framework</h3>
+<p>One of the main features of STEM, and the one that makes it such
+a powerful modeling system, is its framework for specifying the features
+of a <a href="#simulation">Simulation</a>. This framework allows a 
+<a href="#simulation">Simulation</a> to be composed from
+many different reusable components that are combined to form the 
+<a href="#simulation">Simulation's</a>
+<a href="#canonicalgraph">canonical graph</a>, computational elements
+and sequence of time points.
+</p>
+<p>This approach is extremely flexible and powerful. The components
+can be from many different sources and can be exchanged among users. The
+components can also be combined to create larger structures which then
+can become reusable components themselves. For instance, it is possible
+to create a detailed model of a country and then reuse that model as a
+component in many different <a href="#simulation">Simulations</a>. Similarly, computational
+aspects of a <a href="#simulation">Simulation</a> such as a specialized disease model can be
+developed by an individual researcher and then used by many others in
+their models. The ability of STEM to combine components from different
+sources makes it possible to leverage the varied expertise of different
+model builders in a way that has never before been possible.</p>
+<p>To foster reuse and collaboration, each component in the
+framework has a set of <a href="http://dublincore.org/">Dublin Core</a>
+metadata associated with it. This metadata records important attributes
+of the component such as its title, descriptive text, the name of the
+original creator, any literature citations associated with it (e.g., a
+paper describing a particular disease model) and many others such as
+important dates, spatial characteristics. This information allows
+modelers to know exactly what they are using in their models.</p>
+
+
+<h3>STEM Components</h3>
+<p>The STEM compositional modeling framework consists of eight
+components that constitute the "building blocks" of any <a href="#simulation">Simulation</a>.
+These are: <em><a href="#scenario">Scenarios</a></em>, 
+<em><a href="#sequencer">Sequencers</a></em>, <em><a href="#decorator">Decorators</a></em>, 
+<em><a href="#model">Models</a></em>, <em><a href="#graph"> Graphs</a></em>,
+<em><a href="#modifier"> Modifiers</a></em>, <em><a href="#trigger"> Triggers</a></em>, and
+<em><a href="#predicate"> Predicates</a></em>.  In addition, 
+a sequence of related <a href="#simulation">Simulations</a> called a <a href="#batch">Batch</a>, 
+can be defined using components called an <em><a href="#experiment">Experiment</a></em> and 
+<em><a href="#modifier">Modifier</a></em>. </p>
+
+<h4 id=scenario>Scenario</h4>
+<p>The main component of a <a href="#simulation">Simulation</a> is a Scenario. When a
+<a href="#simulation">Simulation</a> is run in STEM, it is always created from a Scenario. A
+Scenario logically collects together three other types of components, a
+single <a href="#sequencer">Sequencer</a>, a set of <a href="#decorator">
+Decorators</a>, and a single <a href="#model"> Model</a>. Together, these
+components can be used to create a <a href="#simulation">Simulation</a>.</p>
+</p>
+<p>
+A Scenario can be created using the 
+<a href="../interface/wizards/scenariowizard.html">Scenario Wizard</a> and 
+edited using the <a href="../interface/editors/scenarioeditor.html">Scenario Editor</a>.
+</p>
+<h4 id=sequencer>Sequencer</h4>
+<p>A Sequencer is the component of a <a href="#simulation">Simulation</a> that determines the
+sequence of time values that will be used to compute the next state of
+the <a href="#canonicalgraph">canonical graph</a>. It may produce values
+that are at fixed intervals of time, or it may vary the duration of the
+intervals between points. The values it creates are in simulated "STEM
+Time", but there is no restriction preventing the values from reflecting
+"wall clock" time. This can be useful for "Simulations" that incorporate
+external "real-time" data values from databases or other sources such as
+weather observations.</p>
+</p>
+<p>
+A Sequencer can be created using the 
+<a href="../interface/wizards/sequentialsequencerwizard.html">Sequential Sequencer Wizard</a> or the
+<a href="../interface/wizards/realtimesequencerwizard.html">Real-time Sequencer Wizard</a>
+and edited using the <a href="../interface/editors/sequencereditor.html">Sequencer Editor</a>.
+</p>
+<h4 id=decorator>Decorator</h4>
+<p>A Decorator is the framework's computational component. Every
+Decorator can participate in the initialization of the 
+<a href="#canonicalgraph">canonical graph</a>, for instance by setting the
+values of existing labels or adding additional ones (i.e., they
+"decorate" the graph). Also, at each simulation cycle, they are
+responsible for determining the next state of the 
+<a href="#canonicalgraph">canonical graph</a> by computing the values of
+labels as a function of the current <a href="#simulation">Simulation</a> 
+time. In an epidemiological <a href="#simulation">Simulation</a>, a 
+disease model would be implemented as a Decorator. There is no restriction 
+on what a Decorator can do, it can, for instance, issue a query to a 
+database or invoke a web service.</p>
+
+<h4 id=model>Model</h4>
+<p>A Model is the component responsible for representing the
+contents of the <a href="#canonicalgraph">canonical graph</a> and for
+creating an instance of it when a <a href="#simulation">Simulation</a> 
+is started from a <a href="#scenario">Scenario</a>. It combines with 
+the final component of the framework called a <a href="#graph">Graph</a> 
+to form a tree. This tree is a hierarchical organization of the different
+contributions to the <a href="#canonicalgraph">canonical graph</a>.
+Model instances form the root and interior nodes of the tree while 
+<a href="#graph"> Graph</a> instances form the leaves. The Model
+referenced by a <a href="#scenario">Scenario</a> is the root of such a
+tree.</p>
+<p>Each Model contains three different collections. The first is a
+collection of "sub-Model" instances, each of which is essentially the
+root of a sub-tree. The second is a collection of 
+<a href="#graph"> Graph</a> instances, and the third is another collection
+of <a href="#decorator"> Decorators</a>.</p>
+</p>
+<p>
+A Model can be created using the 
+<a href="../interface/wizards/modelwizard.html">Model Wizard</a> and 
+edited using the <a href="../interface/editors/modeleditor.html">Model Editor</a>.
+</p>
+<h4 id=graph>Graph</h4>
+<p>Graph instances contain the actual components, Nodes, Edges, and
+Labels, that eventually will be contributed to a 
+<a href="#canonicalgraph">canonical graph</a>. In the compositional
+framework, Graph instances are not true mathematical "graphs", they are
+better described as "graph fragments" as they may contain unresolved
+sets of Edges or Labels (and no Nodes). When the 
+<a href="#canonicalgraph">canonical graph</a> is created, these fragments
+are combined and their content's connections eventually resolved (i.e.,
+Edges and Labels will be mated with their appropriate "missing" Nodes).
+The resulting <a href="#canonicalgraph">canonical graph</a> is a true
+mathematical graph.</p>
+</p>
+<p>
+A Graph can be created using the 
+<a href="../interface/wizards/graphwizard.html">Graph Wizard</a> and 
+edited using the <a href="../interface/editors/grapheditor.html">Graph Editor</a>.
+</p>
+<h4 id=label>Label</h4>
+<p>Labels play a special role in the framework in that they can
+store two state values simultaneously. They have a "current" value
+which, collectively, records the current state of the graph. They can
+also have a "next" value which is used, collectively, to store the next
+state of the graph.</p>
+
+<h4 id=modeldecorators>Model Decorators</h4>
+<p>The collection of <a href="#decorator"> Decorators</a> that may
+exist in each <a href="#model"> Model</a> is similar to that contained
+in a <a href="#scenario">Scenario</a> instance. Its contents represents
+the computational component of the <a href="#model"> Model</a>. The
+difference is that the <a href="#modeldecorators"> Model Decorators</a>
+are only able to modify the parts of the <a href="#canonicalgraph">canonical
+graph</a> that are contributed by the tree rooted at the <a href="#model">
+Model</a>. The <a href="#decorator"> Decorators</a> in the <a
+	href="#scenario">Scenario</a>, being above the root of the tree, are
+able to access the entire <a href="#canonicalgraph">canonical graph</a>.
+There is also a strict execution order of <a href="#modeldecorators">
+Model Decorators</a>. The ones that are contributed lower in the tree are
+invoked before ones contributed above them. <a href="#scenario">Scenario</a>
+<a href="#decorator"> Decorators</a> are invoked last. The order of
+invocation for <a href="#decorator"> Decorators</a> at the same "level"
+is arbitrary.</p>
+
+<p>A <a href="#modeldecorators"> Model Decorator</a> would typically
+be some computation that needs to be executed for each cycle of the
+<a href="#simulation">Simulation</a>, while a <a href="#scenario">Scenario</a> <a
+	href="#decorator"> Decorator</a> would typically be used to modify the
+initial state of the <a href="#canonicalgraph">canonical graph</a> to
+customize it for a particular "#scenario". For example, in an
+epidemiological <a href="#simulation">Simulation</a>, a disease model 
+would be added to a
+<a href="#simulation">Simulation</a> as a <a href="#modeldecorators"> 
+Model Decorator</a> while
+the exact location of an outbreak of a disease would be added to the
+<a href="#simulation">Simulation</a> by a <a href="#scenario">Scenario</a> 
+<a href="#decorator">
+Decorator</a>. Many different <a href="#scenario">Scenario</a> instances
+could refer to the same <a href="#model"> Model</a> (with its disease
+model), but provide different <a href="#decorator"> Decorators</a> to
+specify different starting locations.</p>
+<p><a href="#decorator"> Decorators</a> typically compute the next
+value for Labels in the <a href="#canonicalgraph">canonical graph</a> as
+a function of the current contents of the graph and the time.</p>
+<p>The Figure below illustrates how these components are combined to
+create a <a href="#model"> Model</a> that is used by two different <a
+href="#scenario"> Scenarios</a>.</p>
+<p><img src="img/ScenarioComposition.jpg" /></p>
+
+<h4 id=experiment>Experiment</h4>
+<p>
+An Experiment is a specification of how to take a <em>base</em> 
+<a href="#scenario">Scenario</a> and systematically modify it to create 
+and run a sequence of related <a href="#simulation">Simulations</a>.  
+For instance, one might want
+to explore the effect of different transmission rates for a disease in a 
+particular <a href="#scenario">Scenario</a>.  An Experiment allows one 
+to specify the (base) <a href="#scenario">Scenario</a> and a collection 
+of  <a href="#modifier">Modifiers</a> that know how to modify it in 
+specific ways.  The modified <a href="#scenario">Scenario</a> instances 
+can then be used to create <a href="#simulation">Simulations</a>. 
+</p>
+<p>
+To initiate the creation of the derivative <a href="#scenario">Scenarios</a>
+and subsequent <a href="#simulation">Simulations</a>, an Experiment can 
+be run just like a <a href="#scenario">Scenario</a> to create a type of 
+execution unit called a <a href="#batch">Batch</a>.  
+</p>
+<p>
+An Experiment can be created using the 
+<a href="../interface/wizards/experimentwizard.html">Experiment Wizard</a> and 
+edited using the <a href="../interface/editors/experimenteditor.html">Experiment Editor</a>.
+</p>
+<h4 id=modifier>Modifier</h4>
+<p>
+A Modifier is a specification of how to systematically change the values
+of one or more features of a <a href="#scenario">Scenario</a>.  There are 
+two types of Modifiers. A <a href="#rangemodifier">Range Modifier</a>  
+modifies numeric features by assigning them values from a specified "range" 
+of values, while a <a href="#sequencemodifier">Sequence Modifier</a> 
+modifies features by assigning them successive values from a prespecified 
+ordered collection.
+</p>
+<p>
+A Modifier can be created using the 
+<a href="../interface/wizards/modifierwizard.html">Modifier Wizard</a> and 
+edited using the <a href="../interface/editors/modifereditor.html">Modifier Editor</a>.
+</p>
+<h4 id=rangemodifier>Range Modifier</h4>
+<p>
+A Range Modifier specifies a range of values for a numeric feature and an
+increment value.  It modifies a numeric feature by first assigning it a
+starting value and then it subsequently assigns values generated by adding
+an increment value to the previously assigned value until the result exceeds
+a specified end value.  If the start value is greater than the end value, 
+then the increment must be negative.
+</p>
+<h4 id=sequencemodifier>Sequence Modifier</h4>
+<p>
+A Sequence Modifier specifies a sequence of values for an arbitrary feature.
+It modifies the feature by assigning it, in sequential order, the values 
+in the sequence.
+</p>
+<h4 id=trigger>Trigger</h4>
+<p>
+A Trigger is a special kind of <a href="#decorator">Decorator</a> that combines 
+a <a href="#predicate">Predicate</a> with a reference to another 
+<a href="#decorator">Decorator</a>.  Its role is to conditionally execute the
+<a href="#decorator">Decorator</a> it references if certain conditions exist 
+in the <a href="#simulation">Simulation</a>.  Typically, the 
+<a href="#decorator">Decorator</a> referenced by the Trigger will be a 
+<a href="#modifier">Modifier</a> which will be configured to alter some aspect of the
+running <a href="#simulation">Simulation</a>.  For instance, a 
+<a href="#modifier">Modifier</a> could change the values on <a href="#label">Labels</a>
+on an <a href="#edge">Edge</a> or <a href="#node">Node</a> in the 
+<a href="#canonicalgraph">canonical graph</a>.  Those values could represent such
+things as the operational status of an airport, or the status (open or closed) of
+a road between two regions.  A modifier can also modify another 
+<a href="#decorator">Decorator</a> active in a <a href="#simulation">Simulation</a>.
+An example would be changing the configuration values of a Disease Model.
+</p>
+<p>
+The operation of a Trigger is conceptually simple, on each simulation cycle, 
+the Triggers contained by a  <a href="#scenario">Scenario</a>
+are executed, just like the other <a href="#decorator">Decorators</a>, to update 
+the <a href="#canonicalgraph">canonical graph</a>.  The first thing the Trigger 
+does is evaluate the <a href="#predicate">Predicate</a> it references.  If the 
+<a href="#predicate">Predicate</a> evaluates to <em>False</em>, then the Trigger 
+simply returns without performing any other actions.  If, however, the 
+<a href="#predicate">Predicate</a> evaluates to <em>True</em>, then the Trigger
+allows the <a href="#decorator">Decorator</a> it references to update the  
+<a href="#canonicalgraph">canonical graph</a>.  So long as the 
+<a href="#predicate">Predicate</a> returns <em>True</em> the referenced 
+<a href="#decorator">Decorator</a> will be executed.  If the 
+<a href="#decorator">Decorator</a> is a  <a href="#modifier">Modifier</a> then it
+will step through each of its configured modifications each time it is 
+activated until all modifications have been completed.
+</p>
+<p>
+A Trigger can be created using the 
+<a href="../interface/wizards/triggerwizard.html">Trigger Wizard</a> and 
+edited using the <a href="../interface/editors/triggereditor.html">Trigger Editor</a>.
+</p>
+<h4 id=predicate>Predicate</h4>
+<p>
+A Predicate is a boolean expression that returns <em>True</em> or <em>False</em>
+depending on testable conditions in a running <a href="#simulation">Simulation</a>
+and the expression itself.  Instances of  Predicates are referenced by  
+<a href="#trigger">Triggers</a> and their logical values are used to control
+the execution of a <a href="#decorator">Decorator</a> referenced by each 
+<a href="#trigger">Trigger</a>.
+</p>
+<p>
+Arbitrary logical expressions can be expressed in a Predicate, but currently,
+due to implementation limitations, the only testable conditions are the
+current and elapsed times in a running <a href="#simulation">Simulation</a>.
+In future versions of STEM, a richer set of conditions will be available.  
+The testing of time is still an extremely useful condition as it allows for
+specific modifications to be made to a <a href="#simulation">Simulation</a>
+at precise points in time.
+</p>
+<p>
+A Predicate can be created using the 
+<a href="../interface/wizards/predicatewizard.html">Predicate Wizard</a> and 
+edited using the <a href="../interface/editors/predicateeditor.html">Predicate Editor</a>.
+</p>
+<h3>Simulation Execution</h3>
+<p>When is Simulation is started, the first operation is to create
+the <a href="#canonicalgraph">canonical graph</a>. This is accomplished
+by recursively descending the tree rooted by the <a href="#model">
+Model</a> referenced by the <a href="#scenario">Scenario</a>. As the <a
+	href="#canonicalgraph">canonical graph</a> is constructed, connections
+between Labels and Edges in the graph fragments are resolved and then
+each <a href="#model"> Model</a> <a href="#decorator"> Decorator</a> is
+invoked and given the opportunity to "decorate" the <a
+	href="#canonicalgraph">canonical graph</a> as part of its
+initialization. When this is complete, the <a href="#scenario">Scenario</a>
+<a href="#decorator"> Decorators</a> are invoked to give them the
+opportunity to decorate the <a href="#canonicalgraph">canonical
+graph</a>.</p>
+<p>When the <a href="#canonicalgraph">canonical graph</a> has been
+constructed and initialized by the <a href="#model"> Model</a> and <a
+	href="#scenario">Scenario</a> <a href="#decorator"> Decorators</a>, the
+Simulation can begin its first cycle. The first step of the Simulation
+is to determine if the Simulation has completed its sequence of cycles.
+The answer to this question is provided by the <a href="#sequencer">Sequencer</a>
+that is referenced by the <a href="#scenario">Scenario</a> from which
+the Simulation was started. If the answer is "No," and the Simulation
+should continue, the <a href="#sequencer">Sequencer</a> will provide a
+value that represents the "time" of the next cycle. The STEM Simulation
+engine then takes that value and invokes each of the <a href="#model">
+Model</a> <a href="#decorator"> Decorators</a> (in proper order) passing
+them the time value. They perform their computations and then the <a
+	href="#scenario">Scenario</a> <a href="#decorator"> Decorators</a> are
+invoked in the same manner. Frequently, the <a href="#scenario">Scenario</a>
+<a href="#decorator"> Decorators</a> will not have any computations to
+perform after they have done their initialization, but there is no
+restriction that enforces this.</p>
+<p>When the <a href="#decorator"> Decorators</a> are finished, the
+Simulation engine tells the <a href="#canonicalgraph">canonical
+graph</a> to switch to its "next" state. This means that all of the Labels
+exchange their "current" and "next" values. This completes the first
+cycle. The process begins the next cycle with the <a href="#sequencer">Sequencer</a>
+determining if the sequence of simulation cycles is complete.</p>
+
+<h4 id=batch>Batch Execution</h4>
+<p>
+A Batch is created when an <a href="#experiment">Experiment</a> is executed.  
+When a Batch runs, it first takes the base <a href="#scenario">Scenario</a> 
+of the <a href="#experiment">Experiment</a>, applies the Modifiers referenced 
+by the <a href="#experiment">Experiment</a> and creates a new derivative 
+<a href="#scenario">Scenario</a>.  It then initiates the execution of a 
+<a href="#simulation">Simulation</a> from the derived <a href="#scenario">Scenario</a>.  
+When that <a href="#simulation">Simulation</a> completes, the Batch repeats the
+process until the Modifiers indicate that there are no additional modifications to 
+make, at which point the execution of the Batch is complete and it exits.
+</p>
+</body>
+</html>

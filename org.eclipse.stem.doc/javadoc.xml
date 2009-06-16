@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc">
+	<description>
+	    Generate JavaDoc for the STEM projects
+		
+		  The output will go to:
+		    org.eclipse.stem.doc/javadoc
+		
+		  This generates thousands of wrning messages but 
+		  there appears to be no easy way to avoid this.
+		
+	    </description>
+
+		
+
+		<!-- P r o j e c t  S p e c i f i c a t i o n s -->
+
+
+		<!-- The prefix for fully qualified names -->
+		<property name="ID_ROOT" value="org.eclipse.stem" />
+
+	
+	<!-- 
+	    The source file to generate JavaDoc for  
+	-->
+	<path id="sourcepath">		
+		<pathelement location="../${ID_ROOT}.core/src" />		
+		<pathelement location="../${ID_ROOT}.definitions/src" />
+		<pathelement location="../${ID_ROOT}.tests.util/src" />
+		<pathelement location="../${ID_ROOT}.diseasemodels/src" />
+		<pathelement location="../${ID_ROOT}.diseases/src" />
+		<pathelement location="../${ID_ROOT}.geography/src" />
+		<pathelement location="../${ID_ROOT}.internal.data/src" />
+		<pathelement location="../${ID_ROOT}.jobs/src" />
+		<pathelement location="../${ID_ROOT}.sequencers/src" />
+		<pathelement location="../${ID_ROOT}.ui/src" />
+		<pathelement location="../${ID_ROOT}.ui.diseasemodels/src" />
+		<pathelement location="../${ID_ROOT}.ui.ge/src" />
+	</path>
+	
+	
+<target name="javadoc">
+  
+  <javadoc access="public" author="false" 		
+	destdir="javadoc" doctitle="STEM Javadoc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" 
+	sourcepathref="sourcepath"	
+	source="1.5"  splitindex="true" use="true" version="false"
+  	  /> 
+</target>
+
+<!-- 
+		* Build the zip file  
+		*   
+		* 
+		-->
+	<target name="zip" 
+		description="creates the zip file">	
+				
+		<zip 
+			destfile="javadoc.zip">
+			<zipfileset dir="javadoc" prefix="javadoc"/> 	      
+			 
+		</zip>
+	</target>
+	
+</project>

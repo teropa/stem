@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Simulation Management</title>
+</head>
+<body>
+<h1>Simulation Management</h1>
+<p>The <em>Simulation Management</em> preference page allows control
+over the execution of Simulations and the reporting of warning messages
+generated when a Simulation is created from a <a
+	href="../../concepts/modelingframework.html#scenario"> Scenario</a>.
+<ul>
+	<li><em>"Pause simulation after each cycle"</em> If this box is
+	checked, the Simulation will pause execution for the number of seconds
+	specified in the box below it. This is useful to match the speed of
+	execution of the machine running the Simulation with its visualization.
+	This preference provides the option to give visualizations more time to
+	render, this can be useful for the <a href="../views/ge.html">
+	Google Earth view</a>, for instance.
+	(Default:&nbsp;True,&nbsp;2&nbsp;Seconds)</li>
+	<li><em>"Report all unresolved links"</em> If this box is checked,
+	then any Edges or Labels that specify a Node in a graph that can not be
+	"resolved" (i.e., the Node cannot be found) will be reported with an
+	informational message. It is useful to have the option to suppress
+	these messages as many of the built-in <a
+		href="../../concepts/modelingframework.html#scenario"> Scenarios</a>
+	have unresolved links. This is not an error, the unresolved links are
+	ignored and result from using <a
+		href="../../concepts/modelingframework.html#graph"> Graphs</a> that
+	provide general connectivity. For instance, between the Earth (ZZZ) and
+	all of the possible countries in the world. Not all <a
+		href="../../concepts/modelingframework.html#scenario"> Scenarios</a>
+	will involve every country some links are unresolved.
+	(Default:&nbsp;False)</li>
+	<li><em>"Report the number of unresolved links"</em> If this box
+	is checked then the number of links that cannot be resolved will be
+	reported as an informational message.(Default:&nbsp;False)</li>
+</ul>
+</p>
+<img src="img/preferencessimmanagement.jpg" />
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+        point="org.eclipse.help.toc">
+     <toc
+           file="toc.xml"
+           primary="true"/>
+     
+  </extension>
+  
+  <extension
+         point="org.eclipse.help.toc">
+     <toc
+           file="tocconcepts.xml">
+     </toc>
+     <toc file="tocgettingstarted.xml"/>
+     <toc file="tocreference.xml"/>
+     <toc
+           file="tocepidemiologicalmodeling.xml"
+           >
+     </toc>
+     <toc
+           file="tocinterface.xml">
+     </toc>
+     <toc
+           file="toctutorials.xml">
+     </toc>
+   </extension>
+
+</plugin>

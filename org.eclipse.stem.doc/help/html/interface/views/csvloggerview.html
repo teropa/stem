@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>help</title>
+</head>
+
+<body>
+<h1 align="left"><font face="Times New Roman" size="5">CSV Logger View</font></h1>
+<p align="left"><font face="Times New Roman">The current distribution of STEM provides users with
+the ability to output Disease State Data to a comma separated variable (CSV) 
+file. This function is enables through a view called the CSV Logger View.<br>
+&nbsp;</font><p align="left"><font face="Times New Roman" size="4"><b>1) Loading the 
+CSV Logger View</b></font></p>
+	<font FACE="Helv">
+	<p align="left"><font face="Times New Roman">To load or activate the CSV 
+	Logger View,&nbsp; first launch
+	(and run) stem. On the top menu (See figure 1) bar click on </font></p>
+	<p DIR="LTR" align="left"><font face="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;
+	<b>&nbsp;&gt;window&gt;other...&gt;CSV Logger</b></font></p>
+	</font>
+	<p DIR="LTR" align="left"><font face="Times New Roman">This will open a CSV 
+	Logger Tab at the bottom of your Simulation Perspective (See figure 2). <br>
+	Initially the view will be blank because there are no scenarios being 
+	logged.</font></p>
+	<font FACE="Helv">
+	<table border="1" cellspacing="3" width="21%" id="table5" bgcolor="#C0C0C0" cellpadding="3">
+		<tr>
+			<td>
+			<p align="left"><font FACE="Times New Roman">
+			<img border="0" src="img/csv1.jpg" width="347" height="446"></font></td>
+			<td>
+			<p align="left">
+	<font FACE="Times New Roman">
+			<img border="0" src="img/csv2.jpg" width="502" height="331"></font></td>
+		</tr>
+		<tr>
+			<td bgcolor="#FFFFFF"><font FACE="Times New Roman">
+			<p align="left"><b>Figure 1: Opening the CSV Logger View</b></font></td>
+			<td bgcolor="#FFFFFF">
+	<font FACE="Times New Roman">
+			<p align="left"><b>Figure 2: Starting a Scenario</b></font></td>
+		</tr>
+</table>
+<p DIR="LTR" align="left">&nbsp;</p>
+	<font FACE="Times New Roman">
+	<p DIR="LTR" align="left"><b><font size="4">2) Testing the Logger</font></b></p>
+	<p DIR="LTR" align="left">To use the logger, you first have to activate logging from the CSV Logger tab. 
+	Click the 'On' button and the next time a scenario is started data will be logged, see figure 3. </p>
+	<table border="1" cellspacing="1" width="49%" id="table2">
+		<tr>
+			<td>
+			<p align="left">
+			<img border="0" src="img/csv2_5.jpg"></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="left"><b>Figure 3. Enabling Logging from the CSV Logger tab</b></td>
+		</tr>
+	</table>
+	<p DIR="LTR" align="left">Next you pick the scenario you want to log. 
+	You can pick either your own scenario or a built in one. 
+	In the following example we use the built in scenario for the 
+	Spanish Flu in Tokyo, Japan. </p>
+<p DIR="LTR" align="left">Go to the Scenarios Tab in either the Simulation or 
+Designer Perspective and expand the Tabs</p>
+	</font>
+	</font>
+	<p DIR="LTR" align="left"><b><font face="Times New Roman">-&gt;STEM-&gt;Geography-&gt;Political-&gt;Country-&gt;Japan</font></b></p>
+	<p DIR="LTR" align="left"><font face="Times New Roman">double click on the built in scenario<i><br>
+	Spanish Flu, Tokyo, Japan, 2000<br>
+	</i>to start it. (See Figure 2).</font></p>
+	<font FACE="Helv">
+	<p align="left">&nbsp;</p>
+	</font>
+	<font FACE="Times New Roman">
+	<p align="left">Once you have started the scenario, click on the CSV Logger Tab.
+	You will notice that the view now displays the scenario and disease being logged. 
+	You can stop logging at any time by selecting the 'Off' button in the CSV 
+	<p dir="ltr" align="left"><b><font size="4">3) Remembering User preferences</font></b></p>
+<p dir="ltr" align="left">Your selections, by scenario, will be remembered 
+the system preferences for the CSV Logger View. The STEM CSV Logger View 
+uses Eclipse DialogSettings to automatically remember user preferences. 
+This feature is always enabled and begins as soon as you enable any report view. 
+The preferences that are "remembered" are the logger setting for each scenario. 
+<p dir="ltr" align="left"><b>... runtime-stem.product\.metadata\.plugins\org.eclipse.stem.util.loggers</b></p>
+<p dir="ltr" align="left">where the directory <b>\runtime-stem.product</b> is 
+located in the same parent directory as the users STEM eclipse workspace (for 
+example c:\runtime-stem.product).</p>
+<p dir="ltr" align="left">Preferences for the Time Series views are stored in a 
+file:<br>
+<br>
+<b>CSVLogger_Preferences.txt</b></p>
+<p dir="ltr" align="left">You never need to edit this file directly. Once you 
+have designated a set of locations to monitor for the logger, these will always 
+be used for the corresponding scenario.<br>
+In <b>Figure 4</b> we show the disease that has been designated for logging for the 
+Japan scenario.</p>
+	</font>
+	<p dir="ltr" align="left">&nbsp;</p>
+	<font FACE="Times New Roman">
+	</font>
+	<p align="left">&nbsp;</p>
+	<font FACE="Times New Roman">
+	<table border="1" cellspacing="1" width="49%" id="table2">
+		<tr>
+			<td>
+			<p align="left">
+			<img border="0" src="img/csv3.jpg" width="800" height="647"></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="left"><b>Figure 4: Logging Data for a Scenario</b></td>
+		</tr>
+	</table>
+	</font>
+	<p align="left">&nbsp;</p>
+	</font>
+	<font FACE="Times New Roman" size="4">
+	<p align="left"><b>4) Directory Location of Logged Data</b></p>
+	</font>
+	<font FACE="Times New Roman">
+	<p align="left">The Disease State data for every location monitored is stored 
+	in a separate Comma Separated Variable file. The data directory (Figure 5) 
+	may be found under your STEM workspace folder as subfolder of 
+	"Recorded Simulations" in your project folder. For instance, if you are 
+	logging a scenario in a project called "Vermont", the log files will be 
+	found in a subfolder under this directory: </p>
+<p align="left"><b>&nbsp;...runtime-stem.product\Vermont\Recorded Simulations\</b><br>
+<br>
+<p align="left">For built-in scenarios the log files are located under this 
+folder:  </p>
+<p align="left"><b>&nbsp;...runtime-stem.product\BuiltInScenarios\Recorded Simulations\</b><br>
+<br>
+It is possible to run multiple scenarios in STEM, or to simultaneously run 
+more than one instance of a given scenario. Logged data is stored in a folder 
+with the same name as the scenario just run, but this folder is place in turn 
+in a parent folder named by the start time of the particular scenario instance. 
+This way, if you run the scenario more than once (for example as a batch process 
+with some parameter changed from run to run) no data will be accidentally 
+overwritten as each scenario will have a unique time stamp. 
+Each scenario folder is further subdivided into subfolders, one folder for each 
+disease (the folder name is the disease name) that is part of the scenario 
+(See Figure 5).  </p>
+	</font><font FACE="Helv">
+	<font FACE="Times New Roman">
+	<table border="1" cellspacing="1" width="26%" id="table3">
+		<tr>
+			<td height="223">
+			<p align="left">
+			<img border="0" src="img/csv4.jpg"></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="left"><b>Figure 5: The location (directory) where files 
+			are stored.</b></td>
+		</tr>
+	</table>
+	</font>
+	<p align="left">
+	<font FACE="Times New Roman" size="4">
+	<b>5) CSV Logged Data Files</b></font></p>
+	</font>
+	<font FACE="Times New Roman">
+	<p align="left">In Figure 6 we show the particular data files written by the 
+	logger for the Spanish Flu disease. Separate CSV files (with extension .csv) 
+	are created for each disease state modeled by the disease. These are named 
+	using the ID of the state (e.g. S, E, I or R) followed by an underscore 
+	(_) followed by a number. The number indicates the resolution of the locations 
+	stored in the file. For instance, 3 means geographical administration 
+	level 3, i.e. US cities. A second file (runparameters.csv) is also generated. 
+	This will contain data about the run parameters for each disease.</p>
+	</font>
+	<font FACE="Helv">
+	<font FACE="Times New Roman">
+	<table border="1" cellspacing="1" width="49%" id="table4">
+		<tr>
+			<td>
+			<p align="left">
+			<img border="0" src="img/csv5.jpg"></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="left"><b>Figure 6:  Individual Log Files. These are created 
+			for each location or node monitored. Another file contains the 
+			parameters run for the scenario in question.</b></td>
+		</tr>
+	</table>
+	</font>
+	</font>
+<p align="left">Each of the data files for monitored nodes contains comma 
+separated data. The specific columns in the file represents the locations 
+being logged. For example, for the Japan scenario the file S_1.csv has the 
+columns: </p>
+<p align="left"><b>&nbsp;iteration,time,JP-KYU,JP-KNT,JP-0,JP-CHB,JP-TAI,JP-CHG,JP-SKO,JP-HRI,JP-TOH,JP-KIN,JP-RYU
+</b></p>
+<p align="left">A data sample is shown in Figure 7.</p>
+<table border="1" width="64%" id="table6">
+	<tr>
+		<td>1,Fri&nbsp;10&nbsp;Oct&nbsp;08,560042.0,245240.45466207762,5627424.0,79564.86664536313,79332.0,110140.0<br/>
+2,Sun&nbsp;12&nbsp;Oct&nbsp;08,560042.0,232427.57523514942,5627424.0,79519.11998544677,79331.93495068772,110140.0<br/>
+3,Tue&nbsp;14&nbsp;Oct&nbsp;08,560042.0,198318.63446606975,5627424.0,77166.49459938332,79326.44576007508,110140.0,115284.0<br/>
+4,Thu&nbsp;16&nbsp;Oct&nbsp;08,560042.0,104046.9798877738,5627424.0,60049.957044064824,78761.24316196528,110140.0,115284.0 <br/></td>
+	</tr>
+	<tr>
+		<td><b><font size="4">Figure 7: Sample data from a CSV Log File</font></b></td>
+	</tr>
+</table>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+</body>
+</html>
+

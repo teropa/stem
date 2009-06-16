@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>help</title>
+</head>
+
+<body>
+<h1>Scenario Comparison View</h1>
+<p dir="ltr">The <em>Scenario Comparison View</em> allows a user to compare two data sets
+and to measure the time varying Root Mean Square (RMS) difference between the
+aggregate epidemic data. <br>
+The data may be real data or the results from one or more completed simulations.
+The algorithm used to measure the RMS difference
+<span style="font-family:Symbol">d</span><sub>a,b</sub>(t) between two scenarios
+&#8216;a&#8217; and &#8216;b&#8217; <br>
+at time t averaged over all locations (i) is:<p class="MsoNormal">
+<img border="0" src="img/comparsonEquation.jpg" width="597" height="149">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+<p class="MsoNormal">Note that each location &#8216;<i>i</i>&#8217; is weighted by the local
+population P<sub>i</sub> so more populous locations contribute more to the
+measurement. The method assumes the scenarios a,b each cover the same set of
+location {i} which is true in this case. The RMS difference is evaluated only at
+locations that have a non-zero rate of infection at some time t. If, for
+example, a comparison is made of two scenarios involving the entire planet but
+the epidemic in question is localized to a small region (e.g., the state of
+Vermont), one only wants to compare the model to the reference over those
+locations where the epidemic actually took place. Including locations with I = 0<font face="Symbol">&quot;</font><font face="Times New Roman">t</font>
+would
+artificially reduce the estimated RMS error.</p>
+<p class="MsoNormal">Finally we note that the comparison is made including only
+the S and I states. The algorithm compares these two disease state variables to
+allow for comparisons between different types of models. In a real epidemic
+scenario, one may wish to evaluate (for example) SI, SIR and SEIR models for the
+same infectious disease. Since the S and I states are common to all, measuring
+the RMS difference in this way allows for comparison across different types of
+models. In cases where only the infectious or perhaps change in infectious<span style="position: relative; top: 2.0pt">
+<font face="Symbol">D</font>I </span><!--[if gte mso 9]><![endif]-->is
+known, RMS comparison may also be made based only on the I state.</p>
+<p>&nbsp;<p>To use the Scenario Comparison view:<ol>
+	<li>Enter the <a href="../perspectives/analysis.html">Analysis Perspective</a></li>
+	<li>Click on the Scenario Comparison Tab</li>
+	<li>Use the Select Folder buttons to chose the folders containing the data
+	you wish to compare. The files should have the following
+	<a href="csvloggerview.html">&nbsp;format.</a></li>
+	<li>Click Analyze</li>
+	<li>The time varying RMS difference will appear in the chart and the
+	integrated RMS difference will appear in the console at the bottom of the
+	view.</li>
+</ol>
+</p>
+<p>&nbsp;</p>
+<img border="0" src="img/ScenarioComparison.jpg" width="1000" height="608"><p>6.
+In this (or in any STEM chart) view, to toggle between a Linear and Log scale
+simply right click on the chart and specify you plot preferences in the dialog
+that<br>
+appears (see below).</p>
+<p><img border="0" src="img/ScenarioComparisonB.jpg" width="458" height="588">
+</p>
+</body>
+</html>

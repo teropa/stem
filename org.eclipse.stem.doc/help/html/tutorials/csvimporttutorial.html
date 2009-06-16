@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Creating a new Scenario Tutorial</title>
+</head>
+<body>
+<h1>Importing Data From External Files</h1>
+<p><b>Overview:</b></p>
+<p>STEM also allows users to import data from one or more external files and to 
+play them back. Today, import is supported for Comma Separated Variable (CSV) 
+files.<br>
+&nbsp;</p>
+<p><b>Organizing the Data Files:</b></p>
+<p>The individual files or collections of files for a particular scenario 
+should be grouped in a single folder. In figure 1a we show a collection of 
+files, all containing Shigella data, grouped in a folder called "ScenarioShigella". 
+This folder can have any name and be placed in any location. In the example 
+below we place the folder in the same location that STEM typically exports 
+data to, namely:</p>
+<p>&nbsp;&nbsp; ... <b> runtime-stem.product\&lt;project&gt;\Recorded Simulations\
+</b></p>
+<p>Where your runtime-stem.product\ is typically located n&nbsp;
+<a href="file:///C:/runtime-stem.product/">C:\runtime-stem.product\</a> in a 
+default Eclipse installation.</p>
+<p>To import data, it is necessary that a CSV file be created for each state 
+modeled by the disease. Each file name should be the disease state identifier 
+(e.g. S, E, I or R) followed by an underscore character (_) followed by a number. 
+The number indicates the geographical resolution for locations contained in the 
+file. For instance, 3 represents locations at administration level 3 (US cities). 
+In Figure 1a we show several files containing data for the S, E, I and R states 
+at administration level 3. The file extension should be .csv. </p>
+<p>For information on how to export data, please see the documentation on the
+<a href="../interface/views/csvloggerview.html">CSV Logger View</a>.</p>
+<table border="1" width="55%" id="table3">
+	<tr>
+		<td>
+		<img border="0" src="img/importscenario1a.jpg"></td>
+	</tr>
+	<tr>
+		<td><b>Figure 1a: Organizing your data to prepare to import into STEM.</b></td>
+	</tr>
+</table>
+<p>Each CSV file should contain a header indicating the domain of data in 
+each column. The first column should contain a sequential iteration or row 
+number and the header label must be 'iteration'. The second column should 
+contain the time the data applies to (each row should be sequential in time) 
+with header label 'time'. The following columns headers should indicate the 
+unique STEM location ID for which data in that column belongs to, and the 
+values in each row is the count (individuals) at the location in the state 
+represented by the file. If the data is from syndromic surveillance users 
+will likely not have information on every possible state but when importing 
+you must have files and file headers for each state that you want to display. 
+STEM determines the type of the disease by checking which files are available 
+when importing data, so if for example STEM finds an S_3.csv and I_3.csv file 
+but no E_3.csv or R_3.csv file it will assumed the disease is of type SI. 
+Note that the data in each column must be total count (individuals) and not 
+fraction in each state. The numbers may be floating point (allowing fractional 
+people infected for example). </p>
+<table border="1" id="table5">
+	<tr>
+		<td>
+		<p align="left"><b>iteration,&nbsp;time,&nbsp;US-VT-50013-67000,&nbsp;US-VT-50027-77500,&nbsp;US-VT-50021-16825,&nbsp;US-VT-50021-75925<br/>
+		0,Thu&nbsp;Dec&nbsp;13&nbsp;18:32:58&nbsp;PST&nbsp;2007,&nbsp;253175,&nbsp;1.45,&nbsp;1.45,&nbsp;0.0,&nbsp;0.0,&nbsp;22.99<br/>
+		1,Thu&nbsp;Dec&nbsp;13&nbsp;18:32:59&nbsp;PST&nbsp;2007,&nbsp;253110,&nbsp;3.34,&nbsp;3.34,&nbsp;0.0,&nbsp;0.43,&nbsp;86.22<br/>
+		...</b></td>
+	</tr>
+	<tr>
+		<td>
+		<p align="center"><b>Table 1: The CSV file must label the locations you plan to import 
+		into STEM (see text)<br>
+		</b><i>For information on how to export data, please see the 
+		documentation on the <a href="../interface/views/csvloggerview.html">CSV 
+		Logger View</a>.</i></td>
+	</tr>
+</table>
+<p align="center">&nbsp;</p>
+<p align="left">In order to actually import the data into STEM you must create a 
+scenario. The external data will be read by adding a special disease model<br>
+called a <b>&quot;ExternalDataSourceDiseaseModel&quot;</b> to your scenario. Follow the 
+instructions for <a href="scenariotutorial.html">creating a scenario.</a> Your 
+scenario must contain<br>
+a&nbsp; <a href="modeltutorial.html">model</a> and <a href="graphtutorial.html">
+graph</a> that contains the same set of the regions named in your collection of 
+data files. So if you want to play back data on US counties, <br>
+you must add all the US counties to your model.</p>
+<p align="left">When you are ready to add the <b>ExternalDataSourceDiseaseModel
+</b>to your scenario (under the model node), click on the icon for
+<a href="diseasetutorial.html">adding a new disease</a>.<br>
+specify your project and give the disease a name. Select&nbsp; <b>
+ExternalDataSourceDiseaseModel </b>as the disease model. You must then tell the&nbsp;
+<b>ExternalDataSourceDiseaseModel <br>
+</b>the location of your data file(s). You may use the selector buttons to the 
+right of Data Path. A &quot;Select Directory&quot; dialog (figure 1c) will appear allowing 
+you to select a directory that contains the data files you wish to play back. <br>
+</p>
+<table border="1" width="38%" id="table4">
+	<tr>
+		<td>
+		<img border="0" src="img/importscenario1b.jpg"></td>
+		<td>
+		<img border="0" src="img/importscenario1c.jpg"></td>
+	</tr>
+	<tr>
+		<td><b>Figure 1b: Creating an&nbsp; ExternalDataSourceDiseaseModel </b>
+		</td>
+		<td><b>Figure 1c: Select the Directory that Contains your data</b></td>
+	</tr>
+</table>
+<p>Once you have created a scenario set up to Replay a disease from an external 
+file you can also edit the data path using the Properties Editor.&nbsp; Just go 
+to your project, find the&nbsp; <b>ExternalDataSourceDiseaseModel </b>you 
+created<br>
+under the &quot;decorators&quot; folder, and&nbsp; double click on it in the Resource Set 
+window (See figure 2). The Editor will show up allowing you to change this path 
+used to read in data.</p>
+<p>&nbsp;</p>
+<table border="1" width="43%" id="table2">
+	<tr>
+		<td>
+		<b>
+		<img border="0" src="img/importscenario2.jpg" ></b></td>
+	</tr>
+	<tr>
+		<td><b>Figure 2: Changing the Data Path in the Properties Editor</b></td>
+	</tr>
+</table>
+<p>&nbsp;</p>
+<p> Once you have completed setting up your scenario,
+<span style="font-weight: 400"><i>Save your work at this point by hitting <b>ctrl-s</b></i></span></p>
+<p> To replay your data, simply select the scenario you created in the STEM 
+project explorer, right click, and select run. STEM will launch, load the 
+locations you specified<br>
+and play back your data.</p>
+
+
+</body>
+</html>

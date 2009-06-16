@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>help</title>
+</head>
+
+<body>
+<h1>Lyapunov View</h1>
+<p>The <em>Lyapunov View</em> allows a user to apply tools developed to analyze
+dynamical systems. The RMS comparison view is a useful measure of the average
+difference between two scenarios. However, if a model and reference scenario
+each describe an epidemic that begins and end in the same state (zero
+infectious), the RMS error will eventually fall&nbsp; to zero as a function of
+time, even in case of a &#8220;bad&#8221; model. In addition to measuring the average error,
+it is useful to look for other measures that might provide a &#8220;fingerprint&#8221; for
+the spatiotemporal dynamics of an infectious disease. Like many dynamical
+systems, infectious disease is a process of many variables. However, it is often
+possible to capture the essential dynamics by looking at just a few system
+variables in an appropriate phase space.&nbsp; In its most general formalism, any
+dynamical system is defined by a fixed set of equations that govern the time
+dependence of the system&#8217;s state variables. The state variables at some instant
+in time define a point in phase space. A SEIR model defines a four dimensional
+phase space. An SI model defines a two dimensional space. Examining a reduced
+set of dimension may be thought of as taking slice through phase space (for
+example in the SI plane).
+<p class="MsoNormal" style="text-indent:11.5pt">At the state of the system
+changes with time, the point (S(t), I(t)) in phase space defines a <i>trajectory</i>
+in the SI plane. Consider an epidemic that begins with one infectious person and
+virtually the entire population susceptible at t=0,&nbsp; S(0) ~ 1. The trajectory
+will begin at time zero along the S axis near 1. As the disease spreads, the
+susceptible population (S) will decrease and the infectious population (I) will
+increase. The detailed shape of the this trajectory will depend on the time it
+takes for the disease to spread to different population centers, as well as the
+(susceptible) population density function. The peaks and valleys along the
+trajectory in SI phase space proved a signature or fingerprint for an epidemic
+the shape of which depends on the disease, the disease vectors, the population
+distribution, etc. The mathematics of dynamical systems provide us with a
+formalism to compare trajectories in a phase space. Given a single set of rules
+(e.g., a disease model), two simulations that begin infinitesimally close
+together in phase space may evolve different in time and space. This separation
+in phase space can be measure quantitatively. </p>
+<p class="MsoNormal" style="text-indent:11.5pt">The Vector</p>
+<p class="MsoNormal" style="text-indent:11.5pt" align="center">&nbsp;<span style="font-size:
+9.0pt"><img border="0" src="img/lyapEq2.jpg" width="147" height="39"></span> </p>
+<p class="MsoNormal" style="text-indent:11.5pt">defines a trajectory in SI space. The initial separation at
+time zero be defined as </p>
+<p class="MsoNormal" style="text-indent:11.5pt" align="center">
+<img border="0" src="img/lyapEq3.jpg" width="66" height="38">.
+</p>
+<p class="MsoNormal" style="text-indent:11.5pt">The rate of separation of two trajectories in phase space will often obey the
+equation</p>
+<p class="MsoNormal" align="center" style="text-align:center;text-indent:11.5pt">
+<img border="0" src="img/lyapEq1.jpg" width="234" height="48"></p>
+<p class="MsoNormal" style="text-indent:0in">&nbsp;where
+<span style="font-family:Symbol">l </span>is the Lyapunov Exponent. This
+exponent is a characteristic of the dynamical system that defines the rate of
+separation of infinitesimally close trajectories in phase space. </p>
+<p>To use the Lyapunov view:<ol>
+	<li>Enter the <a href="../perspectives/analysis.html">Analysis Perspective</a></li>
+	<li>Click on the Lyapunov Tab</li>
+	<li>Use the Select Folder buttons to chose the folders containing the data
+	you wish to compare. The files should have the following
+	<a href="csvloggerview.html">&nbsp;format.</a></li>
+	<li>Click &quot;Compute Lyapunov Exponent&quot;</li>
+	<li>Two charts will appear, the left hand chart will show the trajectories
+	in phase space (I vs. S) for the two data sets. The right hand chart will
+	show the Log of the integrated<br>
+	difference between the two trajectories as a function of time. The exponent
+	is the initial slope of this time varying difference plotted on a semi-log
+	plot.</li>
+</ol>
+</p>
+&nbsp;<p><img border="0" src="img/Lyapunov.jpg" width="1000" height="608"> </p>
+</body>
+</html>

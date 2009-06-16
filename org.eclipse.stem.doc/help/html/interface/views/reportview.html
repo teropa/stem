@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>help</title>
+</head>
+
+<body>
+<h1>Report View</h1>
+<p><font size="2">The current distribution of STEM provides users with
+configurable run time Report Views with which to study running simulations. In
+the current distribution the available reports are:</font><ul>
+	<li><font size="2">The Time Series View</font></li>
+	<li><font size="2">The Phase Space View</font></li>
+	</ul>
+	<p><font size="2">All STEM views are create using the
+	<a href="http://www.eclipse.org/birt/">Eclipse Business Intelligence
+	Reporting Tool (BIRT).</a>&nbsp; </font></p>
+	<p><font size="2" face="Times New Roman">The Report Views complement the various Map visualization
+	views. While the Map gives a qualitative visualization of a running
+	simulation (e.g. a spreading infectious disease), the Report Views provide
+	more quantitative information about the simulation state either at specific
+	locations or aggregated a different levels.</font></p>
+	<p><font face="Times New Roman"><b>1) Loading the Report Views</b></font></p>
+	<p DIR="LTR"><font size="2" face="Times New Roman">To load or activate the reports, first launch
+	(and run) stem. Then, on the top menu bar click on </font></p>
+	<p DIR="LTR"><font size="2" face="Arial">&gt;window&gt;other...&gt;Time Series</font></p>
+	<font FACE="Helv">
+	<p DIR="LTR"><font size="2">Select it. Go back to the top menu bar and click
+	on </font></p>
+	</font>
+	<p DIR="LTR"><font size="2" face="Arial">&gt;window&gt;other...&gt;Phase Space</font></p>
+	<font FACE="Helv">
+	<p DIR="LTR"><font size="2">This will open two different BIRT Report Views.
+	Other views would be activated in the same way.</font></p>
+	<p DIR="LTR"><b>2) Starting the Report Views</b></p>
+	<p DIR="LTR"><font size="2">Next go to the scenarios tab and expand </font>
+	</p>
+	</font>
+	<p DIR="LTR"><font size="2" face="Arial">-&gt;STEM-&gt;Geography-&gt;Political-&gt;Country-&gt;Japan</font></p>
+	<font FACE="Helv">
+	<p DIR="LTR"><font size="2">double click on the built in scenario<i><br>
+	Spanish Flu, Tokyo, Japan, 2000<br>
+	</i>to start it.</font></p>
+	<table border="1" cellspacing="1" width="60%">
+		<tr>
+			<td>
+			<p align="center"><font FACE="Helv">
+			<img border="0" src="img/timeseriesview.jpg" width="600" height="417"></font></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="center"><b>Figure 1: Running the built in Japan Scenario
+			with the TimeSeries view displayed below the map.</b></td>
+		</tr>
+	</table>
+	<p DIR="LTR">&nbsp;</p>
+	<p DIR="LTR">&nbsp;</p>
+	<p DIR="LTR"><b>3) Adding and removing locations to Monitor</b></p>
+	<p DIR="LTR"><font size="2">Look at the time series and phase space views.
+	You will probably see a single chart which should show the data for all of
+	Japan. If you click on any location on the map, a new report will be added
+	for that new location. In this release clicking on the map will generate a
+	new report of every type that is currently loaded (e.g., both Time Series
+	and Phase Space reports will be added for that location if they are both
+	active). In the future we will add a selector so map clicking will generate
+	user specified types of new reports.<br>
+	<br>
+	Keep clicking on the map to get new reports. T<br>
+	To remove a report simply click the remove
+	button in the report window.</font></p>
+	
+	<p DIR="LTR"><b>4) Selecting what reports to generate</b></p>
+	<p DIR="LTR"><font size="2">You can choose what types of reports will be generated once you click on a location.
+	Right-clicking on a location will show you the context menu where you can enable or disable reports from the sub-menu <i>Select Reports</i>.
+	Next time you left-click on a specific location only the enabled reports for that location will be generated.</font></p>
+	<table border="1" cellspacing="1" width="60%">
+		<tr>
+			<td>
+			<p align="center"><font FACE="Helv">
+			<img border="0" src="img/selectreports.jpg" width="600" height="417"></font></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="center"><b>Figure 2: Context menu for enabling/disabling reports.</b></td>
+		</tr>
+	</table>
+	<p DIR="LTR">&nbsp;</p>
+	<p DIR="LTR">&nbsp;</p>
+	
+	<p DIR="LTR"><b>5) Remembering User preferences</b></p>
+	<p DIR="LTR"><font size="2">The STEM report views use Eclipse DialogSettings to
+	automatically remember user preferences. This feature is always enabled and
+	begins as soon as you enable any report view. The preferences that are
+	&quot;remembered&quot; are the map locations the user was most recently monitoring
+	with one or more report views. Preferences are stored independently for each
+	type of report so the system will allow (and remember) that the user wishes
+	to monitor, for example, one set of locations with Time Series reports and
+	another set of locations with Phase Space reports. The users preferences are
+	stored on disk in a directory:</font></p>
+	</font>
+	<font FACE="Arial">
+	<p DIR="LTR">...\runtime-stem.product\.metadata\.plugins\org.eclipse.stem.ui.reports</p>
+	</font>
+	<font FACE="Helv">
+	<p DIR="LTR"><font size="2">where the directory \runtime-stem.product is located in the
+	same parent directory as the users STEM eclipse workspace (for example
+	c:\runtime-stem.product).</font></p>
+	<p DIR="LTR"><font size="2">Preferences for the Time Series views are stored in a file:<br>
+	TimeSeries_Preferences.txt<br>
+	Preferences for the Phase Space views are stored in a file:<br>
+	PhaseSpace_Preferences.txt</font></p>
+	<p DIR="LTR"><b>6) Configuring the TimeSeries Report</b></p>
+	<p DIR="LTR"><font size="2">On the lower left hand side of every TimeSeries Report view
+	window are two combo boxes one atop the other. If a simulation is running,
+	the top combo box allows a user to take data from different &quot;decorators&quot;
+	that exist at selected locations. In most cases the user will be running
+	only one disease at a time and there will be only one location decorator to
+	chose from (the running disease). In general one can configure scenarios in
+	STEM to simultaneous run multiple diseases in which case one can examine the
+	state of each disease in turn via this to combo box. </font> </p>
+	<p DIR="LTR"><font size="2">The bottom combo box is not used by the TimeSeries Report. The
+	bottom combo box shows the different &quot;labels&quot; processed by the selected
+	decorator. For a particular disease model these labels might <i>include</i>,
+	for example,</font></p>
+	<p DIR="LTR">S - the population fraction&nbsp; Susceptible (0.0 &lt;= S &lt;= 1.0)</p>
+	<p DIR="LTR">E - the population fraction&nbsp; Exposed (0.0 &lt;= E &lt;= 1.0)</p>
+	<p DIR="LTR">I - the population fraction Infectious (0.0 &lt;= I &lt;= 1.0)</p>
+	<p DIR="LTR">R - the population fraction Recovered (0.0 &lt;= R &lt;= 1.0) </p>
+	<p DIR="LTR"><i><font size="2">Rather than display only a single variable or label S, E, I,
+	or R, the Time Series viewer simultaneously displays multiple labels for the
+	selected decorator in configurable colors. </font> </i><font size="2">See the colored lines in
+	Figure 1. By default the labels displayed in the Time Series view are S, E,
+	I, and R in Blue, Yellow, Red, and Green respectively. If these labels do
+	not exist in the selected decorator then the STEM report view will attempt
+	to render every label for which relative values (0-&gt;1) are defined. The
+	default color (blue) would be used.</font></p>
+	<p DIR="LTR"><b>7) Configuring the Labels and Colors</b></p>
+	<p DIR="LTR"><font size="2">To configure or change the default labels and colors displayed
+	in the Time Series view, go to the top menu bar and select</font></p>
+	<p DIR="LTR"><font size="2">&gt;Window&gt;preferences</font></p>
+	<p DIR="LTR"><font size="2">a dialog will open. On the left hand side expand -&gt;STEM -&gt;
+	Visualization</font></p>
+	<p DIR="LTR"><font size="2">and click on visualization. The displayed labels and their
+	associated colors may be changed in this dialog. See Figure 2 below.</font></p>
+	<table border="1" cellspacing="1" width="60%">
+		<tr>
+			<td>
+			<p align="center">
+			<img border="0" src="img/reportPreferences.jpg" width="600" ></td>
+		</tr>
+		<tr>
+			<td><b>Figure 3: The Default Labels and Colors may be configured in
+			the view preferences <i>(see text).</i></b></td>
+		</tr>
+	</table>
+	<p DIR="LTR"><i><font size="2">Please note, you must specify only valid label values for a
+	running model. If you type a label name that does not exist (e.g., X) the
+	Report Viewer will not find that label or associated values to plot. If you
+	are using one of STEMs built in Models it will not be necessary to change
+	these default values.</font></i></p>
+	<p DIR="LTR"><b>8) Configuring the PhaseSpace Report</b></p>
+	<p DIR="LTR"><font size="2">On the lower left hand side of every PhaseSpace
+	Report view window are four combo boxes. The left hand pair (one atop the
+	other) determine the y-axis value displayed. The right hand pair (one atop
+	the other) determine the x-axis value displayed.. If a simulation is
+	running, both top combo boxes allows a user to take data from different
+	&quot;decorators&quot; that exist at selected locations. In most cases the user will
+	be running only one disease at a time and there will be only one location
+	decorator to chose from (the running disease). The two bottom combo boxes
+	allow the user to select among the different &quot;labels&quot; processed by the
+	selected decorator. As discussed above, for a particular disease model these
+	labels might <i>
+	include</i>, for example, S, E, I, and R.&nbsp; The PhaseSpace view allows
+	one to view the &quot;trajectory&quot; of one system variable plotted against another
+	in a phase space of two variables. Typically epidemiologist will plot I(t)
+	vs S(t). Not that time is not an explicit axis label in this view. Rather
+	the resulting curve represents the trajectory of I vs S in time.</font></p>
+	<table border="1" cellspacing="1" width="60%">
+		<tr>
+			<td>
+			<p align="center"><font FACE="Helv">
+			<img border="0" src="img/PhaseSpaceView.jpg" width="600" ></font></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="center"><b>Figure 4: <font FACE="Helv">Running the built
+			in Japan Scenario with the PhaseSpace view <br>
+			displayed below the map.</font></b></td>
+		</tr>
+	</table>
+	<p DIR="LTR">&nbsp; </p>
+	<p DIR="LTR"><b>9) For Code Developers</b></p>
+	<p DIR="LTR"><font size="2">All of the source code for the Report Viewers
+	may be found in the STEM package:</font></p>
+	</font><font FACE="Courier New" size="2">
+	<p DIR="LTR">org.eclipse.stem.ui.reports.views</p>
+	</font>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+</body>
+</html>
+

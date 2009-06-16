@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.stem.feature"
+      label="STEM feature"
+      version="0.5.0"
+      provider-name="Eclipse"
+      plugin="org.eclipse.stem.ui">
+
+   <description>
+      STEM - Spatiotemporal Epidemiological Modeler 
+The STEM tool is designed to help scientists and public health
+officials create and use spatial and temporal models of emerging
+infectious diseases.
+   </description>
+
+   <copyright>
+      Copyright (c) 2007 IBM Corporation and others.
+All rights reserved.
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      http://www.eclipse.org/legal/epl-v10.html
+   </license>
+
+   <url>
+      <update label="STEM local update site" url="file:/C:/eclipse/update/"/>
+      <discovery label="STEM update site" url="http://download.eclipse.org/technology/stem/update-site/"/>
+   </url>
+
+   <includes
+         id="org.eclipse.stem.feature.core"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.stem.feature.prereq"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.rcp"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.executable"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.platform"
+         version="0.0.0"/>
+
+</feature>

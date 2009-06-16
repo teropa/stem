@@ -1,0 +1,43 @@
+<!-- ******************************************************* -->
+<!-- Ant build script to copy the help files       -->
+<!-- ******************************************************* -->
+<project name="copyHelp" default="copyhelp" >
+
+	
+	<!-- Configure the directory into which the web application is built -->
+	<property name="build.dir"    value="${basedir}"/>
+        <property name="zip.name"    value="help.zip"/>
+        
+	
+
+ 	
+	<!-- Executable Targets -->
+		
+	<target name="clean" description="removes previous build">		
+		<delete dir="$(zip.name)" />	
+	</target>
+
+	
+	
+	<!-- 
+		* Build the zip file  
+		*   contains
+		*     
+		*     help/html/
+		*       index.html
+		*       toc.html
+		*       *.html  all the rcp help files
+		* 
+		-->
+	<target name="copyhelp" depends="clean" 
+		description="creates the zip file">	
+				
+		<zip 
+			destfile="${zip.name}">
+			<zipfileset dir="help/html" prefix="help/html"/> 	      
+			 
+		</zip>
+	</target>
+
+
+</project>

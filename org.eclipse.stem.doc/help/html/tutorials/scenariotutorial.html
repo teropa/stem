@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Creating a new Scenario Tutorial</title>
+</head>
+<body>
+<h1>Create a new Scenario</h1>
+<font size="4">
+</font> 
+<p>click on the purple diamond icon to create new scenario </p>
+<p>give it a name (you might want more than one so index it, for example, as 
+&quot;ExperimentalDisease1&quot;) </p>
+<p>Fill in any Dublin core data you want to add </p>
+<p>click finish </p>
+<p>From the Project Explorer window, under Models, Drag the new model 
+(&quot;cuba.model&quot;) into the new Scenario in the Resource Set. Expand the scenario so 
+you can see that it worked. </p>
+<table border="1" cellspacing="1" width="56%">
+	<tr>
+		<td>
+		<p align="center">
+		<img border="0" src="img/scenario.jpg" width="852" height="498"></td>
+	</tr>
+	<tr>
+		<td>
+		<p align="center"><b>Figure 1: A new Scenario in the Resource Set. The 
+		model has already been dragged into it.</b></td>
+	</tr>
+</table>
+
+<p align="left">&nbsp;</p>
+<p align="left">Your model is now part of your scenario but you are not finished 
+yet. Every scenario must also include a &quot;sequencer&quot; which basically is a clock 
+that<br>
+regulates time, and an &quot;infector&quot; which sets the initial infectious population. 
+If you ran a model for an infectious disease where nobody was infected anywhere 
+then<br>
+nothing would happen. Please follow the separate tutorials on &quot;<a href="sequencertutorial.html">creating 
+a sequencer</a>&quot; and &quot;<a href="infectortutorial.html">creating and infector</a>&quot; 
+to learn more about how to create and customize<br>
+each of them. In the example below we will describe creation of a scenario using 
+a default sequencer but you can easily use your own custom sequence simply<br>
+by dragging that from&nbsp; your projects &quot;sequencers&quot; folder.</p>
+<p align="left"><br>
+<b>Add a sequencer to the Scenario</b><br>
+<br>
+To add the system default sequencer to your model, go to Sequencers on the 
+bottom window - expand fully<br>
+<br>
+drag &quot;Sequential Sequencer 2006&quot; into the Scenario in the Resource Set. Make 
+sure you have a properties Editor Window open<br>
+<br>
+click on &gt;Window&gt;other&gt;General&gt;Properties to open the properties view. Open the 
+Disease in the Properties Editor &#8211; get ready to Create an Infector<br>
+&nbsp;</p>
+<p align="left"><b>Adding an Infector<br>
+</b><i>See also the instructions for <a href="infectortutorial.html">creating an 
+infector.</a></i><br>
+To create an infector you first need to make sure you know the exact &#8216;Disease 
+Name&#8217; used when you created your disease. <br>
+To be sure check it as follows. In the Project Explorer, Under Decorators, 
+double click on ExperimentalDisease.standard <br>
+The new disease will be visible in the resource set. Expand the file node an you 
+should see &#8220;ExperimentalDisease model human&#8221;. <br>
+Click on &#8220;ExperimentalDisease Disease model human&#8221; In the bottom window click on 
+the properties tab to show the disease in the properties editor view. <br>
+<br>
+Click on the new infector icon (black square with the health symbol and the 
+letter I)</p>
+<table border="1" width="10%" id="table1">
+	<tr>
+		<td>
+		<p align="center"><b>
+		<img border="0" src="img/InfectorIcon.jpg" width="86" height="98"></b></td>
+	</tr>
+	<tr>
+		<td height="27">
+		<p align="center"><b>The New Infector Icon</b></td>
+	</tr>
+</table>
+<p align="left"><br>
+<br>
+Name it (e.g., &quot;CubaInfector&quot;), under DiseaseName: &quot;ExperimentalDisease&quot;<br>
+Under country select Cuba<br>
+Click on the Scenario to open it in the Resource set<br>
+drag the CubaInfector from Decorators into the scenario (open it to see it)<br>
+<br>
+In the resource set click on the infector SI Infector ExperimentalDisease to 
+edit it. Your disease model may be SI, SIR, SIER, etc but in all cases you only 
+need an SI infector (as this base class will add infectious people to seed any 
+model.<br>
+<br>
+click on the scenario, right click and run </p>
+<h3 align="left"><span style="font-weight: 400"><i>Save your work at this point by hitting <b>ctrl-s</b></i></span></h3>
+
+
+</body>
+</html>

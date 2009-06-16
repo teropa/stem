@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>GoogleEarth View</title>
+</head>
+
+<body>
+<h1>STEM to GoogleEarth View</h1>
+<p>The STEM to GoogleEarth view projects the results of the STEM
+simulation onto GoogleEarths 3D display of the World. For example, in
+the following display, the progress of a disease is shown in red
+superimposed on the GoogleEarth display.</p>
+<p>
+<ul>
+	Color Key
+	<li>Blue - Susceptible</li>
+	<li>Yellow - Exposed</li>
+	<li>Red - Infectious</li>
+	<li>Green - Recovered</li>
+</ul>
+<p><img src="img/gemap1.jpg" width=600>
+<p>
+<h2>Prerequisites</h2>
+<p>You must have installed the GoogleEarth application which is
+available for personal use from the <a
+	href="http://earth.google.com/earth4.html">GoogleEarth download
+site</a>. You should verify that GoogleEarth works correctly on your machine
+by starting it and verifing that you can browse the 3D image. 
+Plus it is a fun application to play with. Note that some older
+computers do not have the 3D graphics capabilities required by
+GoogleEarth and you will not be able to run GoogleEarth.   
+<h2>Starting the STEM to GoogleEarth interface.</h2>
+<p>You can leave GoogleEarth running or not. STEM will start it if
+needed. 
+<p>
+If you are running STEM from the source distribution,  you need build the 
+Servlets as described later.  
+<ul>
+    <li>Startup the STEM application as described earlier.
+	<li>Load GoogleEarth View <b>Windows->GoogleEarth View</b>
+	<li>Select the GoogleEarth View from the Tabbed Window. <br>
+	This should start the GoogleEarth application if it was not
+	already started. The STEM-GoogleEarth interface has many options that
+	can be set from 
+	<b>Windows->preferences->STEM->Visualization->Geographic->GoogleEarth</b> 
+	However, we can use the defaults for our first run. 
+	<li>Start a new simulation by selecting the Scenario window. 
+	<li>Select the USA scenario. STEM->Geography->Political->Country->USA
+	<li>double clicking the "Spanish Flu" <a href="../../concepts/modelingframework.html#scenario"> Scenario</a>.
+	<li>After the display has run for at laeast 7 cycles, 
+	    press the <b>pause</b> control.
+	<li>Select the GoogleEarth View and press the <b>Display</b> button.
+	<li>You should see the current state of the Spanish Flu infection superimposed on 
+	    the GoogleEarth map.
+</ul>
+
+<p>
+<h2>Manual mode versus Automatic Mode.</h2>
+  The STEM to GoogleEarth is distributed with the default to run in Manual mode.
+  In order to see the state of the disease superimposed on the 
+  GoogleEarth 3D image, you have to manually press the display button.
+  The more interesting way to run it is with the GoogleEarth display 
+  being automatically updated on each cycle with the current status of the disease.
+  But because both STEM and GoogleEarth use a lot of CPU resources and 
+  system memory, they will only run well simultaneously if you have at least 
+  two Gigabytes of memory and a fast processor.  It will run with one gigabyte 
+  of memory but very slowly.
+  <p>
+  If you are lucky enough to have 2 Gigabytes memory, go to the 
+  <a href="../preferences/preferencesgetoplevel.html">GoogleEarth Preferences</a>
+  and set the "method" preference to "Asynch Servlet" or "Direct Launch".
+  <p>
+  The next time you start a simulation, you should then see the disease spread 
+  in the GoogleEarth window as STEM runs.
+  <p>
+  You can also <b>right click</b> in the STEM-GoogleEarth window to bring up 
+  a context menu with additional commands.
+  
+  <h2>Building Servlets</h2>
+  If you are running from the STEM source distribution:
+  <ul>
+    <li>Update STEM to the latest code level and ensure it is refreshed and rebuilt.
+    <li>From project <b>org.eclipse.stem.ui.ge</b> select <b>servlet.xml</b>
+    <li>Select <b>RunAs->AntBuild</b>
+    <li>From Eclipse, Run Stem using stem.product in org.eclipse.stem.ui 
+        as described earlier 
+   </ul>
+  If you are running the STEM standalone executable, the above steps were 
+  already done for you and you just need to start STEM.exe.
+  
+  <h2>Context Menu</h2>
+  If you bring up the context menu (Right click in Windows) then you will 
+  get a menu where you can issue some control commands or options for the 
+  STEM/GoogleEarth interface.  The difference between the context menu and 
+  the <b>Prefereces</b> is that the context menu only affects the current 
+  invocation.  
+  <ul>
+   <li><em>Display Admin Area</em><br>
+     This will bring up a menu where you can specify an admin area and 
+     have if displayed on the GoogleEarth map.  This has nothing to do 
+     with STEM but it was useful during our develpment of the STEM 
+     geography files and has been left in.
+   <li><em>Display Status</em><br>
+     This will display on the console the status of the STEM/GoogleEarth 
+     internal interface.  It is a useful debug tool.
+   <li><em>Debug On/Off</em><br>
+     Turns on  or off the debug output.
+   <li><em>GoogleEarth Start</em><br>
+     Startup GoogleEarth application if it is not already started.
+   <li><em>GoogleEarth Restart</em><br>
+     If GoogleEarth was for any reason stopped or crashed, 
+     this will attempt to get it running again with the current 
+     STEM status. It may not work.
+   <li><em>GoogleEarth Run</em><br>
+     This is used if you have already captured the KML log files and 
+     you want to run them after the simulation is complete.
+     It will let you specify the folder containing the KML files and 
+     will send them one by one to GoogleEarth.
+   <li><em>GoogleEarth Stop</em><br>
+     This will stop the sending of files to GoogleEarth and 
+     clear the polygons already displayed. 
+   
+  </ul>
+    
+</body>
+</html>

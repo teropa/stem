@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Creating a new Graph Tutorial</title>
+</head>
+<body>
+<h1>Creating a new Graph Tutorial</h1>
+Creating a graph in stem involves building a model and adding to it a set of 
+locations (Nodes) and connections between those locations (Edges).<p>Stem comes 
+with a number of build in Model each containing preconfigured graphs. It also 
+comes with preconfigured Models for every country and for every continent. These 
+may be found in the Designer Perspective under the Models tab. See: 
+Models&gt;Geography</p>
+<p>Adding a new disease vector or transmission path between two locations 
+required adding a new Edge between between the two respective nodes. Before we 
+discuss how to define an entirely new type of edge, it is important to learn how 
+to compose a graph taking advantage of build in edge collections that are 
+already included in STEM.</p>
+<p>&nbsp;</p>
+<p align="center"><b><font size="5">Composing a Graph</font></b></p>
+<p align="left">Suppose you want to create a new simulation scenario for some 
+disease involving three countries; France, Italy, and Spain. Stem comes with 
+models for each country but does not come with a graph for that group of three. 
+We must compose it.</p>
+<p align="left">1) Follow the example in the section on <a href="projecttutorial.html">Creating a new Project</a> 
+to create a project folder for this new scenario.</p>
+<p align="left">2) Follow the example in the section on <a href="modeltutorial.html">Creating a new Model</a> 
+to create a parent model. In the following example we will assume that you used 
+the name &quot;Example&quot; for this parent model.</p>
+<p align="left">3) Click on your &quot;Example&quot; model to open it in the Resource Set 
+window.</p>
+<p align="left">4) Click on the models folder and open the Folders</p>
+<p align="left">&gt;STEM&gt;Geography&gt;Political&gt;Country&gt;ESP</p>
+<p align="left">Drag the model entitled&nbsp; &quot;ESP(0, 1) Full Infrastructure&quot; 
+into your parent &quot;Example&quot; model. </p>
+<p align="left">&nbsp;&quot;ESP(0, 1) Full Infrastructure&quot; is the full infrastructure 
+for Spain with admin 0 and admin 1 resolution. It is itself a graph with 
+containment relationships and <br>
+adjacency relationships for Spain.</p>
+<p align="left">5) Repeat Step 4 for France and Italy</p>
+<p align="left">&gt;STEM&gt;Geography&gt;Political&gt;Country&gt;FRA</p>
+<p align="left">&gt;STEM&gt;Geography&gt;Political&gt;Country&gt;ITA</p>
+<p align="left">6) Your parent model &quot;Example&quot; will appear next to a blue 
+triangle. If you expand this node by clicking on (+) next to the model you will 
+see three new blue triangles representing the three country level graphs you 
+added to your model (See Figure 1). However, at this point there are no 
+connections between the three countries you added. These connections or &quot;Common 
+Border&quot; relationships between any two countries must be added once per pair of 
+countries. They may be found under the Graphs tab. Any two way edge is place in 
+the folder of the countries who's three letter country code appears first 
+alphabetically. </p>
+<table border="1" cellspacing="1" width="100%">
+	<tr>
+		<td><b>
+
+<img border="0" src="img/graph1.jpg" width="800" height="623"></b></td>
+	</tr>
+	<tr>
+		<td><b>Figure 1: Composing a Graph</b></td>
+	</tr>
+</table>
+<p align="center">&nbsp;</p>
+<p align="left">7) To add the border between France and Spain select the GRAPHS 
+tab and click on:</p>
+<p align="left">&gt;STEM&gt;Geography&gt;Political&gt;Country&gt;ESP</p>
+<p align="left">drag the icon for &quot;Common Border relationship between country 
+ESP and FRA&quot; into your &quot;Example&quot; model. It will appear at the same level in the 
+tree as the countries Spain and France. Note that the Edges connecting Spain and 
+France may be found in the ESP folder because ESP comes before FRA 
+alphabetically.</p>
+<p align="left">8) To add the border between France and Italy select the GRAPHS 
+tab and click on:</p>
+<p align="left">&gt;STEM&gt;Geography&gt;Political&gt;Country&gt;FRA</p>
+<p align="left">drag the icon for &quot;Common Border relationship between country 
+FRA and ITA</p>
+<p align="left">9) Follow the instructions for <a href="diseasetutorial.html">Creating a new Disease</a> 
+and drag your new Disease into your &quot;Experimental&quot; Model. Note that any disease 
+(or all diseases) appear under the top level MODEL node. See figure 2.</p>
+<p align="left">&nbsp;</p>
+<table border="1" cellspacing="1" width="100%">
+	<tr>
+		<td><b><img border="0" src="img/graph2.jpg" width="800" height="623"></b></td>
+	</tr>
+	<tr>
+		<td><b>Figure 2: A Disease has been added to the Model</b></td>
+	</tr>
+</table>
+<p align="left">10) Follow the instructions <a href="scenariotutorial.html">Creating a new Scenario</a>. 
+Add your model to the Scenario. Then follow instructions for&nbsp; <a href="sequencertutorial.html">Creating a new Sequencer</a> 
+and <a href="infectortutorial.html">Creating a new Infector</a>. See Figure 3 
+below. The Sequencer, the Infector, and your new &quot;Example&quot; Model are all part of 
+a Scenario node. Expand your model to see the graph of nodes and edges, as well 
+as the disease or disease you have defined. </p>
+<table border="1" cellspacing="1" width="100%">
+	<tr>
+		<td>
+<img border="0" src="img/graph3.jpg" width="800" height="623"></td>
+	</tr>
+	<tr>
+		<td><b>Figure 3: The Example Scenario is ready to run. See the proper 
+		hierarchical structure of this scenario in the Resource Set window.</b></td>
+	</tr>
+</table>
+<p align="center">&nbsp;&nbsp;
+<b>Defining a New Graph Edge</b></p>
+<p align="left">In the example above we composed a graph from existing 
+components. Suppose you wanted to add a new relationship between two places. 
+Take for example the Staten Island Ferry between Staten Island and Manhattan 
+Island in NY.</p>
+<p align="left"><i>this needs to be written.</i></p>
+</body>
+</html>

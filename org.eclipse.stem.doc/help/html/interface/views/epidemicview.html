@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>help</title>
+</head>
+
+<body>
+<h1>Epidemic View</h1>
+<p>The <em>Epidemic View</em> displays a dynamic collection of
+"simulation controls" that match the set of "active" Simulations. Each
+control shows the name of the Scenario and that status of the
+Simulation, including its "state" (either "Running" or "Paused"), the
+current "time" in the simulation, a progress bar. Each control also has
+five buttons that control the corresponding Simulation:
+<ol>
+	<li>"Run" Begin running the Simulation.</li>
+	<li>"Pause" Pause the running of the Simulation. This maintains
+	the current state of the simulation.</li>
+	<li>"Reset" Reset all state information in the Simulation back to
+	initial values and set the state of the Simulation to "Paused"</li>
+	<li>"Step" Run the simulation for a single cycle and then set the
+	state of the Simulation to "Paused"</li>
+	<li>"Stop" Stop all execution of the Simulation and destroy all
+	state information. The Simulation will be removed from the system.</li>
+</ol>
+</p>
+&nbsp;<p>To use the Epidemic view:<ol>
+	<li>Enter the <a href="../perspectives/analysis.html">Analysis Perspective</a></li>
+	<li>Click on the Epidemic Tab</li>
+	<li>Use the Select Folder button to chose the folder containing the epidemic data 
+	you wish to study. The files should have the following
+	<a href="csvloggerview.html">&nbsp;format.</a></li>
+	<li>Click Aggregate Data. This will automatically create two aggregated data 
+	files based on the data in the original scenario folder. These file names 
+	will appear in the<br>
+	text fields for Scenario Aggregate File and Scenario Incidence file.&nbsp; 
+	The aggregated data will be written to the 'aggregate' and 'incidence' 
+	subfolders respectively <br>
+	(these will be created if they do not exist). The files will be named based 
+	on the input scenario folder. The aggregate data is the running integral or 
+	sum over time <br>
+	of all compartment data (S,E,I,R) over all locations in the input scenario 
+	folder. The incidence data contains differential data including incidence 
+	(new cases at time t), <br>
+	new births, deaths, etc. Incidence data will be estimated if it does not 
+	exist in the original scenario data files. Note, if you already have 
+	aggregate data you can also input<br>
+	these files manually.</li>
+	<li>On the left hand side the Epidemic view will show the integrated state 
+	data (S,E,I,R, etc). Differential data will appear on the right hand chart. 
+	To toggle between linear<br>
+	and logarithmic scales or to change what variables are plotted just right 
+	click and use the custom dialog that will appear. </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img border="0" src="img/Epidemic.jpg" width="1000" height="644"> </p>
+</body>
+</html>

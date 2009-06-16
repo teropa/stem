@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Epidemiological Modeling Overview</title>
+</head>
+
+<body>
+<h1>Epidemiological Modeling</h1>
+
+<img src="images/sis.gif" align=RIGHT HSPACE=10 VSPACE=10 width=25%>
+<p> Compartmental disease models are some of the most widely used
+models of infectious disease. In these models individuals (or portions of
+an individual) are considered to be in a compartments based on their
+disease status. By convention, commonly used compartmental models are
+designated by the first letters of the compartments and the order 
+people move between them. So, the model for a disease where people 
+start out Susceptible, become Infectious after catching the disease, 
+and then after some time clear the disease and become Susceptible again
+would be an SIS model. The four most commonly used compartments
+are <u>S</u>usceptible, <u>E</u>xposed, <u>I</u>nfectious, and
+<u>R</u>emoved. <u>S</u>usceptible contains those individuals 
+who can still be infected with disease. <u>E</u>xposed contains individuals
+who have been infected with the disease, but have not yet become
+infectious themselves. <u>I</u>nfectious contains those individuals who
+are infected and infectious. <u>R</u>emoved (sometimes called <u>R</u>ecovered)
+contains those individuals who have been removed from the system
+either through death or immunity. The disease state of a population 
+is speccified by knowing the nuber of individuals (or proportion of
+the population) that is in each compartment.
+  	
+ <p> There are two main types of compartmental models: deterministic
+ and stochastic. In deterministic model, rates of movements between
+ compartments are used to represent the processes by which individuals
+ are infected, become ill and eventually recover from disease. These 
+ rates specify a set of differential or difference equations, which
+ can be evaluated to give that state of the model at a future time 
+ point. In deterministic models compartments need not contain an
+ integer number of individuals.
+ 
+ <p>Deterministic models only give the <i>expected</i> behavior of
+ the disease in a population under a set of assumptions about 
+ the natural history and epidemiology of the disease. Often
+ we would also like to know how the disease behaves in more
+ extreme cases, and what the distribution of this behavior 
+ is. Stochastic models provide a method for addressing this
+ issue. In a stochastic model, whole individuals are moved 
+ between compartments based on a random draw from some specified
+ distribution. To get informative results from a stochastic 
+ compartmental model it is necessary to do hundreds, or even
+ thousands of experiments. 
+
+<p>Compartamental models also may have "closed" or "open" populations.
+In closed populations the set of individuals represented by the model
+is static, no one comes in and no one comes out. It is of note that
+in such populations any disease that confers permanent immunity
+after infection will eventually become extinct. In an open 
+population there is continuous immigration and emigration from
+the population, usually via birth and death. 
+  
+<p>STEM comes with deterministic implementations for three commonly used
+compartmental models: SI(S), SIR(S), and SIER(S). These models are
+implemented as having open populations, but closed populations can
+be easily simulated by setting the immigration/emigration rate to
+zero. Which model is appropriate for a modeling project depends
+on both the disease of interest and the timescale that we are 
+interested in modeling our results. 
+
+<h2>The SI(S) Model</h2>
+<a href="simath.html">
+<img src="images/sis.gif" align=CENTER HSPACE=10 VSPACE=10 width=24% border=0>
+</a>
+
+<p>SI(S) are useful for modeling diseases with a short latent period (the time 
+between being infected and becoming infectious) that either confer no long term 
+immunity (in the case of SIS models) or result in permanent infection (in the case
+of SI models). Diseases of this type include the common cold and many 
+macro-parasite infections. Susceptible individuals are infected at the 
+rate of <em>&beta;I</em>, at which time they lose infectiousness
+at the rate of <em>&gamma;</em>. Mathematical details of this model
+can be viewed <a href="simath.html">here</a>.
+
+
+<h2>The SIR(S) Model</h2>
+<a href="sirmath.html">
+<img src="images/sirs.gif" align=CENTER HSPACE=10 VSPACE=10 width=36% border=0>
+</a>
+
+<p> SIR(S) models are useful for modeling diseases with a short latent 
+period that confer immunity after infection, whether permanently (an SIR
+model), or temporarily (an SIRS model). Such a model might be useful for
+modeling diseases such as influenza or chicken-pox. Susceptible individuals are infected 
+at the rate of <em>&beta;I</em>. They then loose infectiousness at the rate of
+<em>&gamma;</em> and then become immune to further infection. Immunity is lost
+at the rate of <em>&sigma;</em>.  Mathematical details of this model can be
+viewed <a href="sirmath.html">here</a>.
+
+<h2>The SEIR(S) Model</h2>
+<a href="seirmath.html">
+<img src="images/seirs.gif" align=CENTER HSPACE=10 VSPACE=10 width=48% border=0>
+</a>
+
+<p> SEIR(S) models are useful for modeling diseases that have a long latent
+period in which infected individuals are not themselves infectious.  Measles,
+influenza and smallpox are all diseases that might be appropriately characterized
+by this model. Susceptible individuals are infected  at the rate of <em>&beta;I</em>.
+These individuals become infectious at the rate of <em>&epsilon;</em>, and  
+then loose infectiousness at the rate of
+<em>&gamma;</em>, becoming immune to further infection. Immunity is lost
+at the rate of <em>&sigma;</em>. Mathematical details of this model can be
+viewed <a href="swirmath.html">here</a>.
+
+
+<h2>Further Reading</h2>
+<ol>
+	<li> Hethcote, H. W. 2000. The Mathematics of Infectious Diseases. 
+	SIAM Rev. 42, 4 (Dec. 2000), 599-653. DOI= http://dx.doi.org/10.1137/S0036144500371907
+	<li>  Ford, D. A., Kaufman, J. H., Eiron, I.,2006. An extensible spatial
+		and temporal epidemiological modeling system. 
+		Int J Health Geogr. 5, 4 (Jan. 2006). DOI=http://dx.doi.org/10.1186/1476-072X-5-4
+		 
+</ol>
+
+</body>
+</html>
