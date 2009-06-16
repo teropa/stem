@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.stem.ui.diseasemodels.externaldatasource;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.stem.diseasemodels.externaldatasource.presentation.ExternalDataSourceEditorPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.eclipse.stem.diseasemodels.externaldatasource.presentation
+Require-Bundle: org.eclipse.stem.diseasemodels.externaldatasource;visibility:=reexport,
+ org.eclipse.stem.util.loggers,
+ org.eclipse.stem.ui.diseasemodels,
+ org.eclipse.stem.ui
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         id="org.eclipse.stem.ui.STEMPerspective"
+         point="org.eclipse.ui.perspectives">
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="org.eclipse.stem.ui.views"
+            class="org.eclipse.stem.util.loggers.views.CSVLoggerView"
+            icon="icons/sample.gif"
+            id="org.eclipse.stem.util.loggers"
+            name="%_UI_CSV_Logger">
+         Reports
+      </view>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="org.eclipse.stem.util.loggers.views"
+            targetID="org.eclipse.stem.ui.views.geographic.map.context">
+         <action
+               class="org.eclipse.stem.util.loggers.views.ReportsContextMenuAction"
+               id="CSVLogger"
+               label="%_UI_CSV_Logger"
+               menubarPath="reports/additions"
+               state="true">
+         </action>
+      </viewerContribution>
+   </extension>
+
+</plugin>

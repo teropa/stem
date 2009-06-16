@@ -1,0 +1,76 @@
+<!-- ******************************************************* -->
+<!-- Ant build script to build the GE servlet war file       -->
+<!-- ******************************************************* -->
+<project name="STEM" default="war" >
+
+	
+	<!-- Configure the directory into which the web application is built -->
+	<property name="build.dir"    value="${basedir}"/>
+        <property name="war.name"    value="STEM"/>
+        <property name="lib.servlet"    value="extlib/servlet-api.jar"/>
+	<!-- Get the environment variables -->
+		<property environment="env" />
+
+		<property name="catalina" value="${env.CATALINA_HOME}" />
+
+
+ 	
+	<!-- Executable Targets -->
+		
+	<target name="clean" description="removes previous build">		
+		<delete dir="${basedir}/WEB-INF/classes/**/*" />	
+	</target>
+
+	<target name="init" description="makes build structure" >		
+		<mkdir dir="${basedir}/WEB-INF/classes" />
+	</target>
+
+	<target name="compile" depends="clean,init" description="Compile web application">
+		<!-- ... 
+			compile the servlets into WEB-INF/classes
+			            ... -->
+		
+		<javac debug="on" srcdir="src/org/eclipse/stem/ui/ge" 
+			includes="servlet/*.java"
+			excludes="servlet/VerifyClient.java"
+			destdir="${build.dir}/WEB-INF/classes" >
+			<classpath refid="classpath" />			  	     
+		</javac>
+		
+	</target>
+	
+	<target name="html" description="Copy start.html to server">		
+		<copy todir="${catalina}/webapps/STEM/" overwrite="true">
+					<fileset dir="${basedir}/WEB-INF/">
+						<include name="*.html" />
+					</fileset>
+		</copy>
+	</target>
+	
+	
+	
+	<!-- 
+		* Build the war file  STEM.war
+		*   contains
+		*     
+		*     WEB-INF/
+		*       web.xml		*       
+		*       /classes/... 
+		*       lib/servlet-api.jar
+		* 
+		-->
+	<target name="war" depends="compile" description="creates the war file">
+
+		<path id="classpath">
+			<path location="${lib.servlet}" />
+		</path>
+
+				
+		<war destfile="${basedir}/WEB-INF/${war.name}.war" webxml="${basedir}/WEB-INF/web.xml">
+			<classes dir="${basedir}/WEB-INF/classes"  />           
+			<lib dir="${basedir}/extlib/" includes="servlet-api.jar" />
+		</war>
+	</target>
+
+
+</project>

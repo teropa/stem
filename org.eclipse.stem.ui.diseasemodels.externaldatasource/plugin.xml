@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.1 2008/03/18 04:51:57 jkaufman Exp $
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "org.eclipse.stem.diseasemodels.externaldatasource.presentation.ExternalDataSourceModelWizardID"
+      name = "%_UI_ExternalDataSourceModelWizard_label"
+      class = "org.eclipse.stem.diseasemodels.externaldatasource.presentation.ExternalDataSourceModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/ExternalDataSourceModelFile.gif">
+      <description>%_UI_ExternalDataSourceModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "org.eclipse.stem.diseasemodels.externaldatasource.presentation.ExternalDataSourceEditorID"
+        name = "%_UI_ExternalDataSourceEditor_label"
+        icon = "icons/full/obj16/ExternalDataSourceModelFile.gif"
+        extensions = "externaldatasource"
+        class = "org.eclipse.stem.diseasemodels.externaldatasource.presentation.ExternalDataSourceEditor" 
+        contributorClass="org.eclipse.stem.diseasemodels.externaldatasource.presentation.ExternalDataSourceActionBarContributor" >
+    </editor>
+  </extension>
+  <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.diseasemodels.externaldatasource.presentation.ExternalDataSourcePropertyStringProviderAdapterFactory"></startup>
+  </extension>    
+</plugin>

@@ -1,0 +1,18 @@
+<FindBugsFilter>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.ui.*" />
+        <Bug code="ST" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.core.*" />
+        <Bug code="SIC" />
+    </Match>
+    <Match>
+        <Class name="org.eclipse.stem.ui.Activator" />
+        <Bug code="LI" />
+    </Match>
+     <Match>
+        <Class name="org.eclipse.stem.ui.editors.IdentifiableEditor" />
+        <Bug code="DLS" />
+    </Match>
+</FindBugsFilter>

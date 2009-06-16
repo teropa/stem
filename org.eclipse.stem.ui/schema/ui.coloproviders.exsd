@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.stem.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.stem.ui" id="org.eclipse.stem.ui.colorproviders" name="UI Color Providers"/>
+      </appinfo>
+      <documentation>
+         This extension point allows adding Color Providers to the UI.
+Color providers are responsible for providing the colors to be used when drawing the map.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="coloprovider" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="coloprovider">
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A display name to be used in the combo box of selecting the color providers.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="factory" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The factory class of color provider adapters.
+Factory classes must implement the &lt;code&gt;org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory&lt;/code&gt; interface.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="provider" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The color provider interface.
+This interface must extend the &lt;code&gt;org.eclipse.stem.ui.adapters.color.ColorProvider&lt;/code&gt; interface.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.stem.ui.adapters.color.ColorProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is a sample usage of the color provider extension point:
+         
+&lt;extension
+        point=&quot;org.eclipse.stem.ui.colorproviders&quot;&gt;
+     &lt;coloprovider
+           factory=&quot;org.eclipse.stem.ui.adapters.color.SEIRRelativeValueColorProviderAdapterFactory&quot;
+           name=&quot;&amp;quot;Rainbow&amp;quot; Relative Values&quot;
+           provider=&quot;org.eclipse.stem.ui.adapters.color.SEIRRelativeValueColorProvider&quot;&gt;
+     &lt;/coloprovider&gt;
+&lt;/extension&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         The supplied factory class must implement the &lt;code&gt;org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory&lt;/code&gt; interface.
+
+The supplied color provider interface must extend the &lt;code&gt;org.eclipse.stem.ui.adapters.color.ColorProvider&lt;/code&gt; interface.
+      </documentation>
+   </annotation>
+
+
+
+</schema>

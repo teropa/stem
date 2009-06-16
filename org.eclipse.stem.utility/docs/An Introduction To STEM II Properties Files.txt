@@ -1,0 +1,94 @@
+
+Jan - 10 - 2007
+
+**************************************************************************************************************************************************************************************************************************************************
+
+*An Introduction to STEM's Properties Files*
+
+   In STEM II, we store data about a country and its administrative divisions in properties files. Properties files are used to define identifiers and to set population and area data
+at all levels (i.e. country, state, or county level). There are four main types of properties files : area, population, nodes, and names. The purpose of each property file will be
+explained later.
+
+   In STEM II, most of the data is standardized ISO 3166 or FIPS (Federal Information Processing Stantandards) data. According to Wikipedia, "ISO 3166 is a three-part geographic coding standard for 
+coding the names of countries and dependent areas, and the principal subdivisions thereof." ISO 3166 specifies standard alpha-2 codes, alpha-3 codes, and three-digit country codes as well. For example,
+for the USA, the alpha-2 code would be US, the alpha-3 code is USA , and the three-digit country code is 840. In addittion, we use FIPS codes whenever possible to create identifiers that represent a 
+political administration. For instance, the FIPS for New York County (i.e., Manhattan) is 36061 while Kings County (i.e., Brooklyn) is 36047. The first two digits of the FIPS identifies the state.  
+
+**Administrative Levels and Properties Files**
+
+   Administrative levels correspond to political divisions of a country. A level 0 administration identifies an entire country (e.g. USA or Mexico). A level 1 administration corresponds to a subdivision of a country
+which can be a state, territory, parish, or a province. As an example we have that California, Colorado, and New York are all level 1 administrations of the USA. Similarly, level 2 administrations are subdivisions of a level 
+1 administration. Orange County, Monterey County, and Napa County are all level 2 administrations that belong to California. 
+
+   A property file is a plain-text file that contains either area data, population data, or other relevant data related to the political divisions of a country at different administration levels. Properties files are located
+under org.eclipse.stem.internal.data\resources\data\country. There are four types of properties files :
+
+       Names property file :  This file defines the identifiers for every administrative division in a country at each level. For example, for the USA, at level 0 we would have "USA = United States". At level 1, we would have "US-CA = California" , "US-CO = Colorado", and "US-NY = New York". 
+At level 2, for Orange, Monterey, and Napa counties within California we have "US-CA-06059 = Orange County", "US-CA-06053 = Monterey County", and "US-CA-06055 = Napa County". There is a single names property
+file for every country. The corresponding names property file for the USA is USA_names.properties. For level 2 administrations, the five digits found on the identifiers (i.e.
+"06053" for identifier "US-CA-06053" are defined as follows : the leftmost two digits identify the level 1 administration ( "06" -> California ) while the remaining
+digits, which can be up to four, identify the level 2 administration ("053" -> Monterey County).       
+
+       Nodes property file : This file provides additional information about identifiers of administrative divisions. There is a nodes property file for each administration level. There is a fixed format that is used in these files and it is as follows :
+
+" # Format: Code = Name, ISO-3166-2 numeric code, Two letter code " For example, at level 0 for the USA we have "USA = United States, 840, US". At level 1, for California, Colorado, and New York we have :
+"US-CA = California, 06, CA" , "US-CO = Colorado, 08, CO", and  "US-NY = New York, 36, NY". The nodes property files corresponding to the USA are USA_0_node.properties, USA_1_node.properties, and USA_2_node.properties.
+
+       Area property file : This file contains area data (in square kilometers) for administrative divisions. There is an area property file for each administration level. In the case of the USA at level 0, we have "USA = 9161923".
+At level 1, we have "US-CA = 163695.57", "US-CO = 104093.57", and "US-NY = 54556.00" for California, Colorado and New York respectively. At level 2, for Orange, Monterey, and Napa counties within California 
+we have "US-CA-06059 = 2043.5006", "US-CA-06053 = 8603.9405", and "US-CA-06055 = 1952.8510". The area property files corresponding to the USA are USA_0_area.properties, USA_1_area.properties, and USA_2_area.properties.
+
+
+       Population property file : This file contains population data for administrative divisions. There is a population property file for each administration level.  In the case of the USA at level 0, we have "USA = 298444215".
+At level 1, we have "US-CA = 33871648 ", "US-CO = 4301261", and "US-NY = 18976457" for California, Colorado and New York respectively. At level 2, for Orange, Monterey, and Napa counties within California 
+we have "US-CA-06059 = 2846289", "US-CA-06053 = 401762", and "US-CA-06055 = 124279". The population property files corresponding to the USA are USA_0_human.properties, USA_1_human.properties, and USA_2_human.properties.
+
+	
+**Updating values in a property file**
+
+   To update a value in a property file you should follow a few simple steps. First, given that you know the name of the country and/or administrative division to be updated, look under org.eclipse.stem.internal.data\resources\data\country\<three letter identifier for the country> for the 
+folder that belongs to a given country. In the case of the USA, we would go to  org.eclipse.stem.internal.data\resources\data\country\USA where all the property files are located. Second, search in the names property file to find the identifier of the administration we want to update. Third,
+open the corresponding file (area, population, or node file) where the update will take place. Finally, search for the identifier and once found, update its value. As an example,
+lets say we want to update by increasing 100 square kilometers the area of Orange County which belongs to California, USA. Then, we would open org.eclipse.stem.internal.data\resources\data\country\USA\USA_names.properties and do a search for the identifier of "Orange County"
+which is  "US-CA-06059". Then, since we learn from the names property file that Orange County is a level 2 administration, we would open "org.eclipse.stem.internal.data\resources\data\country\USA\USA_2_area.properties"
+and do a new search for identifier "US-CA-06059". Our search will find ""US-CA-06059 = 2043.5006" Finally, we do the update by adding 100 square kilometers to the current value "US-CA-06059 = 2143.5006".
+
+    Once the updating has been done to the correct file(s),  one needs to run org.eclipse.stem.internal.data\resources\src\Main.java. By running Main.java we create a new serialized file that will take the changes into account.
+The new serialized file can be found under org.eclipse.stem.internal.data\temp\data\scenario\disease. Next time STEM II executes a scenario, it will load the new serialized file.
+
+
+**************************************************************************************************************************************************************************************************************************************************
+
+*An Introduction to STEM Map Files*
+
+STEM Maps 
+
+
+  Maps for STEM are XML files that follow a GML format. These files are located under org.eclipse.stem.geography\resources\data\geo\country\<three letter identifier for the country>. There can be multiple map files for a country, one for each administration level.
+As an example, for the USA we have the following two maps: USA_1_MAP.xml and USA_2_MAP.xml. According to Wikipedia, GML is an XML grammar defined by the Open Geospatial Consortium (OGC) to express geographical features. As an example, the set of GML elements that define
+Orange county are :
+
+//Sample taken from org.eclipse.stem.geography\resources\data\geo\country\USA\USA_2_MAP.xml
+
+...
+<gml:Polygon gml:id="US-CA-06053">
+<gml:outerBoundaryIs>
+<gml:LinearRing>
+<gml:posList>
+36.9186 -121.7019 36.9197 -121.6999 ... 36.9186 -121.7019
+</gml:posList>
+</gml:LinearRing></gml:outerBoundaryIs>
+</gml:Polygon>
+...
+
+**Updating a Map**    
+
+    To update a map, that is, to provide more accurate latitude and longitude data for a given location we follow a few steps. We find the identifier for the location
+we are trying to update. This step is similar to the step described for updating values in a property file. Once we have found it, we replace the latitute and longitude
+values contained within the <gml:postList> </gml:postList> tags. We need to make sure that the starting and ending latitute and longitude values are the same, otherwise it
+wont be accepted as a closed polygon. In the example above, note that for Monterey County ("US-CA-06053") the starting latitude and longitude values "36.9186 -121.7019" are the same as the ending ones
+"36.9186 -121.7019".
+
+**************************************************************************************************************************************************************************************************************************************************
+
+

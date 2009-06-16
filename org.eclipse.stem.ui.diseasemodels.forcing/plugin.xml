@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.1 2009/03/13 00:07:48 sedlund Exp $
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "org.eclipse.stem.diseasemodels.forcing.presentation.ForcingModelWizardID"
+      name = "%_UI_ForcingModelWizard_label"
+      class = "org.eclipse.stem.diseasemodels.forcing.presentation.ForcingModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/ForcingModelFile.gif">
+      <description>%_UI_ExampleModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "org.eclipse.stem.diseasemodels.forcing.presentation.ForcingEditorID"
+        name = "%_UI_ForcingEditor_label"
+        icon = "icons/full/obj16/ForcingModelFile.gif"
+        extensions = "forcing"
+        class = "org.eclipse.stem.diseasemodels.forcing.presentation.ForcingEditor" 
+        contributorClass="org.eclipse.stem.diseasemodels.forcing.presentation.ForcingActionBarContributor" >
+    </editor>
+  </extension>
+  <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.ui.diseasemodels.forcing.presentation.ForcingPropertyStringProviderAdapterFactory">
+     </startup>
+  </extension>
+</plugin>

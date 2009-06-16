@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.tests.util/src"
+    editDirectory="/org.eclipse.stem.tests.util/src" editorDirectory="/org.eclipse.stem.tests.util/src"
+    modelPluginID="org.eclipse.stem.tests.util" modelName="Testutility" nonNLSMarkers="true"
+    testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.java"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Decorators" basePackage="org.eclipse.stem.tests.util" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="decorators.ecore#/">
+    <genDataTypes ecoreDataType="decorators.ecore#//URI"/>
+    <genClasses ecoreClass="decorators.ecore#//TestEdgeDecorator1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute decorators.ecore#//TestEdgeDecorator1/nodeAURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute decorators.ecore#//TestEdgeDecorator1/nodeBURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute decorators.ecore#//TestEdgeDecorator1/edgeURI"/>
+    </genClasses>
+    <genClasses ecoreClass="decorators.ecore#//TestGraphDecorator1"/>
+    <genClasses ecoreClass="decorators.ecore#//TestNodeDecorator1"/>
+    <genClasses ecoreClass="decorators.ecore#//TestScenarioGraphDecorator1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute decorators.ecore#//TestScenarioGraphDecorator1/doubleValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute decorators.ecore#//TestScenarioGraphDecorator1/intValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute decorators.ecore#//TestScenarioGraphDecorator1/stringValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference decorators.ecore#//TestScenarioGraphDecorator1/sTEMTimeValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute decorators.ecore#//TestScenarioGraphDecorator1/booleanValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="decorators.ecore#//EdgeDecorator"/>
+    <genClasses image="false" ecoreClass="decorators.ecore#//GraphDecorator"/>
+    <genClasses image="false" ecoreClass="decorators.ecore#//NodeDecorator"/>
+  </genPackages>
+  <genPackages prefix="Labels" basePackage="org.eclipse.stem.tests.util" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="labels.ecore#/">
+    <genClasses ecoreClass="labels.ecore#//TestDynamicEdgeLabel">
+      <genOperations ecoreOperation="labels.ecore#//TestDynamicEdgeLabel/increment"/>
+    </genClasses>
+    <genClasses ecoreClass="labels.ecore#//TestDynamicLabel1">
+      <genOperations ecoreOperation="labels.ecore#//TestDynamicLabel1/increment"/>
+    </genClasses>
+    <genClasses ecoreClass="labels.ecore#//TestDynamicNodeLabel">
+      <genOperations ecoreOperation="labels.ecore#//TestDynamicNodeLabel/increment"/>
+    </genClasses>
+    <genClasses ecoreClass="labels.ecore#//TestIntegerLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//TestIntegerLabelValue/i"/>
+      <genOperations ecoreOperation="labels.ecore#//TestIntegerLabelValue/increment"/>
+    </genClasses>
+    <genClasses ecoreClass="labels.ecore#//TestLabel"/>
+    <genClasses ecoreClass="labels.ecore#//TestStaticEdgeLabel"/>
+    <genClasses ecoreClass="labels.ecore#//TestStaticNodeLabel"/>
+  </genPackages>
+</genmodel:GenModel>

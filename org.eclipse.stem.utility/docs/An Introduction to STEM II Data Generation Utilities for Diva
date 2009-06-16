@@ -1,0 +1,503 @@
+
+Jan - 11 - 2007
+
+**************************************************************************************************************************************************************************************************************************************************
+
+*An Introduction to STEM II Data Generation Utilities for Diva*
+
+
+
+     Data generation for STEM II was done using a set of custom software utilities and data generators written in Java for the purpose. They can be found 
+under org.eclipse.stem.utility\src\generators. These generators were used to create STEM's properties files and maps for all countries in the Diva 
+data set (http://www.cipotato.org/DIVA/data/DataServer.htm). There are multiple steps involved in the process of data generation. Before running a data 
+generator there are a few intermediate steps to be done by custom utilities found in org.eclipse.stem.utility\src\generators. Furthermore, the intermediate 
+steps vary according to the particular document (i.e. area properity file, nodes property file, or map)  we want to generate. So, we can think of data 
+generation for STEM II  as consisting of a set of data generation processes where each process consists of a set of steps. Overall, we can identify the
+following five data generation processes :
+
+
+      --Generation of Area Properties Files 
+
+      --Generation of Population Properties Files 
+
+      --Generation of Nodes Properties Files 
+
+      --Generation of Names Properties Files 
+
+      --Map Generation
+
+
+     Each process will be explained in detail, but before, we have to mention our data sources and the nature of the data we are dealing with.
+
+
+**Data Sources for STEM II**
+
+      Our main source of data was DIVA-GIS (http://www.cipotato.org/DIVA/data/DataServer.htm), which is a repository for maps and GIS data. All DIVA-GIS
+data is free and in the public domain. The data files are in shapefile format (http://en.wikipedia.org/wiki/Shapefile).  According to Wikipedia, "The ESRI 
+Shapefile is a popular geospatial vector data format for geographic information systems software. It is developed and regulated by ESRI as a (mostly) open 
+specification for data interoperability among ESRI and other software products. A "shapefile" commonly refers to a collection of files with ".shp", ".shx", 
+".dbf" " All shapefiles downloaded from DIVA-GIS are zip compressed. Before getting to data generation, there are two steps to be done : 
+
+
+***Uncompressing***
+
+     The first step is to unzip all the downloaded DIVA-GIS shapefiles by using a compressing software like Winzip or 7-zip.
+
+***Extraction****
+
+     The second step is to extract data for every possible shapefile into a plain text document. To do this, we run org.eclipse.stem.utility\src\generators\WorldReader.java. 
+WorldReader takes as an argument a list will all the files we want to extract data from. Such a list looks as follows :
+
+
+//Taken from org.eclipse.stem.utility\dataMigration\input\world\World.txt
+...
+#THIS FILE IS THE INPUT TO WorldReader.java
+#IT CONSISTS OF PAIRS OF THE FORM : [LOCATION;FILENAME]
+C:\diva\Africa\Algeria;C:\diva\Africa\Algeria\Algeria.txt
+C:\diva\Africa\Angola;C:\diva\Africa\Angola\Angola.txt
+C:\diva\Africa\Benin;C:\diva\Africa\Benin\Benin.txt
+C:\diva\Africa\BurkinaFaso;C:\diva\Africa\BurkinaFaso\BurkinaFaso.txt	
+C:\diva\Africa\Burundi;C:\diva\Africa\Burundi\Burundi.txt	
+...
+
+     The result is a set of plain-text files containing GIS data. We call it a Diva file. Next, we explain how a Diva file looks like.
+
+***Overview of Diva Files***
+
+A diva file is a simple-text file that contains GIS data and that looks as follows :
+
+// Extracted from Argentina.txt
+
+// Sample level 0 data
+ARG,ARGENTINA,-0.5559767,-1.0146881,-0.5559825,-1.0147113, ...
+
+// Sample level 1 data
+ARG,ARGENTINA,BUENOS AIRES,-0.70200574,-1.0840372, ...
+
+// Sample level 2 data
+ARG,ARGENTINA,JUJUY,Santa Catalina,-0.38024858,-1.1561186, ...
+
+    In other words, it is just a set of rows with location data (i.e. ARG,ARGENTINA,JUJUY,Santa Catalina) and followed by polygon data corresponding
+to a geographical location (i.e. -0.38024858,-1.1561186,-0.38023695,-1.1561148,-0.38024002,-1.1560922,-0.38024685,-1.1560414, ...). One restriction about
+the Diva files is that data has to appear in the file based on administration level. In other words, we want to make sure that all level 0 data comes before
+the level 1 data and that all level 2 data comes after level 0 and level 1 data respectively. The data generation utilities are sensitive to the ordering of
+data based on the administration level. A data generator goes through internal transitions based on the administration level of the data it is currently processing.
+Internal transitions of the data generator must follow the pattern : Level_0 -> Level_1 -> Level_2. Otherwise, if data does not conform to the Level_0 -> Level_1 -> Level_2 rule, 
+unexpected behavior might arise from the data generation utilities.
+
+
+**Grouping**
+
+      After we uncompress and extract shapefiles into plain text documents, we notice that for some files the data for a single administration is scattered all over
+the data file. As an example, for Wisconsin, we dont find all the rows of data for it consecutively, but scattered all over, as follows :
+
+  USA,United States, Wisconsin, 0.7917936,-1.5175203 ... 
+  USA,United States,Wisconsin,0.81974524,-1.5800693 ...
+  USA,United States, New Hampshire,0.79072654,-1.2406557  ...
+  USA,United States, Michigan,0.7881631,-1.5015621 ...
+  ...
+  USA,United States, Wisconsin, ...
+    ... 		
+  USA,United States, Wisconsin, ...
+    ...
+       and so on...
+
+    We want to group all data that belongs to Wisconsin consecutively. By doing this, we will produce a polygon with unique ID for Wisconsin instead of multiple 
+polygons with same ID. By definition, polygon IDs should be unique. We achievethe grouping by running org.eclipse.stem.utility\src\generators\GroupGenerator.java. 
+The resulting "grouped" data file will look as follows :
+
+USA,United States,Kentucky,0.6370049,-1.5618098 ...
+USA,United States,Wisconsin,0.8216533,-1.5777862 ...
+USA,United States,Wisconsin,0.81974524,-1.5800693 ...
+USA,United States,Wisconsin,0.8127316,-1.5780942 ...
+USA,United States,Wisconsin,0.8175863,-1.580813 ...
+USA,United States,Wisconsin,0.7917936,-1.5175203 ...
+USA,United States,Wisconsin,0.7864648,-1.5271649 ...
+USA,United States,Minnesota,0.8585817,-1.6607387 ...
+
+     Running GroupGenerator will produce as output files with the "_GROUPED" suffix attached. So for example, if the original data file for the USA is "USA.txt", 
+then the corresponding grouped file will have name "USA_GROUPED.txt"
+
+NOTE : From this introduction we assume that all the generators and utilities are located under  org.eclipse.stem.utility\src\generators\ except where explicitly 
+mentioned otherwise.
+
+**Lexicographic Sorting**
+
+    After we have run GroupGenerator, we want to run a pair of utilities that will do a lexicographic sorting of the  data files at administration levels 1 and 2. 
+    These utilities are : Admin1LexSorter and Admin2LexSorter. Next, we explain both utilities in detail. The files produced by these utilities will be located under 
+    org.eclipse.stem.utility\dataMigration\input\sort\<Three letter identifier for country>
+
+***Admin1LexSorter: Lexicographic Sorting of Level 1 Administrations***
+ 
+     The goal of this program is to go through the source data file (i.e. USA.txt or USA_GROUPED.txt), do a lexicographic sorting, and produce as a result a file where 
+each row corresponds to a level 1 administration by lexicographic ordering. As an example, for the case of Argentina, the result would looks like this :
+
+1:AR-B:AR:BUENOS AIRES
+2:AR-C:AR:BUENOS AIRES D.F.
+3:AR-K:AR:CATAMARCA
+4:AR-H:AR:CHACO
+5:AR-U:AR:CHUBUT
+6:AR-X:AR:CORDOBA
+7:AR-W:AR:CORRIENTES
+8:AR-E:AR:ENTRE RIOS
+9:AR-P:AR:FORMOSA
+10:AR-Y:AR:JUJUY
+11:AR-L:AR:LA PAMPA
+12:AR-F:AR:LA RIOJA
+13:AR-M:AR:MENDOZA
+14:AR-N:AR:MISIONES
+15:AR-Q:AR:NEUQUEN
+16:AR-R:AR:RIO NEGRO
+17:AR-A:AR:SALTA
+18:AR-J:AR:SAN JUAN
+19:AR-D:AR:SAN LUIS
+20:AR-Z:AR:SANTA CRUZ
+21:AR-S:AR:SANTA FE
+22:AR-G:AR:SANTIAGO DEL ESTERO
+23:AR-V:AR:TIERRA DEL FUEGO
+24:AR-T:AR:TUCUMAN
+
+   The name of the resulting lexicographically-sorted file for Argentina is ARG_ADMIN1_LEX.txt and found under org.eclipse.stem.utility\dataMigration\input\sort\ARG 
+
+***Admin2LexSorter: Lexicographic Sorting of Level 2 Administrations***
+
+      Similar to Admin2LexSorter, except that now we sort lexicographically based on a the concatenation of the level 1 and level 2 administrations. This concatenation has 
+the effect of sorting all level 2 administrations within its level 1 container. As an example, the result of sorting all level 2 administrations that belong to the province 
+(level 1 administration) of La Rioja in Argentina, we get :
+
+// Extracted from org.eclipse.stem.utility\dataMigration\input\sort\ARG_ADMIN2_LEX.txt
+...
+1:AR:ARG:ARGENTINA:LA RIOJA:Arauco
+2:AR:ARG:ARGENTINA:LA RIOJA:Capital
+3:AR:ARG:ARGENTINA:LA RIOJA:Castro Barros
+4:AR:ARG:ARGENTINA:LA RIOJA:Chilecito
+5:AR:ARG:ARGENTINA:LA RIOJA:Famatina
+6:AR:ARG:ARGENTINA:LA RIOJA:General Angel V. Pesaloza
+7:AR:ARG:ARGENTINA:LA RIOJA:General Belgrano
+8:AR:ARG:ARGENTINA:LA RIOJA:General Juan F. Quiroga
+9:AR:ARG:ARGENTINA:LA RIOJA:General Lamadrid
+10:AR:ARG:ARGENTINA:LA RIOJA:General Lavalle
+11:AR:ARG:ARGENTINA:LA RIOJA:General Ocampo
+12:AR:ARG:ARGENTINA:LA RIOJA:General San Martin
+13:AR:ARG:ARGENTINA:LA RIOJA:General Sarmiento
+14:AR:ARG:ARGENTINA:LA RIOJA:Gobernador Gordillo
+15:AR:ARG:ARGENTINA:LA RIOJA:Independencia
+16:AR:ARG:ARGENTINA:LA RIOJA:Rosario Vera Penaloza
+17:AR:ARG:ARGENTINA:LA RIOJA:San Blas de los Sauces
+18:AR:ARG:ARGENTINA:LA RIOJA:Sanagasta
+...
+      
+Similarly, the province of Cordoba in Argentina, the sorting produces ;
+
+// Extracted from org.eclipse.stem.utility\dataMigration\input\sort\ARG_ADMIN2_LEX.txt
+...
+1:AR:ARG:ARGENTINA:MENDOZA:Capital
+2:AR:ARG:ARGENTINA:MENDOZA:General Alvear
+3:AR:ARG:ARGENTINA:MENDOZA:Godoy Cruz
+4:AR:ARG:ARGENTINA:MENDOZA:Guaymallen
+5:AR:ARG:ARGENTINA:MENDOZA:Junin
+6:AR:ARG:ARGENTINA:MENDOZA:La Paz
+7:AR:ARG:ARGENTINA:MENDOZA:Las Heras
+8:AR:ARG:ARGENTINA:MENDOZA:Lavalle
+9:AR:ARG:ARGENTINA:MENDOZA:Lujan
+10:AR:ARG:ARGENTINA:MENDOZA:Maipu
+11:AR:ARG:ARGENTINA:MENDOZA:Malarge
+12:AR:ARG:ARGENTINA:MENDOZA:Rivadavia
+13:AR:ARG:ARGENTINA:MENDOZA:San Carlos
+14:AR:ARG:ARGENTINA:MENDOZA:San Martin
+15:AR:ARG:ARGENTINA:MENDOZA:San Rafael
+16:AR:ARG:ARGENTINA:MENDOZA:Sata Rosa
+17:AR:ARG:ARGENTINA:MENDOZA:Tunuyan
+18:AR:ARG:ARGENTINA:MENDOZA:Tupungato
+...      
+
+*Other Sources of Data Used for Data Generation*
+      
+**Area and Population Data : GeoHive and CityPopulation**
+
+   Most of the area and population data we use was downloaded from GeoHive (http://www.geohive.com/default1.aspx). GeoHive 
+is a site with geopolitical data and statistics on the human population. However, we also found data at City Population (http://www.citypopulation.de/).
+City Population's site provides global population statistics.
+
+
+**ISO 3166 Data**
+
+   The main source of ISO 3166 data is an official ISO 3166 database purchased from ISO (International Organization
+for Standardization). The database contains data for both ISO 3166-1 and ISO 3166-2.
+
+**Lexicographically Sorted Data**
+
+   This is a set of data files generated by running Admin1LexSorter and Admin2LexSorter. This data will be useful when creating 
+identifiers for each location during the data generation process.
+
+**URLs**
+
+   This is the set of data files containing URLs for every data we found online. We kept track of all the sources of our data and all of them
+are accounted for. For each country, there is a corresponding URL file found under org.eclipse.stem/dataMigration/input/urls. A URL file consists 
+of rows of the form : KEYWORD:URL For example, for the country of Irak, its corresponding URL file looks like :
+
+// Extracted from org.eclipse.stem/dataMigration/input/urls
+GEOHIVE*http://www.xist.org/cntry/iraq.aspx
+WIKI*http://en.wikipedia.org/wiki/Irak
+CITYPOP*http://en.wikipedia.org/wiki/Irak
+DIVA*http://www.cipotato.org/DIVA/data/DataServer.asp?AREA=IRQ&THEME=_adm
+CIA*https://www.cia.gov/cia/publications/factbook/geos/iz.html
+      
+      
+*Data Generators*
+
+**Introduction**
+
+   A data generator is a simple Java program that takes as input a file or a set of files from the Diva set and produces as output a property file for STEM.
+As it processes data, a generator goes through transitions according to the administrative level of the data that it is currently processing. It is expected
+that the level of data will follow the pattern of transitions : Level_0 -> Level_1 -> Level_2. We now explain the function of each data generator.
+ 
+**Generation of Names Properties Files**
+   
+      To generate a name property file, we run org.eclipse.stem.utility\src\generators\NameGenerator.java. After running NameGenerator, the result is a 
+new name property file for a given country. The corresponding name file for Argentina looks as follows :
+
+// Extracted from C:\stemII\org.eclipse.stem.internal.data\resources\data\country\AGO\AGO_names.properties.
+...
+# Level 1 (admin 1 = e.g., state)
+AO-BGO = BENGO
+AO-BGU = BENGUELA
+AO-BIE = BIE
+AO-CAB = CABINDA
+AO-CCU = CUANDO CUBANGO
+...
+
+      The purpose of a names property file is to define the identifiers for every administrative division in a country at each level.
+A single names property file will be generated for every country. For more information on STEM's properties files, please read "An Introduction To STEM Properties Files" 
+found at org.eclipse.stem.utility\docs.
+      
+**Generation of Nodes Properties Files**
+
+     To generate a node property file, we run org.eclipse.stem.utility\src\generators\NodeGenerator.java. After running NodeGenerator, the result is a 
+new node property file for a given country. For a single country, a node property file will be generated for each administrative level. For Argentina, the corresponding node
+property files produced will be :
+
+ARG_0_node.properties
+ARG_1_node.properties
+ARG_2_node.properties
+
+      A sample node property file for Argentina looks as follows :
+           
+// Extracted from org.eclipse.stem.internal.data\resources\data\country\ARG_1_node.properties
+...
+AR-B = BUENOS AIRES, 01, B
+AR-C = BUENOS AIRES D.F., 02, C
+AR-K = CATAMARCA, 03, K
+AR-H = CHACO, 04, H
+AR-U = CHUBUT, 05, U
+AR-X = CORDOBA, 06, X
+AR-W = CORRIENTES, 07, W
+AR-E = ENTRE RIOS, 08, E
+AR-P = FORMOSA, 09, P
+AR-Y = JUJUY, 10, Y
+AR-L = LA PAMPA, 11, L
+AR-F = LA RIOJA, 12, F
+AR-M = MENDOZA, 13, M
+AR-Q = NEUQUEN, 15, Q
+AR-R = RIO NEGRO, 16, R
+AR-A = SALTA, 17, A
+AR-J = SAN JUAN, 18, J
+AR-D = SAN LUIS, 19, D
+AR-Z = SANTA CRUZ, 20, Z
+AR-S = SANTA FE, 21, S
+AR-G = SANTIAGO DEL ESTERO, 22, G
+AR-V = TIERRA DEL FUEGO, 23, V
+AR-T = TUCUMAN, 24, T
+AR-N = MISIONES, 14, N
+...            
+
+	 The purpose of a node property file is to provide additional information about identifiers of administrative divisions. For more
+information on STEM's properties files, please read "An Introduction To STEM Properties Files" found at org.eclipse.stem.utility\docs.
+
+    
+**Generation of Population Properties Files**
+
+		There are two intermediate steps to be done before generating a population property file. First, we have to run both, Admin1LexSorter and Admin2LexSorter to generate a set of files were
+administrations for a given country are sorted lexicographically as was previously explained in this document. Next, we run org.eclipse.stem.utility.generators\PopulationProfiler.java.
+PopulationProfiler.java is a program that creates a profile of all the level 1 administrations of a country based on population and on the number of
+level 2 administrations that belong or are contained in it. This is a necessary step since we are missing some exact population data and by knowing the relationship of level 2 administration to its 
+container we can easily compute an approximate population value. Finally, we run org.eclipse.stem.utility\PopulationGenerator.java to genererate a population property file. For a single country, 
+a population property file will be generated for each administrative level. For Argentina, the corresponding population property files produced will be :
+
+ARG_0_human_2006.properties
+ARG_1_human_2006.properties
+ARG_2_human_2006.properties
+		
+		 A sample node property file for Argentina looks as follows :
+
+// Extracted from org.eclipse.stem.internal.data\resources\data\country\ARG_1_human_2006.properties
+...
+# The population identifier
+POPULATION = human
+
+# State/Province
+AR-B = 13827203
+AR-C = 2776138
+AR-K = 334568
+AR-H = 984446
+AR-U = 413237
+AR-X = 3066801
+AR-W = 930991
+AR-E = 1158147
+AR-P = 486559
+AR-Y = 611888
+AR-L = 299294
+AR-F = 289983
+AR-M = 1579651
+AR-Q = 474155
+...
+
+    The purpose of a population property file is to provide population data of administrative divisions. For more 
+information on STEM's properties files, please read "An Introduction To STEM Properties Files" found at org.eclipse.stem.utility\docs.
+    
+
+**Generation of Area Properties Files**
+
+	In a similar way to the population generation process, there is an intermediate step to be done before generating an area property file. We have to run
+org.eclipse.stem.utility\PolygonAreaGenerator.java to generate a set of files with areas in polygon units for every administration in a country. This is 
+a necessary step since we are missing some exact area data. Having polygon area values (in polygon units) helps to compute an approximate area value. Finally, 
+we run org.eclipse.stem.utility\AreaGenerator.java to genererate an area property file. For a single country, an area property file will be generated for each 
+administrative level.  For Argentina, the corresponding area property files produced will be :
+
+ARG_0_area.properties
+ARG_1_area.properties
+ARG_2_area.properties
+		
+		 A sample area property file for Argentina looks as follows :
+
+// Extracted from org.eclipse.stem.internal.data\resources\data\country\ARG_1_area.properties
+...
+# This is the source of the data
+SOURCE = http://www.xist.org/cntry/argentina.aspx
+# SOURCE = http://en.wikipedia.org/wiki/Argentina
+
+# State/Province
+AR-B = 307571
+AR-C = 200
+AR-K = 102602
+AR-H = 99633
+AR-U = 224686
+AR-X = 165321
+AR-W = 88199
+AR-E = 78781
+AR-P = 72066
+AR-Y = 53219
+AR-L = 143440
+AR-F = 89680
+AR-M = 148827
+AR-Q = 94078
+AR-R = 203013
+...
+
+    The purpose of an area property file is to provide area data of administrative divisions. For more 
+information on STEM's properties files, please read "An Introduction To STEM Properties Files" found at org.eclipse.stem.utility\docs.
+    
+
+**Map Generation**
+  
+     To generate maps we run an instance of org.eclipse.stem.utility\src\generators\GMLGenerator. GMLGenerator will create and XML file for each country in our dataset.
+The maps are created using GML (Geography Markup Language) which is an XML grammar. According to Wikipedia, " The Geography Markup Language (GML) is the XML grammar defined by the Open Geospatial Consortium (OGC) to express 
+geographical features. GML serves as a modeling language for geographic systems as well as an open interchange format for geographic transactions on the Internet."  All maps are found under
+org.eclipse.stem.geography\resources\data\geo\country\. There can be more than one map for each country. In fact, there is a map for every administrative level for which we have polygon data available.
+For Argentina, there are three corresponding maps :
+
+	ARG_0_MAP.xml
+	ARG_1_MAP.xml
+	ARG_2_MAP.xml
+	
+As an example, for Armenia the contents of the level 1 map looks as follows :
+
+# Taken from ARM_1_MAP.xml
+<Map>
+
+<title>ARM Level 1 Map</title>
+
+<subTitle>Administrative Boundaries</subTitle>
+
+<updated>Tue Nov 07 16:57:55 PST 2006 </updated>
+
+	<entry>
+
+	<georss:where>
+
+	  <gml:Polygon gml:id="AM-ER">
+
+	    <gml:outerBoundaryIs>
+
+	       <gml:LinearRing>
+
+	         <gml:posList>
+
+		         41.301422 45.004055 ... 41.301624 45.000002 41.301422 45.004055 
+		
+   	        </gml:posList>
+
+          </gml:LinearRing>
+
+       </gml:outerBoundaryIs>
+
+     </gml:Polygon>
+
+    </georss:where>
+
+   </entry>
+
+</Map>
+
+
+**Putting It All Together : running Properties Generator**
+
+   To be able to run properties files and maps we have developed a program whose purpose is to run all the generators on a given list of
+countries. To do this, we run org.eclipse.stem.utility/src/generators/PropertiesGenerator.java. The generator will go through each single
+country in the list and do all necessary work. The main logic for PropertiesGenerator is shown next :
+
+
+		...
+		final int CONFIG_FILE = 0;
+		final int PARAMS = 1;
+
+		if (args.length < PARAMS) {
+			System.out.println("--Wrong arguments--"); //$NON-NLS-1$
+			System.out
+					.println("\tTo run, please provide the following argument(s) : "); //$NON-NLS-1$
+			System.out.println("\t\t Configuration file"); //$NON-NLS-1$
+			System.exit(1);
+		}
+
+		// Generate the names.properties files for each country.
+		NameGenerator nameGen = new NameGenerator(args[CONFIG_FILE]);
+		nameGen.run();
+
+		// Run garbage collection
+		System.gc();
+
+		// Generate the population.properties files for each country.
+		PopulationGenerator popGen = new PopulationGenerator(args[CONFIG_FILE]);
+		popGen.run();
+
+		// Run garbage collection
+		System.gc();
+
+		// Generate the area.properties files for each country.
+		AreaGenerator areaGen = new AreaGenerator(args[CONFIG_FILE]);
+		areaGen.run();
+
+		// Run garbage collection
+		System.gc();
+
+		// Generate the node.properties files for each country.
+		NodeDataGenerator nodeDataGen = new NodeDataGenerator(args[CONFIG_FILE]);
+		nodeDataGen.run();
+
+		// Run garbage collection
+		System.gc();
+
+		// Generate the GML files for each country.
+		GMLGenerator gmlGen = new GMLGenerator(args[CONFIG_FILE]);
+		gmlGen.run();
+		...

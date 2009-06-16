@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="%geView"
+            icon="icons/ge.gif"
+            category="org.eclipse.stem.ui.views"
+            class="org.eclipse.stem.ui.ge.views.GEView"
+            id="org.eclipse.stem.ui.views.ge">
+      </view>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.stem.ui.preferences.VisualizationPreferencePage"
+            class="org.eclipse.stem.ui.ge.views.GEPreferencePage"
+            id="org.eclipse.stem.ui.ge.views.GEPreferencePage"
+            name="%gePPage"/>
+      <page
+            category="org.eclipse.stem.ui.ge.views.GEPreferencePage"
+            class="org.eclipse.stem.ui.ge.views.GEAdvancedPreferencePage"
+            id="org.eclipse.stem.ui.ge.views.GEAdvancedPreferencePage"
+            name="%geAdvPPage"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="org.eclipse.stem.ui.ge.views.PreferenceInitializer"/>
+   </extension>
+   <extension
+         id="org.eclipse.stem.ge"
+         name="%geUnusedPPage"
+         point="org.eclipse.ui.preferencePages">
+   </extension>
+   
+
+</plugin>

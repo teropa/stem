@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.stem.util.loggers;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-Activator: org.eclipse.stem.util.loggers.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.birt.chart.engine;visibility:=reexport,
+ org.eclipse.birt.core.ui,
+ org.eclipse.stem.ui,
+ org.eclipse.stem.diseasemodels,
+ org.eclipse.stem.jobs
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.stem.util.loggers,
+ org.eclipse.stem.util.loggers.views
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

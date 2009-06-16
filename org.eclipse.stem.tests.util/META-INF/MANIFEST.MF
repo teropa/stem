@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.stem.tests.util; singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.stem.tests.util.decorators.provider.TestutilityEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.stem.tests.util,
+ org.eclipse.stem.tests.util.decorators,
+ org.eclipse.stem.tests.util.decorators.impl,
+ org.eclipse.stem.tests.util.decorators.presentation,
+ org.eclipse.stem.tests.util.decorators.provider,
+ org.eclipse.stem.tests.util.decorators.util,
+ org.eclipse.stem.tests.util.labels,
+ org.eclipse.stem.tests.util.labels.impl,
+ org.eclipse.stem.tests.util.labels.presentation,
+ org.eclipse.stem.tests.util.labels.provider,
+ org.eclipse.stem.tests.util.labels.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.stem.definitions
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Import-Package: org.eclipse.emf.ecore.provider

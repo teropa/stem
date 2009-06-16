@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <wizard
+      id = "org.eclipse.stem.diseasemodels.standard.presentation.StandardModelWizardID"
+      name = "%_UI_StandardModelWizard_label"
+      class = "org.eclipse.stem.diseasemodels.standard.presentation.StandardModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/StandardModelFile.gif">
+      <description>%_UI_StandardModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+    <wizard
+          category="org.eclipse.stem.ui.wizards.stemcategory"
+          class="org.eclipse.stem.ui.wizards.NewDiseaseWizard"
+          hasPages="true"
+          icon="icons/full/obj16/StandardModelFile.gif"
+          id="org.eclipse.stem.diseasemodels.standard.presentation.StandardModelWizardID"
+          name="%_UI_Disease"/>
+    <wizard
+          category="org.eclipse.stem.ui.wizards.stemcategory"
+          class="org.eclipse.stem.ui.wizards.NewInfectorWizard"
+          hasPages="true"
+          icon="icons/full/obj16/StandardModelFile.gif"
+          id="org.eclipse.stem.diseasemodels.standard.presentation.StandardModelInfectorID"
+          name="%_UI_Infector"/>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "org.eclipse.stem.diseasemodels.standard.presentation.StandardEditorID"
+        name = "%_UI_StandardEditor_label"
+        icon = "icons/full/obj16/StandardModelFile.gif"
+        extensions = "standard"
+        class = "org.eclipse.stem.diseasemodels.standard.presentation.StandardEditor" 
+        contributorClass="org.eclipse.stem.diseasemodels.standard.presentation.StandardActionBarContributor" >
+    </editor>
+  </extension>
+  <extension
+        point="org.eclipse.ui.views">
+     <view
+           category="org.eclipse.stem.ui.views"
+           class="org.eclipse.stem.ui.views.disease.DiseaseView"
+           icon="icons/full/custom16/disease.gif"
+           id="org.eclipse.stem.ui.views.diseases"
+           name="%_UI_DView_Name"/>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension targetID="org.eclipse.stem.ui.STEMDesignerPerspective">
+        <view
+              closeable="true"
+              id="org.eclipse.stem.ui.views.diseases"
+              moveable="true"
+              relationship="stack"
+              relative="org.eclipse.stem.ui.views.decorators"
+              showTitle="true"
+              standalone="true"
+              visible="true"/>
+        <viewShortcut id="org.eclipse.stem.ui.views.diseases"/>
+     </perspectiveExtension>
+  </extension>
+  <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.ui.adapters.newmodifierpage.DiseaseNewModifierPageAdapterFactory"></startup>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           locationURI="menu:org.eclipse.stem.ui.menu.newwizards?after=additions">
+        <command
+              commandId="org.eclipse.stem.ui.diseasemodels.command.wiz.disease"
+              icon="icons/full/custom16/disease.gif"
+              label="%_UI_DiseaseModelWizard_label"
+              style="push"
+              tooltip="%_UI_ModelModelWizard_description">
+        </command>
+        <command
+              commandId="org.eclipse.stem.ui.diseasemodels.command.wiz.infector"
+              icon="icons/full/custom16/infector.gif"
+              label="%_UI_InfectorWizard_label"
+              style="push"
+              tooltip="%_UI_InfectorWizard_description">
+        </command>
+     </menuContribution>
+     <menuContribution
+           locationURI="toolbar:org.eclipse.stem.ui.toolbar.newwizards?after=additions">
+        <command
+              commandId="org.eclipse.stem.ui.diseasemodels.command.wiz.disease"
+              icon="icons/full/custom16/disease.gif"
+              label="%_UI_DiseaseModelWizard_label"
+              style="push"
+              tooltip="%_UI_ModelModelWizard_description">
+        </command>
+        <command
+              commandId="org.eclipse.stem.ui.diseasemodels.command.wiz.infector"
+              icon="icons/full/custom16/infector.gif"
+              label="%_UI_InfectorWizard_label"
+              style="push"
+              tooltip="%_UI_InfectorWizard_description">
+        </command>
+     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           defaultHandler="org.eclipse.stem.ui.wizards.NewDiseaseWizard$NewDiseaseWizardCommandHandler"
+           description="%_UI_ModelModelWizard_description"
+           id="org.eclipse.stem.ui.diseasemodels.command.wiz.disease"
+           name="%_UI_DiseaseModelWizard_label">
+     </command>
+     <command
+           defaultHandler="org.eclipse.stem.ui.wizards.NewInfectorWizard$NewInfectorWizardCommandHandler"
+           description="%_UI_InfectorWizard_description"
+           id="org.eclipse.stem.ui.diseasemodels.command.wiz.infector"
+           name="%_UI_InfectorWizard_label">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.stem.ui.colorproviders">
+     <coloprovider
+           factory="org.eclipse.stem.ui.adapters.color.IntensityColorsLabelsMappingColorProviderAdapterFactory"
+           name="Labels Colors Mapping"
+           provider="org.eclipse.stem.ui.adapters.color.IntensityColorsLabelsMappingColorProvider">
+     </coloprovider>
+     <coloprovider
+           factory="org.eclipse.stem.ui.adapters.color.SEIRRelativeValueColorProviderAdapterFactory"
+           name="&quot;Rainbow&quot; Relative Values"
+           provider="org.eclipse.stem.ui.adapters.color.SEIRRelativeValueColorProvider">
+     </coloprovider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.navigator.viewer">
+     <viewerContentBinding
+           viewerId="org.eclipse.stem.ui.views.STEMProjectExplorer2">
+        <includes>
+           <contentExtension
+                 pattern="org.eclipse.stem.ui.views.explorer.diseasemodels">
+           </contentExtension>
+           <contentExtension
+                 pattern="org.eclipse.stem.ui.views.explorer.diseasemodelsinstances">
+           </contentExtension>
+           <contentExtension
+                 pattern="org.eclipse.stem.ui.views.explorer.recordedcsvinstances">
+           </contentExtension>
+        </includes>
+     </viewerContentBinding>
+  </extension>
+  <extension
+        point="org.eclipse.ui.navigator.navigatorContent">
+     <navigatorContent
+           contentProvider="org.eclipse.stem.ui.views.explorer.DiseaseModelTreeNodeContentProvider"
+           id="org.eclipse.stem.ui.views.explorer.diseasemodels"
+           labelProvider="org.eclipse.stem.ui.views.explorer.DiseaseModelTreeNodeLabelProvider"
+           name="%_UI_Disease_Models">
+        <triggerPoints>
+           <adapt
+                 type="org.eclipse.core.resources.IProject">
+           </adapt>
+        </triggerPoints>
+        <possibleChildren>
+           <instanceof
+                 value="org.eclipse.stem.ui.views.explorer.IdentifiableTreeNode">
+           </instanceof>
+        </possibleChildren>
+     </navigatorContent>
+     <navigatorContent
+           contentProvider="org.eclipse.stem.ui.views.explorer.DiseaseModelInstanceTreeNodeContentProvider"
+           id="org.eclipse.stem.ui.views.explorer.diseasemodelsinstances"
+           labelProvider="org.eclipse.stem.ui.views.explorer.DiseaseModelInstanceTreeNodeLabelProvider"
+           name="%_UI_DM_Instances">
+        <triggerPoints>
+           <adapt
+                 type="org.eclipse.stem.ui.views.explorer.DiseaseModelTreeNode">
+           </adapt>
+        </triggerPoints>
+        <possibleChildren>
+           <instanceof
+                 value="org.eclipse.stem.ui.views.explorer.IdentifiableTreeNode">
+           </instanceof>
+        </possibleChildren>
+     </navigatorContent>
+     <navigatorContent
+           contentProvider="org.eclipse.stem.ui.views.explorer.RecordedCSVInstanceTreeNodeContentProvider"
+           id="org.eclipse.stem.ui.views.explorer.recordedcsvinstances"
+           labelProvider="org.eclipse.stem.ui.views.explorer.RecordedCSVInstanceTreeNodeLabelProvider"
+           name="%_UI_Recorded_CSV ">
+        <triggerPoints>
+           <instanceof
+                 value="org.eclipse.stem.ui.views.explorer.RecordedTreeNode">
+           </instanceof>
+        </triggerPoints>
+        <possibleChildren>
+           <instanceof
+                 value="org.eclipse.stem.ui.views.explorer.RecordedCSVInstanceTreeNode">
+           </instanceof>
+        </possibleChildren>
+     </navigatorContent>
+  </extension>    
+</plugin>

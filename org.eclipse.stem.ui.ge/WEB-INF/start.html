@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Start STEM - GoogleEarth Display</title>
+</head>
+<body>
+<h2><center>STEM - GoogleEarth Display</center></h2>
+<hr><br>
+This will cause a request to be sent to GoogleEarth to read 
+the next KML file from the specified folder once 
+every N seconds.  If no more KML files exist, it will either
+wait or start over from the beginning.
+<hr><br>  
+<form method=POST action="/STEM/start">
+KML Folder: 
+<input type=text name=folder value="/tmp/ge"  
+       size=30 maxlength=40 > <br>
+<p>
+Options:<br>
+Wait for new files: 
+<input type=text name=wait value="y" size=1 maxlength=1>
+<p>
+
+Wait interval (seconds): 
+<input type=text name=interval value="2" size=1 maxlength=2>
+<p>
+<input type=submit value="Start" >
+</form>
+<br>
+<hr>
+<p>Specify the folder that contains the KML files generated 
+by STEM. The folder must be accessable from the Web server.
+<p>
+You must have previously installed GoogleEarth on your Windows XP system.
+ <a href="http://earth.google.com/">http://earth.google.com/</a>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="STEM (Incubation)" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/org.eclipse.stem.ui/branding/ohf64_64_32.gif"/>
+      <text>
+         Spatio-Temporal Epidemological/Event Modeler (STEM)
+      </text>
+   </aboutInfo>
+
+   <configIni use="default" path="plugin_customization.ini">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgs>-Xms400M -Xmx600M</vmArgs>
+   </launcherArgs>
+
+   <windowImages i16="/org.eclipse.stem.ui/branding/ohf16_16_32.gif" i32="/org.eclipse.stem.ui/branding/ohf32_32_32.gif" i48="/org.eclipse.stem.ui/branding/ohf48_48_32.gif" i64="/org.eclipse.stem.ui/branding/ohf64_64_32.gif" i128="/org.eclipse.stem.ui/branding/ohf128_128_32.gif"/>
+
+   <splash
+      location="org.eclipse.stem.ui"
+      startupProgressRect="0,413,431,15"
+      startupMessageRect="10,380,431,20"
+      startupForegroundColor="FFFFFF" />
+   <launcher name="STEM">
+      <solaris/>
+      <win useIco="false">
+         <bmp
+            winSmallLow="/org.eclipse.stem.ui/branding/ohf16_16_8.bmp"
+            winMediumLow="/org.eclipse.stem.ui/branding/ohf32_32_8.bmp"
+            winLargeLow="/org.eclipse.stem.ui/branding/ohf48_48_8.bmp"/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.stem.feature" version="0.2.1.qualifer"/>
+   </features>
+
+
+</product>

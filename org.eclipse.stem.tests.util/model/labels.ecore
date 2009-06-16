@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="labels"
+    nsURI="http:///org/eclipse/stem/tests/util/labels.ecore" nsPrefix="org.eclipse.stem.tests.util.labels">
+  <eClassifiers xsi:type="ecore:EClass" name="TestDynamicEdgeLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//DynamicEdgeLabel">
+    <eOperations name="increment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestDynamicLabel1" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//DynamicLabel">
+    <eOperations name="increment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestDynamicNodeLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//DynamicNodeLabel">
+    <eOperations name="increment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestIntegerLabelValue" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">
+    <eOperations name="increment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="i" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//Label"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestStaticEdgeLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//StaticEdgeLabel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestStaticNodeLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//StaticNodeLabel"/>
+</ecore:EPackage>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http:///org/eclipse/stem/tests/util/decorators.ecore" 
+       class = "org.eclipse.stem.tests.util.decorators.provider.DecoratorsItemProviderAdapterFactory"
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+  
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http:///org/eclipse/stem/tests/util/decorators.ecore"
+       class = "org.eclipse.stem.tests.util.decorators.DecoratorsPackage"
+       genModel = "model/testutility.genmodel" /> 
+  </extension>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "org.eclipse.stem.tests.util.decorators.presentation.DecoratorsModelWizardID"
+      name = "%_UI_DecoratorsModelWizard_label"
+      class = "org.eclipse.stem.tests.util.decorators.presentation.DecoratorsModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/DecoratorsModelFile.gif">
+      <description>%_UI_DecoratorsModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "org.eclipse.stem.tests.util.decorators.presentation.DecoratorsEditorID"
+        name = "%_UI_DecoratorsEditor_label"
+        icon = "icons/full/obj16/DecoratorsModelFile.gif"
+        extensions = "decorators"
+        class = "org.eclipse.stem.tests.util.decorators.presentation.DecoratorsEditor" 
+        contributorClass="org.eclipse.stem.tests.util.decorators.presentation.DecoratorsActionBarContributor" >
+    </editor>
+  </extension>    
+</plugin>

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.stem.ui.nl1
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: %providerName
+Fragment-Host: org.eclipse.stem.ui
+Bundle-Localization: plugin
+Bundle-ClassPath: .,
+ bin/
+Export-Package: org.eclipse.stem.ui.views,
+ org.eclipse.stem.ui.views.map,
+ org.eclipse.stem.ui.wizards
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -1,0 +1,45 @@
+Feb - 05 - 2007
+
+**************************************************************************************************************************************************************************************************************************************************
+
+*An Introduction to STEM II Data Conversion Utilities for Europe*
+
+
+	 The set of data generators were initially developed for the Diva format. However, the countries in the European data set come in a different format.
+Before we can run the data generation utilities to generate properties files and maps on the European data set, we need to run a set of utilities
+that will convert the European data into the Diva format that the generators expect. 
+
+NOTE: All of the conversion utilities for Europe are found under org.eclipse.stem\src\generators.
+
+**Overview of the data conversion process from the Europe data set format into the Diva set format :**
+  
+      1) Data Cleaning/Grouping : start by running EuropeDataCleaner. This program will
+  remove all unnecesary data (i.e. columns) in the original source file. In
+  addition, this program will group the data based on its ID (i.e. NO,IT,FR,UK,
+  etc). The result will be a file named EuropeSorted.txt with cleaned data.
+  
+  In other words : Europe.txt (input) --> ||EuropeDataCleaner|| --> EuropeSorted.txt (output)
+  
+  NOTE: EuropeSorted.txt will be used as the input for the remaining part of
+  the process.
+  
+      2) Data Formatting : run EuropeDataFormatter to break down the data source
+  (EuropeSorted.txt) into multiple data files, one for each country as
+  indicated by the ID (i.e. NO,IT,FR,UK, etc). The result will be multiple data
+  files (i.e. italy.txt, spain.txt, etc). Each file will be found under a
+  folder with same name as the country (i.e. ITALY\italy.txt, SPAIN\spain.txt,
+  etc).
+  
+      3) Data Converter : run EuropeDataConverter to convert into Diva format.
+  
+  
+      4) Area and Population Data Extraction : run EuropeDataExtractor to extract
+  all area and population data for each country. The new area and population data files will be found under
+org.eclipse.stem.utility/dataMigration/input/AreaPopulationData. For every country, say for Spain, there will
+be corresponding area and population data files : SPAIN_AREA.txt and SPAIN_POPULATION.txt.
+  
+  
+      After all four steps are done and we have converted the Europe data set into a Diva format, we now can run the
+set of data generators to create the properties files and maps as explained in "An Introduction to STEM II Data Generation Utilities for Diva".
+
+	 

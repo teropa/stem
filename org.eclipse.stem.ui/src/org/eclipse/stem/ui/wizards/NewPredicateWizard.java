@@ -1,0 +1,142 @@
+// NewPredicateWizard.java
+package org.eclipse.stem.ui.wizards;
+
+/*******************************************************************************
+ * Copyright (c) 2008 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
+import java.text.MessageFormat;
+
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.IHandler;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.predicate.IdentifiablePredicateExpression;
+import org.eclipse.stem.core.predicate.Predicate;
+import org.eclipse.stem.core.predicate.PredicateFactory;
+import org.eclipse.stem.core.predicate.PredicatePackage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.handlers.HandlerUtil;
+
+/**
+ * This class is a {@link NewIdentifiableWizard} for that creates new STEM
+ * {@link Predicate}s
+ */
+public class NewPredicateWizard extends NewIdentifiableWizard {
+
+	/**
+	 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard#getWizardTitle()
+	 */
+	@Override
+	protected String getWizardTitle() {
+		return Messages.getString("NPredicateWiz.wizard_title"); //$NON-NLS-1$
+	}
+
+	/**
+	 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard#createNewIdentifiablePage()
+	 */
+	@Override
+	protected NewIdentifiablePage createNewIdentifiablePage() {
+		return new NewPredicatePage();
+	}
+
+	/**
+	 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard#createDublinCorePage()
+	 */
+	@Override
+	protected DublinCorePage createDublinCorePage() {
+		return new DublinCorePage() {
+			@Override
+			protected void initializeDCAttributes() {
+				super.initializeDCAttributes();
+				format.setText(PredicatePackage.eNS_URI);
+				format.setEnabled(false);
+				type.setText(STEMURI.PREDICATE_TYPE_URI.toString());
+				type.setEnabled(false);
+			}
+		};
+	} // createDublinCorePage
+
+	/**
+	 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard#createIdentifiable()
+	 */
+	@Override
+	protected Identifiable createIdentifiable() {
+		final IdentifiablePredicateExpression retValue = PredicateFactory.eINSTANCE
+				.createIdentifiablePredicateExpression();
+		retValue.setDublinCore(newDublinCorePage.createDublinCore());
+		return retValue;
+	} // createIdentifiable
+
+	/**
+	 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard#getSerializationFolderName()
+	 */
+	@Override
+	protected String getSerializationFolderName() {
+		return NewSTEMProjectWizard.PREDICATES_FOLDER_NAME;
+	}
+
+	/**
+	 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard#getSerializationFileNameExtension()
+	 */
+	@Override
+	protected String getSerializationFileNameExtension() {
+		return PredicatePackage.eNAME;
+	}
+
+	protected static class NewPredicatePage extends NewIdentifiablePage {
+
+		/**
+		 * Default Constructor
+		 */
+		protected NewPredicatePage() {
+			super(Messages.getString("NPredicateWiz.page_title")); //$NON-NLS-1$
+			setTitle(Messages.getString("NPredicateWiz.page_title")); //$NON-NLS-1$
+			setDescription(Messages.getString("NPredicateWiz.page_description")); //$NON-NLS-1$
+		} // NewPredicatePage
+
+		/**
+		 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard.NewIdentifiablePage#getDCDescription()
+		 */
+		@Override
+		protected String getDCDescription() {
+			return MessageFormat.format(Messages
+					.getString("NPredicateWiz.DC_DESCRIPTION"),
+					new Object[] { serializationFileNameField.getText() });
+		} // getDCDescription
+
+	} // NewPredicatePage
+
+	/**
+	 * This class is a {@link IHandler} for the command that creates a
+	 * {@link NewPredicateWizard}
+	 */
+	public static class NewPredicateWizardCommandHandler extends
+			AbstractHandler implements IHandler {
+
+		/**
+		 * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands.ExecutionEvent)
+		 */
+		public Object execute(final ExecutionEvent executionEvent)
+				throws ExecutionException {
+			final IWorkbenchWindow window = HandlerUtil
+					.getActiveWorkbenchWindowChecked(executionEvent);
+			final NewPredicateWizard wizard = new NewPredicateWizard();
+			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
+			final WizardDialog wizardDialog = new WizardDialog(window
+					.getShell(), wizard);
+			wizardDialog.open();
+			return null;
+		} // execute
+	} // NewPredicateWizardCommandHandler
+} // NewPredicateWizard

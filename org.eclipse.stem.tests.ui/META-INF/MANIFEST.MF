@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.stem.tests.ui
+Bundle-Version: 0.5.0.qualifier
+Bundle-Activator: org.eclipse.stem.tests.ui.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.stem.tests.util,
+ org.eclipse.stem.tests.core,
+ org.eclipse.stem.ui,
+ org.eclipse.stem.definitions,
+ org.eclipse.stem.geography
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -1,0 +1,175 @@
+Feb - 05 - 2007
+
+**************************************************************************************************************************************************************************************************************************************************
+
+*An Introduction to STEM II Data Reduction Utilities*
+
+
+	 The size of the maps produced by the data generation utilities can be quite large. When we run a simulation in STEM II
+that involves the whole world it might take a few seconds to load. This is noticeable and is expected since for such a 
+global simulation we deal with hundreds of maps, each of while can be quite big. As an example, for Argentina, we have the
+following file sizes :
+
+ ARG_0_MAP.xml    318 KB
+ ARG_1_MAP.xml  1,375 KB
+ ARG_2_MAP.xml  4,813 KB 
+ 
+ 
+ **Data Reduction**
+ 
+     To overcome this problem, we created a set of utilities that produce a reduced data set. Ideally, we want to reduce the 
+size of a file by 50% but still having the maps to display nicely with as few gaps and overlaps as possible. We created a Down-sampling
+or reduction algorithm for our map's polygons based on the Law of Cosines from Trigonometry. By derivation from the formula for the law of cosines,
+we can find each of the internal angles of a triangle: alpha, beta, and gamma. Our Down-sampling will consist of marking for deletion all points in 
+our polygon where the angle is less than a given threshold, say 5 degrees, with the condition that on a single pass we cannot delete two consecutive points.
+By avoiding to delete two consecutive points during the same pass, we reduce the chance of having undesirable visual artifacts like gaps.
+
+**The Down-sampling Algorithm**
+ 
+     The algorithm we designed is an iterative one. It is a rather simple one. It takes two arguments, a threshold in degrees and the number of iterations.
+The algorithm works as follows, every three points we apply the derivation of the law of cosines to find each of the three interior angles for the triangle formed
+by three consecutive points. Next, we apply a clever algorithm to decide which is the best point to remove (if any) from the current selection. The logic that
+deals with marking points for deletion and "sliding" to the next selection is the following :
+
+# Taken from org.eclipse.stem.utility/generators/SinglePassDownSampler 
+
+	// Check to see if the initial, leftmost point is greater than
+			// alpha or if it is UNSAFE. If so, then slide forward the window.
+			if (a1 > alpha) {
+				// Just slide forward the window one unit.
+				left_border += 1;
+				right_border += 1;
+				continue;
+			}
+
+			if (s1.equals(UNSAFE)) {
+
+				if (a2 < alpha && a2 <= a3) {
+					// [ P1 = UNSAFE, P2 = SAFE, P3 = UNSAFE ]
+					// Advance sliding window after P2
+					s2 = SAFE;
+					s3 = UNSAFE;
+				} else if (a3 < alpha) {
+					// [ P1 = UNSAFE, P2 = UNSAFE, P3 = SAFE ]
+					// Advance sliding window after P2
+					s3 = SAFE;
+					s2 = UNSAFE;
+				}
+
+			} else if (a1 < alpha && a1 < a2) {
+				// [ P1 = SAFE, P2 = UNSAFE, P3 = UNKNOWN ]
+				// Advance sliding window after P2
+				s1 = SAFE;
+				s2 = UNSAFE;
+				// Now check to see if is safe to mark P3 too.
+				if (a3 < alpha) {
+					// [ P1 = SAFE, P2 = UNSAFE, P3 = SAFE ]
+					// Advance sliding window after P2
+					s3 = SAFE;
+				}
+			} else if (a1 < alpha && a1 > a2) {
+				// [ P1 = UNSAFE, P2 = SAFE, P3 = UNSAFE ]
+				// SPECIAL CASE : Advance sliding window after P3
+				s1 = UNSAFE;
+				s2 = SAFE;
+				s3 = UNSAFE;
+				// Special case : set flag to advance sliding window after P3
+				flag = true;
+
+			} else if (a1 > alpha && a2 > alpha) {
+				// [ P1 = UNSAFE, P2 = UNSAFE, P3 = UNKNOWN ]
+				// Advance sliding window after P2
+				s1 = UNSAFE;
+				s2 = UNSAFE;
+			} 
+
+NOTE: A sliding window refers only to a selection of three consecutive points.
+ 
+
+**Down-sampling Utilities**
+
+
+   To reduce a data set, we run org.eclipse.stem.utility/src/generators/DownSampler.java. We need to specify two arguments : a threshold
+and the number of iterations. Internally, DownSampler will run both SinglePassDownSampler for the first run and the MultiPassDownSampler
+for the remaining iterations.
+
+   At each iteration, two files are generated : a reduced map and a reduced data file. The name of the reduced map tells us during which iteration
+it was generated. For example, for ARG_1_REDUCED_MAP_2.xml would tell us that this is a level 1 map for Argentina created during the second iteration.
+Similarly, ARG_REDUCED_2.txt is the reduced data file that was produced during the second iteration. ARG_REDUCED_2.txt will be the input data source for the
+down-sampling algorithm during the third iteration. What's more, ARG_1_REDUCED_MAP_2.xml can be regenerated from this file. For a threshold of five degrees and
+for five iterations, in the particular case of Austria we have that all the following files are generated :
+
+
+# Reduced maps :
+ AUT_1_REDUCED_MAP_1.xml
+ AUT_1_REDUCED_MAP_2.xml
+ AUT_1_REDUCED_MAP_3.xml
+ AUT_1_REDUCED_MAP_4.xml
+ AUT_1_REDUCED_MAP_5.xml
+	
+# Reduced data files :
+ AUT_REDUCED_1.txt
+ AUT_REDUCED_2.txt
+ AUT_REDUCED_3.txt
+ AUT_REDUCED_4.txt
+ AUT_REDUCED_5.txt
+ 
+ **Down-sampling statistics**
+ 
+    The following two metrics were considered when generating a reduced data set out of the Diva set : points-per-polygon and map file size. The results are
+captured in the following two tables :
+
+
+
+
+# REDUCTION METRIC : AVG POINTS-PER-POLYGON
+
+
+Threshold (in degrees)    Avg. points-per-polygon (after 5 iterations)         Percentage of reduction
+
+  INITIAL VALUE                  250								                      x
+      1                          179                                                     29%
+      2                          169                                                     32.40%
+      3						     164                                                     34.40%
+      4                          160                                                     36%
+      5                          157                                                     37.25%
+
+
+
+
+# REDUCTION METRIC : FILE SIZE 
+    
+ Threshold (in degrees)   Size (in KB, after 5 iterations)                      Percentage of reduction
+ 
+    ORIGINAL SIZE               USA_1_MAP.xml = 2987                                        x
+    							USA_2_MAP.xml = 17266										x
+ 
+ 							    USA_1_MAP.xml = 2216   										26%
+                                USA_2_MAP.xml = 14259										16%
+    
+  							    USA_1_MAP.xml = 1742   										42%
+                                USA_2_MAP.xml = 12091										30%
+ 
+  							    USA_1_MAP.xml = 1689   										44.50%
+                                USA_2_MAP.xml = 11720										32%
+ 
+  							    USA_1_MAP.xml = 1649   										45%
+                                USA_2_MAP.xml = 11464										33.70%
+ 
+  							    USA_1_MAP.xml = 1607   										46.30%
+                                USA_2_MAP.xml = 11239										35%
+    
+    
+    
+    We see that by running the down-sampling utility we get a reduction of around 37.25% in the average number of points-per-polygon, a 
+reduction of 46.30% on the level 1 map and a reduction of 35% on the level 2 map. The average reduction of both maps combined is approx 41%.
+    
+    
+**Reduction in Precision**
+
+    We come close to achieving a 50% reduction in file size by decreasing the precision on the reduced data files from six decimal digits to four.
+    
+    
+    
+    
+	

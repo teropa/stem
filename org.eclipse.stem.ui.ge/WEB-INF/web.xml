@@ -1,0 +1,63 @@
+ <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//
+DTD WebApplication 2.2//EN"
+"http://java.sun.com/j2ee/dtds/web-app_2.2.dtd">
+
+
+<web-app>
+  <display-name>STEM-GoogleEarth</display-name>
+  <description>STEM-GoogleEarth Servlets</description>
+  
+  
+  <!-- Primary servlet to send KML to GE -->  
+  <servlet>
+	<servlet-name>SlideShow</servlet-name>
+	<servlet-class>org.eclipse.stem.ui.ge.servlet.SlideShowServlet</servlet-class>	
+  </servlet>
+  <!-- Servlet to send a networklink KML to GE -->
+  <servlet>
+	<servlet-name>Start</servlet-name>
+	<servlet-class>org.eclipse.stem.ui.ge.servlet.StartServlet</servlet-class>	
+  </servlet>
+  <!-- Servlet to create an image with desired text -->
+  <servlet>
+	<servlet-name>Image</servlet-name>
+	<servlet-class>org.eclipse.stem.ui.ge.servlet.ImageServlet</servlet-class>
+  </servlet>
+  <!-- Servlet to verify that the webserver is up and servlets deployed -->
+ <servlet>
+	<servlet-name>Verify</servlet-name>
+	<servlet-class>org.eclipse.stem.ui.ge.servlet.VerifyServlet</servlet-class>
+	</servlet>
+  <!-- Servlet to handle GE BBOX feedback -->
+  <servlet>  
+   <servlet-name>BBox</servlet-name>
+	<servlet-class>org.eclipse.stem.ui.ge.servlet.BBoxServlet</servlet-class>	
+  </servlet>
+  
+  <!-- servlet instances must go before all of the servlet=mapping -->
+  <servlet-mapping>
+      <servlet-name>SlideShow</servlet-name>
+      <url-pattern>/slideshow</url-pattern>
+  </servlet-mapping>  
+    
+  <servlet-mapping>
+      <servlet-name>Start</servlet-name>
+      <url-pattern>/start</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet-mapping>
+      <servlet-name>Image</servlet-name>
+      <url-pattern>/image</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet-mapping>
+      <servlet-name>Verify</servlet-name>
+      <url-pattern>/verify</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet-mapping>
+      <servlet-name>BBox</servlet-name>
+      <url-pattern>/bbox</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
