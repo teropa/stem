@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Internal Disease Model Scenarios Plug-in
+Bundle-SymbolicName: org.eclipse.stem.internal.diseasemodels.scenarios
+Bundle-Version: 0.5.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.common,
+ org.eclipse.stem.core,
+ org.eclipse.stem.diseasemodels,
+ org.eclipse.stem.diseases,
+ org.eclipse.stem.data.geography,
+ org.eclipse.stem.data.geography.population.human,
+ org.eclipse.stem.data.geography.population.human.models,
+ org.eclipse.stem.data.diseasemodels.models,
+ org.eclipse.stem.data.diseasemodels.scenarios,
+ org.eclipse.stem.internal.data,
+ org.eclipse.stem.internal.data.geography,
+ org.eclipse.stem.internal.data.geography.models
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema targetNamespace="http://data.internal.stem.eclipse.org/generatedplugin"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:plugin="http://data.internal.stem.eclipse.org/generatedplugin"
+	xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:documentRoot="plugin" elementFormDefault="qualified">
+
+	<xs:complexType name="stem_category">
+		<xs:attribute name="id" type="xs:string" use="required" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="parent_id" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="dublin_core">
+		<xs:attribute name="title" type="xs:string" use="required" />
+		<xs:attribute name="identifier" type="xs:string" use="required" />
+		<xs:attribute name="description" type="xs:string" />
+		<xs:attribute name="creator" type="xs:string" />
+		<xs:attribute name="date" type="xs:string" />
+		<xs:attribute name="format" type="xs:string" />
+		<xs:attribute name="publisher" type="xs:string" />
+		<xs:attribute name="coverage" type="xs:string" />
+		<xs:attribute name="contributor" type="xs:string" />
+		<xs:attribute name="relation" type="xs:string" />
+		<xs:attribute name="rights" type="xs:string" />
+		<xs:attribute name="source" type="xs:string" />
+		<xs:attribute name="subject" type="xs:string" />
+		<xs:attribute name="type" type="xs:string" />
+		<xs:attribute name="language" type="xs:string" />
+		<xs:attribute name="bibliographicCitation" type="xs:string" />
+		<xs:attribute name="created" type="xs:string" />
+		<xs:attribute name="license" type="xs:string" />
+		<xs:attribute name="requires" type="xs:string" />
+		<xs:attribute name="spatial" type="xs:string" />
+		<xs:attribute name="valid" type="xs:string" />
+		<xs:attribute name="category_id" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="extension">
+		<xs:sequence>
+            <xs:element name="categories" type="plugin:stem_category"
+                minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="dublinCores" type="plugin:dublin_core"
+                minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+		<xs:attribute name="point" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="plugin">
+		<xs:sequence>
+			<xs:element name="extensionelement" type="plugin:extension"
+				minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+
+

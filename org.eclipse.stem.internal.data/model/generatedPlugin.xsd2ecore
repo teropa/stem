@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="../schema/generatedPlugin.xsd#/"
+    outputs="generatedplugin.ecore#/" topToBottom="true">
+  <nested inputs="bundleentry://486/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1"
+      outputs="generatedplugin.ecore#//DublinCore">
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=15"
+        outputs="generatedplugin.ecore#//DublinCore/bibliographicCitation"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=21"
+        outputs="generatedplugin.ecore#//DublinCore/categoryId"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=8"
+        outputs="generatedplugin.ecore#//DublinCore/contributor"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=7"
+        outputs="generatedplugin.ecore#//DublinCore/coverage"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=16"
+        outputs="generatedplugin.ecore#//DublinCore/created"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=3"
+        outputs="generatedplugin.ecore#//DublinCore/creator"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=4"
+        outputs="generatedplugin.ecore#//DublinCore/date"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=2"
+        outputs="generatedplugin.ecore#//DublinCore/description"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=5"
+        outputs="generatedplugin.ecore#//DublinCore/format"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=1"
+        outputs="generatedplugin.ecore#//DublinCore/identifier"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=14"
+        outputs="generatedplugin.ecore#//DublinCore/language"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=17"
+        outputs="generatedplugin.ecore#//DublinCore/license"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=6"
+        outputs="generatedplugin.ecore#//DublinCore/publisher"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=9"
+        outputs="generatedplugin.ecore#//DublinCore/relation"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=18"
+        outputs="generatedplugin.ecore#//DublinCore/requires"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=10"
+        outputs="generatedplugin.ecore#//DublinCore/rights"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=11"
+        outputs="generatedplugin.ecore#//DublinCore/source"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=19"
+        outputs="generatedplugin.ecore#//DublinCore/spatial"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=12"
+        outputs="generatedplugin.ecore#//DublinCore/subject"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse"
+        outputs="generatedplugin.ecore#//DublinCore/title"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=13"
+        outputs="generatedplugin.ecore#//DublinCore/type"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//dublin_core;XSDComplexTypeDefinition=1/XSDAttributeUse=20"
+        outputs="generatedplugin.ecore#//DublinCore/valid"/>
+  </nested>
+  <nested inputs="../schema/generatedPlugin.xsd#//stem_category;XSDComplexTypeDefinition"
+      outputs="generatedplugin.ecore#//StemCategory">
+    <nested inputs="../schema/generatedPlugin.xsd#//stem_category;XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="generatedplugin.ecore#//StemCategory/id"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//stem_category;XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="generatedplugin.ecore#//StemCategory/name"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//stem_category;XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="generatedplugin.ecore#//StemCategory/parentId"/>
+  </nested>
+  <nested inputs="../schema/generatedPlugin.xsd#//extension;XSDComplexTypeDefinition=2"
+      outputs="generatedplugin.ecore#//Extension">
+    <nested inputs="../schema/generatedPlugin.xsd#//extension;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="generatedplugin.ecore#//Extension/categories"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//extension;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="generatedplugin.ecore#//Extension/dublinCores"/>
+    <nested inputs="../schema/generatedPlugin.xsd#//extension;XSDComplexTypeDefinition=2/XSDAttributeUse"
+        outputs="generatedplugin.ecore#//Extension/point"/>
+  </nested>
+  <nested inputs="../schema/generatedPlugin.xsd#//plugin;XSDComplexTypeDefinition=3"
+      outputs="generatedplugin.ecore#//Plugin">
+    <nested inputs="../schema/generatedPlugin.xsd#//plugin;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="generatedplugin.ecore#//Plugin/extensionelement"/>
+  </nested>
+</xsd2ecore:XSD2EcoreMappingRoot>
