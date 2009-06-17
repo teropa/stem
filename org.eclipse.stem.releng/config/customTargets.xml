@@ -46,22 +46,14 @@
 		</antcall>
 	</target>
 
-	<target name="gatherLogs">
-		<mkdir dir="${buildDirectory}/${buildLabel}/compilelogs" />
-		<antcall target="allElements">
-			<param name="target" value="gatherLogs" />
-		</antcall>
-		<unzip dest="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true">
-			<fileset dir="${buildDirectory}/features">
-				<include name="**/*.log.zip" />
-			</fileset>
-		</unzip>
-	</target>
-
 	<!-- ===================================================================== -->
 	<!-- Steps to do before setup -->
 	<!-- ===================================================================== -->
+	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpath="svnant.jar" /> 
 	<target name="preSetup">
+		<svn>
+			<checkout url="svn://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk" destPath="${buildDirectory}/../checkout_dir" />
+		</svn>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -69,7 +61,7 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
-		<!-- Get the UI plugin first because that's where the stem.product file is -->
+		<!-- Fetch the UI plugin first because that's where the stem.product file is -->
 		<ant antfile="${genericTargets}" target="fetchElement">
 			<property name="type" value="plugin"/>
 			<property name="id" value="org.eclipse.stem.ui"/>
@@ -79,7 +71,7 @@
 	<!-- ===================================================================== -->
 	<!-- Steps to do before fetching the build elements -->
 	<!-- ===================================================================== -->
-	<target name="preFetch">		
+	<target name="preFetch">
 	</target>
 
 	<!-- ===================================================================== -->
@@ -88,14 +80,14 @@
 	<target name="postFetch">
 		<!-- This call was added to get the internal data plugin out of the    -->
 		<!-- repository to be used later to build the stem.geography plugin    -->    
-		<ant antfile="${genericTargets}" target="fetchElement">
+		<!--ant antfile="${genericTargets}" target="fetchElement">
 			<property name="type" value="plugin"/>
 			<property name="id" value="org.eclipse.stem.internal.data"/>
 		</ant>
 		<ant antfile="${genericTargets}" target="fetchElement">
 			<property name="type" value="plugin"/>
 			<property name="id" value="org.eclipse.stem.transport"/>
-		</ant>
+		</ant-->
 	</target>
 
 	<!-- ===================================================================== -->
@@ -108,14 +100,14 @@
 	<!-- Steps to do after generating the build scripts. -->
 	<!-- ===================================================================== -->
 	<target name="postGenerate">
-		<ant antfile="${genericTargets}" target="generateScript">
+		<!--ant antfile="${genericTargets}" target="generateScript">
 			<property name="type" value="plugin"/>
 			<property name="id" value="org.eclipse.stem.transport"/>
 		</ant>
 		<ant antfile="${genericTargets}" target="generateScript">
 			<property name="type" value="plugin"/>
 			<property name="id" value="org.eclipse.stem.internal.data"/>
-		</ant>
+		</ant-->
 		<!--antcall target="clean" /-->
 	</target>
 
@@ -123,31 +115,7 @@
 	<!-- Steps to do before running the build.xmls for the elements being built. -->
 	<!-- ===================================================================== -->
 	<target name="preProcess">
-		<!-- We are first running the builds that are required for generating the classes used by the update.xml script-->
-		<!--ant dir="${buildDirectory}/plugins/org.eclipse.stem.core"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.definitions"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.population.human"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography.population"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.models"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography.models"
-			 antfile="build.xml" target="@dot"/>
-			 <ant dir="${buildDirectory}/plugins/org.eclipse.stem.transport"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.infrastructure.transportation"
-			 antfile="build.xml" target="@dot"/>
-		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.internal.data.geography.infrastructure.transportation"
-			 antfile="build.xml" target="@dot"/-->		
+		<ant dir="${buildDirectory}/plugins/org.eclipse.stem.data.geography.infrastructure.transportation" antfile="build.xml" target="@dot"/>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -179,11 +147,7 @@
 	<!-- ===================================================================== -->
 	<!-- Steps to do before running assemble. -->
 	<!-- ===================================================================== -->
-	<!--property name="allElementsFile" value="${eclipse.pdebuild.scripts}/productBuild/allElements.xml"/>
-	<import file="${eclipse.pdebuild.scripts}/build.xml"/-->
-	<target name="preAssemble">		
-		<!-- Running the process target again so that resources that were generated by the update.xml script will be added to the plugins-->
-		<!--antcall target="process" /-->
+	<target name="preAssemble">
 	</target>
 
 	<!-- ===================================================================== -->
@@ -210,7 +174,6 @@
 	<property name="packagesDir" value="${buildDirectory}/${buildLabel}" />
 	<property name="packagePostfix" value="${majorVersion}.${forceContextQualifier}" />
 	<target name="postBuild">
-		<antcall target="gatherLogs" />
 		<move file="${packagesDir}/${buildId}-linux.gtk.x86.zip" tofile="${packagesDir}/STEM-linux.gtk.x86-${packagePostfix}.zip"/>
 		<move file="${packagesDir}/${buildId}-linux.gtk.x86_64.zip" tofile="${packagesDir}/STEM-linux.gtk.x86_64-${packagePostfix}.zip"/>
 		<move file="${packagesDir}/${buildId}-win32.win32.x86.zip" tofile="${packagesDir}/STEM-win32-${packagePostfix}.zip"/>
@@ -233,7 +196,7 @@
 		<zip destfile="${packagesDir}/STEM-macosx.cocoa.x86-${packagePostfix}.zip" update="true">
 			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
 		</zip>
-		<!--antcall target="publish" /-->
+		<antcall target="publish" />
 	</target>
 
 	<!-- ===================================================================== -->

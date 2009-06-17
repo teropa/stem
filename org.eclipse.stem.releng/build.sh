@@ -14,7 +14,7 @@ BUILD_HOME=$BUILD_ROOT/build
 
 JAVA_VM_ARGS="-Xms1024M -Xmx1024M"
 
-rm -r $BUILD_HOME
+rm -r -f $BUILD_HOME
 mkdir -p $BUILD_HOME/maps
 cp $BUILD_ROOT/maps/stem.map $BUILD_HOME/maps/
 
