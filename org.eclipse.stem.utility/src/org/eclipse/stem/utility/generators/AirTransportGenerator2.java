@@ -31,9 +31,10 @@ public class AirTransportGenerator2 {
 	
 	private static HashMap<String, String>level0IsoKeys = new HashMap<String, String>();
 	
-	// When we don't have data, use this numbers. It's the average
-	// of all other airports (about 3000 passengers / day)
-	private static int DEFAULT_PASSENGERS_WHEN_MISSING = 547500;
+	// When we don't have data, use this numbers. 15/day or 0.01% of population,
+	// whichever is smallest
+	
+	private static int DEFAULT_PASSENGERS_WHEN_MISSING = 5475;
 	private static int DEFAULT_DIVISIOR = 365; // Numbers are yearly, we want daily
 	// What percentage of passengers when departing from a level 2 (e.g. county) region
 	// are expected to arrive at at least a different county. Since cross-county flights
@@ -352,14 +353,25 @@ public class AirTransportGenerator2 {
 		  
 		  int startLevel = GenUtils.getLevel(stemCode);
 		  int passengers = Integer.parseInt(st.nextToken().trim());
-		  if(passengers == -1) passengers = DEFAULT_PASSENGERS_WHEN_MISSING;
-		  else passengers = passengers / 2; // Total troughput, we want arrivals/departures so divide by 2
+		  int population = Integer.parseInt(st.nextToken().trim());
+		  if(population <= 0) continue;
+		  if(passengers <= 0) continue;
 		  
 		  // Skip rest
 		  String s = null;
 		  while(st.hasMoreTokens()) s=st.nextToken();
 		  boolean generated = (Integer.parseInt(s.trim()) == 1);
+		
+		  // 0.01 % per day or 15 / day, whichever is smallest
+		  double threshold = ((double)population*(double)DEFAULT_DIVISIOR)/10000.0;
 		  
+		  if(generated && threshold < DEFAULT_PASSENGERS_WHEN_MISSING)
+			  passengers = (int)threshold;
+		  else if(generated) 
+			  passengers = DEFAULT_PASSENGERS_WHEN_MISSING;
+		  else passengers = passengers / 2; // Total troughput, we want arrivals/departures so divide by 2
+		  	  
+		  System.out.println(stemCode+" Population: "+population+ " passengers: "+passengers+" generated: "+generated);
 		  while(stemCode != null) {
 			  int level = GenUtils.getLevel(stemCode);
 			  double factor = 1.0;
@@ -429,7 +441,7 @@ public class AirTransportGenerator2 {
 		  }
 		  else {
 			  linecount = 0;
-			  counters.put(filename, linecount);
+			  counters.put(filename, linecount+1);
 		  }
 		  
 		  fw.write("# "+airportCodes.get(stemCode)+LS);
@@ -442,7 +454,7 @@ public class AirTransportGenerator2 {
 		  fw.write(',');
 		  fw.write(numPassengers+"");
 		  fw.write(LS);
-		  
+		  System.out.println(stemCode+" passengers: "+numPassengers);
 		}  // For each line
 		
 		
@@ -474,7 +486,7 @@ public class AirTransportGenerator2 {
 		fw.write("# *******************************************************************************/"+LS); 
 		fw.write(LS);		 
 		fw.write("# This is the name of the class that will interpret the rest of the file's contents"+LS); 
-		fw.write("RECORD_CLASSNAME =  org.eclipse.stem.internal.data.geography.infrastructure.transportation.specifications.AirTransportationGeographicRelationshipPropertyFileSpecification"+LS);
+		fw.write("RECORD_CLASSNAME =  org.eclipse.ohf.stem.internal.data.geography.infrastructure.transportation.specifications.AirTransportationGeographicRelationshipPropertyFileSpecification"+LS);
 		fw.write(LS); 
 		fw.write("# The title of the relationship"+LS); 
 		fw.write("TITLE = Air transport between "+ctry+"("+(level-1)+") and "+ctry+"("+level+")"); 
