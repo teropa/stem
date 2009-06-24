@@ -16,6 +16,7 @@ import java.util.Random;
 import junit.textui.TestRunner;
 
 //import org.eclipse.stem.diseasemodels.standard.StandardFactory;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
@@ -152,9 +153,7 @@ public class StochasticSIDiseaseModelTest extends SITest {
 	public void testModelSpecificAdjustments(){
 		StochasticSIDiseaseModelTesterImpl stochasticSIDiseaseModel = new StochasticSIDiseaseModelTesterImpl();
 		SILabelValueImpl currentSI = new SILabelValueImpl(1000d, 40d, 20d, 60d, 100d, 10d);
-		SILabelValueImpl SIAdditions = new SILabelValueImpl(10d, 2d, 3d, 2d, 3d, 1d);
-		SILabelValueImpl SIDeaths =    new SILabelValueImpl(10d, 2d, 3d, 2d, 3d, 1d);
-		doTest(stochasticSIDiseaseModel, currentSI, SIAdditions, SIDeaths);
+		doTest(stochasticSIDiseaseModel, currentSI);
 	}
 
 //	private void doTestWithPermutations() {
@@ -178,24 +177,15 @@ public class StochasticSIDiseaseModelTest extends SITest {
 //	}
 
 	private void doTest(StochasticSIDiseaseModelTesterImpl stochasticSIDiseaseModel,
-			SILabelValueImpl currentSI, SILabelValueImpl SIAdditions,
-			SILabelValueImpl SIDeaths) {
-		SILabelValueImpl newSIAdditions = SILabelValueTestUtil.cloneSILabelValueImpl(SIAdditions);
-		SILabelValueImpl newSIDeaths = SILabelValueTestUtil.cloneSILabelValueImpl(SIDeaths);
+			SILabelValueImpl currentSI) {
+		stochasticSIDiseaseModel.doModelSpecificAdjustments(currentSI, RANDOM_SEED, TEST_GAIN);
 		
-		stochasticSIDiseaseModel.doModelSpecificAdjustments(currentSI, newSIAdditions, newSIDeaths, RANDOM_SEED, TEST_GAIN);
-		
-		SILabelValueImpl calculatedSIAdditions = SILabelValueTestUtil.cloneSILabelValueImpl(SIAdditions);
-		SILabelValueImpl calculatedSIDeaths = SILabelValueTestUtil.cloneSILabelValueImpl(SIDeaths);
-		
-		doCalculateModelSpecificAdjustments(currentSI, calculatedSIAdditions, calculatedSIDeaths, RANDOM_SEED, TEST_GAIN);
+		SILabelValueImpl oldVal = (SILabelValueImpl)EcoreUtil.copy(currentSI);
+		doCalculateModelSpecificAdjustments(currentSI, RANDOM_SEED, TEST_GAIN);
 
-		String state = getState(currentSI, SIAdditions, SIDeaths, newSIAdditions, newSIDeaths, calculatedSIAdditions, calculatedSIDeaths);
+		String state = getState(currentSI, oldVal);
 		
-		validateModelSpecificAdjustments(newSIAdditions,
-				newSIDeaths,
-				calculatedSIAdditions,
-				calculatedSIDeaths,
+		validateModelSpecificAdjustments(currentSI, oldVal,
 				state);
 	}
 
@@ -220,79 +210,36 @@ public class StochasticSIDiseaseModelTest extends SITest {
 	
 	
 	private void doCalculateModelSpecificAdjustments(
-			SILabelValueImpl pCurrentSI,
-			SILabelValueImpl pCalculatedSIAdditions,
-			SILabelValueImpl pCalculatedSIDeaths, long pRandomSeed, double pTestGain) {
-		
-		final SILabelValue currentSI =  pCurrentSI;
-		final SILabelValue SIAdditions =  pCalculatedSIAdditions;
-		final SILabelValue SIDeaths =  pCalculatedSIDeaths;
-		
-		
-		// The noise is a multiplier of (1+/-x) with x small.
-		// Compute the transitions
-		
+			SILabelValueImpl pCurrentSI, long pRandomSeed, double pTestGain) {
+		final SILabelValue currentSI = (SILabelValue) pCurrentSI;
 		Random random = new Random(pRandomSeed);
-		
-		
-        //////////////////////////
-		// The noise is a multiplier of (1+/-x) with x small.
-	    // We must comput the NOISR IR transition first
-		// Infectious case is more complicated
-		double iRnoisy = SIAdditions.getI()* computeNoise(pTestGain, random);
-		double deltaInoise = iRnoisy;
-		if (deltaInoise > currentSI.getS()) {
-			double rescale = currentSI.getS() / deltaInoise;
-			iRnoisy *= rescale;
-		}
-		
-		// set the change in infectious recovered
-		SIAdditions.setI(iRnoisy);
-		
-		// Then Compute the transition to S	
-		SIAdditions.setS(Math.min(currentSI.getI(), (SIAdditions.getI() * computeNoise(pTestGain, random))));
-		
-		
-		
-		
-        /////////////////////////
-		// now handle the deaths
-		SIDeaths.setS(Math.min(currentSI.getS() , (SIDeaths.getS() * computeNoise(pTestGain, random))));
-		
-		// We do not need to change the Infectious death rate as we have already added noise
-		// to both Infectious Recovered and Infectious Fatal
-
-		SIDeaths.setDeaths(SIDeaths.getPopulationCount());
-				
+		double Inoisy = currentSI.getI()* computeNoise(pTestGain, random);
+		currentSI.setI(Inoisy);
+		return;
 	}
 
-	private void validateModelSpecificAdjustments(SILabelValueImpl newSIAdditions,
-			SILabelValueImpl newSIDeaths,
-			SILabelValueImpl calculatedSIAdditions,
-			SILabelValueImpl calculatedSIDeaths,
+	private void validateModelSpecificAdjustments(SILabelValueImpl currentVal,
+			SILabelValueImpl oldVal,
 			String state) {
 
 		
 		try{
-			newSIAdditions.sane();
+			currentVal.sane();
 		}
 		catch(Throwable t){
-			throw new IllegalStateException("newSIAdditions is insane, state is: " + state, t);
+			throw new IllegalStateException("currentVal is insane, state is: " + state, t);
 		}
 		try{
-			newSIDeaths.sane();
+			oldVal.sane();
 		}
 		catch(Throwable t){
-			throw new IllegalStateException("newSIDeaths is insane, state is: " + state, t);
+			throw new IllegalStateException("oldVal is insane, state is: " + state, t);
 		}
 
 		
 		
-		assertTrue(String.format("newSIAdditions has insane values %s", state), mySanityCheck(newSIAdditions));
-		assertTrue(String.format("newSIDeaths has insane values %s", state), mySanityCheck(newSIDeaths));
-
-		assertTrue(String.format("newSIAdditions[%s] != calculatedSIAdditions[%s]", newSIAdditions, calculatedSIAdditions), checkEqual(calculatedSIAdditions, newSIAdditions));
-		assertTrue(String.format("newSIDeaths[%s] != calculatedSIDeaths[%s]", newSIDeaths, calculatedSIDeaths), checkEqual(calculatedSIDeaths, newSIDeaths));
+		assertTrue(String.format("currentVal has insane values %s", state), mySanityCheck(currentVal));
+		assertTrue(String.format("oldVal has insane values %s", state), mySanityCheck(oldVal));
 		
 	}
 	
@@ -320,11 +267,9 @@ public class StochasticSIDiseaseModelTest extends SITest {
 	}
 
 	private String getState(SILabelValueImpl pCurrentSI,
-			SILabelValueImpl pSIAdditions, SILabelValueImpl pSIDeaths,
-			SILabelValueImpl pNewSIAdditions,
-			SILabelValueImpl pNewSIDeaths, SILabelValueImpl pCalculatedSIAdditions, SILabelValueImpl pCalculatedSIDeaths) {
-		return String.format("\npresent state is: \nCurrentSI[%s]\n SIAdditions[%s]\n SIDeaths[%s]\n NewSIAdditions[%s]\n NewSIDeaths[%s]\n CalculatedSIAdditions[%s]\n CalculatedSIDeaths[%s]", 
-				pCurrentSI, pSIAdditions, pSIDeaths,pNewSIAdditions,pNewSIDeaths, pCalculatedSIAdditions, pCalculatedSIDeaths);
+			SILabelValueImpl oldVal) {
+		return String.format("\npresent state is: \nCurrentSI[%s]\n oldSI[%s]\n", 
+				pCurrentSI, oldVal);
 	}
 
 	
@@ -337,17 +282,12 @@ public class StochasticSIDiseaseModelTest extends SITest {
 
 		public void doModelSpecificAdjustments(
 				StandardDiseaseModelLabelValue pCurrentState,
-				StandardDiseaseModelLabelValue pStateAdditions2,
-				StandardDiseaseModelLabelValue pStateDeaths2,
 				long pRandomSeed, double pTestGain) {
 			setSeed(pRandomSeed);
 			setGain(pTestGain);
 			
 			SILabelValueImpl oldCurrentState = SILabelValueTestUtil.cloneSILabelValueImpl((SILabelValueImpl)pCurrentState);
-			SILabelValueImpl oldStateAdditions2 = SILabelValueTestUtil.cloneSILabelValueImpl((SILabelValueImpl)pStateAdditions2);
-			SILabelValueImpl oldStateDeaths2 = SILabelValueTestUtil.cloneSILabelValueImpl((SILabelValueImpl)pStateDeaths2);
-			
-			super.doModelSpecificAdjustments(pCurrentState, pStateAdditions2, pStateDeaths2);
+			super.doModelSpecificAdjustments(pCurrentState);
 		}
 		
 	}

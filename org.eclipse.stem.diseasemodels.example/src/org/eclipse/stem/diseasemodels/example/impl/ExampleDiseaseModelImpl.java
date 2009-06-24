@@ -19,6 +19,7 @@ import org.eclipse.stem.diseasemodels.example.ExampleDiseaseModel;
 import org.eclipse.stem.diseasemodels.example.ExamplePackage;
 import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
@@ -255,47 +256,12 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * 
 	 */
 	protected void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue currentState,
-			final StandardDiseaseModelLabelValue stateAdditions2,
-			final StandardDiseaseModelLabelValue stateDeaths2) {
-
-		final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
-		final SIRLabelValue sirAdditions = (SIRLabelValue) stateAdditions2;
-		final SIRLabelValue seirDeaths = (SIRLabelValue) stateDeaths2;
-		
-		
-		// The noise is a multiplier of (1+/-x) with x small.
-		// Compute the transitions
-			
-		sirAdditions.setS(Math.min(currentSIR.getR(), (sirAdditions.getS() * computeNoise())));
-		sirAdditions.setR(Math.min(currentSIR.getI(), (sirAdditions.getR() * computeNoise())));
-       
-		// Infectious case is more complicated
-		double iRnoisy = sirAdditions.getI()* computeNoise();
-		double deltaInoise = iRnoisy;
-		if (deltaInoise > currentSIR.getS()) {
-			double rescale = currentSIR.getS() / deltaInoise;
-			iRnoisy *= rescale;
-		}
-		
-		// set the change in infectious recovered
-		sirAdditions.setI(iRnoisy);
-		//////////////////////////
-
-        /////////////////////////
-		// now handle the deaths
-		seirDeaths.setS(Math.min(currentSIR.getS() , (seirDeaths.getS() * computeNoise())));
-		seirDeaths.setR(Math.min(currentSIR.getR() , (seirDeaths.getR() * computeNoise())));
-		// We do not need to change the Infectious death rate as we have already added noise
-		// to both Infectious Recovered and Infectious Fatal
-		seirDeaths.setDeaths(seirDeaths.getPopulationCount());
-				
+			final StandardDiseaseModelLabelValue currentState) {
+		final SILabelValue currentSI = (SILabelValue) currentState;
+		double Inoisy = currentSI.getI()* computeNoise();
+		currentSI.setI(Inoisy);
 		return;
-		
 	} // doModelSpecificAdjustments
-	
-	
-	
 	
 
 	/**

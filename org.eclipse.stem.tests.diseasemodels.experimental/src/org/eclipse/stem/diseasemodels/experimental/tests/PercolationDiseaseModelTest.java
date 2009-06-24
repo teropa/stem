@@ -97,7 +97,7 @@ public class PercolationDiseaseModelTest extends TestCase {
 		SEIRLabelValueImpl newSeirAdditions = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirAdditions);
 		SEIRLabelValueImpl newSeirDeaths = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirDeaths);
 		
-		percolationDiseaseModel.doModelSpecificAdjustments(currentSEIR, newSeirAdditions, newSeirDeaths, RANDOM_SEED, TEST_GAIN);
+		percolationDiseaseModel.doModelSpecificAdjustments(currentSEIR, RANDOM_SEED, TEST_GAIN);
 		
 		SEIRLabelValueImpl calculatedSeirAdditions = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirAdditions);
 		SEIRLabelValueImpl calculatedSeirDeaths = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirDeaths);
@@ -308,8 +308,6 @@ public class PercolationDiseaseModelTest extends TestCase {
 
 		public void doModelSpecificAdjustments(
 				StandardDiseaseModelLabelValue pCurrentState,
-				StandardDiseaseModelLabelValue pStateAdditions2,
-				StandardDiseaseModelLabelValue pStateDeaths2,
 				long pRandomSeed, double pTestGain) {
 			// TODO Auto-generated method stub
 			setSeed(pRandomSeed);
@@ -319,7 +317,7 @@ public class PercolationDiseaseModelTest extends TestCase {
 			//SEIRLabelValueImpl oldStateAdditions2 = org.eclipse.stem.diseasemodels.standard.tests.SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl((SEIRLabelValueImpl)pStateAdditions2);
 			//SEIRLabelValueImpl oldStateDeaths2 = org.eclipse.stem.diseasemodels.standard.tests.SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl((SEIRLabelValueImpl)pStateDeaths2);
 			
-			super.doModelSpecificAdjustments(pCurrentState, pStateAdditions2, pStateDeaths2);
+			super.doModelSpecificAdjustments(pCurrentState);
 		}
 		
 	}// PercolationDiseaseModelTesterImpl  inner class

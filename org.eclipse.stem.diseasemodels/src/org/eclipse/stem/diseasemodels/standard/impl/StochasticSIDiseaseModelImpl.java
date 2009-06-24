@@ -153,50 +153,16 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	} // createStochasticSIDiseaseModel
 
 	/**
-	 * ModelSpecificAdjustments for a Stochastic model adds noise to or adjusts 
-	 * the disease state transition values by multiplying
-	 * the additions by a random variable r ~ (1+/-x) with x small.
-	 * The requirements that no more individuals can be moved from a state than are
-	 * already in that state is still enforced.
+	 * ModelSpecificAdjustments for a Stochastic model adds noise to
+	 * the I state. It will be propagated to other states automatically
 	 * 
 	 */
+	
 	protected void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue currentState,
-			final StandardDiseaseModelLabelValue stateAdditions2,
-			final StandardDiseaseModelLabelValue stateDeaths2) {
-
-		final SILabelValue currentSI = (SILabelValue) currentState;
-		final SILabelValue siAdditions = (SILabelValue) stateAdditions2;
-		final SILabelValue seirDeaths = (SILabelValue) stateDeaths2;
-		
-		
-		// We must compute the Infrectious values with noise FIRST
-		// Infectious case is more complicated
-		double iRnoisy = siAdditions.getI()* computeNoise();
-		double deltaInoise = iRnoisy;
-		if (deltaInoise > currentSI.getS()) {
-			double rescale = currentSI.getS() / deltaInoise;
-			iRnoisy *= rescale;
-		}
-		
-		// set the change in infectious recovered
-		siAdditions.setI(iRnoisy);
-		
-		// The noise is a multiplier of (1+/-x) with x small.
-		// Compute the transitions	
-		siAdditions.setS(Math.min(currentSI.getI(), (siAdditions.getI() * computeNoise())));
-		
-		
-		//////////////////////////
-
-        /////////////////////////
-		// now handle the deaths
-		seirDeaths.setS(Math.min(currentSI.getS() , (seirDeaths.getS() * computeNoise())));
-		
-		// We do not need to change the Infectious death rate as we have already added noise
-		// to both Infectious Recovered and Infectious Fatal
-		seirDeaths.setDeaths(seirDeaths.getPopulationCount());
-				
+			final StandardDiseaseModelLabelValue state) {
+		final SILabelValue currentSI = (SILabelValue) state;
+		double Inoisy = currentSI.getI()* computeNoise();
+		currentSI.setI(Inoisy);
 		return;
 		
 	} // doModelSpecificAdjustments

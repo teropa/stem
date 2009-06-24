@@ -16,6 +16,7 @@ import java.util.Random;
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.diseasemodels.example.impl.ExampleDiseaseModelImpl;
 import org.eclipse.stem.diseasemodels.example.ExampleDiseaseModel;
 import org.eclipse.stem.diseasemodels.example.ExampleFactory;
@@ -74,9 +75,7 @@ public class ExampleDiseaseModelTest extends TestCase {
 	public void testModelSpecificAdjustments(){
 		ExampleDiseaseModelTesterImpl experimentalDiseaseModel = new ExampleDiseaseModelTesterImpl();
 		SEIRLabelValueImpl currentSEIR = new SEIRLabelValueImpl(1000d, 50d, 40d, 30d, 20d, 60d, 100d, 10d);
-		SEIRLabelValueImpl seirAdditions = new SEIRLabelValueImpl(10d, 1d, 2d, 3d, 3d, 2d, 3d, 1d);
-		SEIRLabelValueImpl seirDeaths = new SEIRLabelValueImpl(10d, 1d, 2d, 3d, 3d, 2d, 3d, 1d);
-		doTest(experimentalDiseaseModel, currentSEIR, seirAdditions, seirDeaths);
+		doTest(experimentalDiseaseModel, currentSEIR);
 	}
 	
 	
@@ -89,95 +88,46 @@ public class ExampleDiseaseModelTest extends TestCase {
 	 * @generated NOT
 	 */
 	private void doTest(ExampleDiseaseModelTesterImpl experimentalDiseaseModel,
-			SEIRLabelValueImpl currentSEIR, SEIRLabelValueImpl seirAdditions,
-			SEIRLabelValueImpl seirDeaths) {
-		SEIRLabelValueImpl newSeirAdditions = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirAdditions);
-		SEIRLabelValueImpl newSeirDeaths = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirDeaths);
+			SEIRLabelValueImpl currentSEIR) {
 		
-		experimentalDiseaseModel.doModelSpecificAdjustments(currentSEIR, newSeirAdditions, newSeirDeaths, RANDOM_SEED, TEST_GAIN);
+		SEIRLabelValueImpl oldVal = (SEIRLabelValueImpl)EcoreUtil.copy(currentSEIR);
 		
-		SEIRLabelValueImpl calculatedSeirAdditions = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirAdditions);
-		SEIRLabelValueImpl calculatedSeirDeaths = SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl(seirDeaths);
-		
-		doCalculateModelSpecificAdjustments(currentSEIR, calculatedSeirAdditions, calculatedSeirDeaths, RANDOM_SEED, TEST_GAIN);
+		doCalculateModelSpecificAdjustments(currentSEIR, RANDOM_SEED, TEST_GAIN);
 
-		String state = getState(currentSEIR, seirAdditions, seirDeaths, newSeirAdditions, newSeirDeaths, calculatedSeirAdditions, calculatedSeirDeaths);
+		String state = getState(currentSEIR, oldVal);
 		
-		validateModelSpecificAdjustments(newSeirAdditions,
-				newSeirDeaths,
-				calculatedSeirAdditions,
-				calculatedSeirDeaths,
+		validateModelSpecificAdjustments(currentSEIR,
+				oldVal,
 				state);
 	}
 	
 
 	private void doCalculateModelSpecificAdjustments(
 			SEIRLabelValueImpl pCurrentSEIR,
-			SEIRLabelValueImpl pCalculatedSeirAdditions,
-			SEIRLabelValueImpl pCalculatedSeirDeaths, long pRandomSeed, double pTestGain) {
-		
-		final SEIRLabelValue currentSEIR = pCurrentSEIR;
-		final SEIRLabelValue seirAdditions = pCalculatedSeirAdditions;
-		final SEIRLabelValue seirDeaths = pCalculatedSeirDeaths;
+			long pRandomSeed, double pTestGain) {
 		
 		
-		// The noise is a multiplier of (1+/-x) with x small.
-		// Compute the transitions
-		
+		final SEIRLabelValue currentSEIR = (SEIRLabelValue) pCurrentSEIR;
 		Random random = new Random(pRandomSeed);
-		
-		seirAdditions.setS(Math.min(currentSEIR.getR(), (seirAdditions.getS() * computeNoise(pTestGain, random))));
-	
-		seirAdditions.setE(Math.min(currentSEIR.getS(), (seirAdditions.getE() * computeNoise(pTestGain, random))));
-	
-		seirAdditions.setR(Math.min(currentSEIR.getI(), (seirAdditions.getR() * computeNoise(pTestGain, random))));
-       
-		
-		
-		
-		
-		// Infectious case is more complicated
-		double iRnoisy = seirAdditions.getI()* computeNoise(pTestGain, random);
-		double deltaInoise = iRnoisy;
-		if (deltaInoise > currentSEIR.getE()) {
-			double rescale = currentSEIR.getE() / deltaInoise;
-			iRnoisy *= rescale;
-		}
-		
-		// set the change in infectious recovered
-		seirAdditions.setI(iRnoisy);
-		//////////////////////////
-
-        /////////////////////////
-		// now handle the deaths
-		seirDeaths.setS(Math.min(currentSEIR.getS() , (seirDeaths.getS() * computeNoise(pTestGain, random))));
-
-		seirDeaths.setE(Math.min(currentSEIR.getE() , (seirDeaths.getE() * computeNoise(pTestGain, random))));
-        
-		seirDeaths.setR(Math.min(currentSEIR.getR() , (seirDeaths.getR() * computeNoise(pTestGain, random))));
-		
-		// We do not need to change the Infectious death rate as we have already added noise
-		// to both Infectious Recovered and Infectious Fatal
-
-		seirDeaths.setDeaths(seirDeaths.getPopulationCount());
+		double Inoisy = currentSEIR.getI()* computeNoise(pTestGain, random);
+		currentSEIR.setI(Inoisy);
+		return;
+				
 				
 	}
 
-	private void validateModelSpecificAdjustments(SEIRLabelValueImpl newSeirAdditions,
-			SEIRLabelValueImpl newSeirDeaths,
-			SEIRLabelValueImpl calculatedSeirAdditions,
-			SEIRLabelValueImpl calculatedSeirDeaths,
+	private void validateModelSpecificAdjustments(SEIRLabelValueImpl currentSEIR,
+			SEIRLabelValueImpl oldSEIR,
 			String state) {
-
 		
 		try{
-			newSeirAdditions.sane();
+			currentSEIR.sane();
 		}
 		catch(Throwable t){
 			throw new IllegalStateException("newSeirAdditions is insane, state is: " + state, t);
 		}
 		try{
-			newSeirDeaths.sane();
+			oldSEIR.sane();
 		}
 		catch(Throwable t){
 			throw new IllegalStateException("newSeirDeaths is insane, state is: " + state, t);
@@ -185,12 +135,9 @@ public class ExampleDiseaseModelTest extends TestCase {
 
 		
 		
-		assertTrue(String.format("newSeirAdditions has insane values %s", state), mySanityCheck(newSeirAdditions));
-		assertTrue(String.format("newSeirDeaths has insane values %s", state), mySanityCheck(newSeirDeaths));
+		assertTrue(String.format("currentSEIR has insane values %s", state), mySanityCheck(currentSEIR));
+		assertTrue(String.format("oldSEIR has insane values %s", state), mySanityCheck(oldSEIR));
 
-		assertTrue(String.format("newSeirAdditions[%s] != calculatedSeirAdditions[%s]", newSeirAdditions, calculatedSeirAdditions), checkEqual(calculatedSeirAdditions, newSeirAdditions));
-		assertTrue(String.format("newSeirDeaths[%s] != calculatedSeirDeaths[%s]", newSeirDeaths, calculatedSeirDeaths), checkEqual(calculatedSeirDeaths, newSeirDeaths));
-		
 	}
 	
 	private boolean checkEqual(SEIRLabelValueImpl pCalculatedSeirAdditions,
@@ -243,11 +190,9 @@ public class ExampleDiseaseModelTest extends TestCase {
 	
 
 	private String getState(SEIRLabelValueImpl pCurrentSEIR,
-			SEIRLabelValueImpl pSeirAdditions, SEIRLabelValueImpl pSeirDeaths,
-			SEIRLabelValueImpl pNewSeirAdditions,
-			SEIRLabelValueImpl pNewSeirDeaths, SEIRLabelValueImpl pCalculatedSeirAdditions, SEIRLabelValueImpl pCalculatedSeirDeaths) {
-		return String.format("\npresent state is: \nCurrentSEIR[%s]\n SeirAdditions[%s]\n SeirDeaths[%s]\n NewSeirAdditions[%s]\n NewSeirDeaths[%s]\n CalculatedSeirAdditions[%s]\n CalculatedSeirDeaths[%s]", 
-				pCurrentSEIR, pSeirAdditions, pSeirDeaths,pNewSeirAdditions,pNewSeirDeaths, pCalculatedSeirAdditions, pCalculatedSeirDeaths);
+			SEIRLabelValueImpl oldSEIR) {
+		return String.format("\npresent state is: \nCurrentSEIR[%s]\n oldSEIR[%s]\n", 
+				pCurrentSEIR, oldSEIR);
 	}
 
 	
@@ -304,8 +249,6 @@ public class ExampleDiseaseModelTest extends TestCase {
 
 		public void doModelSpecificAdjustments(
 				StandardDiseaseModelLabelValue pCurrentState,
-				StandardDiseaseModelLabelValue pStateAdditions2,
-				StandardDiseaseModelLabelValue pStateDeaths2,
 				long pRandomSeed, double pTestGain) {
 			setSeed(pRandomSeed);
 			setGain(pTestGain);
@@ -314,7 +257,7 @@ public class ExampleDiseaseModelTest extends TestCase {
 			//SEIRLabelValueImpl oldStateAdditions2 = org.eclipse.stem.diseasemodels.standard.tests.SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl((SEIRLabelValueImpl)pStateAdditions2);
 			//SEIRLabelValueImpl oldStateDeaths2 = org.eclipse.stem.diseasemodels.standard.tests.SEIRLabelValueTestUtil.cloneSEIRLabelValueImpl((SEIRLabelValueImpl)pStateDeaths2);
 			
-			super.doModelSpecificAdjustments(pCurrentState, pStateAdditions2, pStateDeaths2);
+			super.doModelSpecificAdjustments(pCurrentState);
 		}
 		
 	}// ExampleDiseaseModelTesterImpl  inner class

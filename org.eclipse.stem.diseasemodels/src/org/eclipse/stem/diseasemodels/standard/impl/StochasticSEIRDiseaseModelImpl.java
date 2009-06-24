@@ -17,6 +17,7 @@ import java.util.Random;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -161,57 +162,12 @@ public class StochasticSEIRDiseaseModelImpl extends SEIRImpl implements
 	 * 
 	 */
 	protected void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue currentState,
-			final StandardDiseaseModelLabelValue stateAdditions2,
-			final StandardDiseaseModelLabelValue stateDeaths2) {
+			final StandardDiseaseModelLabelValue state) {
 
-		// see 177699
-		final SEIRLabelValue currentSEIR = (SEIRLabelValue) currentState;
-		final SEIRLabelValue seirAdditions = (SEIRLabelValue) stateAdditions2;
-		final SEIRLabelValue seirDeaths = (SEIRLabelValue) stateDeaths2;
-		
-		
-		// The noise is a multiplier of (1+/-x) with x small.
-		// Compute the transitions
-			
-		seirAdditions.setS(Math.min(currentSEIR.getR(), (seirAdditions.getS() * computeNoise())));
-	
-		seirAdditions.setE(Math.min(currentSEIR.getS(), (seirAdditions.getE() * computeNoise())));
-	
-		seirAdditions.setR(Math.min(currentSEIR.getI(), (seirAdditions.getR() * computeNoise())));
-       
-		
-		
-		
-		
-		// Infectious case is more complicated
-		double iRnoisy = seirAdditions.getI()* computeNoise();
-		double deltaInoise = iRnoisy;
-		if (deltaInoise > currentSEIR.getE()) {
-			double rescale = currentSEIR.getE() / deltaInoise;
-			iRnoisy *= rescale;
-		}
-		
-		// set the change in infectious recovered
-		seirAdditions.setI(iRnoisy);
-		//////////////////////////
-
-        /////////////////////////
-		// now handle the deaths
-		seirDeaths.setS(Math.min(currentSEIR.getS() , (seirDeaths.getS() * computeNoise())));
-
-		seirDeaths.setE(Math.min(currentSEIR.getE() , (seirDeaths.getE() * computeNoise())));
-        
-		seirDeaths.setR(Math.min(currentSEIR.getR() , (seirDeaths.getR() * computeNoise())));
-		
-		// We do not need to change the Infectious death rate as we have already added noise
-		// to both Infectious Recovered and Infectious Fatal
-
-		seirDeaths.setDeaths(seirDeaths.getPopulationCount());
-				
-		return;
-		
-		
+		final SILabelValue currentSI = (SILabelValue) state;
+		double Inoisy = currentSI.getI()* computeNoise();
+		currentSI.setI(Inoisy);
+		return;		
 	} // doModelSpecificAdjustments
 	
 	

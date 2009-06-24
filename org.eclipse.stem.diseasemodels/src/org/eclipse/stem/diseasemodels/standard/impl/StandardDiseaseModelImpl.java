@@ -699,6 +699,9 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 
 			// Set the incidence
 			nextState.setIncidence(diseaseLabel.getDeltaValue().getIncidence());
+		
+			// Do any model specific work for instance add noise
+			doModelSpecificAdjustments((StandardDiseaseModelLabelValue)nextState);
 			
 			// The next value is valid now.
 			diseaseLabel.setNextValueValid(true);
@@ -1321,6 +1324,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			nextState.set(newValue);
 			// Set the incidence
 			nextState.setIncidence(newValue.getIncidence());
+			// Do any model specific work for instance add noise
+			doModelSpecificAdjustments((StandardDiseaseModelLabelValue)nextState);
 			// The next value is valid now.
 			diseaseLabel.setNextValueValid(true);
 			// Now add in the population so we can compute the reciprocal
@@ -1397,12 +1402,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			 //  Just capture the incidence that was passed on from computeTransistions
 			final double incidence = diseaseDeltas.getIncidence();
 			
-			// 4) do any model specific adjustments to the additions and the
-			// deaths. For instance, stochastic computations to modify state
-			// values.
-			//doModelSpecificAdjustments(currentState, diseaseDeltas,
-			//		birthDeathDeltas);
-
 			/*
 			 * 5) Record the new state variable values.
 			 * 
@@ -1650,15 +1649,9 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * 
 	 * @param currentState
 	 *            the current disease state
-	 * @param stateAdditions
-	 *            the computed additions to each state
-	 * @param stateDeaths
-	 *            the computed deaths from each state
 	 */
 	protected void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue currentState,
-			final StandardDiseaseModelLabelValue stateAdditions,
-			final StandardDiseaseModelLabelValue stateDeaths) {
+			final StandardDiseaseModelLabelValue currentState) {
 		// Do nothing here. Sub-classes override this method to make changes
 	} // doModelSpecificAdjustments
 

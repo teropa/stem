@@ -16,7 +16,9 @@ import java.util.Random;
 import junit.textui.TestRunner;
 
 //import org.eclipse.stem.diseasemodels.standard.StandardFactory;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
@@ -152,9 +154,7 @@ public class StochasticSIRDiseaseModelTest extends SIRTest {
 	public void testModelSpecificAdjustments(){
 		StochasticSIRDiseaseModelTesterImpl stochasticSIRDiseaseModel = new StochasticSIRDiseaseModelTesterImpl();
 		SIRLabelValueImpl currentSIR = new SIRLabelValueImpl(1000d, 40d, 30d, 20d, 60d, 100d, 10d);
-		SIRLabelValueImpl SIRAdditions = new SIRLabelValueImpl(10d, 2d, 3d, 3d, 2d, 3d, 1d);
-		SIRLabelValueImpl SIRDeaths = new SIRLabelValueImpl(10d, 2d, 3d, 3d, 2d, 3d, 1d);
-		doTest(stochasticSIRDiseaseModel, currentSIR, SIRAdditions, SIRDeaths);
+		doTest(stochasticSIRDiseaseModel, currentSIR);
 	}
 
 //	@SuppressWarnings("synthetic-access")
@@ -179,24 +179,16 @@ public class StochasticSIRDiseaseModelTest extends SIRTest {
 //	}
 
 	private void doTest(StochasticSIRDiseaseModelTesterImpl stochasticSIRDiseaseModel,
-			SIRLabelValueImpl currentSIR, SIRLabelValueImpl SIRAdditions,
-			SIRLabelValueImpl SIRDeaths) {
-		SIRLabelValueImpl newSIRAdditions = SIRLabelValueTestUtil.cloneSIRLabelValueImpl(SIRAdditions);
-		SIRLabelValueImpl newSIRDeaths = SIRLabelValueTestUtil.cloneSIRLabelValueImpl(SIRDeaths);
+			SIRLabelValueImpl currentSIR) {
 		
-		stochasticSIRDiseaseModel.doModelSpecificAdjustments(currentSIR, newSIRAdditions, newSIRDeaths, RANDOM_SEED, TEST_GAIN);
-		
-		SIRLabelValueImpl calculatedSIRAdditions = SIRLabelValueTestUtil.cloneSIRLabelValueImpl(SIRAdditions);
-		SIRLabelValueImpl calculatedSIRDeaths = SIRLabelValueTestUtil.cloneSIRLabelValueImpl(SIRDeaths);
-		
-		doCalculateModelSpecificAdjustments(currentSIR, calculatedSIRAdditions, calculatedSIRDeaths, RANDOM_SEED, TEST_GAIN);
+		stochasticSIRDiseaseModel.doModelSpecificAdjustments(currentSIR, RANDOM_SEED, TEST_GAIN);
+		SIRLabelValueImpl oldSIR= (SIRLabelValueImpl)EcoreUtil.copy(currentSIR);
+		doCalculateModelSpecificAdjustments(currentSIR, RANDOM_SEED, TEST_GAIN);
 
-		String state = getState(currentSIR, SIRAdditions, SIRDeaths, newSIRAdditions, newSIRDeaths, calculatedSIRAdditions, calculatedSIRDeaths);
+		String state = getState(currentSIR, oldSIR);
 		
-		validateModelSpecificAdjustments(newSIRAdditions,
-				newSIRDeaths,
-				calculatedSIRAdditions,
-				calculatedSIRDeaths,
+		validateModelSpecificAdjustments(currentSIR,
+				oldSIR,
 				state);
 	}
 
@@ -221,74 +213,39 @@ public class StochasticSIRDiseaseModelTest extends SIRTest {
 	
 	
 	private void doCalculateModelSpecificAdjustments(
-			SIRLabelValueImpl pCurrentSIR,
-			SIRLabelValueImpl pCalculatedSIRAdditions,
-			SIRLabelValueImpl pCalculatedSIRDeaths, long pRandomSeed, double pTestGain) {
+			SIRLabelValueImpl pCurrentSIR, long pRandomSeed, double pTestGain) {
 		
-		final SIRLabelValue currentSIR =  pCurrentSIR;
-		final SIRLabelValue SIRAdditions =  pCalculatedSIRAdditions;
-		final SIRLabelValue SIRDeaths =  pCalculatedSIRDeaths;
-		
-		
-		// The noise is a multiplier of (1+/-x) with x small.
-		// Compute the transitions
-		
+		final SIRLabelValue currentSI = (SIRLabelValue) pCurrentSIR;
 		Random random = new Random(pRandomSeed);
-		
-		SIRAdditions.setS(Math.min(currentSIR.getR(), (SIRAdditions.getS() * computeNoise(pTestGain, random))));
-		SIRAdditions.setR(Math.min(currentSIR.getI(), (SIRAdditions.getR() * computeNoise(pTestGain, random))));
-       
-		// Infectious case is more complicated
-		double iRnoisy = SIRAdditions.getI()* computeNoise(pTestGain, random);
-		double deltaInoise = iRnoisy;
-		if (deltaInoise > currentSIR.getS()) {
-			double rescale = currentSIR.getS() / deltaInoise;
-			iRnoisy *= rescale;
-		}
-		
-		// set the change in infectious recovered
-		SIRAdditions.setI(iRnoisy);
-		//////////////////////////
-
-        /////////////////////////
-		// now handle the deaths
-		SIRDeaths.setS(Math.min(currentSIR.getS() , (SIRDeaths.getS() * computeNoise(pTestGain, random))));
-		SIRDeaths.setR(Math.min(currentSIR.getR() , (SIRDeaths.getR() * computeNoise(pTestGain, random))));
-		
-		// We do not need to change the Infectious death rate as we have already added noise
-		// to both Infectious Recovered and Infectious Fatal
-
-		SIRDeaths.setDeaths(SIRDeaths.getPopulationCount());
+		double Inoisy = currentSI.getI()* computeNoise(pTestGain, random);
+		currentSI.setI(Inoisy);
+		return;
 				
 	}
 
-	private void validateModelSpecificAdjustments(SIRLabelValueImpl newSIRAdditions,
-			SIRLabelValueImpl newSIRDeaths,
-			SIRLabelValueImpl calculatedSIRAdditions,
-			SIRLabelValueImpl calculatedSIRDeaths,
+	private void validateModelSpecificAdjustments(SIRLabelValueImpl currentSIR,
+			SIRLabelValueImpl oldSIR,
 			String state) {
 
 		
 		try{
-			newSIRAdditions.sane();
+			currentSIR.sane();
 		}
 		catch(Throwable t){
-			throw new IllegalStateException("newSIRAdditions is insane, state is: " + state, t);
+			throw new IllegalStateException("currentSIR is insane, state is: " + state, t);
 		}
 		try{
-			newSIRDeaths.sane();
+			oldSIR.sane();
 		}
 		catch(Throwable t){
-			throw new IllegalStateException("newSIRDeaths is insane, state is: " + state, t);
+			throw new IllegalStateException("oldSIR is insane, state is: " + state, t);
 		}
 
 		
 		
-		assertTrue(String.format("newSIRAdditions has insane values %s", state), mySanityCheck(newSIRAdditions));
-		assertTrue(String.format("newSIRDeaths has insane values %s", state), mySanityCheck(newSIRDeaths));
+		assertTrue(String.format("currentSIR has insane values %s", state), mySanityCheck(currentSIR));
+		assertTrue(String.format("oldSIR has insane values %s", state), mySanityCheck(oldSIR));
 
-		assertTrue(String.format("newSIRAdditions[%s] != calculatedSIRAdditions[%s]", newSIRAdditions, calculatedSIRAdditions), checkEqual(calculatedSIRAdditions, newSIRAdditions));
-		assertTrue(String.format("newSIRDeaths[%s] != calculatedSIRDeaths[%s]", newSIRDeaths, calculatedSIRDeaths), checkEqual(calculatedSIRDeaths, newSIRDeaths));
 		
 	}
 	
@@ -318,11 +275,9 @@ public class StochasticSIRDiseaseModelTest extends SIRTest {
 	}
 
 	private String getState(SIRLabelValueImpl pCurrentSIR,
-			SIRLabelValueImpl pSIRAdditions, SIRLabelValueImpl pSIRDeaths,
-			SIRLabelValueImpl pNewSIRAdditions,
-			SIRLabelValueImpl pNewSIRDeaths, SIRLabelValueImpl pCalculatedSIRAdditions, SIRLabelValueImpl pCalculatedSIRDeaths) {
-		return String.format("\npresent state is: \nCurrentSIR[%s]\n SIRAdditions[%s]\n SIRDeaths[%s]\n NewSIRAdditions[%s]\n NewSIRDeaths[%s]\n CalculatedSIRAdditions[%s]\n CalculatedSIRDeaths[%s]", 
-				pCurrentSIR, pSIRAdditions, pSIRDeaths,pNewSIRAdditions,pNewSIRDeaths, pCalculatedSIRAdditions, pCalculatedSIRDeaths);
+			SIRLabelValueImpl oldSIR) {
+		return String.format("\npresent state is: \nCurrentSIR[%s]\n OldSIR[%s]\n", 
+				pCurrentSIR, pCurrentSIR, oldSIR);
 	}
 
 	
@@ -335,17 +290,13 @@ public class StochasticSIRDiseaseModelTest extends SIRTest {
 
 		public void doModelSpecificAdjustments(
 				StandardDiseaseModelLabelValue pCurrentState,
-				StandardDiseaseModelLabelValue pStateAdditions2,
-				StandardDiseaseModelLabelValue pStateDeaths2,
 				long pRandomSeed, double pTestGain) {
 			setSeed(pRandomSeed);
 			setGain(pTestGain);
 			
 			SIRLabelValueImpl oldCurrentState = SIRLabelValueTestUtil.cloneSIRLabelValueImpl((SIRLabelValueImpl)pCurrentState);
-			SIRLabelValueImpl oldStateAdditions2 = SIRLabelValueTestUtil.cloneSIRLabelValueImpl((SIRLabelValueImpl)pStateAdditions2);
-			SIRLabelValueImpl oldStateDeaths2 = SIRLabelValueTestUtil.cloneSIRLabelValueImpl((SIRLabelValueImpl)pStateDeaths2);
 			
-			super.doModelSpecificAdjustments(pCurrentState, pStateAdditions2, pStateDeaths2);
+			super.doModelSpecificAdjustments(pCurrentState);
 		}
 		
 	}

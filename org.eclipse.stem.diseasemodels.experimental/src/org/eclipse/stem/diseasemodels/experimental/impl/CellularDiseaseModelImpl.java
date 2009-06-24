@@ -126,9 +126,7 @@ public class CellularDiseaseModelImpl extends SIImpl implements CellularDiseaseM
 	 */
 	@Override
 	protected void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue currentState,
-			final StandardDiseaseModelLabelValue stateAdditions2,
-			final StandardDiseaseModelLabelValue stateDeaths2) {
+			final StandardDiseaseModelLabelValue currentState) {
 
 	
 		return;
