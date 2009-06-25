@@ -24,6 +24,7 @@ import org.eclipse.stem.diseasemodels.forcing.ForcingPackage;
 import org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelValueImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
@@ -306,9 +307,19 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * 
 	 */
 	protected void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue currentState
-			) {
-		super.doModelSpecificAdjustments(currentState);
+			final StandardDiseaseModelLabelValue state) {
+			final SILabelValue currentSI = (SILabelValue) state;
+			double oldI = currentSI.getI();
+			double Inoisy = currentSI.getI()* computeNoise();
+			double change = oldI-Inoisy;
+			currentSI.setI(Inoisy);
+			double newS = currentSI.getS() + change;
+			if(newS < 0.0) {
+				// Need to rescale
+				double scale = (currentSI.getS() + newS) / currentSI.getS();
+				currentSI.setI(Inoisy*scale);
+			} else  currentSI.setS(newS);
+			return;
 	} // doModelSpecificAdjustments
 	
 	/**

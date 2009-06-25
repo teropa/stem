@@ -162,13 +162,19 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * 
 	 */
 	protected void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue state
-	) {
-
-		final SILabelValue currentSI = (SILabelValue) state;
-		double Inoisy = currentSI.getI()* computeNoise();
-		currentSI.setI(Inoisy);
-		return;
+			final StandardDiseaseModelLabelValue state) {
+			final SILabelValue currentSI = (SILabelValue) state;
+			double oldI = currentSI.getI();
+			double Inoisy = currentSI.getI()* computeNoise();
+			double change = oldI-Inoisy;
+			currentSI.setI(Inoisy);
+			double newS = currentSI.getS() + change;
+			if(newS < 0.0) {
+				// Need to rescale
+				double scale = (currentSI.getS() + newS) / currentSI.getS();
+				currentSI.setI(Inoisy*scale);
+			} else  currentSI.setS(newS);
+			return;
 	} // doModelSpecificAdjustments
 	
 	
