@@ -29,9 +29,14 @@ public class RecordedTreeNodeLabelProvider implements ILabelProvider {
 	/**
 	 * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
 	 */
-	public Image getImage(@SuppressWarnings("unused") Object element) {
-		return Activator.getDefault().getImageRegistry().get(
-				ISharedImages.RECORDED_SIMULATION_ICON);
+	public Image getImage( Object element) {
+		Image retValue = null;
+		if (element instanceof RecordedTreeNode) {
+			retValue = Activator.getDefault().getImageRegistry().get(
+					ISharedImages.RECORDED_SIMULATION_ICON);
+
+		} // if IdentifiableInstanceTreeNode
+		return retValue;
 	}
 
 	/**
