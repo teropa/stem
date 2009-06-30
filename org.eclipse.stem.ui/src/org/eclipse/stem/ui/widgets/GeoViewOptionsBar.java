@@ -68,6 +68,17 @@ public class GeoViewOptionsBar extends Composite {
 	 * Combo for selecting the color provider
 	 */
 	Combo colorProvidersCombo;
+	
+	/**
+	 * A constant to set the width of the decorators combo
+	 */
+	static final int DECORATORS_WIDTH = 55;
+	
+	/**
+	 * A constant to set the width of the color providers combo
+	 */
+	static final int PROVIDERS_WIDTH  = 65;
+	
 	/**
 	 * Combo for selecting edges
 	 */
@@ -157,17 +168,18 @@ public class GeoViewOptionsBar extends Composite {
 		colorProvidersCombo = new Combo(geoViewOptionsGroup, SWT.DROP_DOWN
 				| SWT.READ_ONLY | SWT.CENTER);
 
+
 		final FormData decoratorsComboFormData = new FormData();
 		decoratorsComboFormData.left = new FormAttachment(0, 0);
-		decoratorsComboFormData.right = new FormAttachment(75, 0);
+		decoratorsComboFormData.right = new FormAttachment(DECORATORS_WIDTH, 0);
 		decoratorsCombo.setLayoutData(decoratorsComboFormData);
-		
+				
 		final FormData colorProvidersComboFormData = new FormData();
 		colorProvidersComboFormData.top = new FormAttachment(decoratorsCombo, 5);
 		colorProvidersComboFormData.left = new FormAttachment(0, 0);
-		colorProvidersComboFormData.right = new FormAttachment(75, 0);
+		colorProvidersComboFormData.right = new FormAttachment(PROVIDERS_WIDTH, 0);
 		colorProvidersCombo.setLayoutData(colorProvidersComboFormData);
-		
+			
 		supportedColorProviders = ColorProviderAdapterFactory.INSTANCE.getSupportedColorProviders();
 		supportedColorProvidersNames = ColorProviderAdapterFactory.INSTANCE.getSupportedColorProvidersNames();
 
@@ -355,13 +367,13 @@ public class GeoViewOptionsBar extends Composite {
 							}
 						});
 			}
+
 			final FormData colorProviderCompositeFormData = new FormData();
-			colorProviderCompositeFormData.top = new FormAttachment(
-					decoratorsCombo, 5);
-			colorProviderCompositeFormData.left = new FormAttachment(
-					colorProvidersCombo, 5);
-			colorProviderCompositeFormData.right = new FormAttachment(100, 0);
+			colorProviderCompositeFormData.top = new FormAttachment(0,0);
+			colorProviderCompositeFormData.left = new FormAttachment(DECORATORS_WIDTH, 0);
+			colorProviderCompositeFormData.right = new FormAttachment(PROVIDERS_WIDTH, 0);
 			colorProviderComposite.setLayoutData(colorProviderCompositeFormData);
+			
 			geoViewOptionsGroup.layout();
 			
 			colorsLegendComposite = selectedColorProviderAdapterFactory
