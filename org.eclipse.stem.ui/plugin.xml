@@ -436,6 +436,41 @@
          <toolbar
                id="org.eclipse.stem.ui.toolbar.newwizards">
             <command
+                  commandId="org.eclipse.stem.ui.command.wiz.project"
+                  icon="icons/full/customobj16/StemExplorer.gif"
+                  label="%_UI_New_STEM_Project_Wizard"
+                  style="push"
+                  tooltip="%_UI_New_STEM_Project_Wizard_TT ">
+            </command>
+            <command
+                  commandId="org.eclipse.stem.ui.command.wiz.scenario"
+                  icon="icons/full/customobj16/Scenario.gif"
+                  label="%_UI_ScenarioModelWizard_label"
+                  style="push"
+                  tooltip="%_UI_ScenarioModelWizard_description">
+            </command>
+            <command
+                  commandId="org.eclipse.stem.ui.command.wiz.model"
+                  icon="icons/full/customobj16/Model.gif"
+                  label="%_UI_ModelModelWizard_label"
+                  style="push"
+                  tooltip="%_UI_ModelModelWizard_description ">
+            </command>
+            <command
+                  commandId="org.eclipse.stem.ui.command.wiz.graph"
+                  icon="icons/full/customobj16/Graph.gif"
+                  label="%_UI_GraphModelWizard_label"
+                  style="push"
+                  tooltip="%_UI_GraphModelWizard_description">
+            </command>
+            <command
+                  commandId="org.eclipse.stem.ui.command.wiz.seqsequencer"
+                  icon="icons/full/customobj16/Sequencer.gif"
+                  label="%_UI_SequencerModelWizard_label"
+                  style="push"
+                  tooltip="%_UI_SequencerModelWizard_description">
+            </command>
+            <command
                   commandId="org.eclipse.stem.ui.command.wiz.experiment"
                   icon="icons/full/customobj16/Experiment.gif"
                   label="%_UI_ExperimentModelWizard_label"
@@ -462,41 +497,6 @@
                   label="%_UI_RealTimeSequencerModelWizard_label"
                   style="push"
                   tooltip="%_UI_RealTimeSequencerModelWizard_description">
-            </command>
-            <command
-                  commandId="org.eclipse.stem.ui.command.wiz.seqsequencer"
-                  icon="icons/full/customobj16/Sequencer.gif"
-                  label="%_UI_SequencerModelWizard_label"
-                  style="push"
-                  tooltip="%_UI_SequencerModelWizard_description">
-            </command>
-            <command
-                  commandId="org.eclipse.stem.ui.command.wiz.scenario"
-                  icon="icons/full/customobj16/Scenario.gif"
-                  label="%_UI_ScenarioModelWizard_label"
-                  style="push"
-                  tooltip="%_UI_ScenarioModelWizard_description">
-            </command>
-            <command
-                  commandId="org.eclipse.stem.ui.command.wiz.model"
-                  icon="icons/full/customobj16/Model.gif"
-                  label="%_UI_ModelModelWizard_label"
-                  style="push"
-                  tooltip="%_UI_ModelModelWizard_description ">
-            </command>
-            <command
-                  commandId="org.eclipse.stem.ui.command.wiz.graph"
-                  icon="icons/full/customobj16/Graph.gif"
-                  label="%_UI_GraphModelWizard_label"
-                  style="push"
-                  tooltip="%_UI_GraphModelWizard_description">
-            </command>
-            <command
-                  commandId="org.eclipse.stem.ui.command.wiz.project"
-                  icon="icons/full/customobj16/StemExplorer.gif"
-                  label="%_UI_New_STEM_Project_Wizard"
-                  style="push"
-                  tooltip="%_UI_New_STEM_Project_Wizard_TT ">
             </command>
             <separator
                   name="additions">
