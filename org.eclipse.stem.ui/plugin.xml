@@ -615,6 +615,12 @@
            name="%_UI_STEM_WizCmd_Cat_Name">
      </category>
      <command
+           defaultHandler="org.eclipse.stem.ui.wizards.NewSTEMProjectWizard$NewSTEMProjectWizardCommandHandler"
+           description="%_UI_New_STEM_Project_Wizard_TT "
+           id="org.eclipse.stem.ui.command.wiz.project"
+           name="%_UI_New_STEM_Project_Wizard">
+     </command>
+     <command
            categoryId="org.eclipse.stem.ui.wizards"
            defaultHandler="org.eclipse.stem.ui.wizards.NewScenarioWizard$NewScenarioWizardCommandHandler"
            description="%_UI_ScenarioModelWizard_description"
@@ -629,6 +635,12 @@
            name="%_UI_ModelModelWizard_label">
      </command>
      <command
+           defaultHandler="org.eclipse.stem.ui.wizards.NewSequentialSequencerWizard$NewFixedSequentialSequencerWizard$NewSequentialSequencerWizardCommandHandler"
+           description="%_UI_SequencerModelWizard_description"
+           id="org.eclipse.stem.ui.command.wiz.seqsequencer"
+           name="%_UI_SequencerModelWizard_label">
+     </command>
+     <command
            categoryId="org.eclipse.stem.ui.wizards"
            defaultHandler="org.eclipse.stem.ui.wizards.NewGraphWizard$NewGraphWizardCommandHandler"
            description="%_UI_GraphModelWizard_description"
@@ -636,28 +648,17 @@
            name="%_UI_GraphModelWizard_label">
      </command>
      <command
-           defaultHandler="org.eclipse.stem.ui.wizards.NewSTEMProjectWizard$NewSTEMProjectWizardCommandHandler"
-           description="%_UI_New_STEM_Project_Wizard_TT "
-           id="org.eclipse.stem.ui.command.wiz.project"
-           name="%_UI_New_STEM_Project_Wizard">
-     </command>
-     <command
-           defaultHandler="org.eclipse.stem.ui.wizards.NewSequentialSequencerWizard$NewFixedSequentialSequencerWizard$NewSequentialSequencerWizardCommandHandler"
-           description="%_UI_SequencerModelWizard_description"
-           id="org.eclipse.stem.ui.command.wiz.seqsequencer"
-           name="%_UI_SequencerModelWizard_label">
+           categoryId="org.eclipse.stem.ui.wizards"
+           defaultHandler="org.eclipse.stem.ui.wizards.NewPredicateWizard$NewPredicateWizardCommandHandler"
+           description="%_UI_PredicateModelWizard_description "
+           id="org.eclipse.stem.ui.command.wiz.predicate"
+           name="%_UI_PredicateModelWizard_label">
      </command>
      <command
            defaultHandler="org.eclipse.stem.ui.wizards.NewSequentialSequencerWizard$NewRealTimeSequencerWizard$NewRealTimeSequencerWizardCommandHandler"
            description="%_UI_RealTimeSequencerModelWizard_description"
            id="org.eclipse.stem.ui.command.wiz.rtsequencer"
            name="%_UI_RealTimeSequencerModelWizard_label">
-     </command>
-     <command
-           defaultHandler="org.eclipse.stem.ui.wizards.NewExperimentWizard$NewExperimentWizardCommandHandler"
-           description="%_UI_ExperimentModelWizard_description"
-           id="org.eclipse.stem.ui.command.wiz.experiment"
-           name="%_UI_ExperimentModelWizard_label">
      </command>
      <command
            categoryId="org.eclipse.stem.ui.wizards"
@@ -667,11 +668,10 @@
            name="%_UI_TriggerModelWizard_label">
      </command>
      <command
-           categoryId="org.eclipse.stem.ui.wizards"
-           defaultHandler="org.eclipse.stem.ui.wizards.NewPredicateWizard$NewPredicateWizardCommandHandler"
-           description="%_UI_PredicateModelWizard_description "
-           id="org.eclipse.stem.ui.command.wiz.predicate"
-           name="%_UI_PredicateModelWizard_label">
+           defaultHandler="org.eclipse.stem.ui.wizards.NewExperimentWizard$NewExperimentWizardCommandHandler"
+           description="%_UI_ExperimentModelWizard_description"
+           id="org.eclipse.stem.ui.command.wiz.experiment"
+           name="%_UI_ExperimentModelWizard_label">
      </command>
   </extension>
   
