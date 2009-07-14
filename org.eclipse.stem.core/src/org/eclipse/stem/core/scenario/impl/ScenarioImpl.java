@@ -16,7 +16,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
@@ -524,7 +523,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 					try {
 						temp.add((Solver) element
 								.createExecutableExtension("class")); //$NON-NLS-1$
-					} catch (final CoreException e) {
+					} catch (final Exception e) {
 						CorePlugin.logError(
 								"Can't create solver", e); //$NON-NLS-1$
 					}
