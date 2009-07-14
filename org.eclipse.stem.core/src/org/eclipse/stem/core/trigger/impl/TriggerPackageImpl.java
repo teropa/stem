@@ -48,6 +48,8 @@ import org.eclipse.stem.core.sequencer.SequencerPackage;
 
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
 
+import org.eclipse.stem.core.solver.SolverPackage;
+import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.core.trigger.TriggerFactory;
 import org.eclipse.stem.core.trigger.TriggerPackage;
@@ -134,6 +136,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 		PredicatePackageImpl thePredicatePackage = (PredicatePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PredicatePackage.eNS_URI) instanceof PredicatePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PredicatePackage.eNS_URI) : PredicatePackage.eINSTANCE);
 		ScenarioPackageImpl theScenarioPackage = (ScenarioPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) instanceof ScenarioPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) : ScenarioPackage.eINSTANCE);
 		SequencerPackageImpl theSequencerPackage = (SequencerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) instanceof SequencerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) : SequencerPackage.eINSTANCE);
+		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTriggerPackage.createPackageContents();
@@ -145,6 +148,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 		thePredicatePackage.createPackageContents();
 		theScenarioPackage.createPackageContents();
 		theSequencerPackage.createPackageContents();
+		theSolverPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTriggerPackage.initializePackageContents();
@@ -156,6 +160,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 		thePredicatePackage.initializePackageContents();
 		theScenarioPackage.initializePackageContents();
 		theSequencerPackage.initializePackageContents();
+		theSolverPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTriggerPackage.freeze();

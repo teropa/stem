@@ -99,4 +99,15 @@ public class PreferenceConstants {
 	 */
 	public static final String FOREGROUND_STRING_LABEL_7 = "org.eclipse.stem.ui.views.geographic.map.preferences.foregroundstringseven";
 
+	/**
+	 * This is the preference for how many threads to use when running
+	 * a simulation
+	 */
+	public static final String SIMULATION_THREADS = "simulationThreads"; //$NON-NLS-1$
+
+	/**
+	 * This is the preference for which default solver to use 
+	 */
+	public static final String DEFAULT_SOLVER = "defaultSolver"; //$NON-NLS-1$
+
 } // PreferenceConstants

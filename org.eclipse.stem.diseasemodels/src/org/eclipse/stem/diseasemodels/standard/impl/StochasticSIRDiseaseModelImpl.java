@@ -161,7 +161,7 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * already in that state is still enforced.
 	 * 
 	 */
-	protected void doModelSpecificAdjustments(
+	public void doModelSpecificAdjustments(
 			final StandardDiseaseModelLabelValue state) {
 			final SILabelValue currentSI = (SILabelValue) state;
 			double oldI = currentSI.getI();

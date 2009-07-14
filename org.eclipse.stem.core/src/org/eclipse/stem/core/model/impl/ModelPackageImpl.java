@@ -45,6 +45,8 @@ import org.eclipse.stem.core.scenario.impl.ScenarioPackageImpl;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
+import org.eclipse.stem.core.solver.SolverPackage;
+import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
 
@@ -179,6 +181,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		ScenarioPackageImpl theScenarioPackage = (ScenarioPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) instanceof ScenarioPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) : ScenarioPackage.eINSTANCE);
 		SequencerPackageImpl theSequencerPackage = (SequencerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) instanceof SequencerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) : SequencerPackage.eINSTANCE);
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
+		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theModelPackage.createPackageContents();
@@ -190,6 +193,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		theScenarioPackage.createPackageContents();
 		theSequencerPackage.createPackageContents();
 		theTriggerPackage.createPackageContents();
+		theSolverPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theModelPackage.initializePackageContents();
@@ -201,6 +205,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		theScenarioPackage.initializePackageContents();
 		theSequencerPackage.initializePackageContents();
 		theTriggerPackage.initializePackageContents();
+		theSolverPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theModelPackage.freeze();

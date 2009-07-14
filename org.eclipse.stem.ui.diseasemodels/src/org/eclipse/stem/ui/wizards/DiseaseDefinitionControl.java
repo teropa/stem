@@ -42,20 +42,9 @@ public class DiseaseDefinitionControl extends Composite {
 	private static DiseaseModel[] diseaseModels = null;
 
 	private Combo combo;
-	private Combo algorithmCombo;
+
 	private DiseaseModelPropertyComposite diseaseModelPropertyComposite;
 
-	public enum Algorithm {
-	    FINITE_DIFFERERENCE ("ALG.2"),
-	    RUNGE_KUTTA   ("ALG.3");
-
-	    private final String nlskey; 
-	    Algorithm(String key) {
-	        this.nlskey = key;
-	    }
-	    public String nlsKey()   { return nlskey; }
-	}
-	
 	/**
 	 * Create the composite
 	 * 
@@ -96,18 +85,6 @@ public class DiseaseDefinitionControl extends Composite {
 		algorithmLabel.setLayoutData(gd_algorithmLabel);
 		algorithmLabel.setText(DiseaseWizardMessages.getString("ALG.0")); //$NON-NLS-1$
 		
-		algorithmCombo = new Combo(this, SWT.READ_ONLY);
-		algorithmCombo.setTextLimit(30);
-		final GridData alg_gd_combo = new GridData(SWT.FILL, SWT.CENTER, true,
-				false);
-		alg_gd_combo.widthHint = 303;
-		algorithmCombo.setLayoutData(gd_combo);
-
-		algorithmCombo.setToolTipText(DiseaseWizardMessages.getString("ALG.1")); //$NON-NLS-1$
-		// Initialize the list of disease models available
-		algorithmCombo.setItems(getAlgorithms());
-		algorithmCombo.select(0);
-		algorithmCombo.addModifyListener(projectValidator);
 		
 		diseaseModelPropertyComposite = new DiseaseModelPropertyComposite(this,
 				SWT.NONE, getDiseaseModels(), projectValidator);
@@ -127,16 +104,7 @@ public class DiseaseDefinitionControl extends Composite {
 
 		});
 		final DiseaseDefinitionControl self = this;
-		algorithmCombo.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				int index = algorithmCombo.getSelectionIndex();
-				Algorithm alg = Algorithm.values()[index];
-				DiseaseModel dm = getDiseaseModels()[self.combo.getSelectionIndex()];
-				dm.setFiniteDifference(alg==Algorithm.FINITE_DIFFERERENCE);
-			} // widgetSelected
 
-		});
 	} // DiseaseDefinitionControl
 
 	/**
@@ -191,19 +159,6 @@ public class DiseaseDefinitionControl extends Composite {
 		return retValue;
 	} // getDiseaseModelNames
 
-	/**
-	 * @return The names of the solver algorithms
-	 */
-	private String[] getAlgorithms() {
-		Algorithm[] algs= Algorithm.values();
-		final String[] retValue = new String[algs.length];
-		int n=0;
-		for(Algorithm alg : algs) { 
-			retValue[n] = DiseaseWizardMessages.getString(alg.nlsKey());
-			++n;
-		}
-		return retValue;
-	} // getAlgorithms
 	
 	DiseaseModel getSelectedDiseaseModel() {
 		final DiseaseModel retValue = (DiseaseModel) EcoreUtil

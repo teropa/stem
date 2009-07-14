@@ -192,6 +192,18 @@
     <eOperations name="addToTotalArea">
       <eParameters name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
+    <eOperations name="calculateDelta">
+      <eParameters name="time" eType="ecore:EClass ../../org.eclipse.stem.core/model/model.ecore#//STEMTime"/>
+      <eParameters name="timeDelta" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
+      <eParameters name="labels">
+        <eGenericType eClassifier="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEList">
+          <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.stem.core/model/graph.ecore#//DynamicLabel"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="doModelSpecificAdjustments">
+      <eParameters name="label" eType="#//StandardDiseaseModelLabelValue"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPopulationCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPopulationCountReciprocal"

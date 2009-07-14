@@ -37,6 +37,8 @@ import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
+import org.eclipse.stem.core.solver.SolverPackage;
+import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
 
@@ -124,6 +126,7 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 		PredicatePackageImpl thePredicatePackage = (PredicatePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PredicatePackage.eNS_URI) instanceof PredicatePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PredicatePackage.eNS_URI) : PredicatePackage.eINSTANCE);
 		SequencerPackageImpl theSequencerPackage = (SequencerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) instanceof SequencerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) : SequencerPackage.eINSTANCE);
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
+		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theScenarioPackage.createPackageContents();
@@ -135,6 +138,7 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 		thePredicatePackage.createPackageContents();
 		theSequencerPackage.createPackageContents();
 		theTriggerPackage.createPackageContents();
+		theSolverPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theScenarioPackage.initializePackageContents();
@@ -146,6 +150,7 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 		thePredicatePackage.initializePackageContents();
 		theSequencerPackage.initializePackageContents();
 		theTriggerPackage.initializePackageContents();
+		theSolverPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theScenarioPackage.freeze();
@@ -212,6 +217,15 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getScenario_Solver() {
+		return (EReference)scenarioEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ScenarioFactory getScenarioFactory() {
 		return (ScenarioFactory)getEFactoryInstance();
 	}
@@ -241,6 +255,7 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 		createEReference(scenarioEClass, SCENARIO__SCENARIO_DECORATORS);
 		createEReference(scenarioEClass, SCENARIO__CANONICAL_GRAPH);
 		createEAttribute(scenarioEClass, SCENARIO__PROGRESS);
+		createEReference(scenarioEClass, SCENARIO__SOLVER);
 	}
 
 	/**
@@ -271,6 +286,7 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 		SequencerPackage theSequencerPackage = (SequencerPackage)EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI);
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
+		SolverPackage theSolverPackage = (SolverPackage)EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -286,6 +302,7 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 		initEReference(getScenario_ScenarioDecorators(), theModelPackage.getDecorator(), null, "scenarioDecorators", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getScenario_CanonicalGraph(), theGraphPackage.getGraph(), null, "canonicalGraph", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getScenario_Progress(), ecorePackage.getEDouble(), "progress", "0.0", 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEReference(getScenario_Solver(), theSolverPackage.getSolver(), null, "solver", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(scenarioEClass, ecorePackage.getEBoolean(), "step", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 

@@ -158,19 +158,32 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	 * 
 	 */
 	
-	protected void doModelSpecificAdjustments(
+	public void doModelSpecificAdjustments(
 			final StandardDiseaseModelLabelValue state) {
 			final SILabelValue currentSI = (SILabelValue) state;
 			double oldI = currentSI.getI();
-			double Inoisy = currentSI.getI()* computeNoise();
-			double change = oldI-Inoisy;
-			currentSI.setI(Inoisy);
-			double newS = currentSI.getS() + change;
+			double incidence = state.getIncidence();
+			double newIncidence = incidence*computeNoise();
+			double diff = newIncidence - incidence;
+			
+			double newI = currentSI.getI() + diff;
+			double newS = currentSI.getS() - diff;
+			if(newI < 0.0) {
+				double scale = (-newI) / currentSI.getI();
+				diff = diff * scale;
+				newI = currentSI.getI() + diff; // 0
+				newS = currentSI.getS() - diff;
+			}
 			if(newS < 0.0) {
-				// Need to rescale
-				double scale = (currentSI.getS() + newS) / currentSI.getS();
-				currentSI.setI(Inoisy*scale);
-			} else  currentSI.setS(newS);
+				double scale = (-newS) / currentSI.getS();
+				diff = diff * scale;
+				newI = currentSI.getI() + diff;
+				newS = currentSI.getS() - diff; // 0
+			}
+			newIncidence = incidence + diff;
+			currentSI.setS(newS);
+			currentSI.setI(newI);
+			currentSI.setIncidence(newIncidence);
 			return;
 	} // doModelSpecificAdjustments
 	

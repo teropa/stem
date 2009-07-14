@@ -97,15 +97,6 @@
      </dublin_core>
   </extension>
   <extension
-        point="org.eclipse.ui.preferencePages">
-     <page
-           category="org.eclipse.stem.ui.preferences.STEMPreferencePage"
-           class="org.eclipse.stem.diseasemodels.preferences.DiseaseModelingPreferencePage"
-           id="org.eclipse.stem.diseasemodels.preferences.DiseaseModelingPreferencePage"
-           name="%_UI_DiseaseModelingPPage">
-     </page>
-  </extension>
-  <extension
         point="org.eclipse.core.runtime.preferences">
      <initializer
            class="org.eclipse.stem.diseasemodels.preferences.PreferenceInitializer">

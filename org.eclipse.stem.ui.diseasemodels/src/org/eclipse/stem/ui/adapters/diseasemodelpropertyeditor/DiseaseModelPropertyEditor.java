@@ -43,8 +43,9 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 		if (containingClass.equals(StandardPackage.eINSTANCE.getDiseaseModel())
 				|| containingClass.getEAllSuperTypes().contains(
 						StandardPackage.eINSTANCE.getDiseaseModel())) {
-			// Hack for to use dropdown for the algorithm instead of editor
-			if(feature.getName().equals("finiteDifference")) return false;
+			// Deprecated, don't use!
+			if(feature.getName().equals("finiteDifference")
+					|| feature.getName().equals("relativeTolerance")) return false;
 			// Yes
 			retValue = true;
 		} // if a disease model property

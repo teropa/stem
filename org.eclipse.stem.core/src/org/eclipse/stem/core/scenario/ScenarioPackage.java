@@ -150,13 +150,22 @@ public interface ScenarioPackage extends EPackage {
 	int SCENARIO__PROGRESS = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Solver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO__SOLVER = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Scenario</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 5;
+	int SCENARIO_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.core.scenario.Scenario <em>Scenario</em>}'.
@@ -222,6 +231,17 @@ public interface ScenarioPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getScenario_Progress();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.stem.core.scenario.Scenario#getSolver <em>Solver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Solver</em>'.
+	 * @see org.eclipse.stem.core.scenario.Scenario#getSolver()
+	 * @see #getScenario()
+	 * @generated
+	 */
+	EReference getScenario_Solver();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -294,6 +314,14 @@ public interface ScenarioPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCENARIO__PROGRESS = eINSTANCE.getScenario_Progress();
+
+		/**
+		 * The meta object literal for the '<em><b>Solver</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCENARIO__SOLVER = eINSTANCE.getScenario_Solver();
 
 }
 

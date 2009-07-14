@@ -118,6 +118,24 @@ public interface Constants {
 	String ID_PREDICATE_EXTENSION_POINT = ID_ROOT + ".core.predicate";
 
 	/**
+	 * This is the extension point id for the "solver" extension point. A
+	 * {@link Solver} defines the underlying computational model.
+	 * {@value}
+	 */
+	String ID_SOLVER_EXTENSION_POINT = org.eclipse.stem.core.Constants.ID_ROOT
+	+ ".core.solver";
+
+	
+	/**
+	 * This is the identifier of the element in a
+	 * <code>ConfigurationElement</code> that specifies the name and
+	 * implementing class for STEM "solver".
+	 * 
+	 * @see org.eclipse.stem.core.Constants#EXECUTABLE_NAME_ATTRIBUTE
+	 */
+	String SOLVER_ELEMENT = "classdef";
+
+	/**
 	 * This is the identifier of the XML element that specifies the name of a
 	 * "category" for extension points that are extended by extensions that plug
 	 * in {@link Identifiable}s. {@value}

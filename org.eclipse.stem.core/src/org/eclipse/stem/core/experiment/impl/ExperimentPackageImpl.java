@@ -35,6 +35,8 @@ import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.scenario.impl.ScenarioPackageImpl;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
+import org.eclipse.stem.core.solver.SolverPackage;
+import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
 
@@ -127,6 +129,7 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		ScenarioPackageImpl theScenarioPackage = (ScenarioPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) instanceof ScenarioPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) : ScenarioPackage.eINSTANCE);
 		SequencerPackageImpl theSequencerPackage = (SequencerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) instanceof SequencerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) : SequencerPackage.eINSTANCE);
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
+		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExperimentPackage.createPackageContents();
@@ -138,6 +141,7 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		theScenarioPackage.createPackageContents();
 		theSequencerPackage.createPackageContents();
 		theTriggerPackage.createPackageContents();
+		theSolverPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExperimentPackage.initializePackageContents();
@@ -149,6 +153,7 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		theScenarioPackage.initializePackageContents();
 		theSequencerPackage.initializePackageContents();
 		theTriggerPackage.initializePackageContents();
+		theSolverPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExperimentPackage.freeze();

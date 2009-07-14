@@ -1,6 +1,10 @@
 // StandardDiseaseModel.java
 package org.eclipse.stem.diseasemodels.standard;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.model.STEMTime;
+
 /*******************************************************************************
  * Copyright (c) 2006 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
@@ -127,6 +131,22 @@ public interface StandardDiseaseModel extends DiseaseModel {
 	 * @model volatile="true" transient="true" changeable="false"
 	 */
 	void addToTotalArea(final double area);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model labelsMany="false"
+	 * @generated
+	 */
+	void calculateDelta(STEMTime time, long timeDelta, EList<DynamicLabel> labels);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void doModelSpecificAdjustments(StandardDiseaseModelLabelValue label);
 
 	/**
 	 * @return the total area (km^2) occupied by the population whose disease

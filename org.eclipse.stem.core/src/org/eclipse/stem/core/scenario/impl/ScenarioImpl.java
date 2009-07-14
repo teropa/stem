@@ -11,10 +11,18 @@ package org.eclipse.stem.core.scenario.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
  
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -23,6 +31,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.stem.core.Constants;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
@@ -36,6 +45,7 @@ import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.Sequencer;
+import org.eclipse.stem.core.solver.Solver;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Scenario</b></em>'.
@@ -48,6 +58,7 @@ import org.eclipse.stem.core.sequencer.Sequencer;
  *   <li>{@link org.eclipse.stem.core.scenario.impl.ScenarioImpl#getScenarioDecorators <em>Scenario Decorators</em>}</li>
  *   <li>{@link org.eclipse.stem.core.scenario.impl.ScenarioImpl#getCanonicalGraph <em>Canonical Graph</em>}</li>
  *   <li>{@link org.eclipse.stem.core.scenario.impl.ScenarioImpl#getProgress <em>Progress</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.scenario.impl.ScenarioImpl#getSolver <em>Solver</em>}</li>
  * </ul>
  * </p>
  *
@@ -140,6 +151,17 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	protected double progress = PROGRESS_EDEFAULT;
 
 	
+	/**
+	 * The cached value of the '{@link #getSolver() <em>Solver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolver()
+	 * @generated
+	 * @ordered
+	 */
+	protected Solver solver;
+
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -266,6 +288,49 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solver getSolver() {
+		return solver;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSolver(Solver newSolver, NotificationChain msgs) {
+		Solver oldSolver = solver;
+		solver = newSolver;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ScenarioPackage.SCENARIO__SOLVER, oldSolver, newSolver);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolver(Solver newSolver) {
+		if (newSolver != solver) {
+			NotificationChain msgs = null;
+			if (solver != null)
+				msgs = ((InternalEObject)solver).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ScenarioPackage.SCENARIO__SOLVER, null, msgs);
+			if (newSolver != null)
+				msgs = ((InternalEObject)newSolver).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ScenarioPackage.SCENARIO__SOLVER, null, msgs);
+			msgs = basicSetSolver(newSolver, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScenarioPackage.SCENARIO__SOLVER, newSolver, newSolver));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * @return <code>true</code> if it's ok to call step again.
 	 * 
@@ -298,20 +363,28 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				decorator.setProgress(0.0);
 			}
 			
-			// Now give each decorator a chance to update its dynamic
-			// labels in the canonical graph, but only if it is enabled. A
-			// Decorator might not be enabled if it is the action of a Trigger
-			// and the Predicate of the trigger is false.
-			for (final Iterator<Decorator> decoratorIter = canonicalGraph
-					.getDecorators().iterator(); decoratorIter.hasNext();) {
-				final Decorator decorator = decoratorIter.next();
-				// Is the decorator enabled?
-				if (decorator.isEnabled()) {	
-					// Yes
-					decorator.updateLabels(currentTime, timeDelta, getSequencer().getCycle());
-				} // if
-			} // for each decorator
+			// This is the solver we will be using to advance the solution
+			// one step
 			
+			Solver solver = this.getSolver();
+			
+			// Needed to support old model where the solver was part of the decorator
+			// Use the preference setting
+			
+			if(solver == null) {
+				Solver [] solvers = this.getSolvers();
+				// Use the default finite difference when not available
+				for(Solver s:solvers)
+					if(s.getClass().getName().equals("org.eclipse.stem.solvers.fd.impl.FiniteDifferenceImpl"))
+					{solver = s;this.setSolver(s);break;}
+			}
+			
+			// Make sure the decorators are set on the solver
+			if(solver.getDecorators() == null) solver.setDecorators(canonicalGraph.getDecorators());
+			
+			// Do the one step using the current solver
+			solver.step(currentTime, timeDelta, getSequencer().getCycle());
+						
 			// Everything should still be sane
 			assert sane();
 	
@@ -347,6 +420,8 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				decorator.resetLabels();
 			} // if 
 			
+			// Reset the solver
+			solver.reset();
 		} // for each decorator
 	}// reset
 
@@ -431,6 +506,35 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		}
 	} // initialize
 
+	private org.eclipse.stem.core.solver.Solver [] getSolvers() {
+		Solver [] solvers;
+		final IExtensionRegistry registry = Platform.getExtensionRegistry();
+		final IConfigurationElement[] solverConfigElements = registry
+				.getConfigurationElementsFor(org.eclipse.stem.core.Constants.ID_SOLVER_EXTENSION_POINT);
+
+		final List<Solver> temp = new ArrayList<Solver>();
+
+		solvers = new Solver[solverConfigElements.length];
+
+		for (int i = 0; i < solverConfigElements.length; i++) {
+			final IConfigurationElement element = solverConfigElements[i];
+			// Does the element specify the class of the disease model?
+				if (element.getName().equals(Constants.SOLVER_ELEMENT)) {
+					// Yes
+					try {
+						temp.add((Solver) element
+								.createExecutableExtension("class")); //$NON-NLS-1$
+					} catch (final CoreException e) {
+						CorePlugin.logError(
+								"Can't create solver", e); //$NON-NLS-1$
+					}
+				} // if
+			} // for each configuration element
+
+			solvers = temp.toArray(new Solver[] {});
+
+		return solvers;
+	}
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -444,6 +548,20 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		}
 		return retValue;
 	} // produceTitle
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ScenarioPackage.SCENARIO__SOLVER:
+				return basicSetSolver(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -510,6 +628,8 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				return getCanonicalGraph();
 			case ScenarioPackage.SCENARIO__PROGRESS:
 				return new Double(getProgress());
+			case ScenarioPackage.SCENARIO__SOLVER:
+				return getSolver();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -535,6 +655,9 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			case ScenarioPackage.SCENARIO__PROGRESS:
 				setProgress(((Double)newValue).doubleValue());
 				return;
+			case ScenarioPackage.SCENARIO__SOLVER:
+				setSolver((Solver)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -558,6 +681,9 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			case ScenarioPackage.SCENARIO__PROGRESS:
 				setProgress(PROGRESS_EDEFAULT);
 				return;
+			case ScenarioPackage.SCENARIO__SOLVER:
+				setSolver((Solver)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -579,6 +705,8 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				return canonicalGraph != null;
 			case ScenarioPackage.SCENARIO__PROGRESS:
 				return progress != PROGRESS_EDEFAULT;
+			case ScenarioPackage.SCENARIO__SOLVER:
+				return solver != null;
 		}
 		return super.eIsSet(featureID);
 	}

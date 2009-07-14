@@ -18,6 +18,7 @@ import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.sequencer.Sequencer;
+import org.eclipse.stem.core.solver.Solver;
 
 /**
  * A <code>Scenario</code> combines all of the components required to create
@@ -170,6 +171,32 @@ public interface Scenario extends Identifiable {
 	 * @generated
 	 */
 	void setProgress(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Solver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Solver</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Solver</em>' containment reference.
+	 * @see #setSolver(Solver)
+	 * @see org.eclipse.stem.core.scenario.ScenarioPackage#getScenario_Solver()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Solver getSolver();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.core.scenario.Scenario#getSolver <em>Solver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Solver</em>' containment reference.
+	 * @see #getSolver()
+	 * @generated
+	 */
+	void setSolver(Solver value);
 
 	/**
 	 * Sequence the model by one simulation step. This performs any

@@ -3,11 +3,19 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.core/src"
     editDirectory="/org.eclipse.stem.core/src" editorDirectory="/org.eclipse.stem.ui/src"
-    modelPluginID="org.eclipse.stem.core" modelName="Core" modelPluginClass=""
-    editorPluginClass="org.eclipse.stem.core.common.presentation.CoreEditorPlugin"
-    nonNLSMarkers="true" testsDirectory="/org.eclipse.stem.tests.core/src" importerID="org.eclipse.emf.importer.java"
+    modelPluginID="org.eclipse.stem.core" modelName="Core" modelPluginClass="" editorPluginClass="org.eclipse.stem.core.common.presentation.CoreEditorPlugin"
+    nonNLSMarkers="true" testsDirectory="/org.eclipse.stem.tests.core/src" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
-  <foreignModel>@model</foreignModel>
+  <foreignModel>common.ecore</foreignModel>
+  <foreignModel>experiment.ecore</foreignModel>
+  <foreignModel>graph.ecore</foreignModel>
+  <foreignModel>model.ecore</foreignModel>
+  <foreignModel>modifier.ecore</foreignModel>
+  <foreignModel>predicate.ecore</foreignModel>
+  <foreignModel>scenario.ecore</foreignModel>
+  <foreignModel>sequencer.ecore</foreignModel>
+  <foreignModel>trigger.ecore</foreignModel>
+  <foreignModel>solver.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
       contentTypeIdentifier="" ecorePackage="common.ecore#/">
@@ -420,6 +428,13 @@
           ecoreFeature="ecore:EReference trigger.ecore#//Trigger/predicate"/>
       <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference trigger.ecore#//Trigger/action"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Solver" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      ecorePackage="solver.ecore#/">
+    <genClasses ecoreClass="solver.ecore#//Solver">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solver/decorators"/>
+      <genOperations ecoreOperation="solver.ecore#//Solver/step"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

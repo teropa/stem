@@ -46,6 +46,8 @@ import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.SequencerFactory;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 import org.eclipse.stem.core.sequencer.SequentialSequencer;
+import org.eclipse.stem.core.solver.SolverPackage;
+import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
 
@@ -145,6 +147,7 @@ public class SequencerPackageImpl extends EPackageImpl implements SequencerPacka
 		PredicatePackageImpl thePredicatePackage = (PredicatePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PredicatePackage.eNS_URI) instanceof PredicatePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PredicatePackage.eNS_URI) : PredicatePackage.eINSTANCE);
 		ScenarioPackageImpl theScenarioPackage = (ScenarioPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) instanceof ScenarioPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) : ScenarioPackage.eINSTANCE);
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
+		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theSequencerPackage.createPackageContents();
@@ -156,6 +159,7 @@ public class SequencerPackageImpl extends EPackageImpl implements SequencerPacka
 		thePredicatePackage.createPackageContents();
 		theScenarioPackage.createPackageContents();
 		theTriggerPackage.createPackageContents();
+		theSolverPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSequencerPackage.initializePackageContents();
@@ -167,6 +171,7 @@ public class SequencerPackageImpl extends EPackageImpl implements SequencerPacka
 		thePredicatePackage.initializePackageContents();
 		theScenarioPackage.initializePackageContents();
 		theTriggerPackage.initializePackageContents();
+		theSolverPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSequencerPackage.freeze();

@@ -111,8 +111,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createComparableAdapter();
 			}
 			@Override
-			public <T> Adapter caseCommon_Comparable(Comparable<T> object) {
-				return createCommon_ComparableAdapter();
+			public <T> Adapter caseComparable_1(Comparable<T> object) {
+				return createComparable_1Adapter();
 			}
 			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
@@ -246,7 +246,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @see java.lang.Comparable
 	 * @generated
 	 */
-	public Adapter createCommon_ComparableAdapter() {
+	public Adapter createComparable_1Adapter() {
 		return null;
 	}
 

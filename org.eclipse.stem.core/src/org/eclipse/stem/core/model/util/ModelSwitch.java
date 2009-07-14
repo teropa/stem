@@ -104,7 +104,7 @@ public class ModelSwitch<T1> {
 				Decorator decorator = (Decorator)theEObject;
 				T1 result = caseDecorator(decorator);
 				if (result == null) result = caseIdentifiable(decorator);
-				if (result == null) result = caseCommon_Comparable(decorator);
+				if (result == null) result = caseComparable_1(decorator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,7 +113,7 @@ public class ModelSwitch<T1> {
 				T1 result = caseEdgeDecorator(edgeDecorator);
 				if (result == null) result = caseDecorator(edgeDecorator);
 				if (result == null) result = caseIdentifiable(edgeDecorator);
-				if (result == null) result = caseCommon_Comparable(edgeDecorator);
+				if (result == null) result = caseComparable_1(edgeDecorator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -122,7 +122,7 @@ public class ModelSwitch<T1> {
 				T1 result = caseGraphDecorator(graphDecorator);
 				if (result == null) result = caseDecorator(graphDecorator);
 				if (result == null) result = caseIdentifiable(graphDecorator);
-				if (result == null) result = caseCommon_Comparable(graphDecorator);
+				if (result == null) result = caseComparable_1(graphDecorator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,7 +130,7 @@ public class ModelSwitch<T1> {
 				Model model = (Model)theEObject;
 				T1 result = caseModel(model);
 				if (result == null) result = caseIdentifiable(model);
-				if (result == null) result = caseCommon_Comparable(model);
+				if (result == null) result = caseComparable_1(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,7 +139,7 @@ public class ModelSwitch<T1> {
 				T1 result = caseNodeDecorator(nodeDecorator);
 				if (result == null) result = caseDecorator(nodeDecorator);
 				if (result == null) result = caseIdentifiable(nodeDecorator);
-				if (result == null) result = caseCommon_Comparable(nodeDecorator);
+				if (result == null) result = caseComparable_1(nodeDecorator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -270,7 +270,7 @@ public class ModelSwitch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseCommon_Comparable(Comparable<T> object) {
+	public <T> T1 caseComparable_1(Comparable<T> object) {
 		return null;
 	}
 

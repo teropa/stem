@@ -110,6 +110,7 @@ import org.eclipse.stem.core.predicate.provider.PredicateItemProviderAdapterFact
 import org.eclipse.stem.core.sequencer.provider.SequencerItemProviderAdapterFactory;
 
 
+import org.eclipse.stem.core.solver.provider.SolverItemProviderAdapterFactory;
 import org.eclipse.stem.core.trigger.provider.TriggerItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.stem.core.scenario.provider.ScenarioItemProviderAdapterFactory;
@@ -407,7 +408,7 @@ public class ScenarioEditor extends MultiPageEditorPart implements
 							if (delta.getResource().getType() == IResource.FILE) {
 								if (delta.getKind() == IResourceDelta.REMOVED ||
 								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+									Resource resource = resourceSet.getResource(URI.createURI(delta.getFullPath().toString()), false);
 									if (resource != null) {
 										if (delta.getKind() == IResourceDelta.REMOVED) {
 											removedResources.add(resource);
@@ -431,31 +432,31 @@ public class ScenarioEditor extends MultiPageEditorPart implements
 						}
 					}
 
-					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
+					ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
 					delta.accept(visitor);
 
 					if (!visitor.getRemovedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
+						removedResources.addAll(visitor.getRemovedResources());
+						if (!isDirty()) {
+							getSite().getShell().getDisplay().asyncExec
+								(new Runnable() {
+									 public void run() {
 										 getSite().getPage().closeEditor(ScenarioEditor.this, false);
 									 }
-								 }
-							 });
+								 });
+						}
 					}
 
 					if (!visitor.getChangedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == ScenarioEditor.this) {
+						changedResources.addAll(visitor.getChangedResources());
+						if (getSite().getPage().getActiveEditor() == ScenarioEditor.this) {
+							getSite().getShell().getDisplay().asyncExec
+								(new Runnable() {
+									 public void run() {
 										 handleActivate();
 									 }
-								 }
-							 });
+								 });
+						}
 					}
 				}
 				catch (CoreException exception) {
@@ -655,6 +656,7 @@ public class ScenarioEditor extends MultiPageEditorPart implements
 		adapterFactory.addAdapterFactory(new ScenarioItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TriggerItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -713,6 +715,11 @@ public class ScenarioEditor extends MultiPageEditorPart implements
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
+			// I don't know if this should be run this deferred
+			// because we might have to give the editor a chance to process the viewer update events
+			// and hence to update the views first.
+			//
+			//
 			Runnable runnable =
 				new Runnable() {
 					public void run() {
@@ -723,7 +730,7 @@ public class ScenarioEditor extends MultiPageEditorPart implements
 						}
 					}
 				};
-			getSite().getShell().getDisplay().asyncExec(runnable);
+			runnable.run();
 		}
 	}
 

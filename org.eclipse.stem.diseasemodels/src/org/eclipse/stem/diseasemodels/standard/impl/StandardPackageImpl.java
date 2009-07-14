@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -29,6 +30,7 @@ import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.modifier.ModifierPackage;
+import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
@@ -397,6 +399,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		// Initialize simple dependencies
 		LabelsPackage.eINSTANCE.eClass();
+		SolverPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theStandardPackage.createPackageContents();
@@ -1735,6 +1738,17 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		op = addEOperation(standardDiseaseModelEClass, null, "addToTotalArea", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, ecorePackage.getEDouble(), "area", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		op = addEOperation(standardDiseaseModelEClass, null, "calculateDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theModelPackage.getSTEMTime(), "time", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcorePackage.getELong(), "timeDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		EGenericType g1 = createEGenericType(theEcorePackage.getEEList());
+		EGenericType g2 = createEGenericType(theGraphPackage.getDynamicLabel());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "labels", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		op = addEOperation(standardDiseaseModelEClass, null, "doModelSpecificAdjustments", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, this.getStandardDiseaseModelLabelValue(), "label", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(standardDiseaseModelLabelEClass, StandardDiseaseModelLabel.class, "StandardDiseaseModelLabel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getStandardDiseaseModelLabel_CurrentStandardDiseaseModelLabelValue(), this.getStandardDiseaseModelLabelValue(), null, "currentStandardDiseaseModelLabelValue", null, 0, 1, StandardDiseaseModelLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
