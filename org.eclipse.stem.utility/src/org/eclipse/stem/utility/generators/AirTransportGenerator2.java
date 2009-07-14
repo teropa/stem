@@ -354,13 +354,12 @@ public class AirTransportGenerator2 {
 		  int startLevel = GenUtils.getLevel(stemCode);
 		  int passengers = Integer.parseInt(st.nextToken().trim());
 		  int population = Integer.parseInt(st.nextToken().trim());
-		  if(population <= 0) continue;
-		  if(passengers <= 0) continue;
+		  
 		  
 		  // Skip rest
 		  String s = null;
 		  while(st.hasMoreTokens()) s=st.nextToken();
-		  boolean generated = (Integer.parseInt(s.trim()) == 1);
+		  boolean generated = (passengers == -1);
 		
 		  // 0.01 % per day or 15 / day, whichever is smallest
 		  double threshold = ((double)population*(double)DEFAULT_DIVISIOR)/10000.0;
@@ -486,7 +485,7 @@ public class AirTransportGenerator2 {
 		fw.write("# *******************************************************************************/"+LS); 
 		fw.write(LS);		 
 		fw.write("# This is the name of the class that will interpret the rest of the file's contents"+LS); 
-		fw.write("RECORD_CLASSNAME =  org.eclipse.ohf.stem.internal.data.geography.infrastructure.transportation.specifications.AirTransportationGeographicRelationshipPropertyFileSpecification"+LS);
+		fw.write("RECORD_CLASSNAME =  org.eclipse.stem.internal.data.geography.infrastructure.transportation.specifications.AirTransportationGeographicRelationshipPropertyFileSpecification"+LS);
 		fw.write(LS); 
 		fw.write("# The title of the relationship"+LS); 
 		fw.write("TITLE = Air transport between "+ctry+"("+(level-1)+") and "+ctry+"("+level+")"); 
