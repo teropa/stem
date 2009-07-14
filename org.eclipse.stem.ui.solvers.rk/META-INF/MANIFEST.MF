@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.stem.ui.solvers.rk Plug-in
+Bundle-SymbolicName: org.eclipse.stem.ui.solvers.rk;singleton:=true
+Bundle-Version: 0.5.0
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.stem.core;bundle-version="0.5.0",
+ org.eclipse.stem.solvers.rk;bundle-version="1.0.0",
+ org.eclipse.emf.ecore.edit;bundle-version="2.4.1",
+ org.eclipse.osgi;bundle-version="3.4.3",
+ org.eclipse.core.runtime;bundle-version="3.4.0",
+ org.eclipse.core.resources;bundle-version="3.4.2",
+ org.eclipse.ui.ide;bundle-version="3.4.2",
+ org.eclipse.stem.ui;bundle-version="0.5.0"
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.stem.ui.solvers.rk.Activator
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.eclipse.stem.solvers.rk.presentation

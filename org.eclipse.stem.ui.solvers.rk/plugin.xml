@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.4 2009/03/11 03:45:26 sedlund Exp $
+-->
+
+<plugin>
+    <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.solvers.rk.presentation.RkSolverPropertyEditorAdapterFactory">
+     </startup>
+  </extension>
+</plugin>
