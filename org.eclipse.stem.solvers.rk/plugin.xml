@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///org/eclipse/stem/solvers/rk"
+            class="org.eclipse.stem.solvers.rk.RkPackage"
+            genModel="model/rk.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.stem.core.solver">
+      <classdef
+            class="org.eclipse.stem.solvers.rk.impl.RungeKuttaImpl">
+      </classdef>
+      <dublin_core
+            category_id="/"
+            identifier="org.eclipse.stem.solvers.rk.dublin_core2"
+            title="org.eclipse.stem.solvers.rk.dublin_core2">
+      </dublin_core>
+   </extension>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="org.eclipse.stem.solvers.rk.provider.RkItemProviderAdapterFactory"
+            uri="http:///org/eclipse/stem/solvers/rk"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource">
+      </factory>
+   </extension>
+</plugin>
