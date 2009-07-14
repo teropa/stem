@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?pde version="3.5"?>
+<?pde version="3.4"?>
 
-<product name="STEM (Incubation)" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" version="0.5.0" useFeatures="false" includeLaunchers="true">
+<product name="STEM (Incubation)" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" version="0.5.0" useFeatures="false">
 
    <aboutInfo>
       <image path="/org.eclipse.stem.ui/branding/ohf64_64_32.gif"/>
@@ -61,14 +61,14 @@
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>
       <plugin id="org.eclipse.core.filesystem"/>
-      <plugin id="org.eclipse.core.filesystem.linux.x86" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.linux.x86"/>
+      <plugin id="org.eclipse.core.filesystem.linux.x86_64"/>
+      <plugin id="org.eclipse.core.filesystem.macosx"/>
       <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.macosx" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.net"/>
+      <plugin id="org.eclipse.core.net.linux.x86"/>
       <plugin id="org.eclipse.core.net.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.core.net.linux.x86" fragment="true"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
       <plugin id="org.eclipse.core.resources.win32.x86" fragment="true"/>
@@ -103,8 +103,8 @@
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.macosx"/>
       <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.equinox.security.macosx" fragment="true"/>
       <plugin id="org.eclipse.help"/>
       <plugin id="org.eclipse.help.appserver"/>
       <plugin id="org.eclipse.help.base"/>
@@ -113,6 +113,8 @@
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
       <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.services"/>
       <plugin id="org.eclipse.stem.analysis"/>
       <plugin id="org.eclipse.stem.core"/>
       <plugin id="org.eclipse.stem.data.diseasemodels.models"/>
@@ -142,6 +144,8 @@
       <plugin id="org.eclipse.stem.jobs"/>
       <plugin id="org.eclipse.stem.jobs.nl1" fragment="true"/>
       <plugin id="org.eclipse.stem.sequencers"/>
+      <plugin id="org.eclipse.stem.solvers.fd"/>
+      <plugin id="org.eclipse.stem.solvers.rk"/>
       <plugin id="org.eclipse.stem.transport"/>
       <plugin id="org.eclipse.stem.ui"/>
       <plugin id="org.eclipse.stem.ui.diseasemodels"/>
@@ -151,19 +155,21 @@
       <plugin id="org.eclipse.stem.ui.ge"/>
       <plugin id="org.eclipse.stem.ui.nl1" fragment="true"/>
       <plugin id="org.eclipse.stem.ui.reports"/>
+      <plugin id="org.eclipse.stem.ui.solvers.fd"/>
+      <plugin id="org.eclipse.stem.ui.solvers.rk"/>
       <plugin id="org.eclipse.stem.util.analysis"/>
       <plugin id="org.eclipse.stem.util.loggers"/>
-      <plugin id="org.eclipse.osgi"/>
-      <plugin id="org.eclipse.osgi.services"/>
       <plugin id="org.eclipse.swt"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.carbon.macosx"/>
+      <plugin id="org.eclipse.swt.cocoa.macosx"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86_64"/>
       <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.swt.cocoa.macosx" fragment="true"/>
-      <plugin id="org.eclipse.swt.carbon.macosx" fragment="true"/>
       <plugin id="org.eclipse.team.core"/>
       <plugin id="org.eclipse.text"/>
       <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.carbon"/>
+      <plugin id="org.eclipse.ui.cocoa"/>
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.ide"/>
       <plugin id="org.eclipse.ui.navigator"/>
@@ -172,19 +178,16 @@
       <plugin id="org.eclipse.ui.views.log"/>
       <plugin id="org.eclipse.ui.views.properties.tabbed"/>
       <plugin id="org.eclipse.ui.win32" fragment="true"/>
-      <plugin id="org.eclipse.ui.carbon" fragment="true"/>
-      <plugin id="org.eclipse.ui.cocoa" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.ui.workbench.texteditor"/>
       <plugin id="org.eclipse.update.configurator"/>
       <plugin id="org.eclipse.update.core"/>
-      <plugin id="org.eclipse.update.core.linux" fragment="true"/>
+      <plugin id="org.eclipse.update.core.linux"/>
       <plugin id="org.eclipse.update.core.win32" fragment="true"/>
       <plugin id="org.junit"/>
       <plugin id="org.mortbay.jetty.server"/>
       <plugin id="org.mortbay.jetty.util"/>
       <plugin id="org.mozilla.rhino"/>
    </plugins>
-
 
 </product>
