@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.solvers.fd/src"
+    editDirectory="/org.eclipse.stem.solvers.fd/src" editorDirectory="/org.eclipse.stem.ui.solvers.fd/src"
+    modelPluginID="org.eclipse.stem.solvers.fd" modelName="Fd" testsDirectory="/org.eclipse.stem.tests.solvers.fd/src"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>fd.ecore</foreignModel>
+  <genPackages prefix="Fd" basePackage="org.eclipse.stem.solvers" disposableProviderFactory="true"
+      ecorePackage="fd.ecore#/">
+    <genClasses ecoreClass="fd.ecore#//FiniteDifference"/>
+  </genPackages>
+</genmodel:GenModel>
