@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.stem.solvers.fd.presentation.FdModelWizardID"
+            name="%_UI_FdModelWizard_label"
+            class="org.eclipse.stem.solvers.fd.presentation.FdModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FdModelFile.gif">
+         <description>%_UI_FdModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.stem.solvers.fd.presentation.FdEditorID"
+            name="%_UI_FdEditor_label"
+            icon="icons/full/obj16/FdModelFile.gif"
+            extensions="fd"
+            class="org.eclipse.stem.solvers.fd.presentation.FdEditor"
+            contributorClass="org.eclipse.stem.solvers.fd.presentation.FdActionBarContributor">
+      </editor>
+   </extension>
+ <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.solvers.fd.presentation.FdSolverPropertyEditorAdapterFactory">
+     </startup>
+  </extension>
+</plugin>
