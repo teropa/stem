@@ -42,7 +42,7 @@ abstract public class GeographicMapper {
 	 */
 	public static final String ALPHA2_TO_ALPHA3_NAME = "level0ISOKeys.properties"; //$NON-NLS-1$
 	private static final URI LEVEL_0_ISO_MAPPING_FILE_URI = URI
-			.createURI("platform:/plugin/org.eclipse.stem.geography/resources/data/country/ZZZ/" //$NON-NLS-1$
+			.createURI("platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ZZZ/" //$NON-NLS-1$
 					+ ALPHA2_TO_ALPHA3_NAME);
 	protected static final String RB_PREFIX = Constants.ID_ROOT + ".geography"; //$NON-NLS-1$
 	private static Properties alpha2ToAlpha3Map = null;
