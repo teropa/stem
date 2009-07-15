@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.stem.diseasemodels.globalinfluenzamodel.presentation.GlobalinfluenzamodelModelWizardID"
+            name="%_UI_GlobalinfluenzamodelModelWizard_label"
+            class="org.eclipse.stem.diseasemodels.globalinfluenzamodel.presentation.GlobalinfluenzamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GlobalinfluenzamodelModelFile.gif">
+         <description>%_UI_GlobalinfluenzamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.stem.diseasemodels.globalinfluenzamodel.presentation.GlobalinfluenzamodelEditorID"
+            name="%_UI_GlobalinfluenzamodelEditor_label"
+            icon="icons/full/obj16/GlobalinfluenzamodelModelFile.gif"
+            extensions="globalinfluenzamodel"
+            class="org.eclipse.stem.diseasemodels.globalinfluenzamodel.presentation.GlobalinfluenzamodelEditor"
+            contributorClass="org.eclipse.stem.diseasemodels.globalinfluenzamodel.presentation.GlobalinfluenzamodelActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.ui.diseasemodels.globalinfluenzamodel.presentation.GlobalinfluenzamodelPropertyStringProviderAdapterFactory">
+     </startup>
+  </extension>
+
+</plugin>
