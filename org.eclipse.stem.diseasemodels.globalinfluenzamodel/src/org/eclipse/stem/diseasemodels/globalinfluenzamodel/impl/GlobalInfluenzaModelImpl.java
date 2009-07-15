@@ -17,6 +17,7 @@ import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProvider;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapter;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapterFactory;
+import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
 import org.eclipse.stem.diseasemodels.globalinfluenzamodel.GlobalInfluenzaModel;
 import org.eclipse.stem.diseasemodels.globalinfluenzamodel.GlobalinfluenzamodelPackage;
 
@@ -66,9 +67,14 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	private double[] lat_long = null;
 	
 	/**
+	 * the equator
+	 */
+	private static final double EQUATOR_LATITUDE = 0.0;
+	
+	/**
 	 * the latitude of this regions
 	 */
-	private double latitude = 0.0;
+	private double latitude = EQUATOR_LATITUDE;
 
 	/**
 	 * The cached value of the '{@link #getLatitudeSigmoidWidth() <em>Latitude Sigmoid Width</em>}' attribute.
@@ -236,15 +242,21 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 		
 		if(lat_long==null) {
 			Node node = diseaseLabel.getNode();
-			String nodeURI = node.getURI().lastSegment();
-			lat_long = GeographicCenters.getCenter(nodeURI);
-			// still null? Compute it
-			if(lat_long==null) {
-				// Get the lat/long of the center of the node
-				final LatLongProviderAdapter latLongProviderB = (LatLongProviderAdapter) LatLongProviderAdapterFactory.INSTANCE
-						.adapt(node, LatLongProvider.class);
-				latLongProviderB.setTarget(node);
-				lat_long = latLongProviderB.getCenter();
+			if(node instanceof RegionImpl) {
+				String nodeURI = node.getURI().lastSegment();
+				lat_long = GeographicCenters.getCenter(nodeURI);
+				// still null? Compute it
+				if(lat_long==null) {
+					// Get the lat/long of the center of the node
+					final LatLongProviderAdapter latLongProviderB = (LatLongProviderAdapter) LatLongProviderAdapterFactory.INSTANCE
+							.adapt(node, LatLongProvider.class);
+					latLongProviderB.setTarget(node);
+					lat_long = latLongProviderB.getCenter();
+				}
+			} else {
+				lat_long = new double[2];
+				lat_long[0] = EQUATOR_LATITUDE;
+				lat_long[1] = EQUATOR_LATITUDE; // not used. sets it to 0,0
 			}
 		}// computes the latitude only once
 		
