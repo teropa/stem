@@ -16,12 +16,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>Disease Model Label Value</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue#convertToSourceStates() <em>Convert To Source States</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public abstract class StandardDiseaseModelLabelValueTest extends

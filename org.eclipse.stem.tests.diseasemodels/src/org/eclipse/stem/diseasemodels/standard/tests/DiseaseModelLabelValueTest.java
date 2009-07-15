@@ -32,7 +32,6 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#add(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue) <em>Add</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#sub(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue) <em>Sub</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#scale(double) <em>Scale</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#maxerror(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue, double) <em>Maxerror</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#zeroOutPopulationCount() <em>Zero Out Population Count</em>}</li>
  * </ul>
  * </p>
@@ -200,19 +199,6 @@ public abstract class DiseaseModelLabelValueTest extends TestCase {
 	public void testScale__double() {
 		// TODO: implement this operation test method
 		assertTrue(true);
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#maxerror(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue, double) <em>Maxerror</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#maxerror(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue, double)
-	 * @generated
-	 */
-	public void testMaxerror__DiseaseModelLabelValue_double() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

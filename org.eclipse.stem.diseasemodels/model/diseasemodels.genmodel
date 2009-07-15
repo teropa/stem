@@ -6,10 +6,10 @@
     modelPluginID="org.eclipse.stem.diseasemodels" modelName="Diseasemodels" nonNLSMarkers="true"
     richClientPlatform="true" testsDirectory="/org.eclipse.stem.tests.diseasemodels/src"
     importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels">
+    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels ../../org.eclipse.stem.core/model/core.genmodel#//solver">
   <foreignModel>@model</foreignModel>
-  <genPackages prefix="Standard" basePackage="org.eclipse.stem.diseasemodels"
-      disposableProviderFactory="true" generateExampleClass="false" ecorePackage="standard.ecore#/">
+  <genPackages prefix="Standard" basePackage="org.eclipse.stem.diseasemodels" disposableProviderFactory="true"
+      generateExampleClass="false" ecorePackage="standard.ecore#/">
     <genDataTypes ecoreDataType="standard.ecore#//URI"/>
     <genDataTypes ecoreDataType="standard.ecore#//EList"/>
     <genDataTypes ecoreDataType="standard.ecore#//Random"/>
@@ -23,9 +23,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/diseaseName"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/stepSize"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/currentX"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/relativeTolerance"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/finiteDifference"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/relativeTolerance"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/finiteDifference"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/frequencyDependent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/backgroundBirthRate"/>
       <genOperations ecoreOperation="standard.ecore#//DiseaseModel/getAdjustedBackgroundMortalityRate">
         <genParameters ecoreParameter="standard.ecore#//DiseaseModel/getAdjustedBackgroundMortalityRate/timeDelta"/>
       </genOperations>
@@ -40,6 +41,9 @@
         <genParameters ecoreParameter="standard.ecore#//DiseaseModel/initializeDiseaseState.1/diseaseModelLabel"/>
       </genOperations>
       <genOperations ecoreOperation="standard.ecore#//DiseaseModel/createInfector"/>
+      <genOperations ecoreOperation="standard.ecore#//DiseaseModel/getAdjustedBackgroundBirthRate">
+        <genParameters ecoreParameter="standard.ecore#//DiseaseModel/getAdjustedBackgroundBirthRate/timeDelta"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//DiseaseModelLabel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/populationLabel"/>
@@ -48,6 +52,8 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/nextDiseaseModelLabelValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/deltaValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/currentY"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/currentDiseaseModelTempLabelValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/yScale"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//DiseaseModelLabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModelLabelValue/births"/>
@@ -160,6 +166,14 @@
       <genOperations ecoreOperation="standard.ecore#//StandardDiseaseModel/computeTotalPopulationCountReciprocal"/>
       <genOperations ecoreOperation="standard.ecore#//StandardDiseaseModel/addToTotalArea">
         <genParameters ecoreParameter="standard.ecore#//StandardDiseaseModel/addToTotalArea/area"/>
+      </genOperations>
+      <genOperations ecoreOperation="standard.ecore#//StandardDiseaseModel/calculateDelta">
+        <genParameters ecoreParameter="standard.ecore#//StandardDiseaseModel/calculateDelta/time"/>
+        <genParameters ecoreParameter="standard.ecore#//StandardDiseaseModel/calculateDelta/timeDelta"/>
+        <genParameters ecoreParameter="standard.ecore#//StandardDiseaseModel/calculateDelta/labels"/>
+      </genOperations>
+      <genOperations ecoreOperation="standard.ecore#//StandardDiseaseModel/doModelSpecificAdjustments">
+        <genParameters ecoreParameter="standard.ecore#//StandardDiseaseModel/doModelSpecificAdjustments/label"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//StandardDiseaseModelLabel">

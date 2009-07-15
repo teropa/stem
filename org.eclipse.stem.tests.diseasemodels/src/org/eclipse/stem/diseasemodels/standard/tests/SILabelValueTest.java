@@ -23,12 +23,6 @@ import org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl;
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>SI Label Value</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.SILabelValue#getI() <em>I</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 @SuppressWarnings("all")

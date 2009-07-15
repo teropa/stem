@@ -344,41 +344,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 		setIncidence(getIncidence() * scaleFactor);
 		return this;
 	} // scale
-
-	/**
-	 * @generated NOT
-	 */
-	public double maxerror(DiseaseModelLabelValue value, double reltol) {
-		double otherBirths = value.getBirths();
-		double otherDeaths = value.getDeaths();
-		double otherDiseaseDeaths = value.getDiseaseDeaths();
-		double otherIncidence = value.getIncidence();
-		
-		double birthDenominator = (Math.abs(getBirths()) > Math.abs(otherBirths))? getBirths():otherBirths;
-		double deathDenominator = (Math.abs(getDeaths()) > Math.abs(otherDeaths))? getDeaths():otherDeaths;
-		double diseaseDeathsDenominator = (Math.abs(getDiseaseDeaths()) > Math.abs(otherDiseaseDeaths))? getDiseaseDeaths():otherDiseaseDeaths;
-		double incidenceDenominator = (Math.abs(getIncidence()) > Math.abs(otherIncidence))? getIncidence():otherIncidence;
-		
-		double maxerror = 0.0;
-		double error;
-		if(birthDenominator != 0) {
-			error = Math.abs((otherBirths-getBirths())/(birthDenominator*reltol+ABS_TOLERANCE));
-			if(error > maxerror) maxerror = error;
-		}
-		if(deathDenominator != 0) {
-			error = Math.abs((otherDeaths-getDeaths())/(deathDenominator*reltol+ABS_TOLERANCE));
-			if(error > maxerror) maxerror = error;
-		}	
-		if(diseaseDeathsDenominator != 0) {
-			error = Math.abs((otherDiseaseDeaths-getDiseaseDeaths())/(diseaseDeathsDenominator*reltol+ABS_TOLERANCE));
-			if(error > maxerror) maxerror = error;
-		}	
-		if(incidenceDenominator != 0) {
-			error = Math.abs((otherIncidence-getIncidence())/(incidenceDenominator*reltol+ABS_TOLERANCE));
-			if(error > maxerror) maxerror = error;
-		}	
-		return maxerror;
-	} // maxerror
 	
 	/**
 	 * @see org.eclipse.stem.core.graph.impl.LabelValueImpl#reset()

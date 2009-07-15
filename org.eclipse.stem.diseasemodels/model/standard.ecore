@@ -75,10 +75,6 @@
     <eOperations name="scale" eType="#//DiseaseModelLabelValue">
       <eParameters name="scaleFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
-    <eOperations name="maxerror" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eParameters name="value" eType="#//DiseaseModelLabelValue"/>
-      <eParameters name="reltol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eOperations>
     <eOperations name="zeroOutPopulationCount"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="births" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>

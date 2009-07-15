@@ -78,10 +78,8 @@ public class DiseaseModelItemProvider extends NodeDecoratorItemProvider
 			addBackgroundMortalityRatePropertyDescriptor(object);
 			addBackgroundBirthRatePropertyDescriptor(object);
 			
-			addRelativeTolerancePropertyDescriptor(object);
 			addFrequencyDependentPropertyDescriptor(object);
 			
-			addFiniteDifferencePropertyDescriptor(object);
 			
 			// Old order
 			//			addBackgroundMortalityRatePropertyDescriptor(object);
@@ -111,8 +109,6 @@ public class DiseaseModelItemProvider extends NodeDecoratorItemProvider
 			addPopulationIdentifierPropertyDescriptor(object);
 			addTimePeriodPropertyDescriptor(object);
 			addDiseaseNamePropertyDescriptor(object);
-			addRelativeTolerancePropertyDescriptor(object);
-			addFiniteDifferencePropertyDescriptor(object);
 			addFrequencyDependentPropertyDescriptor(object);
 			addBackgroundBirthRatePropertyDescriptor(object);
 		}
@@ -201,50 +197,6 @@ public class DiseaseModelItemProvider extends NodeDecoratorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Relative Tolerance feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRelativeTolerancePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiseaseModel_relativeTolerance_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModel_relativeTolerance_feature", "_UI_DiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.DISEASE_MODEL__RELATIVE_TOLERANCE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Finite Difference feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFiniteDifferencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiseaseModel_finiteDifference_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModel_finiteDifference_feature", "_UI_DiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.DISEASE_MODEL__FINITE_DIFFERENCE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}

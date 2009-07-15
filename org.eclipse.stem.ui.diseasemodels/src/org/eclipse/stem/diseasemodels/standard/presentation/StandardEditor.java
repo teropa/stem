@@ -178,6 +178,7 @@ import org.eclipse.stem.core.model.provider.ModelItemProviderAdapterFactory;
 import org.eclipse.stem.core.modifier.provider.ModifierItemProviderAdapterFactory;
 import org.eclipse.stem.core.scenario.provider.ScenarioItemProviderAdapterFactory;
 import org.eclipse.stem.core.sequencer.provider.SequencerItemProviderAdapterFactory;
+import org.eclipse.stem.core.solver.provider.SolverItemProviderAdapterFactory;
 import org.eclipse.stem.definitions.labels.provider.LabelsItemProviderAdapterFactory;
 
 //import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -641,12 +642,13 @@ public class StandardEditor
 		adapterFactory.addAdapterFactory(new StandardItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ModelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GraphItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ModifierItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ScenarioItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new LabelsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

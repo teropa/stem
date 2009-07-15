@@ -35,6 +35,8 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelState;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#addToTotalPopulationCount(double) <em>Add To Total Population Count</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#computeTotalPopulationCountReciprocal() <em>Compute Total Population Count Reciprocal</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#addToTotalArea(double) <em>Add To Total Area</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#calculateDelta(org.eclipse.stem.core.model.STEMTime, long, org.eclipse.emf.common.util.EList) <em>Calculate Delta</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#doModelSpecificAdjustments(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue) <em>Do Model Specific Adjustments</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -125,6 +127,32 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 		sdm.addToTotalArea(1.0);
 		assertTrue(sdm.getTotalArea() == totalAreaBefore + 1.0);
 	} // testAddToTotalArea__double
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#calculateDelta(org.eclipse.stem.core.model.STEMTime, long, org.eclipse.emf.common.util.EList) <em>Calculate Delta</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#calculateDelta(org.eclipse.stem.core.model.STEMTime, long, org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	public void testCalculateDelta__STEMTime_long_EList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#doModelSpecificAdjustments(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue) <em>Do Model Specific Adjustments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#doModelSpecificAdjustments(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue)
+	 * @generated
+	 */
+	public void testDoModelSpecificAdjustments__StandardDiseaseModelLabelValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 	/**
 	 * @return a disease model label value to be used for testing

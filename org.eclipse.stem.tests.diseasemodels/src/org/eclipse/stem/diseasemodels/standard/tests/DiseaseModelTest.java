@@ -34,6 +34,7 @@ import org.eclipse.stem.diseasemodels.standard.Infector;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#initializeDiseaseState(org.eclipse.stem.diseasemodels.standard.DiseaseModelState, org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel) <em>Initialize Disease State</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#initializeDiseaseState(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel) <em>Initialize Disease State</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#createInfector() <em>Create Infector</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getAdjustedBackgroundBirthRate(long) <em>Get Adjusted Background Birth Rate</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -205,6 +206,19 @@ public abstract class DiseaseModelTest extends TestCase {
 		}
 
 	} // testCreateInfector
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getAdjustedBackgroundBirthRate(long) <em>Get Adjusted Background Birth Rate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModel#getAdjustedBackgroundBirthRate(long)
+	 * @generated
+	 */
+	public void testGetAdjustedBackgroundBirthRate__long() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 	/**
 	 * @return the EClass of the class this disease model updates

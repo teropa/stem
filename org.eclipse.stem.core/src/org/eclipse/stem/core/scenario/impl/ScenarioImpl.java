@@ -368,7 +368,6 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			Solver solver = this.getSolver();
 			
 			// Needed to support old model where the solver was part of the decorator
-			// Use the preference setting
 			
 			if(solver == null) {
 				Solver [] solvers = this.getSolvers();
@@ -420,8 +419,8 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			} // if 
 			
 			// Reset the solver
-			solver.reset();
 		} // for each decorator
+		solver.reset();
 	}// reset
 
 	/**
