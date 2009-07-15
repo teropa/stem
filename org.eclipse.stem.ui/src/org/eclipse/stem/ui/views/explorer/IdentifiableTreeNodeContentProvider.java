@@ -75,7 +75,7 @@ public class IdentifiableTreeNodeContentProvider implements
 			// Yes
 			// final IdentifiableTreeNode ctn = (IdentifiableTreeNode)
 			// parentElement;
-			retValue = null;
+			retValue = new Object[0]; // never null
 
 		} // if IdentifiableTreeNode
 		return retValue;

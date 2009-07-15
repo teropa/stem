@@ -58,6 +58,7 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 		// Right kind of parent?
 		if (parentElement instanceof IdentifiableTreeNode) {
 			// Yes
+			// if IdentifiableTreeNode
 			final List<Identifiable> temp = new ArrayList<Identifiable>();
 
 			final IdentifiableTreeNode itn = (IdentifiableTreeNode) parentElement;
@@ -81,7 +82,9 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 
 			retValue = temp.toArray();
 
-		} // if IdentifiableTreeNode
+		} else {
+			retValue = new Object[0];
+		}
 
 		return retValue;
 	} // getChildren
