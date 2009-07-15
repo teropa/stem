@@ -406,46 +406,13 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		
 			// and pass on the incidence
 			deltaState.setIncidence(incidence);
-			
 		
-			// We're going to use the this state below to do subtractions from
-			// the contributing states, so we don't want to process the births
-			// and deaths again.
-			//diseaseDeltas.setBirths(0);
-			//diseaseDeltas.setDeaths(0);
-			//diseaseDeltas.setDiseaseDeaths(0);
-
-			// We've accounted for the total deaths above so don't include the
-			// total again. We still need to subtract the individual state
-			// deaths though.
-			//stateDeaths.setDeaths(0);
-			//stateDeaths.setDiseaseDeaths(0);
-
-			// Apply the reductions
-			//nextState.sub(stateDeaths);
 			
-			//assert deltaState.sane():"disease state is insane after subtracting deaths: "+nextState.toString();
-			
-			// Now we rotate the additions left which moves S->I->S, S->R->I->S,
-			// or S->R->I->E->S, depending upon the disease model. This gives us
-			// the number of population members to remove from their originating
-			// states.
-
-			// This might be a bug. If everyone in a particular stated died and
-			// there were computed transitions these would be subtracted from
-			// zero giving negative population values.
-			// See bug 186255
-			//nextState.sub(diseaseDeltas.convertToSourceStates());
-			
-			//assert deltaState.sane():"disease state is insane after subtracting transitions: "+nextState.toString();
-			 
-			// Finally add in the new population members (who were not involved
-			// in any of the transitions so we've left them out of the
-			// computations until now)
-			//nextState.setS((nextState.getS() + numberBornSusceptible));
-
-			// See you later.
-
+			migrationDelta.reset();
+			pipeDelta.reset();
+			birthDeathsDelta.reset();
+			diseaseDelta.reset();
+				
 		} // for
 	}
 
@@ -913,7 +880,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 *      org.eclipse.stem.core.model.STEMTime)
 	 */
 	protected StandardDiseaseModelLabelValue getPipeTransportationDeltas(final StandardDiseaseModelLabel diseaseLabel, final STEMTime time, final long timeDelta, DiseaseModelLabelValue returnValue) {
-		StandardDiseaseModelLabelValue delta = null;
 		
 		// Get the pipe transport edges to/from the node
 		Node node = diseaseLabel.getNode();
@@ -948,7 +914,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
 						change.scale(factor);
 						
-						if(delta == null) delta = change; else delta.add(change);
+						returnValue.add(change);
 					}
 				}
 			} else { // outgoing edge
@@ -976,12 +942,12 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
 						change.scale(factor);
 						
-						if(delta == null) delta = (StandardDiseaseModelLabelValue)change.scale(-1); else delta.sub(change);
+						returnValue.sub(change);
 					}
 				}
 			}
 		} // for each edge
-		return delta;
+		return (StandardDiseaseModelLabelValue)returnValue;
 		
 	} // getPipeTransportationDeltas
 	
