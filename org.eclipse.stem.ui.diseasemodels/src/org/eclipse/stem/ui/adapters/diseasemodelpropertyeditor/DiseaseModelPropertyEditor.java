@@ -159,28 +159,37 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 			}
 		} // if Background mortality rate
 		
-		// Relative tolerance
-		if (retValue) {
-			// Yes
-			final Text text = map
-					.get(StandardPackage.Literals.DISEASE_MODEL__RELATIVE_TOLERANCE);
-			retValue = !text.getText().equals(""); //$NON-NLS-1$
-			// nothing?
-			if (!retValue) {
-				// Yes
-				errorMessage = DiseaseWizardMessages.getString("NDizWizErr22"); //$NON-NLS-1$
-			} // if
-			else {
-				// No
-				// Is it a valid value < 0.1 and > 0?
-				retValue = isValidRelativeTolerance(text.getText(), 0.1);
-				if (!retValue) {
-					// No
-					errorMessage = DiseaseWizardMessages
-							.getString("NDizWizErr23"); //$NON-NLS-1$
-				} // if
-			}
-		} // if Background mortality rate
+		
+		/**
+		 * MAD 7/15/2009
+		 * Relative tolerance is no longer needed in the disease model editor
+		 */
+//		// Relative tolerance
+//		if (retValue) {
+//			// Yes
+//			final Text text = map
+//					.get(StandardPackage.Literals.DISEASE_MODEL__RELATIVE_TOLERANCE);
+//			retValue = !text.getText().equals(""); //$NON-NLS-1$
+//			// nothing?
+//			if (!retValue) {
+//				// Yes
+//				errorMessage = DiseaseWizardMessages.getString("NDizWizErr22"); //$NON-NLS-1$
+//			} // if
+//			else {
+//				// No
+//				// Is it a valid value < 0.1 and > 0?
+//				retValue = isValidRelativeTolerance(text.getText(), 0.1);
+//				if (!retValue) {
+//					// No
+//					errorMessage = DiseaseWizardMessages
+//							.getString("NDizWizErr23"); //$NON-NLS-1$
+//				} // if
+//			}
+//		} // if Background mortality rate
+		
+		/**
+		 * End remove relative tolerance from disease model editor
+		 */
 		return retValue;
 	} // validate
 
