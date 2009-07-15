@@ -288,6 +288,11 @@ public class TimeSeriesCanvas extends Canvas {
 		if (rvhp != null) {
 			// Yes
 			// build up the set of properties to plot
+			
+			// First we disable all series so that we only turn on the ones that are enabled.
+			for(DataSeries d: dataSeriesMap.values())
+				d.hide();
+				
 			Iterator<ItemPropertyDescriptor> iter = propertiesToPlot.keySet().iterator();
 			List<ItemPropertyDescriptor> displayedPropertyList = new ArrayList<ItemPropertyDescriptor>();
 			while((iter!=null)&&(iter.hasNext()) ){
@@ -331,6 +336,9 @@ public class TimeSeriesCanvas extends Canvas {
 			// Get the values for the property to be plotted
 			int maxPoints = 0;
 			STEMTime[] time = rvhp.getAllHistoricTimeValues();
+			cycleNumbers.clear();
+			cycleNumbers.add(new Integer(0));
+			
 			for (int i = 0; i < displayedPropertyList.size(); i++) {
 				ItemPropertyDescriptor property = displayedPropertyList.get(i);
 				String propertyName = property.getDisplayName(property);
@@ -368,6 +376,7 @@ public class TimeSeriesCanvas extends Canvas {
 					DataSeries series = dataSeriesMap.get(property.getDisplayName(property));
 					series.setColorDefs(property.getDisplayName(property));
 					
+					
 					for (int cycleNumber = 0; cycleNumber < doubleValues.length; cycleNumber++) {
 						Double value;
 						double displayValue = doubleValues[cycleNumber];
@@ -387,7 +396,7 @@ public class TimeSeriesCanvas extends Canvas {
 						
 						if (!setCycles) {
 							this.cycleNumbers.add(new Integer(
-									earliestCycleNumber + cycleNumber));
+									earliestCycleNumber + cycleNumber + 1));
 							
 							/*
 							 * We don't want to add x (time) axis ticks ad infinitum so we we need to dynamically
@@ -419,6 +428,13 @@ public class TimeSeriesCanvas extends Canvas {
 			resetData();
 		}
 
+		// Check each data series in the map to make sure they have enough Y values in them 
+		for(DataSeries ds:this.dataSeriesMap.values()) {
+			if(ds.relativeValues.size() < this.cycleNumbers.size()) {
+				ds.relativeValues.clear();
+				for(int n=0;n<this.cycleNumbers.size();++n) ds.addValue(new Double(0.0));
+			}
+		}
 		if (!this.isDisposed()) {
 			redraw();
 		}
