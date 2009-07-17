@@ -192,11 +192,17 @@ public class NewCSVLogWriter extends LogWriter {
 			Iterator<Node> it = sim.getScenario().getCanonicalGraph().getNodes().values().iterator();
 			while(it.hasNext()) {
 				Node n = it.next();
-				if(n.getLabels().size() > 0) {labels = n.getLabels();break;}
+				for(NodeLabel l : n.getLabels()) {
+					if(l instanceof DiseaseModelLabel) {
+						labels = n.getLabels();
+						break;
+					}
+				}
+				if(labels != null) break;
 			}
 			if(labels == null) {
 				// We couldn't find any labels. PANIC!
-				Activator.logError("Cannot log, no labels found!", new Exception());
+				Activator.logError("Cannot log, no disease model labels found in graph!", new Exception());
 			}
 			for(int i=0;i<labels.size();++i) {
 				NodeLabel label = labels.get(i);
