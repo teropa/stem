@@ -320,7 +320,7 @@ public class LatLongProviderAdapter extends SpatialProviderAdapter implements
 		//Calculate the center and put it in the cache
 		centerLatLong = new double[2];
 		double maxLat = Double.MAX_VALUE, maxLong = Double.MAX_VALUE, minLat = Double.MIN_VALUE, minLong = Double.MIN_VALUE;
-		LatLong latLong = getLatLongNoWait();
+		LatLong latLong = getLatLong();
 		if (latLong.getSegments().isEmpty()) {
 			return null;
 		}
