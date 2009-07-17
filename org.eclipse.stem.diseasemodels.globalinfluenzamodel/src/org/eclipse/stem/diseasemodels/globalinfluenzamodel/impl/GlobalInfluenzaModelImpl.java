@@ -7,20 +7,18 @@
 package org.eclipse.stem.diseasemodels.globalinfluenzamodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.data.geography.centers.GeographicCenters;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProvider;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapter;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapterFactory;
 import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
+import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.globalinfluenzamodel.GlobalInfluenzaModel;
 import org.eclipse.stem.diseasemodels.globalinfluenzamodel.GlobalinfluenzamodelPackage;
-
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
@@ -28,7 +26,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.impl.SIRLabelValueImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImpl;
-import org.eclipse.stem.geography.centers.GeographicCenters;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,19 +59,10 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	protected static final double LATITUDE_SIGMOID_WIDTH_EDEFAULT = 4.5;
 	
 	/**
-	 * the coordinates of the center of this regions
-	 */
-	private double[] lat_long = null;
-	
-	/**
 	 * the equator
 	 */
 	private static final double EQUATOR_LATITUDE = 0.0;
 	
-	/**
-	 * the latitude of this regions
-	 */
-	private double latitude = EQUATOR_LATITUDE;
 
 	/**
 	 * The cached value of the '{@link #getLatitudeSigmoidWidth() <em>Latitude Sigmoid Width</em>}' attribute.
@@ -165,6 +153,8 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @ordered
 	 */
 	protected double seasonalModulationFloor = SEASONAL_MODULATION_FLOOR_EDEFAULT;
+	
+	public static long firstDay = -1;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,34 +222,51 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 			final StandardDiseaseModelLabel diseaseLabel, final long timeDelta, DiseaseModelLabelValue returnValue) {
 			final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		
-		double currentMillis = time.getTime().getTime();
+		long currentMillis = time.getTime().getTime();
 		double seasonalModulationExponent = getSeasonalModulationExponent();
 		double seasonalModulationFloor = getSeasonalModulationFloor();
 		double modulationPeriod = getModulationPeriod();
 		final double absolutePhase = getModulationPhaseShift();	
 		
-					
 		
-		if(lat_long==null) {
-			Node node = diseaseLabel.getNode();
-			if(node instanceof RegionImpl) {
-				String nodeURI = node.getURI().lastSegment();
-				lat_long = GeographicCenters.getCenter(nodeURI);
-				// still null? Compute it
-				if(lat_long==null) {
-					// Get the lat/long of the center of the node
-					final LatLongProviderAdapter latLongProviderB = (LatLongProviderAdapter) LatLongProviderAdapterFactory.INSTANCE
-							.adapt(node, LatLongProvider.class);
-					latLongProviderB.setTarget(node);
-					lat_long = latLongProviderB.getCenter();
-				}
-			} else {
-				lat_long = new double[2];
-				lat_long[0] = EQUATOR_LATITUDE;
-				lat_long[1] = EQUATOR_LATITUDE; // not used. sets it to 0,0
+		/**
+		 * the latitude of this regions
+		 */
+		double latitude = EQUATOR_LATITUDE;
+
+		
+		/**
+		 * the coordinates of the center of this regions
+		 */
+		double[] lat_long = null;
+		
+		if (firstDay == -1) {
+			firstDay = currentMillis;
+		}
+		
+		Node node = diseaseLabel.getNode();
+		
+		if(node instanceof RegionImpl) {
+			String nodeURI = node.getURI().lastSegment();
+			lat_long = GeographicCenters.getCenter(nodeURI);
+			// still null? Compute it
+			if(lat_long==null) {
+				// Get the lat/long of the center of the node
+				final LatLongProviderAdapter latLongProviderB = (LatLongProviderAdapter) LatLongProviderAdapterFactory.INSTANCE
+						.adapt(node, LatLongProvider.class);
+				latLongProviderB.setTarget(node);
+				lat_long = latLongProviderB.getCenter();
 			}
-		}// computes the latitude only once
-		
+			if (lat_long == null) {
+				Activator.logError("Cannot find latitude for "+ nodeURI, null);
+			}
+		} else {
+			lat_long = new double[2];
+			lat_long[0] = EQUATOR_LATITUDE;
+			lat_long[1] = EQUATOR_LATITUDE; // not used. sets it to 0,0
+		}
+
+
 		// get the latitude
 		if(lat_long != null) {
 			latitude = lat_long[0] ;
@@ -272,18 +279,18 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 		/////////////////////////////////////////////////////
 		
 		
-		
 		//////////////////////////////////////////
 		// now compute the transmission rate
 		// with the seasonal forcing function
 		// adjusted by latitude
 		double latFactor  = seasonalModulationFloor/(1.0 + Math.exp((TROPIC_OF_CANCER_LATITUDE - Math.abs(latitude))/latitudeSigmoidWidth) );
-		latFactor *= Math.pow(Math.abs(Math.sin(phase + Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY))), seasonalModulationExponent);
+		latFactor *= Math.pow(Math.abs(Math.cos(phase + Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY))), seasonalModulationExponent);
 		double modulation = ( (1.0-(seasonalModulationFloor/2.0)) + (latFactor/2.0) );
 		// This is beta
 		double transmissionRate = modulation * (getAdjustedTransmissionRate(timeDelta));
 		/////////////////////////////////////////
 		
+		//LogWriter.write(latitude +","+ Math.round((currentMillis - firstDay)/86400000) +"," + transmissionRate);
 		
 		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
 		
