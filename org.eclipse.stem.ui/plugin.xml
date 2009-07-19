@@ -396,7 +396,7 @@
                   label="%_UI_RealTimeSequencerModelWizard_label"
                   style="push"
                   tooltip="%_UI_RealTimeSequencerModelWizard_description">
-            </command>
+            </command>     
             <command
                   commandId="org.eclipse.stem.ui.command.wiz.seqsequencer"
                   icon="icons/full/customobj16/Sequencer.gif"
@@ -497,6 +497,7 @@
                   style="push"
                   tooltip="%_UI_PredicateModelWizard_description ">
             </command>
+<!--          
             <command
                   commandId="org.eclipse.stem.ui.command.wiz.rtsequencer"
                   icon="icons/full/customobj16/RealTimeSequencer.gif"
@@ -504,6 +505,7 @@
                   style="push"
                   tooltip="%_UI_RealTimeSequencerModelWizard_description">
             </command>
+-->           
             <separator
                   name="additions">
             </separator>
