@@ -166,7 +166,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated not
 	 */
 	@SuppressWarnings("boxing")
-	public EList<DynamicLabel> getLabelsToUpdate(int partition, int max) {
+	public synchronized EList<DynamicLabel>  getLabelsToUpdate(int partition, int max) {
 		if (labelsToUpdate == null) {
 			labelsToUpdate = new EObjectWithInverseResolvingEList<DynamicLabel>(DynamicLabel.class, this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, GraphPackage.DYNAMIC_LABEL__DECORATOR);
 		}
