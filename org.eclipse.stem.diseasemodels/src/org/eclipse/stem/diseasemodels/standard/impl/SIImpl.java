@@ -709,6 +709,17 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	}
 
 	/**
+	 * ModelSpecificAdjustments for a Stochastic model adds noise to or adjusts 
+	 * the disease state transition values by multiplying
+	 * the additions by a random variable r ~ (1+/-x) with x small.
+	 * The requirements that no more individuals can be moved from a state than are
+	 * already in that state is still enforced.
+	 * 
+	 */
+	public void doModelSpecificAdjustments(StandardDiseaseModelLabelValue val) {
+	} // doModelSpecificAdjustments
+	
+	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the time interval deltaT divided by the initial time period
 	 * @param timeDelta
