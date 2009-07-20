@@ -79,12 +79,6 @@ public class DiseaseDefinitionControl extends Composite {
 		combo.select(0);
 		combo.addModifyListener(projectValidator);
 
-		final Label algorithmLabel = new Label(this, SWT.NONE);
-		final GridData gd_algorithmLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		gd_algorithmLabel.widthHint = 100;
-		algorithmLabel.setLayoutData(gd_algorithmLabel);
-		algorithmLabel.setText(DiseaseWizardMessages.getString("ALG.0")); //$NON-NLS-1$
-		
 		
 		diseaseModelPropertyComposite = new DiseaseModelPropertyComposite(this,
 				SWT.NONE, getDiseaseModels(), projectValidator);
