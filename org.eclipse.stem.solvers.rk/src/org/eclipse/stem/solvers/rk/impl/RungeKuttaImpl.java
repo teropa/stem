@@ -27,6 +27,9 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.impl.SolverImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
+import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
+import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
@@ -57,13 +60,9 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	// Jobs
 	private RkJob [] jobs;
 	
-	// Used to synchronize worker threads to agree on step size (Runge Kutta only)
+	// Used to synchronize worker threads to agree on step size
 	private CyclicBarrier stepSizeBarrier;
-	
-	// Used to synchronize worker threads to proceed after all threads have completed
-	// using the same step size.
-	private CyclicBarrier stepDoneBarrier;
-	
+
 	// Used to synchronize worker threads to proceed after all threads have 
 	// updated the current temporary value to the new position
 	private CyclicBarrier updateDoneBarrier;
@@ -159,7 +158,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
               }
             });
 		
-		stepDoneBarrier = new CyclicBarrier(num_threads);
 		updateDoneBarrier = new CyclicBarrier(num_threads);
 		
 		// First initialize the Y and temp label values from the current
@@ -237,7 +235,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	 */
 	protected void _step(STEMTime time, long timeDelta, int cycle, short threadnum) {
 //		this.setProgress(0.0);
-		
 		// We only deal with standard disease model decorators
 		
 		ArrayList<StandardDiseaseModelImpl> diseaseModelDecorators = new ArrayList<StandardDiseaseModelImpl>();
@@ -325,9 +322,10 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				try {
 					// Set to a large number to make sure it's larger than any step size reported
 					// by another thread
-					jobs[threadnum].h = Double.MAX_VALUE;
-					stepSizeBarrier.await();
-					stepDoneBarrier.await();
+					do {
+						jobs[threadnum].h = Double.MAX_VALUE;
+						stepSizeBarrier.await();
+					} while(this.maximumError > 1.0);
 					updateDoneBarrier.await();
 				} catch(InterruptedException ie) {
 					// Should never happen
@@ -399,9 +397,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		// If we call too frequently we can too many callbacks which affects performance.
 		double nextProgressReportStep = num_threads*(end-x)/MAX_PROGRESS_REPORTS;
 		double nextProgressReport = x+nextProgressReportStep;
-		// boolean to check if we're redoing a step because another thread reported a smaller
-		// step size
-		boolean redo = false;
 		
 //		HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> validate = new 
 //			HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>(); 
@@ -417,35 +412,45 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			finalEstimate.clear();
 			
 			// Validation code kept here if needed in the future
-/*			if(!redo) 	
-				for (final Iterator<DynamicLabel> currentStateLabelIter = getLabelsToUpdate()
-					.iterator(); currentStateLabelIter.hasNext();) {
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
-					.next();
-					final StandardDiseaseModelLabelValue val = (StandardDiseaseModelLabelValue)diseaseLabel.getCurrentDiseaseModelTempLabelValue();
-					validate.put(diseaseLabel, val);
-				}
-			else {
-				for (final Iterator<DynamicLabel> currentStateLabelIter = getLabelsToUpdate()
+			
+			/*
+			
+			  HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> validate = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
+			 
+			
+			if(!redo) 	
+				for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+					for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
 						final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
 						.next();
-						final SEIRLabelValue val = (SEIRLabelValue)diseaseLabel.getCurrentDiseaseModelTempLabelValue();
+						final StandardDiseaseModelLabelValue val = (StandardDiseaseModelLabelValue)diseaseLabel.getCurrentDiseaseModelTempLabelValue();
 						validate.put(diseaseLabel, val);
-						final SEIRLabelValue oldVal = (SEIRLabelValue)validate.get(diseaseLabel);
-						
-						if(val.getI() != oldVal.getI() ||
-								val.getS() != oldVal.getS() ||
-								val.getR() != oldVal.getR() ||
-								val.getE() != oldVal.getE() ||
-								val.getBirths() != oldVal.getBirths() ||
-								val.getDeaths() != oldVal.getDeaths() ||
-								val.getDiseaseDeaths() != oldVal.getDiseaseDeaths() 
-								)
-							Activator.logError("Error, old and new value not the same", new Exception());
+					}
 				}
+			else {
+				for(StandardDiseaseModelImpl sdm:diseaseModelDecorators)
+					for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
+							.iterator(); currentStateLabelIter.hasNext();) {
+							final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+							.next();
+							final SIRLabelValue val = (SIRLabelValue)diseaseLabel.getCurrentDiseaseModelTempLabelValue();
+							validate.put(diseaseLabel, val);
+							final SIRLabelValue oldVal = (SIRLabelValue)validate.get(diseaseLabel);
+							
+							if(val.getI() != oldVal.getI() ||
+									val.getS() != oldVal.getS() ||
+									val.getR() != oldVal.getR() ||
+									//val.getE() != oldVal.getE() ||
+									val.getBirths() != oldVal.getBirths() ||
+									val.getDeaths() != oldVal.getDeaths() ||
+									val.getDiseaseDeaths() != oldVal.getDiseaseDeaths() 
+									)
+								Activator.logError("Error, old and new value not the same  label: "+diseaseLabel, new Exception());
+					}
 			}
 			*/
+			
 			// ToDo: We should check if a maximum number of iterations have been
 			// exceeded here and throw an error. 
 			
@@ -733,28 +738,66 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					if(error > maxerror) {
 						maxerror = error;
 					}
-					if(error > 1.0) { 
-	            		success = false;
-					} else
+					
+					if(error <= 1.0) 
 						finalEstimate.put(diseaseLabel, 
 							(StandardDiseaseModelLabelValue)EcoreUtil.copy(yout));
 				}
 				++n;
 			}
 			
+			jobs[threadnum].h = h;
+			jobs[threadnum].maxerror = maxerror;
+			try {
+				stepSizeBarrier.await();
+			} catch(InterruptedException ie) {
+				// Should never happen
+				Activator.logError(ie.getMessage(), ie);
+			} catch(BrokenBarrierException bbe) {
+				// Should never happen
+				Activator.logError(bbe.getMessage(), bbe);
+			}
+			
+			// At least one of the threads had to large of an error, fail
+			if(this.maximumError > 1.0)
+				success = false;
+			
 			// Are we done?
-			if(success) {
-				// Even if we succeeded, another thread
-				// might need a smaller step size. Wait for
-				// all threads to complete this step and
-				// redo if another threads step size was
-				// smaller
+			if(success) {			
+				// Check to make sure
+				if(this.smallestH > h)
+					Activator.logError("Error, h was less than the smallest, perhaps barrier process failed to execute? h:"+h+" vs "+this.smallestH, new Exception());
 				
+				// Yes, hurrah, advance x using the step size h
+				x+=h;
+				if(this.maximumError > ERRCON)
+					h = SAFETY*h*Math.pow(this.maximumError, PGROW);
+				else
+					h = 5.0*h;
+
+					
+				// Limit to max 1
+				if(h > 1.0)  h = 1.0;
 				
-				jobs[threadnum].h = h;
-				jobs[threadnum].maxerror = maxerror;
+
+					// Make sure we don't overshoot
+				if(x < end && x+h > end) h = (end-x);
+					
+					
+
+					// Update the current value to the new position
+				for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+					for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
+							.iterator(); currentStateLabelIter.hasNext();) {
+						final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
+						diseaseLabel.getCurrentDiseaseModelTempLabelValue().set(finalEstimate.get(diseaseLabel));
+						diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(finalEstimate.get(diseaseLabel));
+					}
+				}
+					
+				// Wait until all other threads have updated the current value 
 				try {
-					if(!redo)stepSizeBarrier.await();
+					updateDoneBarrier.await();
 				} catch(InterruptedException ie) {
 					// Should never happen
 					Activator.logError(ie.getMessage(), ie);
@@ -762,99 +805,23 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					// Should never happen
 					Activator.logError(bbe.getMessage(), bbe);
 				}
-				
-				// Check to make sure
-				if(this.smallestH > h)
-					Activator.logError("Error, h was less than the smallest, perhaps barrier process failed to execute? redo was "+redo+" h:"+h+" vs "+this.smallestH, new Exception());
-				
-				if(this.smallestH < h) {
-					// Check if we got a smaller error than the previously reported smallest errors
-					// after a redo. If so, log an error
-					if(redo) Activator.logError("Error, the step size after redo was smaller than before: "+h+" vs "+this.smallestH, new Exception());
-					// Another thread had a smaller step size, redo using that step size
-					h = this.smallestH;
-					// Reset the estimated value back to the original, the step size
-					// has been reduced to the smallest of the other threads.
-					// Set the estimated value back to the current original value
-					for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
-						for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
-								.iterator(); currentStateLabelIter.hasNext();) {
-							final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
-							diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(diseaseLabel.getCurrentDiseaseModelTempLabelValue());
-						}
-					}
-	        		redo = true;
-				} else {
-					// Wait until all other threads have completed using the common step size.
-					try {
-						stepDoneBarrier.await();
-					} catch(InterruptedException ie) {
-						// Should never happen
-						Activator.logError(ie.getMessage(), ie);
-					} catch(BrokenBarrierException bbe) {
-						// Should never happen
-						Activator.logError(bbe.getMessage(), bbe);
-					}
-
-					// Yes, hurrah, advance x using the step size h
-					x+=h;
-					if(maximumError > ERRCON)
-						h = SAFETY*h*Math.pow(maximumError, PGROW);
-					else
-						h = 5.0*h;
-
 					
-					// Limit to max 1
-					if(h > 1.0)  h = 1.0;
-				
-//System.out.println("Thread "+Thread.currentThread().getId()+" h="+h+" maxErr:"+maximumError);
-
-					// Make sure we don't overshoot
-					if(x < end && x+h > end) h = (end-x);
+				double progress = (end-x < 0.0)? 1.0:1.0-(end-x);
+				jobs[threadnum].setProgress(progress);
+				if(x > nextProgressReport) {
+					// Get the progress for all threads
+					for(int i=0;i<num_threads;++i) if(i!=threadnum && jobs[i] != null) progress+=jobs[i].getProgress();
+					progress /= num_threads;
+					for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 						
+						sdm.setProgress(progress);
+					nextProgressReport += nextProgressReportStep;
+				}
 					
-					
-
-					// Update the current value to the new position
-					for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
-						for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
-								.iterator(); currentStateLabelIter.hasNext();) {
-							final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
-							diseaseLabel.getCurrentDiseaseModelTempLabelValue().set(finalEstimate.get(diseaseLabel));
-							diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(finalEstimate.get(diseaseLabel));
-						}
-					}
-					
-					// Wait until all other threads have updated the current value 
-					try {
-						updateDoneBarrier.await();
-					} catch(InterruptedException ie) {
-						// Should never happen
-						Activator.logError(ie.getMessage(), ie);
-					} catch(BrokenBarrierException bbe) {
-						// Should never happen
-						Activator.logError(bbe.getMessage(), bbe);
-					}
-					
-					double progress = (end-x < 0.0)? 1.0:1.0-(end-x);
-					jobs[threadnum].setProgress(progress);
-					if(x > nextProgressReport) {
-						// Get the progress for all threads
-						for(int i=0;i<num_threads;++i) if(i!=threadnum && jobs[i] != null) progress+=jobs[i].getProgress();
-						progress /= num_threads;
-						for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 						
-							sdm.setProgress(progress);
-						nextProgressReport += nextProgressReportStep;
-					}
-					redo = false;
-				}	
 			} else {
-				
-				// Change the step size
-				if(redo)
-					Activator.logError("Redo was true, but an attempt to reduce the step size was needed. The graph state is most likely not consistent" , new Exception());
-
+				// At least one thread failed, change the step size
+	
 				// Problem, error too big, we need to reduce the step size
-				delta = SAFETY*h*Math.pow(maxerror,PSHRNK);
+				delta = SAFETY*h*Math.pow(this.maximumError,PSHRNK);
         		if(h > 0.0)
         			h = (delta > 0.1*h)? delta:0.1*h;
         		else
