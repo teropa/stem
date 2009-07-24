@@ -55,6 +55,16 @@
               tooltip="%_UI_PopulationModel_description">
         </command>
      </menuContribution>
+     <menuContribution
+           locationURI="toolbar:org.eclipse.stem.ui.toolbar.newwizards?after=additions">
+        <command
+              commandId="org.eclipse.stem.ui.populationmodels.command.wiz.populationmodel"
+              icon="icons/full/custom16/populationmodel.gif"
+              label="%_UI_PopulationModelWizard_label"
+              style="push"
+              tooltip="%_UI_PopulationModel_description">
+        </command>
+     </menuContribution>
   </extension>
   
   <extension
