@@ -14,7 +14,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.impl.SolverImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
@@ -77,17 +81,17 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 		num_threads = (short)preferences.getInt(org.eclipse.stem.ui.preferences.PreferenceConstants.SIMULATION_THREADS);
 		
 		// First initialize the Y and temp label values from the current
-		// label values. Both algorithms require this initialization
+		// label values.
 		
 		for(Decorator decorator:this.getDecorators()) {
 			EList<DynamicLabel>allLabels = decorator.getLabelsToUpdate();
 			for (final Iterator<DynamicLabel> currentStateLabelIter = allLabels
 					.iterator(); currentStateLabelIter.hasNext();) {
-				if(decorator instanceof StandardDiseaseModel) {
+				if(decorator instanceof IntegrationDecorator) {
 					// It's a standard disease model with a standard disease model label
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
-					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(diseaseLabel.getCurrentDiseaseModelLabelValue());
-					diseaseLabel.getCurrentDiseaseModelTempLabelValue().set(diseaseLabel.getCurrentDiseaseModelLabelValue());
+					final IntegrationLabel iLabel = (IntegrationLabel) currentStateLabelIter.next();
+					((IntegrationLabelValue)iLabel.getProbeValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
+					((IntegrationLabelValue)iLabel.getTempValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
 				}
 			}
 		}
@@ -158,9 +162,9 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 			// Is the decorator enabled?
 			if (decorator.isEnabled()) {	
 				// Yes
-				if(decorator instanceof StandardDiseaseModel) {
+				if(decorator instanceof IntegrationDecorator) {
 					// It's a standard disease model decorator
-					updateStandardDiseaseModelLabels((StandardDiseaseModelImpl)decorator, time, timeDelta, cycle, threadnum);
+					updateStandardDiseaseModelLabels(decorator, time, timeDelta, cycle, threadnum);
 				} else {
 					// Don't know how to handle non-standard disease model decorators 
 				}
@@ -169,12 +173,15 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 	}
 	
 	
-	protected void updateStandardDiseaseModelLabels(StandardDiseaseModelImpl model, STEMTime time, long timeDelta, int cycle, short threadnum) {
+	protected void updateStandardDiseaseModelLabels(Decorator model, STEMTime time, long timeDelta, int cycle, short threadnum) {
 		
 		EList<DynamicLabel> myLabels = model.getLabelsToUpdate(threadnum, num_threads);
 		
+		IntegrationDecorator imodel = (IntegrationDecorator)model;
 		// Get the delta values at the current state
-		model.calculateDelta(time, timeDelta, myLabels);
+		imodel.calculateDelta(time, timeDelta, myLabels);
+		// Adjust from other decorators like population models
+		imodel.applyExternalDeltas(time, timeDelta, myLabels);
 		
 		int numLabels = myLabels.size();
 		int setProgressEveryNthNode = num_threads * numLabels/(MAX_PROGRESS_REPORTS);
@@ -183,30 +190,30 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 		// Initialize the next value from the current value and add the delta
 		for (final Iterator<DynamicLabel> currentStateLabelIter = myLabels
 				.iterator(); currentStateLabelIter.hasNext();) {
-			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
-			DiseaseModelLabelValue nextState = diseaseLabel.getNextDiseaseModelLabelValue();
+			final IntegrationLabel iLabel = (IntegrationLabel) currentStateLabelIter.next();
+			IntegrationLabelValue nextState = (IntegrationLabelValue)iLabel.getNextValue();
 			// Set to current value
 			nextState.set(
-					diseaseLabel.getCurrentDiseaseModelLabelValue());
+					(IntegrationLabelValue)iLabel.getCurrentValue());
 			// Add the delta
-			DiseaseModelLabelValue delta = diseaseLabel.getDeltaValue();
+			IntegrationLabelValue delta = (IntegrationLabelValue)iLabel.getDeltaValue();
 			
 			// For finite difference, we need to make sure we don't
 			// move too many people from one state to another
 			
-			delta.adjustDelta(diseaseLabel.getCurrentDiseaseModelLabelValue());
+			delta.adjustDelta((IntegrationLabelValue)iLabel.getCurrentValue());
 			
 			// Add the delta
 			nextState.add(delta);
 
-			// Set the incidence
-			nextState.setIncidence(diseaseLabel.getDeltaValue().getIncidence());
-		
+			// Set the incidence if disease model
+			nextState.setIncidence(((IntegrationLabelValue)iLabel.getDeltaValue()).getIncidence());
+			
 			// Do any model specific work for instance add noise
-			model.doModelSpecificAdjustments((StandardDiseaseModelLabelValue)nextState);
+			imodel.doModelSpecificAdjustments((LabelValue)nextState);
 			
 			// The next value is valid now.
-			diseaseLabel.setNextValueValid(true);
+			iLabel.setNextValueValid(true);
 			// Now add in the population so we can compute the reciprocal
 			// next cycle.
 //			addToTotalPopulationCount(nextState.getPopulationCount());

@@ -23,7 +23,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.impl.SolverImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
@@ -160,18 +164,18 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		
 		updateDoneBarrier = new CyclicBarrier(num_threads);
 		
-		// First initialize the Y and temp label values from the current
-		// label values. Both algorithms require this initialization
+		// First initialize the probe and temp label values from the current
+		// label values. 
 		
 		for(Decorator decorator:this.getDecorators()) {
 			EList<DynamicLabel>allLabels = decorator.getLabelsToUpdate();
 			for (final Iterator<DynamicLabel> currentStateLabelIter = allLabels
 					.iterator(); currentStateLabelIter.hasNext();) {
-				if(decorator instanceof StandardDiseaseModel) {
+				if(decorator instanceof IntegrationDecorator) {
 					// It's a standard disease model with a standard disease model label
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
-					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(diseaseLabel.getCurrentDiseaseModelLabelValue());
-					diseaseLabel.getCurrentDiseaseModelTempLabelValue().set(diseaseLabel.getCurrentDiseaseModelLabelValue());
+					final IntegrationLabel iLabel = (IntegrationLabel) currentStateLabelIter.next();
+					((IntegrationLabelValue)iLabel.getProbeValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
+					((IntegrationLabelValue)iLabel.getTempValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
 				}
 			}
 		}
@@ -216,13 +220,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			if(j.t != currentT) Activator.logError("Error, one thread was in misstep with other threads, its time was "+j.t+" versus "+currentT, new Exception());
 		}
 		
-		for(Decorator decorator:this.getDecorators()) {
-			if(decorator instanceof StandardDiseaseModel) {
-				StandardDiseaseModel sdm = (StandardDiseaseModel)decorator;
-				sdm.setCurrentX(currentT);
-				sdm.setStepSize(minStep); // smallest one from above.
-			}
-		}	
 	}
 	
 	/**
@@ -237,11 +234,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 //		this.setProgress(0.0);
 		// We only deal with standard disease model decorators
 		
-		ArrayList<StandardDiseaseModelImpl> diseaseModelDecorators = new ArrayList<StandardDiseaseModelImpl>();
+		ArrayList<Decorator> iDecorators = new ArrayList<Decorator>();
 		
 		for(Decorator d:getDecorators()) {
-			if(d instanceof StandardDiseaseModel)
-				diseaseModelDecorators.add(((StandardDiseaseModelImpl)d));
+			if(d instanceof IntegrationDecorator)
+				iDecorators.add(d);
 		}
 		
 		
@@ -268,7 +265,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		
 		if(x >= cycle) {
 			// Just copy the next value the same as the current value for all labels
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				EList<DynamicLabel>myLabels = sdm.getLabelsToUpdate(threadnum, num_threads);
 				int numLabels = myLabels.size();
 				double n = 0.0;
@@ -276,14 +273,14 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				if(setProgressEveryNthNode == 0) setProgressEveryNthNode = 1;
 				for (final Iterator<DynamicLabel> currentStateLabelIter = myLabels
 						.iterator(); currentStateLabelIter.hasNext();) {
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
 					// The estimated disease value contains the value calculated at position x
 					
-					StandardDiseaseModelLabelValue nextValueAtX = (StandardDiseaseModelLabelValue)EcoreUtil.copy(diseaseLabel.getCurrentYStandardDiseaseModelLabelValue());
-					StandardDiseaseModelLabelValue currentValueAtCycle = diseaseLabel.getCurrentStandardDiseaseModelLabelValue();
-					StandardDiseaseModelLabelValue nextState = diseaseLabel.getNextStandardDiseaseModelLabelValue();
+					IntegrationLabelValue nextValueAtX = (IntegrationLabelValue)EcoreUtil.copy(diseaseLabel.getProbeValue());
+					IntegrationLabelValue currentValueAtCycle = (IntegrationLabelValue)diseaseLabel.getCurrentValue();
+					IntegrationLabelValue nextState = (IntegrationLabelValue)diseaseLabel.getNextValue();
 					adjustValuesToCycle(currentValueAtCycle, nextValueAtX, x, cycle);
 					// NextValueAtX has been modified here to the correct value for this cycle.
 					nextState.set(nextValueAtX);
@@ -310,7 +307,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		
 		// Make sure we actually have labels to update
 		boolean workToDo=false;
-		for(StandardDiseaseModelImpl sdm:diseaseModelDecorators)
+		for(Decorator sdm:iDecorators)
 			if(sdm.getLabelsToUpdate(threadnum, num_threads).size() > 0) {workToDo=true;break;}
 		
 		if(!workToDo) {
@@ -351,41 +348,41 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		// error is reached. 
 					
 		// These are used during Runge Kutta calculations:
-		Map<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> k1map = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
-		Map<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> k2map = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
-		Map<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> k3map = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
-		Map<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> k4map = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
-		Map<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> k5map = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
-		Map<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> k6map = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
+		Map<IntegrationLabel, IntegrationLabelValue> k1map = new HashMap<IntegrationLabel, IntegrationLabelValue>();
+		Map<IntegrationLabel, IntegrationLabelValue> k2map = new HashMap<IntegrationLabel, IntegrationLabelValue>();
+		Map<IntegrationLabel, IntegrationLabelValue> k3map = new HashMap<IntegrationLabel, IntegrationLabelValue>();
+		Map<IntegrationLabel, IntegrationLabelValue> k4map = new HashMap<IntegrationLabel, IntegrationLabelValue>();
+		Map<IntegrationLabel, IntegrationLabelValue> k5map = new HashMap<IntegrationLabel, IntegrationLabelValue>();
+		Map<IntegrationLabel, IntegrationLabelValue> k6map = new HashMap<IntegrationLabel, IntegrationLabelValue>();
 		
 		// Used below as temporary place holder, one for each decorator
-		StandardDiseaseModelLabelValue _k1[], _k2[], _k3[], _k4[], _k5[], _k6[];
-		int numDecorators = diseaseModelDecorators.size();
-		_k1 = new StandardDiseaseModelLabelValue[numDecorators];
-		_k2 = new StandardDiseaseModelLabelValue[numDecorators];
-		_k3 = new StandardDiseaseModelLabelValue[numDecorators];
-		_k4 = new StandardDiseaseModelLabelValue[numDecorators];
-		_k5 = new StandardDiseaseModelLabelValue[numDecorators];
-		_k6 = new StandardDiseaseModelLabelValue[numDecorators];
+		IntegrationLabelValue _k1[], _k2[], _k3[], _k4[], _k5[], _k6[];
+		int numDecorators = iDecorators.size();
+		_k1 = new IntegrationLabelValue[numDecorators];
+		_k2 = new IntegrationLabelValue[numDecorators];
+		_k3 = new IntegrationLabelValue[numDecorators];
+		_k4 = new IntegrationLabelValue[numDecorators];
+		_k5 = new IntegrationLabelValue[numDecorators];
+		_k6 = new IntegrationLabelValue[numDecorators];
 		
 		// The final estimates for label values are stored here
-		Map<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue> finalEstimate = new HashMap<StandardDiseaseModelLabel, StandardDiseaseModelLabelValue>();
+		Map<IntegrationLabel, IntegrationLabelValue> finalEstimate = new HashMap<IntegrationLabel, IntegrationLabelValue>();
 		
 		// Delta is used to scale the step (h)
 		double delta = 0.0;	
 				
 		int n=0;
-		for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+		for(Decorator sdm:iDecorators) {
 			Iterator<DynamicLabel> iter = sdm.getLabelsToUpdate(threadnum, num_threads)
 					.iterator();
-			StandardDiseaseModelLabel firstLabel = (StandardDiseaseModelLabel)iter.next();
+			IntegrationLabel firstLabel = (IntegrationLabel)iter.next();
 			// Initialize temporary place holders just by creating dups of the first label available
-			_k1[n] = (StandardDiseaseModelLabelValue)EcoreUtil.copy(firstLabel.getCurrentStandardDiseaseModelLabelValue());
-			_k2[n] = (StandardDiseaseModelLabelValue)EcoreUtil.copy(firstLabel.getCurrentStandardDiseaseModelLabelValue());
-			_k3[n] = (StandardDiseaseModelLabelValue)EcoreUtil.copy(firstLabel.getCurrentStandardDiseaseModelLabelValue());
-			_k4[n] = (StandardDiseaseModelLabelValue)EcoreUtil.copy(firstLabel.getCurrentStandardDiseaseModelLabelValue());
-			_k5[n] = (StandardDiseaseModelLabelValue)EcoreUtil.copy(firstLabel.getCurrentStandardDiseaseModelLabelValue());
-			_k6[n++] = (StandardDiseaseModelLabelValue)EcoreUtil.copy(firstLabel.getCurrentStandardDiseaseModelLabelValue());
+			_k1[n] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
+			_k2[n] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
+			_k3[n] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
+			_k4[n] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
+			_k5[n] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
+			_k6[n++] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
 		}
 		double end = Math.floor(this.getCurrentX())+1.0;
 		
@@ -455,20 +452,22 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			// exceeded here and throw an error. 
 			
 			// First, get the delta values at the current state
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 
-				sdm.calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			for(Decorator sdm:iDecorators) {
+				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			}
 			
 			// Set the scaling factor for disease parameters for each decorator and location
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
-					DiseaseModelLabelValue scale = diseaseLabel.getYScale();
-					scale.set(diseaseLabel.getCurrentDiseaseModelTempLabelValue());
+					IntegrationLabelValue scale = (IntegrationLabelValue)diseaseLabel.getErrorScale();
+					scale.set((IntegrationLabelValue)diseaseLabel.getTempValue());
 					
-					DiseaseModelLabelValue dt = (DiseaseModelLabelValue)EcoreUtil.copy(diseaseLabel.getDeltaValue());
+					IntegrationLabelValue dt = (IntegrationLabelValue)EcoreUtil.copy(diseaseLabel.getDeltaValue());
 					dt.scale(h);
 					dt.abs();
 					dt.add(TINY);
@@ -480,75 +479,77 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			// Step 1 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
 			// build a first estimate of the next value'
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
-					StandardDiseaseModelLabelValue deltaLabel = diseaseLabel.getDeltaStandardDiseaseModelLabelValue();
-					k1map.put(diseaseLabel, (StandardDiseaseModelLabelValue)EcoreUtil.copy(deltaLabel));
+					IntegrationLabelValue deltaLabel = (IntegrationLabelValue)diseaseLabel.getDeltaValue();
+					k1map.put(diseaseLabel, (IntegrationLabelValue)EcoreUtil.copy(deltaLabel));
 					
 					deltaLabel.scale(h);
 					deltaLabel.scale(b21);
-					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(
-							deltaLabel.add(
+					((IntegrationLabelValue)diseaseLabel.getProbeValue()).set(
+							(IntegrationLabelValue)deltaLabel.add((IntegrationLabelValue)
 							diseaseLabel.
-							getCurrentDiseaseModelTempLabelValue()));	
+							getTempValue()));	
 				}
 			}
 			
 			// Now get the next delta values
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 
-				sdm.calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-		
+			for(Decorator sdm:iDecorators) {
+				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			}
 			
 			// Step 2 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
 			// build a second estimate of the next value
 			n = 0;
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
-					StandardDiseaseModelLabelValue deltaLabel = diseaseLabel.getDeltaStandardDiseaseModelLabelValue();
-					k2map.put(diseaseLabel,(StandardDiseaseModelLabelValue)EcoreUtil.copy(deltaLabel));
+					IntegrationLabelValue deltaLabel = (IntegrationLabelValue)diseaseLabel.getDeltaValue();
+					k2map.put(diseaseLabel,(IntegrationLabelValue)EcoreUtil.copy(deltaLabel));
 					_k1[n].set(k1map.get(diseaseLabel));
 					_k2[n].set(deltaLabel);
 					
-					StandardDiseaseModelLabelValue estDelta = 
-						(StandardDiseaseModelLabelValue)_k1[n].scale(b31);
+					IntegrationLabelValue estDelta = 
+						(IntegrationLabelValue)_k1[n].scale(b31);
 					_k2[n].scale(b32);
 					estDelta.add(_k2[n]);
 					
 					estDelta.scale(h);
 					
-					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(estDelta.add(
-							diseaseLabel.
-							getCurrentDiseaseModelTempLabelValue()));
+					((IntegrationLabelValue)diseaseLabel.getProbeValue()).set(estDelta.add(
+							(IntegrationLabelValue)diseaseLabel.
+							getTempValue()));
 				}
 				++n;
 			}
 			
 			// Now get the next delta values
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 
-				sdm.calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-		
+			for(Decorator sdm:iDecorators) {
+				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			}
 			
 			// Step 3 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
 			// build a third estimate of the next value
 			n = 0;
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
-					StandardDiseaseModelLabelValue deltaLabel = diseaseLabel.getDeltaStandardDiseaseModelLabelValue();
-					k3map.put(diseaseLabel, (StandardDiseaseModelLabelValue)EcoreUtil.copy(deltaLabel));
+					IntegrationLabelValue deltaLabel = (IntegrationLabelValue)diseaseLabel.getDeltaValue();
+					k3map.put(diseaseLabel, (IntegrationLabelValue)EcoreUtil.copy(deltaLabel));
 					
 					_k1[n].set(k1map.get(diseaseLabel));
 					_k2[n].set(k2map.get(diseaseLabel));
@@ -557,36 +558,37 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					_k1[n].scale(b41);
 					_k2[n].scale(b42);
 					_k3[n].scale(b43);
-					StandardDiseaseModelLabelValue estDelta = _k1[n];
+					IntegrationLabelValue estDelta = _k1[n];
 					estDelta.add(_k2[n]);
 					estDelta.add(_k3[n]);
 					
 					estDelta.scale(h);
 					
-					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(estDelta.add(
-							diseaseLabel.
-							getCurrentDiseaseModelTempLabelValue()));
+					((IntegrationLabelValue)diseaseLabel.getProbeValue()).set(estDelta.add(
+							(IntegrationLabelValue)diseaseLabel.
+							getTempValue()));
 				}	
 				++n;
 			}
 			
 			// Now get the next delta values
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 
-				sdm.calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-		
+			for(Decorator sdm:iDecorators) {
+				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			}
 			
 			// Step 4 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
 			// build a fourth estimate of the next value
 			n = 0;
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
-					StandardDiseaseModelLabelValue deltaLabel = diseaseLabel.getDeltaStandardDiseaseModelLabelValue();
-					k4map.put(diseaseLabel,(StandardDiseaseModelLabelValue)EcoreUtil.copy(deltaLabel));
+					IntegrationLabelValue deltaLabel = (IntegrationLabelValue)diseaseLabel.getDeltaValue();
+					k4map.put(diseaseLabel,(IntegrationLabelValue)EcoreUtil.copy(deltaLabel));
 					
 					_k1[n].set(k1map.get(diseaseLabel));
 					_k2[n].set(k2map.get(diseaseLabel));
@@ -598,37 +600,38 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					_k3[n].scale(b53);
 					_k4[n].scale(b54);
 					
-					StandardDiseaseModelLabelValue estDelta = _k1[n];
+					IntegrationLabelValue estDelta = _k1[n];
 					estDelta.add(_k2[n]);
 					estDelta.add(_k3[n]);
 					estDelta.add(_k4[n]);
 					
 					estDelta.scale(h);
-					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(estDelta.add(
-							diseaseLabel.
-							getCurrentDiseaseModelTempLabelValue()));
+					((IntegrationLabelValue)diseaseLabel.getProbeValue()).set(estDelta.add(
+							(IntegrationLabelValue)diseaseLabel.
+							getTempValue()));
 				}
 				++n;
 			}
 		
 			// Now get the next delta values
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 
-				sdm.calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-		
+			for(Decorator sdm:iDecorators) {
+				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			}
 			
 			// Step 5 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
 			// build a fifth estimate of the next value
 			n = 0;
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
 			
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
-					StandardDiseaseModelLabelValue deltaLabel = diseaseLabel.getDeltaStandardDiseaseModelLabelValue();
-					k5map.put(diseaseLabel,(StandardDiseaseModelLabelValue)EcoreUtil.copy(deltaLabel));
+					IntegrationLabelValue deltaLabel = (IntegrationLabelValue)diseaseLabel.getDeltaValue();
+					k5map.put(diseaseLabel,(IntegrationLabelValue)EcoreUtil.copy(deltaLabel));
 					
 					_k1[n].set(k1map.get(diseaseLabel));
 					_k2[n].set(k2map.get(diseaseLabel));
@@ -642,7 +645,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					_k4[n].scale(b64);
 					_k5[n].scale(b65);
 					
-					StandardDiseaseModelLabelValue estDelta = _k1[n];
+					IntegrationLabelValue estDelta = _k1[n];
 					estDelta.add(_k2[n]);
 					estDelta.add(_k3[n]);
 					estDelta.add(_k4[n]);
@@ -650,30 +653,31 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					
 					estDelta.scale(h);
 					
-					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(estDelta.add(
-							diseaseLabel.
-							getCurrentDiseaseModelTempLabelValue()));
+					((IntegrationLabelValue)diseaseLabel.getProbeValue()).set(estDelta.add(
+							(IntegrationLabelValue)diseaseLabel.
+							getTempValue()));
 				}	
 				++n;
 			}
 			
 			// Now get the next delta values
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 
-				sdm.calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-		
+			for(Decorator sdm:iDecorators) {
+				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			}
 			
 			// Step 6 in Runge Kutta Fehlberg. 
 			// Calculate k6
 			n = 0;
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
 			
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 					
-					StandardDiseaseModelLabelValue deltaLabel = diseaseLabel.getDeltaStandardDiseaseModelLabelValue();
-					k6map.put(diseaseLabel,(StandardDiseaseModelLabelValue)EcoreUtil.copy(deltaLabel));
+					IntegrationLabelValue deltaLabel = (IntegrationLabelValue)diseaseLabel.getDeltaValue();
+					k6map.put(diseaseLabel,(IntegrationLabelValue)EcoreUtil.copy(deltaLabel));
 				}
 				++n;
 			}
@@ -685,14 +689,14 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			boolean success = true; // Were we able to update all labels without a large enough error?
 			double maxerror = 0.0;
 			n = 0;
-			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+			for(Decorator sdm:iDecorators) {
 				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 						.iterator(); currentStateLabelIter.hasNext();) {
 			
-					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 					.next();
 			
-					DiseaseModelLabelValue currentValue = diseaseLabel.getCurrentDiseaseModelTempLabelValue();
+					IntegrationLabelValue currentValue = (IntegrationLabelValue)diseaseLabel.getTempValue();
 					
 					_k1[n].set(k1map.get(diseaseLabel));
 					_k3[n].set(k3map.get(diseaseLabel));
@@ -706,7 +710,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					_k6[n].scale(c6);
 					
 					// New Y
-					StandardDiseaseModelLabelValue yout = (StandardDiseaseModelLabelValue)
+					IntegrationLabelValue yout = (IntegrationLabelValue)
 						EcoreUtil.copy(_k1[n].add(_k3[n]).add(_k4[n]).add(_k6[n]));
 					
 					yout.scale(h);
@@ -729,10 +733,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					_k5[n].scale(dc5);
 					_k6[n].scale(dc6);
 					
-					StandardDiseaseModelLabelValue yerror = (StandardDiseaseModelLabelValue) EcoreUtil.copy(_k1[n].add(_k3[n]).add(_k4[n]).add(_k5[n]).add(_k6[n]));
+					IntegrationLabelValue yerror = (IntegrationLabelValue) EcoreUtil.copy(_k1[n].add(_k3[n]).add(_k4[n]).add(_k5[n]).add(_k6[n]));
 					yerror.scale(h);
 					
-					double error = yerror.scaledmax(diseaseLabel.getYScale());
+					yerror.divide((IntegrationLabelValue)diseaseLabel.getErrorScale());
+					double error = yerror.max();
 					error /= relativeTolerance;
 					
 					if(error > maxerror) {
@@ -741,7 +746,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					
 					if(error <= 1.0) 
 						finalEstimate.put(diseaseLabel, 
-							(StandardDiseaseModelLabelValue)EcoreUtil.copy(yout));
+							(IntegrationLabelValue)EcoreUtil.copy(yout));
 				}
 				++n;
 			}
@@ -786,12 +791,12 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					
 
 					// Update the current value to the new position
-				for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+				for(Decorator sdm:iDecorators) {
 					for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 							.iterator(); currentStateLabelIter.hasNext();) {
-						final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
-						diseaseLabel.getCurrentDiseaseModelTempLabelValue().set(finalEstimate.get(diseaseLabel));
-						diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(finalEstimate.get(diseaseLabel));
+						final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter.next();
+						((IntegrationLabelValue)diseaseLabel.getTempValue()).set(finalEstimate.get(diseaseLabel));
+						((IntegrationLabelValue)diseaseLabel.getProbeValue()).set(finalEstimate.get(diseaseLabel));
 					}
 				}
 					
@@ -812,7 +817,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					// Get the progress for all threads
 					for(int i=0;i<num_threads;++i) if(i!=threadnum && jobs[i] != null) progress+=jobs[i].getProgress();
 					progress /= num_threads;
-					for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) 						
+					for(Decorator sdm:iDecorators) 						
 						sdm.setProgress(progress);
 					nextProgressReport += nextProgressReportStep;
 				}
@@ -832,11 +837,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				//Reset the estimated value back to the original, the step size
 				// has been reduced so we well try again.
 				// Set the estimated value back to the current original value
-    			for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+    			for(Decorator sdm:iDecorators) {
     				for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
     						.iterator(); currentStateLabelIter.hasNext();) {
-    					final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter.next();
-    					diseaseLabel.getCurrentYStandardDiseaseModelLabelValue().set(diseaseLabel.getCurrentDiseaseModelTempLabelValue());
+    					final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter.next();
+    					((IntegrationLabelValue)diseaseLabel.getProbeValue()).set((IntegrationLabelValue)diseaseLabel.getTempValue());
     				}
     			}
 			}
@@ -850,18 +855,18 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		this.setCurrentX(x);
 		
 		// We're done
-		for(StandardDiseaseModelImpl sdm:diseaseModelDecorators) {
+		for(Decorator sdm:iDecorators) {
 			for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
 					.iterator(); currentStateLabelIter.hasNext();) {
-				final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+				final IntegrationLabel diseaseLabel = (IntegrationLabel) currentStateLabelIter
 				.next();
 		
 				// This is the next state for the label
-				StandardDiseaseModelLabelValue nextState = diseaseLabel.getNextStandardDiseaseModelLabelValue();
+				IntegrationLabelValue nextState = (IntegrationLabelValue)diseaseLabel.getNextValue();
 				// This is the original current state at the previous cycle
-				DiseaseModelLabelValue originalState = diseaseLabel.getCurrentDiseaseModelLabelValue();
+				IntegrationLabelValue originalState = (IntegrationLabelValue)diseaseLabel.getCurrentValue();
 				// This is the final value calculated at position x.
-				StandardDiseaseModelLabelValue newValue =  finalEstimate.get(diseaseLabel);
+				IntegrationLabelValue newValue =  finalEstimate.get(diseaseLabel);
 				// x could be larger than the requested cycle, so we do a linear interpolation
 				// to fit it exactly to the requested cycle
 				adjustValuesToCycle(originalState, newValue, x, cycle);
@@ -870,7 +875,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				// Set the incidence
 				nextState.setIncidence(newValue.getIncidence());
 				// Do any model specific work for instance add noise
-				sdm.doModelSpecificAdjustments((StandardDiseaseModelLabelValue)nextState);
+				((IntegrationDecorator)sdm).doModelSpecificAdjustments((LabelValue)nextState);
 				// The next value is valid now.
 				diseaseLabel.setNextValueValid(true);
 			}
@@ -887,8 +892,8 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	 * @param x Current position
 	 * @param cycle Current cycle
 	 */
-	void adjustValuesToCycle(DiseaseModelLabelValue currentValue, DiseaseModelLabelValue nextValueAtX, double x, int cycle) {
-		StandardDiseaseModelLabelValue result = (StandardDiseaseModelLabelValue)EcoreUtil.copy(currentValue);
+	void adjustValuesToCycle(IntegrationLabelValue currentValue, IntegrationLabelValue nextValueAtX, double x, int cycle) {
+		IntegrationLabelValue result = (IntegrationLabelValue)EcoreUtil.copy(currentValue);
 		nextValueAtX.sub(currentValue); // difference between new value and old now in nextValueAtX
 		nextValueAtX.scale(1.0/(x-cycle+1));
 		nextValueAtX.set(result.add(nextValueAtX));
