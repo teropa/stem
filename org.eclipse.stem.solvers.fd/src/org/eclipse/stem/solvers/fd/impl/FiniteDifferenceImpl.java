@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.concurrent.CyclicBarrier;
 
 import org.eclipse.core.runtime.Preferences;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -154,22 +155,22 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 		// labels in the canonical graph, but only if it is enabled. A
 		// Decorator might not be enabled if it is the action of a Trigger
 		// and the Predicate of the trigger is false.
-		
-		
+		EList<IntegrationDecorator> iDecorators = new BasicEList<IntegrationDecorator>();
 		for (final Iterator<Decorator> decoratorIter = this
 				.getDecorators().iterator(); decoratorIter.hasNext();) {
 			final Decorator decorator = decoratorIter.next();
 			// Is the decorator enabled?
-			if (decorator.isEnabled()) {	
-				// Yes
-				if(decorator instanceof IntegrationDecorator) {
-					// It's a standard disease model decorator
-					updateStandardDiseaseModelLabels(decorator, time, timeDelta, cycle, threadnum);
-				} else {
-					// Don't know how to handle non-standard disease model decorators 
-				}
-			} // if
-		} // for each decorator
+			if (decorator.isEnabled() && decorator instanceof IntegrationDecorator) iDecorators.add((IntegrationDecorator)decorator);
+		}
+		
+		for(IntegrationDecorator imodel:iDecorators)
+			imodel.calculateDelta(time, timeDelta, ((Decorator)imodel).getLabelsToUpdate(threadnum, num_threads));
+		for(IntegrationDecorator imodel:iDecorators)
+			imodel.applyExternalDeltas(time, timeDelta, ((Decorator)imodel).getLabelsToUpdate(threadnum, num_threads));
+		
+		for(IntegrationDecorator imodel:iDecorators)
+			updateStandardDiseaseModelLabels((Decorator)imodel, time, timeDelta, cycle, threadnum);
+				
 	}
 	
 	
@@ -178,10 +179,6 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 		EList<DynamicLabel> myLabels = model.getLabelsToUpdate(threadnum, num_threads);
 		
 		IntegrationDecorator imodel = (IntegrationDecorator)model;
-		// Get the delta values at the current state
-		imodel.calculateDelta(time, timeDelta, myLabels);
-		// Adjust from other decorators like population models
-		imodel.applyExternalDeltas(time, timeDelta, myLabels);
 		
 		int numLabels = myLabels.size();
 		int setProgressEveryNthNode = num_threads * numLabels/(MAX_PROGRESS_REPORTS);
@@ -192,23 +189,18 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 				.iterator(); currentStateLabelIter.hasNext();) {
 			final IntegrationLabel iLabel = (IntegrationLabel) currentStateLabelIter.next();
 			IntegrationLabelValue nextState = (IntegrationLabelValue)iLabel.getNextValue();
-			// Set to current value
-			nextState.set(
-					(IntegrationLabelValue)iLabel.getCurrentValue());
-			// Add the delta
-			IntegrationLabelValue delta = (IntegrationLabelValue)iLabel.getDeltaValue();
 			
+			IntegrationLabelValue delta = (IntegrationLabelValue)iLabel.getDeltaValue();
 			// For finite difference, we need to make sure we don't
 			// move too many people from one state to another
-			
 			delta.adjustDelta((IntegrationLabelValue)iLabel.getCurrentValue());
 			
-			// Add the delta
-			nextState.add(delta);
-
-			// Set the incidence if disease model
-			nextState.setIncidence(((IntegrationLabelValue)iLabel.getDeltaValue()).getIncidence());
+			// Set delta first. This will copy non-additive values like incidence etc.
+			nextState.set(delta);
 			
+			// Add the original value
+			nextState.add((IntegrationLabelValue)iLabel.getCurrentValue());
+
 			// Do any model specific work for instance add noise
 			imodel.doModelSpecificAdjustments((LabelValue)nextState);
 			

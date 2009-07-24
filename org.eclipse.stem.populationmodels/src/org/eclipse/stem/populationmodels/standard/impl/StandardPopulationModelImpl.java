@@ -349,14 +349,13 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 					double additions = sdeLabelValue.getAdditions();
 					double substractions = sdeLabelValue.getSubstractions();
 					
-					// Additions are births and goes into births and count
-					myDelta.setBirths(myDelta.getBirths()+additions);
+					// Additions are births. Observe that additions should be 0 since 
+					// other decorators are disease models that don't cause an "increase"
+					// in births.
 					myDelta.setCount(myDelta.getCount()+additions);
 					
 					// Substractions are deaths 
-					
 					myDelta.setCount(myDelta.getCount() - substractions);
-					myDelta.setDeaths(myDelta.getDeaths() + substractions);
 				}
 			}
 

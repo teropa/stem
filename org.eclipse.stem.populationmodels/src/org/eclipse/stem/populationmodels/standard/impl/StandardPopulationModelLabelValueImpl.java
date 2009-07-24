@@ -360,25 +360,18 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	public IntegrationLabelValue add(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
 		this.count += v.getCount();
-		this.births += v.getBirths();
-		this.deaths += v.getDeaths();
-		
 		return this;
 	}
 
 	@Override
 	public IntegrationLabelValue add(double addition) {
 		this.count += addition;
-		this.births += addition;
-		this.deaths += addition;
 		return this;
 	}
 
 	@Override
 	public IntegrationLabelValue scale(double scaleFactor) {
 		this.count *= scaleFactor;
-		this.births *= scaleFactor;
-		this.deaths *= scaleFactor;
 		return this;
 	}
 
@@ -388,6 +381,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		this.count = v.getCount();
 		this.births = v.getBirths();
 		this.deaths = v.getDeaths();
+		this.incidence = v.getIncidence();
 		return this;
 	}
 
@@ -395,8 +389,6 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	public IntegrationLabelValue sub(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
 		this.count -= v.getCount();
-		this.births -= v.getBirths();
-		this.deaths -= v.getDeaths();
 		return this;
 	}
 
@@ -404,15 +396,11 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)d;
 		this.count /= v.getCount();
-		this.births /= v.getBirths();
-		this.deaths /= v.getDeaths();
 		return this;
 	}
 	
 	@Override
 	public double max() {
-		if(count > deaths && count > births) return count;
-		else if (deaths > births) return births;
-		else return deaths;
+		return count;
 	}
 } //StandardPopulationModelLabelValueImpl

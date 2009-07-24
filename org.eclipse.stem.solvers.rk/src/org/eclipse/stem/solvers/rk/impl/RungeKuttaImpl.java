@@ -452,10 +452,10 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			// exceeded here and throw an error. 
 			
 			// First, get the delta values at the current state
-			for(Decorator sdm:iDecorators) {
+			for(Decorator sdm:iDecorators) 
 				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			for(Decorator sdm:iDecorators)
 				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-			}
 			
 			// Set the scaling factor for disease parameters for each decorator and location
 			for(Decorator sdm:iDecorators) {
@@ -498,10 +498,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			}
 			
 			// Now get the next delta values
-			for(Decorator sdm:iDecorators) {
+			for(Decorator sdm:iDecorators) 
 				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			for(Decorator sdm:iDecorators)
 				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-			}
+
 			
 			// Step 2 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
@@ -533,10 +534,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			}
 			
 			// Now get the next delta values
-			for(Decorator sdm:iDecorators) {
+			for(Decorator sdm:iDecorators) 
 				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			for(Decorator sdm:iDecorators)
 				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-			}
+
 			
 			// Step 3 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
@@ -572,10 +574,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			}
 			
 			// Now get the next delta values
-			for(Decorator sdm:iDecorators) {
+			for(Decorator sdm:iDecorators) 
 				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			for(Decorator sdm:iDecorators)
 				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-			}
+
 			
 			// Step 4 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
@@ -614,10 +617,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			}
 		
 			// Now get the next delta values
-			for(Decorator sdm:iDecorators) {
+			for(Decorator sdm:iDecorators) 
 				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			for(Decorator sdm:iDecorators)
 				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-			}
+
 			
 			// Step 5 in Runge Kutta Fehlberg. 
 			// Get the delta values out of each node label and
@@ -661,10 +665,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			}
 			
 			// Now get the next delta values
-			for(Decorator sdm:iDecorators) {
+			for(Decorator sdm:iDecorators) 
 				((IntegrationDecorator)sdm).calculateDelta(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
+			for(Decorator sdm:iDecorators)
 				((IntegrationDecorator)sdm).applyExternalDeltas(time, timeDelta, sdm.getLabelsToUpdate(threadnum, num_threads));
-			}
+
 			
 			// Step 6 in Runge Kutta Fehlberg. 
 			// Calculate k6
@@ -714,10 +719,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 						EcoreUtil.copy(_k1[n].add(_k3[n]).add(_k4[n]).add(_k6[n]));
 					
 					yout.scale(h);
-					// Need to handle incidence separately since incidence is the delta
-					double incidence = yout.getIncidence();
 					yout.add(currentValue);
-					yout.setIncidence(incidence);
 								
 					
 					// Get the error
@@ -869,11 +871,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				IntegrationLabelValue newValue =  finalEstimate.get(diseaseLabel);
 				// x could be larger than the requested cycle, so we do a linear interpolation
 				// to fit it exactly to the requested cycle
-				adjustValuesToCycle(originalState, newValue, x, cycle);
+				// *** Not needed since we always end exactly at the requested cycle
+				//adjustValuesToCycle(originalState, newValue, x, cycle);
+				
 				// New value has been modified here to fit the requested cycle
 				nextState.set(newValue);
-				// Set the incidence
-				nextState.setIncidence(newValue.getIncidence());
 				// Do any model specific work for instance add noise
 				((IntegrationDecorator)sdm).doModelSpecificAdjustments((LabelValue)nextState);
 				// The next value is valid now.
