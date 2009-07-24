@@ -16,6 +16,7 @@ import java.util.Iterator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.Node;
@@ -36,6 +37,7 @@ import org.eclipse.stem.definitions.labels.PopulationLabelValue;
  *   <li>{@link org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl#getCurrentPopulationValue <em>Current Population Value</em>}</li>
  *   <li>{@link org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl#getPopulatedArea <em>Populated Area</em>}</li>
+ *   <li>{@link org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl#getValidYear <em>Valid Year</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +102,26 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @ordered
 	 */
 	protected double populatedArea = POPULATED_AREA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValidYear() <em>Valid Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VALID_YEAR_EDEFAULT = 2006;
+
+	/**
+	 * The cached value of the '{@link #getValidYear() <em>Valid Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected int validYear = VALID_YEAR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -259,6 +281,27 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getValidYear() {
+		return validYear;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValidYear(int newValidYear) {
+		int oldValidYear = validYear;
+		validYear = newValidYear;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.POPULATION_LABEL__VALID_YEAR, oldValidYear, validYear));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * @param featureID
 	 * @param resolve
@@ -277,6 +320,8 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 				return getCurrentPopulationValue();
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
 				return new Double(getPopulatedArea());
+			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
+				return new Integer(getValidYear());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -302,6 +347,9 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
 				setPopulatedArea(((Double)newValue).doubleValue());
 				return;
+			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
+				setValidYear(((Integer)newValue).intValue());
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -326,6 +374,9 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
 				setPopulatedArea(POPULATED_AREA_EDEFAULT);
 				return;
+			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
+				setValidYear(VALID_YEAR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,6 +399,8 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 				return getCurrentPopulationValue() != null;
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
 				return populatedArea != POPULATED_AREA_EDEFAULT;
+			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
+				return validYear != VALID_YEAR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

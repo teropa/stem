@@ -33,12 +33,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  * <ul>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getPopulationLabel <em>Population Label</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getDiseaseModelState <em>Disease Model State</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getCurrentDiseaseModelLabelValue <em>Current Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getNextDiseaseModelLabelValue <em>Next Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getDeltaValue <em>Delta Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getCurrentY <em>Current Y</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getCurrentDiseaseModelTempLabelValue <em>Current Disease Model Temp Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelImpl#getYScale <em>YScale</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,71 +59,12 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	protected DiseaseModelState diseaseModelState;
 
 	/**
-	 * The cached value of the '{@link #getDeltaValue() <em>Delta Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeltaValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected DiseaseModelLabelValue deltaValue;
-
-	/**
-	 * The cached value of the '{@link #getCurrentY() <em>Current Y</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentY()
-	 * @generated
-	 * @ordered
-	 */
-	protected DiseaseModelLabelValue currentY;
-
-	/**
-	 * The cached value of the '{@link #getCurrentDiseaseModelTempLabelValue() <em>Current Disease Model Temp Label Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentDiseaseModelTempLabelValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected DiseaseModelLabelValue currentDiseaseModelTempLabelValue;
-
-	/**
-	 * The cached value of the '{@link #getYScale() <em>YScale</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getYScale()
-	 * @generated
-	 * @ordered
-	 */
-	protected DiseaseModelLabelValue yScale;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected DiseaseModelLabelImpl() {
 		super();
 	}
-
-	/**
-	 * @return 
-	 */
-	public double getBirths() {
-		return getCurrentDiseaseModelLabelValue().getBirths();
-	} // getBirths
-
-	public void setBirths(final double b) {
-		getCurrentDiseaseModelLabelValue().setBirths(b);
-	} // setBirths
-	
-	public double getDeaths() {
-		return getCurrentDiseaseModelLabelValue().getDeaths();
-	} // getDeaths
-
-	public void setDeaths(final double d) {
-		getCurrentDiseaseModelLabelValue().setDeaths(d);
-	} // setDeaths
 
 	public double getDiseaseDeaths() {
 		return getCurrentDiseaseModelLabelValue().getDiseaseDeaths();
@@ -138,24 +73,6 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	public void setDiseaseDeaths(final double d) {
 		getCurrentDiseaseModelLabelValue().setDiseaseDeaths(d);
 	} // setDiseaseDeaths
-
-
-	public double getNextBirths() {
-		return getNextDiseaseModelLabelValue().getBirths();
-	} // getNextBirths
-
-	public void setNextBirths(final double b) {
-		getNextDiseaseModelLabelValue().setBirths(b);
-	} // setNextBirths
-	
-
-	public double getNextDeaths() {
-		return getNextDiseaseModelLabelValue().getDeaths();
-	} // getNextDeaths
-
-	public void setNextDeaths(final double d) {
-		getNextDiseaseModelLabelValue().setDeaths(d);
-	} // setNextDeaths
 
 
 	public double getNextDiseaseDeaths() {
@@ -297,107 +214,6 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiseaseModelLabelValue getDeltaValue() {
-		return deltaValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDeltaValue(DiseaseModelLabelValue newDeltaValue) {
-		DiseaseModelLabelValue oldDeltaValue = deltaValue;
-		deltaValue = newDeltaValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__DELTA_VALUE, oldDeltaValue, deltaValue));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiseaseModelLabelValue getCurrentY() {
-		return currentY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentY(DiseaseModelLabelValue newCurrentY) {
-		DiseaseModelLabelValue oldCurrentY = currentY;
-		currentY = newCurrentY;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__CURRENT_Y, oldCurrentY, currentY));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiseaseModelLabelValue getCurrentDiseaseModelTempLabelValue() {
-		if (currentDiseaseModelTempLabelValue != null && currentDiseaseModelTempLabelValue.eIsProxy()) {
-			InternalEObject oldCurrentDiseaseModelTempLabelValue = (InternalEObject)currentDiseaseModelTempLabelValue;
-			currentDiseaseModelTempLabelValue = (DiseaseModelLabelValue)eResolveProxy(oldCurrentDiseaseModelTempLabelValue);
-			if (currentDiseaseModelTempLabelValue != oldCurrentDiseaseModelTempLabelValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE, oldCurrentDiseaseModelTempLabelValue, currentDiseaseModelTempLabelValue));
-			}
-		}
-		return currentDiseaseModelTempLabelValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiseaseModelLabelValue basicGetCurrentDiseaseModelTempLabelValue() {
-		return currentDiseaseModelTempLabelValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentDiseaseModelTempLabelValue(DiseaseModelLabelValue newCurrentDiseaseModelTempLabelValue) {
-		DiseaseModelLabelValue oldCurrentDiseaseModelTempLabelValue = currentDiseaseModelTempLabelValue;
-		currentDiseaseModelTempLabelValue = newCurrentDiseaseModelTempLabelValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE, oldCurrentDiseaseModelTempLabelValue, currentDiseaseModelTempLabelValue));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiseaseModelLabelValue getYScale() {
-		return yScale;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setYScale(DiseaseModelLabelValue newYScale) {
-		DiseaseModelLabelValue oldYScale = yScale;
-		yScale = newYScale;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__YSCALE, oldYScale, yScale));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * 
 	 * @param otherEnd
 	 * @param featureID
@@ -474,19 +290,6 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 				return basicGetPopulationLabel();
 			case StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE:
 				return getDiseaseModelState();
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE:
-				return getCurrentDiseaseModelLabelValue();
-			case StandardPackage.DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE:
-				return getNextDiseaseModelLabelValue();
-			case StandardPackage.DISEASE_MODEL_LABEL__DELTA_VALUE:
-				return getDeltaValue();
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_Y:
-				return getCurrentY();
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE:
-				if (resolve) return getCurrentDiseaseModelTempLabelValue();
-				return basicGetCurrentDiseaseModelTempLabelValue();
-			case StandardPackage.DISEASE_MODEL_LABEL__YSCALE:
-				return getYScale();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -509,18 +312,6 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 			case StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE:
 				setDiseaseModelState((DiseaseModelState)newValue);
 				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__DELTA_VALUE:
-				setDeltaValue((DiseaseModelLabelValue)newValue);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_Y:
-				setCurrentY((DiseaseModelLabelValue)newValue);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE:
-				setCurrentDiseaseModelTempLabelValue((DiseaseModelLabelValue)newValue);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__YSCALE:
-				setYScale((DiseaseModelLabelValue)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -541,18 +332,6 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 				return;
 			case StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE:
 				setDiseaseModelState((DiseaseModelState)null);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__DELTA_VALUE:
-				setDeltaValue((DiseaseModelLabelValue)null);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_Y:
-				setCurrentY((DiseaseModelLabelValue)null);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE:
-				setCurrentDiseaseModelTempLabelValue((DiseaseModelLabelValue)null);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL__YSCALE:
-				setYScale((DiseaseModelLabelValue)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -575,18 +354,6 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 				return populationLabel != null;
 			case StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE:
 				return diseaseModelState != null;
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE:
-				return getCurrentDiseaseModelLabelValue() != null;
-			case StandardPackage.DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE:
-				return getNextDiseaseModelLabelValue() != null;
-			case StandardPackage.DISEASE_MODEL_LABEL__DELTA_VALUE:
-				return deltaValue != null;
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_Y:
-				return currentY != null;
-			case StandardPackage.DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE:
-				return currentDiseaseModelTempLabelValue != null;
-			case StandardPackage.DISEASE_MODEL_LABEL__YSCALE:
-				return yScale != null;
 		}
 		return super.eIsSet(featureID);
 	}

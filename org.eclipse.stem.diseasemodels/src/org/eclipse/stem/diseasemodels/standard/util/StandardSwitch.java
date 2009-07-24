@@ -21,10 +21,13 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
 import org.eclipse.stem.diseasemodels.standard.*;
@@ -138,6 +141,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(deterministicSEIRDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(deterministicSEIRDiseaseModel);
 				if (result == null) result = caseDiseaseModel(deterministicSEIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(deterministicSEIRDiseaseModel);
 				if (result == null) result = caseNodeDecorator(deterministicSEIRDiseaseModel);
 				if (result == null) result = caseSanityChecker(deterministicSEIRDiseaseModel);
 				if (result == null) result = caseModifiable(deterministicSEIRDiseaseModel);
@@ -153,6 +157,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(deterministicSIDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(deterministicSIDiseaseModel);
 				if (result == null) result = caseDiseaseModel(deterministicSIDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(deterministicSIDiseaseModel);
 				if (result == null) result = caseNodeDecorator(deterministicSIDiseaseModel);
 				if (result == null) result = caseSanityChecker(deterministicSIDiseaseModel);
 				if (result == null) result = caseModifiable(deterministicSIDiseaseModel);
@@ -169,6 +174,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(deterministicSIRDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(deterministicSIRDiseaseModel);
 				if (result == null) result = caseDiseaseModel(deterministicSIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(deterministicSIRDiseaseModel);
 				if (result == null) result = caseNodeDecorator(deterministicSIRDiseaseModel);
 				if (result == null) result = caseSanityChecker(deterministicSIRDiseaseModel);
 				if (result == null) result = caseModifiable(deterministicSIRDiseaseModel);
@@ -206,6 +212,7 @@ public class StandardSwitch<T1> {
 				DiseaseModelLabelValue diseaseModelLabelValue = (DiseaseModelLabelValue)theEObject;
 				T1 result = caseDiseaseModelLabelValue(diseaseModelLabelValue);
 				if (result == null) result = caseLabelValue(diseaseModelLabelValue);
+				if (result == null) result = caseIntegrationLabelValue(diseaseModelLabelValue);
 				if (result == null) result = caseSanityChecker_1(diseaseModelLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -233,6 +240,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(seir);
 				if (result == null) result = caseStandardDiseaseModel(seir);
 				if (result == null) result = caseDiseaseModel(seir);
+				if (result == null) result = caseIntegrationDecorator(seir);
 				if (result == null) result = caseNodeDecorator(seir);
 				if (result == null) result = caseSanityChecker(seir);
 				if (result == null) result = caseModifiable(seir);
@@ -245,10 +253,9 @@ public class StandardSwitch<T1> {
 			case StandardPackage.SEIR_LABEL: {
 				SEIRLabel seirLabel = (SEIRLabel)theEObject;
 				T1 result = caseSEIRLabel(seirLabel);
-				if (result == null) result = caseSIRLabel(seirLabel);
-				if (result == null) result = caseSILabel(seirLabel);
 				if (result == null) result = caseStandardDiseaseModelLabel(seirLabel);
 				if (result == null) result = caseDiseaseModelLabel(seirLabel);
+				if (result == null) result = caseIntegrationLabel(seirLabel);
 				if (result == null) result = caseDynamicNodeLabel(seirLabel);
 				if (result == null) result = caseDynamicLabel(seirLabel);
 				if (result == null) result = caseNodeLabel(seirLabel);
@@ -266,6 +273,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseStandardDiseaseModelLabelValue(seirLabelValue);
 				if (result == null) result = caseDiseaseModelLabelValue(seirLabelValue);
 				if (result == null) result = caseLabelValue(seirLabelValue);
+				if (result == null) result = caseIntegrationLabelValue(seirLabelValue);
 				if (result == null) result = caseSanityChecker_1(seirLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -275,6 +283,7 @@ public class StandardSwitch<T1> {
 				T1 result = caseSI(si);
 				if (result == null) result = caseStandardDiseaseModel(si);
 				if (result == null) result = caseDiseaseModel(si);
+				if (result == null) result = caseIntegrationDecorator(si);
 				if (result == null) result = caseNodeDecorator(si);
 				if (result == null) result = caseSanityChecker(si);
 				if (result == null) result = caseModifiable(si);
@@ -309,6 +318,7 @@ public class StandardSwitch<T1> {
 				T1 result = caseSILabel(siLabel);
 				if (result == null) result = caseStandardDiseaseModelLabel(siLabel);
 				if (result == null) result = caseDiseaseModelLabel(siLabel);
+				if (result == null) result = caseIntegrationLabel(siLabel);
 				if (result == null) result = caseDynamicNodeLabel(siLabel);
 				if (result == null) result = caseDynamicLabel(siLabel);
 				if (result == null) result = caseNodeLabel(siLabel);
@@ -324,6 +334,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseStandardDiseaseModelLabelValue(siLabelValue);
 				if (result == null) result = caseDiseaseModelLabelValue(siLabelValue);
 				if (result == null) result = caseLabelValue(siLabelValue);
+				if (result == null) result = caseIntegrationLabelValue(siLabelValue);
 				if (result == null) result = caseSanityChecker_1(siLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -334,6 +345,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(sir);
 				if (result == null) result = caseStandardDiseaseModel(sir);
 				if (result == null) result = caseDiseaseModel(sir);
+				if (result == null) result = caseIntegrationDecorator(sir);
 				if (result == null) result = caseNodeDecorator(sir);
 				if (result == null) result = caseSanityChecker(sir);
 				if (result == null) result = caseModifiable(sir);
@@ -346,9 +358,9 @@ public class StandardSwitch<T1> {
 			case StandardPackage.SIR_LABEL: {
 				SIRLabel sirLabel = (SIRLabel)theEObject;
 				T1 result = caseSIRLabel(sirLabel);
-				if (result == null) result = caseSILabel(sirLabel);
 				if (result == null) result = caseStandardDiseaseModelLabel(sirLabel);
 				if (result == null) result = caseDiseaseModelLabel(sirLabel);
+				if (result == null) result = caseIntegrationLabel(sirLabel);
 				if (result == null) result = caseDynamicNodeLabel(sirLabel);
 				if (result == null) result = caseDynamicLabel(sirLabel);
 				if (result == null) result = caseNodeLabel(sirLabel);
@@ -365,6 +377,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseStandardDiseaseModelLabelValue(sirLabelValue);
 				if (result == null) result = caseDiseaseModelLabelValue(sirLabelValue);
 				if (result == null) result = caseLabelValue(sirLabelValue);
+				if (result == null) result = caseIntegrationLabelValue(sirLabelValue);
 				if (result == null) result = caseSanityChecker_1(sirLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -373,6 +386,7 @@ public class StandardSwitch<T1> {
 				StandardDiseaseModel standardDiseaseModel = (StandardDiseaseModel)theEObject;
 				T1 result = caseStandardDiseaseModel(standardDiseaseModel);
 				if (result == null) result = caseDiseaseModel(standardDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(standardDiseaseModel);
 				if (result == null) result = caseNodeDecorator(standardDiseaseModel);
 				if (result == null) result = caseSanityChecker(standardDiseaseModel);
 				if (result == null) result = caseModifiable(standardDiseaseModel);
@@ -386,6 +400,7 @@ public class StandardSwitch<T1> {
 				StandardDiseaseModelLabel standardDiseaseModelLabel = (StandardDiseaseModelLabel)theEObject;
 				T1 result = caseStandardDiseaseModelLabel(standardDiseaseModelLabel);
 				if (result == null) result = caseDiseaseModelLabel(standardDiseaseModelLabel);
+				if (result == null) result = caseIntegrationLabel(standardDiseaseModelLabel);
 				if (result == null) result = caseDynamicNodeLabel(standardDiseaseModelLabel);
 				if (result == null) result = caseDynamicLabel(standardDiseaseModelLabel);
 				if (result == null) result = caseNodeLabel(standardDiseaseModelLabel);
@@ -400,6 +415,7 @@ public class StandardSwitch<T1> {
 				T1 result = caseStandardDiseaseModelLabelValue(standardDiseaseModelLabelValue);
 				if (result == null) result = caseDiseaseModelLabelValue(standardDiseaseModelLabelValue);
 				if (result == null) result = caseLabelValue(standardDiseaseModelLabelValue);
+				if (result == null) result = caseIntegrationLabelValue(standardDiseaseModelLabelValue);
 				if (result == null) result = caseSanityChecker_1(standardDiseaseModelLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -435,6 +451,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseNodeDecorator(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseSanityChecker(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseModifiable(stochasticSEIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseDecorator(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseIdentifiable(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseComparable(stochasticSEIRDiseaseModel);
@@ -449,6 +466,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseStandardDiseaseModel(stochasticSIDiseaseModel);
 				if (result == null) result = caseStochasticDiseaseModel(stochasticSIDiseaseModel);
 				if (result == null) result = caseDiseaseModel(stochasticSIDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticSIDiseaseModel);
 				if (result == null) result = caseNodeDecorator(stochasticSIDiseaseModel);
 				if (result == null) result = caseSanityChecker(stochasticSIDiseaseModel);
 				if (result == null) result = caseModifiable(stochasticSIDiseaseModel);
@@ -467,6 +485,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseStochasticDiseaseModel(stochasticSIRDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(stochasticSIRDiseaseModel);
 				if (result == null) result = caseDiseaseModel(stochasticSIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticSIRDiseaseModel);
 				if (result == null) result = caseNodeDecorator(stochasticSIRDiseaseModel);
 				if (result == null) result = caseSanityChecker(stochasticSIRDiseaseModel);
 				if (result == null) result = caseModifiable(stochasticSIRDiseaseModel);
@@ -482,6 +501,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(aggregatingSIDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(aggregatingSIDiseaseModel);
 				if (result == null) result = caseDiseaseModel(aggregatingSIDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(aggregatingSIDiseaseModel);
 				if (result == null) result = caseNodeDecorator(aggregatingSIDiseaseModel);
 				if (result == null) result = caseSanityChecker(aggregatingSIDiseaseModel);
 				if (result == null) result = caseModifiable(aggregatingSIDiseaseModel);
@@ -506,6 +526,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(aggregatingSEIRDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(aggregatingSEIRDiseaseModel);
 				if (result == null) result = caseDiseaseModel(aggregatingSEIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(aggregatingSEIRDiseaseModel);
 				if (result == null) result = caseNodeDecorator(aggregatingSEIRDiseaseModel);
 				if (result == null) result = caseSanityChecker(aggregatingSEIRDiseaseModel);
 				if (result == null) result = caseModifiable(aggregatingSEIRDiseaseModel);
@@ -522,6 +543,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSI(aggregatingSIRDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(aggregatingSIRDiseaseModel);
 				if (result == null) result = caseDiseaseModel(aggregatingSIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(aggregatingSIRDiseaseModel);
 				if (result == null) result = caseNodeDecorator(aggregatingSIRDiseaseModel);
 				if (result == null) result = caseSanityChecker(aggregatingSIRDiseaseModel);
 				if (result == null) result = caseModifiable(aggregatingSIRDiseaseModel);
@@ -951,6 +973,51 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseSanityChecker(SanityChecker object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integration Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integration Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIntegrationLabel(IntegrationLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integration Label Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integration Label Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIntegrationLabelValue(IntegrationLabelValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integration Decorator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integration Decorator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIntegrationDecorator(IntegrationDecorator object) {
 		return null;
 	}
 

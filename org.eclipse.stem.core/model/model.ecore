@@ -11,6 +11,13 @@
       <eParameters name="cycle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="resetLabels"/>
+    <eOperations name="getLabelsToUpdate">
+      <eGenericType eClassifier="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EClass graph.ecore#//DynamicLabel"/>
+      </eGenericType>
+      <eParameters name="partition" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+      <eParameters name="max" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelsToUpdate" upperBound="-1"
         eType="ecore:EClass graph.ecore#//DynamicLabel" eOpposite="graph.ecore#//DynamicLabel/decorator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="ecore:EClass graph.ecore#//Graph"

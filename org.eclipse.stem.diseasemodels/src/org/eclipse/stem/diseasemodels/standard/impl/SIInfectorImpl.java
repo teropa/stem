@@ -14,6 +14,7 @@ package org.eclipse.stem.diseasemodels.standard.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.SIInfector;
 import org.eclipse.stem.diseasemodels.standard.SILabel;
@@ -102,8 +103,8 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	 */
 	@Override
 	protected void doInitialization(final DiseaseModelLabel diseaseModelLabel) {
-		final SILabel siLabel = (SILabel) diseaseModelLabel;
-		final SILabelValue siValue = siLabel.getCurrentSIValue();
+		final IntegrationLabel siLabel = (IntegrationLabel) diseaseModelLabel;
+		final SILabelValue siValue = (SILabelValue)siLabel.getCurrentValue();
 		double newSValue = siValue.getS() - getInfectiousCount();
 		// TODO log infectious count greater than Susceptible population
 		final double additionalInfectious = newSValue < 0 ? siValue.getS()
@@ -112,14 +113,14 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 		final double newIValue = siValue.getI() + additionalInfectious;
 		
 		newSValue = newSValue < 0 ? 0 : newSValue;
-		siLabel.getCurrentSIValue().setS(newSValue);
-		siLabel.getNextSIValue().setS(newSValue);
-		((SILabelValue)siLabel.getCurrentY()).setS(newSValue);
+		((SILabelValue)siLabel.getCurrentValue()).setS(newSValue);
+		((SILabelValue)siLabel.getNextValue()).setS(newSValue);
+		(((SILabelValue)siLabel.getProbeValue())).setS(newSValue);
 		// We could divide them between the two infectious states, 
 		// but this should be okay
-		siLabel.getCurrentSIValue().setI(newIValue);
-		siLabel.getNextSIValue().setI(newIValue);
-		((SILabelValue)siLabel.getCurrentY()).setI(newIValue);
+		((SILabelValue)siLabel.getCurrentValue()).setI(newIValue);
+		((SILabelValue)siLabel.getNextValue()).setI(newIValue);
+		((SILabelValue)siLabel.getProbeValue()).setI(newIValue);
 	} // doInitialization
 
 	/**

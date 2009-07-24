@@ -31,10 +31,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timePeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
         defaultValueLiteral="86400000"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diseaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="1.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativeTolerance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1E-9"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="finiteDifference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -48,21 +44,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="populationLabel" eType="ecore:EClass ../../org.eclipse.stem.definitions/model/labels.ecore#//PopulationLabel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diseaseModelState" eType="#//DiseaseModelState"
         containment="true" resolveProxies="false" eOpposite="#//DiseaseModelState/label"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentDiseaseModelLabelValue"
-        eType="#//DiseaseModelLabelValue" changeable="false" volatile="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextDiseaseModelLabelValue"
-        eType="#//DiseaseModelLabelValue" changeable="false" volatile="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deltaValue" eType="#//DiseaseModelLabelValue"
-        resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentY" eType="#//DiseaseModelLabelValue"
-        resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentDiseaseModelTempLabelValue"
-        eType="#//DiseaseModelLabelValue"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="yScale" eType="#//DiseaseModelLabelValue"
-        resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DiseaseModelLabelValue" abstract="true"
-      eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">
+      eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue #//IntegrationLabelValue">
     <eOperations name="set" eType="#//DiseaseModelLabelValue">
       <eParameters name="value" eType="#//DiseaseModelLabelValue"/>
     </eOperations>
@@ -76,10 +60,8 @@
       <eParameters name="scaleFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="zeroOutPopulationCount"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="births" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deaths" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0"/>
+    <eOperations name="getAdditions" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="getSubstractions" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diseaseDeaths" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -106,11 +88,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="incubationRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SEIRLabel" eSuperTypes="#//SIRLabel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentSEIRValue" eType="#//SEIRLabelValue"
-        changeable="false" volatile="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSEIRValue" eType="#//SEIRLabelValue"
-        changeable="false" volatile="true" resolveProxies="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SEIRLabel" eSuperTypes="#//StandardDiseaseModelLabel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deltaValue" eType="#//SEIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probeValue" eType="#//SEIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tempValue" eType="#//SEIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalValue" eType="#//SEIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorScale" eType="#//SEIRLabelValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SEIRLabelValue" eSuperTypes="#//SIRLabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="e" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -155,10 +138,11 @@
         defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SILabel" eSuperTypes="#//StandardDiseaseModelLabel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentSIValue" eType="#//SILabelValue"
-        changeable="false" volatile="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSIValue" eType="#//SILabelValue"
-        changeable="false" volatile="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deltaValue" eType="#//SILabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probeValue" eType="#//SILabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tempValue" eType="#//SILabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalValue" eType="#//SILabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorScale" eType="#//SILabelValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SILabelValue" eSuperTypes="#//StandardDiseaseModelLabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="i" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -170,17 +154,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="immunityLossRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SIRLabel" eSuperTypes="#//SILabel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentSIRValue" eType="#//SIRLabelValue"
-        changeable="false" volatile="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSIRValue" eType="#//SIRLabelValue"
-        changeable="false" volatile="true" resolveProxies="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SIRLabel" eSuperTypes="#//StandardDiseaseModelLabel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deltaValue" eType="#//SIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probeValue" eType="#//SIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tempValue" eType="#//SIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalValue" eType="#//SIRLabelValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorScale" eType="#//SIRLabelValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SIRLabelValue" eSuperTypes="#//SILabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="r" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StandardDiseaseModel" abstract="true"
-      eSuperTypes="#//DiseaseModel">
+      eSuperTypes="#//DiseaseModel #//IntegrationDecorator">
     <eOperations name="addToTotalPopulationCount">
       <eParameters name="populationCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
@@ -210,20 +195,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="100"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StandardDiseaseModelLabel" abstract="true"
-      eSuperTypes="#//DiseaseModelLabel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentStandardDiseaseModelLabelValue"
-        eType="#//StandardDiseaseModelLabelValue" changeable="false" volatile="true"
-        resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextStandardDiseaseModelLabelValue"
-        eType="#//StandardDiseaseModelLabelValue" changeable="false" volatile="true"
-        resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deltaStandardDiseaseModelLabelValue"
-        eType="#//StandardDiseaseModelLabelValue" changeable="false" volatile="true"
-        resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentYStandardDiseaseModelLabelValue"
-        eType="#//StandardDiseaseModelLabelValue" changeable="false" volatile="true"
-        resolveProxies="false"/>
-  </eClassifiers>
+      eSuperTypes="#//DiseaseModelLabel #//IntegrationLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="StandardDiseaseModelLabelValue" abstract="true"
       eSuperTypes="#//DiseaseModelLabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="s" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -237,6 +209,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="StochasticSIDiseaseModel" eSuperTypes="#//SI #//StandardStochasticDiseaseModel"/>
   <eClassifiers xsi:type="ecore:EClass" name="StochasticSIRDiseaseModel" eSuperTypes="#//SIR #//StandardStochasticDiseaseModel"/>
   <eClassifiers xsi:type="ecore:EClass" name="SanityChecker" instanceClassName="org.eclipse.stem.core.common.SanityChecker"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationLabel" instanceClassName="org.eclipse.stem.core.graph.IntegrationLabel"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationLabelValue" instanceClassName="org.eclipse.stem.core.graph.IntegrationLabelValue"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationDecorator" instanceClassName="org.eclipse.stem.core.model.IntegrationDecorator"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatingSIDiseaseModel" eSuperTypes="#//SI"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatingDiseaseModelState" eSuperTypes="#//DiseaseModelState">

@@ -171,8 +171,8 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 					.equals(getPopulationIdentifier());
 
 			// This is the current state of the disease for this label
-			final StandardDiseaseModelLabelValue currentState = diseaseLabel
-					.getCurrentStandardDiseaseModelLabelValue();
+			final StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)diseaseLabel
+					.getCurrentValue();
 
 		
 			// 2) Compute the state transitions
@@ -180,7 +180,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 
 			
 			// This will be the state that we compute.
-			final StandardDiseaseModelLabelValue nextState = diseaseLabel.getNextStandardDiseaseModelLabelValue();
+			final StandardDiseaseModelLabelValue nextState = (StandardDiseaseModelLabelValue)diseaseLabel.getNextValue();
 
 			// Initialize the next state from the current state and then we'll
 			// make the changes to that.
@@ -269,11 +269,11 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		if((dataInstance==null)||(dataInstance.getSize() == 0)) {
 			// no data for location in questions
 			if (diseaseType.equals(IMPORT_TYPE_SI)) {
-				return new SILabelValueImpl(0.0 , 0.0, 0.0, 0.0, 0.0);
+				return new SILabelValueImpl(0.0 , 0.0, 0.0, 0.0);
 			} else if (diseaseType.equals(IMPORT_TYPE_SIR)) {
-				return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0, 0.0);
+				return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0);
 			} else if (diseaseType.equals(IMPORT_TYPE_SEIR)) {
-				return new SEIRLabelValueImpl( 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, 0.0);
+				return new SEIRLabelValueImpl( 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0);
 			} else {
 				throw new UnsupportedOperationException("ExternalDataSource Invalid Type "+diseaseType+" must be SI, SIR, or SEIR");
 			}
@@ -332,18 +332,18 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		if (diseaseType.equals(IMPORT_TYPE_SI)) {
 			((SILabelValue)currentState).setS(s);
 			((SILabelValue)currentState).setI(i);
-			return new SILabelValueImpl( 0.0 , 0.0, 0.0, 0.0, 0.0);
+			return new SILabelValueImpl( 0.0 , 0.0, 0.0, 0.0);
 		} else if (diseaseType.equals(IMPORT_TYPE_SIR)) {
 			((SIRLabelValue)currentState).setS(s);
 			((SIRLabelValue)currentState).setI(i);
 			((SIRLabelValue)currentState).setR(r);
-			return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0, 0.0);
+			return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0);
 		} else if (diseaseType.equals(IMPORT_TYPE_SEIR)) {
 			((SEIRLabelValue)currentState).setS(s);
 			((SEIRLabelValue)currentState).setE(e);
 			((SEIRLabelValue)currentState).setI(i);
 			((SEIRLabelValue)currentState).setR(r);
-			return new SEIRLabelValueImpl(0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, 0.0);
+			return new SEIRLabelValueImpl(0.0, 0.0, 0.0 , 0.0, 0.0, 0.0);
 		} else {
 			throw new UnsupportedOperationException("ExternalDataSource Invalid Type "+diseaseType+" must be SI, SIR, or SEIR");
 		}

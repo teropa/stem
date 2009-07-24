@@ -184,24 +184,6 @@ public interface ExamplePackage extends EPackage {
 	int EXAMPLE_DISEASE_MODEL__DISEASE_NAME = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__DISEASE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXAMPLE_DISEASE_MODEL__STEP_SIZE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXAMPLE_DISEASE_MODEL__CURRENT_X = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__CURRENT_X;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +209,15 @@ public interface ExamplePackage extends EPackage {
 	 * @ordered
 	 */
 	int EXAMPLE_DISEASE_MODEL__FREQUENCY_DEPENDENT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXAMPLE_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__BACKGROUND_BIRTH_RATE;
 
 	/**
 	 * The feature id for the '<em><b>Total Population Count</b></em>' attribute.

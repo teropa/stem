@@ -14,6 +14,7 @@ package org.eclipse.stem.diseasemodels.standard.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
@@ -91,8 +92,8 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	 * <!-- end-user-doc -->
 	 */
 	public SILabelValueImpl(final double s, final double i, final double incidence,
-			final double births, final double deaths, final double diseaseDeaths) {
-		super(s, births, deaths, diseaseDeaths);
+			final double diseaseDeaths) {
+		super(s, diseaseDeaths);
 		this.i = i;
 		this.incidence = incidence;
 	} // SILabelValueImpl
@@ -124,8 +125,8 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	 * <!-- end-user-doc -->
 	 */
 	public SILabelValueImpl(final double s, final double i, 
-			final double births, final double deaths, final double diseaseDeaths) {
-		super(s, births, deaths, diseaseDeaths);
+			final double diseaseDeaths) {
+		super(s, diseaseDeaths);
 		this.incidence = 0.0;
 		this.i = i;
 	} // SILabelValueImpl
@@ -195,8 +196,8 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#set(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
-	@Override
-	public DiseaseModelLabelValue set(DiseaseModelLabelValue value) {
+
+	public DiseaseModelLabelValue set(IntegrationLabelValue value) {
 		super.set(value);
 		setI(((SILabelValue) value).getI());
 		return this;
@@ -205,8 +206,8 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#add(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
-	@Override
-	public DiseaseModelLabelValue add(DiseaseModelLabelValue value) {
+
+	public DiseaseModelLabelValue add(IntegrationLabelValue value) {
 		super.add(value);
 		setI(getI() + ((SILabelValue) value).getI());
 		return this;
@@ -215,15 +216,15 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#sub(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
-	@Override
-	public DiseaseModelLabelValue sub(DiseaseModelLabelValue value) {
+
+	public DiseaseModelLabelValue sub(IntegrationLabelValue value) {
 		super.sub(value);
 		setI(getI() - ((SILabelValue) value).getI());
 		return this;
 	} // sub
 
 	
-	@Override
+
 	public DiseaseModelLabelValue scale(double scaleFactor) {
 		super.scale(scaleFactor);
 		setI(getI() *scaleFactor);
@@ -242,16 +243,18 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 		return this;
 	} // scale
 
-	/**
-	 * @generated NOT
-	 */
-	public double scaledmax(DiseaseModelLabelValue scale) {
-		SILabelValue _scale = (SILabelValue)scale;
+	public IntegrationLabelValue divide(IntegrationLabelValue d) {
+		SILabelValue _scale = (SILabelValue)d;
 		double sScaled = Math.abs(s) / Math.abs(_scale.getS());
 		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
-		return (sScaled > iScaled)? sScaled : iScaled;
-	} // maxValue
-
+		setS(sScaled);
+		setI(iScaled);
+		return this;
+	}
+	
+	public double max() {
+		return (s > i)? s : i;
+	}
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelValueImpl#reset()
 	 */
@@ -347,10 +350,6 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 		result.append(getFormatter().format(s));
 		result.append(", i:"); //$NON-NLS-1$
 		result.append(getFormatter().format(i));
-		result.append(", B:"); //$NON-NLS-1$
-		result.append(getFormatter().format(getBirths()));
-		result.append(", D:"); //$NON-NLS-1$
-		result.append(getFormatter().format(getDeaths()));
 		result.append(", DD:"); //$NON-NLS-1$
 		result.append(getFormatter().format(getDiseaseDeaths()));
 		return result.toString();
@@ -384,7 +383,7 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	 * 
 	 * @return boolean 
 	 */
-	public boolean adjustDelta(DiseaseModelLabelValue target) {
+	public boolean adjustDelta(IntegrationLabelValue target) {
 		SILabelValue siValue = (SILabelValue)target;
 		boolean adjusted = false;
 		double newS = this.getS() + siValue.getS();

@@ -12,6 +12,7 @@ package org.eclipse.stem.diseasemodels.standard;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.LabelValue;
 
 /**
@@ -22,7 +23,7 @@ import org.eclipse.stem.core.graph.LabelValue;
  * @model abstract="true"
  */
 
-public interface DiseaseModelLabelValue extends LabelValue {
+public interface DiseaseModelLabelValue extends LabelValue, IntegrationLabelValue {
 
 	/**
 	 * This is the maximum value for any population.
@@ -45,37 +46,6 @@ public interface DiseaseModelLabelValue extends LabelValue {
 	 * @generated
 	 */
 	void setIncidence(double value);
-
-	
-	/**
-	 * @return the number of population members who have been born
-	 * @model default="0"
-	 */
-	double getBirths();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getBirths <em>Births</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Births</em>' attribute.
-	 * @see #getBirths()
-	 * @generated
-	 */
-	void setBirths(double value);
-
-	/**
-	 * @return the number of population members who have died
-	 * @model default="0"
-	 */
-	double getDeaths();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getDeaths <em>Deaths</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Deaths</em>' attribute.
-	 * @see #getDeaths()
-	 * @generated
-	 */
-	void setDeaths(double value);
 
 	/**
 	 * @return the number of population members who have died due to the disease
@@ -158,29 +128,7 @@ public interface DiseaseModelLabelValue extends LabelValue {
 	 */
 	DiseaseModelLabelValue abs();
 
-	/**
-	 * Check to make sure that if this label value represents a
-	 * delta, make sure that none of the delta changes causes
-	 * the target label value to go negative. If so, adjust
-	 * this value to avoid.
-	 * 
-	 * @return boolean True if an adjustment was made
-	 * 
-	 * @model volatile="true" transient="true" changeable="false"
-	 */
-	 boolean adjustDelta(DiseaseModelLabelValue target);
-		
-	/**
-	 * scaledmax. Return the max of the label values scaled using the
-	 * passed in label value
-	 * 
-	 * @param scale Scale using this label value
-	 * @return double The maximum value
-	 * 
-	 * @model volatile="true" transient="true" changeable="false"
-	 */
-	double scaledmax(DiseaseModelLabelValue scale);
-	
+
 	/**
 	 * @return the sum of the living population members in all states
 	 * 
@@ -193,4 +141,20 @@ public interface DiseaseModelLabelValue extends LabelValue {
 	 * @model volatile="true" transient="true" changeable="false"
 	 */
 	void zeroOutPopulationCount();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	double getAdditions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	double getSubstractions();
 } // DiseaseModelLabelValue

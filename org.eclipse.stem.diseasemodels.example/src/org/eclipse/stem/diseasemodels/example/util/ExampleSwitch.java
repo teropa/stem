@@ -20,6 +20,7 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
 
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 
 import org.eclipse.stem.core.modifier.Modifiable;
@@ -119,6 +120,7 @@ public class ExampleSwitch<T1> {
 				if (result == null) result = caseStochasticDiseaseModel(exampleDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(exampleDiseaseModel);
 				if (result == null) result = caseDiseaseModel(exampleDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(exampleDiseaseModel);
 				if (result == null) result = caseNodeDecorator(exampleDiseaseModel);
 				if (result == null) result = caseSanityChecker(exampleDiseaseModel);
 				if (result == null) result = caseModifiable(exampleDiseaseModel);
@@ -249,6 +251,21 @@ public class ExampleSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseDiseaseModel(DiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integration Decorator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integration Decorator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIntegrationDecorator(IntegrationDecorator object) {
 		return null;
 	}
 

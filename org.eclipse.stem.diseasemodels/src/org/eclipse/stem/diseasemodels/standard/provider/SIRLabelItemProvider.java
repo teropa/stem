@@ -37,7 +37,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  * 
  * @generated
  */
-public class SIRLabelItemProvider extends SILabelItemProvider
+public class SIRLabelItemProvider extends StandardDiseaseModelLabelItemProvider
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -68,51 +68,120 @@ public class SIRLabelItemProvider extends SILabelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCurrentSIRValuePropertyDescriptor(object);
-			addNextSIRValuePropertyDescriptor(object);
+			addDeltaValuePropertyDescriptor(object);
+			addProbeValuePropertyDescriptor(object);
+			addTempValuePropertyDescriptor(object);
+			addOriginalValuePropertyDescriptor(object);
+			addErrorScalePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Next SIR Value feature.
+	 * This adds a property descriptor for the Delta Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNextSIRValuePropertyDescriptor(Object object) {
+	protected void addDeltaValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SIRLabel_nextSIRValue_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SIRLabel_nextSIRValue_feature", "_UI_SIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SIR_LABEL__NEXT_SIR_VALUE,
+				 getString("_UI_SIRLabel_deltaValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SIRLabel_deltaValue_feature", "_UI_SIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SIR_LABEL__DELTA_VALUE,
+				 true,
 				 false,
-				 false,
-				 false,
+				 true,
 				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Current SIR Value feature.
+	 * This adds a property descriptor for the Probe Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCurrentSIRValuePropertyDescriptor(Object object) {
+	protected void addProbeValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SIRLabel_currentSIRValue_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SIRLabel_currentSIRValue_feature", "_UI_SIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SIR_LABEL__CURRENT_SIR_VALUE,
+				 getString("_UI_SIRLabel_probeValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SIRLabel_probeValue_feature", "_UI_SIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SIR_LABEL__PROBE_VALUE,
+				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Temp Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTempValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SIRLabel_tempValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SIRLabel_tempValue_feature", "_UI_SIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SIR_LABEL__TEMP_VALUE,
+				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Original Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOriginalValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SIRLabel_originalValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SIRLabel_originalValue_feature", "_UI_SIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SIR_LABEL__ORIGINAL_VALUE,
+				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Error Scale feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addErrorScalePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SIRLabel_errorScale_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SIRLabel_errorScale_feature", "_UI_SIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SIR_LABEL__ERROR_SCALE,
+				 true,
+				 false,
+				 true,
 				 null,
 				 null,
 				 null));

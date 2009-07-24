@@ -24,8 +24,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#getBirths <em>Births</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#getDeaths <em>Deaths</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#getDiseaseDeaths <em>Disease Deaths</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#getPopulationCount <em>Population Count</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#getIncidence <em>Incidence</em>}</li>
@@ -36,42 +34,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  */
 public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 		implements DiseaseModelLabelValue {
-	/**
-	 * The default value of the '{@link #getBirths() <em>Births</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getBirths()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double BIRTHS_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getBirths() <em>Births</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getBirths()
-	 * @generated
-	 * @ordered
-	 */
-	protected double births = BIRTHS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDeaths() <em>Deaths</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDeaths()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double DEATHS_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getDeaths() <em>Deaths</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDeaths()
-	 * @generated
-	 * @ordered
-	 */
-	protected double deaths = DEATHS_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getDiseaseDeaths() <em>Disease Deaths</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -144,10 +106,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * 
 	 * <!-- end-user-doc -->
 	 */
-	protected DiseaseModelLabelValueImpl(final double births,
-			final double deaths, final double diseaseDeaths) {
-		this.births = births;
-		this.deaths = deaths;
+	protected DiseaseModelLabelValueImpl(final double diseaseDeaths) {
 		this.diseaseDeaths = diseaseDeaths;
 	} // DiseaseModelLabelValueImpl
 
@@ -158,60 +117,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	protected EClass eStaticClass() {
 		return StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getBirths() {
-		return births;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @param newBirths
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBirths(double newBirths) {
-		double oldBirths = births;
-		births = newBirths;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL_VALUE__BIRTHS, oldBirths, births));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getDeaths() {
-		return deaths;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @param newDeaths
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDeaths(double newDeaths) {
-		double oldDeaths = deaths;
-		deaths = newDeaths;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL_VALUE__DEATHS, oldDeaths, deaths));
 	}
 
 	/**
@@ -254,6 +159,24 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public double getAdditions() {
+		return 0.0; // A disease does not contribute to more pople being born
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public double getSubstractions() {
+		return this.diseaseDeaths; // People are removed only from death by disease
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * @return
 	 * 
@@ -289,8 +212,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated NOT
 	 */
 	public DiseaseModelLabelValue set(DiseaseModelLabelValue value) {
-		setBirths(value.getBirths());
-		setDeaths(value.getDeaths());
 		setDiseaseDeaths(value.getDiseaseDeaths());
 		setIncidence(value.getIncidence());
 		return this;
@@ -307,8 +228,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated NOT
 	 */
 	public DiseaseModelLabelValue add(DiseaseModelLabelValue value) {
-		setBirths(getBirths() + value.getBirths());
-		setDeaths(getDeaths() + value.getDeaths());
 		setDiseaseDeaths(getDiseaseDeaths() + value.getDiseaseDeaths());
 		setIncidence(getIncidence() + value.getIncidence());
 		return this;
@@ -325,8 +244,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated NOT
 	 */
 	public DiseaseModelLabelValue sub(DiseaseModelLabelValue value) {
-		setBirths(getBirths() - value.getBirths());
-		setDeaths(getDeaths() - value.getDeaths());
 		setDiseaseDeaths(getDiseaseDeaths() - value.getDiseaseDeaths());
 		setIncidence(getIncidence() - value.getIncidence());
 		return this;
@@ -338,8 +255,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated NOT
 	 */
 	public DiseaseModelLabelValue scale(double scaleFactor) {
-		setBirths(getBirths() * scaleFactor);
-		setDeaths(getDeaths()  * scaleFactor);
 		setDiseaseDeaths(getDiseaseDeaths()  * scaleFactor);
 		setIncidence(getIncidence() * scaleFactor);
 		return this;
@@ -351,8 +266,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	public void reset() {
 		super.reset();
-		setBirths(BIRTHS_EDEFAULT);
-		setDeaths(DEATHS_EDEFAULT);
 		setDiseaseDeaths(DISEASE_DEATHS_EDEFAULT);
 	} // reset
 
@@ -362,41 +275,12 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	public boolean sane() {
 		boolean retValue = super.sane();
-		
-		// Births
-		retValue = retValue && births >= BIRTHS_EDEFAULT;
-		assert retValue;
-
-		retValue = retValue && births <= MAX_POPULATION_VALUE;
-		assert retValue;
-		
-		retValue = retValue && !Double.isInfinite(births);
-		assert retValue;
-		
-		retValue = retValue && !Double.isNaN(births);
-		assert retValue;
-		
-		// deaths
-		retValue = retValue && deaths >= DEATHS_EDEFAULT;
-		assert retValue;
-
-		retValue = retValue && deaths <= MAX_POPULATION_VALUE;
-		assert retValue;
-		
-		retValue = retValue && !Double.isInfinite(deaths);
-		assert retValue;
-		
-		retValue = retValue && !Double.isNaN(deaths);
-		assert retValue;
-		
+				
 		// disease deaths
 		retValue = retValue && diseaseDeaths >= DISEASE_DEATHS_EDEFAULT;
 		assert retValue;
 
 		retValue = retValue && diseaseDeaths <= MAX_POPULATION_VALUE;
-		assert retValue;
-		
-		retValue = retValue && diseaseDeaths <= deaths;
 		assert retValue;
 		
 		retValue = retValue && !Double.isInfinite(diseaseDeaths);
@@ -422,10 +306,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__BIRTHS:
-				return new Double(getBirths());
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DEATHS:
-				return new Double(getDeaths());
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
 				return new Double(getDiseaseDeaths());
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT:
@@ -448,12 +328,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__BIRTHS:
-				setBirths(((Double)newValue).doubleValue());
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DEATHS:
-				setDeaths(((Double)newValue).doubleValue());
-				return;
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
 				setDiseaseDeaths(((Double)newValue).doubleValue());
 				return;
@@ -475,12 +349,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__BIRTHS:
-				setBirths(BIRTHS_EDEFAULT);
-				return;
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DEATHS:
-				setDeaths(DEATHS_EDEFAULT);
-				return;
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
 				setDiseaseDeaths(DISEASE_DEATHS_EDEFAULT);
 				return;
@@ -503,10 +371,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__BIRTHS:
-				return births != BIRTHS_EDEFAULT;
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DEATHS:
-				return deaths != DEATHS_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
 				return diseaseDeaths != DISEASE_DEATHS_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT:
@@ -531,11 +395,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" B: "); //$NON-NLS-1$
-		result.append(births);
-		result.append(", D: "); //$NON-NLS-1$
-		result.append(deaths);
-		result.append(", DD: "); //$NON-NLS-1$
+		result.append("(DD: "); //$NON-NLS-1$
 		result.append(diseaseDeaths);
 		result.append(')');
 		return result.toString();

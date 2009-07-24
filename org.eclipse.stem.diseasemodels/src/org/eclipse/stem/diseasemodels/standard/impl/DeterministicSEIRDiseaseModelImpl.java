@@ -12,6 +12,7 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.diseasemodels.standard.DeterministicSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -74,6 +75,10 @@ public class DeterministicSEIRDiseaseModelImpl extends SEIRImpl implements
 		return seirDiseaseModel;
 	} // createDeterministicSEIRDiseaseModel
 
+	public void doModelSpecificAdjustments(LabelValue label) {
+		// Nothing
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

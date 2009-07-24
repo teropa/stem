@@ -7,6 +7,7 @@
 package org.eclipse.stem.diseasemodels.experimental.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.experimental.CellularDiseaseModel;
 import org.eclipse.stem.diseasemodels.experimental.ExperimentalPackage;
@@ -89,14 +90,7 @@ public class CellularDiseaseModelImpl extends SIImpl implements CellularDiseaseM
 		double numberOfInfectedToSusceptible = getAdjustedRecoveryRate(timeDelta)
 				* currentSI.getI();
 		
-		// For the finite difference method make sure we don't exceed the number of people
-		// available in any state
-		
-		if(this.isFiniteDifference()) {
-			if(numberOfSusceptibleToInfected > currentSI.getS()) numberOfSusceptibleToInfected = currentSI.getS();
-			if(numberOfInfectedToSusceptible > currentSI.getI()) numberOfInfectedToSusceptible = currentSI.getI();
-		}
-		
+
 		
 		// Determine delta S
 		final double deltaS = - numberOfSusceptibleToInfected + numberOfInfectedToSusceptible;
@@ -107,8 +101,6 @@ public class CellularDiseaseModelImpl extends SIImpl implements CellularDiseaseM
 		ret.setS(deltaS);
 		ret.setI(deltaI);
 		ret.setIncidence(numberOfSusceptibleToInfected);
-		ret.setBirths(0.0);
-		ret.setDeaths(0.0);
 		ret.setDiseaseDeaths(0.0);
 		return ret;
 	} // computeDiseaseDeltas
@@ -146,4 +138,7 @@ public class CellularDiseaseModelImpl extends SIImpl implements CellularDiseaseM
 		return ExperimentalPackage.Literals.PERCOLATION_DISEASE_MODEL;
 	}
 
+	public void doModelSpecificAdjustments(LabelValue label) {
+		// Nothing
+	}
 } //CellularDiseaseModelImpl

@@ -34,7 +34,137 @@ import org.eclipse.stem.core.STEMURI;
  * 
  * @model
  */
-public interface SIRLabel extends SILabel {
+public interface SIRLabel extends StandardDiseaseModelLabel {
+
+	/**
+	 * Returns the value of the '<em><b>Delta Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Delta Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Delta Value</em>' reference.
+	 * @see #setDeltaValue(SIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRLabel_DeltaValue()
+	 * @model
+	 * @generated
+	 */
+	SIRLabelValue getDeltaValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getDeltaValue <em>Delta Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Delta Value</em>' reference.
+	 * @see #getDeltaValue()
+	 * @generated
+	 */
+	void setDeltaValue(SIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Probe Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Probe Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Probe Value</em>' reference.
+	 * @see #setProbeValue(SIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRLabel_ProbeValue()
+	 * @model
+	 * @generated
+	 */
+	SIRLabelValue getProbeValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getProbeValue <em>Probe Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Probe Value</em>' reference.
+	 * @see #getProbeValue()
+	 * @generated
+	 */
+	void setProbeValue(SIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Temp Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Temp Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Temp Value</em>' reference.
+	 * @see #setTempValue(SIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRLabel_TempValue()
+	 * @model
+	 * @generated
+	 */
+	SIRLabelValue getTempValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getTempValue <em>Temp Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Temp Value</em>' reference.
+	 * @see #getTempValue()
+	 * @generated
+	 */
+	void setTempValue(SIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Original Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Original Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Original Value</em>' reference.
+	 * @see #setOriginalValue(SIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRLabel_OriginalValue()
+	 * @model
+	 * @generated
+	 */
+	SIRLabelValue getOriginalValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getOriginalValue <em>Original Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Original Value</em>' reference.
+	 * @see #getOriginalValue()
+	 * @generated
+	 */
+	void setOriginalValue(SIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Error Scale</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Error Scale</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Error Scale</em>' reference.
+	 * @see #setErrorScale(SIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRLabel_ErrorScale()
+	 * @model
+	 * @generated
+	 */
+	SIRLabelValue getErrorScale();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getErrorScale <em>Error Scale</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Error Scale</em>' reference.
+	 * @see #getErrorScale()
+	 * @generated
+	 */
+	void setErrorScale(SIRLabelValue value);
 
 	/**
 	 * This is the top-level segment for all type URI's for SIR disease model

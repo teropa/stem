@@ -109,7 +109,7 @@ public class StandardDiseaseModelLabelValueItemProvider extends
 	@Override
 	public String getText(Object object) {
 		StandardDiseaseModelLabelValue standardDiseaseModelLabelValue = (StandardDiseaseModelLabelValue)object;
-		return getString("_UI_StandardDiseaseModelLabelValue_type") + " " + standardDiseaseModelLabelValue.getBirths(); //$NON-NLS-1$ //$NON-NLS-2$
+		return getString("_UI_StandardDiseaseModelLabelValue_type") + " " + standardDiseaseModelLabelValue.getDiseaseDeaths(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

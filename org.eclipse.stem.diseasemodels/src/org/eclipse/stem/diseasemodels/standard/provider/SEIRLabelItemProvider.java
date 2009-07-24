@@ -37,7 +37,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  * 
  * @generated
  */
-public class SEIRLabelItemProvider extends SIRLabelItemProvider
+public class SEIRLabelItemProvider extends StandardDiseaseModelLabelItemProvider
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -68,51 +68,120 @@ public class SEIRLabelItemProvider extends SIRLabelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCurrentSEIRValuePropertyDescriptor(object);
-			addNextSEIRValuePropertyDescriptor(object);
+			addDeltaValuePropertyDescriptor(object);
+			addProbeValuePropertyDescriptor(object);
+			addTempValuePropertyDescriptor(object);
+			addOriginalValuePropertyDescriptor(object);
+			addErrorScalePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Current SEIR Value feature.
+	 * This adds a property descriptor for the Delta Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCurrentSEIRValuePropertyDescriptor(Object object) {
+	protected void addDeltaValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SEIRLabel_currentSEIRValue_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SEIRLabel_currentSEIRValue_feature", "_UI_SEIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SEIR_LABEL__CURRENT_SEIR_VALUE,
+				 getString("_UI_SEIRLabel_deltaValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SEIRLabel_deltaValue_feature", "_UI_SEIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SEIR_LABEL__DELTA_VALUE,
+				 true,
 				 false,
-				 false,
-				 false,
+				 true,
 				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Next SEIR Value feature.
+	 * This adds a property descriptor for the Probe Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNextSEIRValuePropertyDescriptor(Object object) {
+	protected void addProbeValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SEIRLabel_nextSEIRValue_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SEIRLabel_nextSEIRValue_feature", "_UI_SEIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SEIR_LABEL__NEXT_SEIR_VALUE,
+				 getString("_UI_SEIRLabel_probeValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SEIRLabel_probeValue_feature", "_UI_SEIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SEIR_LABEL__PROBE_VALUE,
+				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Temp Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTempValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SEIRLabel_tempValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SEIRLabel_tempValue_feature", "_UI_SEIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SEIR_LABEL__TEMP_VALUE,
+				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Original Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOriginalValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SEIRLabel_originalValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SEIRLabel_originalValue_feature", "_UI_SEIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SEIR_LABEL__ORIGINAL_VALUE,
+				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Error Scale feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addErrorScalePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SEIRLabel_errorScale_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SEIRLabel_errorScale_feature", "_UI_SEIRLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SEIR_LABEL__ERROR_SCALE,
+				 true,
+				 false,
+				 true,
 				 null,
 				 null,
 				 null));

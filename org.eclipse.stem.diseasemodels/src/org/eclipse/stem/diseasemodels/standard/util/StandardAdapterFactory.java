@@ -21,10 +21,13 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
 import org.eclipse.stem.diseasemodels.standard.*;
@@ -227,6 +230,18 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSanityChecker(SanityChecker object) {
 				return createSanityCheckerAdapter();
+			}
+			@Override
+			public Adapter caseIntegrationLabel(IntegrationLabel object) {
+				return createIntegrationLabelAdapter();
+			}
+			@Override
+			public Adapter caseIntegrationLabelValue(IntegrationLabelValue object) {
+				return createIntegrationLabelValueAdapter();
+			}
+			@Override
+			public Adapter caseIntegrationDecorator(IntegrationDecorator object) {
+				return createIntegrationDecoratorAdapter();
 			}
 			@Override
 			public Adapter caseAggregatingSIDiseaseModel(AggregatingSIDiseaseModel object) {
@@ -686,6 +701,48 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSanityCheckerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.graph.IntegrationLabel <em>Integration Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.graph.IntegrationLabel
+	 * @generated
+	 */
+	public Adapter createIntegrationLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.graph.IntegrationLabelValue <em>Integration Label Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.graph.IntegrationLabelValue
+	 * @generated
+	 */
+	public Adapter createIntegrationLabelValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.model.IntegrationDecorator <em>Integration Decorator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.model.IntegrationDecorator
+	 * @generated
+	 */
+	public Adapter createIntegrationDecoratorAdapter() {
 		return null;
 	}
 

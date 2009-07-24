@@ -28,6 +28,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.graph.GraphPackage;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.solver.SolverPackage;
@@ -276,6 +279,27 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass integrationLabelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integrationLabelValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integrationDecoratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass aggregatingSIDiseaseModelEClass = null;
 
 	/**
@@ -490,7 +514,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiseaseModel_StepSize() {
+	public EAttribute getDiseaseModel_RelativeTolerance() {
 		return (EAttribute)diseaseModelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -499,7 +523,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiseaseModel_CurrentX() {
+	public EAttribute getDiseaseModel_FiniteDifference() {
 		return (EAttribute)diseaseModelEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -508,7 +532,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiseaseModel_RelativeTolerance() {
+	public EAttribute getDiseaseModel_FrequencyDependent() {
 		return (EAttribute)diseaseModelEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -517,26 +541,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiseaseModel_FiniteDifference() {
-		return (EAttribute)diseaseModelEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiseaseModel_FrequencyDependent() {
-		return (EAttribute)diseaseModelEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDiseaseModel_BackgroundBirthRate() {
-		return (EAttribute)diseaseModelEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)diseaseModelEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -571,60 +577,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiseaseModelLabel_CurrentDiseaseModelLabelValue() {
-		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDiseaseModelLabel_NextDiseaseModelLabelValue() {
-		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDiseaseModelLabel_DeltaValue() {
-		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDiseaseModelLabel_CurrentY() {
-		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDiseaseModelLabel_CurrentDiseaseModelTempLabelValue() {
-		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDiseaseModelLabel_YScale() {
-		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDiseaseModelLabelValue() {
 		return diseaseModelLabelValueEClass;
 	}
@@ -634,7 +586,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiseaseModelLabelValue_Births() {
+	public EAttribute getDiseaseModelLabelValue_DiseaseDeaths() {
 		return (EAttribute)diseaseModelLabelValueEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -643,7 +595,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiseaseModelLabelValue_Deaths() {
+	public EAttribute getDiseaseModelLabelValue_PopulationCount() {
 		return (EAttribute)diseaseModelLabelValueEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -652,26 +604,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiseaseModelLabelValue_DiseaseDeaths() {
-		return (EAttribute)diseaseModelLabelValueEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiseaseModelLabelValue_PopulationCount() {
-		return (EAttribute)diseaseModelLabelValueEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDiseaseModelLabelValue_Incidence() {
-		return (EAttribute)diseaseModelLabelValueEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)diseaseModelLabelValueEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -787,7 +721,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSEIRLabel_CurrentSEIRValue() {
+	public EReference getSEIRLabel_DeltaValue() {
 		return (EReference)seirLabelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -796,8 +730,35 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSEIRLabel_NextSEIRValue() {
+	public EReference getSEIRLabel_ProbeValue() {
 		return (EReference)seirLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSEIRLabel_TempValue() {
+		return (EReference)seirLabelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSEIRLabel_OriginalValue() {
+		return (EReference)seirLabelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSEIRLabel_ErrorScale() {
+		return (EReference)seirLabelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -931,7 +892,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSILabel_CurrentSIValue() {
+	public EReference getSILabel_DeltaValue() {
 		return (EReference)siLabelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -940,8 +901,35 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSILabel_NextSIValue() {
+	public EReference getSILabel_ProbeValue() {
 		return (EReference)siLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSILabel_TempValue() {
+		return (EReference)siLabelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSILabel_OriginalValue() {
+		return (EReference)siLabelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSILabel_ErrorScale() {
+		return (EReference)siLabelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -994,7 +982,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSIRLabel_CurrentSIRValue() {
+	public EReference getSIRLabel_DeltaValue() {
 		return (EReference)sirLabelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1003,8 +991,35 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSIRLabel_NextSIRValue() {
+	public EReference getSIRLabel_ProbeValue() {
 		return (EReference)sirLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSIRLabel_TempValue() {
+		return (EReference)sirLabelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSIRLabel_OriginalValue() {
+		return (EReference)sirLabelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSIRLabel_ErrorScale() {
+		return (EReference)sirLabelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1077,42 +1092,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EClass getStandardDiseaseModelLabel() {
 		return standardDiseaseModelLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStandardDiseaseModelLabel_CurrentStandardDiseaseModelLabelValue() {
-		return (EReference)standardDiseaseModelLabelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStandardDiseaseModelLabel_NextStandardDiseaseModelLabelValue() {
-		return (EReference)standardDiseaseModelLabelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStandardDiseaseModelLabel_DeltaStandardDiseaseModelLabelValue() {
-		return (EReference)standardDiseaseModelLabelEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStandardDiseaseModelLabel_CurrentYStandardDiseaseModelLabelValue() {
-		return (EReference)standardDiseaseModelLabelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1194,6 +1173,33 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EClass getSanityChecker() {
 		return sanityCheckerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegrationLabel() {
+		return integrationLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegrationLabelValue() {
+		return integrationLabelValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegrationDecorator() {
+		return integrationDecoratorEClass;
 	}
 
 	/**
@@ -1370,8 +1376,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(diseaseModelEClass, DISEASE_MODEL__POPULATION_IDENTIFIER);
 		createEAttribute(diseaseModelEClass, DISEASE_MODEL__TIME_PERIOD);
 		createEAttribute(diseaseModelEClass, DISEASE_MODEL__DISEASE_NAME);
-		createEAttribute(diseaseModelEClass, DISEASE_MODEL__STEP_SIZE);
-		createEAttribute(diseaseModelEClass, DISEASE_MODEL__CURRENT_X);
 		createEAttribute(diseaseModelEClass, DISEASE_MODEL__RELATIVE_TOLERANCE);
 		createEAttribute(diseaseModelEClass, DISEASE_MODEL__FINITE_DIFFERENCE);
 		createEAttribute(diseaseModelEClass, DISEASE_MODEL__FREQUENCY_DEPENDENT);
@@ -1380,16 +1384,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		diseaseModelLabelEClass = createEClass(DISEASE_MODEL_LABEL);
 		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__POPULATION_LABEL);
 		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE);
-		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE);
-		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE);
-		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__DELTA_VALUE);
-		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__CURRENT_Y);
-		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE);
-		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__YSCALE);
 
 		diseaseModelLabelValueEClass = createEClass(DISEASE_MODEL_LABEL_VALUE);
-		createEAttribute(diseaseModelLabelValueEClass, DISEASE_MODEL_LABEL_VALUE__BIRTHS);
-		createEAttribute(diseaseModelLabelValueEClass, DISEASE_MODEL_LABEL_VALUE__DEATHS);
 		createEAttribute(diseaseModelLabelValueEClass, DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS);
 		createEAttribute(diseaseModelLabelValueEClass, DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT);
 		createEAttribute(diseaseModelLabelValueEClass, DISEASE_MODEL_LABEL_VALUE__INCIDENCE);
@@ -1409,8 +1405,11 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(seirEClass, SEIR__INCUBATION_RATE);
 
 		seirLabelEClass = createEClass(SEIR_LABEL);
-		createEReference(seirLabelEClass, SEIR_LABEL__CURRENT_SEIR_VALUE);
-		createEReference(seirLabelEClass, SEIR_LABEL__NEXT_SEIR_VALUE);
+		createEReference(seirLabelEClass, SEIR_LABEL__DELTA_VALUE);
+		createEReference(seirLabelEClass, SEIR_LABEL__PROBE_VALUE);
+		createEReference(seirLabelEClass, SEIR_LABEL__TEMP_VALUE);
+		createEReference(seirLabelEClass, SEIR_LABEL__ORIGINAL_VALUE);
+		createEReference(seirLabelEClass, SEIR_LABEL__ERROR_SCALE);
 
 		seirLabelValueEClass = createEClass(SEIR_LABEL_VALUE);
 		createEAttribute(seirLabelValueEClass, SEIR_LABEL_VALUE__E);
@@ -1430,8 +1429,11 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(siInfectorEClass, SI_INFECTOR__INFECTIOUS_COUNT);
 
 		siLabelEClass = createEClass(SI_LABEL);
-		createEReference(siLabelEClass, SI_LABEL__CURRENT_SI_VALUE);
-		createEReference(siLabelEClass, SI_LABEL__NEXT_SI_VALUE);
+		createEReference(siLabelEClass, SI_LABEL__DELTA_VALUE);
+		createEReference(siLabelEClass, SI_LABEL__PROBE_VALUE);
+		createEReference(siLabelEClass, SI_LABEL__TEMP_VALUE);
+		createEReference(siLabelEClass, SI_LABEL__ORIGINAL_VALUE);
+		createEReference(siLabelEClass, SI_LABEL__ERROR_SCALE);
 
 		siLabelValueEClass = createEClass(SI_LABEL_VALUE);
 		createEAttribute(siLabelValueEClass, SI_LABEL_VALUE__I);
@@ -1440,8 +1442,11 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(sirEClass, SIR__IMMUNITY_LOSS_RATE);
 
 		sirLabelEClass = createEClass(SIR_LABEL);
-		createEReference(sirLabelEClass, SIR_LABEL__CURRENT_SIR_VALUE);
-		createEReference(sirLabelEClass, SIR_LABEL__NEXT_SIR_VALUE);
+		createEReference(sirLabelEClass, SIR_LABEL__DELTA_VALUE);
+		createEReference(sirLabelEClass, SIR_LABEL__PROBE_VALUE);
+		createEReference(sirLabelEClass, SIR_LABEL__TEMP_VALUE);
+		createEReference(sirLabelEClass, SIR_LABEL__ORIGINAL_VALUE);
+		createEReference(sirLabelEClass, SIR_LABEL__ERROR_SCALE);
 
 		sirLabelValueEClass = createEClass(SIR_LABEL_VALUE);
 		createEAttribute(sirLabelValueEClass, SIR_LABEL_VALUE__R);
@@ -1453,10 +1458,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(standardDiseaseModelEClass, STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY);
 
 		standardDiseaseModelLabelEClass = createEClass(STANDARD_DISEASE_MODEL_LABEL);
-		createEReference(standardDiseaseModelLabelEClass, STANDARD_DISEASE_MODEL_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE);
-		createEReference(standardDiseaseModelLabelEClass, STANDARD_DISEASE_MODEL_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE);
-		createEReference(standardDiseaseModelLabelEClass, STANDARD_DISEASE_MODEL_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE);
-		createEReference(standardDiseaseModelLabelEClass, STANDARD_DISEASE_MODEL_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE);
 
 		standardDiseaseModelLabelValueEClass = createEClass(STANDARD_DISEASE_MODEL_LABEL_VALUE);
 		createEAttribute(standardDiseaseModelLabelValueEClass, STANDARD_DISEASE_MODEL_LABEL_VALUE__S);
@@ -1473,6 +1474,12 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		stochasticSIRDiseaseModelEClass = createEClass(STOCHASTIC_SIR_DISEASE_MODEL);
 
 		sanityCheckerEClass = createEClass(SANITY_CHECKER);
+
+		integrationLabelEClass = createEClass(INTEGRATION_LABEL);
+
+		integrationLabelValueEClass = createEClass(INTEGRATION_LABEL_VALUE);
+
+		integrationDecoratorEClass = createEClass(INTEGRATION_DECORATOR);
 
 		aggregatingSIDiseaseModelEClass = createEClass(AGGREGATING_SI_DISEASE_MODEL);
 
@@ -1542,9 +1549,10 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		diseaseModelEClass.getESuperTypes().add(theModifierPackage.getModifiable());
 		diseaseModelLabelEClass.getESuperTypes().add(theGraphPackage.getDynamicNodeLabel());
 		diseaseModelLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
+		diseaseModelLabelValueEClass.getESuperTypes().add(this.getIntegrationLabelValue());
 		infectorEClass.getESuperTypes().add(theModelPackage.getNodeDecorator());
 		seirEClass.getESuperTypes().add(this.getSIR());
-		seirLabelEClass.getESuperTypes().add(this.getSIRLabel());
+		seirLabelEClass.getESuperTypes().add(this.getStandardDiseaseModelLabel());
 		seirLabelValueEClass.getESuperTypes().add(this.getSIRLabelValue());
 		siEClass.getESuperTypes().add(this.getStandardDiseaseModel());
 		siDiseaseModelStateEClass.getESuperTypes().add(this.getStandardDiseaseModelState());
@@ -1552,10 +1560,12 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		siLabelEClass.getESuperTypes().add(this.getStandardDiseaseModelLabel());
 		siLabelValueEClass.getESuperTypes().add(this.getStandardDiseaseModelLabelValue());
 		sirEClass.getESuperTypes().add(this.getSI());
-		sirLabelEClass.getESuperTypes().add(this.getSILabel());
+		sirLabelEClass.getESuperTypes().add(this.getStandardDiseaseModelLabel());
 		sirLabelValueEClass.getESuperTypes().add(this.getSILabelValue());
 		standardDiseaseModelEClass.getESuperTypes().add(this.getDiseaseModel());
+		standardDiseaseModelEClass.getESuperTypes().add(this.getIntegrationDecorator());
 		standardDiseaseModelLabelEClass.getESuperTypes().add(this.getDiseaseModelLabel());
+		standardDiseaseModelLabelEClass.getESuperTypes().add(this.getIntegrationLabel());
 		standardDiseaseModelLabelValueEClass.getESuperTypes().add(this.getDiseaseModelLabelValue());
 		standardDiseaseModelStateEClass.getESuperTypes().add(this.getDiseaseModelState());
 		standardInfectorEClass.getESuperTypes().add(this.getInfector());
@@ -1585,8 +1595,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getDiseaseModel_PopulationIdentifier(), ecorePackage.getEString(), "populationIdentifier", "human", 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDiseaseModel_TimePeriod(), ecorePackage.getELong(), "timePeriod", "86400000", 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDiseaseModel_DiseaseName(), ecorePackage.getEString(), "diseaseName", null, 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getDiseaseModel_StepSize(), ecorePackage.getEDouble(), "stepSize", "1.0", 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(getDiseaseModel_CurrentX(), ecorePackage.getEDouble(), "currentX", "0.0", 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDiseaseModel_RelativeTolerance(), ecorePackage.getEDouble(), "relativeTolerance", "1E-9", 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDiseaseModel_FiniteDifference(), ecorePackage.getEBoolean(), "finiteDifference", "true", 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDiseaseModel_FrequencyDependent(), ecorePackage.getEBoolean(), "frequencyDependent", "true", 0, 1, DiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1616,16 +1624,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(diseaseModelLabelEClass, DiseaseModelLabel.class, "DiseaseModelLabel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDiseaseModelLabel_PopulationLabel(), theLabelsPackage.getPopulationLabel(), null, "populationLabel", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDiseaseModelLabel_DiseaseModelState(), this.getDiseaseModelState(), this.getDiseaseModelState_Label(), "diseaseModelState", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDiseaseModelLabel_CurrentDiseaseModelLabelValue(), this.getDiseaseModelLabelValue(), null, "currentDiseaseModelLabelValue", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDiseaseModelLabel_NextDiseaseModelLabelValue(), this.getDiseaseModelLabelValue(), null, "nextDiseaseModelLabelValue", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDiseaseModelLabel_DeltaValue(), this.getDiseaseModelLabelValue(), null, "deltaValue", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDiseaseModelLabel_CurrentY(), this.getDiseaseModelLabelValue(), null, "currentY", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDiseaseModelLabel_CurrentDiseaseModelTempLabelValue(), this.getDiseaseModelLabelValue(), null, "currentDiseaseModelTempLabelValue", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDiseaseModelLabel_YScale(), this.getDiseaseModelLabelValue(), null, "yScale", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(diseaseModelLabelValueEClass, DiseaseModelLabelValue.class, "DiseaseModelLabelValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getDiseaseModelLabelValue_Births(), ecorePackage.getEDouble(), "births", "0", 0, 1, DiseaseModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(getDiseaseModelLabelValue_Deaths(), ecorePackage.getEDouble(), "deaths", "0", 0, 1, DiseaseModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDiseaseModelLabelValue_DiseaseDeaths(), ecorePackage.getEDouble(), "diseaseDeaths", "0", 0, 1, DiseaseModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDiseaseModelLabelValue_PopulationCount(), ecorePackage.getEDouble(), "populationCount", null, 0, 1, DiseaseModelLabelValue.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDiseaseModelLabelValue_Incidence(), ecorePackage.getEDouble(), "incidence", null, 0, 1, DiseaseModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1643,6 +1643,10 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		addEParameter(op, ecorePackage.getEDouble(), "scaleFactor", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(diseaseModelLabelValueEClass, null, "zeroOutPopulationCount", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		addEOperation(diseaseModelLabelValueEClass, theEcorePackage.getEDouble(), "getAdditions", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		addEOperation(diseaseModelLabelValueEClass, theEcorePackage.getEDouble(), "getSubstractions", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(diseaseModelStateEClass, DiseaseModelState.class, "DiseaseModelState", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDiseaseModelState_Label(), this.getDiseaseModelLabel(), this.getDiseaseModelLabel_DiseaseModelState(), "label", null, 0, 1, DiseaseModelState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1662,8 +1666,11 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		addEParameter(op, ecorePackage.getELong(), "timeDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(seirLabelEClass, SEIRLabel.class, "SEIRLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getSEIRLabel_CurrentSEIRValue(), this.getSEIRLabelValue(), null, "currentSEIRValue", null, 0, 1, SEIRLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getSEIRLabel_NextSEIRValue(), this.getSEIRLabelValue(), null, "nextSEIRValue", null, 0, 1, SEIRLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSEIRLabel_DeltaValue(), this.getSEIRLabelValue(), null, "deltaValue", null, 0, 1, SEIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSEIRLabel_ProbeValue(), this.getSEIRLabelValue(), null, "probeValue", null, 0, 1, SEIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSEIRLabel_TempValue(), this.getSEIRLabelValue(), null, "tempValue", null, 0, 1, SEIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSEIRLabel_OriginalValue(), this.getSEIRLabelValue(), null, "originalValue", null, 0, 1, SEIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSEIRLabel_ErrorScale(), this.getSEIRLabelValue(), null, "errorScale", null, 0, 1, SEIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(seirLabelValueEClass, SEIRLabelValue.class, "SEIRLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getSEIRLabelValue_E(), ecorePackage.getEDouble(), "e", null, 0, 1, SEIRLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1702,8 +1709,11 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getSIInfector_InfectiousCount(), ecorePackage.getEDouble(), "infectiousCount", "1", 0, 1, SIInfector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(siLabelEClass, SILabel.class, "SILabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getSILabel_CurrentSIValue(), this.getSILabelValue(), null, "currentSIValue", null, 0, 1, SILabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getSILabel_NextSIValue(), this.getSILabelValue(), null, "nextSIValue", null, 0, 1, SILabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSILabel_DeltaValue(), this.getSILabelValue(), null, "deltaValue", null, 0, 1, SILabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSILabel_ProbeValue(), this.getSILabelValue(), null, "probeValue", null, 0, 1, SILabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSILabel_TempValue(), this.getSILabelValue(), null, "tempValue", null, 0, 1, SILabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSILabel_OriginalValue(), this.getSILabelValue(), null, "originalValue", null, 0, 1, SILabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSILabel_ErrorScale(), this.getSILabelValue(), null, "errorScale", null, 0, 1, SILabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(siLabelValueEClass, SILabelValue.class, "SILabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getSILabelValue_I(), ecorePackage.getEDouble(), "i", null, 0, 1, SILabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1715,8 +1725,11 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		addEParameter(op, ecorePackage.getELong(), "timeDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(sirLabelEClass, SIRLabel.class, "SIRLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getSIRLabel_CurrentSIRValue(), this.getSIRLabelValue(), null, "currentSIRValue", null, 0, 1, SIRLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getSIRLabel_NextSIRValue(), this.getSIRLabelValue(), null, "nextSIRValue", null, 0, 1, SIRLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSIRLabel_DeltaValue(), this.getSIRLabelValue(), null, "deltaValue", null, 0, 1, SIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSIRLabel_ProbeValue(), this.getSIRLabelValue(), null, "probeValue", null, 0, 1, SIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSIRLabel_TempValue(), this.getSIRLabelValue(), null, "tempValue", null, 0, 1, SIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSIRLabel_OriginalValue(), this.getSIRLabelValue(), null, "originalValue", null, 0, 1, SIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSIRLabel_ErrorScale(), this.getSIRLabelValue(), null, "errorScale", null, 0, 1, SIRLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(sirLabelValueEClass, SIRLabelValue.class, "SIRLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getSIRLabelValue_R(), ecorePackage.getEDouble(), "r", null, 0, 1, SIRLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1747,10 +1760,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		addEParameter(op, this.getStandardDiseaseModelLabelValue(), "label", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(standardDiseaseModelLabelEClass, StandardDiseaseModelLabel.class, "StandardDiseaseModelLabel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getStandardDiseaseModelLabel_CurrentStandardDiseaseModelLabelValue(), this.getStandardDiseaseModelLabelValue(), null, "currentStandardDiseaseModelLabelValue", null, 0, 1, StandardDiseaseModelLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getStandardDiseaseModelLabel_NextStandardDiseaseModelLabelValue(), this.getStandardDiseaseModelLabelValue(), null, "nextStandardDiseaseModelLabelValue", null, 0, 1, StandardDiseaseModelLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getStandardDiseaseModelLabel_DeltaStandardDiseaseModelLabelValue(), this.getStandardDiseaseModelLabelValue(), null, "deltaStandardDiseaseModelLabelValue", null, 0, 1, StandardDiseaseModelLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getStandardDiseaseModelLabel_CurrentYStandardDiseaseModelLabelValue(), this.getStandardDiseaseModelLabelValue(), null, "currentYStandardDiseaseModelLabelValue", null, 0, 1, StandardDiseaseModelLabel.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(standardDiseaseModelLabelValueEClass, StandardDiseaseModelLabelValue.class, "StandardDiseaseModelLabelValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getStandardDiseaseModelLabelValue_S(), ecorePackage.getEDouble(), "s", null, 0, 1, StandardDiseaseModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1767,6 +1776,12 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(stochasticSIRDiseaseModelEClass, StochasticSIRDiseaseModel.class, "StochasticSIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(sanityCheckerEClass, SanityChecker.class, "SanityChecker", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(integrationLabelEClass, IntegrationLabel.class, "IntegrationLabel", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(integrationLabelValueEClass, IntegrationLabelValue.class, "IntegrationLabelValue", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(integrationDecoratorEClass, IntegrationDecorator.class, "IntegrationDecorator", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(aggregatingSIDiseaseModelEClass, AggregatingSIDiseaseModel.class, "AggregatingSIDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

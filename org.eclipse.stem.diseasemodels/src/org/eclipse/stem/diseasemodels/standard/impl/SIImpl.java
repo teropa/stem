@@ -17,10 +17,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
 import org.eclipse.stem.definitions.edges.impl.MigrationEdgeLabelImpl;
@@ -245,38 +248,20 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 *      long)
 	 */
 	@Override
-	public StandardDiseaseModelLabelValue computeBirthsDeathsDeltas(
+	public StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
 			final STEMTime time, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
 
 		final SILabelValue currentSEIR = (SILabelValue) currentLabelValue;
 		
-		// mu
-		final double adjustedBaseMortalityRate = getAdjustedBackgroundMortalityRate(timeDelta);
-		final double adjustedBirthRate = getAdjustedBackgroundBirthRate(timeDelta);
-		
-		// These are the births
-		double births = currentSEIR
-					.getPopulationCount()
-					* adjustedBirthRate;
-		
-		// Compute the number of the "susceptible" population that die
-		double numberOfSusceptibleThatDie = adjustedBaseMortalityRate
-				* currentSEIR.getS();
-
 		final double adjustedInfectiousMortalityRate = getAdjustedInfectiousMortalityRate(timeDelta);
-		// The number of recovering infectious that die (not due to the disease)
-		final double numberOfRecoveringInfectiousThatDie = (adjustedBaseMortalityRate+adjustedInfectiousMortalityRate)
-				* currentSEIR.getI();
 		
 		final double diseaseDeaths = adjustedInfectiousMortalityRate
 				* currentSEIR.getI();
 
 		SILabelValueImpl ret = (SILabelValueImpl)returnValue;
-		ret.setS(births-numberOfSusceptibleThatDie);
-		ret.setI(-numberOfRecoveringInfectiousThatDie);
+		ret.setS(0.0);
+		ret.setI(-diseaseDeaths);
 		ret.setIncidence(0.0);
-		ret.setBirths(births);
-		ret.setDeaths(numberOfSusceptibleThatDie + numberOfRecoveringInfectiousThatDie);
 		ret.setDiseaseDeaths(diseaseDeaths);
 		
 		return ret;
@@ -335,14 +320,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		double numberOfInfectedToSusceptible = getAdjustedRecoveryRate(timeDelta)
 				* currentSI.getI();
 		
-		// For the finite difference method make sure we don't exceed the number of people
-		// available in any state
-		
-		if(this.isFiniteDifference()) {
-			if(numberOfSusceptibleToInfected > currentSI.getS()) numberOfSusceptibleToInfected = currentSI.getS();
-			if(numberOfInfectedToSusceptible > currentSI.getI()) numberOfInfectedToSusceptible = currentSI.getI();
-		}
-		
+	
 		// Determine delta S
 		final double deltaS = - numberOfSusceptibleToInfected + numberOfInfectedToSusceptible;
 		// Determine delta I
@@ -352,8 +330,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		ret.setS(deltaS);
 		ret.setI(deltaI);
 		ret.setIncidence(numberOfSusceptibleToInfected);
-		ret.setBirths(0.0);
-		ret.setDeaths(0.0);
 		ret.setDiseaseDeaths(0.0);
 		return ret;
 	} // computeDiseaseDeltas
@@ -398,8 +374,8 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 						// Yes
 						// Is it updated by this disease model?
 						if (this == otherSILabel.getDecorator()) {
-							deltaS  += migrationRate*otherSILabel.getCurrentSIValue().getS();
-							deltaI += migrationRate*otherSILabel.getCurrentSIValue().getI();
+							deltaS  += migrationRate*otherSILabel.getTempValue().getS();
+							deltaI += migrationRate*otherSILabel.getTempValue().getI();
 							break;
 						} // if
 					}
@@ -415,8 +391,8 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 						// Yes
 						// Is it updated by this disease model?
 						if (this == thisSILabel.getDecorator()) {
-							deltaS  -= migrationRate*thisSILabel.getCurrentSIValue().getS();
-							deltaI -= migrationRate*thisSILabel.getCurrentSIValue().getI();
+							deltaS  -= migrationRate*thisSILabel.getTempValue().getS();
+							deltaI -= migrationRate*thisSILabel.getTempValue().getI();
 							break;
 						} // if
 					}
@@ -427,8 +403,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		ret.setS(deltaS);
 		ret.setI(deltaI);
 		ret.setIncidence(0.0);
-		ret.setBirths(0.0);
-		ret.setDeaths(0.0);
 		ret.setDiseaseDeaths(0.0);
 		return ret;
 	} // getMigrationDeltas
@@ -467,7 +441,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		// assert(referenceDensity > 0);
 		// need editor check so ref density always >1. Default is 100.
 		assert getArea(diseaseLabel.getPopulationLabel()) > 0.0;
-		double localDensity = diseaseLabel.getCurrentDiseaseModelTempLabelValue().getPopulationCount()/getArea(diseaseLabel.getPopulationLabel());
+		double localDensity = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount()/getArea(diseaseLabel.getPopulationLabel());
 		return localDensity/referenceDensity;
 	} // getTransmissionRateScaleFactor
 
@@ -828,7 +802,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		
 	
 		// return the sum normalized to the total population
-		double denom = diseaseLabel.getCurrentDiseaseModelTempLabelValue().getPopulationCount() + borderDivisor + roadDivisor;
+		double denom = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount() + borderDivisor + roadDivisor;
 		double retVal = 0.0;
 		if (denom > 0.0) {
 			retVal = ( onsiteInfectious + infectiousChangeFromMixing ) / denom;
@@ -857,7 +831,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		double a0 = getArea(diseaseLabel.getPopulationLabel());
 		// the local population
 
-		double p0 = diseaseLabel.getCurrentDiseaseModelTempLabelValue().getPopulationCount();
+		double p0 = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount();
 		
 		// infectious from other sites mixing here at site 0
 		double mixing = 0.0;
@@ -867,22 +841,22 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 			final NodeLabel nodeLabel = labelIter.next();
 			// Is this a disease label?
 			if (nodeLabel instanceof StandardDiseaseModelLabel) {
-				final SILabel otherSILabel = (SILabel) nodeLabel;
+				final IntegrationLabel otherSILabel = (IntegrationLabel) nodeLabel;
 				// Yes
 				// Is it updated by this disease model?
 				if (diseaseModel == otherSILabel.getDecorator()) {
 					if(this.isFrequencyDependent()) {
-						double Iother = ((SILabelValue)otherSILabel.getCurrentDiseaseModelTempLabelValue()).getI();
+						double Iother = (((SILabelValue)otherSILabel.getTempValue())).getI();
 						//double Iother = otherSILabel.getCurrentSIValue().getI();
 						double mixingFactor = connectedInfectiousProportion;					
 						mixing = Iother * mixingFactor;
 					} else {
-						double a1 = getArea(otherSILabel.getPopulationLabel());
-						double p1 = otherSILabel.getCurrentDiseaseModelTempLabelValue().getPopulationCount();
-						double Iother = ((SILabelValue)otherSILabel.getCurrentDiseaseModelTempLabelValue()).getI();
-						double mixingFactor = (a0*p1 + a1*p0)* connectedInfectiousProportion /(a1* (p1+p0)) ;
+//						double a1 = getArea(otherSILabel.getPopulationLabel());
+//						double p1 = ((StandardDiseaseModelLabelValue)otherSILabel.getTempValue()).getPopulationCount();
+//						double Iother = (otherSILabel.getTempValue()).getI();
+//						double mixingFactor = (a0*p1 + a1*p0)* connectedInfectiousProportion /(a1* (p1+p0)) ;
 					
-						mixing = Iother * mixingFactor;
+//						mixing = Iother * mixingFactor;
 					}
 					
 					break;
@@ -898,15 +872,19 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
     		final NodeLabel nodeLabel = labelIter.next();
     		// Is this a disease label?
     		if (nodeLabel instanceof StandardDiseaseModelLabel) {
-    			final SILabel otherSILabel = (SILabel) nodeLabel;
+    			final IntegrationLabel otherSILabel = (IntegrationLabel) nodeLabel;
     			// Yes
     			// Is it updated by this disease model?
     			if (diseaseModel == otherSILabel.getDecorator()) 
-    		     return otherSILabel.getCurrentDiseaseModelTempLabelValue().getPopulationCount();
+    		     return ((StandardDiseaseModelLabelValue)otherSILabel.getTempValue()).getPopulationCount();
     		}
     	}
     	return 0.0;
     }
+    
+    
+
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * 

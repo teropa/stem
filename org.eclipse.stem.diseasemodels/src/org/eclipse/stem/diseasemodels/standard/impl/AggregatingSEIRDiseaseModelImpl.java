@@ -16,6 +16,7 @@ import org.eclipse.stem.diseasemodels.standard.AggregatingSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
+import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SILabel;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -65,7 +66,7 @@ public class AggregatingSEIRDiseaseModelImpl extends
 		final SEIRLabel seirParentLabel = (SEIRLabel) parentLabel;
 		final SEIRLabel seirChildLabel = (SEIRLabel) childLabel;
 
-		final double nextE = seirParentLabel.getNextR();
+		final double nextE = ((SEIRLabelValue)seirParentLabel.getNextValue()).getR();
 		seirParentLabel.setNextE(nextE + seirChildLabel.getNextE());
 	} // updateFromChildLabel
 

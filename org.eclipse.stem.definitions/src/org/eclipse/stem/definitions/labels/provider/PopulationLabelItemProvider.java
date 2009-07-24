@@ -78,6 +78,7 @@ public class PopulationLabelItemProvider extends StaticNodeLabelItemProvider
 			addNamePropertyDescriptor(object);
 			addCurrentPopulationValuePropertyDescriptor(object);
 			addPopulatedAreaPropertyDescriptor(object);
+			addValidYearPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -169,6 +170,28 @@ public class PopulationLabelItemProvider extends StaticNodeLabelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Valid Year feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidYearPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopulationLabel_validYear_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopulationLabel_validYear_feature", "_UI_PopulationLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 LabelsPackage.Literals.POPULATION_LABEL__VALID_YEAR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc
 	 * -->
@@ -232,6 +255,7 @@ public class PopulationLabelItemProvider extends StaticNodeLabelItemProvider
 			case LabelsPackage.POPULATION_LABEL__POPULATION_IDENTIFIER:
 			case LabelsPackage.POPULATION_LABEL__NAME:
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
+			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

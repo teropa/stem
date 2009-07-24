@@ -12,11 +12,14 @@ package org.eclipse.stem.core.graph.impl;
  *******************************************************************************/
  
 import java.util.Collection;
+import java.util.Comparator;
+
 import org.eclipse.emf.common.notify.Notification;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
@@ -380,6 +383,20 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			}
 		} // for each nodeLabel
 
+		// Stefan 7/23/09. If need to guarantee the order of objects this list
+		// being the same for each call since the list is used to partition
+		// the work up among multiple worker threads. Luckily this call
+		// is only made once for every decorator in the beginning of a simulation
+		// so sorting is not expensive.
+		
+		ECollections.sort(retValue, new Comparator<NodeLabel>() {
+
+			public int compare(NodeLabel arg0, NodeLabel arg1) {
+				return arg0.getURI().toString().compareTo(arg1.getURI().toString());
+			}
+			
+		});
+		
 		return retValue;
 	} // getNodeLabelsByTypeURI
 

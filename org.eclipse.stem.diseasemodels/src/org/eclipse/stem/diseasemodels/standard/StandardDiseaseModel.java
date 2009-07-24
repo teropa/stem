@@ -3,6 +3,7 @@ package org.eclipse.stem.diseasemodels.standard;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 
 /*******************************************************************************
@@ -29,7 +30,7 @@ import org.eclipse.stem.core.model.STEMTime;
  * 
  * @model abstract="true"
  */
-public interface StandardDiseaseModel extends DiseaseModel {
+public interface StandardDiseaseModel extends DiseaseModel, IntegrationDecorator {
 
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a
@@ -132,6 +133,7 @@ public interface StandardDiseaseModel extends DiseaseModel {
 	 */
 	void addToTotalArea(final double area);
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

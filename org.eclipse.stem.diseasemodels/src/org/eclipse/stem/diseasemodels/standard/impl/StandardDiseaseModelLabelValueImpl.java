@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 //import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -103,8 +104,8 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	 * <!-- end-user-doc -->
 	 */
 	public StandardDiseaseModelLabelValueImpl(final double s,
-			final double births, final double deaths, final double diseaseDeaths) {
-		super(births, deaths, diseaseDeaths);
+			final double diseaseDeaths) {
+		super(diseaseDeaths);
 		this.s = s;
 	} // StandardDiseaseModelLabelValueImpl
 
@@ -160,9 +161,9 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#set(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
-	@Override
-	public DiseaseModelLabelValue set(DiseaseModelLabelValue value) {
-		super.set(value);
+
+	public DiseaseModelLabelValue set(IntegrationLabelValue value) {
+		super.set((DiseaseModelLabelValue)value);
 		setS(((StandardDiseaseModelLabelValue) value).getS());
 		return this;
 	} // set
@@ -170,9 +171,10 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#add(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
-	@Override
-	public DiseaseModelLabelValue add(DiseaseModelLabelValue value) {
-		super.add(value);
+
+	public DiseaseModelLabelValue add(IntegrationLabelValue value) {
+	
+		super.add((DiseaseModelLabelValue)value);
 		setS(getS() + ((StandardDiseaseModelLabelValue) value).getS());
 		return this;
 	} // add
@@ -180,9 +182,9 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#sub(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
-	@Override
-	public DiseaseModelLabelValue sub(DiseaseModelLabelValue value) {
-		super.sub(value);
+
+	public DiseaseModelLabelValue sub(IntegrationLabelValue value) {
+		super.sub((DiseaseModelLabelValue)value);
 		setS(getS() - ((StandardDiseaseModelLabelValue) value).getS());
 		return this;
 	} // sub

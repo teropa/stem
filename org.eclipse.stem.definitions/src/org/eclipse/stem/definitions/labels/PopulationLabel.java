@@ -185,4 +185,31 @@ public interface PopulationLabel extends StaticNodeLabel {
 	 */
 	void setPopulatedArea(double value);
 
+	/**
+	 * Returns the value of the '<em><b>Valid Year</b></em>' attribute.
+	 * The default value is <code>"2006"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Valid Year</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Valid Year</em>' attribute.
+	 * @see #setValidYear(int)
+	 * @see org.eclipse.stem.definitions.labels.LabelsPackage#getPopulationLabel_ValidYear()
+	 * @model default="2006"
+	 * @generated
+	 */
+	int getValidYear();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.definitions.labels.PopulationLabel#getValidYear <em>Valid Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Valid Year</em>' attribute.
+	 * @see #getValidYear()
+	 * @generated
+	 */
+	void setValidYear(int value);
+
 } // PopulationLabel

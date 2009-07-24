@@ -38,6 +38,7 @@ import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValue
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapterFactory;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
+import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.util.StandardAdapterFactory;
 
 /**
@@ -232,7 +233,7 @@ public class StandardRelativeValueHistoryProviderAdapterFactory extends
 		 */
 		public double getDenominator() {
 			final DiseaseModelLabel dml = (DiseaseModelLabel) getTarget();
-			DiseaseModelLabelValue dmlv = dml.getCurrentDiseaseModelLabelValue();
+			DiseaseModelLabelValue dmlv = (DiseaseModelLabelValue)dml.getCurrentValue();
 			final double populationCount = dmlv.getPopulationCount();
 			return dmlv.getPopulationCount();
 		}

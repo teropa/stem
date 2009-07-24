@@ -188,31 +188,13 @@ public interface StandardPackage extends EPackage {
 	int DISEASE_MODEL__DISEASE_NAME = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL__STEP_SIZE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL__CURRENT_X = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL__RELATIVE_TOLERANCE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 6;
+	int DISEASE_MODEL__RELATIVE_TOLERANCE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
@@ -221,7 +203,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL__FINITE_DIFFERENCE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 7;
+	int DISEASE_MODEL__FINITE_DIFFERENCE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
@@ -230,7 +212,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL__FREQUENCY_DEPENDENT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 8;
+	int DISEASE_MODEL__FREQUENCY_DEPENDENT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
@@ -239,7 +221,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL__BACKGROUND_BIRTH_RATE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 9;
+	int DISEASE_MODEL__BACKGROUND_BIRTH_RATE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Disease Model</em>' class.
@@ -248,7 +230,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 10;
+	int DISEASE_MODEL_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl <em>Disease Model</em>}' class.
@@ -367,24 +349,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int STANDARD_DISEASE_MODEL__DISEASE_NAME = DISEASE_MODEL__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL__STEP_SIZE = DISEASE_MODEL__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL__CURRENT_X = DISEASE_MODEL__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -584,24 +548,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SI__DISEASE_NAME = STANDARD_DISEASE_MODEL__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI__STEP_SIZE = STANDARD_DISEASE_MODEL__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI__CURRENT_X = STANDARD_DISEASE_MODEL__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -864,24 +810,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SIR__DISEASE_NAME = SI__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR__STEP_SIZE = SI__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR__CURRENT_X = SI__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -1153,24 +1081,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEIR__DISEASE_NAME = SIR__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR__STEP_SIZE = SIR__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR__CURRENT_X = SIR__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -1453,24 +1363,6 @@ public interface StandardPackage extends EPackage {
 	int DETERMINISTIC_SEIR_DISEASE_MODEL__DISEASE_NAME = SEIR__DISEASE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DETERMINISTIC_SEIR_DISEASE_MODEL__STEP_SIZE = SEIR__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DETERMINISTIC_SEIR_DISEASE_MODEL__CURRENT_X = SEIR__CURRENT_X;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1751,24 +1643,6 @@ public interface StandardPackage extends EPackage {
 	int DETERMINISTIC_SI_DISEASE_MODEL__DISEASE_NAME = SI__DISEASE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DETERMINISTIC_SI_DISEASE_MODEL__STEP_SIZE = SI__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DETERMINISTIC_SI_DISEASE_MODEL__CURRENT_X = SI__CURRENT_X;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2029,24 +1903,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int DETERMINISTIC_SIR_DISEASE_MODEL__DISEASE_NAME = SIR__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DETERMINISTIC_SIR_DISEASE_MODEL__STEP_SIZE = SIR__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DETERMINISTIC_SIR_DISEASE_MODEL__CURRENT_X = SIR__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -2320,67 +2176,13 @@ public interface StandardPackage extends EPackage {
 	int DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Current Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Next Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL__DELTA_VALUE = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Current Y</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL__CURRENT_Y = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Current Disease Model Temp Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>YScale</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL__YSCALE = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 7;
-
-	/**
 	 * The number of structural features of the '<em>Disease Model Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL_LABEL_FEATURE_COUNT = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 8;
+	int DISEASE_MODEL_LABEL_FEATURE_COUNT = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl <em>Disease Model Label Value</em>}' class.
@@ -2393,31 +2195,13 @@ public interface StandardPackage extends EPackage {
 	int DISEASE_MODEL_LABEL_VALUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Births</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL_VALUE__BIRTHS = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Deaths</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISEASE_MODEL_LABEL_VALUE__DEATHS = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Disease Deaths</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 2;
+	int DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Population Count</b></em>' attribute.
@@ -2426,7 +2210,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 3;
+	int DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Incidence</b></em>' attribute.
@@ -2435,7 +2219,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL_LABEL_VALUE__INCIDENCE = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 4;
+	int DISEASE_MODEL_LABEL_VALUE__INCIDENCE = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Disease Model Label Value</em>' class.
@@ -2444,7 +2228,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL_LABEL_VALUE_FEATURE_COUNT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 5;
+	int DISEASE_MODEL_LABEL_VALUE_FEATURE_COUNT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelStateImpl <em>Disease Model State</em>}' class.
@@ -2738,103 +2522,13 @@ public interface StandardPackage extends EPackage {
 	int STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE = DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
 
 	/**
-	 * The feature id for the '<em><b>Current Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE = DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE = DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__DELTA_VALUE = DISEASE_MODEL_LABEL__DELTA_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current Y</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__CURRENT_Y = DISEASE_MODEL_LABEL__CURRENT_Y;
-
-	/**
-	 * The feature id for the '<em><b>Current Disease Model Temp Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE = DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>YScale</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__YSCALE = DISEASE_MODEL_LABEL__YSCALE;
-
-	/**
-	 * The feature id for the '<em><b>Current Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE = DISEASE_MODEL_LABEL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Next Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE = DISEASE_MODEL_LABEL_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Delta Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE = DISEASE_MODEL_LABEL_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Current YStandard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE = DISEASE_MODEL_LABEL_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Disease Model Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT = DISEASE_MODEL_LABEL_FEATURE_COUNT + 4;
+	int STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT = DISEASE_MODEL_LABEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SILabelImpl <em>SI Label</em>}' class.
@@ -2847,231 +2541,6 @@ public interface StandardPackage extends EPackage {
 	int SI_LABEL = 14;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__URI = STANDARD_DISEASE_MODEL_LABEL__URI;
-
-	/**
-	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__TYPE_URI = STANDARD_DISEASE_MODEL_LABEL__TYPE_URI;
-
-	/**
-	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__DUBLIN_CORE = STANDARD_DISEASE_MODEL_LABEL__DUBLIN_CORE;
-
-	/**
-	 * The feature id for the '<em><b>URI Of Identifiable To Be Labeled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED = STANDARD_DISEASE_MODEL_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED;
-
-	/**
-	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__CURRENT_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Identifiable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__IDENTIFIABLE = STANDARD_DISEASE_MODEL_LABEL__IDENTIFIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Next Value Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__NEXT_VALUE_VALID = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE_VALID;
-
-	/**
-	 * The feature id for the '<em><b>Next Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__NEXT_VALUE = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Decorator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__DECORATOR = STANDARD_DISEASE_MODEL_LABEL__DECORATOR;
-
-	/**
-	 * The feature id for the '<em><b>Node</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__NODE = STANDARD_DISEASE_MODEL_LABEL__NODE;
-
-	/**
-	 * The feature id for the '<em><b>Population Label</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__POPULATION_LABEL = STANDARD_DISEASE_MODEL_LABEL__POPULATION_LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Disease Model State</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__DISEASE_MODEL_STATE = STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Current Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE = STANDARD_DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__DELTA_VALUE = STANDARD_DISEASE_MODEL_LABEL__DELTA_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current Y</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__CURRENT_Y = STANDARD_DISEASE_MODEL_LABEL__CURRENT_Y;
-
-	/**
-	 * The feature id for the '<em><b>Current Disease Model Temp Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>YScale</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__YSCALE = STANDARD_DISEASE_MODEL_LABEL__YSCALE;
-
-	/**
-	 * The feature id for the '<em><b>Current Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE = STANDARD_DISEASE_MODEL_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Delta Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE = STANDARD_DISEASE_MODEL_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current YStandard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current SI Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__CURRENT_SI_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Next SI Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL__NEXT_SI_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>SI Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL_FEATURE_COUNT = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SIRLabelImpl <em>SIR Label</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3080,249 +2549,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	int SIR_LABEL = 17;
-
-	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__URI = SI_LABEL__URI;
-
-	/**
-	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__TYPE_URI = SI_LABEL__TYPE_URI;
-
-	/**
-	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__DUBLIN_CORE = SI_LABEL__DUBLIN_CORE;
-
-	/**
-	 * The feature id for the '<em><b>URI Of Identifiable To Be Labeled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED = SI_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED;
-
-	/**
-	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_VALUE = SI_LABEL__CURRENT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Identifiable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__IDENTIFIABLE = SI_LABEL__IDENTIFIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Next Value Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__NEXT_VALUE_VALID = SI_LABEL__NEXT_VALUE_VALID;
-
-	/**
-	 * The feature id for the '<em><b>Next Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__NEXT_VALUE = SI_LABEL__NEXT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Decorator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__DECORATOR = SI_LABEL__DECORATOR;
-
-	/**
-	 * The feature id for the '<em><b>Node</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__NODE = SI_LABEL__NODE;
-
-	/**
-	 * The feature id for the '<em><b>Population Label</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__POPULATION_LABEL = SI_LABEL__POPULATION_LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Disease Model State</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__DISEASE_MODEL_STATE = SI_LABEL__DISEASE_MODEL_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Current Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE = SI_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE = SI_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__DELTA_VALUE = SI_LABEL__DELTA_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current Y</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_Y = SI_LABEL__CURRENT_Y;
-
-	/**
-	 * The feature id for the '<em><b>Current Disease Model Temp Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE = SI_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>YScale</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__YSCALE = SI_LABEL__YSCALE;
-
-	/**
-	 * The feature id for the '<em><b>Current Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE = SI_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE = SI_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Delta Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE = SI_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current YStandard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE = SI_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current SI Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_SI_VALUE = SI_LABEL__CURRENT_SI_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next SI Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__NEXT_SI_VALUE = SI_LABEL__NEXT_SI_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current SIR Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__CURRENT_SIR_VALUE = SI_LABEL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Next SIR Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL__NEXT_SIR_VALUE = SI_LABEL_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>SIR Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL_FEATURE_COUNT = SI_LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelImpl <em>SEIR Label</em>}' class.
@@ -3341,7 +2567,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__URI = SIR_LABEL__URI;
+	int SEIR_LABEL__URI = STANDARD_DISEASE_MODEL_LABEL__URI;
 
 	/**
 	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
@@ -3350,7 +2576,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__TYPE_URI = SIR_LABEL__TYPE_URI;
+	int SEIR_LABEL__TYPE_URI = STANDARD_DISEASE_MODEL_LABEL__TYPE_URI;
 
 	/**
 	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
@@ -3359,7 +2585,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__DUBLIN_CORE = SIR_LABEL__DUBLIN_CORE;
+	int SEIR_LABEL__DUBLIN_CORE = STANDARD_DISEASE_MODEL_LABEL__DUBLIN_CORE;
 
 	/**
 	 * The feature id for the '<em><b>URI Of Identifiable To Be Labeled</b></em>' attribute.
@@ -3368,7 +2594,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED = SIR_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED;
+	int SEIR_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED = STANDARD_DISEASE_MODEL_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED;
 
 	/**
 	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
@@ -3377,7 +2603,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__CURRENT_VALUE = SIR_LABEL__CURRENT_VALUE;
+	int SEIR_LABEL__CURRENT_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Identifiable</b></em>' reference.
@@ -3386,7 +2612,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__IDENTIFIABLE = SIR_LABEL__IDENTIFIABLE;
+	int SEIR_LABEL__IDENTIFIABLE = STANDARD_DISEASE_MODEL_LABEL__IDENTIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Next Value Valid</b></em>' attribute.
@@ -3395,7 +2621,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__NEXT_VALUE_VALID = SIR_LABEL__NEXT_VALUE_VALID;
+	int SEIR_LABEL__NEXT_VALUE_VALID = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE_VALID;
 
 	/**
 	 * The feature id for the '<em><b>Next Value</b></em>' containment reference.
@@ -3404,7 +2630,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__NEXT_VALUE = SIR_LABEL__NEXT_VALUE;
+	int SEIR_LABEL__NEXT_VALUE = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Decorator</b></em>' reference.
@@ -3413,7 +2639,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__DECORATOR = SIR_LABEL__DECORATOR;
+	int SEIR_LABEL__DECORATOR = STANDARD_DISEASE_MODEL_LABEL__DECORATOR;
 
 	/**
 	 * The feature id for the '<em><b>Node</b></em>' reference.
@@ -3422,7 +2648,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__NODE = SIR_LABEL__NODE;
+	int SEIR_LABEL__NODE = STANDARD_DISEASE_MODEL_LABEL__NODE;
 
 	/**
 	 * The feature id for the '<em><b>Population Label</b></em>' reference.
@@ -3431,7 +2657,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__POPULATION_LABEL = SIR_LABEL__POPULATION_LABEL;
+	int SEIR_LABEL__POPULATION_LABEL = STANDARD_DISEASE_MODEL_LABEL__POPULATION_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Disease Model State</b></em>' containment reference.
@@ -3440,25 +2666,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__DISEASE_MODEL_STATE = SIR_LABEL__DISEASE_MODEL_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Current Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE = SIR_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE = SIR_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE;
+	int SEIR_LABEL__DISEASE_MODEL_STATE = STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
@@ -3467,124 +2675,43 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__DELTA_VALUE = SIR_LABEL__DELTA_VALUE;
+	int SEIR_LABEL__DELTA_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Current Y</b></em>' reference.
+	 * The feature id for the '<em><b>Probe Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__CURRENT_Y = SIR_LABEL__CURRENT_Y;
+	int SEIR_LABEL__PROBE_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Current Disease Model Temp Label Value</b></em>' reference.
+	 * The feature id for the '<em><b>Temp Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE = SIR_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE;
+	int SEIR_LABEL__TEMP_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>YScale</b></em>' reference.
+	 * The feature id for the '<em><b>Original Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__YSCALE = SIR_LABEL__YSCALE;
+	int SEIR_LABEL__ORIGINAL_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Current Standard Disease Model Label Value</b></em>' reference.
+	 * The feature id for the '<em><b>Error Scale</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE = SIR_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE = SIR_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Delta Standard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE = SIR_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current YStandard Disease Model Label Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE = SIR_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current SI Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__CURRENT_SI_VALUE = SIR_LABEL__CURRENT_SI_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next SI Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__NEXT_SI_VALUE = SIR_LABEL__NEXT_SI_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current SIR Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__CURRENT_SIR_VALUE = SIR_LABEL__CURRENT_SIR_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Next SIR Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__NEXT_SIR_VALUE = SIR_LABEL__NEXT_SIR_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Current SEIR Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__CURRENT_SEIR_VALUE = SIR_LABEL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Next SEIR Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL__NEXT_SEIR_VALUE = SIR_LABEL_FEATURE_COUNT + 1;
+	int SEIR_LABEL__ERROR_SCALE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>SEIR Label</em>' class.
@@ -3593,7 +2720,7 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEIR_LABEL_FEATURE_COUNT = SIR_LABEL_FEATURE_COUNT + 2;
+	int SEIR_LABEL_FEATURE_COUNT = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelValueImpl <em>Disease Model Label Value</em>}' class.
@@ -3604,24 +2731,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	int STANDARD_DISEASE_MODEL_LABEL_VALUE = 21;
-
-	/**
-	 * The feature id for the '<em><b>Births</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL_VALUE__BIRTHS = DISEASE_MODEL_LABEL_VALUE__BIRTHS;
-
-	/**
-	 * The feature id for the '<em><b>Deaths</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_DISEASE_MODEL_LABEL_VALUE__DEATHS = DISEASE_MODEL_LABEL_VALUE__DEATHS;
 
 	/**
 	 * The feature id for the '<em><b>Disease Deaths</b></em>' attribute.
@@ -3677,24 +2786,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	int SI_LABEL_VALUE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Births</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL_VALUE__BIRTHS = STANDARD_DISEASE_MODEL_LABEL_VALUE__BIRTHS;
-
-	/**
-	 * The feature id for the '<em><b>Deaths</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SI_LABEL_VALUE__DEATHS = STANDARD_DISEASE_MODEL_LABEL_VALUE__DEATHS;
 
 	/**
 	 * The feature id for the '<em><b>Disease Deaths</b></em>' attribute.
@@ -3759,24 +2850,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	int SIR_LABEL_VALUE = 18;
-
-	/**
-	 * The feature id for the '<em><b>Births</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL_VALUE__BIRTHS = SI_LABEL_VALUE__BIRTHS;
-
-	/**
-	 * The feature id for the '<em><b>Deaths</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIR_LABEL_VALUE__DEATHS = SI_LABEL_VALUE__DEATHS;
 
 	/**
 	 * The feature id for the '<em><b>Disease Deaths</b></em>' attribute.
@@ -3850,24 +2923,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	int SEIR_LABEL_VALUE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Births</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL_VALUE__BIRTHS = SIR_LABEL_VALUE__BIRTHS;
-
-	/**
-	 * The feature id for the '<em><b>Deaths</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEIR_LABEL_VALUE__DEATHS = SIR_LABEL_VALUE__DEATHS;
 
 	/**
 	 * The feature id for the '<em><b>Disease Deaths</b></em>' attribute.
@@ -4315,6 +3370,330 @@ public interface StandardPackage extends EPackage {
 	int SI_INFECTOR_FEATURE_COUNT = STANDARD_INFECTOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__URI = STANDARD_DISEASE_MODEL_LABEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__TYPE_URI = STANDARD_DISEASE_MODEL_LABEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__DUBLIN_CORE = STANDARD_DISEASE_MODEL_LABEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>URI Of Identifiable To Be Labeled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED = STANDARD_DISEASE_MODEL_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED;
+
+	/**
+	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__CURRENT_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Identifiable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__IDENTIFIABLE = STANDARD_DISEASE_MODEL_LABEL__IDENTIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Next Value Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__NEXT_VALUE_VALID = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE_VALID;
+
+	/**
+	 * The feature id for the '<em><b>Next Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__NEXT_VALUE = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Decorator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__DECORATOR = STANDARD_DISEASE_MODEL_LABEL__DECORATOR;
+
+	/**
+	 * The feature id for the '<em><b>Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__NODE = STANDARD_DISEASE_MODEL_LABEL__NODE;
+
+	/**
+	 * The feature id for the '<em><b>Population Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__POPULATION_LABEL = STANDARD_DISEASE_MODEL_LABEL__POPULATION_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Disease Model State</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__DISEASE_MODEL_STATE = STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__DELTA_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Probe Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__PROBE_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Temp Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__TEMP_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Original Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__ORIGINAL_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Error Scale</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__ERROR_SCALE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>SI Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL_FEATURE_COUNT = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__URI = STANDARD_DISEASE_MODEL_LABEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__TYPE_URI = STANDARD_DISEASE_MODEL_LABEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__DUBLIN_CORE = STANDARD_DISEASE_MODEL_LABEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>URI Of Identifiable To Be Labeled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED = STANDARD_DISEASE_MODEL_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED;
+
+	/**
+	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__CURRENT_VALUE = STANDARD_DISEASE_MODEL_LABEL__CURRENT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Identifiable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__IDENTIFIABLE = STANDARD_DISEASE_MODEL_LABEL__IDENTIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Next Value Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__NEXT_VALUE_VALID = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE_VALID;
+
+	/**
+	 * The feature id for the '<em><b>Next Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__NEXT_VALUE = STANDARD_DISEASE_MODEL_LABEL__NEXT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Decorator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__DECORATOR = STANDARD_DISEASE_MODEL_LABEL__DECORATOR;
+
+	/**
+	 * The feature id for the '<em><b>Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__NODE = STANDARD_DISEASE_MODEL_LABEL__NODE;
+
+	/**
+	 * The feature id for the '<em><b>Population Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__POPULATION_LABEL = STANDARD_DISEASE_MODEL_LABEL__POPULATION_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Disease Model State</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__DISEASE_MODEL_STATE = STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__DELTA_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Probe Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__PROBE_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Temp Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__TEMP_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Original Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__ORIGINAL_VALUE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Error Scale</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__ERROR_SCALE = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>SIR Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL_FEATURE_COUNT = STANDARD_DISEASE_MODEL_LABEL_FEATURE_COUNT + 5;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticSEIRDiseaseModelImpl <em>Stochastic SEIR Disease Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4431,24 +3810,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCHASTIC_SEIR_DISEASE_MODEL__DISEASE_NAME = SEIR__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_SEIR_DISEASE_MODEL__STEP_SIZE = SEIR__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_SEIR_DISEASE_MODEL__CURRENT_X = SEIR__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -4758,24 +4119,6 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_SI_DISEASE_MODEL__DISEASE_NAME = SI__DISEASE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_SI_DISEASE_MODEL__STEP_SIZE = SI__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_SI_DISEASE_MODEL__CURRENT_X = SI__CURRENT_X;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5065,24 +4408,6 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_SIR_DISEASE_MODEL__DISEASE_NAME = SIR__DISEASE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_SIR_DISEASE_MODEL__STEP_SIZE = SIR__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_SIR_DISEASE_MODEL__CURRENT_X = SIR__CURRENT_X;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5282,6 +4607,63 @@ public interface StandardPackage extends EPackage {
 	int SANITY_CHECKER_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.graph.IntegrationLabel <em>Integration Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.graph.IntegrationLabel
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getIntegrationLabel()
+	 * @generated
+	 */
+	int INTEGRATION_LABEL = 28;
+
+	/**
+	 * The number of structural features of the '<em>Integration Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION_LABEL_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.graph.IntegrationLabelValue <em>Integration Label Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.graph.IntegrationLabelValue
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getIntegrationLabelValue()
+	 * @generated
+	 */
+	int INTEGRATION_LABEL_VALUE = 29;
+
+	/**
+	 * The number of structural features of the '<em>Integration Label Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION_LABEL_VALUE_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.model.IntegrationDecorator <em>Integration Decorator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.model.IntegrationDecorator
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getIntegrationDecorator()
+	 * @generated
+	 */
+	int INTEGRATION_DECORATOR = 30;
+
+	/**
+	 * The number of structural features of the '<em>Integration Decorator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION_DECORATOR_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.AggregatingSIDiseaseModelImpl <em>Aggregating SI Disease Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5289,7 +4671,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getAggregatingSIDiseaseModel()
 	 * @generated
 	 */
-	int AGGREGATING_SI_DISEASE_MODEL = 28;
+	int AGGREGATING_SI_DISEASE_MODEL = 31;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -5398,24 +4780,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGGREGATING_SI_DISEASE_MODEL__DISEASE_NAME = SI__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATING_SI_DISEASE_MODEL__STEP_SIZE = SI__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATING_SI_DISEASE_MODEL__CURRENT_X = SI__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -5569,7 +4933,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getAggregatingDiseaseModelState()
 	 * @generated
 	 */
-	int AGGREGATING_DISEASE_MODEL_STATE = 29;
+	int AGGREGATING_DISEASE_MODEL_STATE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' container reference.
@@ -5606,7 +4970,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getAggregatingSIRDiseaseModel()
 	 * @generated
 	 */
-	int AGGREGATING_SIR_DISEASE_MODEL = 31;
+	int AGGREGATING_SIR_DISEASE_MODEL = 34;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -5715,24 +5079,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGGREGATING_SIR_DISEASE_MODEL__DISEASE_NAME = AGGREGATING_SI_DISEASE_MODEL__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATING_SIR_DISEASE_MODEL__STEP_SIZE = AGGREGATING_SI_DISEASE_MODEL__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATING_SIR_DISEASE_MODEL__CURRENT_X = AGGREGATING_SI_DISEASE_MODEL__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -5886,7 +5232,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getAggregatingSEIRDiseaseModel()
 	 * @generated
 	 */
-	int AGGREGATING_SEIR_DISEASE_MODEL = 30;
+	int AGGREGATING_SEIR_DISEASE_MODEL = 33;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -5995,24 +5341,6 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGGREGATING_SEIR_DISEASE_MODEL__DISEASE_NAME = AGGREGATING_SIR_DISEASE_MODEL__DISEASE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATING_SEIR_DISEASE_MODEL__STEP_SIZE = AGGREGATING_SIR_DISEASE_MODEL__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATING_SEIR_DISEASE_MODEL__CURRENT_X = AGGREGATING_SIR_DISEASE_MODEL__CURRENT_X;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
@@ -6166,7 +5494,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStochasticDiseaseModel()
 	 * @generated
 	 */
-	int STOCHASTIC_DISEASE_MODEL = 32;
+	int STOCHASTIC_DISEASE_MODEL = 35;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -6277,24 +5605,6 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_DISEASE_MODEL__DISEASE_NAME = DISEASE_MODEL__DISEASE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_DISEASE_MODEL__STEP_SIZE = DISEASE_MODEL__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCHASTIC_DISEASE_MODEL__CURRENT_X = DISEASE_MODEL__CURRENT_X;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6365,7 +5675,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStandardStochasticDiseaseModel()
 	 * @generated
 	 */
-	int STANDARD_STOCHASTIC_DISEASE_MODEL = 33;
+	int STANDARD_STOCHASTIC_DISEASE_MODEL = 36;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -6476,24 +5786,6 @@ public interface StandardPackage extends EPackage {
 	int STANDARD_STOCHASTIC_DISEASE_MODEL__DISEASE_NAME = STOCHASTIC_DISEASE_MODEL__DISEASE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Step Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_STOCHASTIC_DISEASE_MODEL__STEP_SIZE = STOCHASTIC_DISEASE_MODEL__STEP_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Current X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_STOCHASTIC_DISEASE_MODEL__CURRENT_X = STOCHASTIC_DISEASE_MODEL__CURRENT_X;
-
-	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6573,7 +5865,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getSIRInoculator()
 	 * @generated
 	 */
-	int SIR_INOCULATOR = 34;
+	int SIR_INOCULATOR = 37;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -6736,7 +6028,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 35;
+	int URI = 38;
 
 
 	/**
@@ -6747,7 +6039,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getEList()
 	 * @generated
 	 */
-	int ELIST = 36;
+	int ELIST = 39;
 
 
 	/**
@@ -6758,7 +6050,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getRandom()
 	 * @generated
 	 */
-	int RANDOM = 37;
+	int RANDOM = 40;
 
 
 	/**
@@ -6846,28 +6138,6 @@ public interface StandardPackage extends EPackage {
 	EAttribute getDiseaseModel_DiseaseName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getStepSize <em>Step Size</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Step Size</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModel#getStepSize()
-	 * @see #getDiseaseModel()
-	 * @generated
-	 */
-	EAttribute getDiseaseModel_StepSize();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getCurrentX <em>Current X</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Current X</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModel#getCurrentX()
-	 * @see #getDiseaseModel()
-	 * @generated
-	 */
-	EAttribute getDiseaseModel_CurrentX();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getRelativeTolerance <em>Relative Tolerance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6944,72 +6214,6 @@ public interface StandardPackage extends EPackage {
 	EReference getDiseaseModelLabel_DiseaseModelState();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getCurrentDiseaseModelLabelValue <em>Current Disease Model Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Disease Model Label Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getCurrentDiseaseModelLabelValue()
-	 * @see #getDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getDiseaseModelLabel_CurrentDiseaseModelLabelValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getNextDiseaseModelLabelValue <em>Next Disease Model Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next Disease Model Label Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getNextDiseaseModelLabelValue()
-	 * @see #getDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getDiseaseModelLabel_NextDiseaseModelLabelValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getDeltaValue <em>Delta Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Delta Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getDeltaValue()
-	 * @see #getDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getDiseaseModelLabel_DeltaValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getCurrentY <em>Current Y</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Y</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getCurrentY()
-	 * @see #getDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getDiseaseModelLabel_CurrentY();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getCurrentDiseaseModelTempLabelValue <em>Current Disease Model Temp Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Disease Model Temp Label Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getCurrentDiseaseModelTempLabelValue()
-	 * @see #getDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getDiseaseModelLabel_CurrentDiseaseModelTempLabelValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getYScale <em>YScale</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>YScale</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getYScale()
-	 * @see #getDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getDiseaseModelLabel_YScale();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue <em>Disease Model Label Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7018,28 +6222,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDiseaseModelLabelValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getBirths <em>Births</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Births</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getBirths()
-	 * @see #getDiseaseModelLabelValue()
-	 * @generated
-	 */
-	EAttribute getDiseaseModelLabelValue_Births();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getDeaths <em>Deaths</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Deaths</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getDeaths()
-	 * @see #getDiseaseModelLabelValue()
-	 * @generated
-	 */
-	EAttribute getDiseaseModelLabelValue_Deaths();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getDiseaseDeaths <em>Disease Deaths</em>}'.
@@ -7203,26 +6385,59 @@ public interface StandardPackage extends EPackage {
 	EClass getSEIRLabel();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getCurrentSEIRValue <em>Current SEIR Value</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getDeltaValue <em>Delta Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current SEIR Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SEIRLabel#getCurrentSEIRValue()
+	 * @return the meta object for the reference '<em>Delta Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SEIRLabel#getDeltaValue()
 	 * @see #getSEIRLabel()
 	 * @generated
 	 */
-	EReference getSEIRLabel_CurrentSEIRValue();
+	EReference getSEIRLabel_DeltaValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getNextSEIRValue <em>Next SEIR Value</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getProbeValue <em>Probe Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next SEIR Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SEIRLabel#getNextSEIRValue()
+	 * @return the meta object for the reference '<em>Probe Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SEIRLabel#getProbeValue()
 	 * @see #getSEIRLabel()
 	 * @generated
 	 */
-	EReference getSEIRLabel_NextSEIRValue();
+	EReference getSEIRLabel_ProbeValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getTempValue <em>Temp Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Temp Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SEIRLabel#getTempValue()
+	 * @see #getSEIRLabel()
+	 * @generated
+	 */
+	EReference getSEIRLabel_TempValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getOriginalValue <em>Original Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Original Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SEIRLabel#getOriginalValue()
+	 * @see #getSEIRLabel()
+	 * @generated
+	 */
+	EReference getSEIRLabel_OriginalValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getErrorScale <em>Error Scale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Error Scale</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SEIRLabel#getErrorScale()
+	 * @see #getSEIRLabel()
+	 * @generated
+	 */
+	EReference getSEIRLabel_ErrorScale();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabelValue <em>SEIR Label Value</em>}'.
@@ -7374,26 +6589,59 @@ public interface StandardPackage extends EPackage {
 	EClass getSILabel();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SILabel#getCurrentSIValue <em>Current SI Value</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SILabel#getDeltaValue <em>Delta Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current SI Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SILabel#getCurrentSIValue()
+	 * @return the meta object for the reference '<em>Delta Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SILabel#getDeltaValue()
 	 * @see #getSILabel()
 	 * @generated
 	 */
-	EReference getSILabel_CurrentSIValue();
+	EReference getSILabel_DeltaValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SILabel#getNextSIValue <em>Next SI Value</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SILabel#getProbeValue <em>Probe Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next SI Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SILabel#getNextSIValue()
+	 * @return the meta object for the reference '<em>Probe Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SILabel#getProbeValue()
 	 * @see #getSILabel()
 	 * @generated
 	 */
-	EReference getSILabel_NextSIValue();
+	EReference getSILabel_ProbeValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SILabel#getTempValue <em>Temp Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Temp Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SILabel#getTempValue()
+	 * @see #getSILabel()
+	 * @generated
+	 */
+	EReference getSILabel_TempValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SILabel#getOriginalValue <em>Original Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Original Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SILabel#getOriginalValue()
+	 * @see #getSILabel()
+	 * @generated
+	 */
+	EReference getSILabel_OriginalValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SILabel#getErrorScale <em>Error Scale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Error Scale</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SILabel#getErrorScale()
+	 * @see #getSILabel()
+	 * @generated
+	 */
+	EReference getSILabel_ErrorScale();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.SILabelValue <em>SI Label Value</em>}'.
@@ -7448,26 +6696,59 @@ public interface StandardPackage extends EPackage {
 	EClass getSIRLabel();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getCurrentSIRValue <em>Current SIR Value</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getDeltaValue <em>Delta Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current SIR Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SIRLabel#getCurrentSIRValue()
+	 * @return the meta object for the reference '<em>Delta Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SIRLabel#getDeltaValue()
 	 * @see #getSIRLabel()
 	 * @generated
 	 */
-	EReference getSIRLabel_CurrentSIRValue();
+	EReference getSIRLabel_DeltaValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getNextSIRValue <em>Next SIR Value</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getProbeValue <em>Probe Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next SIR Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SIRLabel#getNextSIRValue()
+	 * @return the meta object for the reference '<em>Probe Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SIRLabel#getProbeValue()
 	 * @see #getSIRLabel()
 	 * @generated
 	 */
-	EReference getSIRLabel_NextSIRValue();
+	EReference getSIRLabel_ProbeValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getTempValue <em>Temp Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Temp Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SIRLabel#getTempValue()
+	 * @see #getSIRLabel()
+	 * @generated
+	 */
+	EReference getSIRLabel_TempValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getOriginalValue <em>Original Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Original Value</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SIRLabel#getOriginalValue()
+	 * @see #getSIRLabel()
+	 * @generated
+	 */
+	EReference getSIRLabel_OriginalValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getErrorScale <em>Error Scale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Error Scale</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SIRLabel#getErrorScale()
+	 * @see #getSIRLabel()
+	 * @generated
+	 */
+	EReference getSIRLabel_ErrorScale();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.SIRLabelValue <em>SIR Label Value</em>}'.
@@ -7553,50 +6834,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStandardDiseaseModelLabel();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentStandardDiseaseModelLabelValue <em>Current Standard Disease Model Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Standard Disease Model Label Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentStandardDiseaseModelLabelValue()
-	 * @see #getStandardDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getStandardDiseaseModelLabel_CurrentStandardDiseaseModelLabelValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getNextStandardDiseaseModelLabelValue <em>Next Standard Disease Model Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next Standard Disease Model Label Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getNextStandardDiseaseModelLabelValue()
-	 * @see #getStandardDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getStandardDiseaseModelLabel_NextStandardDiseaseModelLabelValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getDeltaStandardDiseaseModelLabelValue <em>Delta Standard Disease Model Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Delta Standard Disease Model Label Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getDeltaStandardDiseaseModelLabelValue()
-	 * @see #getStandardDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getStandardDiseaseModelLabel_DeltaStandardDiseaseModelLabelValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentYStandardDiseaseModelLabelValue <em>Current YStandard Disease Model Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current YStandard Disease Model Label Value</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentYStandardDiseaseModelLabelValue()
-	 * @see #getStandardDiseaseModelLabel()
-	 * @generated
-	 */
-	EReference getStandardDiseaseModelLabel_CurrentYStandardDiseaseModelLabelValue();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue <em>Disease Model Label Value</em>}'.
@@ -7690,6 +6927,39 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSanityChecker();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.graph.IntegrationLabel <em>Integration Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integration Label</em>'.
+	 * @see org.eclipse.stem.core.graph.IntegrationLabel
+	 * @model instanceClass="org.eclipse.stem.core.graph.IntegrationLabel"
+	 * @generated
+	 */
+	EClass getIntegrationLabel();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.graph.IntegrationLabelValue <em>Integration Label Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integration Label Value</em>'.
+	 * @see org.eclipse.stem.core.graph.IntegrationLabelValue
+	 * @model instanceClass="org.eclipse.stem.core.graph.IntegrationLabelValue"
+	 * @generated
+	 */
+	EClass getIntegrationLabelValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.model.IntegrationDecorator <em>Integration Decorator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integration Decorator</em>'.
+	 * @see org.eclipse.stem.core.model.IntegrationDecorator
+	 * @model instanceClass="org.eclipse.stem.core.model.IntegrationDecorator"
+	 * @generated
+	 */
+	EClass getIntegrationDecorator();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel <em>Aggregating SI Disease Model</em>}'.
@@ -7944,22 +7214,6 @@ public interface StandardPackage extends EPackage {
 		EAttribute DISEASE_MODEL__DISEASE_NAME = eINSTANCE.getDiseaseModel_DiseaseName();
 
 		/**
-		 * The meta object literal for the '<em><b>Step Size</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISEASE_MODEL__STEP_SIZE = eINSTANCE.getDiseaseModel_StepSize();
-
-		/**
-		 * The meta object literal for the '<em><b>Current X</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISEASE_MODEL__CURRENT_X = eINSTANCE.getDiseaseModel_CurrentX();
-
-		/**
 		 * The meta object literal for the '<em><b>Relative Tolerance</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8018,54 +7272,6 @@ public interface StandardPackage extends EPackage {
 		EReference DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE = eINSTANCE.getDiseaseModelLabel_DiseaseModelState();
 
 		/**
-		 * The meta object literal for the '<em><b>Current Disease Model Label Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_LABEL_VALUE = eINSTANCE.getDiseaseModelLabel_CurrentDiseaseModelLabelValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Next Disease Model Label Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISEASE_MODEL_LABEL__NEXT_DISEASE_MODEL_LABEL_VALUE = eINSTANCE.getDiseaseModelLabel_NextDiseaseModelLabelValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Delta Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISEASE_MODEL_LABEL__DELTA_VALUE = eINSTANCE.getDiseaseModelLabel_DeltaValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Current Y</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISEASE_MODEL_LABEL__CURRENT_Y = eINSTANCE.getDiseaseModelLabel_CurrentY();
-
-		/**
-		 * The meta object literal for the '<em><b>Current Disease Model Temp Label Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISEASE_MODEL_LABEL__CURRENT_DISEASE_MODEL_TEMP_LABEL_VALUE = eINSTANCE.getDiseaseModelLabel_CurrentDiseaseModelTempLabelValue();
-
-		/**
-		 * The meta object literal for the '<em><b>YScale</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISEASE_MODEL_LABEL__YSCALE = eINSTANCE.getDiseaseModelLabel_YScale();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl <em>Disease Model Label Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8074,22 +7280,6 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DISEASE_MODEL_LABEL_VALUE = eINSTANCE.getDiseaseModelLabelValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Births</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISEASE_MODEL_LABEL_VALUE__BIRTHS = eINSTANCE.getDiseaseModelLabelValue_Births();
-
-		/**
-		 * The meta object literal for the '<em><b>Deaths</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISEASE_MODEL_LABEL_VALUE__DEATHS = eINSTANCE.getDiseaseModelLabelValue_Deaths();
 
 		/**
 		 * The meta object literal for the '<em><b>Disease Deaths</b></em>' attribute feature.
@@ -8220,20 +7410,44 @@ public interface StandardPackage extends EPackage {
 		EClass SEIR_LABEL = eINSTANCE.getSEIRLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Current SEIR Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Delta Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SEIR_LABEL__CURRENT_SEIR_VALUE = eINSTANCE.getSEIRLabel_CurrentSEIRValue();
+		EReference SEIR_LABEL__DELTA_VALUE = eINSTANCE.getSEIRLabel_DeltaValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Next SEIR Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Probe Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SEIR_LABEL__NEXT_SEIR_VALUE = eINSTANCE.getSEIRLabel_NextSEIRValue();
+		EReference SEIR_LABEL__PROBE_VALUE = eINSTANCE.getSEIRLabel_ProbeValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Temp Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEIR_LABEL__TEMP_VALUE = eINSTANCE.getSEIRLabel_TempValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEIR_LABEL__ORIGINAL_VALUE = eINSTANCE.getSEIRLabel_OriginalValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Scale</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEIR_LABEL__ERROR_SCALE = eINSTANCE.getSEIRLabel_ErrorScale();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelValueImpl <em>SEIR Label Value</em>}' class.
@@ -8358,20 +7572,44 @@ public interface StandardPackage extends EPackage {
 		EClass SI_LABEL = eINSTANCE.getSILabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Current SI Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Delta Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SI_LABEL__CURRENT_SI_VALUE = eINSTANCE.getSILabel_CurrentSIValue();
+		EReference SI_LABEL__DELTA_VALUE = eINSTANCE.getSILabel_DeltaValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Next SI Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Probe Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SI_LABEL__NEXT_SI_VALUE = eINSTANCE.getSILabel_NextSIValue();
+		EReference SI_LABEL__PROBE_VALUE = eINSTANCE.getSILabel_ProbeValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Temp Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SI_LABEL__TEMP_VALUE = eINSTANCE.getSILabel_TempValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SI_LABEL__ORIGINAL_VALUE = eINSTANCE.getSILabel_OriginalValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Scale</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SI_LABEL__ERROR_SCALE = eINSTANCE.getSILabel_ErrorScale();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl <em>SI Label Value</em>}' class.
@@ -8420,20 +7658,44 @@ public interface StandardPackage extends EPackage {
 		EClass SIR_LABEL = eINSTANCE.getSIRLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Current SIR Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Delta Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SIR_LABEL__CURRENT_SIR_VALUE = eINSTANCE.getSIRLabel_CurrentSIRValue();
+		EReference SIR_LABEL__DELTA_VALUE = eINSTANCE.getSIRLabel_DeltaValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Next SIR Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Probe Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SIR_LABEL__NEXT_SIR_VALUE = eINSTANCE.getSIRLabel_NextSIRValue();
+		EReference SIR_LABEL__PROBE_VALUE = eINSTANCE.getSIRLabel_ProbeValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Temp Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIR_LABEL__TEMP_VALUE = eINSTANCE.getSIRLabel_TempValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIR_LABEL__ORIGINAL_VALUE = eINSTANCE.getSIRLabel_OriginalValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Scale</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIR_LABEL__ERROR_SCALE = eINSTANCE.getSIRLabel_ErrorScale();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SIRLabelValueImpl <em>SIR Label Value</em>}' class.
@@ -8504,38 +7766,6 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STANDARD_DISEASE_MODEL_LABEL = eINSTANCE.getStandardDiseaseModelLabel();
-
-		/**
-		 * The meta object literal for the '<em><b>Current Standard Disease Model Label Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STANDARD_DISEASE_MODEL_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE = eINSTANCE.getStandardDiseaseModelLabel_CurrentStandardDiseaseModelLabelValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Next Standard Disease Model Label Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STANDARD_DISEASE_MODEL_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE = eINSTANCE.getStandardDiseaseModelLabel_NextStandardDiseaseModelLabelValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Delta Standard Disease Model Label Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STANDARD_DISEASE_MODEL_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE = eINSTANCE.getStandardDiseaseModelLabel_DeltaStandardDiseaseModelLabelValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Current YStandard Disease Model Label Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STANDARD_DISEASE_MODEL_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE = eINSTANCE.getStandardDiseaseModelLabel_CurrentYStandardDiseaseModelLabelValue();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelValueImpl <em>Disease Model Label Value</em>}' class.
@@ -8622,6 +7852,36 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SANITY_CHECKER = eINSTANCE.getSanityChecker();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.graph.IntegrationLabel <em>Integration Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.graph.IntegrationLabel
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getIntegrationLabel()
+		 * @generated
+		 */
+		EClass INTEGRATION_LABEL = eINSTANCE.getIntegrationLabel();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.graph.IntegrationLabelValue <em>Integration Label Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.graph.IntegrationLabelValue
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getIntegrationLabelValue()
+		 * @generated
+		 */
+		EClass INTEGRATION_LABEL_VALUE = eINSTANCE.getIntegrationLabelValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.model.IntegrationDecorator <em>Integration Decorator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.model.IntegrationDecorator
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getIntegrationDecorator()
+		 * @generated
+		 */
+		EClass INTEGRATION_DECORATOR = eINSTANCE.getIntegrationDecorator();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.AggregatingSIDiseaseModelImpl <em>Aggregating SI Disease Model</em>}' class.

@@ -25,6 +25,8 @@
         resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populatedArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validYear" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="2006"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PopulationLabelValue" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>

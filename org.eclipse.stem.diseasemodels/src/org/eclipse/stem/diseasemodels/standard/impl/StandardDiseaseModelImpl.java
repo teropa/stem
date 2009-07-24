@@ -44,8 +44,11 @@ import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.adapters.spatial.geo.preferences.PreferenceConstants;
@@ -345,8 +348,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 					.equals(getPopulationIdentifier());
 
 			// This is the estimated state of the disease for this label
-			final StandardDiseaseModelLabelValue currentState = diseaseLabel
-					.getCurrentYStandardDiseaseModelLabelValue();
+			final StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)diseaseLabel
+					.getProbeValue();
 
 			// 0) Get the migration in this region 
 			final StandardDiseaseModelLabelValue migrationDeltas = getMigrationDeltas(diseaseLabel,time, migrationDelta);
@@ -355,7 +358,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			final StandardDiseaseModelLabelValue pipeTransportDeltas = getPipeTransportationDeltas(diseaseLabel, time, timeDelta, pipeDelta);
 
 			// 2) Compute Birth and Deaths state delta changes
-			final StandardDiseaseModelLabelValue birthDeathDeltas = computeBirthsDeathsDeltas(time, currentState, timeDelta, birthDeathsDelta);
+			final StandardDiseaseModelLabelValue birthDeathDeltas = computeDiseaseDeathsDeltas(time, currentState, timeDelta, birthDeathsDelta);
 
 			StandardDiseaseModelLabelValue diseaseState = currentState;
 				
@@ -373,8 +376,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			 */
 
 			// This is the delta disease label
-			final StandardDiseaseModelLabelValue deltaState = diseaseLabel
-					.getDeltaStandardDiseaseModelLabelValue();
+			final StandardDiseaseModelLabelValue deltaState = (StandardDiseaseModelLabelValue)diseaseLabel
+					.getDeltaValue();
 
 			// Initialize the next state from the current state and then we'll
 			// make the changes to that.
@@ -393,16 +396,16 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			deltaState.reset();
 			
 			// 1) Migration deltas
-			deltaState.add(migrationDeltas);
+			deltaState.add((IntegrationLabelValue)migrationDeltas);
 
 			// 2) Pipe transport deltas
-			deltaState.add(pipeTransportDeltas);
+			deltaState.add((IntegrationLabelValue)pipeTransportDeltas);
 			
 			// 3) Add birth/death deltas
-			deltaState.add(birthDeathDeltas);
+			deltaState.add((IntegrationLabelValue)birthDeathDeltas);
 			
 			// 4) Disease deltas
-			deltaState.add(diseaseDeltas);
+			deltaState.add((IntegrationLabelValue)diseaseDeltas);
 		
 			// and pass on the incidence
 			deltaState.setIncidence(incidence);
@@ -416,6 +419,41 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		} // for
 	}
 
+	public void applyExternalDeltas(STEMTime time, long timeDelta, EList<DynamicLabel> labels) {
+		for (final Iterator<DynamicLabel> currentStateLabelIter = labels
+				.iterator(); currentStateLabelIter.hasNext();) {
+			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					.next();
+			
+			StandardDiseaseModelLabelValue myDelta = (StandardDiseaseModelLabelValue)diseaseLabel.getDeltaValue();
+			Node n = diseaseLabel.getNode();
+			
+			// Find other labels on the node that wants to exchange data
+			
+			EList<NodeLabel> labs = n.getLabels();
+			for(NodeLabel l:labs) {
+				if(l instanceof IntegrationLabel && !l.equals(diseaseLabel)) {
+					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
+					double additions = sdeLabelValue.getAdditions();
+					double substractions = sdeLabelValue.getSubstractions();
+					
+					// Additions are births and goes into the S state
+					myDelta.setS(myDelta.getS() + additions);
+					
+					// Substractions are deaths and are removed from all states
+					StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue());
+					double populationCount = currentState.getPopulationCount();
+					double factor = substractions/populationCount;
+					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe
+			
+					currentState.scale(factor);
+					myDelta.sub((IntegrationLabelValue)currentState);
+				}
+			}
+
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -548,8 +586,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				PopulationLabelValue srcpoplabval = null, destpoplabval = null;
 				for(NodeLabel nlabel:source.getLabels()) {
 					if(nlabel instanceof DiseaseModelLabel) {
-						currsrclabelval = ((DiseaseModelLabel)nlabel).getCurrentDiseaseModelLabelValue();
-						nextsrclabelval = ((DiseaseModelLabel)nlabel).getNextDiseaseModelLabelValue();
+						currsrclabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getCurrentValue();
+						nextsrclabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getNextValue();
 					} else if(nlabel instanceof PopulationLabel) {
 						srcpoplabval = ((PopulationLabel)nlabel).getCurrentPopulationValue();
 					}
@@ -557,8 +595,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				
 				for(NodeLabel nlabel:dest.getLabels()) {
 					if(nlabel instanceof DiseaseModelLabel) {
-						currdestlabelval = ((DiseaseModelLabel)nlabel).getCurrentDiseaseModelLabelValue();
-						nextdestlabelval  =  ((DiseaseModelLabel)nlabel).getNextDiseaseModelLabelValue();
+						currdestlabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getCurrentValue();
+						nextdestlabelval  =  (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getNextValue();
 					} else if(nlabel instanceof PopulationLabel) {
 						destpoplabval = ((PopulationLabel)nlabel).getCurrentPopulationValue();
 					}
@@ -581,9 +619,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				move = (DiseaseModelLabelValue)EcoreUtil.copy(currsrclabelval);
 				
 				move.scale(factor);
-				// Don't touch birth/deaths
-				move.setBirths(0.0);
-				move.setDeaths(0.0);
+				// Don't touch disease deaths
 				move.setDiseaseDeaths(0.0);
 		
 				currdestlabelval.add(move);
@@ -650,31 +686,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	
 		
 	
-	/**
-	 * Compute the number of new population members that are born. We assume
-	 * that the birth rate is the same as the base mortality rate. This assumes
-	 * that the population was relatively stable before the disease. The number
-	 * of births could be less than the number of deaths however when the
-	 * infectious mortality rate is included when computing the number of
-	 * deaths.
-	 * 
-	 * @deprecated
-	 * @param currentLabel
-	 *            the current disease model label
-	 * @param timeDelta
-	 *            the time period (milliseconds) over which the population
-	 *            members are born
-	 * @return the number of new population members that are created during the
-	 *         time delta that enter the <em>Susceptible</em> state.
-	 */
-	public StandardDiseaseModelLabelValue computeBirthsDelta(final StandardDiseaseModelLabel currentLabel,
-			final long timeDelta) {
-	//	return currentLabel.getCurrentStandardDiseaseModelLabelValue()
-	//			.getPopulationCount()
-	//			* getAdjustedBackgroundMortalityRate(timeDelta);
-		return null;
-	} // computeBirths
-
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#initializeDiseaseState(org.eclipse.stem.diseasemodels.standard.DiseaseModelState,
 	 *      org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel)
@@ -840,7 +851,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			DiseaseModelLabelValue returnValue);
 
 	/**
-	 * computeBirthsDeathsDeltas Return delta label value containing state birth/deaths
+	 * computeDiseaseDeathsDeltas Compute the delta vector resulting from disease deaths
 	 * 
 	 * @param time 
 	 * 			  STEM time
@@ -852,7 +863,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 *         deaths in each state.
 	 */
 	
-	public abstract StandardDiseaseModelLabelValue computeBirthsDeathsDeltas(
+	public abstract StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
 			final STEMTime time,
 			final StandardDiseaseModelLabelValue currentLabelValue, 
 			final long timeDelta, 
@@ -900,12 +911,12 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						}
 						if(!found) continue; // skip edge
 						StandardDiseaseModelLabel otherLabel = (StandardDiseaseModelLabel)lab;
-						StandardDiseaseModelLabelValue otherValue = (StandardDiseaseModelLabelValue)otherLabel.getCurrentDiseaseModelTempLabelValue();
+						StandardDiseaseModelLabelValue otherValue = (StandardDiseaseModelLabelValue)otherLabel.getTempValue();
 						StandardDiseaseModelLabelValue change = (StandardDiseaseModelLabelValue)EcoreUtil.copy(otherValue);
 						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
 						double maxFlow = edgeLabelValue.getMaxFlow();
 						double flow = maxFlow;
-						double popCount = otherLabel.getCurrentDiseaseModelTempLabelValue().getPopulationCount();
+						double popCount = ((StandardDiseaseModelLabelValue)otherLabel.getTempValue()).getPopulationCount();
 						if(flow > popCount) flow = popCount; // don't move more people than available.
 						long timePeriod = edgeLabelValue.getTimePeriod();
 						double factor = flow / popCount;
@@ -929,11 +940,11 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						}
 						if(!found) continue; // skip edge
 						StandardDiseaseModelLabel thisLabel = (StandardDiseaseModelLabel)lab;
-						StandardDiseaseModelLabelValue thisValue = (StandardDiseaseModelLabelValue)thisLabel.getCurrentDiseaseModelTempLabelValue();
+						StandardDiseaseModelLabelValue thisValue = (StandardDiseaseModelLabelValue)thisLabel.getTempValue();
 						StandardDiseaseModelLabelValue change = (StandardDiseaseModelLabelValue)EcoreUtil.copy(thisValue);
 						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
 						double maxFlow = edgeLabelValue.getMaxFlow();
-						double popCount = thisLabel.getCurrentDiseaseModelTempLabelValue().getPopulationCount();
+						double popCount = ((StandardDiseaseModelLabelValue)thisLabel.getTempValue()).getPopulationCount();
 						double flow = maxFlow;
 						if(flow > popCount) flow = popCount;
 						long timePeriod = edgeLabelValue.getTimePeriod();
@@ -978,8 +989,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		
 		// Populate the pipe transportation systems
 		this.populatePipeSystemNodes();
-		this.setStepSize(1.0);
-		this.setCurrentX(0.0);
 	} // resetLabels
 
 	/**

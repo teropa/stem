@@ -22,6 +22,7 @@ import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Label;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.impl.URIToNodeMapEntryImpl;
@@ -387,12 +388,8 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 	 */
 	protected void updateFromChildLabel(final SILabel parentLabel,
 			final SILabel childLabel) {
-		final double nextBirths = parentLabel.getNextBirths();
-		final double nextDeaths = parentLabel.getNextDeaths();
 		final double nextDiseaseDeaths = parentLabel.getNextDiseaseDeaths();
 
-		parentLabel.setNextBirths(nextBirths + childLabel.getNextBirths());
-		parentLabel.setNextDeaths(nextDeaths + childLabel.getNextDeaths());
 		parentLabel.setNextDiseaseDeaths(nextDiseaseDeaths
 				+ childLabel.getNextDiseaseDeaths());
 
@@ -702,8 +699,8 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 		for (final Iterator<DynamicLabel> labelIter = getLabelsToUpdate().iterator(); labelIter
 				.hasNext();) {
 			final SILabel siLabel = (SILabel) labelIter.next();
-			siLabel.getCurrentDiseaseModelLabelValue().zeroOutPopulationCount();
-			siLabel.getNextDiseaseModelLabelValue().zeroOutPopulationCount();
+			((StandardDiseaseModelLabelValue) siLabel.getCurrentValue()).zeroOutPopulationCount();
+			((StandardDiseaseModelLabelValue) siLabel.getNextValue()).zeroOutPopulationCount();
 		} // for each population label
 	} // zeroOutPopulationCountsOnLabels
 
@@ -720,6 +717,10 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 		} // for
 	} // resetLabels
 
+	public void doModelSpecificAdjustments(LabelValue label) {
+		// Nothing
+	}
+	
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.SIImpl#toString()
 	 */

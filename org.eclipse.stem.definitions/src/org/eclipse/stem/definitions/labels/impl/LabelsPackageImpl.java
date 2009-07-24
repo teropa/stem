@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EEnum;
 //import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.graph.GraphPackage;
@@ -25,6 +26,7 @@ import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
+import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.definitions.edges.EdgesPackage;
 import org.eclipse.stem.definitions.edges.impl.EdgesPackageImpl;
 import org.eclipse.stem.definitions.labels.AreaLabel;
@@ -232,6 +234,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		ModifierPackage.eINSTANCE.eClass();
 		ScenarioPackage.eINSTANCE.eClass();
 		SequencerPackage.eINSTANCE.eClass();
+		SolverPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		EdgesPackageImpl theEdgesPackage = (EdgesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EdgesPackage.eNS_URI) instanceof EdgesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EdgesPackage.eNS_URI) : EdgesPackage.eINSTANCE);
@@ -371,6 +374,15 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 	 */
 	public EAttribute getPopulationLabel_PopulatedArea() {
 		return (EAttribute)populationLabelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopulationLabel_ValidYear() {
+		return (EAttribute)populationLabelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -680,6 +692,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		createEAttribute(populationLabelEClass, POPULATION_LABEL__NAME);
 		createEReference(populationLabelEClass, POPULATION_LABEL__CURRENT_POPULATION_VALUE);
 		createEAttribute(populationLabelEClass, POPULATION_LABEL__POPULATED_AREA);
+		createEAttribute(populationLabelEClass, POPULATION_LABEL__VALID_YEAR);
 
 		populationLabelValueEClass = createEClass(POPULATION_LABEL_VALUE);
 		createEAttribute(populationLabelValueEClass, POPULATION_LABEL_VALUE__COUNT);
@@ -746,6 +759,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 
 		// Obtain other dependent packages
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -786,6 +800,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		initEAttribute(getPopulationLabel_Name(), ecorePackage.getEString(), "name", null, 0, 1, PopulationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPopulationLabel_CurrentPopulationValue(), this.getPopulationLabelValue(), null, "currentPopulationValue", null, 0, 1, PopulationLabel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getPopulationLabel_PopulatedArea(), ecorePackage.getEDouble(), "populatedArea", "0", 0, 1, PopulationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getPopulationLabel_ValidYear(), theEcorePackage.getEInt(), "validYear", "2006", 0, 1, PopulationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(populationLabelValueEClass, PopulationLabelValue.class, "PopulationLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getPopulationLabelValue_Count(), ecorePackage.getEDouble(), "count", null, 0, 1, PopulationLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

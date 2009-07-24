@@ -12,6 +12,7 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.diseasemodels.standard.DeterministicSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -78,6 +79,10 @@ public class DeterministicSIDiseaseModelImpl extends SIImpl implements
 	@Override
 	protected EClass eStaticClass() {
 		return StandardPackage.Literals.DETERMINISTIC_SI_DISEASE_MODEL;
+	}
+
+	public void doModelSpecificAdjustments(LabelValue label) {
+		// Nothing
 	}
 
 } // DeterministicSIDiseaseModelImpl

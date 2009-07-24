@@ -269,14 +269,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			numberOfSusceptibleToInfected = transmissionRate
 			* currentSIR.getS()* effectiveInfectious;
 		
-		// For the finite difference method make sure we don't exceed the number of people
-		// available in any state
-		
-		if(this.isFiniteDifference()) {
-			if(numberOfRecoveredToSusceptible > currentSIR.getR()) numberOfRecoveredToSusceptible = currentSIR.getR();
-			if(numberOfSusceptibleToInfected > currentSIR.getS()) numberOfSusceptibleToInfected = currentSIR.getS();
-			if(numberOfInfectedToRecovered > currentSIR.getI()) numberOfInfectedToRecovered = currentSIR.getI();
-		}
 		
 		// Determine delta S
 		final double deltaS = numberOfRecoveredToSusceptible - numberOfSusceptibleToInfected;
@@ -290,8 +282,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		ret.setI(deltaI);
 		ret.setIncidence(numberOfInfectedToRecovered);
 		ret.setR(deltaR);
-		ret.setBirths(0);
-		ret.setDeaths(0);
 		ret.setDiseaseDeaths(0);
 		return ret;
 	} // computeTransitions

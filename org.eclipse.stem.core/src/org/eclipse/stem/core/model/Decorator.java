@@ -203,4 +203,12 @@ public interface Decorator extends Identifiable {
 	 */
 	void resetLabels();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model many="false"
+	 * @generated
+	 */
+	EList<DynamicLabel> getLabelsToUpdate(int partition, int max);
+
 } // Decorator

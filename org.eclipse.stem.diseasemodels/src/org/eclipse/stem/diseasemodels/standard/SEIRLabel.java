@@ -34,7 +34,137 @@ import org.eclipse.stem.core.STEMURI;
  * 
  * @model
  */
-public interface SEIRLabel extends SIRLabel {
+public interface SEIRLabel extends StandardDiseaseModelLabel {
+
+	/**
+	 * Returns the value of the '<em><b>Delta Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Delta Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Delta Value</em>' reference.
+	 * @see #setDeltaValue(SEIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSEIRLabel_DeltaValue()
+	 * @model
+	 * @generated
+	 */
+	SEIRLabelValue getDeltaValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getDeltaValue <em>Delta Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Delta Value</em>' reference.
+	 * @see #getDeltaValue()
+	 * @generated
+	 */
+	void setDeltaValue(SEIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Probe Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Probe Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Probe Value</em>' reference.
+	 * @see #setProbeValue(SEIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSEIRLabel_ProbeValue()
+	 * @model
+	 * @generated
+	 */
+	SEIRLabelValue getProbeValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getProbeValue <em>Probe Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Probe Value</em>' reference.
+	 * @see #getProbeValue()
+	 * @generated
+	 */
+	void setProbeValue(SEIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Temp Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Temp Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Temp Value</em>' reference.
+	 * @see #setTempValue(SEIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSEIRLabel_TempValue()
+	 * @model
+	 * @generated
+	 */
+	SEIRLabelValue getTempValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getTempValue <em>Temp Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Temp Value</em>' reference.
+	 * @see #getTempValue()
+	 * @generated
+	 */
+	void setTempValue(SEIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Original Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Original Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Original Value</em>' reference.
+	 * @see #setOriginalValue(SEIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSEIRLabel_OriginalValue()
+	 * @model
+	 * @generated
+	 */
+	SEIRLabelValue getOriginalValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getOriginalValue <em>Original Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Original Value</em>' reference.
+	 * @see #getOriginalValue()
+	 * @generated
+	 */
+	void setOriginalValue(SEIRLabelValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Error Scale</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Error Scale</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Error Scale</em>' reference.
+	 * @see #setErrorScale(SEIRLabelValue)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSEIRLabel_ErrorScale()
+	 * @model
+	 * @generated
+	 */
+	SEIRLabelValue getErrorScale();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SEIRLabel#getErrorScale <em>Error Scale</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Error Scale</em>' reference.
+	 * @see #getErrorScale()
+	 * @generated
+	 */
+	void setErrorScale(SEIRLabelValue value);
 
 	/**
 	 * This is the top-level segment for all type URI's for SEIR disease model

@@ -110,7 +110,7 @@ public class SILabelValueItemProvider extends
 	@Override
 	public String getText(Object object) {
 		SILabelValue siLabelValue = (SILabelValue)object;
-		return getString("_UI_SILabelValue_type") + " " + siLabelValue.getBirths(); //$NON-NLS-1$ //$NON-NLS-2$
+		return getString("_UI_SILabelValue_type") + " " + siLabelValue.getDiseaseDeaths(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

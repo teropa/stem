@@ -12,6 +12,7 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.diseasemodels.standard.DeterministicSIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -73,6 +74,10 @@ public class DeterministicSIRDiseaseModelImpl extends SIRImpl implements
 		return sirDiseaseModel;
 	} // createDeterministicSIRDiseaseModel
 
+	public void doModelSpecificAdjustments(LabelValue label) {
+		// Nothing
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

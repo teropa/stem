@@ -11,7 +11,10 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -20,13 +23,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Disease Model Label</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelImpl#getCurrentStandardDiseaseModelLabelValue <em>Current Standard Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelImpl#getNextStandardDiseaseModelLabelValue <em>Next Standard Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelImpl#getDeltaStandardDiseaseModelLabelValue <em>Delta Standard Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelImpl#getCurrentYStandardDiseaseModelLabelValue <em>Current YStandard Disease Model Label Value</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
@@ -54,7 +50,7 @@ public abstract class StandardDiseaseModelLabelImpl extends
 			// Yes
 			// Ok, set the susceptible population to the count of the number of
 			// population members
-			final StandardDiseaseModelLabelValue sValue = getCurrentStandardDiseaseModelLabelValue();
+			final StandardDiseaseModelLabelValue sValue = (StandardDiseaseModelLabelValue)getCurrentValue();
 
 			sValue.setS(getPopulationLabel().getCurrentPopulationValue()
 					.getCount());
@@ -72,129 +68,31 @@ public abstract class StandardDiseaseModelLabelImpl extends
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public StandardDiseaseModelLabelValue getCurrentStandardDiseaseModelLabelValue() {
-		return (StandardDiseaseModelLabelValue) getCurrentValue();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public StandardDiseaseModelLabelValue getCurrentYStandardDiseaseModelLabelValue() {
-		return (StandardDiseaseModelLabelValue) getCurrentY();
-	} // getEstimatedStandardDiseaseModelLabelValue
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public StandardDiseaseModelLabelValue getDeltaStandardDiseaseModelLabelValue() {
-		return (StandardDiseaseModelLabelValue) getDeltaValue();
-	} // getDeltaStandardDiseaseModelLabelValue
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public StandardDiseaseModelLabelValue getNextStandardDiseaseModelLabelValue() {
-		return (StandardDiseaseModelLabelValue) getNextValue();
-	} // getNextStandardDiseaseModelLabelValue
-	
-	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getS()
 	 */
 	public double getS() {
-		return getCurrentStandardDiseaseModelLabelValue().getS();
+		return (((StandardDiseaseModelLabelValue)getCurrentValue())).getS();
 	} // getS
 
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#setS(double)
 	 */
 	public void setS(double s) {
-		getCurrentStandardDiseaseModelLabelValue().setS(s);
+		(((StandardDiseaseModelLabelValue)getCurrentValue())).setS(s);
 	} // setS
 
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getNextS()
 	 */
 	public double getNextS() {
-		return getNextStandardDiseaseModelLabelValue().getS();
+		return (((StandardDiseaseModelLabelValue)getNextValue())).getS();
 	} // getNextS
 
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#setNextS(double)
 	 */
 	public void setNextS(double s) {
-		getNextStandardDiseaseModelLabelValue().setS(s);
+		(((StandardDiseaseModelLabelValue)getNextValue())).setS(s);
 	} // setNextS
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @param featureID
-	 * @param resolve
-	 * @param coreType
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getCurrentStandardDiseaseModelLabelValue();
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getNextStandardDiseaseModelLabelValue();
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getDeltaStandardDiseaseModelLabelValue();
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getCurrentYStandardDiseaseModelLabelValue();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @param featureID
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__CURRENT_STANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getCurrentStandardDiseaseModelLabelValue() != null;
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__NEXT_STANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getNextStandardDiseaseModelLabelValue() != null;
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__DELTA_STANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getDeltaStandardDiseaseModelLabelValue() != null;
-			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL__CURRENT_YSTANDARD_DISEASE_MODEL_LABEL_VALUE:
-				return getCurrentYStandardDiseaseModelLabelValue() != null;
-		}
-		return super.eIsSet(featureID);
-	}
 
 } // StandardDiseaseModelLabelImpl

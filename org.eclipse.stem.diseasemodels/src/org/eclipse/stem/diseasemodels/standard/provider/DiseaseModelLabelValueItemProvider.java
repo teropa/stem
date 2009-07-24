@@ -67,57 +67,11 @@ public class DiseaseModelLabelValueItemProvider extends LabelValueItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBirthsPropertyDescriptor(object);
-			addDeathsPropertyDescriptor(object);
 			addDiseaseDeathsPropertyDescriptor(object);
 			addPopulationCountPropertyDescriptor(object);
 			addIncidencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Births feature. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addBirthsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiseaseModelLabelValue_births_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModelLabelValue_births_feature", "_UI_DiseaseModelLabelValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE__BIRTHS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Deaths feature. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addDeathsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiseaseModelLabelValue_deaths_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModelLabelValue_deaths_feature", "_UI_DiseaseModelLabelValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE__DEATHS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -200,7 +154,7 @@ public class DiseaseModelLabelValueItemProvider extends LabelValueItemProvider
 	@Override
 	public String getText(Object object) {
 		DiseaseModelLabelValue diseaseModelLabelValue = (DiseaseModelLabelValue)object;
-		return getString("_UI_DiseaseModelLabelValue_type") + " " + diseaseModelLabelValue.getBirths(); //$NON-NLS-1$ //$NON-NLS-2$
+		return getString("_UI_DiseaseModelLabelValue_type") + " " + diseaseModelLabelValue.getDiseaseDeaths(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -218,8 +172,6 @@ public class DiseaseModelLabelValueItemProvider extends LabelValueItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DiseaseModelLabelValue.class)) {
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__BIRTHS:
-			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DEATHS:
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT:
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__INCIDENCE:

@@ -14,11 +14,15 @@ package org.eclipse.stem.diseasemodels.standard.impl;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
 import org.eclipse.stem.definitions.edges.impl.MigrationEdgeLabelImpl;
@@ -28,6 +32,7 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 //import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIR;
 import org.eclipse.stem.diseasemodels.standard.SIRLabel;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
@@ -126,46 +131,21 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	 *      long)
 	 */
 	@Override
-	public StandardDiseaseModelLabelValue computeBirthsDeathsDeltas(
+	public StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
 			final STEMTime time, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
 
 
 		final SIRLabelValue currentSIR = (SIRLabelValue) currentLabelValue;
 		
-		// mu
-		final double adjustedBaseMortalityRate = getAdjustedBackgroundMortalityRate(timeDelta);
-
-		final double adjustedBirthRate = getAdjustedBackgroundBirthRate(timeDelta);
-		
-		// These are the births
-		double births = currentSIR
-					.getPopulationCount()
-					* adjustedBirthRate;
-		
-		// Compute the number of the "susceptible" population that die
-		double numberOfSusceptibleThatDie = adjustedBaseMortalityRate
-				* currentSIR.getS();
-
 		final double adjustedInfectiousMortalityRate = getAdjustedInfectiousMortalityRate(timeDelta);
-		// The number of recovering infectious that die (not due to the disease)
-		final double numberOfRecoveringInfectiousThatDie = (adjustedBaseMortalityRate+adjustedInfectiousMortalityRate)
-				* currentSIR.getI();
-		
 		final double diseaseDeaths = adjustedInfectiousMortalityRate
 				* currentSIR.getI();
 
-		// Compute the number of the "recovered" population that die
-		double numberOfRecoveredThatDie = adjustedBaseMortalityRate
-				* currentSIR.getR();
-
 		SIRLabelValueImpl ret = (SIRLabelValueImpl)returnValue;
-		ret.setS(births-numberOfSusceptibleThatDie);
-		ret.setI(-numberOfRecoveringInfectiousThatDie);
+		ret.setS(0.0);
+		ret.setI(-diseaseDeaths);
 		ret.setIncidence(0.0);
-		ret.setR(-numberOfRecoveredThatDie);
-		ret.setBirths(births);
-		ret.setDeaths(numberOfSusceptibleThatDie + numberOfRecoveringInfectiousThatDie
-				+ numberOfRecoveredThatDie);
+		ret.setR(0.0);
 		ret.setDiseaseDeaths(diseaseDeaths);
 		return ret;
 	} // computeDeaths
@@ -222,14 +202,6 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 			numberOfSusceptibleToInfected = transmissionRate
 			* currentSIR.getS()* effectiveInfectious;
 		
-		// For the finite difference method make sure we don't exceed the number of people
-		// available in any state
-		
-		if(this.isFiniteDifference()) {
-			if(numberOfRecoveredToSusceptible > currentSIR.getR()) numberOfRecoveredToSusceptible = currentSIR.getR();
-			if(numberOfSusceptibleToInfected > currentSIR.getS()) numberOfSusceptibleToInfected = currentSIR.getS();
-			if(numberOfInfectedToRecovered > currentSIR.getI()) numberOfInfectedToRecovered = currentSIR.getI();
-		}
 		
 		// Determine delta S
 		final double deltaS = numberOfRecoveredToSusceptible - numberOfSusceptibleToInfected;
@@ -243,8 +215,6 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 		ret.setI(deltaI);
 		ret.setIncidence(numberOfInfectedToRecovered);
 		ret.setR(deltaR);
-		ret.setBirths(0);
-		ret.setDeaths(0);
 		ret.setDiseaseDeaths(0);
 		return ret;
 		
@@ -322,8 +292,6 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 		ret.setI(deltaI);
 		ret.setIncidence(0);
 		ret.setR(deltaR);
-		ret.setBirths(0);
-		ret.setDeaths(0);
 		ret.setDiseaseDeaths(0);
 		return ret;
 	} // getMigrationDeltas
@@ -399,6 +367,8 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 				* ((double) timeDelta / (double) getTimePeriod());
 	} // getAdjustedImmunityRate
 
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * 

@@ -17,6 +17,7 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
 
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 
 import org.eclipse.stem.core.modifier.Modifiable;
@@ -118,6 +119,10 @@ public class GlobalinfluenzamodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDiseaseModel(DiseaseModel object) {
 				return createDiseaseModelAdapter();
+			}
+			@Override
+			public Adapter caseIntegrationDecorator(IntegrationDecorator object) {
+				return createIntegrationDecoratorAdapter();
 			}
 			@Override
 			public Adapter caseStandardDiseaseModel(StandardDiseaseModel object) {
@@ -272,6 +277,20 @@ public class GlobalinfluenzamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiseaseModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.model.IntegrationDecorator <em>Integration Decorator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.model.IntegrationDecorator
+	 * @generated
+	 */
+	public Adapter createIntegrationDecoratorAdapter() {
 		return null;
 	}
 

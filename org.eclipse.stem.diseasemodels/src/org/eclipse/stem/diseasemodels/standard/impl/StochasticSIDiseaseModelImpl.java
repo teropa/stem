@@ -17,6 +17,7 @@ import java.util.Random;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 //import org.eclipse.stem.diseasemodels.standard.SI;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 //import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
@@ -159,10 +160,10 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	 */
 	
 	public void doModelSpecificAdjustments(
-			final StandardDiseaseModelLabelValue state) {
+			final LabelValue state) {
 			final SILabelValue currentSI = (SILabelValue) state;
 			double oldI = currentSI.getI();
-			double incidence = state.getIncidence();
+			double incidence = currentSI.getIncidence();
 			double newIncidence = incidence*computeNoise();
 			double diff = newIncidence - incidence;
 			

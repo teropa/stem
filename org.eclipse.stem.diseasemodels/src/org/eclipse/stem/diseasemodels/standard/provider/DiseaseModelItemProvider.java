@@ -75,8 +75,6 @@ public class DiseaseModelItemProvider extends NodeDecoratorItemProvider
 			addDiseaseNamePropertyDescriptor(object);
 			addPopulationIdentifierPropertyDescriptor(object);
 			addTimePeriodPropertyDescriptor(object);
-			addBackgroundMortalityRatePropertyDescriptor(object);
-			addBackgroundBirthRatePropertyDescriptor(object);
 			
 			addFrequencyDependentPropertyDescriptor(object);
 			
@@ -116,6 +114,28 @@ public class DiseaseModelItemProvider extends NodeDecoratorItemProvider
 	}
 	
 	/**
+	 * This adds a property descriptor for the Background Mortality Rate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBackgroundMortalityRatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DiseaseModel_backgroundMortalityRate_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModel_backgroundMortalityRate_feature", "_UI_DiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Time Period feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -154,27 +174,6 @@ public class DiseaseModelItemProvider extends NodeDecoratorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Background Mortality Rate feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBackgroundMortalityRatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiseaseModel_backgroundMortalityRate_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModel_backgroundMortalityRate_feature", "_UI_DiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -294,8 +293,6 @@ public class DiseaseModelItemProvider extends NodeDecoratorItemProvider
 			case StandardPackage.DISEASE_MODEL__POPULATION_IDENTIFIER:
 			case StandardPackage.DISEASE_MODEL__TIME_PERIOD:
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
-			case StandardPackage.DISEASE_MODEL__STEP_SIZE:
-			case StandardPackage.DISEASE_MODEL__CURRENT_X:
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
 			case StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE:
 			case StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT:

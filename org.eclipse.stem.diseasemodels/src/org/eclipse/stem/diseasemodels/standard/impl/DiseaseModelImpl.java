@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.Graph;
@@ -43,8 +44,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#getPopulationIdentifier <em>Population Identifier</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#getTimePeriod <em>Time Period</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#getDiseaseName <em>Disease Name</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#getStepSize <em>Step Size</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#getCurrentX <em>Current X</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#getRelativeTolerance <em>Relative Tolerance</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#isFiniteDifference <em>Finite Difference</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#isFrequencyDependent <em>Frequency Dependent</em>}</li>
@@ -58,7 +57,8 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		DiseaseModel {
 	/**
 	 * The default value of the '{@link #getBackgroundMortalityRate() <em>Background Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBackgroundMortalityRate()
 	 * @generated
 	 * @ordered
@@ -67,7 +67,8 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 
 	/**
 	 * The cached value of the '{@link #getBackgroundMortalityRate() <em>Background Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBackgroundMortalityRate()
 	 * @generated
 	 * @ordered
@@ -128,46 +129,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected String diseaseName = DISEASE_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getStepSize() <em>Step Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStepSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double STEP_SIZE_EDEFAULT = 1.0;
-
-	/**
-	 * The cached value of the '{@link #getStepSize() <em>Step Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStepSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected double stepSize = STEP_SIZE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCurrentX() <em>Current X</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentX()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double CURRENT_X_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getCurrentX() <em>Current X</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentX()
-	 * @generated
-	 * @ordered
-	 */
-	protected double currentX = CURRENT_X_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRelativeTolerance() <em>Relative Tolerance</em>}' attribute.
@@ -292,6 +253,27 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getBackgroundMortalityRate() {
+		return backgroundMortalityRate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBackgroundMortalityRate(double newBackgroundMortalityRate) {
+		double oldBackgroundMortalityRate = backgroundMortalityRate;
+		backgroundMortalityRate = newBackgroundMortalityRate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, oldBackgroundMortalityRate, backgroundMortalityRate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * @return
 	 * 
@@ -345,33 +327,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getBackgroundMortalityRate() {
-		return backgroundMortalityRate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @param newBackgroundMortalityRate
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBackgroundMortalityRate(double newBackgroundMortalityRate) {
-		double oldBackgroundMortalityRate = backgroundMortalityRate;
-		backgroundMortalityRate = newBackgroundMortalityRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, oldBackgroundMortalityRate, backgroundMortalityRate));
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -388,48 +343,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		diseaseName = newDiseaseName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__DISEASE_NAME, oldDiseaseName, diseaseName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getStepSize() {
-		return stepSize;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStepSize(double newStepSize) {
-		double oldStepSize = stepSize;
-		stepSize = newStepSize;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__STEP_SIZE, oldStepSize, stepSize));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getCurrentX() {
-		return currentX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentX(double newCurrentX) {
-		double oldCurrentX = currentX;
-		currentX = newCurrentX;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__CURRENT_X, oldCurrentX, currentX));
 	}
 
 	/**
@@ -626,11 +539,10 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		final List<PopulationLabel> retValue = new ArrayList<PopulationLabel>();
 
 		// Iterate through all of the population labels in the graph
-		for (Iterator<NodeLabel> populationLabelIter = graph.getNodeLabelsByTypeURI(
-				PopulationLabel.URI_TYPE_POPULATION_LABEL).iterator(); populationLabelIter
-				.hasNext();) {
-			final PopulationLabel populationLabel = (PopulationLabel) populationLabelIter
-					.next();
+		EList<NodeLabel> labels = graph.getNodeLabelsByTypeURI(
+				PopulationLabel.URI_TYPE_POPULATION_LABEL);
+		for (NodeLabel pl:labels) {
+			final PopulationLabel populationLabel = (PopulationLabel) pl;
 			// Is this label for the population we're looking for?
 			if (populationLabel.getPopulationIdentifier().equals(
 					populationIdentifier)) {
@@ -717,10 +629,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 				return new Long(getTimePeriod());
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
 				return getDiseaseName();
-			case StandardPackage.DISEASE_MODEL__STEP_SIZE:
-				return new Double(getStepSize());
-			case StandardPackage.DISEASE_MODEL__CURRENT_X:
-				return new Double(getCurrentX());
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
 				return new Double(getRelativeTolerance());
 			case StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE:
@@ -756,12 +664,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 				return;
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
 				setDiseaseName((String)newValue);
-				return;
-			case StandardPackage.DISEASE_MODEL__STEP_SIZE:
-				setStepSize(((Double)newValue).doubleValue());
-				return;
-			case StandardPackage.DISEASE_MODEL__CURRENT_X:
-				setCurrentX(((Double)newValue).doubleValue());
 				return;
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
 				setRelativeTolerance(((Double)newValue).doubleValue());
@@ -802,12 +704,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
 				setDiseaseName(DISEASE_NAME_EDEFAULT);
 				return;
-			case StandardPackage.DISEASE_MODEL__STEP_SIZE:
-				setStepSize(STEP_SIZE_EDEFAULT);
-				return;
-			case StandardPackage.DISEASE_MODEL__CURRENT_X:
-				setCurrentX(CURRENT_X_EDEFAULT);
-				return;
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
 				setRelativeTolerance(RELATIVE_TOLERANCE_EDEFAULT);
 				return;
@@ -844,10 +740,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 				return timePeriod != TIME_PERIOD_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
 				return DISEASE_NAME_EDEFAULT == null ? diseaseName != null : !DISEASE_NAME_EDEFAULT.equals(diseaseName);
-			case StandardPackage.DISEASE_MODEL__STEP_SIZE:
-				return stepSize != STEP_SIZE_EDEFAULT;
-			case StandardPackage.DISEASE_MODEL__CURRENT_X:
-				return currentX != CURRENT_X_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
 				return relativeTolerance != RELATIVE_TOLERANCE_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE:

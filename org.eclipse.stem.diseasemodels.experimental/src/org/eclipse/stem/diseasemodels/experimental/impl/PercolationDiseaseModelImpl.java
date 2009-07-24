@@ -180,15 +180,6 @@ public class PercolationDiseaseModelImpl extends StochasticSEIRDiseaseModelImpl 
 		double numberOfExposedToInfectious = getAdjustedIncubationRate(timeDelta)
 				* currentSEIR.getE();
 		
-		// For the finite difference method make sure we don't exceed the number of people
-		// available in any state
-		
-		if(this.isFiniteDifference()) {
-			if(numberOfRecoveredToSusceptible > currentSEIR.getR()) numberOfRecoveredToSusceptible = currentSEIR.getR();
-			if(numberOfSusceptibleToExposed > currentSEIR.getS()) numberOfSusceptibleToExposed = currentSEIR.getS();
-			if(numberOfExposedToInfectious > currentSEIR.getE()) numberOfExposedToInfectious = currentSEIR.getE();
-			if(numberOfInfectedToRecovered > currentSEIR.getI()) numberOfInfectedToRecovered = currentSEIR.getI();
-		}
 		
 		final double deltaS = numberOfRecoveredToSusceptible - numberOfSusceptibleToExposed;
 		final double deltaE = numberOfSusceptibleToExposed - numberOfExposedToInfectious;
@@ -201,8 +192,6 @@ public class PercolationDiseaseModelImpl extends StochasticSEIRDiseaseModelImpl 
 		ret.setI(deltaI);
 		ret.setIncidence(numberOfSusceptibleToExposed);
 		ret.setR(deltaR);
-		ret.setBirths(0);
-		ret.setDeaths(0);
 		ret.setDiseaseDeaths(0);
 		return ret;
 	

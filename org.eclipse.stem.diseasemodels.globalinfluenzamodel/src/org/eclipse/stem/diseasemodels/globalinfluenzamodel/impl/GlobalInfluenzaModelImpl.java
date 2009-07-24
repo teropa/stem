@@ -330,15 +330,6 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 			numberOfSusceptibleToInfected = transmissionRate
 			* currentSIR.getS()* effectiveInfectious;
 		
-		// For the finite difference method make sure we don't exceed the number of people
-		// available in any state
-		
-		if(this.isFiniteDifference()) {
-			if(numberOfRecoveredToSusceptible > currentSIR.getR()) numberOfRecoveredToSusceptible = currentSIR.getR();
-			if(numberOfSusceptibleToInfected > currentSIR.getS()) numberOfSusceptibleToInfected = currentSIR.getS();
-			if(numberOfInfectedToRecovered > currentSIR.getI()) numberOfInfectedToRecovered = currentSIR.getI();
-		}
-		
 		// Determine delta S
 		final double deltaS = numberOfRecoveredToSusceptible - numberOfSusceptibleToInfected;
 			// Determine delta I
@@ -351,8 +342,6 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 		ret.setI(deltaI);
 		ret.setIncidence(numberOfInfectedToRecovered);
 		ret.setR(deltaR);
-		ret.setBirths(0);
-		ret.setDeaths(0);
 		ret.setDiseaseDeaths(0);
 		return ret;
 	} // computeTransitions
@@ -511,15 +500,15 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH:
-				return getLatitudeSigmoidWidth();
+				return new Double(getLatitudeSigmoidWidth());
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT:
-				return getSeasonalModulationExponent();
+				return new Double(getSeasonalModulationExponent());
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD:
-				return getModulationPeriod();
+				return new Double(getModulationPeriod());
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT:
-				return getModulationPhaseShift();
+				return new Double(getModulationPhaseShift());
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR:
-				return getSeasonalModulationFloor();
+				return new Double(getSeasonalModulationFloor());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -533,19 +522,19 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH:
-				setLatitudeSigmoidWidth((Double)newValue);
+				setLatitudeSigmoidWidth(((Double)newValue).doubleValue());
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT:
-				setSeasonalModulationExponent((Double)newValue);
+				setSeasonalModulationExponent(((Double)newValue).doubleValue());
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD:
-				setModulationPeriod((Double)newValue);
+				setModulationPeriod(((Double)newValue).doubleValue());
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT:
-				setModulationPhaseShift((Double)newValue);
+				setModulationPhaseShift(((Double)newValue).doubleValue());
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR:
-				setSeasonalModulationFloor((Double)newValue);
+				setSeasonalModulationFloor(((Double)newValue).doubleValue());
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -1,6 +1,8 @@
 // StandardDiseaseModelLabel.java
 package org.eclipse.stem.diseasemodels.standard;
 
+import org.eclipse.stem.core.graph.IntegrationLabel;
+
 /*******************************************************************************
  * Copyright (c) 2006 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
@@ -29,7 +31,7 @@ package org.eclipse.stem.diseasemodels.standard;
  * 
  * @model abstract="true"
  */
-public interface StandardDiseaseModelLabel extends DiseaseModelLabel {
+public interface StandardDiseaseModelLabel extends DiseaseModelLabel, IntegrationLabel {
 	/**
 	 * This is the top-level segment for all type URI's for standard disease
 	 * model labels.
@@ -61,28 +63,5 @@ public interface StandardDiseaseModelLabel extends DiseaseModelLabel {
 	 */
 	public void setNextS(double s);
 
-	/**
-	 * @return the current standard disease model label value
-	 * @model volatile="true" changeable="false" resolveProxies="false"
-	 */
-	StandardDiseaseModelLabelValue getCurrentStandardDiseaseModelLabelValue();
-
-	/**
-	 * @return the next standard disease model label value
-	 * @model volatile="true" changeable="false" resolveProxies="false"
-	 */
-	StandardDiseaseModelLabelValue getNextStandardDiseaseModelLabelValue();
 	
-	/**
-	 * @return return the delta changes calculated by the disease model at the current label value
-	 * @model volatile="true" changeable="false" resolveProxies="false"
-	 */
-	StandardDiseaseModelLabelValue getDeltaStandardDiseaseModelLabelValue();
-	
-	/**
-	 * @return return the "current Y" disease model label value (used internally when calculating the next label value)
-	 * @model volatile="true" changeable="false" resolveProxies="false"
-	 */
-	StandardDiseaseModelLabelValue getCurrentYStandardDiseaseModelLabelValue();
-
 } // StandardDiseaseModelLabel

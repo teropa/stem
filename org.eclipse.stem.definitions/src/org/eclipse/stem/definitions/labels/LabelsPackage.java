@@ -527,13 +527,22 @@ public interface LabelsPackage extends EPackage {
 	int POPULATION_LABEL__POPULATED_AREA = GraphPackage.STATIC_NODE_LABEL_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Valid Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_LABEL__VALID_YEAR = GraphPackage.STATIC_NODE_LABEL_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Population Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POPULATION_LABEL_FEATURE_COUNT = GraphPackage.STATIC_NODE_LABEL_FEATURE_COUNT + 4;
+	int POPULATION_LABEL_FEATURE_COUNT = GraphPackage.STATIC_NODE_LABEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.definitions.labels.impl.PopulationLabelValueImpl <em>Population Label Value</em>}' class.
@@ -1194,6 +1203,17 @@ public interface LabelsPackage extends EPackage {
 	EAttribute getPopulationLabel_PopulatedArea();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.definitions.labels.PopulationLabel#getValidYear <em>Valid Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Valid Year</em>'.
+	 * @see org.eclipse.stem.definitions.labels.PopulationLabel#getValidYear()
+	 * @see #getPopulationLabel()
+	 * @generated
+	 */
+	EAttribute getPopulationLabel_ValidYear();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.definitions.labels.PopulationLabelValue <em>Population Label Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1639,6 +1659,14 @@ public interface LabelsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POPULATION_LABEL__POPULATED_AREA = eINSTANCE.getPopulationLabel_PopulatedArea();
+
+		/**
+		 * The meta object literal for the '<em><b>Valid Year</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_LABEL__VALID_YEAR = eINSTANCE.getPopulationLabel_ValidYear();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.definitions.labels.impl.PopulationLabelValueImpl <em>Population Label Value</em>}' class.

@@ -107,7 +107,7 @@ public class SIRLabelValueItemProvider extends SILabelValueItemProvider
 	@Override
 	public String getText(Object object) {
 		SIRLabelValue sirLabelValue = (SIRLabelValue)object;
-		return getString("_UI_SIRLabelValue_type") + " " + sirLabelValue.getBirths(); //$NON-NLS-1$ //$NON-NLS-2$
+		return getString("_UI_SIRLabelValue_type") + " " + sirLabelValue.getDiseaseDeaths(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

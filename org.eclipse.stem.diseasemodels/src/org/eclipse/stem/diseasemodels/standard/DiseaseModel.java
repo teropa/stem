@@ -52,7 +52,8 @@ public interface DiseaseModel extends NodeDecorator, SanityChecker, Modifiable {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getBackgroundMortalityRate <em>Background Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Background Mortality Rate</em>' attribute.
 	 * @see #getBackgroundMortalityRate()
 	 * @generated
@@ -89,60 +90,6 @@ public interface DiseaseModel extends NodeDecorator, SanityChecker, Modifiable {
 	 * @generated
 	 */
 	void setDiseaseName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Step Size</b></em>' attribute.
-	 * The default value is <code>"1.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Step Size</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Step Size</em>' attribute.
-	 * @see #setStepSize(double)
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getDiseaseModel_StepSize()
-	 * @model default="1.0"
-	 * @generated
-	 */
-	double getStepSize();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getStepSize <em>Step Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Step Size</em>' attribute.
-	 * @see #getStepSize()
-	 * @generated
-	 */
-	void setStepSize(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Current X</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Current X</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current X</em>' attribute.
-	 * @see #setCurrentX(double)
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getDiseaseModel_CurrentX()
-	 * @model default="0.0"
-	 * @generated
-	 */
-	double getCurrentX();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel#getCurrentX <em>Current X</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current X</em>' attribute.
-	 * @see #getCurrentX()
-	 * @generated
-	 */
-	void setCurrentX(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Relative Tolerance</b></em>' attribute.

@@ -14,6 +14,7 @@ package org.eclipse.stem.diseasemodels.standard.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
@@ -95,8 +96,8 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	 */
 	public SIRLabelValueImpl(final double s, final double i, 
 			final double incidence, final double r,
-			final double births, final double deaths, final double diseaseDeaths) {
-		super(s, i, incidence, births, deaths, diseaseDeaths);
+			final double diseaseDeaths) {
+		super(s, i, incidence, diseaseDeaths);
 		this.r = r;
 	} // SIRLabelValueImpl
 
@@ -128,8 +129,8 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	 * <!-- end-user-doc -->
 	 */
 	public SIRLabelValueImpl(final double s, final double i, 
-			final double r, final double births, final double deaths, final double diseaseDeaths) {
-		super(s, i, 0.0, births, deaths, diseaseDeaths);
+			final double r,  final double diseaseDeaths) {
+		super(s, i, 0.0, diseaseDeaths);
 		this.r = r;
 	} // SIRLabelValueImpl
 
@@ -205,7 +206,7 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#set(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
 	@Override
-	public DiseaseModelLabelValue set(DiseaseModelLabelValue value) {
+	public DiseaseModelLabelValue set(IntegrationLabelValue value) {
 		super.set(value);
 		setR(((SIRLabelValue) value).getR());
 		return this;
@@ -215,7 +216,7 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#add(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
 	@Override
-	public DiseaseModelLabelValue add(DiseaseModelLabelValue value) {
+	public DiseaseModelLabelValue add(IntegrationLabelValue value) {
 		super.add(value);
 		setR(getR() + ((SIRLabelValue) value).getR());
 		return this;
@@ -225,7 +226,7 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl#sub(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue)
 	 */
 	@Override
-	public DiseaseModelLabelValue sub(DiseaseModelLabelValue value) {
+	public DiseaseModelLabelValue sub(IntegrationLabelValue value) {
 		super.sub(value);
 		setR(getR() - ((SIRLabelValue) value).getR());
 		return this;
@@ -251,23 +252,26 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	} // scale
 
 
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	public double scaledmax(DiseaseModelLabelValue scale) {
-		SIRLabelValue _scale = (SIRLabelValue)scale;
+	
+	public IntegrationLabelValue divide(IntegrationLabelValue d) {
+		SIRLabelValue _scale = (SIRLabelValue)d;
 		double sScaled = Math.abs(s) / Math.abs(_scale.getS());
 		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
 		double rScaled = Math.abs(r) / Math.abs(_scale.getR());
-		double max;
-		if(sScaled > iScaled && sScaled > rScaled)
-			max = sScaled;
-		else if(iScaled > rScaled) max = iScaled;
-		else max = rScaled;
-		return max;  
-	} // maxValue
+		setS(sScaled);
+		setI(iScaled);
+		setR(rScaled);
+		return this;
+	}
 	
+	public double max() {
+		double max;
+		if(s > i && s > r)
+			max = s;
+		else if(i > r) max = i;
+		else max = r;
+		return max;  
+	}
 	/**
 	 * Adjust when a delta value is bad, e.g. forces the 
 	 * target to go negative in any state.
@@ -425,10 +429,6 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 		result.append(getFormatter().format(i));
 		result.append(", r:"); //$NON-NLS-1$
 		result.append(getFormatter().format(r));
-		result.append(", B:"); //$NON-NLS-1$
-		result.append(getFormatter().format(getBirths()));
-		result.append(", D:"); //$NON-NLS-1$
-		result.append(getFormatter().format(getDeaths()));
 		result.append(", DD:"); //$NON-NLS-1$
 		result.append(getFormatter().format(getDiseaseDeaths()));
 		return result.toString();

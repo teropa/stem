@@ -107,7 +107,7 @@ public class SEIRLabelValueItemProvider extends SIRLabelValueItemProvider
 	@Override
 	public String getText(Object object) {
 		SEIRLabelValue seirLabelValue = (SEIRLabelValue)object;
-		return getString("_UI_SEIRLabelValue_type") + " " + seirLabelValue.getBirths(); //$NON-NLS-1$ //$NON-NLS-2$
+		return getString("_UI_SEIRLabelValue_type") + " " + seirLabelValue.getDiseaseDeaths(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
