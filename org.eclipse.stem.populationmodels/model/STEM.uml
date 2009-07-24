@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_VE-VEWEWEd6AaLW1oRfeyw" name="Package">
+  <elementImport xmi:id="_VIQSkGEWEd6AaLW1oRfeyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_VIZcgGEWEd6AaLW1oRfeyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="_VIZcgWEWEd6AaLW1oRfeyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <elementImport xmi:id="_VIZcgmEWEd6AaLW1oRfeyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Zj0e8GEWEd6AaLW1oRfeyw" name="Decorator"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_dcEi4GEWEd6AaLW1oRfeyw" name="EntityDecorator">
+    <generalization xmi:id="_nnjfcGEWEd6AaLW1oRfeyw" general="_Zj0e8GEWEd6AaLW1oRfeyw"/>
+    <ownedAttribute xmi:id="_2KIYEGEWEd6AaLW1oRfeyw" name="populationIdentifier" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_METAMODELS/UML.metamodel.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_f6xZ8GEWEd6AaLW1oRfeyw" name="PopulationModel">
+    <generalization xmi:id="_qU2zMGEWEd6AaLW1oRfeyw" general="_dcEi4GEWEd6AaLW1oRfeyw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_igxL0GEWEd6AaLW1oRfeyw" name="DiseaseModel">
+    <generalization xmi:id="_ppC2EGEWEd6AaLW1oRfeyw" general="_dcEi4GEWEd6AaLW1oRfeyw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_9IRO4GEWEd6AaLW1oRfeyw" name="StandardPopulationModel">
+    <generalization xmi:id="__1kioGEWEd6AaLW1oRfeyw" general="_f6xZ8GEWEd6AaLW1oRfeyw"/>
+    <ownedAttribute xmi:id="_ybZHIGGzEd6AaLW1oRfeyw" name="birthRate" aggregation="composite"/>
+    <ownedAttribute xmi:id="_2Bww4GGzEd6AaLW1oRfeyw" name="deathRate" aggregation="composite"/>
+    <ownedAttribute xmi:id="_5aIa4GGzEd6AaLW1oRfeyw" name="location" aggregation="composite"/>
+    <ownedAttribute xmi:id="_vBSJAGG5Ed6AaLW1oRfeyw" name="population" aggregation="composite"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-e2AQGEWEd6AaLW1oRfeyw" name="StandardDiseaseModel">
+    <generalization xmi:id="_AVnUoGEXEd6AaLW1oRfeyw" general="_igxL0GEWEd6AaLW1oRfeyw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_qwJD8GG5Ed6AaLW1oRfeyw" name="PopulationLabel"/>
+</uml:Package>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="populationmodel" name="%EP_Populationmodel" schema="schema/populationmodel.exsd"/>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///org/eclipse/stem/populationmodels/standard"
+            class="org.eclipse.stem.populationmodels.standard.StandardPackage"
+            genModel="model/standard.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory"
+            uri="http:///org/eclipse/stem/populationmodels/standard"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.stem.populationmodels.populationmodel">
+      <classdef
+            class="org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelImpl">
+      </classdef>
+      <dublin_core
+            category_id="/"
+            identifier="org.eclipse.stem.populationmodels.dublin_core1"
+            title="org.eclipse.stem.populationmodels.dublin_core1">
+      </dublin_core>
+   </extension>
+
+</plugin>
