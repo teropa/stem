@@ -71,7 +71,7 @@ public abstract class SIRLabelValueTestUtil extends TestCase{
 									if(skipValueSet(iteration++, diseaseDeaths, deaths, s, e, i, r)){
 										continue;
 									}
-									SIRLabelValueImpl modelLableValue = new SIRLabelValueImpl(s, i, r, births, deaths,	diseaseDeaths);
+									SIRLabelValueImpl modelLableValue = new SIRLabelValueImpl(s, i, r, diseaseDeaths);
 									assertTrue("The SIRLabelValueImpl: " + modelLableValue + " is insane!", modelLableValue.sane());
 									modelLevelValues.add(modelLableValue);
 									System.out.println(modelLevelValues.size());
@@ -129,7 +129,7 @@ public abstract class SIRLabelValueTestUtil extends TestCase{
 	 */
 	public static SIRLabelValueImpl cloneSIRLabelValueImpl(SIRLabelValueImpl original){
 		SIRLabelValueImpl value =  new SIRLabelValueImpl(original.getS(), original.getI(), 
-				original.getR(), original.getBirths(), original.getDeaths(), original.getDiseaseDeaths());
+				original.getR(), original.getDiseaseDeaths());
 		return value;
 	}
 
@@ -220,8 +220,6 @@ public abstract class SIRLabelValueTestUtil extends TestCase{
 			setS(s);
 			setI(i);
 			setR(r);
-			setBirths(births);
-			setDeaths(deaths);
 			setDiseaseDeaths(diseaseDeaths);
 			setDiseaseModelState(newDiseaseModelState);
 			setNode(newNode);

@@ -107,11 +107,11 @@ public class ForcingDiseaseModelTest extends TestCase {
 	public void testForcingDiseaseModel(){
 		ForcingDiseaseModelTesterImpl forcingDiseaseModel = new ForcingDiseaseModelTesterImpl();
 		SIRLabel label = StandardFactoryImpl.eINSTANCE.createSIRLabel();
-		SIRLabelValue labelVal = (SIRLabelValue)label.getCurrentY();
+		SIRLabelValue labelVal = (SIRLabelValue)label.getProbeValue();
 		labelVal.setS(1000d);
 		labelVal.setI(50d);
 		labelVal.setR(40d);
-		SIRLabelValueImpl retVal = new SIRLabelValueImpl(0d, 0d, 0d, 0d, 0d, 0d);
+		SIRLabelValueImpl retVal = new SIRLabelValueImpl(0d, 0d, 0d, 0d);
 		STEMTime time = ModelFactory.eINSTANCE.createSTEMTime();
 
 		forcingDiseaseModel.computeDiseaseDeltas(time, labelVal, label, 86400000, retVal);

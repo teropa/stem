@@ -17,15 +17,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>Disease Model Label</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentStandardDiseaseModelLabelValue() <em>Current Standard Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getNextStandardDiseaseModelLabelValue() <em>Next Standard Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getDeltaStandardDiseaseModelLabelValue() <em>Delta Standard Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentYStandardDiseaseModelLabelValue() <em>Current YStandard Disease Model Label Value</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public abstract class StandardDiseaseModelLabelTest extends
@@ -62,8 +53,8 @@ public abstract class StandardDiseaseModelLabelTest extends
 	 */
 	public void testGetCurrentStandardDiseaseModelLabelValue() {
 		final StandardDiseaseModelLabel standardLabel = getFixture();
-		final StandardDiseaseModelLabelValue value = standardLabel
-				.getCurrentStandardDiseaseModelLabelValue();
+		final StandardDiseaseModelLabelValue value = (StandardDiseaseModelLabelValue)standardLabel
+				.getCurrentValue();
 		assertNotNull(value);
 	} // testGetCurrentStandardDiseaseModelLabelValue
 
@@ -76,36 +67,10 @@ public abstract class StandardDiseaseModelLabelTest extends
 	 */
 	public void testGetNextStandardDiseaseModelLabelValue() {
 		final StandardDiseaseModelLabel standardLabel = getFixture();
-		final StandardDiseaseModelLabelValue value = standardLabel
-				.getNextStandardDiseaseModelLabelValue();
+		final StandardDiseaseModelLabelValue value = (StandardDiseaseModelLabelValue)standardLabel
+				.getNextValue();
 		assertNotNull(value);
 	} // testGetNextStandardDiseaseModelLabelValue
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getDeltaStandardDiseaseModelLabelValue() <em>Delta Standard Disease Model Label Value</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getDeltaStandardDiseaseModelLabelValue()
-	 * @generated
-	 */
-	public void testGetDeltaStandardDiseaseModelLabelValue() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentYStandardDiseaseModelLabelValue() <em>Current YStandard Disease Model Label Value</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#getCurrentYStandardDiseaseModelLabelValue()
-	 * @generated
-	 */
-	public void testGetCurrentYStandardDiseaseModelLabelValue() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
 
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel#setS(double)

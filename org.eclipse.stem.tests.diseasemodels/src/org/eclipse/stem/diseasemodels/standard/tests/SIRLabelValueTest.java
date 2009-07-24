@@ -94,7 +94,7 @@ public class SIRLabelValueTest extends SILabelValueTest {
 	 */
 	public static SIRLabelValue createFixture() {
 		final SIRLabelValueImpl retValue = new SIRLabelValueImpl(TEST_S,
-				TEST_I, TEST_R, TEST_BIRTHS, TEST_DEATHS,
+				TEST_I, TEST_R, 
 				TEST_DISEASE_DEATHS);
 		return retValue;
 	} // createFixture
@@ -102,8 +102,7 @@ public class SIRLabelValueTest extends SILabelValueTest {
 	@Override
 	protected DiseaseModelLabelValue createTempFixture() {
 		final SIRLabelValueImpl retValue = new SIRLabelValueImpl(TEMP_TEST_S,
-				TEMP_TEST_I, TEMP_TEST_R, TEMP_TEST_BIRTHS,
-				TEMP_TEST_DEATHS, TEMP_TEST_DISEASE_DEATHS);
+				TEMP_TEST_I, TEMP_TEST_R, TEMP_TEST_DISEASE_DEATHS);
 		return retValue;
 	} // createTempFixture
 
@@ -123,7 +122,7 @@ public class SIRLabelValueTest extends SILabelValueTest {
 			StandardDiseaseModelLabelValue fixture) {
 		final SIRLabelValue siLabel = (SIRLabelValue) fixture;
 		return new SIRLabelValueImpl(siLabel.getI(), siLabel.getR(), 0.0,
-				siLabel.getS(), fixture.getBirths(), fixture.getDeaths(),
+				siLabel.getS(), 
 				fixture.getDiseaseDeaths());
 	} // getExpectedConvertToSourceStates
 
@@ -134,9 +133,7 @@ public class SIRLabelValueTest extends SILabelValueTest {
 		final SIRLabelValue sirLabel2 = (SIRLabelValue) fixture2;
 		return new SIRLabelValueImpl(sirLabel1.getS() + sirLabel2.getS(),
 				sirLabel1.getI() + sirLabel2.getI(), sirLabel1.getR()
-						+ sirLabel2.getR(), sirLabel1.getBirths()
-						+ sirLabel2.getBirths(), sirLabel1.getDeaths()
-						+ sirLabel2.getDeaths(), sirLabel1.getDiseaseDeaths()
+						+ sirLabel2.getR(),  sirLabel1.getDiseaseDeaths()
 						+ sirLabel2.getDiseaseDeaths());
 	} // DiseaseModelLabelValue
 
@@ -147,9 +144,7 @@ public class SIRLabelValueTest extends SILabelValueTest {
 		final SIRLabelValue sirLabel2 = (SIRLabelValue) fixture2;
 		return new SIRLabelValueImpl(sirLabel1.getS() - sirLabel2.getS(),
 				sirLabel1.getI() - sirLabel2.getI(), sirLabel1.getR()
-						- sirLabel2.getR(), sirLabel1.getBirths()
-						- sirLabel2.getBirths(), sirLabel1.getDeaths()
-						- sirLabel2.getDeaths(), sirLabel1.getDiseaseDeaths()
+						- sirLabel2.getR(), sirLabel1.getDiseaseDeaths()
 						- sirLabel2.getDiseaseDeaths());
 	} // getExpectedFixtureSubtractionResult
 

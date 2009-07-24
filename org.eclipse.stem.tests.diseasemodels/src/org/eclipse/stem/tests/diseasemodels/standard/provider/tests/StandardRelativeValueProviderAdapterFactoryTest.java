@@ -126,10 +126,10 @@ public class StandardRelativeValueProviderAdapterFactoryTest extends
 	 */
 	public static final void initializeDiseaseModelLabel(
 			final StandardDiseaseModelLabel label) {
-		initializeDiseaseModelLabelValues(label
-				.getCurrentStandardDiseaseModelLabelValue());
-		initializeDiseaseModelLabelValues(label
-				.getNextStandardDiseaseModelLabelValue());
+		initializeDiseaseModelLabelValues((DiseaseModelLabelValue)label
+				.getCurrentValue());
+		initializeDiseaseModelLabelValues((DiseaseModelLabelValue)label
+				.getNextValue());
 	} // initializeDiseaseModelLabel
 
 	/**
@@ -137,8 +137,6 @@ public class StandardRelativeValueProviderAdapterFactoryTest extends
 	 */
 	public static final void initializeDiseaseModelLabelValues(
 			final DiseaseModelLabelValue dmlv) {
-		dmlv.setBirths(NUM_DISEASE_MODEL_LABEL_VALUE_BIRTHS);
-		dmlv.setDeaths(NUM_DISEASE_MODEL_LABEL_VALUE_DEATHS);
 		dmlv.setDiseaseDeaths(NUM_DISEASE_MODEL_LABEL_VALUE_DISEASE_DEATHS);
 	} // initializedDiseaseModelLabelValues
 
@@ -149,10 +147,10 @@ public class StandardRelativeValueProviderAdapterFactoryTest extends
 		final SEIRLabel seirLabel = StandardFactory.eINSTANCE.createSEIRLabel();
 	
 		initializeDiseaseModelLabel(seirLabel);
-		seirLabel.setS(NUM_S_POPULATION);
-		seirLabel.setE(NUM_E_POPULATION);
-		seirLabel.setI(NUM_I_POPULATION);
-		seirLabel.setR(NUM_R_POPULATION);
+		seirLabel.getCurrentSEIRValue().setS(NUM_S_POPULATION);
+		seirLabel.getCurrentSEIRValue().setE(NUM_E_POPULATION);
+		seirLabel.getCurrentSEIRValue().setI(NUM_I_POPULATION);
+		seirLabel.getCurrentSEIRValue().setR(NUM_R_POPULATION);
 		return seirLabel;
 	} // createSEIRLabel
 
@@ -199,9 +197,9 @@ public class StandardRelativeValueProviderAdapterFactoryTest extends
 		final SIRLabel sirLabel = StandardFactory.eINSTANCE.createSIRLabel();
 
 		initializeDiseaseModelLabel(sirLabel);
-		sirLabel.setS(NUM_S_POPULATION);
-		sirLabel.setI(NUM_I_POPULATION);
-		sirLabel.setR(NUM_R_POPULATION);
+		sirLabel.getCurrentSIRValue().setS(NUM_S_POPULATION);
+		sirLabel.getCurrentSIRValue().setI(NUM_I_POPULATION);
+		sirLabel.getCurrentSIRValue().setR(NUM_R_POPULATION);
 
 		final RelativeValueProvider relativeValueProvider = (RelativeValueProvider) fixture
 				.adapt(sirLabel, RelativeValueProvider.class);

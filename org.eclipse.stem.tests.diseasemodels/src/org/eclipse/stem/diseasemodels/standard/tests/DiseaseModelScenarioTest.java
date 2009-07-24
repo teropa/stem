@@ -240,11 +240,6 @@ public abstract class DiseaseModelScenarioTest extends TestCase {
 		final DiseaseModelLabelValue dmLV1 = (DiseaseModelLabelValue) lableValue1;
 		final DiseaseModelLabelValue dmLV2 = (DiseaseModelLabelValue) lableValue2;
 
-		retValue = DiseaseModelTestUtil.closeEnough(dmLV1.getBirths(), dmLV2
-				.getBirths());
-		retValue = retValue
-				&& DiseaseModelTestUtil.closeEnough(dmLV1.getDeaths(), dmLV2
-						.getDeaths());
 		retValue = retValue
 				&& DiseaseModelTestUtil.closeEnough(dmLV1.getDiseaseDeaths(),
 						dmLV2.getDiseaseDeaths());

@@ -191,12 +191,12 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 						{ {
 						// N[0,0]
 						new SEIRLabelValueImpl(99.01, 0.0, 0.98, 0, 0.01,
-								1.0, 1.0, 0.0) } },
+								0.0) } },
 
 						// Step 1
 						{ {
 						// N[0,0]
-						new SEIRLabelValueImpl(99.02, 0.0, 0.96, 0.0, 0.02, 2.0, 2.0, 0) } } } // new
+						new SEIRLabelValueImpl(99.02, 0.0, 0.96, 0.0, 0.02, 0) } } } // new
 				// SEIRLabelValue
 
 				); // put(TEST_SCENARIO1x1_KEY)
@@ -209,27 +209,27 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 								{ {
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0) } },
+												0) } },
 
 								// Step 1
 								{ {
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0) } },
+												0) } },
 								// Step 2
 								{ {
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0) } } } // new
+												0) } } } // new
 				// SEIRLabelValue
 				); // put(TEST_SCENARIO1x2_KEY)
 
@@ -242,13 +242,13 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} },
 
@@ -256,13 +256,13 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 								{ {
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} },
 
@@ -270,13 +270,13 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 								{ {
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} } } // new SEIRLabelValue
 
@@ -291,20 +291,20 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[1,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} },
 
@@ -313,20 +313,20 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 								{
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
-										// N[0,1]
+												0),
+										// N[0,1z
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[1,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} },
 
@@ -335,20 +335,20 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 								{
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[1,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} } } // new SEIRLabelValue
 
@@ -363,39 +363,39 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[1,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[2,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[2,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[2,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} },
 
@@ -404,39 +404,39 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 								{
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[1,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[2,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[2,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[2,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} },
 
@@ -445,39 +445,39 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 								{
 								// N[0,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[0,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[1,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[1,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								},
 								{
 
 								// N[2,0]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[2,1]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0),
+												0),
 										// N[2,2]
 										new SEIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0, 0)
+												0)
 
 								} } } // new SEIRLabelValue
 

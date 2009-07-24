@@ -74,7 +74,7 @@ public class ExampleDiseaseModelTest extends TestCase {
 	@SuppressWarnings("synthetic-access")
 	public void testModelSpecificAdjustments(){
 		ExampleDiseaseModelTesterImpl experimentalDiseaseModel = new ExampleDiseaseModelTesterImpl();
-		SEIRLabelValueImpl currentSEIR = new SEIRLabelValueImpl(1000d, 50d, 40d, 30d, 20d, 60d, 100d, 10d);
+		SEIRLabelValueImpl currentSEIR = new SEIRLabelValueImpl(1000d, 50d, 40d, 30d, 20d, 10d);
 		doTest(experimentalDiseaseModel, currentSEIR);
 	}
 	
@@ -142,9 +142,7 @@ public class ExampleDiseaseModelTest extends TestCase {
 	
 	private boolean checkEqual(SEIRLabelValueImpl pCalculatedSeirAdditions,
 			SEIRLabelValueImpl pNewSeirAdditions) {
-		if((pCalculatedSeirAdditions.getBirths() != pNewSeirAdditions.getBirths()) ||
-				(pCalculatedSeirAdditions.getDeaths() != pNewSeirAdditions.getDeaths()) ||
-				(pCalculatedSeirAdditions.getDiseaseDeaths() != pNewSeirAdditions.getDiseaseDeaths()) ||
+		if((pCalculatedSeirAdditions.getDiseaseDeaths() != pNewSeirAdditions.getDiseaseDeaths()) ||
 				(pCalculatedSeirAdditions.getE() != pNewSeirAdditions.getE()) ||
 				(pCalculatedSeirAdditions.getI() != pNewSeirAdditions.getI()) ||
 				(pCalculatedSeirAdditions.getPopulationCount() != pNewSeirAdditions.getPopulationCount()) ||

@@ -21,13 +21,6 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>Disease Model Label</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getCurrentDiseaseModelLabelValue() <em>Current Disease Model Label Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getNextDiseaseModelLabelValue() <em>Next Disease Model Label Value</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public abstract class DiseaseModelLabelTest extends TestCase {

@@ -45,13 +45,13 @@ public class StochasticSIScenarioTest extends SIDiseaseModelScenarioTest {
 				// Step 0
 						{ {
 						// N[0,0]
-						new SILabelValueImpl(98.99, 0.99 , 0.01, 1.0, 1.01,
+						new SILabelValueImpl(98.99, 0.99 , 0.01,
 								0.0) } },
 								
 						// Step 1
 						{ {
 						// N[0,0]
-						new SILabelValueImpl(99.0 , 0.98 , 0.02 , 2.0, 2.01, 0.00) } } } // new
+						new SILabelValueImpl(99.0 , 0.98 , 0.02 , 0.00) } } } // new
 				// SILabelValue
 
 				); // put(TEST_SCENARIO1x1_KEY)
@@ -63,22 +63,22 @@ public class StochasticSIScenarioTest extends SIDiseaseModelScenarioTest {
 				// Step 0
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0) } },
+								new SILabelValueImpl(100, 0, 0, 0) } },
 
 						// Step 1
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0) } },
+								new SILabelValueImpl(100, 0, 0, 0) } },
 						// Step 2
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0) } } } // new
+								new SILabelValueImpl(100, 0, 0, 0) } } } // new
 				// SILabelValue
 				); // put(TEST_SCENARIO1x2_KEY)
 
@@ -89,33 +89,33 @@ public class StochasticSIScenarioTest extends SIDiseaseModelScenarioTest {
 						{ {
 
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						} },
 
 						// Step 1
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						} },
 
 						// Step 2
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0,  0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0,  0),
 								// N[0,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0,  0)
 
 						} } } // new SILabelValue
 
@@ -128,48 +128,48 @@ public class StochasticSIScenarioTest extends SIDiseaseModelScenarioTest {
 						{ {
 
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[1,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						} },
 
 						// Step 1
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[1,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						} },
 
 						// Step 2
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[1,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						} } } // new SILabelValue
 
@@ -182,87 +182,87 @@ public class StochasticSIScenarioTest extends SIDiseaseModelScenarioTest {
 						{ {
 
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[1,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[1,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						}, {
 
 						// N[2,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[2,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[2,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						} },
 
 						// Step 1
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[1,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[1,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						}, {
 
 						// N[2,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[2,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[2,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0, 0)
 
 						} },
 
 						// Step 2
 						{ {
 						// N[0,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0, 0),
 								// N[0,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0,  0)
 
 						}, {
 
 						// N[1,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0,  0),
 								// N[1,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0,  0),
 								// N[1,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0,  0)
 
 						}, {
 
 						// N[2,0]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0,  0),
 								// N[2,1]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0),
+								new SILabelValueImpl(100, 0, 0,  0),
 								// N[2,2]
-								new SILabelValueImpl(100, 0, 0, 0, 0, 0)
+								new SILabelValueImpl(100, 0, 0,  0)
 
 						} } } // new SILabelValue
 

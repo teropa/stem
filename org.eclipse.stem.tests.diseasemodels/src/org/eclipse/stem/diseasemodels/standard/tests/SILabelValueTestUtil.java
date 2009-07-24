@@ -71,7 +71,7 @@ public abstract class SILabelValueTestUtil extends TestCase{
 									if(skipValueSet(iteration++, diseaseDeaths, deaths, s, e, i, r)){
 										continue;
 									}
-									SILabelValueImpl modelLableValue = new SILabelValueImpl(s, i, births, deaths,	diseaseDeaths);
+									SILabelValueImpl modelLableValue = new SILabelValueImpl(s, i,	diseaseDeaths);
 									assertTrue("The SILabelValueImpl: " + modelLableValue + " is insane!", modelLableValue.sane());
 									modelLevelValues.add(modelLableValue);
 									System.out.println(modelLevelValues.size());
@@ -129,7 +129,7 @@ public abstract class SILabelValueTestUtil extends TestCase{
 	 */
 	public static SILabelValueImpl cloneSILabelValueImpl(SILabelValueImpl original){
 		SILabelValueImpl value =  new SILabelValueImpl(original.getS(), original.getI(), 
-				original.getBirths(), original.getDeaths(), original.getDiseaseDeaths());
+				original.getDiseaseDeaths());
 		return value;
 	}
 
@@ -217,8 +217,6 @@ public abstract class SILabelValueTestUtil extends TestCase{
 			super();
 			setS(s);
 			setI(i);
-			setBirths(births);
-			setDeaths(deaths);
 			setDiseaseDeaths(diseaseDeaths);
 			setDiseaseModelState(newDiseaseModelState);
 			setNode(newNode);

@@ -152,7 +152,7 @@ public class StochasticSIDiseaseModelTest extends SITest {
 	@SuppressWarnings("synthetic-access")
 	public void testModelSpecificAdjustments(){
 		StochasticSIDiseaseModelTesterImpl stochasticSIDiseaseModel = new StochasticSIDiseaseModelTesterImpl();
-		SILabelValueImpl currentSI = new SILabelValueImpl(1000d, 40d, 20d, 60d, 100d, 10d);
+		SILabelValueImpl currentSI = new SILabelValueImpl(1000d, 40d, 20d, 10d);
 		doTest(stochasticSIDiseaseModel, currentSI);
 	}
 
@@ -245,9 +245,7 @@ public class StochasticSIDiseaseModelTest extends SITest {
 	
 	private boolean checkEqual(SILabelValueImpl pCalculatedSIAdditions,
 			SILabelValueImpl pNewSIAdditions) {
-		if((pCalculatedSIAdditions.getBirths() != pNewSIAdditions.getBirths()) ||
-				(pCalculatedSIAdditions.getDeaths() != pNewSIAdditions.getDeaths()) ||
-				(pCalculatedSIAdditions.getDiseaseDeaths() != pNewSIAdditions.getDiseaseDeaths()) ||
+		if((pCalculatedSIAdditions.getDiseaseDeaths() != pNewSIAdditions.getDiseaseDeaths()) ||
 				(pCalculatedSIAdditions.getI() != pNewSIAdditions.getI()) ||
 				(pCalculatedSIAdditions.getPopulationCount() != pNewSIAdditions.getPopulationCount()) ||
 				(pCalculatedSIAdditions.getS() != pNewSIAdditions.getS())){

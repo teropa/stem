@@ -71,7 +71,7 @@ public abstract class SEIRLabelValueTestUtil extends TestCase{
 									if(skipValueSet(iteration++, diseaseDeaths, deaths, s, e, i, r)){
 										continue;
 									}
-									SEIRLabelValueImpl modelLableValue = new SEIRLabelValueImpl(s, e, i, r, births, deaths,	diseaseDeaths);
+									SEIRLabelValueImpl modelLableValue = new SEIRLabelValueImpl(s, e, i, r, diseaseDeaths);
 									assertTrue("The SEIRLabelValueImpl: " + modelLableValue + " is insane!", modelLableValue.sane());
 									modelLevelValues.add(modelLableValue);
 									System.out.println(modelLevelValues.size());
@@ -129,7 +129,7 @@ public abstract class SEIRLabelValueTestUtil extends TestCase{
 	 */
 	public static SEIRLabelValueImpl cloneSEIRLabelValueImpl(SEIRLabelValueImpl original){
 		SEIRLabelValueImpl value =  new SEIRLabelValueImpl(original.getS(), original.getE(), original.getI(),  
-				original.getR(), original.getBirths(), original.getDeaths(), original.getDiseaseDeaths());
+				original.getR(),  original.getDiseaseDeaths());
 		return value;
 	}
 
@@ -223,8 +223,6 @@ public abstract class SEIRLabelValueTestUtil extends TestCase{
 			setE(e);
 			setI(i);
 			setR(r);
-			setBirths(births);
-			setDeaths(deaths);
 			setDiseaseDeaths(diseaseDeaths);
 			setDiseaseModelState(newDiseaseModelState);
 			setNode(newNode);

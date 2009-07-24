@@ -76,9 +76,9 @@ public class PercolationDiseaseModelTest extends TestCase {
 	 */
 	public void testModelSpecificAdjustments(){
 		PercolationDiseaseModelTesterImpl percolationDiseaseModel = new PercolationDiseaseModelTesterImpl();
-		SEIRLabelValueImpl currentSEIR = new SEIRLabelValueImpl(1000d, 50d, 40d, 30d, 20d, 60d, 100d, 10d);
-		SEIRLabelValueImpl seirAdditions = new SEIRLabelValueImpl(10d, 1d, 2d, 3d, 3d, 2d, 3d, 1d);
-		SEIRLabelValueImpl seirDeaths = new SEIRLabelValueImpl(10d, 1d, 2d, 3d, 3d, 2d, 3d, 1d);
+		SEIRLabelValueImpl currentSEIR = new SEIRLabelValueImpl(1000d, 50d, 40d, 30d, 20d, 10d);
+		SEIRLabelValueImpl seirAdditions = new SEIRLabelValueImpl(10d, 1d, 2d, 3d, 3d, 1d);
+		SEIRLabelValueImpl seirDeaths = new SEIRLabelValueImpl(10d, 1d, 2d, 3d, 3d, 1d);
 		doTest(percolationDiseaseModel, currentSEIR, seirAdditions, seirDeaths);
 	}
 	
@@ -160,10 +160,6 @@ public class PercolationDiseaseModelTest extends TestCase {
         
 		seirDeaths.setR(Math.min(currentSEIR.getR() , (seirDeaths.getR() * computeNoise(pTestGain, random))));
 		
-		// We do not need to change the Infectious death rate as we have already added noise
-		// to both Infectious Recovered and Infectious Fatal
-
-		seirDeaths.setDeaths(seirDeaths.getPopulationCount());
 				
 	}
 
@@ -199,9 +195,7 @@ public class PercolationDiseaseModelTest extends TestCase {
 	
 	private boolean checkEqual(SEIRLabelValueImpl pCalculatedSeirAdditions,
 			SEIRLabelValueImpl pNewSeirAdditions) {
-		if((pCalculatedSeirAdditions.getBirths() != pNewSeirAdditions.getBirths()) ||
-				(pCalculatedSeirAdditions.getDeaths() != pNewSeirAdditions.getDeaths()) ||
-				(pCalculatedSeirAdditions.getDiseaseDeaths() != pNewSeirAdditions.getDiseaseDeaths()) ||
+		if((pCalculatedSeirAdditions.getDiseaseDeaths() != pNewSeirAdditions.getDiseaseDeaths()) ||
 				(pCalculatedSeirAdditions.getE() != pNewSeirAdditions.getE()) ||
 				(pCalculatedSeirAdditions.getI() != pNewSeirAdditions.getI()) ||
 				(pCalculatedSeirAdditions.getPopulationCount() != pNewSeirAdditions.getPopulationCount()) ||

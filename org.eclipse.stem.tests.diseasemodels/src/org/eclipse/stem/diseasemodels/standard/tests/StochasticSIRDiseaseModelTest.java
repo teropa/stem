@@ -153,7 +153,7 @@ public class StochasticSIRDiseaseModelTest extends SIRTest {
 	@SuppressWarnings("synthetic-access")
 	public void testModelSpecificAdjustments(){
 		StochasticSIRDiseaseModelTesterImpl stochasticSIRDiseaseModel = new StochasticSIRDiseaseModelTesterImpl();
-		SIRLabelValueImpl currentSIR = new SIRLabelValueImpl(1000d, 40d, 30d, 20d, 60d, 100d, 10d);
+		SIRLabelValueImpl currentSIR = new SIRLabelValueImpl(1000d, 40d, 30d, 20d, 10d);
 		doTest(stochasticSIRDiseaseModel, currentSIR);
 	}
 
@@ -251,9 +251,7 @@ public class StochasticSIRDiseaseModelTest extends SIRTest {
 	
 	private boolean checkEqual(SIRLabelValueImpl pCalculatedSIRAdditions,
 			SIRLabelValueImpl pNewSIRAdditions) {
-		if((pCalculatedSIRAdditions.getBirths() != pNewSIRAdditions.getBirths()) ||
-				(pCalculatedSIRAdditions.getDeaths() != pNewSIRAdditions.getDeaths()) ||
-				(pCalculatedSIRAdditions.getDiseaseDeaths() != pNewSIRAdditions.getDiseaseDeaths()) ||
+		if((pCalculatedSIRAdditions.getDiseaseDeaths() != pNewSIRAdditions.getDiseaseDeaths()) ||
 				(pCalculatedSIRAdditions.getI() != pNewSIRAdditions.getI()) ||
 				(pCalculatedSIRAdditions.getPopulationCount() != pNewSIRAdditions.getPopulationCount()) ||
 				(pCalculatedSIRAdditions.getR() != pNewSIRAdditions.getR()) ||

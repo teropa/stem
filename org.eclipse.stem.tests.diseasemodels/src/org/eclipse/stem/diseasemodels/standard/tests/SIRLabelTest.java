@@ -23,17 +23,10 @@ import org.eclipse.stem.tests.util.decorators.TestNodeDecorator1;
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>SIR Label</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getCurrentSIRValue() <em>Current SIR Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.SIRLabel#getNextSIRValue() <em>Next SIR Value</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 @SuppressWarnings("all")
-public class SIRLabelTest extends SILabelTest {
+public class SIRLabelTest extends StandardDiseaseModelLabelTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * 

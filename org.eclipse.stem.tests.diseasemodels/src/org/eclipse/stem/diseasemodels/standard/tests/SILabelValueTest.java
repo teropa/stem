@@ -94,14 +94,14 @@ public class SILabelValueTest extends StandardDiseaseModelLabelValueTest {
 	 */
 	public static SILabelValue createFixture() {
 		final SILabelValueImpl retValue = new SILabelValueImpl(TEST_S, TEST_I,
-				TEST_BIRTHS, TEST_DEATHS, TEST_DISEASE_DEATHS);
+				TEST_DISEASE_DEATHS);
 		return retValue;
 	} // createFixture
 
 	@Override
 	protected DiseaseModelLabelValue createTempFixture() {
 		final SILabelValueImpl retValue = new SILabelValueImpl(TEMP_TEST_S,
-				TEMP_TEST_I,TEMP_TEST_BIRTHS, TEMP_TEST_DEATHS,
+				TEMP_TEST_I,
 				TEMP_TEST_DISEASE_DEATHS);
 		return retValue;
 	} // createTempFixture
@@ -134,7 +134,7 @@ public class SILabelValueTest extends StandardDiseaseModelLabelValueTest {
 			StandardDiseaseModelLabelValue fixture) {
 		final SILabelValue siLabel = (SILabelValue) fixture;
 		return new SILabelValueImpl(siLabel.getI(), siLabel.getS(), 0.0,
-				fixture.getBirths(), fixture.getDeaths(), fixture
+				 fixture
 						.getDiseaseDeaths());
 	} // getExpectedConvertToSourceStates
 
@@ -146,9 +146,7 @@ public class SILabelValueTest extends StandardDiseaseModelLabelValueTest {
 		return new SILabelValueImpl(siLabel1.getS() + siLabel2.getS(), siLabel1
 				.getI()
 				+ siLabel2.getI(),
-				fixture1.getBirths() + fixture2.getBirths(), fixture1
-						.getDeaths()
-						+ fixture2.getDeaths(), fixture1.getDiseaseDeaths()
+				 fixture1.getDiseaseDeaths()
 						+ fixture2.getDiseaseDeaths());
 	} // getExpectedFixtureAdditionResult
 
@@ -160,9 +158,7 @@ public class SILabelValueTest extends StandardDiseaseModelLabelValueTest {
 		return new SILabelValueImpl(siLabel1.getS() - siLabel2.getS(), siLabel1
 				.getI()
 				- siLabel2.getI(), 
-				fixture1.getBirths() - fixture2.getBirths(), fixture1
-						.getDeaths()
-						- fixture2.getDeaths(), fixture1.getDiseaseDeaths()
+				 fixture1.getDiseaseDeaths()
 						- fixture2.getDiseaseDeaths());
 	} // getExpectedFixtureSubtractionResult
 

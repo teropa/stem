@@ -21,13 +21,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>SI Label</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.SILabel#getCurrentSIValue() <em>Current SI Value</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.SILabel#getNextSIValue() <em>Next SI Value</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 @SuppressWarnings("all")
@@ -110,7 +103,7 @@ public class SILabelTest extends StandardDiseaseModelLabelTest {
 	 */
 	public void testGetCurrentSIValue() {
 		final SILabel standardLabel = getFixture();
-		final SILabelValue value = standardLabel.getCurrentSIValue();
+		final SILabelValue value = (SILabelValue)standardLabel.getCurrentValue();
 		assertNotNull(value);
 	} // testGetCurrentSIValue
 
@@ -123,7 +116,7 @@ public class SILabelTest extends StandardDiseaseModelLabelTest {
 	 */
 	public void testGetNextSIValue() {
 		final SILabel standardLabel = getFixture();
-		final SILabelValue value = standardLabel.getNextSIValue();
+		final SILabelValue value = (SILabelValue)standardLabel.getNextValue();
 		assertNotNull(value);
 	} // testGetNextSIValue
 

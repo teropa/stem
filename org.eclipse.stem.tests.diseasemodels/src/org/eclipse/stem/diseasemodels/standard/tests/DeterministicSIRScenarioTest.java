@@ -173,12 +173,12 @@ public class DeterministicSIRScenarioTest extends SIRDiseaseModelScenarioTest {
 						{ {
 						// N[0,0]
 						new SIRLabelValueImpl(99.01, 0.98, 0.0, 0.01,
-								1.0, 1.0, 0.0) } },
+								0.0) } },
 
 						// Step 1
 						{ {
 						// N[0,0]
-						new SIRLabelValueImpl(99.02, 0.96, 0.0, 0.02, 2.0, 2.0,
+						new SIRLabelValueImpl(99.02, 0.96, 0.0, 0.02, 
 								0.00) } } } // new
 				// SIRLabelValue
 
@@ -191,28 +191,25 @@ public class DeterministicSIRScenarioTest extends SIRDiseaseModelScenarioTest {
 						// Step 0
 								{ {
 								// N[0,0]
-										new SIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0),
+										new SIRLabelValueImpl(100, 0, 0, 0, 0),
 										// N[0,1]
-										new SIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0) } },
+										new SIRLabelValueImpl(100, 0, 0, 0, 0) } },
 
 								// Step 1
 								{ {
 								// N[0,0]
-										new SIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0),
+										new SIRLabelValueImpl(100, 0, 0, 0, 0),
 										// N[0,1]
-										new SIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0) } },
+										new SIRLabelValueImpl(100, 0, 0, 0, 0
+												) } },
 								// Step 2
 								{ {
 								// N[0,0]
-										new SIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0),
+										new SIRLabelValueImpl(100, 0, 0, 0, 0
+												),
 										// N[0,1]
-										new SIRLabelValueImpl(100, 0, 0, 0, 0,
-												0, 0) } } } // new
+										new SIRLabelValueImpl(100, 0, 0, 0, 0
+												) } } } // new
 				// SIRLabelValue
 				); // put(TEST_SCENARIO1x2_KEY)
 
@@ -223,33 +220,33 @@ public class DeterministicSIRScenarioTest extends SIRDiseaseModelScenarioTest {
 						{ {
 
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} },
 
 						// Step 1
 						{ {
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} },
 
 						// Step 2
 						{ {
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} } } // new SIRLabelValue
 
@@ -262,48 +259,48 @@ public class DeterministicSIRScenarioTest extends SIRDiseaseModelScenarioTest {
 						{ {
 
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} },
 
 						// Step 1
 						{ {
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} },
 
 						// Step 2
 						{ {
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} } } // new SIRLabelValue
 
@@ -316,87 +313,87 @@ public class DeterministicSIRScenarioTest extends SIRDiseaseModelScenarioTest {
 						{ {
 
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[2,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[2,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[2,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} },
 
 						// Step 1
 						{ {
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[2,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[2,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[2,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} },
 
 						// Step 2
 						{ {
 						// N[0,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[0,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[1,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[1,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						}, {
 
 						// N[2,0]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[2,1]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0),
+								new SIRLabelValueImpl(100, 0, 0, 0, 0),
 								// N[2,2]
-								new SIRLabelValueImpl(100, 0, 0, 0, 0, 0, 0)
+								new SIRLabelValueImpl(100, 0, 0, 0, 0)
 
 						} } } // new SIRLabelValue
 

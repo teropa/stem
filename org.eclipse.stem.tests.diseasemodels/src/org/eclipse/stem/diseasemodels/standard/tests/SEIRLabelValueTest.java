@@ -94,7 +94,7 @@ public class SEIRLabelValueTest extends SIRLabelValueTest {
 	 */
 	public static SEIRLabelValue createFixture() {
 		final SEIRLabelValueImpl retValue = new SEIRLabelValueImpl(TEST_S,
-				TEST_E, TEST_I, TEST_R, TEST_BIRTHS, TEST_DEATHS,
+				TEST_E, TEST_I, TEST_R,
 				TEST_DISEASE_DEATHS);
 		return retValue;
 	} // createSEIRLabelValue
@@ -103,7 +103,7 @@ public class SEIRLabelValueTest extends SIRLabelValueTest {
 	protected DiseaseModelLabelValue createTempFixture() {
 		final SEIRLabelValueImpl retValue = new SEIRLabelValueImpl(TEMP_TEST_S,
 				TEMP_TEST_E, TEMP_TEST_I, TEMP_TEST_R,
-				TEMP_TEST_BIRTHS, TEMP_TEST_DEATHS, TEMP_TEST_DISEASE_DEATHS);
+				 TEMP_TEST_DISEASE_DEATHS);
 		return retValue;
 	} // createTempFixture
 
@@ -124,7 +124,6 @@ public class SEIRLabelValueTest extends SIRLabelValueTest {
 		final SEIRLabelValue seirLabel = (SEIRLabelValue) fixture;
 		return new SEIRLabelValueImpl(seirLabel.getE(), seirLabel.getI(),
 				 seirLabel.getR(), 0,seirLabel.getS(), fixture
-						.getBirths(), fixture.getDeaths(), fixture
 						.getDiseaseDeaths());
 	} // getExpectedConvertToSourceStates
 
@@ -136,9 +135,7 @@ public class SEIRLabelValueTest extends SIRLabelValueTest {
 		return new SEIRLabelValueImpl(seirLabel1.getS() + seirLabel2.getS(),
 				seirLabel1.getE() + seirLabel2.getE(), seirLabel1.getI()
 						+ seirLabel2.getI(), seirLabel1.getR()
-						+ seirLabel2.getR(), seirLabel1.getBirths()
-						+ seirLabel2.getBirths(), seirLabel1.getDeaths()
-						+ seirLabel2.getDeaths(), seirLabel1.getDiseaseDeaths()
+						+ seirLabel2.getR(), seirLabel1.getDiseaseDeaths()
 						+ seirLabel2.getDiseaseDeaths());
 	} // getExpectedFixtureAdditionResult
 
@@ -150,9 +147,7 @@ public class SEIRLabelValueTest extends SIRLabelValueTest {
 		return new SEIRLabelValueImpl(seirLabel1.getS() - seirLabel2.getS(),
 				seirLabel1.getE() - seirLabel2.getE(), seirLabel1.getI()
 						- seirLabel2.getI(), seirLabel1.getR()
-						- seirLabel2.getR(), seirLabel1.getBirths()
-						- seirLabel2.getBirths(), seirLabel1.getDeaths()
-						- seirLabel2.getDeaths(), seirLabel1.getDiseaseDeaths()
+						- seirLabel2.getR(), seirLabel1.getDiseaseDeaths()
 						- seirLabel2.getDiseaseDeaths());
 	} // getExpectedFixtureSubtractionResult
 
