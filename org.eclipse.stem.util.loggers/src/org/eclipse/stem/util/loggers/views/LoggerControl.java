@@ -28,6 +28,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
@@ -57,7 +58,7 @@ abstract public class LoggerControl extends Composite implements
 	 * The {@link DiseaseModel} for the logged data 
 	 */
 	
-	protected DiseaseModel diseaseModel = null;
+	protected IntegrationDecorator diseaseModel = null;
 	
 	protected Map<Node, Integer> nodeLevels;
 	
@@ -210,7 +211,7 @@ abstract public class LoggerControl extends Composite implements
 	 *@param dm The disease model
 	 */
 	
-	public void setDiseaseModel(DiseaseModel dm) {
+	public void setDiseaseModel(IntegrationDecorator dm) {
 		this.diseaseModel = dm;
 	}
 	/**

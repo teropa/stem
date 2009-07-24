@@ -37,6 +37,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
@@ -805,8 +806,8 @@ public class LoggerViewer extends Viewer implements ISelectionChangedListener,
 							
 						EList<Decorator> decorators = sim.getScenario().getCanonicalGraph().getDecorators();
 						for(Decorator dec:decorators) {
-							if(dec instanceof DiseaseModel && !(dec instanceof AggregatingSIDiseaseModel)) {
-								DiseaseModel dm = (DiseaseModel)dec;
+							if(dec instanceof IntegrationDecorator && !(dec instanceof AggregatingSIDiseaseModel)) {
+								IntegrationDecorator dm = (IntegrationDecorator)dec;
 								//String diseaseName = dm.getDiseaseName();
 								final LoggerControl loggerControl = lcf.create(composite, dirname, sim, dm);
 								loggerControl.addSelectionChangedListener(this);

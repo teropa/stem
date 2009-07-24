@@ -14,6 +14,7 @@ package org.eclipse.stem.util.loggers.views;
 
 import java.util.List;
 
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.swt.widgets.Composite;
@@ -49,7 +50,7 @@ public class CSVLoggerFactory implements LoggerControlFactory {
 	 * @param dm 
 	 * @return new DataHistoryLogger()
 	 */
-	public LoggerControl create(final Composite parent, String dirName, ISimulation simulation, DiseaseModel dm) {
+	public LoggerControl create(final Composite parent, String dirName, ISimulation simulation, IntegrationDecorator dm) {
 		NewCSVLogWriter  newCSVWriter = new NewCSVLogWriter(dirName, simulation, dm);
 		
 		LoggerControl ctrl = new DataHistoryLogger(parent, newCSVWriter, simulation, dm);

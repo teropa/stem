@@ -18,6 +18,7 @@ import java.util.Map;
 
 import org.eclipse.stem.adapters.time.TimeProvider;
 import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
@@ -61,7 +62,7 @@ public abstract class LogWriter {
 	 * @param timeProvider Time Provider
 	 */
 	
-	public abstract void logHeader(ISimulation simulation, DiseaseModel dm, Map<Node, Integer> nodeLevels, TimeProvider timeProvider);
+	public abstract void logHeader(ISimulation simulation, IntegrationDecorator dm, Map<Node, Integer> nodeLevels, TimeProvider timeProvider);
 	
 	
 	/**
@@ -94,7 +95,7 @@ public abstract class LogWriter {
 	 * @param timeProvider timeProvider
 	 * @param beforeStart
 	 */
-	public abstract void logData(ISimulation sim, DiseaseModel dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider, boolean beforeStart);
+	public abstract void logData(ISimulation sim, IntegrationDecorator dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider, boolean beforeStart);
 	
 	/**
 	 * resets the output directory for a new set of runs

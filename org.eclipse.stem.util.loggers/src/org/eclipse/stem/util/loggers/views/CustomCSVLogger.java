@@ -22,6 +22,7 @@ import org.eclipse.stem.adapters.time.TimeProvider;
 import org.eclipse.stem.adapters.time.TimeProviderAdapterFactory;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationListenerSync;
@@ -42,7 +43,7 @@ public class CustomCSVLogger
 	/**
 	 * The {@link DiseaseModel} for the logged data 
 	 */
-	protected DiseaseModel diseaseModel = null;
+	protected IntegrationDecorator diseaseModel = null;
 	/**
 	 * abstract log writer
 	 */
@@ -63,7 +64,7 @@ public class CustomCSVLogger
 	 * @param simulation 
 	 * @param dm
 	 */
-	public CustomCSVLogger(final String outputDir, ISimulation simulation, DiseaseModel dm) {
+	public CustomCSVLogger(final String outputDir, ISimulation simulation, IntegrationDecorator dm) {
 		this.logWriter = new NewCSVLogWriter(outputDir, simulation, dm);
 		setSimulation(simulation);
 		this.diseaseModel = dm;

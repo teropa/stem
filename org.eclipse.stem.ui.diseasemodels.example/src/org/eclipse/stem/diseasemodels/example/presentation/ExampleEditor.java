@@ -163,6 +163,7 @@ import org.eclipse.stem.core.scenario.provider.ScenarioItemProviderAdapterFactor
 
 import org.eclipse.stem.core.sequencer.provider.SequencerItemProviderAdapterFactory;
 
+import org.eclipse.stem.core.solver.provider.SolverItemProviderAdapterFactory;
 import org.eclipse.stem.definitions.labels.provider.LabelsItemProviderAdapterFactory;
 
 import org.eclipse.stem.diseasemodels.standard.provider.StandardItemProviderAdapterFactory;
@@ -664,6 +665,7 @@ public class ExampleEditor
 		adapterFactory.addAdapterFactory(new ScenarioItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new LabelsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

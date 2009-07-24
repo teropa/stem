@@ -22,6 +22,7 @@ import org.eclipse.stem.adapters.time.TimeProviderAdapterFactory;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
@@ -31,6 +32,7 @@ import org.eclipse.stem.jobs.simulation.ISimulationListenerSync;
 import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.jobs.simulation.SimulationEvent;
 import org.eclipse.stem.jobs.simulation.SimulationState;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.ui.widgets.PropertySelector;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -128,7 +130,7 @@ public class DataHistoryLogger extends LoggerControl implements
 	 * @param simulation 
 	 * @param dm
 	 */
-	public DataHistoryLogger(final Composite parent, final LogWriter logWriter, ISimulation simulation, DiseaseModel dm) {
+	public DataHistoryLogger(final Composite parent, final LogWriter logWriter, ISimulation simulation, IntegrationDecorator dm) {
 		super(parent, SWT.None);
 		this.logWriter = logWriter;
 		setSimulation(simulation);
@@ -178,7 +180,12 @@ public class DataHistoryLogger extends LoggerControl implements
 		
 		loggerDiseaseLabel = new Label(inner,  SWT.CENTER);
 		loggerDiseaseLabel.setBackground(colorColumn3);
-		String idtext = this.diseaseModel.getDiseaseName();
+		String idtext = null;
+		if(this.diseaseModel instanceof DiseaseModel)
+			idtext = ((DiseaseModel)this.diseaseModel).getDiseaseName();
+		else if(this.diseaseModel instanceof PopulationModel)
+			idtext = ((PopulationModel)this.diseaseModel).getName();
+		
 		loggerDiseaseLabel.setText(idtext);
 		loggerDiseaseLabel.setAlignment(SWT.CENTER);
 

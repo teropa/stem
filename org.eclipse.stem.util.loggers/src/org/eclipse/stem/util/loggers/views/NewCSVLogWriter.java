@@ -29,6 +29,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -36,9 +37,13 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.stem.adapters.time.TimeProvider;
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
@@ -47,6 +52,7 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.provider.StandardItemProviderAdapterFactory;
 import org.eclipse.stem.jobs.simulation.ISimulation;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.util.loggers.Activator;
 
 /**
@@ -87,6 +93,8 @@ public class NewCSVLogWriter extends LogWriter {
 
 	private static StandardItemProviderAdapterFactory itemProviderFactory;
 	
+	private static org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory populationModelItemProviderFactory;
+	
 	/**
 	 * FileWriters are stored here, organized by state (e.g. S, E, I, R) and geographic level
 	 */
@@ -99,7 +107,7 @@ public class NewCSVLogWriter extends LogWriter {
 	 * @param simulation
 	 * @param dm
 	 */
-	public NewCSVLogWriter(final String dirName, final ISimulation simulation, DiseaseModel dm) {
+	public NewCSVLogWriter(final String dirName, final ISimulation simulation, IntegrationDecorator dm) {
 		needsHeader = true;
 		done = false;
 		icount = 0;
@@ -111,8 +119,12 @@ public class NewCSVLogWriter extends LogWriter {
 				uniqueID = simulation.getUniqueIDString();
 			}
 		}
-		
-		String diseaseName = dm.getDiseaseName();
+		// Ugh
+		String diseaseName = null;
+		if(dm instanceof DiseaseModel)
+			diseaseName = ((DiseaseModel)dm).getDiseaseName();
+		else if (dm instanceof PopulationModel)
+			diseaseName = ((PopulationModel)dm).getName();
 		try {
 			this.directoryName = dirName + sep+uniqueID + sep + diseaseName.trim() + sep;
 		} catch(Exception e) {
@@ -162,7 +174,7 @@ public class NewCSVLogWriter extends LogWriter {
 	 * @param timeProvider Time provider
 	 */
 	
-	public void logHeader(ISimulation sim, DiseaseModel dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider) {	
+	public void logHeader(ISimulation sim, IntegrationDecorator dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider) {	
 		String dirs = this.directoryName;
 		File dir = new File(dirs);
 		if(!dir.exists()) {
@@ -189,68 +201,57 @@ public class NewCSVLogWriter extends LogWriter {
 			// for every node
 			
 			EList<NodeLabel> labels = null;
-			Iterator<Node> it = sim.getScenario().getCanonicalGraph().getNodes().values().iterator();
+			IntegrationLabel label = null;
+			Iterator<DynamicLabel> it = ((Decorator)dm).getLabelsToUpdate().iterator();
 			while(it.hasNext()) {
-				Node n = it.next();
-				for(NodeLabel l : n.getLabels()) {
-					if(l instanceof DiseaseModelLabel) {
-						labels = n.getLabels();
-						break;
-					}
+				DynamicLabel l = it.next();
+				if(l instanceof IntegrationLabel) {
+					label = (IntegrationLabel)l;
+					break;
 				}
-				if(labels != null) break;
+
 			}
-			if(labels == null) {
+			if(label == null) {
 				// We couldn't find any labels. PANIC!
-				Activator.logError("Cannot log, no disease model labels found in graph!", new Exception());
+				Activator.logError("Cannot log, no label found for decorator!", new Exception());
+				return;
 			}
-			for(int i=0;i<labels.size();++i) {
-				NodeLabel label = labels.get(i);
-				
-				// We only generate log files for labels that are DiseaseModelLabels
-				if(!(label instanceof DiseaseModelLabel)) {
-					continue;
-				}
-				
+			IItemPropertySource propertySource = null;
+			if(dm instanceof DiseaseModel) {
 				StandardItemProviderAdapterFactory itemProviderFactory = getItemProviderFactory();
-				DiseaseModelLabel dmLabel = (DiseaseModelLabel)label;
-				DiseaseModelLabelValue dmlv = dmLabel.getCurrentDiseaseModelLabelValue();
-				IItemPropertySource propertySource = (IItemPropertySource) itemProviderFactory
-				.adapt(dmlv, PropertySource.class);
-				if(propertySource == null) continue;
-				final List<IItemPropertyDescriptor> properties = propertySource
-					.getPropertyDescriptors(null);
+				IntegrationLabelValue dmlv = (IntegrationLabelValue)label.getCurrentValue();
+				propertySource = (IItemPropertySource) itemProviderFactory
+				.adapt(dmlv, IItemPropertySource.class);
+			} else if (dm instanceof PopulationModel) {
+				org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory itemProviderFactory = getPopulationModelItemProviderFactory();
+				IntegrationLabelValue dmlv = (IntegrationLabelValue)label.getCurrentValue();
+				propertySource = (IItemPropertySource) itemProviderFactory
+				.adapt(dmlv, IItemPropertySource.class);
+			}
+			if(propertySource == null) 
+				Activator.logError("Cannot find property source for logger", null);
+			final List<IItemPropertyDescriptor> properties = propertySource
+				.getPropertyDescriptors(null);
 				
-				Decorator dec = dmLabel.getDecorator();
-				
-				if(dec == null) {
-					Activator.logError("Found a null decorator for label: "+label, new Exception());
-					continue;
-				}
-				
-				if(!dec.equals(dm) && !(dec instanceof AggregatingSIDiseaseModel)) { // ToDo: Why would getDecorator() for a label return the aggregating model? If there are more than 1 disease model, it should return all
-					continue;
-				}
-				for(IItemPropertyDescriptor property:properties) {	
-					for(int level = minLevel;level <=maxLevel;++level) {
-						StateLevelMap slm = new StateLevelMap(property.getDisplayName(property), level);
-						String file = dirs+sep+property.getDisplayName(property)+"_"+level+CSV_EXT;
-						FileWriter fw = new FileWriter(file);
-						fileWriters.put(slm, fw);
-						Iterator<Node> nodeIterator = this.getNodeIterator(level, nodeLevels);
-						// Iterate over nodes for a given resolution
-						fw.write(ITERATION_LABEL);
-						fw.write(",");
-						fw.write(TIME_LABEL);
-						fw.write(",");
-						while(nodeIterator.hasNext()) {
-							Node node = nodeIterator.next();
-							String id = this.filterLocationId(node.getURI().toString());
-							fw.write(id);
-							if(nodeIterator.hasNext()) fw.write(",");
-						}
-						fw.write("\n");
+			for(IItemPropertyDescriptor property:properties) {	
+				for(int level = minLevel;level <=maxLevel;++level) {
+					StateLevelMap slm = new StateLevelMap(property.getDisplayName(property), level);
+					String file = dirs+sep+property.getDisplayName(property)+"_"+level+CSV_EXT;
+					FileWriter fw = new FileWriter(file);
+					fileWriters.put(slm, fw);
+					Iterator<Node> nodeIterator = this.getNodeIterator(level, nodeLevels);
+					// Iterate over nodes for a given resolution
+					fw.write(ITERATION_LABEL);
+					fw.write(",");
+					fw.write(TIME_LABEL);
+					fw.write(",");
+					while(nodeIterator.hasNext()) {
+						Node node = nodeIterator.next();
+						String id = this.filterLocationId(node.getURI().toString());
+						fw.write(id);
+						if(nodeIterator.hasNext()) fw.write(",");
 					}
+					fw.write("\n");
 				}
 			}
 					
@@ -267,7 +268,7 @@ public class NewCSVLogWriter extends LogWriter {
 	 * @param dm Disease Model
 	 */
 	
-	public void logRunParameters(DiseaseModel dm) {
+	public void logRunParameters(IntegrationDecorator dm) {
 		if (dm == null) { // check
 			return;
 		}
@@ -297,7 +298,7 @@ public class NewCSVLogWriter extends LogWriter {
 				EClass containingClass = feature.getEContainingClass();
 				if(containingClass.equals(CommonPackage.eINSTANCE.getDublinCore())) continue;
 				
-				Object value = dm.eGet(feature);
+				Object value = ((EObject)dm).eGet(feature);
 				header.append(feature.getName());
 				header.append(",");
 				value = value.toString().replace(',', ' ');
@@ -343,7 +344,7 @@ public class NewCSVLogWriter extends LogWriter {
 
 	@SuppressWarnings("boxing")
 	@Override
-	public void logData(ISimulation sim, DiseaseModel dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider, boolean beforeStart) {
+	public void logData(ISimulation sim, IntegrationDecorator dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider, boolean beforeStart) {
 		
 		// Increment iteration count
 		this.icount++;
@@ -363,16 +364,26 @@ public class NewCSVLogWriter extends LogWriter {
 					for(int i=0;i<labels.size();++i) {
 						NodeLabel label = labels.get(i);
 						
-						if(!(label instanceof DiseaseModelLabel)) {
+						if(!(label instanceof IntegrationLabel)) {
 							continue;
 						}
 						
-						StandardItemProviderAdapterFactory itemProviderFactory = getItemProviderFactory();
-						DiseaseModelLabel dmLabel = (DiseaseModelLabel)label;
-						// The current value
-						DiseaseModelLabelValue dmlv = dmLabel.getCurrentDiseaseModelLabelValue();
-						IItemPropertySource propertySource = (IItemPropertySource) itemProviderFactory
-						.adapt(dmlv, PropertySource.class);
+						IItemPropertySource propertySource = null;
+						IntegrationLabelValue dmlv = null;
+						
+						if(dm instanceof DiseaseModel) {
+							StandardItemProviderAdapterFactory itemProviderFactory = getItemProviderFactory();
+							IntegrationLabel dmLabel = (IntegrationLabel)label;
+							// The current value
+							dmlv = (IntegrationLabelValue)dmLabel.getCurrentValue();
+							propertySource = (IItemPropertySource) itemProviderFactory
+							.adapt(dmlv, PropertySource.class);
+						} else if (dm instanceof PopulationModel) {
+							org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory itemProviderFactory = getPopulationModelItemProviderFactory();
+							dmlv = (IntegrationLabelValue)label.getCurrentValue();
+							propertySource = (IItemPropertySource) itemProviderFactory
+							.adapt(dmlv, IItemPropertySource.class);
+						}
 						if(propertySource == null) continue;
 						final List<IItemPropertyDescriptor> properties = propertySource
 							.getPropertyDescriptors(null);
@@ -381,16 +392,6 @@ public class NewCSVLogWriter extends LogWriter {
 						//	.adapt(label, RelativeValueProvider.class);
 						//if(rvp == null) continue;
 						
-						Decorator dec = dmLabel.getDecorator();
-						
-						if(dec == null) {
-							Activator.logError("Found a null decorator for label: "+label, new Exception());
-							continue;
-						}
-						
-						if(!dec.equals(dm) && !(dec instanceof AggregatingSIDiseaseModel)) { // ToDo: Why would getDecorator() for a label return the aggregating model? If there are more than 1 disease model, it should return all
-							continue;
-						}
 						
 						StringBuilder sb = new StringBuilder();
 						for(IItemPropertyDescriptor itemDescriptor:properties) {
@@ -425,7 +426,7 @@ public class NewCSVLogWriter extends LogWriter {
 								EStructuralFeature feature = (EStructuralFeature) itemDescriptor
 									.getFeature(null);
 								
-								double value = ((Double) dmlv.eGet(feature))
+								double value = ((Double) ((EObject)dmlv).eGet(feature))
 									.doubleValue();
 								
 								// Write relative value for the property
@@ -574,5 +575,15 @@ public class NewCSVLogWriter extends LogWriter {
 			itemProviderFactory = new StandardItemProviderAdapterFactory();
 		}
 		return itemProviderFactory;
+	} // getItemProviderFactory
+	
+	/**
+	 * @return the instance of the Standard Item Provider factory.
+	 */
+	private static org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory getPopulationModelItemProviderFactory() {
+		if (populationModelItemProviderFactory == null) {
+			populationModelItemProviderFactory = new org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory();
+		}
+		return populationModelItemProviderFactory;
 	} // getItemProviderFactory
 }

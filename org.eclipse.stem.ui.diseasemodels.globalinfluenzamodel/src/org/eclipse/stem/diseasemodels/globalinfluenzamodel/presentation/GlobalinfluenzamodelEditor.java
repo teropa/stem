@@ -478,7 +478,7 @@ public class GlobalinfluenzamodelEditor
 							if (delta.getResource().getType() == IResource.FILE) {
 								if (delta.getKind() == IResourceDelta.REMOVED ||
 								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+									Resource resource = resourceSet.getResource(URI.createURI(delta.getFullPath().toString()), false);
 									if (resource != null) {
 										if (delta.getKind() == IResourceDelta.REMOVED) {
 											removedResources.add(resource);
@@ -502,31 +502,31 @@ public class GlobalinfluenzamodelEditor
 						}
 					}
 
-					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
+					ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
 					delta.accept(visitor);
 
 					if (!visitor.getRemovedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
+						removedResources.addAll(visitor.getRemovedResources());
+						if (!isDirty()) {
+							getSite().getShell().getDisplay().asyncExec
+								(new Runnable() {
+									 public void run() {
 										 getSite().getPage().closeEditor(GlobalinfluenzamodelEditor.this, false);
 									 }
-								 }
-							 });
+								 });
+						}
 					}
 
 					if (!visitor.getChangedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == GlobalinfluenzamodelEditor.this) {
+						changedResources.addAll(visitor.getChangedResources());
+						if (getSite().getPage().getActiveEditor() == GlobalinfluenzamodelEditor.this) {
+							getSite().getShell().getDisplay().asyncExec
+								(new Runnable() {
+									 public void run() {
 										 handleActivate();
 									 }
-								 }
-							 });
+								 });
+						}
 					}
 				}
 				catch (CoreException exception) {
@@ -769,6 +769,11 @@ public class GlobalinfluenzamodelEditor
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
+			// I don't know if this should be run this deferred
+			// because we might have to give the editor a chance to process the viewer update events
+			// and hence to update the views first.
+			//
+			//
 			Runnable runnable =
 				new Runnable() {
 					public void run() {
@@ -779,7 +784,7 @@ public class GlobalinfluenzamodelEditor
 						}
 					}
 				};
-			getSite().getShell().getDisplay().asyncExec(runnable);
+			runnable.run();
 		}
 	}
 
