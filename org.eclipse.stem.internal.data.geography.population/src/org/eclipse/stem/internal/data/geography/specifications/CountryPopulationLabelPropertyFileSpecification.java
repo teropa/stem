@@ -97,12 +97,13 @@ public class CountryPopulationLabelPropertyFileSpecification extends
 		retValue.setURI(PopulationLabelImpl.createPopulationLabelURI(adminLevel
 				.intValue(), isoKey.toString(), populationIdentifier, year,
 				nodeKey));
+		retValue.setValidYear(Integer.parseInt(year));
 		retValue.setURIOfIdentifiableToBeLabeled(RegionImpl
 				.createRegionNodeURI(nodeKey));
 		retValue.setPopulationIdentifier(populationIdentifier);
 		retValue.getCurrentPopulationValue().setCount(
 				Long.parseLong(populationData.getPopulation()));
-
+	
 		// Was an area specified for the population?
 		if (populationData.getArea() != null) {
 			// Yes
