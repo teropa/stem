@@ -228,8 +228,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated NOT
 	 */
 	public DiseaseModelLabelValue add(DiseaseModelLabelValue value) {
-		setDiseaseDeaths(getDiseaseDeaths() + value.getDiseaseDeaths());
-		setIncidence(getIncidence() + value.getIncidence());
 		return this;
 	} // add
 
@@ -244,8 +242,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated NOT
 	 */
 	public DiseaseModelLabelValue sub(DiseaseModelLabelValue value) {
-		setDiseaseDeaths(getDiseaseDeaths() - value.getDiseaseDeaths());
-		setIncidence(getIncidence() - value.getIncidence());
 		return this;
 	} // sub
 
@@ -255,8 +251,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated NOT
 	 */
 	public DiseaseModelLabelValue scale(double scaleFactor) {
-		setDiseaseDeaths(getDiseaseDeaths()  * scaleFactor);
-		setIncidence(getIncidence() * scaleFactor);
 		return this;
 	} // scale
 	

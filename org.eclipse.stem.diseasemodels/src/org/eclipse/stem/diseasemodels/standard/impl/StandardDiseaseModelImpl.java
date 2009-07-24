@@ -358,7 +358,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			final StandardDiseaseModelLabelValue pipeTransportDeltas = getPipeTransportationDeltas(diseaseLabel, time, timeDelta, pipeDelta);
 
 			// 2) Compute Birth and Deaths state delta changes
-			final StandardDiseaseModelLabelValue birthDeathDeltas = computeDiseaseDeathsDeltas(time, currentState, timeDelta, birthDeathsDelta);
+			final StandardDiseaseModelLabelValue diseaseDeathDeltas = computeDiseaseDeathsDeltas(time, currentState, timeDelta, birthDeathsDelta);
 
 			StandardDiseaseModelLabelValue diseaseState = currentState;
 				
@@ -367,7 +367,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			
 			 //  Just capture the incidence that was passed on from computeTransistions
 			final double incidence = diseaseDeltas.getIncidence();
-			
+			final double diseaseDeaths = diseaseDeathDeltas.getDiseaseDeaths();
 			/*
 			 * 5) Record the new state variable values.
 			 * 
@@ -402,14 +402,15 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			deltaState.add((IntegrationLabelValue)pipeTransportDeltas);
 			
 			// 3) Add birth/death deltas
-			deltaState.add((IntegrationLabelValue)birthDeathDeltas);
+			deltaState.add((IntegrationLabelValue)diseaseDeathDeltas);
 			
 			// 4) Disease deltas
 			deltaState.add((IntegrationLabelValue)diseaseDeltas);
 		
 			// and pass on the incidence
 			deltaState.setIncidence(incidence);
-		
+			// and the disease deaths
+			deltaState.setDiseaseDeaths(diseaseDeaths);
 			
 			migrationDelta.reset();
 			pipeDelta.reset();

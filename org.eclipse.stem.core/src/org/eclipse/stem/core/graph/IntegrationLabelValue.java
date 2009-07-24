@@ -70,18 +70,6 @@ public interface IntegrationLabelValue extends SimpleDataExchangeLabelValue {
 	*/
 	public boolean adjustDelta(IntegrationLabelValue value);
 	
-	/**
-	 * Set the incidence
-	 * @param i The incidence
-	 */
-	public void setIncidence(double i);
-	
-	/**
-	 * Return the incidence
-	 * 
-	 * @return double Incidence
-	 */
-	public double getIncidence();
 	
 	/**
 	 * divide. Divide the input with this value
