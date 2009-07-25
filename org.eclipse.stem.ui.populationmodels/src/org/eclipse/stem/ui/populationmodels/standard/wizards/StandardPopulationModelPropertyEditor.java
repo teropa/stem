@@ -252,6 +252,29 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			}
 		} // if Background mortality rate
 		
+		// birth rate
+		if (retValue) {
+			// Yes
+			final Text text = map
+					.get(StandardPackage.Literals.STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN);
+			retValue = !text.getText().equals(""); //$NON-NLS-1$
+			// nothing?
+			if (!retValue) {
+				// Yes
+				errorMessage = PopulationModelWizardMessages.getString("NDizWizErr10"); //$NON-NLS-1$
+			} // if
+			else {
+				// No
+				// Is it a valid value > 0?
+				retValue = isValidValue(text.getText(), 0.0);
+				if (!retValue) {
+					// No
+					errorMessage = PopulationModelWizardMessages
+							.getString("NDizWizErr10"); //$NON-NLS-1$
+				} // if
+			}
+		} // if gain
+		
 		return retValue;
 	} // validate
 

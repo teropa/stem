@@ -338,6 +338,7 @@ abstract public class GeographicControl extends Composite implements
 
 						final StemPolygonsList polygonsToDraw = createPolygonsToDraw(monitor);
 						// Still ok to run?
+						if(polygonsToDraw == null) return Status.OK_STATUS;
 						final Display display = Display.getDefault();
 						if (!display.isDisposed()) {
 							// Yes
@@ -812,6 +813,7 @@ abstract public class GeographicControl extends Composite implements
 				// Get the relative value from the dynamic label
 				final RelativeValueProviderAdapter rvp = (RelativeValueProviderAdapter) RelativeValueProviderAdapterFactory.INSTANCE
 						.adapt(firstNodeLabel, RelativeValueProvider.class);
+				if(rvp == null) return null;
 				retValue.setRelativeValueProviderAdapter(rvp);
 
 				final Node node = firstNodeLabel.getNode();
@@ -868,9 +870,12 @@ abstract public class GeographicControl extends Composite implements
 			// Get the display data for this decorator
 			final DecoratorDisplayData displayData = getDecoratorDisplayData(
 					selectedDecorator, monitor);
-
+			
+			if(displayData == null) return null;
 			final RelativeValueProviderAdapter rvp = displayData
 					.getRelativeValueProviderAdapter();
+			if(rvp == null) return null;
+			
 			monitor.beginTask(selectedDecorator.getDublinCore().getTitle(),
 					displayData.getLabelData().size());
 
