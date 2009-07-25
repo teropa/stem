@@ -723,6 +723,152 @@ public interface StandardPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.StochasticStandardPopulationModelImpl <em>Stochastic Standard Population Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StochasticStandardPopulationModelImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getStochasticStandardPopulationModel()
+	 * @generated
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL = 9;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__URI = STANDARD_POPULATION_MODEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__TYPE_URI = STANDARD_POPULATION_MODEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__DUBLIN_CORE = STANDARD_POPULATION_MODEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__LABELS_TO_UPDATE = STANDARD_POPULATION_MODEL__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__GRAPH = STANDARD_POPULATION_MODEL__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__ENABLED = STANDARD_POPULATION_MODEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__GRAPH_DECORATED = STANDARD_POPULATION_MODEL__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__PROGRESS = STANDARD_POPULATION_MODEL__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__POPULATION_IDENTIFIER = STANDARD_POPULATION_MODEL__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__NAME = STANDARD_POPULATION_MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__BIRTH_RATE = STANDARD_POPULATION_MODEL__BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Death Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__DEATH_RATE = STANDARD_POPULATION_MODEL__DEATH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__TIME_PERIOD = STANDARD_POPULATION_MODEL__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Gain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Stochastic Standard Population Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL_FEATURE_COUNT = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.PopulationModel <em>Population Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -981,6 +1127,27 @@ public interface StandardPackage extends EPackage {
 	EAttribute getStandardPopulationModelLabelValue_Deaths();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel <em>Stochastic Standard Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stochastic Standard Population Model</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel
+	 * @generated
+	 */
+	EClass getStochasticStandardPopulationModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel#getGain <em>Gain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Gain</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel#getGain()
+	 * @see #getStochasticStandardPopulationModel()
+	 * @generated
+	 */
+	EAttribute getStochasticStandardPopulationModel_Gain();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1211,6 +1378,24 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS = eINSTANCE.getStandardPopulationModelLabelValue_Deaths();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.StochasticStandardPopulationModelImpl <em>Stochastic Standard Population Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StochasticStandardPopulationModelImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getStochasticStandardPopulationModel()
+		 * @generated
+		 */
+		EClass STOCHASTIC_STANDARD_POPULATION_MODEL = eINSTANCE.getStochasticStandardPopulationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Gain</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN = eINSTANCE.getStochasticStandardPopulationModel_Gain();
 
 	}
 

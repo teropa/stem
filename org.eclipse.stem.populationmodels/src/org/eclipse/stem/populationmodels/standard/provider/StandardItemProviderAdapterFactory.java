@@ -191,6 +191,29 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StochasticStandardPopulationModelItemProvider stochasticStandardPopulationModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStochasticStandardPopulationModelAdapter() {
+		if (stochasticStandardPopulationModelItemProvider == null) {
+			stochasticStandardPopulationModelItemProvider = new StochasticStandardPopulationModelItemProvider(this);
+		}
+
+		return stochasticStandardPopulationModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,6 +317,7 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 		if (standardPopulationModelLabelItemProvider != null) standardPopulationModelLabelItemProvider.dispose();
 		if (populationModelLabelValueItemProvider != null) populationModelLabelValueItemProvider.dispose();
 		if (standardPopulationModelLabelValueItemProvider != null) standardPopulationModelLabelValueItemProvider.dispose();
+		if (stochasticStandardPopulationModelItemProvider != null) stochasticStandardPopulationModelItemProvider.dispose();
 	}
 
 }

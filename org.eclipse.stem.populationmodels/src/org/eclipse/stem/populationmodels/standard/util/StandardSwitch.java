@@ -167,6 +167,19 @@ public class StandardSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StandardPackage.STOCHASTIC_STANDARD_POPULATION_MODEL: {
+				StochasticStandardPopulationModel stochasticStandardPopulationModel = (StochasticStandardPopulationModel)theEObject;
+				T1 result = caseStochasticStandardPopulationModel(stochasticStandardPopulationModel);
+				if (result == null) result = caseStandardPopulationModel(stochasticStandardPopulationModel);
+				if (result == null) result = casePopulationModel(stochasticStandardPopulationModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticStandardPopulationModel);
+				if (result == null) result = caseNodeDecorator(stochasticStandardPopulationModel);
+				if (result == null) result = caseDecorator(stochasticStandardPopulationModel);
+				if (result == null) result = caseIdentifiable(stochasticStandardPopulationModel);
+				if (result == null) result = caseComparable(stochasticStandardPopulationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -303,6 +316,21 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseStandardPopulationModelLabelValue(StandardPopulationModelLabelValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stochastic Standard Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stochastic Standard Population Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStochasticStandardPopulationModel(StochasticStandardPopulationModel object) {
 		return null;
 	}
 

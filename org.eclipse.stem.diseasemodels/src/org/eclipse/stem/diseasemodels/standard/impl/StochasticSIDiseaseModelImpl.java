@@ -188,6 +188,7 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 			return;
 	} // doModelSpecificAdjustments
 	
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

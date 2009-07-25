@@ -122,6 +122,10 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createStandardPopulationModelLabelValueAdapter();
 			}
 			@Override
+			public Adapter caseStochasticStandardPopulationModel(StochasticStandardPopulationModel object) {
+				return createStochasticStandardPopulationModelAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -304,6 +308,20 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStandardPopulationModelLabelValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel <em>Stochastic Standard Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel
+	 * @generated
+	 */
+	public Adapter createStochasticStandardPopulationModelAdapter() {
 		return null;
 	}
 

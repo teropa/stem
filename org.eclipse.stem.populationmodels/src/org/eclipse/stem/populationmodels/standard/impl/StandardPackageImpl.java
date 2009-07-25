@@ -33,6 +33,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
+import org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,6 +104,13 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass standardPopulationModelLabelValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stochasticStandardPopulationModelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -397,6 +405,24 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStochasticStandardPopulationModel() {
+		return stochasticStandardPopulationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStochasticStandardPopulationModel_Gain() {
+		return (EAttribute)stochasticStandardPopulationModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StandardFactory getStandardFactory() {
 		return (StandardFactory)getEFactoryInstance();
 	}
@@ -452,6 +478,9 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(standardPopulationModelLabelValueEClass, STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE);
 		createEAttribute(standardPopulationModelLabelValueEClass, STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS);
 		createEAttribute(standardPopulationModelLabelValueEClass, STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS);
+
+		stochasticStandardPopulationModelEClass = createEClass(STOCHASTIC_STANDARD_POPULATION_MODEL);
+		createEAttribute(stochasticStandardPopulationModelEClass, STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN);
 	}
 
 	/**
@@ -497,6 +526,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		populationModelLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
 		standardPopulationModelLabelValueEClass.getESuperTypes().add(this.getPopulationModelLabelValue());
 		standardPopulationModelLabelValueEClass.getESuperTypes().add(this.getIntegrationLabelValue());
+		stochasticStandardPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(populationModelEClass, PopulationModel.class, "PopulationModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -538,6 +568,9 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		addEOperation(standardPopulationModelLabelValueEClass, theEcorePackage.getEDouble(), "getAdditions", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(standardPopulationModelLabelValueEClass, theEcorePackage.getEDouble(), "getSubstractions", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(stochasticStandardPopulationModelEClass, StochasticStandardPopulationModel.class, "StochasticStandardPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStochasticStandardPopulationModel_Gain(), theEcorePackage.getEDouble(), "gain", "0.01", 0, 1, StochasticStandardPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

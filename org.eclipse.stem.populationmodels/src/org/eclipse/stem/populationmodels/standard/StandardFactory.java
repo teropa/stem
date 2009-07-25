@@ -71,6 +71,15 @@ public interface StandardFactory extends EFactory {
 	StandardPopulationModelLabelValue createStandardPopulationModelLabelValue();
 
 	/**
+	 * Returns a new object of class '<em>Stochastic Standard Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stochastic Standard Population Model</em>'.
+	 * @generated
+	 */
+	StochasticStandardPopulationModel createStochasticStandardPopulationModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
