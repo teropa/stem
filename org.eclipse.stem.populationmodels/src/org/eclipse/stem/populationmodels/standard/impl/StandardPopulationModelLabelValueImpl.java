@@ -348,7 +348,6 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		return result.toString();
 	}
 
-	@Override
 	public IntegrationLabelValue abs() {
 		this.count = Math.abs(this.count);
 		this.births = Math.abs(this.births);
@@ -356,26 +355,22 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		return this;
 	}
 
-	@Override
 	public IntegrationLabelValue add(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
 		this.count += v.getCount();
 		return this;
 	}
 
-	@Override
 	public IntegrationLabelValue add(double addition) {
 		this.count += addition;
 		return this;
 	}
 
-	@Override
 	public IntegrationLabelValue scale(double scaleFactor) {
 		this.count *= scaleFactor;
 		return this;
 	}
 
-	@Override
 	public IntegrationLabelValue set(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
 		this.count = v.getCount();
@@ -385,21 +380,18 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		return this;
 	}
 
-	@Override
 	public IntegrationLabelValue sub(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
 		this.count -= v.getCount();
 		return this;
 	}
 
-	@Override
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)d;
 		this.count /= v.getCount();
 		return this;
 	}
 	
-	@Override
 	public double max() {
 		return count;
 	}
