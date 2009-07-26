@@ -305,7 +305,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		return StandardFactory.eINSTANCE.createStandardPopulationModelLabelValue();
 	}
 
-	@Override
 	public void calculateDelta(STEMTime time, long timeDelta,
 			EList<DynamicLabel> labels) {
 		// We simply calculate the change from the birth/death rate
@@ -329,7 +328,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		}
 	}
 
-	@Override
 	public void applyExternalDeltas(STEMTime time, long timeDelta,
 			EList<DynamicLabel> labels) {
 		for (final Iterator<DynamicLabel> currentStateLabelIter = labels
@@ -365,7 +363,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	private double adjustRate(double rate, long ratePeriod, long actualPeriod) {
 		return rate * ((double)actualPeriod/(double)ratePeriod);
 	}
-	@Override
+	
 	public void doModelSpecificAdjustments(LabelValue label) {
 		// TODO Auto-generated method stub
 		
