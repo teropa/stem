@@ -623,7 +623,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				// Don't touch disease deaths
 				move.setDiseaseDeaths(0.0);
 		
-				currdestlabelval.add(move);
+				currdestlabelval.add((IntegrationLabelValue)move);
 				
 				destpoplabval.setCount(currdestlabelval.getPopulationCount());
 			}
@@ -926,7 +926,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
 						change.scale(factor);
 						
-						returnValue.add(change);
+						returnValue.add((IntegrationLabelValue)change);
 					}
 				}
 			} else { // outgoing edge
@@ -954,7 +954,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
 						change.scale(factor);
 						
-						returnValue.sub(change);
+						returnValue.sub((IntegrationLabelValue)change);
 					}
 				}
 			}
