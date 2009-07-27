@@ -279,7 +279,7 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	 * @return boolean
 	 * @override
 	 */
-	public boolean adjustDelta(DiseaseModelLabelValue target) {
+	public boolean adjustDelta(IntegrationLabelValue target) {
 		SIRLabelValue sirValue = (SIRLabelValue)target;
 		boolean adjusted = false;
 		double newS = this.getS() + sirValue.getS();

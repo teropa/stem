@@ -266,7 +266,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	 * @return boolean
 	 * @override
 	 */
-	public boolean adjustDelta(DiseaseModelLabelValue target) {
+	public boolean adjustDelta(IntegrationLabelValue target) {
 		SEIRLabelValue seirValue = (SEIRLabelValue)target;
 		
 		boolean adjusted = false;
