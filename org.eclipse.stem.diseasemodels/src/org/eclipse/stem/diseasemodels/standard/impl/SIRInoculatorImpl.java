@@ -16,11 +16,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
+import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
 import org.eclipse.stem.diseasemodels.standard.SILabel;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRInoculator;
@@ -174,10 +176,18 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	protected void doInitialization(final DiseaseModelLabel diseaseModelLabel) {
 		// The disease model in question must have an R state
 		// if it is not some type of SIR model then we can not inoculate
-		if(diseaseModelLabel instanceof SIRLabel) {
+		if(diseaseModelLabel instanceof SIRLabel ||
+				diseaseModelLabel instanceof SEIRLabel) {
 			double currentPopulation = diseaseModelLabel.getPopulationLabel().getCurrentPopulationValue().getCount();
-			final SIRLabel sirLabel = (SIRLabel) diseaseModelLabel;
-			final SIRLabelValue sirValue = sirLabel.getCurrentSIRValue();
+			SIRLabelValue sirValue = null;
+			IntegrationLabel iLabel = null;
+			if(diseaseModelLabel instanceof SIRLabel) {
+				iLabel = (SIRLabel) diseaseModelLabel;
+				sirValue = (SIRLabelValue)iLabel.getCurrentValue();
+			} else if(diseaseModelLabel instanceof SEIRLabel) {
+				iLabel = (SEIRLabel) diseaseModelLabel;
+				sirValue = (SIRLabelValue)iLabel.getCurrentValue();
+			}
 			double currentSValue = sirValue.getS();
 			double percentTreated = getInoculatedPercentage();
 			if(percentTreated > 100.0) {
@@ -194,11 +204,11 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			
 			final double newRValue = sirValue.getR() + inoculatedNumber;
 			
-		    sirLabel.getCurrentSIRValue().setS(newSValue);
-			sirLabel.getNextSIRValue().setS(newSValue);
+		    ((SIRLabelValue)iLabel.getCurrentValue()).setS(newSValue);
+			((SIRLabelValue)iLabel.getNextValue()).setS(newSValue);
 			
-			sirLabel.getCurrentSIRValue().setR(newRValue);
-			sirLabel.getNextSIRValue().setR(newRValue);
+			((SIRLabelValue)iLabel.getCurrentValue()).setR(newRValue);
+			((SIRLabelValue)iLabel.getNextValue()).setR(newRValue);
 			
 		}else {
 			// log error
