@@ -19,7 +19,7 @@
             name="%_UI_StandardModelWizard_label"
             class="org.eclipse.stem.populationmodels.standard.presentation.StandardModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/StandardModelFile.gif">
+            icon="icons/full/custom16/populationmodel.gif">
          <description>%_UI_StandardModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -32,11 +32,21 @@
           name="%_UI_Disease"/>
    </extension>
 
+	<extension
+        point="org.eclipse.ui.views">
+     <view
+           category="org.eclipse.stem.ui.views"
+           class="org.eclipse.stem.ui.views.populationmodel.PopulationModelView"
+           icon="icons/full/custom16/populationmodel.gif"
+           id="org.eclipse.stem.ui.views.populationmodels"
+           name="%_UI_PView_Name"/>
+  </extension>
+  
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.eclipse.stem.populationmodels.standard.presentation.StandardEditorID"
             name="%_UI_StandardEditor_label"
-            icon="icons/full/obj16/StandardModelFile.gif"
+            icon="icons/full/custom16/populationmodel.gif"
             extensions="standard"
             class="org.eclipse.stem.populationmodels.standard.presentation.StandardEditor"
             contributorClass="org.eclipse.stem.populationmodels.standard.presentation.StandardActionBarContributor">
