@@ -22,10 +22,15 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider;
+import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
+import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.ui.adapters.color.ColorProvider;
@@ -129,11 +134,23 @@ public class GeoViewOptionsBar extends Composite {
 	 */
 	private DecoratorFilter decoratorFilter = new DecoratorFilter() {
 		/**
+		 * Currently only accepts decorators that are able to provide a relative value
+		 * TODO: Fix so we can view other types of decorators
+		 * 
 		 * @see GeoViewOptionsBar.DecoratorFilter#accept(org.eclipse.stem.core.model.Decorator)
 		 */
 		public boolean accept(
-				@SuppressWarnings("unused") final Decorator decorator) {
-			return true;
+				final Decorator decorator) {
+			
+			EList<DynamicLabel>labels = decorator.getLabelsToUpdate();
+			if(labels == null) return false;
+			for(DynamicLabel l:labels) {
+				RelativeValueProviderAdapter rvp = (RelativeValueProviderAdapter) RelativeValueProviderAdapterFactory.INSTANCE
+				.adapt(l, RelativeValueProvider.class);
+				if(rvp != null) return true;
+			}
+	
+			return false;
 		}
 	};
 
