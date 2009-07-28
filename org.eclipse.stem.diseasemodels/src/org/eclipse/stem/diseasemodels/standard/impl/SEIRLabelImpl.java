@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
@@ -523,4 +524,9 @@ public class SEIRLabelImpl extends StandardDiseaseModelLabelImpl implements SEIR
 		return super.eIsSet(featureID);
 	}
 
+	public void reset(STEMTime time) {
+		// Nothing to do for disease model labels
+	}
+
+	
 } // SEIRLabelImpl

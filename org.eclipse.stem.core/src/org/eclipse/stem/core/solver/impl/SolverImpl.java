@@ -29,6 +29,7 @@ import org.eclipse.stem.core.solver.SolverPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.stem.core.solver.impl.SolverImpl#getDecorators <em>Decorators</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.solver.impl.SolverImpl#isInitialized <em>Initialized</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +45,25 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @ordered
 	 */
 	protected EList<Decorator> decorators;
+
+	/**
+	 * The default value of the '{@link #isInitialized() <em>Initialized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitialized()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INITIALIZED_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isInitialized() <em>Initialized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitialized()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean initialized = INITIALIZED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,6 +110,27 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isInitialized() {
+		return initialized;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialized(boolean newInitialized) {
+		boolean oldInitialized = initialized;
+		initialized = newInitialized;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIALIZED, oldInitialized, initialized));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void step(STEMTime time, long timeDelta, int cycle) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -117,6 +158,8 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 		switch (featureID) {
 			case SolverPackage.SOLVER__DECORATORS:
 				return getDecorators();
+			case SolverPackage.SOLVER__INITIALIZED:
+				return isInitialized() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -133,6 +176,9 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 			case SolverPackage.SOLVER__DECORATORS:
 				setDecorators((EList<Decorator>)newValue);
 				return;
+			case SolverPackage.SOLVER__INITIALIZED:
+				setInitialized(((Boolean)newValue).booleanValue());
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -148,6 +194,9 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 			case SolverPackage.SOLVER__DECORATORS:
 				setDecorators((EList<Decorator>)null);
 				return;
+			case SolverPackage.SOLVER__INITIALIZED:
+				setInitialized(INITIALIZED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -162,6 +211,8 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 		switch (featureID) {
 			case SolverPackage.SOLVER__DECORATORS:
 				return decorators != null;
+			case SolverPackage.SOLVER__INITIALIZED:
+				return initialized != INITIALIZED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -178,6 +229,8 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (decorators: "); //$NON-NLS-1$
 		result.append(decorators);
+		result.append(", initialized: "); //$NON-NLS-1$
+		result.append(initialized);
 		result.append(')');
 		return result.toString();
 	}

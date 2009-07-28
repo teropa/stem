@@ -3,6 +3,7 @@ package org.eclipse.stem.core.graph;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.STEMTime;
 
 /**
  * The interface is implemented by any label that is able to switch between 
@@ -73,4 +74,14 @@ public interface IntegrationLabel  extends EObject {
 	 * @param value true if valid
 	*/
 	public void setNextValueValid(boolean value);
+	
+	/**
+	 * reset. Reset the label using the 
+	 * stem time 
+	 * 
+	 * @param time STEM time
+	 */
+	
+	public void reset(STEMTime time);
+	
 }

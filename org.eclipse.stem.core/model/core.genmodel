@@ -222,6 +222,10 @@
         <genParameters ecoreParameter="model.ecore#//Decorator/updateLabels/cycle"/>
       </genOperations>
       <genOperations ecoreOperation="model.ecore#//Decorator/resetLabels"/>
+      <genOperations ecoreOperation="model.ecore#//Decorator/getLabelsToUpdate">
+        <genParameters ecoreParameter="model.ecore#//Decorator/getLabelsToUpdate/partition"/>
+        <genParameters ecoreParameter="model.ecore#//Decorator/getLabelsToUpdate/max"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//EdgeDecorator"/>
     <genClasses image="false" ecoreClass="model.ecore#//GraphDecorator"/>
@@ -392,6 +396,7 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference scenario.ecore#//Scenario/scenarioDecorators"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scenario.ecore#//Scenario/canonicalGraph"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute scenario.ecore#//Scenario/progress"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scenario.ecore#//Scenario/solver"/>
       <genOperations ecoreOperation="scenario.ecore#//Scenario/step"/>
       <genOperations ecoreOperation="scenario.ecore#//Scenario/reset"/>
       <genOperations ecoreOperation="scenario.ecore#//Scenario/initialize"/>
@@ -433,8 +438,14 @@
   <genPackages prefix="Solver" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       ecorePackage="solver.ecore#/">
     <genClasses ecoreClass="solver.ecore#//Solver">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solver/decorators"/>
-      <genOperations ecoreOperation="solver.ecore#//Solver/step"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/decorators"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/initialized"/>
+      <genOperations ecoreOperation="solver.ecore#//Solver/step">
+        <genParameters ecoreParameter="solver.ecore#//Solver/step/time"/>
+        <genParameters ecoreParameter="solver.ecore#//Solver/step/timeDelta"/>
+        <genParameters ecoreParameter="solver.ecore#//Solver/step/cycle"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//Solver/reset"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

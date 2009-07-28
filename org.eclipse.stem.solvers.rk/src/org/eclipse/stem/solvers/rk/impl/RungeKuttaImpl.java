@@ -130,15 +130,8 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	 */
 	@Override
 	public void step(STEMTime time, long timeDelta, int cycle) {
-		// This is the very start of the process of updating the labels for a
-		// simulation cycle. At this point we want to compute the reciprocal of
-		// the total population (once) as we use this value for each label
-		// update.
-		// We also want to reset our count of the total population to zero so
-		// we can start accumulating the value for the next cycle.
-		
-//		computeTotalPopulationCountReciprocal();
-//		setTotalPopulationCount(0);
+		if(!this.isInitialized())
+			this.initialize(time);
 		
 		final Preferences preferences = Activator.getDefault().getPluginPreferences();
 		num_threads = (short)preferences.getInt(org.eclipse.stem.ui.preferences.PreferenceConstants.SIMULATION_THREADS);
@@ -899,6 +892,25 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		nextValueAtX.sub(currentValue); // difference between new value and old now in nextValueAtX
 		nextValueAtX.scale(1.0/(x-cycle+1));
 		nextValueAtX.set(result.add(nextValueAtX));
+	}
+	
+	/**
+	 * initialize before simulation begins. Rewind/forward any population model
+	 * values to the start time of the 
+	 * @param time
+	 */
+	private void initialize(STEMTime time) {
+		for(Decorator d:this.getDecorators()) {
+			if(d instanceof IntegrationDecorator) {
+				EList<DynamicLabel> labels = (EList<DynamicLabel>)d.getLabelsToUpdate();
+				for(DynamicLabel l:labels) {
+					if(l instanceof IntegrationLabel) {
+						((IntegrationLabel)l).reset(time);
+					}
+				}
+			}
+		}
+		this.setInitialized(true);
 	}
 	
 	/**

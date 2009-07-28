@@ -6,14 +6,19 @@
  */
 package org.eclipse.stem.populationmodels.standard.impl;
 
+import java.util.Calendar;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.LabelValue;
+import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
@@ -418,4 +423,28 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * Reset to the correct population value for the
+	 * passed in time
+	 * 
+	 * @param time Reference time
+	 */
+	public void reset(STEMTime time) {
+		StandardPopulationModel spm = (StandardPopulationModel)this.getDecorator();
+		PopulationLabel plabel = this.getPopulationLabel();
+		int year = plabel.getValidYear();
+		Calendar c = Calendar.getInstance();
+		c.setTime(time.getTime());
+		int startYear = c.get(Calendar.YEAR);
+		double growth = spm.getBirthRate() - spm.getDeathRate();
+		double dailyGrowth = (spm.getTimePeriod() / 86400000.0)*growth;
+		double diff = ((double)startYear - (double)year)*365.25; // approx
+		double currentPopulation = ((StandardPopulationModelLabelValue)this.getCurrentValue()).getCount();
+		dailyGrowth = 1.0 + dailyGrowth;
+		double newPopulation = currentPopulation * Math.pow(dailyGrowth, diff);
+		((StandardPopulationModelLabelValue)this.getCurrentValue()).setCount(newPopulation);	
+		
+	}
+
+	
 } //StandardPopulationModelLabelImpl

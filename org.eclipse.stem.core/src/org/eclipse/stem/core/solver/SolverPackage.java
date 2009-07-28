@@ -107,13 +107,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__DECORATORS = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__INITIALIZED = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Solver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
+	int SOLVER_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 
 	/**
@@ -136,6 +145,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolver_Decorators();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.solver.Solver#isInitialized <em>Initialized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initialized</em>'.
+	 * @see org.eclipse.stem.core.solver.Solver#isInitialized()
+	 * @see #getSolver()
+	 * @generated
+	 */
+	EAttribute getSolver_Initialized();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -176,6 +196,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER__DECORATORS = eINSTANCE.getSolver_Decorators();
+
+		/**
+		 * The meta object literal for the '<em><b>Initialized</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER__INITIALIZED = eINSTANCE.getSolver_Initialized();
 
 	}
 

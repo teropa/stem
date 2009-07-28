@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.standard.SILabel;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
@@ -479,6 +480,10 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 */
 	public void setIncidence(double incidence) {
 		this.getCurrentSIValue().setIncidence(incidence);
+	}
+
+	public void reset(STEMTime time) {
+		// Nothing to do for disease model labels
 	}
 
 } // SILabelImpl

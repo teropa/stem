@@ -21,6 +21,7 @@ import org.eclipse.stem.core.model.STEMTime;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.stem.core.solver.Solver#getDecorators <em>Decorators</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.solver.Solver#isInitialized <em>Initialized</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +55,32 @@ public interface Solver extends Identifiable {
 	 * @generated
 	 */
 	void setDecorators(EList<Decorator> value);
+
+	/**
+	 * Returns the value of the '<em><b>Initialized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Initialized</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initialized</em>' attribute.
+	 * @see #setInitialized(boolean)
+	 * @see org.eclipse.stem.core.solver.SolverPackage#getSolver_Initialized()
+	 * @model
+	 * @generated
+	 */
+	boolean isInitialized();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.core.solver.Solver#isInitialized <em>Initialized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initialized</em>' attribute.
+	 * @see #isInitialized()
+	 * @generated
+	 */
+	void setInitialized(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
