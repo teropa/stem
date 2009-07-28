@@ -18,6 +18,7 @@ import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.LabelValue;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
@@ -223,12 +224,34 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 	 * @param time
 	 */
 	private void initialize(STEMTime time) {
+		EList<Decorator> redoList = new BasicEList<Decorator>();
+		
+		boolean redo = false;
 		for(Decorator d:this.getDecorators()) {
 			if(d instanceof IntegrationDecorator) {
 				EList<DynamicLabel> labels = (EList<DynamicLabel>)d.getLabelsToUpdate();
 				for(DynamicLabel l:labels) {
 					if(l instanceof IntegrationLabel) {
-						((IntegrationLabel)l).reset(time);
+						IntegrationLabel il = (IntegrationLabel)l;
+						il.reset(time);
+						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getAdditions() > 0.0 ||
+								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getSubstractions() > 0.0)
+							redo = true;
+					}
+				}
+			}
+			if(!redo)redoList.add(d);
+		}
+		// Fix decorators with unapplied deltas
+		if(redo) {
+			for(Decorator d:redoList) {
+				if(d instanceof IntegrationDecorator) {
+					EList<DynamicLabel> labels = (EList<DynamicLabel>)d.getLabelsToUpdate();
+					for(DynamicLabel l:labels) {
+						if(l instanceof IntegrationLabel) {
+							IntegrationLabel il = (IntegrationLabel)l;
+							il.reset(time);
+						}
 					}
 				}
 			}

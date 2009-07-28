@@ -142,7 +142,7 @@ public class CustomCSVLogger
 			if ((logWriter != null) && (logWriter.needsHeader)) {
 				// This will write the headers and the first line of data before first cycle
 				logWriter.logHeader(this.simulation, this.diseaseModel, this.nodeLevels, timeProvider);
-				logWriter.logData(this.simulation, this.diseaseModel, this.nodeLevels, timeProvider, true);
+				//logWriter.logData(this.simulation, this.diseaseModel, this.nodeLevels, timeProvider, true);
 			}
 		} else if(event.getSimulationState() == SimulationState.COMPLETED_CYCLE) {
 			// Write data after each cycle of simulation

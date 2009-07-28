@@ -443,7 +443,13 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 		dailyGrowth = 1.0 + dailyGrowth;
 		double newPopulation = currentPopulation * Math.pow(dailyGrowth, diff);
 		((StandardPopulationModelLabelValue)this.getCurrentValue()).setCount(newPopulation);	
-		
+		// Store the additions/substractions in the delta value so that disease models can
+		// adjust their counts
+		double popdiff = newPopulation - currentPopulation;
+		if(popdiff > 0.0)
+			((StandardPopulationModelLabelValue)this.getDeltaValue()).setBirths(popdiff);
+		else
+			((StandardPopulationModelLabelValue)this.getDeltaValue()).setDeaths(-popdiff);
 	}
 
 	

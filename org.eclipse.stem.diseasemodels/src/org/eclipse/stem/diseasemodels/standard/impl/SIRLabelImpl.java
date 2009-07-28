@@ -15,6 +15,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.Label;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRLabel;
@@ -496,7 +499,22 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	}
 
 	public void reset(STEMTime time) {
-		// Nothing to do for disease model labels
+		// Adjust current value by adding/substracting deltas by other models (population models).
+		// We do this to set the right counts to match the population numbers at the beginning
+		// of the simulation.
+		
+		for(Label l:this.getNode().getLabels()) {
+			if(l instanceof IntegrationLabel) {
+				IntegrationLabel il = (IntegrationLabel)l;
+				if(l == this) continue;
+				SimpleDataExchangeLabelValue delta = (SimpleDataExchangeLabelValue)il.getDeltaValue();
+				((SILabelValue)this.getCurrentValue()).setS(
+						((SILabelValue)this.getCurrentValue()).getS()+delta.getAdditions());
+				((SILabelValue)this.getCurrentValue()).setS(
+						((SILabelValue)this.getCurrentValue()).getS()-delta.getSubstractions());
+					
+			}
+		}
 	}
 
 	
