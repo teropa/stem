@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Label;
@@ -496,10 +497,29 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 				IntegrationLabel il = (IntegrationLabel)l;
 				if(l == this) continue;
 				SimpleDataExchangeLabelValue delta = (SimpleDataExchangeLabelValue)il.getDeltaValue();
-				((SILabelValue)this.getCurrentValue()).setS(
-						((SILabelValue)this.getCurrentValue()).getS()+delta.getAdditions());
-				((SILabelValue)this.getCurrentValue()).setS(
-						((SILabelValue)this.getCurrentValue()).getS()-delta.getSubstractions());
+				
+				double additions = delta.getAdditions();
+				double substractions = delta.getSubstractions();
+				
+				// We scale the label values back since at this point the innoculators/infectors
+				// have already been applied and we need to modify all states of the disease
+				
+				double popCount = ((SILabelValue)this.getCurrentValue()).getPopulationCount();
+				if(additions > 0.0) {
+					double factor = additions / popCount;
+					if(Double.isNaN(factor) || Double.isNaN(factor)) factor = 0.0;// do nothing
+					SILabelValue addV = (SILabelValue)EcoreUtil.copy(this.getCurrentValue());
+					addV.scale(factor);
+					((SILabelValue)this.getCurrentValue()).add((IntegrationLabelValue)addV);
+				}
+				if(substractions > 0.0) {
+					double factor = substractions / popCount;
+					if(Double.isNaN(factor) || Double.isNaN(factor)) factor = 0.0;// do nothing
+					SILabelValue subV = (SILabelValue)EcoreUtil.copy(this.getCurrentValue());
+					subV.scale(factor);
+					((SILabelValue)this.getCurrentValue()).sub((IntegrationLabelValue)subV);
+				}
+				
 					
 			}
 		}
