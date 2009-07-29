@@ -136,8 +136,12 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 			}
 		} // if time period
 
+		/**
+		 * These fields has been moved to Population Model
+		 */
+		
 		// Background mortality rate?
-		if (retValue) {
+/*		if (retValue) {
 			// Yes
 			final Text text = map
 					.get(StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE);
@@ -158,7 +162,7 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 				} // if
 			}
 		} // if Background mortality rate
-		
+*/		
 		
 		/**
 		 * MAD 7/15/2009
