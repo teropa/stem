@@ -945,6 +945,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	public void reset() {
 		this.setStepSize(1.0);
 		this.setCurrentX(0.0);
+		this.setInitialized(false);
 	}
 	
 	protected double getStepSize() {
