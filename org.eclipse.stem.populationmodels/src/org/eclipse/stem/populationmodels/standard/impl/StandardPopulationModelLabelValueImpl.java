@@ -395,4 +395,11 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	public double max() {
 		return count;
 	}
+	
+	public void reset() {
+		super.reset();
+		this.setCount(COUNT_EDEFAULT);
+		this.setBirths(BIRTHS_EDEFAULT);
+		this.setDeaths(DEATHS_EDEFAULT);
+	}
 } //StandardPopulationModelLabelValueImpl

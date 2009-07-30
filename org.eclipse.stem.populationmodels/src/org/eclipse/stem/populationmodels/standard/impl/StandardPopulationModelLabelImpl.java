@@ -310,11 +310,12 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 */
 	@Override
 	public void reset() {
-		// Reset all values back to their original state
-		
-		// ToDo: Look at the sequencer in the
-		// scenario and set the population according
-		// to the start year
+		((StandardPopulationModelLabelValue)this.getCurrentValue()).reset();
+		((StandardPopulationModelLabelValue)this.getNextValue()).reset();
+		((StandardPopulationModelLabelValue)this.getDeltaValue()).reset();
+		((StandardPopulationModelLabelValue)this.getTempValue()).reset();
+		((StandardPopulationModelLabelValue)this.getProbeValue()).reset();
+		((StandardPopulationModelLabelValue)this.getErrorScale()).reset();
 		
 		double originalCount = this.getPopulationLabel().getCurrentPopulationValue().getCount();
 		((StandardPopulationModelLabelValue)this.getCurrentValue()).setCount(originalCount);

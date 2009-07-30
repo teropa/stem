@@ -45,6 +45,10 @@ public abstract class StandardDiseaseModelLabelImpl extends
 		// The call to super.reset will reset the label value of this label
 		// which will zero out all of the disease state values.
 		super.reset();
+		getTempValue().reset();
+		getDeltaValue().reset();
+		getErrorScale().reset();
+		getProbeValue().reset();
 		// Is there a population instance associated with this instance?
 		if (getPopulationLabel() != null) {
 			// Yes
