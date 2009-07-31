@@ -336,11 +336,13 @@ public class GeoViewOptionsBar extends Composite {
 			return;
 		
 		setDecorators(getDecoratorsToDisplay(simulation));
-		setColorProviders(decorators);
-		geoViewOptionsGroup.setVisible(true);
-		setEdges();
-		edgesGroup.setVisible(true);
-		getInformation(simulation);
+		if(decorators != null) {
+			setColorProviders(decorators);
+			geoViewOptionsGroup.setVisible(true);
+			setEdges();
+			edgesGroup.setVisible(true);
+			getInformation(simulation);
+		}
 	} // setSimulation
 
 	/**

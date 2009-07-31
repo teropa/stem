@@ -1086,6 +1086,7 @@ abstract public class GeographicControl extends Composite implements
 	 */
 	public void colorProviderChanged(final Class selectedColorProvider) {
 		final Decorator decorator = optionsBar.getSelectedDecorator();
+		if(decorator == null) return;
 		final AdapterFactory adapterFactory = ColorProviderAdapterFactory.INSTANCE
 				.getFactoryForType(selectedColorProvider);
 		final Adapter adapter = adapterFactory.adapt(decorator.getGraph(),
