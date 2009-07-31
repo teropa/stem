@@ -354,7 +354,10 @@ public class ScenarioComparisonControl extends AnalysisControl {
                 ErrorResult result=null;
                 try {
                 	result = analyzer.compare(referenceDirectory, comparisonDirectory, progressDialog);
-                	comparisonValues.add(result.getErrorByTimeStep());
+                	if(result !=null) {
+                		comparisonValues.add(result.getErrorByTimeStep());
+                	}
+                	
                 	//success... remember the users prefs
 					prefs.setRecentFolder(PRIMARY_FOLDER_KEY,referenceDirectory);
 					prefs.setRecentFolder(SECONDARY_FOLDER_KEY,comparisonDirectory);
@@ -372,7 +375,10 @@ public class ScenarioComparisonControl extends AnalysisControl {
 				CSVAnalysisWriter writer = new CSVAnalysisWriter(outFileName);
 			    writer.logData(comparisonValues);
 			    String results = "RMS Difference = ";
-			    results += result.getError();
+			    if(result !=null) {
+			    	results += result.getError();
+			    }
+			    
 				statusLabel.setText(results);
 			}
 		});

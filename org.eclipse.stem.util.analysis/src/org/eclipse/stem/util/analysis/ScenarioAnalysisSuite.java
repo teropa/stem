@@ -240,7 +240,10 @@ public class ScenarioAnalysisSuite {
 		for(Map<String, String> entry : result.keySet()) {
 			ErrorResult res = result.get(entry);
 			// Compute average
-			double error = res.getError();
+			double error = 0.0;
+			if(res !=null) {
+				error = res.getError();
+			}
 			if(error < smallestError) {smallestError = error;returnError = res;}
 		}
 		return returnError;

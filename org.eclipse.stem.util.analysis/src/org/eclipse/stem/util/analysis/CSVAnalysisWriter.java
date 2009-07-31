@@ -322,7 +322,11 @@ public class CSVAnalysisWriter  {
 				// Compute average
 				Collection<String> pvalues = entry.values();
 				for(String pval : pvalues) {fw.write(pval);fw.write(",");}
-				fw.write(res.getError()+"");
+				double error = 0;
+				if(res!=null){
+					error = res.getError();
+				}
+				fw.write(error+"");
 				fw.write("\n");
 				
 			}
