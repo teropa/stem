@@ -231,7 +231,7 @@ public class StandardRelativeValueHistoryProviderAdapterFactory extends
 		 * or can be used to create a label showing the maximum scale for any relative value.
 		 * @return the denominator or scale used to normalize the relative value
 		 */
-		public double getDenominator() {
+		public double getDenominator(final EStructuralFeature feature) {
 			final DiseaseModelLabel dml = (DiseaseModelLabel) getTarget();
 			DiseaseModelLabelValue dmlv = (DiseaseModelLabelValue)dml.getCurrentValue();
 			final double populationCount = dmlv.getPopulationCount();

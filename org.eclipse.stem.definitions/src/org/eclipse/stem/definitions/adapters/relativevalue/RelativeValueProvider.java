@@ -60,5 +60,5 @@ public interface RelativeValueProvider {
 	 * or can be used to create a label showing the maximum scale for any relative value.
 	 * @return the denominator or scale used to normalize the relative value
 	 */
-	double getDenominator() ;
+	double getDenominator(final EStructuralFeature feature) ;
 }// RelativeValueProvider

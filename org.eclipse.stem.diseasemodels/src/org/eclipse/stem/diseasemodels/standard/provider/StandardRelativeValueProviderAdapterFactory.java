@@ -214,7 +214,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * It is required whenever we need to switch between relative and absolute values
 		 * @return the total current population count (absolute)
 		 */
-		public double getDenominator() {
+		public double getDenominator(final EStructuralFeature feature) {
 			final DiseaseModelLabel dml = (DiseaseModelLabel) getTarget();
 			DiseaseModelLabelValue dmlv = (StandardDiseaseModelLabelValue)dml.getCurrentValue();
 			final double populationCount = dmlv.getPopulationCount();
@@ -320,7 +320,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * or can be used to create a label showing the maximum scale for any relative value.
 		 * @return the denominator or scale used to normalize the relative value
 		 */
-		public double getDenominator() {
+		public double getDenominator(final EStructuralFeature feature) {
 			final DiseaseModelLabelValue dmlv = (DiseaseModelLabelValue) getTarget();
 			final double populationCount = dmlv.getPopulationCount();
 			return dmlv.getPopulationCount();

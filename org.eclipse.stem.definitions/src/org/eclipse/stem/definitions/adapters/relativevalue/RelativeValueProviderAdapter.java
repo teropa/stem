@@ -52,7 +52,7 @@ abstract public class RelativeValueProviderAdapter extends AdapterImpl
 	 * or can be used to create a label showing the maximum scale for any relative value.
 	 * @return the denominator or scale used to normalize the relative value
 	 */
-	public abstract double getDenominator() ;
+	public abstract double getDenominator(final EStructuralFeature feature) ;
 
 	/**
 	 * @see org.eclipse.emf.common.notify.impl.AdapterImpl#isAdapterForType(java.lang.Object)
