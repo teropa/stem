@@ -93,6 +93,9 @@ public class IntensityColorsLabelsMappingColorProviderAdapterFactory extends
 		colorsLegendComposite.addColorEntry(
 				PreferenceConstants.FOREGROUND_COLOR_LABEL_5,
 				VisualizationPreferencePage.FOREGROUND_ATTRIBUTE_NAME_5_STRING);
+		colorsLegendComposite.addColorEntry(
+				PreferenceConstants.FOREGROUND_COLOR_LABEL_6,
+				VisualizationPreferencePage.FOREGROUND_ATTRIBUTE_NAME_6_STRING);
 		return colorsLegendComposite;
 	} // createColorsLegendComposite
 

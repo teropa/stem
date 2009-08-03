@@ -338,7 +338,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 						if (rvp != null) {
 							// Yes
 							rvp.setTarget(dynamicLabel);
-							totalPopulation += rvp.getDenominator();
+							totalPopulation += rvp.getDenominator(null);
 							// remember this rvp to use for aggregation later
 							relativeValueProviderSet.add(rvp);
 
@@ -647,7 +647,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 			Iterator<RelativeValueProviderAdapter> iter2 = relativeValueProviderSet.iterator();
 			while((iter2 !=null) && (iter2.hasNext())) {
 				RelativeValueProviderAdapter rvp = iter2.next();
-				double nodePopulation = rvp.getDenominator();
+				double nodePopulation = rvp.getDenominator(null);
 				totPop += nodePopulation;
 				sum += (nodePopulation * rvp.getRelativeValue(property));
 			}

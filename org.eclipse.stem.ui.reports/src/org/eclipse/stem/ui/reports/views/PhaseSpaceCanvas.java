@@ -215,7 +215,7 @@ public class PhaseSpaceCanvas extends Canvas {
 			/////////////////////////////////////////////////////////////
 			// Log(0.0) is negative infinity so for display purposes only
 			// we set the minimum axis value at 0.5/POPULATION
-			double denom = rvhp.getDenominator();
+			double denom = rvhp.getDenominator(null);
 			if(denom <=0.0) denom = 1.0;
 			minLogScaleValue = 0.5/denom;
 			/////////////////////////////////////////////////////////////

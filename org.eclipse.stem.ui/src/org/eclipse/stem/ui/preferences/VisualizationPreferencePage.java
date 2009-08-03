@@ -88,9 +88,9 @@ public class VisualizationPreferencePage extends FieldEditorPreferencePage
 	public static final String FOREGROUND_ATTRIBUTE_NAME_5_STRING = "Count";
 	
 	/**
-	 * Infectious that Recover
+	 * Population Density
 	 */
-	public static final String FOREGROUND_ATTRIBUTE_NAME_6_STRING = "IR";
+	public static final String FOREGROUND_ATTRIBUTE_NAME_6_STRING = "Density";
 	/**
 	 * Infectious that Die of the disease
 	 */
@@ -128,7 +128,7 @@ public class VisualizationPreferencePage extends FieldEditorPreferencePage
 	
 
 	/**
-	 * IR (Infectious that Recover) color = cyan
+	 * Density (Cyan)
 	 */
 	public static final String FOREGROUND_COLOR_6_RGB_STRING = "0,255,255";
 	

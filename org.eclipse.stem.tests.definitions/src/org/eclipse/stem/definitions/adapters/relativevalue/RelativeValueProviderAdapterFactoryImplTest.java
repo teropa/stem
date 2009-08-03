@@ -56,7 +56,7 @@ final public class RelativeValueProviderAdapterFactoryImplTest extends
 					}
 					
 					@Override
-					public double getDenominator() {
+					public double getDenominator(EStructuralFeature feature) {
 						return 0.0;
 					}
 					
