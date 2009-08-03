@@ -85,7 +85,7 @@ public class VisualizationPreferencePage extends FieldEditorPreferencePage
 	/**
 	 * Total Population
 	 */
-	public static final String FOREGROUND_ATTRIBUTE_NAME_5_STRING = "P";
+	public static final String FOREGROUND_ATTRIBUTE_NAME_5_STRING = "Count";
 	
 	/**
 	 * Infectious that Recover
