@@ -44,7 +44,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		StandardAdapterFactory implements RelativeValueProviderAdapterFactory {
 
 	// Denominator, should be enough for a while
-	public static long WORLD_POPULATION = 7000000000L;
+	public static long REFERENCE_POPULATION = 16000000L;
 	
 	/**
 	 * This keeps track of the root adapter factory that delegates to this
@@ -216,7 +216,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * @return the total current population count (absolute)
 		 */
 		public double getDenominator() {
-			return WORLD_POPULATION;
+			return REFERENCE_POPULATION;
 		}
 		
 		
@@ -281,8 +281,8 @@ public class StandardRelativeValueProviderAdapterFactory extends
 			final StandardPopulationModelLabelValue popv = (StandardPopulationModelLabelValue) getTarget();
 			final double stateCount = ((Double) popv.eGet(feature))
 					.doubleValue();
-			final double retValue = (stateCount / (double)WORLD_POPULATION);
-			return retValue;
+			final double retValue = (stateCount / (double)REFERENCE_POPULATION);
+			return (retValue >1.0) ? 1.0:retValue;
 		} // getRelativeValue
 		
 		/**
@@ -294,7 +294,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * @return the denominator or scale used to normalize the relative value
 		 */
 		public double getDenominator() {
-			return WORLD_POPULATION;
+			return REFERENCE_POPULATION;
 		}
 		
 	} // PopulationModelLabelValueRelativeValueProvider
