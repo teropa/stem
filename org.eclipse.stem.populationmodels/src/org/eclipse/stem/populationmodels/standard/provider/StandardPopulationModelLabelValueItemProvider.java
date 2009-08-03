@@ -64,6 +64,7 @@ public class StandardPopulationModelLabelValueItemProvider
 			addIncidencePropertyDescriptor(object);
 			addBirthsPropertyDescriptor(object);
 			addDeathsPropertyDescriptor(object);
+			addDensityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -157,6 +158,28 @@ public class StandardPopulationModelLabelValueItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Density feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDensityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StandardPopulationModelLabelValue_density_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StandardPopulationModelLabelValue_density_feature", "_UI_StandardPopulationModelLabelValue_type"),
+				 StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns StandardPopulationModelLabelValue.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,6 +218,7 @@ public class StandardPopulationModelLabelValueItemProvider
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE:
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS:
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS:
+			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

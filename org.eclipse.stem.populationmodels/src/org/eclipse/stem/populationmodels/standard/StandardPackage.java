@@ -713,13 +713,22 @@ public interface StandardPackage extends EPackage {
 	int STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS = POPULATION_MODEL_LABEL_VALUE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY = POPULATION_MODEL_LABEL_VALUE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Population Model Label Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STANDARD_POPULATION_MODEL_LABEL_VALUE_FEATURE_COUNT = POPULATION_MODEL_LABEL_VALUE_FEATURE_COUNT + 4;
+	int STANDARD_POPULATION_MODEL_LABEL_VALUE_FEATURE_COUNT = POPULATION_MODEL_LABEL_VALUE_FEATURE_COUNT + 5;
 
 
 	/**
@@ -1127,6 +1136,17 @@ public interface StandardPackage extends EPackage {
 	EAttribute getStandardPopulationModelLabelValue_Deaths();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getDensity <em>Density</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Density</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getDensity()
+	 * @see #getStandardPopulationModelLabelValue()
+	 * @generated
+	 */
+	EAttribute getStandardPopulationModelLabelValue_Density();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel <em>Stochastic Standard Population Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1378,6 +1398,14 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS = eINSTANCE.getStandardPopulationModelLabelValue_Deaths();
+
+		/**
+		 * The meta object literal for the '<em><b>Density</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY = eINSTANCE.getStandardPopulationModelLabelValue_Density();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.StochasticStandardPopulationModelImpl <em>Stochastic Standard Population Model</em>}' class.

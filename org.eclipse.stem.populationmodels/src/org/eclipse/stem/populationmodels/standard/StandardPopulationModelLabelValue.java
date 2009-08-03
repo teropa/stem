@@ -21,6 +21,7 @@ import org.eclipse.stem.core.graph.IntegrationLabelValue;
  *   <li>{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getIncidence <em>Incidence</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getBirths <em>Births</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getDeaths <em>Deaths</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getDensity <em>Density</em>}</li>
  * </ul>
  * </p>
  *
@@ -133,6 +134,33 @@ public interface StandardPopulationModelLabelValue extends PopulationModelLabelV
 	 * @generated
 	 */
 	void setDeaths(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Density</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Density</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Density</em>' attribute.
+	 * @see #isSetDensity()
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getStandardPopulationModelLabelValue_Density()
+	 * @model default="0.0" unsettable="true" changeable="false" volatile="true"
+	 * @generated
+	 */
+	double getDensity();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getDensity <em>Density</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Density</em>' attribute is set.
+	 * @see #getDensity()
+	 * @generated
+	 */
+	boolean isSetDensity();
 
 	/**
 	 * <!-- begin-user-doc -->

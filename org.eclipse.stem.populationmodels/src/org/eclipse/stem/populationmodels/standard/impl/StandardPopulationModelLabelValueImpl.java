@@ -11,7 +11,12 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
+import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.definitions.labels.AreaLabel;
+import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
@@ -25,6 +30,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelLabelValueImpl#getIncidence <em>Incidence</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelLabelValueImpl#getBirths <em>Births</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelLabelValueImpl#getDeaths <em>Deaths</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelLabelValueImpl#getDensity <em>Density</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +111,16 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @ordered
 	 */
 	protected double deaths = DEATHS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDensity() <em>Density</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDensity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double DENSITY_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,6 +230,34 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public double getDensity() {
+		double population = this.count;
+		StandardPopulationModelLabel label = (StandardPopulationModelLabel)this.eContainer();
+		Node n= label.getNode();
+		double area = 0.0;
+		for(NodeLabel nodeLab : n.getLabels()) {
+			if(nodeLab instanceof AreaLabel) {
+				area = ((AreaLabel)nodeLab).getCurrentAreaValue().getArea();
+				break;
+			}
+		}
+		return (area > 0.0)? (population/area) : 0.0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isSetDensity() {
+		return true; // Density always set
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public boolean adjustDelta(IntegrationLabelValue value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -254,6 +298,8 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 				return new Double(getBirths());
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS:
 				return new Double(getDeaths());
+			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY:
+				return new Double(getDensity());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +368,8 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 				return births != BIRTHS_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS:
 				return deaths != DEATHS_EDEFAULT;
+			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY:
+				return isSetDensity();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -405,6 +405,15 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStandardPopulationModelLabelValue_Density() {
+		return (EAttribute)standardPopulationModelLabelValueEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStochasticStandardPopulationModel() {
 		return stochasticStandardPopulationModelEClass;
 	}
@@ -478,6 +487,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(standardPopulationModelLabelValueEClass, STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE);
 		createEAttribute(standardPopulationModelLabelValueEClass, STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS);
 		createEAttribute(standardPopulationModelLabelValueEClass, STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS);
+		createEAttribute(standardPopulationModelLabelValueEClass, STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY);
 
 		stochasticStandardPopulationModelEClass = createEClass(STOCHASTIC_STANDARD_POPULATION_MODEL);
 		createEAttribute(stochasticStandardPopulationModelEClass, STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN);
@@ -561,6 +571,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getStandardPopulationModelLabelValue_Incidence(), theEcorePackage.getEDouble(), "incidence", null, 0, 1, StandardPopulationModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStandardPopulationModelLabelValue_Births(), theEcorePackage.getEDouble(), "births", null, 0, 1, StandardPopulationModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStandardPopulationModelLabelValue_Deaths(), theEcorePackage.getEDouble(), "deaths", null, 0, 1, StandardPopulationModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStandardPopulationModelLabelValue_Density(), theEcorePackage.getEDouble(), "density", "0.0", 0, 1, StandardPopulationModelLabelValue.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(standardPopulationModelLabelValueEClass, theEcorePackage.getEBoolean(), "adjustDelta", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIntegrationLabelValue(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);

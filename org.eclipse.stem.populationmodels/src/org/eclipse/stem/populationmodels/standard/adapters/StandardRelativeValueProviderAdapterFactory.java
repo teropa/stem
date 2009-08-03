@@ -46,6 +46,9 @@ public class StandardRelativeValueProviderAdapterFactory extends
 	// Denominator, should be enough for a while
 	public static long REFERENCE_POPULATION = 16000000L;
 	
+	// Density denominator
+	public static long REFERENCE_DENSITY = 25000L; // Kairo
+	
 	/**
 	 * This keeps track of the root adapter factory that delegates to this
 	 * adapter factory.
@@ -215,8 +218,11 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * It is required whenever we need to switch between relative and absolute values
 		 * @return the total current population count (absolute)
 		 */
-		public double getDenominator() {
-			return REFERENCE_POPULATION;
+		public double getDenominator(final EStructuralFeature feature) {
+			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
+				return REFERENCE_DENSITY;
+			else
+				return REFERENCE_POPULATION;
 		}
 		
 		
@@ -279,9 +285,14 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 */
 		public double getRelativeValue(final EStructuralFeature feature) {
 			final StandardPopulationModelLabelValue popv = (StandardPopulationModelLabelValue) getTarget();
-			final double stateCount = ((Double) popv.eGet(feature))
+			final double count = ((Double) popv.eGet(feature))
 					.doubleValue();
-			final double retValue = (stateCount / (double)REFERENCE_POPULATION);
+			
+			double retValue;
+			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
+				retValue = (count / (double)REFERENCE_DENSITY);
+			else
+				retValue = (count / (double)REFERENCE_POPULATION);
 			return (retValue >1.0) ? 1.0:retValue;
 		} // getRelativeValue
 		
@@ -293,8 +304,12 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * or can be used to create a label showing the maximum scale for any relative value.
 		 * @return the denominator or scale used to normalize the relative value
 		 */
-		public double getDenominator() {
-			return REFERENCE_POPULATION;
+		public double getDenominator(final EStructuralFeature feature) {
+			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
+				return REFERENCE_DENSITY;
+			else
+				return REFERENCE_POPULATION;
+		
 		}
 		
 	} // PopulationModelLabelValueRelativeValueProvider
