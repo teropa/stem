@@ -13,7 +13,7 @@ package org.eclipse.stem.ui.populationmodels.preferences;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.populationmodels.Activator;
 
 /**
  * Class used to initialize default preference values.

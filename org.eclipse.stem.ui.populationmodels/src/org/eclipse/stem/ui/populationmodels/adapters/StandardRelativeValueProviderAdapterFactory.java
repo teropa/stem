@@ -35,7 +35,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory;
 import org.eclipse.stem.populationmodels.standard.util.StandardAdapterFactory;
-import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.populationmodels.Activator;
 import org.eclipse.stem.ui.populationmodels.preferences.PreferenceConstants;
 import org.eclipse.stem.ui.populationmodels.preferences.PreferenceInitializer;
 import org.eclipse.ui.IStartup;

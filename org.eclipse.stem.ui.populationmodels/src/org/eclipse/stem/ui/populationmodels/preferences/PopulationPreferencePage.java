@@ -11,22 +11,10 @@ package org.eclipse.stem.ui.populationmodels.preferences;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.preference.BooleanFieldEditor;
-import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
-import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.CorePlugin;
-import org.eclipse.stem.core.solver.Solver;
-import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.populationmodels.Activator;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.PopulationModelWizardMessages;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
