@@ -1,7 +1,7 @@
-package org.eclipse.stem.populationmodels;
+package org.eclipse.stem.ui.populationmodels;
 
 /*******************************************************************************
- * Copyright (c) 2006 IBM Corporation and others.
+ * Copyright (c) 2006 2008 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,62 +12,74 @@ package org.eclipse.stem.populationmodels;
  *******************************************************************************/
 
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.stem.core.Constants;
+import org.eclipse.stem.populationmodels.standard.presentation.StandardEditor;
+import org.eclipse.stem.ui.populationmodels.adapters.StandardRelativeValueProviderAdapterFactory;
+import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPopulationModelPropertyEditorAdapterFactory;
+import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPropertyStringProviderAdapterFactory;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
- * The activator class controls the plug-in life cycle
+ * The main plugin class to be used in the desktop.
  */
 public class Activator extends AbstractUIPlugin {
 
 	/**
-	 * The plug-in ID
+	 * The symbolic identifier for this plug-in
 	 */
-	public static final String PLUGIN_ID = Constants.ID_ROOT + ".populationmodels";
+	public static final String PLUGIN_ID = "org.eclipse.stem.ui.populationmodels"; //$NON-NLS-1$
 
-	// The shared instance
+	// The shared instance.
 	private static Activator plugin;
 
 	/**
-	 * The constructor
+	 * The constructor.
 	 */
 	public Activator() {
+		super();
 		plugin = this;
 	}
 
 	/**
+	 * This method is called upon plug-in activation
+	 * 
 	 * @param context
 	 * @throws Exception
 	 */
+	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		// We create these instances so that their constructors run and they
-		// then add themselves to a collection of factories maintained by the
-		// factory interfaces they implement respectively.
-		
-	
+		new StandardPropertyStringProviderAdapterFactory();
+		new StandardPopulationModelPropertyEditorAdapterFactory();
+		new StandardEditor();
+		// Add to RelativeValueProviderAdapterFactory.INSTANCE
+		new StandardRelativeValueProviderAdapterFactory();
+
 		
 	} // start
 
 	/**
-	 * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
+	 * This method is called when the plug-in is stopped
+	 * 
+	 * @param context
+	 * @throws Exception
 	 */
+	@Override
 	public void stop(BundleContext context) throws Exception {
-		plugin = null;
 		super.stop(context);
+		plugin = null;
 	}
 
 	/**
-	 * Returns the shared instance
+	 * Returns the shared instance.
 	 * 
-	 * @return the shared instance
+	 * @return the shared instance.
 	 */
 	public static Activator getDefault() {
 		return plugin;
 	}
+
 
 	/**
 	 * Log an error to the ILog for this plugin
@@ -78,22 +90,9 @@ public class Activator extends AbstractUIPlugin {
 	 *            the associated exception, or null
 	 */
 	public static void logError(String message, Throwable exception) {
-		// Running as a plugin?
-		if (plugin != null) {
-			// Yes
-			plugin.getLog().log(
-					new Status(IStatus.ERROR, plugin.getBundle()
-							.getSymbolicName(), 0, message, exception));
-		} else {
-			System.err.println(message);
-			// Exception?
-			if (exception != null) {
-				// Yes
-				System.err.println(exception.getMessage());
-				exception.printStackTrace(System.err);
-			}
-		}
-
+		plugin.getLog().log(
+				new Status(IStatus.ERROR, plugin.getBundle().getSymbolicName(),
+						0, message, exception));
 	} // logError
 
 	/**
@@ -105,21 +104,9 @@ public class Activator extends AbstractUIPlugin {
 	 *            the associated exception, or null
 	 */
 	public static void logInformation(String message, Throwable exception) {
-		// Running as a plugin?
-		if (plugin != null) {
-			// Yes
-			plugin.getLog().log(
-					new Status(IStatus.INFO, plugin.getBundle()
-							.getSymbolicName(), 0, message, exception));
-		} else {
-			System.out.println(message);
-			// Exception?
-			if (exception != null) {
-				// Yes
-				System.out.println(exception.getMessage());
-				exception.printStackTrace(System.err);
-			}
-		}
-
+		plugin.getLog().log(
+				new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
+						0, message, exception));
 	} // logInformation
+
 } // Activator

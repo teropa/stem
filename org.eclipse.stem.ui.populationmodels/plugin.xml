@@ -86,4 +86,23 @@
            name="%_UI_PopulationModelWizard_label">
      </command>
   </extension>
+  
+  <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+      	    category="org.eclipse.stem.ui.preferences.VisualizationPreferencePage"
+            class="org.eclipse.stem.ui.populationmodels.preferences.PopulationPreferencePage"
+            id="org.eclipse.stem.ui.preferences.PopulationPreferencePage"
+            name="%_UI_PopulationPPage"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="org.eclipse.stem.ui.populationmodels.preferences.PreferenceInitializer"/>
+   </extension>
+   
+   <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.ui.populationmodels.adapters.StandardRelativeValueProviderAdapterFactory"></startup>
+  </extension>
 </plugin>

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
+import org.eclipse.stem.ui.populationmodels.adapters.StandardRelativeValueProviderAdapterFactory;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPopulationModelPropertyEditorAdapterFactory;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPropertyStringProviderAdapterFactory;
 
@@ -102,6 +103,8 @@ public final class StandardEditorPlugin extends EMFPlugin {
 			new StandardPropertyStringProviderAdapterFactory();
 			new StandardPopulationModelPropertyEditorAdapterFactory();
 			new StandardEditor();
+			// Add to RelativeValueProviderAdapterFactory.INSTANCE
+			new StandardRelativeValueProviderAdapterFactory();
 		}
 	}
 

@@ -1,5 +1,5 @@
 // StandardRelativeValueProviderAdapterFactory.java
-package org.eclipse.stem.populationmodels.standard.adapters;
+package org.eclipse.stem.ui.populationmodels.adapters;
 
 /*******************************************************************************
  * Copyright (c) 2006 IBM Corporation and others.
@@ -35,19 +35,17 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory;
 import org.eclipse.stem.populationmodels.standard.util.StandardAdapterFactory;
+import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.populationmodels.preferences.PreferenceConstants;
+import org.eclipse.stem.ui.populationmodels.preferences.PreferenceInitializer;
+import org.eclipse.ui.IStartup;
 
 /**
  * This class is a factory for this model that creates
  * {@link RelativeValueProvider}'s for classes in the model.
  */
 public class StandardRelativeValueProviderAdapterFactory extends
-		StandardAdapterFactory implements RelativeValueProviderAdapterFactory {
-
-	// Denominator, should be enough for a while
-	public static long REFERENCE_POPULATION = 16000000L;
-	
-	// Density denominator
-	public static long REFERENCE_DENSITY = 25000L; // Kairo
+		StandardAdapterFactory implements RelativeValueProviderAdapterFactory, IStartup {
 	
 	/**
 	 * This keeps track of the root adapter factory that delegates to this
@@ -219,10 +217,16 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * @return the total current population count (absolute)
 		 */
 		public double getDenominator(final EStructuralFeature feature) {
+			long popRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_POPULATION);
+			long densRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_DENSITY);
+	
+			if(popRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_POPULATION;
+			if(densRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
+		
 			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
-				return REFERENCE_DENSITY;
+				return densRef;
 			else
-				return REFERENCE_POPULATION;
+				return popRef;
 		}
 		
 		
@@ -288,11 +292,17 @@ public class StandardRelativeValueProviderAdapterFactory extends
 			final double count = ((Double) popv.eGet(feature))
 					.doubleValue();
 			
+			long popRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_POPULATION);
+			long densRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_DENSITY);
+	
+			if(popRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_POPULATION;
+			if(densRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
+			
 			double retValue;
 			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
-				retValue = (count / (double)REFERENCE_DENSITY);
+				retValue = (count / (double)densRef);
 			else
-				retValue = (count / (double)REFERENCE_POPULATION);
+				retValue = (count / (double)popRef);
 			return (retValue >1.0) ? 1.0:retValue;
 		} // getRelativeValue
 		
@@ -305,12 +315,23 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * @return the denominator or scale used to normalize the relative value
 		 */
 		public double getDenominator(final EStructuralFeature feature) {
+			long popRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_POPULATION);
+			long densRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_DENSITY);
+	
+			if(popRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_POPULATION;
+			if(densRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
+	
 			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
-				return REFERENCE_DENSITY;
+				return densRef;
 			else
-				return REFERENCE_POPULATION;
+				return popRef;
 		
 		}
 		
 	} // PopulationModelLabelValueRelativeValueProvider
+
+	@Override
+	public void earlyStartup() {
+		// Done
+	}
 } // StandardRelativeValueProviderAdapterFactory
