@@ -330,7 +330,6 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		
 	} // PopulationModelLabelValueRelativeValueProvider
 
-	@Override
 	public void earlyStartup() {
 		// Done
 	}
