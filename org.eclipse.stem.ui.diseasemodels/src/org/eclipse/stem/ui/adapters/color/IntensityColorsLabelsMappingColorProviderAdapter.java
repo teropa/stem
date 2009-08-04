@@ -81,6 +81,9 @@ public class IntensityColorsLabelsMappingColorProviderAdapter extends
 		// Update the G2D object with the appropriate intensity of the color
 		float alpha = getRelativeValue();
 		alpha *= gainFactor;
+		// SED 8/4/2009. Make sure alpha is between 0 and 1
+		if(alpha > 1.0) alpha = 1.0f;
+		if(alpha < 0.0) alpha = 0.0f; // should never happen
 		if (alpha < ZERO_RELATIVE_VALUE_THRESHOLD) {
 			gcToUpdate.setAlpha(255);
 			gcToUpdate.setBackground(zero_FillColor);
