@@ -441,6 +441,21 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		canonicalGraph.setTime((STEMTime) EcoreUtil.copy(getSequencer()
 				.getCurrentTime()));
 
+		//
+		// Confirm, re-validate the set of unresolved identifiables.
+		// Because we add graphs to graphs and models to models some of the 
+		// unresolved identifiables do not resolve until the very end
+		// this method does that check on the FINAL canonicalGraph.
+		//
+		Iterator<UnresolvedIdentifiable> unresolved = canonicalGraph.getUnresolvedIdentifiables().iterator();
+		  while (unresolved.hasNext()) {
+		   UnresolvedIdentifiable temp = unresolved.next();
+		   
+		   if (canonicalGraph.getNodes().get(temp.getUnresolvedURI()) != null 
+		     || canonicalGraph.getEdges().get(temp.getUnresolvedURI()) != null) {
+		    unresolved.remove();
+		   }
+		}
 		// Just checking...
 		assert canonicalGraph.sane();
 
