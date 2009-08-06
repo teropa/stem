@@ -38,6 +38,10 @@ $JAVA_HOME/bin/java \
  -jar $ECLIPSE_HOME/plugins/org.eclipse.equinox.launcher_*.jar \
  -application org.eclipse.ant.core.antRunner \
  -buildfile $ECLIPSE_HOME/plugins/org.eclipse.pde.build_*/scripts/productBuild/productBuild.xml \
+ -DtoPublish=$TO_PUBLISH \
+ -Dusername=$ECLIPSE_DEVELOPER_USERNAME \
+ -Dpassword=$ECLIPSE_DEVELOPER_PASSWORD \
+ -DcheckoutDir=$BUILD_ROOT/checkout_dir \
  -Dbase=$BUILD_ROOT \
  -DbaseLocation=$ECLIPSE_HOME \
  -Dbuilder=$BUILD_ROOT/config \

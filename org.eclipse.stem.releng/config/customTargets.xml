@@ -13,8 +13,8 @@
 	<!-- ===================================================================== -->
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
-		<get src="${eclipseBaseURL}" dest="${buildDirectory}/../temp-base.zip" />
-		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
+		<get src="${eclipseBaseURL}" dest="${base}/temp-base.zip" />
+		<unzip dest="${base}" overwrite="true" src="${base}/temp-base.zip" />
 	</target>
 
 	<target name="checkLocalBase">
@@ -52,7 +52,7 @@
 	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpath="svnant.jar" /> 
 	<target name="preSetup">
 		<svn>
-			<checkout url="svn://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk" destPath="${buildDirectory}/../checkout_dir" />
+			<checkout url="svn://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk" destPath="${base}/checkout_dir" />
 		</svn>
 	</target>
 
@@ -196,7 +196,12 @@
 		<zip destfile="${packagesDir}/STEM-macosx.cocoa.x86-${packagePostfix}.zip" update="true">
 			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
 		</zip>
-		<antcall target="publish" />
+		
+		<!-- Check if there is a request to publish the binaries -->
+		<istrue value="${toPublish}">
+			<antcall target="publish" />
+			<antcall target="updateWebSiteWithWeeklyBuild" />
+		</istrue>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -208,12 +213,61 @@
 	<!-- ===================================================================== -->
 	<!-- Steps to do to publish the build results -->
 	<!-- ===================================================================== -->
+	<property name="publishDir" value="/home/data/httpd/download.eclipse.org/stem" />
 	<target name="publish">
-		<scp todir="username:password@download1.eclipse.org:~/downloads/stem">
+		<!-- If running outside of build.eclipse.org or download1.eclipse.org servers then use this one to SCP the files -->
+		<!--scp todir="${username}:${password}@download1.eclipse.org:~/downloads/stem">
 			<fileset dir="${packagesDir}">
 				<include name="STEM-*-${packagePostfix}.zip"/>
 			</fileset>
-		</scp>
+		</scp-->
+		<!-- If running on build.eclipse.org or download1.eclipse.org servers, then use this one to copy the files -->
+		<copy todir="${publishDir}">
+			<fileset dir="${packagesDir}">
+				<include name="STEM-*-${packagePostfix}.zip"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="updateWebSiteWithWeeklyBuild">
+		<!-- Load the properties file which holds the last weekly/stable build postfixes -->
+		<loadproperties>
+			<file file="${base}/my.properties"/>
+		</loadproperties>
+		
+		<!-- Checkout/updated the STEM website files from CVS -->
+		<cvs cvsRoot="${username}@dev.eclipse.org:/cvsroot/org.eclipse"
+			package="www/stem"
+			dest="${buildDirectory}"
+		/>
+		
+		<!-- Update the downloads.php file -->
+		<replaceregexp byline="true">
+			<regexp pattern="${lastWeeklyBuild}"/>
+			<substitution expression="${packagePostfix}"/>
+			<fileset dir="${base}/www/stem">
+				<include name="downloads.php"/>
+			</fileset>
+		</replaceregexp>
+		
+		<!-- Commit the updated downloads.php file into CVS -->
+		<cvs cvsRoot="${username}@dev.eclipse.org:/cvsroot/org.eclipse"
+			package="www/stem"
+			dest="${buildDirectory}/.." 
+			command="commit -m 'Updated to Weekly Integration Build ${packagePostfix}'"/>
+
+		<!-- Save the updated postfix of the weekly build into the properties file -->
+		<propertyfile file="${base}/my.properties">
+			<entry  key="lastWeeklyBuild" value="${packagePostfix}"/>
+			<entry  key="lastStableBuild" value="${lastStableBuild}"/>
+		</propertyfile>
+		
+		<!-- Delete the previous weekly build files from the publish directory -->
+		<delete>
+			<fileset dir="${publishDir}">
+				<include name="STEM-*-${lastWeeklyBuild}.zip"/>
+			</fileset>
+		</delete>
 	</target>
 
 	<!-- ===================================================================== -->

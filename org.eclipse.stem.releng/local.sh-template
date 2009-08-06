@@ -1,14 +1,19 @@
 # STEM's major version
 MAJOR_VERSION=0.5.0
 
-# qualifier format: IYYYYMMDD-HHMM
-QUALIFIER=I20090305
-
 # root of the JDK (Java 5.0 or higher)
-JAVA_HOME=${BUILD_ROOT}/jdk
+#JAVA_HOME=${BUILD_ROOT}/jdk1.5.0_16
+JAVA_HOME=/path/to/jdk
 
-# Eclipse 3.x SDK used for building 
-ECLIPSE_HOME=${BUILD_ROOT}/eclipse-3.4
+# Eclipse SDK used for building
+ECLIPSE_HOME=/pat/to/eclipse
 
-# Eclipse 3.x SDK with test framework used for testing
-ECLIPSE_TEST_HOME=${BUILD_ROOT}/eclipse-test-3.4
+#Publishing information used for placing the binaries on the Eclipse downloads
+#server and updating the STEM downloads website
+TO_PUBLISH=false
+ECLIPSE_DEVELOPER_USERNAME=username
+ECLIPSE_DEVELOPER_PASSWORD=password
+
+#Do not edit the following, it's assigned automatically by the script
+#qualifier format: IYYYYMMDD
+QUALIFIER=I20090806
