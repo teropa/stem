@@ -59,6 +59,7 @@ import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabelValue;
 import org.eclipse.stem.definitions.labels.TransportRelationshipLabel;
 import org.eclipse.stem.definitions.labels.impl.TransportRelationshipLabelImpl;
+import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
 import org.eclipse.stem.definitions.transport.PipeTransportEdge;
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
@@ -628,6 +629,61 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				destpoplabval.setCount(currdestlabelval.getPopulationCount());
 			}
 		}
+		
+		// Check for nodes that have no initial population. Get rid of those
+		ArrayList<Node>nodesToRemove = new ArrayList<Node>();
+		for(Node n:pipeTransportationNodeEdgesMap.keySet()) {
+			boolean remove = false;
+			if( (n instanceof PipeStyleTransportSystemImpl)) {
+				PipeStyleTransportSystemImpl psts = (PipeStyleTransportSystemImpl)n;
+				for(NodeLabel l:psts.getLabels()) {
+					if(l instanceof StandardDiseaseModelLabel) {
+						StandardDiseaseModelLabel sl = (StandardDiseaseModelLabel)l;
+						StandardDiseaseModelLabelValue slv = (StandardDiseaseModelLabelValue)sl.getCurrentValue();
+						if(slv.getPopulationCount() == 0.0) {
+							remove = true;break;
+						}
+					}
+					if(remove)break;
+				}
+				ArrayList<PipeTransportEdge>edgesToRemove = new ArrayList<PipeTransportEdge>();
+				if(remove) {
+					Activator.logInformation("Warning, ignoring air transportation node without population "+n, new Exception());
+					nodesToRemove.add(n);
+					// Remove all air transport edges using the node as well as the node itself
+					for(List<PipeTransportEdge>l :pipeTransportationDownEdgesMap.values()) {
+						for(PipeTransportEdge pse:l) {
+							if(pse.getA() == null || pse.getB() == null) continue;
+							if(pse.getA().equals(n) || pse.getB().equals(n)) {
+								if(!edgesToRemove.contains(pse))edgesToRemove.add(pse);
+							}
+						}
+					}
+					for(List<PipeTransportEdge>l :pipeTransportationUpEdgesMap.values()) {
+						for(PipeTransportEdge pse:l) {
+							if(pse.getA() == null || pse.getB() == null) continue;
+							if(pse.getA().equals(n) || pse.getB().equals(n)) {
+								if(!edgesToRemove.contains(pse))edgesToRemove.add(pse);
+							}
+						}
+					}
+					for(PipeTransportEdge pse:edgesToRemove) { 
+						for(List<PipeTransportEdge>l :pipeTransportationDownEdgesMap.values())
+							l.remove(pse);
+						for(List<PipeTransportEdge>l :pipeTransportationUpEdgesMap.values())
+							l.remove(pse);
+					}
+					for(PipeTransportEdge pse:edgesToRemove) { 
+						for(List<PipeTransportEdge>l :pipeTransportationNodeEdgesMap.values())
+							l.remove(pse);
+						for(List<PipeTransportEdge>l :pipeTransportationNodeEdgesMap.values())
+							l.remove(pse);
+					}
+					
+				}
+			}
+		}
+		for(Node n:nodesToRemove) pipeTransportationNodeEdgesMap.remove(n);
 	}
 	/**
 	 * initialize pipe transport maps organizing pipes by direction (up/down)
