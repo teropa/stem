@@ -424,7 +424,7 @@ public class AirTransportGenerator2 {
 		  String parentKey=null, childKey=null;
 		  
 		  if(level == 2) {
-			  parentKey = stemCode.substring(0, 5);
+			  parentKey = stemCode.substring(0, stemCode.lastIndexOf("-"));
 			  childKey = stemCode;
 		  } else if (level == 1) { 
 			  parentKey = country;
