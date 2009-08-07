@@ -161,31 +161,35 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	
 	public void doModelSpecificAdjustments(
 			final LabelValue state) {
-			final SILabelValue currentSI = (SILabelValue) state;
-			double oldI = currentSI.getI();
-			double incidence = currentSI.getIncidence();
-			double newIncidence = incidence*computeNoise();
-			double diff = newIncidence - incidence;
-			
-			double newI = currentSI.getI() + diff;
-			double newS = currentSI.getS() - diff;
-			if(newI < 0.0) {
-				double scale = (-newI) / currentSI.getI();
-				diff = diff * scale;
-				newI = currentSI.getI() + diff; // 0
-				newS = currentSI.getS() - diff;
-			}
-			if(newS < 0.0) {
-				double scale = (-newS) / currentSI.getS();
-				diff = diff * scale;
-				newI = currentSI.getI() + diff;
-				newS = currentSI.getS() - diff; // 0
-			}
-			newIncidence = incidence + diff;
-			currentSI.setS(newS);
-			currentSI.setI(newI);
-			currentSI.setIncidence(newIncidence);
-			return;
+		final SILabelValue currentSI = (SILabelValue) state;
+		double oldI = currentSI.getI();
+		double incidence = currentSI.getIncidence();
+		double newIncidence = incidence*computeNoise();
+		double diff = newIncidence - incidence; 
+		
+		double newI = currentSI.getI() + diff;
+		double newS = currentSI.getS() - diff;
+		if(newI < 0.0) {
+			double scale = (-newI) / currentSI.getI();
+			if(Double.isInfinite(scale))
+				scale = 0.0; // cancel noise if 0
+			diff = diff * scale;
+			newI = currentSI.getI() + diff; // 0
+			newS = currentSI.getS() - diff;
+		}
+		if(newS < 0.0) {
+			double scale = (-newS) / currentSI.getS();
+			if(Double.isInfinite(scale))
+				scale = 0.0; // cancel noise if 0
+			diff = diff * scale;
+			newI = currentSI.getI() + diff;
+			newS = currentSI.getS() - diff; // 0
+		}
+		newIncidence = incidence + diff;
+		currentSI.setS(newS);
+		currentSI.setI(newI);
+		currentSI.setIncidence(newIncidence); 
+		return;
 	} // doModelSpecificAdjustments
 	
 	
