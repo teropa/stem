@@ -1,0 +1,46 @@
+<FindBugsFilter>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.*\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.*\.*\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.edges\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.edges\.util\.*\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.labels\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.labels\.util\.*\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+       <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.nodes\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+       <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.nodes\.util\.*\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.types\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.definitions\.types\.util\.*\.*" />
+        <Bug code="ST,LI,MS,IC" />
+    </Match>
+</FindBugsFilter>

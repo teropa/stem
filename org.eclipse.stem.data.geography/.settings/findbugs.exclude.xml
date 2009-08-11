@@ -1,0 +1,6 @@
+<FindBugsFilter>
+    <Match>
+        <Package name="~org\.eclipse\.stem\.data\.geography\.*" />
+        <Bug code="ST,LI" />
+    </Match>
+</FindBugsFilter>
