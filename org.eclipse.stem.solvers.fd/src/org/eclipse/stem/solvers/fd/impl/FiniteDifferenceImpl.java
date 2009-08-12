@@ -7,7 +7,6 @@
 package org.eclipse.stem.solvers.fd.impl;
 
 import java.util.Iterator;
-import java.util.concurrent.CyclicBarrier;
 
 import org.eclipse.core.runtime.Preferences;
 import org.eclipse.emf.common.util.BasicEList;
@@ -22,7 +21,9 @@ import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.core.predicate.Predicate;
 import org.eclipse.stem.core.solver.impl.SolverImpl;
+import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
@@ -73,6 +74,13 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 			initialize(time);
 		final Preferences preferences = org.eclipse.stem.ui.Activator.getDefault().getPluginPreferences();
 		num_threads = (short)preferences.getInt(org.eclipse.stem.ui.preferences.PreferenceConstants.SIMULATION_THREADS);
+		
+		// Find triggers and make sure they are invoked
+		for(Decorator decorator:this.getDecorators()) {
+			if(decorator instanceof Trigger) {
+				decorator.updateLabels(time, timeDelta, cycle);
+			}
+		}		
 		
 		// First initialize the Y and temp label values from the current
 		// label values.
