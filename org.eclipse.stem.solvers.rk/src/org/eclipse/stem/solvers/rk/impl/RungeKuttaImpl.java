@@ -32,6 +32,7 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.impl.SolverImpl;
+import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
@@ -158,6 +159,13 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
             });
 		
 		updateDoneBarrier = new CyclicBarrier(num_threads);
+		
+		// Find triggers and make sure they are invoked
+		for(Decorator decorator:this.getDecorators()) {
+			if(decorator instanceof Trigger) {
+				decorator.updateLabels(time, timeDelta, cycle);
+			}
+		}		
 		
 		// First initialize the probe and temp label values from the current
 		// label values. 
