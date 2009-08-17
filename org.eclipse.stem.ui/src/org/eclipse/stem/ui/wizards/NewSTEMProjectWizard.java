@@ -74,7 +74,7 @@ public class NewSTEMProjectWizard extends Wizard implements INewWizard,
 	/**
 	 * The name of the folder used to serialize Recorded Simulations in a project.
 	 */
-	public static final String RECORDED_SIMULATIONS_FOLDER_NAME = "recordedsimulations";
+	public static final String RECORDED_SIMULATIONS_FOLDER_NAME = "Recorded Simulations";
 
 	
 	/**
