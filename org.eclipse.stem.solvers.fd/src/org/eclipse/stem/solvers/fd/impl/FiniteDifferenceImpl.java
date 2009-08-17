@@ -1,10 +1,15 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.solvers.fd.impl;
+
+/*******************************************************************************
+ * Copyright (c) 2009 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import java.util.Iterator;
 
@@ -21,15 +26,8 @@ import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
-import org.eclipse.stem.core.predicate.Predicate;
 import org.eclipse.stem.core.solver.impl.SolverImpl;
 import org.eclipse.stem.core.trigger.Trigger;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
-import org.eclipse.stem.diseasemodels.standard.StandardPackage;
-import org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl;
 
 import org.eclipse.stem.solvers.fd.FdPackage;
 import org.eclipse.stem.solvers.fd.FiniteDifference;

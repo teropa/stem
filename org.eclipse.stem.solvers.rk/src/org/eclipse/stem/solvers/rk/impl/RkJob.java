@@ -18,7 +18,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.stem.core.model.STEMTime;
-import org.eclipse.stem.core.solver.Solver;
 
 /**
  * A job for the finite difference solver
