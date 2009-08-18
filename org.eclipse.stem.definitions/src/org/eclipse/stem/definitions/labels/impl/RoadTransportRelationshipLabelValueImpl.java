@@ -189,7 +189,7 @@ public class RoadTransportRelationshipLabelValueImpl extends PhysicalRelationshi
 			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE__ROAD_CLASS:
 				return getRoadClass();
 			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE__NUMBER_CROSSINGS:
-				return new Integer(getNumberCrossings());
+				return getNumberCrossings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,7 +209,7 @@ public class RoadTransportRelationshipLabelValueImpl extends PhysicalRelationshi
 				setRoadClass((String)newValue);
 				return;
 			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE__NUMBER_CROSSINGS:
-				setNumberCrossings(((Integer)newValue).intValue());
+				setNumberCrossings((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

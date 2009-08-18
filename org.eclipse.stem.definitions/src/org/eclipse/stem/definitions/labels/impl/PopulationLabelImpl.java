@@ -319,9 +319,9 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 			case LabelsPackage.POPULATION_LABEL__CURRENT_POPULATION_VALUE:
 				return getCurrentPopulationValue();
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
-				return new Double(getPopulatedArea());
+				return getPopulatedArea();
 			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
-				return new Integer(getValidYear());
+				return getValidYear();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -345,10 +345,10 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 				setName((String)newValue);
 				return;
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
-				setPopulatedArea(((Double)newValue).doubleValue());
+				setPopulatedArea((Double)newValue);
 				return;
 			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
-				setValidYear(((Integer)newValue).intValue());
+				setValidYear((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

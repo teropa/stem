@@ -733,19 +733,19 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__CURRENT_TRANSPORT_RELATIONSHIP_LABEL_VALUE:
 				return getCurrentTransportRelationshipLabelValue();
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD:
-				return new Long(getRateTimePeriod());
+				return getRateTimePeriod();
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__DEPARTURE_CAPACITY:
-				return new Integer(getDepartureCapacity());
+				return getDepartureCapacity();
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY:
-				return new Integer(getMaximumDepartureCapacity());
+				return getMaximumDepartureCapacity();
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__CAPACITY:
-				return new Integer(getCapacity());
+				return getCapacity();
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY:
-				return new Integer(getMaximumCapacity());
+				return getMaximumCapacity();
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME:
-				return new Long(getTransitTime());
+				return getTransitTime();
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY:
-				return new Long(getStartUpDelay());
+				return getStartUpDelay();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -767,19 +767,19 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 				setTransportIdentifier((String)newValue);
 				return;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD:
-				setRateTimePeriod(((Long)newValue).longValue());
+				setRateTimePeriod((Long)newValue);
 				return;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY:
-				setMaximumDepartureCapacity(((Integer)newValue).intValue());
+				setMaximumDepartureCapacity((Integer)newValue);
 				return;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY:
-				setMaximumCapacity(((Integer)newValue).intValue());
+				setMaximumCapacity((Integer)newValue);
 				return;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME:
-				setTransitTime(((Long)newValue).longValue());
+				setTransitTime((Long)newValue);
 				return;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY:
-				setStartUpDelay(((Long)newValue).longValue());
+				setStartUpDelay((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

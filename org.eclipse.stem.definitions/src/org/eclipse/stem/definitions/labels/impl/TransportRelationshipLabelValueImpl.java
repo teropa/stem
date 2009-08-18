@@ -119,7 +119,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION:
-				return new Double(getAvailableDepartureCapacityProportion());
+				return getAvailableDepartureCapacityProportion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,7 +132,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION:
-				setAvailableDepartureCapacityProportion(((Double)newValue).doubleValue());
+				setAvailableDepartureCapacityProportion((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

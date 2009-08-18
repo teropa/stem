@@ -105,7 +105,7 @@ public class MixingEdgeLabelValueImpl extends LabelValueImpl implements MixingEd
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EdgesPackage.MIXING_EDGE_LABEL_VALUE__MIXING_RATE:
-				return new Double(getMixingRate());
+				return getMixingRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -119,7 +119,7 @@ public class MixingEdgeLabelValueImpl extends LabelValueImpl implements MixingEd
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EdgesPackage.MIXING_EDGE_LABEL_VALUE__MIXING_RATE:
-				setMixingRate(((Double)newValue).doubleValue());
+				setMixingRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

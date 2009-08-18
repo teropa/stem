@@ -133,7 +133,7 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT:
-				return isAdjacent() ? Boolean.TRUE : Boolean.FALSE;
+				return isAdjacent();
 			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP:
 				return getRelationship();
 		}
@@ -148,7 +148,7 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT:
-				setAdjacent(((Boolean)newValue).booleanValue());
+				setAdjacent((Boolean)newValue);
 				return;
 			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP:
 				setRelationship((RelativePhysicalRelationship)newValue);

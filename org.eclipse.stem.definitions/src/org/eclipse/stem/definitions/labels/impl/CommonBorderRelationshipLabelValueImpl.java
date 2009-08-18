@@ -96,7 +96,7 @@ public class CommonBorderRelationshipLabelValueImpl extends
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH:
-				return new Double(getBorderLength());
+				return getBorderLength();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,7 +109,7 @@ public class CommonBorderRelationshipLabelValueImpl extends
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH:
-				setBorderLength(((Double)newValue).doubleValue());
+				setBorderLength((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -178,13 +178,22 @@ public interface LabelsPackage extends EPackage {
 	int AREA_LABEL_VALUE__AREA = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Average Extent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_LABEL_VALUE__AVERAGE_EXTENT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Area Label Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AREA_LABEL_VALUE_FEATURE_COUNT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 1;
+	int AREA_LABEL_VALUE_FEATURE_COUNT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.definitions.labels.impl.PhysicalRelationshipLabelImpl <em>Physical Relationship Label</em>}' class.
@@ -1108,6 +1117,17 @@ public interface LabelsPackage extends EPackage {
 	EAttribute getAreaLabelValue_Area();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.definitions.labels.AreaLabelValue#getAverageExtent <em>Average Extent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Average Extent</em>'.
+	 * @see org.eclipse.stem.definitions.labels.AreaLabelValue#getAverageExtent()
+	 * @see #getAreaLabelValue()
+	 * @generated
+	 */
+	EAttribute getAreaLabelValue_AverageExtent();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabel <em>Common Border Relationship Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1579,6 +1599,14 @@ public interface LabelsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AREA_LABEL_VALUE__AREA = eINSTANCE.getAreaLabelValue_Area();
+
+		/**
+		 * The meta object literal for the '<em><b>Average Extent</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AREA_LABEL_VALUE__AVERAGE_EXTENT = eINSTANCE.getAreaLabelValue_AverageExtent();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImpl <em>Common Border Relationship Label</em>}' class.

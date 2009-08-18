@@ -105,7 +105,7 @@ public class MigrationEdgeLabelValueImpl extends LabelValueImpl implements Migra
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EdgesPackage.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE:
-				return new Double(getMigrationRate());
+				return getMigrationRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -119,7 +119,7 @@ public class MigrationEdgeLabelValueImpl extends LabelValueImpl implements Migra
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EdgesPackage.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE:
-				setMigrationRate(((Double)newValue).doubleValue());
+				setMigrationRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

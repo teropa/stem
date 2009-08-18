@@ -9,6 +9,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AreaLabelValue" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageExtent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommonBorderRelationshipLabel" eSuperTypes="#//PhysicalRelationshipLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="CommonBorderRelationshipLabelValue"
@@ -25,7 +26,7 @@
         resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populatedArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validYear" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validYear" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="2006"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PopulationLabelValue" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">

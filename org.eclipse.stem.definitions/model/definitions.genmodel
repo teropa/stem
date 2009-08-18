@@ -6,7 +6,7 @@
     editorDirectory="/org.eclipse.stem.definitions/src" modelPluginID="org.eclipse.stem.definitions"
     redirection="" modelName="Definitions" nonNLSMarkers="true" testsDirectory="/org.eclipse.stem.tests.definitions/src"
     importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer">
+    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver">
   <foreignModel>@model</foreignModel>
   <genPackages prefix="Edges" basePackage="org.eclipse.stem.definitions" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
@@ -53,6 +53,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="labels.ecore#//AreaLabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//AreaLabelValue/area"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//AreaLabelValue/averageExtent"/>
     </genClasses>
     <genClasses image="false" ecoreClass="labels.ecore#//CommonBorderRelationshipLabel"/>
     <genClasses image="false" ecoreClass="labels.ecore#//CommonBorderRelationshipLabelValue">
@@ -64,6 +65,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabel/name"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference labels.ecore#//PopulationLabel/currentPopulationValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabel/populatedArea"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabel/validYear"/>
     </genClasses>
     <genClasses image="false" ecoreClass="labels.ecore#//PopulationLabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labels.ecore#//PopulationLabelValue/count"/>

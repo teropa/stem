@@ -89,6 +89,7 @@ public class AreaLabelValueItemProvider extends LabelValueItemProvider
 			super.getPropertyDescriptors(object);
 
 			addAreaPropertyDescriptor(object);
+			addAverageExtentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,6 +108,28 @@ public class AreaLabelValueItemProvider extends LabelValueItemProvider
 				 getString("_UI_AreaLabelValue_area_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_AreaLabelValue_area_feature", "_UI_AreaLabelValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 LabelsPackage.Literals.AREA_LABEL_VALUE__AREA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Average Extent feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAverageExtentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AreaLabelValue_averageExtent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AreaLabelValue_averageExtent_feature", "_UI_AreaLabelValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 LabelsPackage.Literals.AREA_LABEL_VALUE__AVERAGE_EXTENT,
 				 true,
 				 false,
 				 false,
@@ -164,6 +187,7 @@ public class AreaLabelValueItemProvider extends LabelValueItemProvider
 
 		switch (notification.getFeatureID(AreaLabelValue.class)) {
 			case LabelsPackage.AREA_LABEL_VALUE__AREA:
+			case LabelsPackage.AREA_LABEL_VALUE__AVERAGE_EXTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

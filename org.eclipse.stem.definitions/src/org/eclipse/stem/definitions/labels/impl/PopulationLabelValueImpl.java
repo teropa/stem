@@ -114,7 +114,7 @@ public class PopulationLabelValueImpl extends LabelValueImpl implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case LabelsPackage.POPULATION_LABEL_VALUE__COUNT:
-				return new Double(getCount());
+				return getCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,7 +132,7 @@ public class PopulationLabelValueImpl extends LabelValueImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case LabelsPackage.POPULATION_LABEL_VALUE__COUNT:
-				setCount(((Double)newValue).doubleValue());
+				setCount((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

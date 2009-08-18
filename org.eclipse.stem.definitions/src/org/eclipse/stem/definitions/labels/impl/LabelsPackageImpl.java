@@ -198,20 +198,10 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link LabelsPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -223,7 +213,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		if (isInited) return (LabelsPackage)EPackage.Registry.INSTANCE.getEPackage(LabelsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		LabelsPackageImpl theLabelsPackage = (LabelsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof LabelsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new LabelsPackageImpl());
+		LabelsPackageImpl theLabelsPackage = (LabelsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof LabelsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new LabelsPackageImpl());
 
 		isInited = true;
 
@@ -256,6 +246,9 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		// Mark meta-data to indicate it can't be changed
 		theLabelsPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(LabelsPackage.eNS_URI, theLabelsPackage);
 		return theLabelsPackage;
 	}
 
@@ -293,6 +286,15 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 	 */
 	public EAttribute getAreaLabelValue_Area() {
 		return (EAttribute)areaLabelValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAreaLabelValue_AverageExtent() {
+		return (EAttribute)areaLabelValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -679,6 +681,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 
 		areaLabelValueEClass = createEClass(AREA_LABEL_VALUE);
 		createEAttribute(areaLabelValueEClass, AREA_LABEL_VALUE__AREA);
+		createEAttribute(areaLabelValueEClass, AREA_LABEL_VALUE__AVERAGE_EXTENT);
 
 		commonBorderRelationshipLabelEClass = createEClass(COMMON_BORDER_RELATIONSHIP_LABEL);
 
@@ -759,7 +762,6 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 
 		// Obtain other dependent packages
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -787,6 +789,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 
 		initEClass(areaLabelValueEClass, AreaLabelValue.class, "AreaLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getAreaLabelValue_Area(), ecorePackage.getEDouble(), "area", null, 0, 1, AreaLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getAreaLabelValue_AverageExtent(), ecorePackage.getEDouble(), "averageExtent", null, 0, 1, AreaLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(commonBorderRelationshipLabelEClass, CommonBorderRelationshipLabel.class, "CommonBorderRelationshipLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
@@ -800,7 +803,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		initEAttribute(getPopulationLabel_Name(), ecorePackage.getEString(), "name", null, 0, 1, PopulationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPopulationLabel_CurrentPopulationValue(), this.getPopulationLabelValue(), null, "currentPopulationValue", null, 0, 1, PopulationLabel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getPopulationLabel_PopulatedArea(), ecorePackage.getEDouble(), "populatedArea", "0", 0, 1, PopulationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(getPopulationLabel_ValidYear(), theEcorePackage.getEInt(), "validYear", "2006", 0, 1, PopulationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getPopulationLabel_ValidYear(), ecorePackage.getEInt(), "validYear", "2006", 0, 1, PopulationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(populationLabelValueEClass, PopulationLabelValue.class, "PopulationLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getPopulationLabelValue_Count(), ecorePackage.getEDouble(), "count", null, 0, 1, PopulationLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

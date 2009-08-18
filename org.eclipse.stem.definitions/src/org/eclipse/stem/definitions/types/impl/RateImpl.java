@@ -99,7 +99,7 @@ public abstract class RateImpl extends EObjectImpl implements Rate {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TypesPackage.RATE__RATE:
-				return new Double(getRate());
+				return getRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,7 +113,7 @@ public abstract class RateImpl extends EObjectImpl implements Rate {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TypesPackage.RATE__RATE:
-				setRate(((Double)newValue).doubleValue());
+				setRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
