@@ -27,10 +27,12 @@ import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
 import org.eclipse.stem.definitions.edges.impl.MigrationEdgeLabelImpl;
+import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.RoadTransportRelationshipLabel;
 import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImpl;
 import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelImpl;
 import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelValueImpl;
+import org.eclipse.stem.definitions.nodes.Region;
 //import org.eclipse.stem.definitions.labels.impl.TransportRelationshipLabelImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
@@ -151,6 +153,16 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @ordered
 	 */
 	protected static final double PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT = 0.05;
+	
+	/**
+	 * For distances less than the REFERENCE_COMMUTE_DISTANCE = 50.0
+	 * we use the default physicallyAdjacentInfectiousProportion
+	 * This then is really the MAXIMUM physicallyAdjacentInfectiousProportion.
+	 * For distances (counties) larger than REFERENCE_COMMUTE_DISTANCE in linear extent,
+	 * we scale the physicallyAdjacentInfectiousProportion by REFERENCE_COMMUTE_DISTANCE/LINEAR EXTENT
+	 * Where Linear Extent is Sqrt(Area).
+	 */
+	protected static final double REFERENCE_COMMUTE_DISTANCE = 50.0;
 
 	/**
 	 * The cached value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
@@ -767,7 +779,35 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 			StandardDiseaseModelLabel neighborLabel = null;
 			// sum up the changes from each connected node.
 			// NOTE: some of these changes could be negative
-			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, diseaseLabel, onsiteInfectious, getPhysicallyAdjacentInfectiousProportion());
+			
+			///////////////////////////////////////////////////////////////////////
+			// get the Default or MAXIMUM value for the physAdjacentInfProportion
+			double physAdjacentInfProportion = getPhysicallyAdjacentInfectiousProportion();
+			// we need to scale the default Physically Adjacent Infectious proportion by
+			// the AREA of the REGION
+			
+			if (otherNode instanceof Region) {
+				double otherAvgExtent = -1.0;
+				for (final Iterator<NodeLabel> labelIter = otherNode.getLabels().iterator(); labelIter.hasNext();) {
+					final NodeLabel nodeLabel = labelIter.next();
+					// Is this an area label?
+					if (nodeLabel instanceof AreaLabel) {
+						// Yes
+						final AreaLabel areaLabel = (AreaLabel) nodeLabel;
+						otherAvgExtent = areaLabel.getCurrentAreaValue().getAverageExtent();
+						break;
+					}
+				} // for
+				// IF we have a valid area 
+				// then we can re-scale the default Physically Adjacent Infectious proportion
+				if(otherAvgExtent >= 1.0) {
+					double scaleFactor = (REFERENCE_COMMUTE_DISTANCE/otherAvgExtent) ;
+					physAdjacentInfProportion *= scaleFactor;
+					if(physAdjacentInfProportion >= 1.0) physAdjacentInfProportion = 1.0;
+				}
+			}
+			
+			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, diseaseLabel, onsiteInfectious, physAdjacentInfProportion);
 			borderDivisor += getPhysicallyAdjacentInfectiousProportion()*this.getLocalPopulation(this, otherNode);
 		} // for each border edge
 		
