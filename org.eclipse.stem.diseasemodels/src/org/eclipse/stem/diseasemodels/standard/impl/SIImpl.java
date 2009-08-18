@@ -162,7 +162,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * we scale the physicallyAdjacentInfectiousProportion by REFERENCE_COMMUTE_DISTANCE/LINEAR EXTENT
 	 * Where Linear Extent is Sqrt(Area).
 	 */
-	protected static final double REFERENCE_COMMUTE_DISTANCE = 50.0;
+	protected static final double REFERENCE_COMMUTE_DISTANCE = 45.0;
 
 	/**
 	 * The cached value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
