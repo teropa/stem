@@ -67,6 +67,11 @@ public abstract class AbstractRelativeValueColorProviderAdapter extends ColorPro
 	 * Holds the default foreground {@link Color} (the base color for AlphaComposite)
 	 */
 	protected Color foregroundFillColor;	
+	
+	/**
+	 * Holds the default background {@link Color} (the base color for AlphaComposite)
+	 */
+	public Color backgroundFillColor;	
 	/**
 	 * The threshold under which values are considered zero
 	 */
@@ -193,6 +198,7 @@ public abstract class AbstractRelativeValueColorProviderAdapter extends ColorPro
 		range_0_02_FillColor = getColorFromString(prefs.getString(RelativeValueColorPreferences.FOREGROUND_COLOR_RANGE_1_ID));
 		zero_FillColor = getColorFromString(prefs.getString(RelativeValueColorPreferences.FOREGROUND_COLOR_ZERO_RELATIVE_VALUE_ID));
 		foregroundFillColor = getColorFromString(prefs.getString(MapsColorsPreferencePage.FOREGROUND_COLOR_ID));
+		backgroundFillColor = getColorFromString(prefs.getString(MapsColorsPreferencePage.BACKGROUND_COLOR_ID));
 	} // updateColorsFromPreferences
 	
 	/**
