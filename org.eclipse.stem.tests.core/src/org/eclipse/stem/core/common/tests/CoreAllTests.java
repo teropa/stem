@@ -26,6 +26,7 @@ import org.eclipse.stem.core.predicate.tests.PredicateTests;
 import org.eclipse.stem.core.scenario.tests.ScenarioTests;
 
 import org.eclipse.stem.core.sequencer.tests.SequencerTests;
+import org.eclipse.stem.core.solver.tests.SolverTests;
 import org.eclipse.stem.core.trigger.tests.TriggerTests;
 
 /**
@@ -60,6 +61,7 @@ public class CoreAllTests extends TestSuite {
 		suite.addTest(ScenarioTests.suite());
 		suite.addTest(SequencerTests.suite());
 		suite.addTest(TriggerTests.suite());
+		suite.addTest(SolverTests.suite());
 		return suite;
 	}
 

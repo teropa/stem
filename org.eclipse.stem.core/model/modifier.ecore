@@ -96,7 +96,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentSequenceIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nextValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        volatile="true" transient="true"/>
+        changeable="false" volatile="true" transient="true" unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringNOPModifier" eSuperTypes="#//NOPModifier"/>

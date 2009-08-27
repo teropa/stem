@@ -34,6 +34,7 @@ import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.impl.SequencerImpl;
+import org.eclipse.stem.solvers.fd.impl.FiniteDifferenceImpl;
 import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
 import org.eclipse.stem.tests.util.decorators.TestScenarioGraphDecorator1;
 import org.eclipse.stem.tests.util.labels.TestIntegerLabelValue;
@@ -133,6 +134,7 @@ public class ScenarioTest extends IdentifiableTest {
 								.createTestScenarioGraphDecorator1());
 		scenario.getDublinCore().populate();
 		scenario.getDublinCore().setTitle(TEST_SCENARIO_TITLE);
+		scenario.setSolver(new FiniteDifferenceImpl());
 		return scenario;
 	} // createFixture
 

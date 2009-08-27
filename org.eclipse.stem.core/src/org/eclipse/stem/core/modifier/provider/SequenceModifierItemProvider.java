@@ -129,7 +129,7 @@ public class SequenceModifierItemProvider
 				 getString("_UI_SequenceModifier_nextValue_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_SequenceModifier_nextValue_feature", "_UI_SequenceModifier_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModifierPackage.Literals.SEQUENCE_MODIFIER__NEXT_VALUE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

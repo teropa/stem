@@ -94,6 +94,17 @@ public abstract class SequenceModifierTest extends FeatureModifierTest {
 	}
 
 	/**
+	 * Tests the '{@link org.eclipse.stem.core.modifier.SequenceModifier#isSetNextValue() <em>isSetNextValue()</em>}' method.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.modifier.SequenceModifier#isSetNextValue()
+	 * @generated NOT
+	 */
+	public void testIsSetNextValue() {
+		assertTrue(true);
+	}
+
+	/**
 	 * Tests the '{@link org.eclipse.stem.core.modifier.SequenceModifier#setNextValue(java.lang.Object) <em>Next Value</em>}' feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1085,7 +1085,7 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		initEClass(sequenceModifierEClass, SequenceModifier.class, "SequenceModifier", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getSequenceModifier_SequenceSize(), ecorePackage.getEInt(), "sequenceSize", null, 0, 1, SequenceModifier.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getSequenceModifier_CurrentSequenceIndex(), ecorePackage.getEInt(), "currentSequenceIndex", "0", 0, 1, SequenceModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(getSequenceModifier_NextValue(), ecorePackage.getEJavaObject(), "nextValue", null, 0, 1, SequenceModifier.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSequenceModifier_NextValue(), ecorePackage.getEJavaObject(), "nextValue", null, 0, 1, SequenceModifier.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getSequenceModifier_OriginalValue(), ecorePackage.getEJavaObject(), "originalValue", null, 0, 1, SequenceModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(stringNOPModifierEClass, StringNOPModifier.class, "StringNOPModifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

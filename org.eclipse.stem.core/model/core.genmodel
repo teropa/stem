@@ -330,7 +330,7 @@
     <genClasses ecoreClass="modifier.ecore#//SequenceModifier">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/sequenceSize"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/currentSequenceIndex"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/nextValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/nextValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//SequenceModifier/originalValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="modifier.ecore#//StringNOPModifier"/>

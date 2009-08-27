@@ -65,12 +65,12 @@ public interface SequenceModifier extends FeatureModifier {
 	Object getNextValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.stem.core.modifier.SequenceModifier#getNextValue <em>Next Value</em>}' attribute.
+	 * Returns whether the value of the '{@link org.eclipse.stem.core.modifier.SequenceModifier#getNextValue <em>Next Value</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Value</em>' attribute.
+	 * @return whether the value of the '<em>Next Value</em>' attribute is set.
 	 * @see #getNextValue()
 	 * @generated
 	 */
-	void setNextValue(Object value);
+	boolean isSetNextValue();
 } // SequenceModifier

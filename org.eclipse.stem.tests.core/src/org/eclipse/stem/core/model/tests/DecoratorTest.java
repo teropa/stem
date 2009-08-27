@@ -27,6 +27,7 @@ import org.eclipse.stem.core.model.ModelFactory;
  *   <li>{@link org.eclipse.stem.core.model.Decorator#decorateGraph() <em>Decorate Graph</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Decorator#updateLabels(org.eclipse.stem.core.model.STEMTime, long, int) <em>Update Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Decorator#resetLabels() <em>Reset Labels</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.Decorator#getLabelsToUpdate(int, int) <em>Get Labels To Update</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -126,6 +127,17 @@ public class DecoratorTest extends IdentifiableTest {
 	 * @generated NOT
 	 */
 	public void testResetLabels() {
+		assertTrue(true);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.model.Decorator#getLabelsToUpdate(int, int) <em>Get Labels To Update</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.model.Decorator#getLabelsToUpdate(int, int)
+	 * @generated NOT
+	 */
+	public void testGetLabelsToUpdate__int_int() {
 		assertTrue(true);
 	}
 

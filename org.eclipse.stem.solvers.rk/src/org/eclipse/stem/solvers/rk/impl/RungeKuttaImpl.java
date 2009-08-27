@@ -141,8 +141,11 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		if(!this.isInitialized())
 			this.initialize(time);
 		
-		final Preferences preferences = Activator.getDefault().getPluginPreferences();
-		num_threads = (short)preferences.getInt(org.eclipse.stem.ui.preferences.PreferenceConstants.SIMULATION_THREADS);
+		Activator act = org.eclipse.stem.ui.Activator.getDefault();
+		if(act != null) {
+			final Preferences preferences = act.getPluginPreferences();
+			num_threads = (short)preferences.getInt(org.eclipse.stem.ui.preferences.PreferenceConstants.SIMULATION_THREADS);
+		} else num_threads = 2; // Just so we can run inside junit test
 			
 		final int c = cycle;
 		

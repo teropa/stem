@@ -156,8 +156,8 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNextValue(Object newNextValue) {
-		// TODO: implement this method to set the 'Next Value' attribute
+	public boolean isSetNextValue() {
+		// TODO: implement this method to return whether the 'Next Value' attribute is set
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -243,9 +243,6 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 			case ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX:
 				setCurrentSequenceIndex(((Integer)newValue).intValue());
 				return;
-			case ModifierPackage.SEQUENCE_MODIFIER__NEXT_VALUE:
-				setNextValue(newValue);
-				return;
 			case ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE:
 				setOriginalValue(newValue);
 				return;
@@ -263,9 +260,6 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 		switch (featureID) {
 			case ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX:
 				setCurrentSequenceIndex(CURRENT_SEQUENCE_INDEX_EDEFAULT);
-				return;
-			case ModifierPackage.SEQUENCE_MODIFIER__NEXT_VALUE:
-				setNextValue(NEXT_VALUE_EDEFAULT);
 				return;
 			case ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE:
 				setOriginalValue(ORIGINAL_VALUE_EDEFAULT);
@@ -287,7 +281,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 			case ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX:
 				return currentSequenceIndex != CURRENT_SEQUENCE_INDEX_EDEFAULT;
 			case ModifierPackage.SEQUENCE_MODIFIER__NEXT_VALUE:
-				return NEXT_VALUE_EDEFAULT == null ? getNextValue() != null : !NEXT_VALUE_EDEFAULT.equals(getNextValue());
+				return isSetNextValue();
 			case ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE:
 				return ORIGINAL_VALUE_EDEFAULT == null ? originalValue != null : !ORIGINAL_VALUE_EDEFAULT.equals(originalValue);
 		}
