@@ -35,7 +35,35 @@ public class AirTransportGenerator2 {
 	// whichever is smallest
 	
 	private static int DEFAULT_PASSENGERS_WHEN_MISSING = 5475;
+	
+	
 	private static int DEFAULT_DIVISIOR = 365; // Numbers are yearly, we want daily
+	
+	// What percentage of passengers departing from a level 3 (city) region 
+	// are expected to travel to at least another city. There are no intra-city
+	// flights so this is 100 %
+	
+	private static double DEFAULT_PERCENT_START_3_LEVEL_3_TO_LEVEL_2 = 100;
+	
+	// What percentage of passengers when departing from a level 2 (e.g. county) region
+	// are expected to arrive at at least a different county. Since cross-county flights
+	// are rare we set this to 100.
+
+	private static double DEFAULT_PERCENT_START_3_LEVEL_2_TO_LEVEL_1 = 100;
+	
+	// What percentage of passengers when departing from a level 1 (e.g. state) region
+	// are expected to arrive at at least another state. The average for US is 6.7 %
+	// of flights are within the same state so we use that globally.
+
+	private static double DEFAULT_PERCENT_START_3_LEVEL_1_TO_LEVEL_0 = 93.3;
+	
+	// What percentage of passengers when departing from a level 0 (e.g. country) region
+	// are expected to arrive at at least another country. This is very tricky.
+	// It's international versus domestic flights needed for all countries. We're
+	// guessing 50%.
+	
+	private static double DEFAULT_PERCENT_START_3_LEVEL_0_TO_LEVEL_m1 = 50;
+	
 	// What percentage of passengers when departing from a level 2 (e.g. county) region
 	// are expected to arrive at at least a different county. Since cross-county flights
 	// are rare we set this to 100.
@@ -374,7 +402,11 @@ public class AirTransportGenerator2 {
 		  while(stemCode != null) {
 			  int level = GenUtils.getLevel(stemCode);
 			  double factor = 1.0;
-			  if(level == 2 && startLevel == 2) factor = DEFAULT_PERCENT_START_2_LEVEL_2_TO_LEVEL_1/100.0;
+			  if(level == 3 && startLevel == 3) factor = DEFAULT_PERCENT_START_3_LEVEL_3_TO_LEVEL_2/100.0;
+			  else if(level == 2 && startLevel == 3) factor = DEFAULT_PERCENT_START_3_LEVEL_2_TO_LEVEL_1/100.0;
+			  else if(level == 1 && startLevel == 3) factor = DEFAULT_PERCENT_START_3_LEVEL_1_TO_LEVEL_0/100.0;
+			  else if(level == 0 && startLevel == 3) factor = DEFAULT_PERCENT_START_3_LEVEL_0_TO_LEVEL_m1/100.0;
+			  else if(level == 2 && startLevel == 2) factor = DEFAULT_PERCENT_START_2_LEVEL_2_TO_LEVEL_1/100.0;
 			  else if(level == 1 && startLevel == 2) factor = DEFAULT_PERCENT_START_2_LEVEL_1_TO_LEVEL_0/100.0;
 			  else if(level == 0 && startLevel == 2) factor = DEFAULT_PERCENT_START_2_LEVEL_0_TO_LEVEL_m1/100.0;
 			  else if(level == 1 && startLevel == 1) factor = DEFAULT_PERCENT_START_1_LEVEL_1_TO_LEVEL_0/100.0;
@@ -423,7 +455,7 @@ public class AirTransportGenerator2 {
 		  }
 		  String parentKey=null, childKey=null;
 		  
-		  if(level == 2) {
+		  if(level >= 2) {
 			  parentKey = stemCode.substring(0, stemCode.lastIndexOf("-"));
 			  childKey = stemCode;
 		  } else if (level == 1) { 
