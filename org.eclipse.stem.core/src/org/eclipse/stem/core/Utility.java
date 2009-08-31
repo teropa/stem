@@ -14,12 +14,15 @@ package org.eclipse.stem.core;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.stem.core.common.Identifiable;
 
@@ -28,6 +31,15 @@ import org.eclipse.stem.core.common.Identifiable;
  */
 public class Utility {
 
+	/**
+	 * EMF Save Options, for properly serializing to UTF-8
+	 */
+	private static final Map<String,String> EMF_SAVE_OPTIONS 
+		= new HashMap<String,String>();
+	static {
+		EMF_SAVE_OPTIONS.put(XMLResource.OPTION_ENCODING, "UTF8");
+	}
+	
 	/**
 	 * @param identifableURI
 	 *            the {@link URI} of file with a serialized {@link Identifiable}
@@ -119,7 +131,7 @@ public class Utility {
 			resource.getContents().add(id);
 		}
 
-		resource.save(null);
+		resource.save(EMF_SAVE_OPTIONS);
 	} // serializeIdentifiable
 	
 	/**
