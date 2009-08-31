@@ -37,7 +37,7 @@ public class Utility {
 	private static final Map<String,String> EMF_SAVE_OPTIONS 
 		= new HashMap<String,String>();
 	static {
-		EMF_SAVE_OPTIONS.put(XMLResource.OPTION_ENCODING, "UTF8");
+		EMF_SAVE_OPTIONS.put(XMLResource.OPTION_ENCODING, "UTF-8");
 	}
 	
 	/**
