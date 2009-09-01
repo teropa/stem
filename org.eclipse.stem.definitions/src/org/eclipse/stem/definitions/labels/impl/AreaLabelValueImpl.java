@@ -31,6 +31,7 @@ import org.eclipse.stem.definitions.labels.LabelsPackage;
  *
  * @generated
  */
+@SuppressWarnings("boxing")
 public class AreaLabelValueImpl extends LabelValueImpl implements
 		AreaLabelValue {
 	/**
@@ -174,6 +175,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {

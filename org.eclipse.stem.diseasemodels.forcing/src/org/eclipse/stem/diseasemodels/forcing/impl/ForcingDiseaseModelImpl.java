@@ -46,6 +46,7 @@ import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImp
  *
  * @generated
  */
+@SuppressWarnings("boxing")
 public class ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelImpl implements ForcingDiseaseModel {
 	
 	/**
