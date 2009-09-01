@@ -1117,7 +1117,7 @@ public class TimeSeriesCanvas extends Canvas {
 			
 			// replaces deprecated code: lineSeries.getMarker().setVisible(false);
 			if (!lineSeries.getMarkers().isEmpty()) {
-				Marker marker = (Marker)lineSeries.getMarkers().get(0);
+				Marker marker = lineSeries.getMarkers().get(0);
 				marker.setVisible(false);
 			}
 			

@@ -318,10 +318,10 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	public void reset() {
 		((StandardPopulationModelLabelValue)this.getCurrentValue()).reset();
 		((StandardPopulationModelLabelValue)this.getNextValue()).reset();
-		((StandardPopulationModelLabelValue)this.getDeltaValue()).reset();
-		((StandardPopulationModelLabelValue)this.getTempValue()).reset();
-		((StandardPopulationModelLabelValue)this.getProbeValue()).reset();
-		((StandardPopulationModelLabelValue)this.getErrorScale()).reset();
+		this.getDeltaValue().reset();
+		this.getTempValue().reset();
+		this.getProbeValue().reset();
+		this.getErrorScale().reset();
 		
 		double originalCount = this.getPopulationLabel().getCurrentPopulationValue().getCount();
 		((StandardPopulationModelLabelValue)this.getCurrentValue()).setCount(originalCount);
@@ -454,9 +454,9 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 		// adjust their counts
 		double popdiff = newPopulation - currentPopulation;
 		if(popdiff > 0.0)
-			((StandardPopulationModelLabelValue)this.getDeltaValue()).setBirths(popdiff);
+			(this.getDeltaValue()).setBirths(popdiff);
 		else
-			((StandardPopulationModelLabelValue)this.getDeltaValue()).setDeaths(-popdiff);
+			(this.getDeltaValue()).setDeaths(-popdiff);
 	}
 
 	

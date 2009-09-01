@@ -342,7 +342,7 @@ public class AirTransportGenerator2 {
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings({ "nls", "synthetic-access" })
+	@SuppressWarnings({ "nls" })
 	public static void main(String [] args) {
 		if(args.length < 1) {
 			System.err.println("Usage: AirTransportGenerator2 <input .properties file>");

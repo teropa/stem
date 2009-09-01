@@ -238,7 +238,7 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 		boolean redo = false;
 		for(Decorator d:this.getDecorators()) {
 			if(d instanceof IntegrationDecorator) {
-				EList<DynamicLabel> labels = (EList<DynamicLabel>)d.getLabelsToUpdate();
+				EList<DynamicLabel> labels = d.getLabelsToUpdate();
 				for(DynamicLabel l:labels) {
 					if(l instanceof IntegrationLabel) {
 						IntegrationLabel il = (IntegrationLabel)l;
@@ -255,7 +255,7 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 		if(redo) {
 			for(Decorator d:redoList) {
 				if(d instanceof IntegrationDecorator) {
-					EList<DynamicLabel> labels = (EList<DynamicLabel>)d.getLabelsToUpdate();
+					EList<DynamicLabel> labels = d.getLabelsToUpdate();
 					for(DynamicLabel l:labels) {
 						if(l instanceof IntegrationLabel) {
 							IntegrationLabel il = (IntegrationLabel)l;

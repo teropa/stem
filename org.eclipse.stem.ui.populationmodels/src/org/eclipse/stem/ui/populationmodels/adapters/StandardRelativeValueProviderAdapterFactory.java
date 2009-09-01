@@ -216,6 +216,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * It is required whenever we need to switch between relative and absolute values
 		 * @return the total current population count (absolute)
 		 */
+		@Override
 		public double getDenominator(final EStructuralFeature feature) {
 			long popRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_POPULATION);
 			long densRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_DENSITY);
@@ -287,6 +288,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		/**
 		 * @see org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider#getRelativeValue(EStructuralFeature)
 		 */
+		@Override
 		public double getRelativeValue(final EStructuralFeature feature) {
 			final StandardPopulationModelLabelValue popv = (StandardPopulationModelLabelValue) getTarget();
 			final double count = ((Double) popv.eGet(feature))
@@ -300,9 +302,9 @@ public class StandardRelativeValueProviderAdapterFactory extends
 			
 			double retValue;
 			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
-				retValue = (count / (double)densRef);
+				retValue = (count / densRef);
 			else
-				retValue = (count / (double)popRef);
+				retValue = (count / popRef);
 			return (retValue >1.0) ? 1.0:retValue;
 		} // getRelativeValue
 		
@@ -314,6 +316,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * or can be used to create a label showing the maximum scale for any relative value.
 		 * @return the denominator or scale used to normalize the relative value
 		 */
+		@Override
 		public double getDenominator(final EStructuralFeature feature) {
 			long popRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_POPULATION);
 			long densRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_DENSITY);

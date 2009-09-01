@@ -1120,7 +1120,7 @@ public class XYSeriesCanvas extends Canvas {
 				scatterSeriesY.getLineAttributes().setStyle(LineStyle.DOTTED_LITERAL);
 				scatterSeriesY.getLineAttributes().setVisible(true);
 				if (!scatterSeriesY.getMarkers().isEmpty()) {
-					Marker marker = (Marker)scatterSeriesY.getMarkers().get(0);
+					Marker marker = scatterSeriesY.getMarkers().get(0);
 					marker.setVisible(false);
 				}
 			}

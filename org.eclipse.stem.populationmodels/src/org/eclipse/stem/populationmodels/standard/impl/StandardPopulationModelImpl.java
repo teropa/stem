@@ -341,7 +341,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 			final StandardPopulationModelLabel plabel = (StandardPopulationModelLabel) currentStateLabelIter
 					.next();
 			
-			StandardPopulationModelLabelValue myDelta = (StandardPopulationModelLabelValue)plabel.getDeltaValue();
+			StandardPopulationModelLabelValue myDelta = plabel.getDeltaValue();
 			Node n = plabel.getNode();
 			
 			// Find other labels on the node that wants to exchange data
