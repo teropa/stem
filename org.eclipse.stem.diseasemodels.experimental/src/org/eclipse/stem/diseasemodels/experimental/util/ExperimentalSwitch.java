@@ -39,6 +39,9 @@ import org.eclipse.stem.diseasemodels.standard.StochasticSEIRDiseaseModel;
  * @see org.eclipse.stem.diseasemodels.experimental.ExperimentalPackage
  * @generated
  */
+
+import org.eclipse.emf.ecore.EObject;
+@SuppressWarnings("all")
 public class ExperimentalSwitch<T> {
 	/**
 	 * The cached model package

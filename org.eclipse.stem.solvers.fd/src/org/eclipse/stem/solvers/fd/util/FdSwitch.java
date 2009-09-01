@@ -35,6 +35,7 @@ import org.eclipse.stem.solvers.fd.*;
  * @see org.eclipse.stem.solvers.fd.FdPackage
  * @generated
  */
+@SuppressWarnings("all")
 public class FdSwitch<T1> {
 	/**
 	 * The cached model package

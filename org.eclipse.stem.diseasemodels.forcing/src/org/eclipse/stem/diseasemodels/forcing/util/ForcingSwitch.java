@@ -47,6 +47,7 @@ import org.eclipse.stem.diseasemodels.standard.StochasticSIRDiseaseModel;
  * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage
  * @generated
  */
+@SuppressWarnings("all")
 public class ForcingSwitch<T1> {
 	/**
 	 * The cached model package

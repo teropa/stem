@@ -45,6 +45,7 @@ import org.eclipse.stem.populationmodels.standard.*;
  * @see org.eclipse.stem.populationmodels.standard.StandardPackage
  * @generated
  */
+@SuppressWarnings("all")
 public class StandardSwitch<T1> {
 	/**
 	 * The cached model package

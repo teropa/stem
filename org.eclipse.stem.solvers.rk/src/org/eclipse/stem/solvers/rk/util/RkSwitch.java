@@ -35,6 +35,7 @@ import org.eclipse.stem.solvers.rk.*;
  * @see org.eclipse.stem.solvers.rk.RkPackage
  * @generated
  */
+@SuppressWarnings("all")
 public class RkSwitch<T1> {
 	/**
 	 * The cached model package

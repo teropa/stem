@@ -41,6 +41,7 @@ import org.eclipse.stem.diseasemodels.externaldatasource.util.ExternalDataSource
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("all")
 public class ExternalDataSourceItemProviderAdapterFactory extends ExternalDataSourceAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.

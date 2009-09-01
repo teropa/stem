@@ -190,7 +190,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  * <!-- end-user-doc -->
  * @generated
  */
-@SuppressWarnings("unused") 
+@SuppressWarnings("all") 
 public class StandardEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
