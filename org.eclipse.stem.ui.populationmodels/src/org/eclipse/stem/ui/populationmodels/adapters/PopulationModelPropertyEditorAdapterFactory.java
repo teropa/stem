@@ -12,8 +12,6 @@ package org.eclipse.stem.ui.populationmodels.adapters;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 /**

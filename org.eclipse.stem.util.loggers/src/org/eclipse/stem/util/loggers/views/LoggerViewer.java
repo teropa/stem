@@ -40,7 +40,6 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationManagerListenerSync;
 import org.eclipse.stem.jobs.simulation.Simulation;

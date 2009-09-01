@@ -12,7 +12,6 @@ package org.eclipse.stem.populationmodels;
  *******************************************************************************/
 
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.stem.core.Constants;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -42,6 +41,7 @@ public class Activator extends AbstractUIPlugin {
 	 * @param context
 	 * @throws Exception
 	 */
+	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		// We create these instances so that their constructors run and they
@@ -55,6 +55,7 @@ public class Activator extends AbstractUIPlugin {
 	/**
 	 * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);

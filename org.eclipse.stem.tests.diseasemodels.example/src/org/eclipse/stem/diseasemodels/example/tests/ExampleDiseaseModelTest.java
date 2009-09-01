@@ -17,13 +17,12 @@ import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.stem.diseasemodels.example.impl.ExampleDiseaseModelImpl;
 import org.eclipse.stem.diseasemodels.example.ExampleDiseaseModel;
 import org.eclipse.stem.diseasemodels.example.ExampleFactory;
+import org.eclipse.stem.diseasemodels.example.impl.ExampleDiseaseModelImpl;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelValueImpl;
-import org.eclipse.stem.diseasemodels.standard.tests.SEIRLabelValueTestUtil;
 
 
 
@@ -107,7 +106,7 @@ public class ExampleDiseaseModelTest extends TestCase {
 			long pRandomSeed, double pTestGain) {
 		
 		
-		final SEIRLabelValue currentSEIR = (SEIRLabelValue) pCurrentSEIR;
+		final SEIRLabelValue currentSEIR = pCurrentSEIR;
 		Random random = new Random(pRandomSeed);
 		double Inoisy = currentSEIR.getI()* computeNoise(pTestGain, random);
 		currentSEIR.setI(Inoisy);

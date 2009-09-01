@@ -19,18 +19,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.impl.NodeDecoratorImpl;
-import org.eclipse.stem.core.model.impl.DecoratorImpl;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
-import org.eclipse.stem.definitions.labels.PopulationLabelValue;
-
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;

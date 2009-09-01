@@ -17,7 +17,6 @@ import java.io.File;
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.externaldatasource.ExternalDataSourceDiseaseModel;
 import org.eclipse.stem.diseasemodels.externaldatasource.ExternalDataSourceFactory;

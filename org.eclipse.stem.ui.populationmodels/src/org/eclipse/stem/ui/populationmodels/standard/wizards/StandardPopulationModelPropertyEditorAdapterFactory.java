@@ -11,10 +11,7 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.stem.populationmodels.standard.util.StandardAdapterFactory;
-import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditorAdapter;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditorAdapterFactory;
 
@@ -33,6 +30,7 @@ public class StandardPopulationModelPropertyEditorAdapterFactory extends
 		return new StandardPopulationModelPropertyEditorAdapter();
 	}
 
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return type == PopulationModelPropertyEditorAdapter.class
 				|| super.isFactoryForType(type);

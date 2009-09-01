@@ -15,14 +15,10 @@ package org.eclipse.stem.populationmodels.standard.impl;
 import java.util.Random;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
-import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel;
 

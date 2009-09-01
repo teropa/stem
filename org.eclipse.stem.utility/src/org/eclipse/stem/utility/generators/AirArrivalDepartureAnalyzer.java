@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -22,7 +20,7 @@ public class AirArrivalDepartureAnalyzer {
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings({ "nls", "synthetic-access" })
+	@SuppressWarnings({ "nls" })
 	public static void main(String [] args) {
 		if(args.length < 1) {
 			System.err.println("Usage: AirTransportGenerator <input .csv file>");
@@ -101,7 +99,7 @@ public class AirArrivalDepartureAnalyzer {
 			fw.write(nd+"");
 			fw.write(",");
 			
-			double perc = ((double)na+(double)nd) / ((double)na+(double)nd+(double)st);
+			double perc = ((double)na+(double)nd) / ((double)na+(double)nd+st);
 			fw.write(""+perc);
 			fw.write(LS);
 		}

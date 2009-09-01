@@ -18,12 +18,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.ui.IWorkbench;
@@ -72,6 +70,7 @@ public class SolverPreferencePage extends
 	 * GUI blocks needed to manipulate various types of preferences. Each field
 	 * editor knows how to save and restore itself.
 	 */
+	@Override
 	public void createFieldEditors() {
 
 		final IntegerFieldEditor simulationThreadsFieldEditor = new IntegerFieldEditor(

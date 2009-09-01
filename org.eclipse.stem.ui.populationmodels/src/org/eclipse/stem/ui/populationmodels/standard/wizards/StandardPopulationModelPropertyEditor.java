@@ -28,17 +28,10 @@ import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapte
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.DirectoryDialog;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 /**
@@ -135,6 +128,7 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 	 * @param diseaseModel
 	 *            the {@link DiseaseModel} instance to populate.
 	 */
+	@Override
 	public void populate(final PopulationModel populationModel) {
 		super.populate(populationModel);
 		
@@ -165,6 +159,7 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 	 * @return <code>true</code> if the contents are valid, <code>false</code>
 	 *         otherwise.
 	 */
+	@Override
 	public boolean validate() {
 		boolean retValue = super.validate();
 

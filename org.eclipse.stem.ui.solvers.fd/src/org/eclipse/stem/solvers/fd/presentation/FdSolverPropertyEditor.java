@@ -21,7 +21,6 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.stem.core.solver.Solver;
-import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.solvers.fd.FdFactory;
 import org.eclipse.stem.solvers.fd.FdPackage;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
@@ -29,16 +28,10 @@ import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapte
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class FdSolverPropertyEditor extends org.eclipse.stem.core.solver.SolverPropertyEditor {
@@ -149,6 +142,7 @@ public class FdSolverPropertyEditor extends org.eclipse.stem.core.solver.SolverP
 		} // for each Map.entry
 	}
 
+	@Override
 	public boolean validate() {
 		boolean retValue = true;
 		return retValue;

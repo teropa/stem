@@ -22,12 +22,9 @@ import org.eclipse.core.runtime.Preferences;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
@@ -38,15 +35,6 @@ import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.impl.SolverImpl;
 import org.eclipse.stem.core.trigger.Trigger;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
-import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
-import org.eclipse.stem.diseasemodels.standard.SILabelValue;
-import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
-import org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl;
-
 import org.eclipse.stem.solvers.rk.RkPackage;
 import org.eclipse.stem.solvers.rk.RungeKutta;
 import org.eclipse.stem.ui.Activator;

@@ -46,10 +46,7 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
-import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.provider.StandardItemProviderAdapterFactory;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
@@ -174,6 +171,7 @@ public class NewCSVLogWriter extends LogWriter {
 	 * @param timeProvider Time provider
 	 */
 	
+	@Override
 	public void logHeader(ISimulation sim, IntegrationDecorator dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider) {	
 		String dirs = this.directoryName;
 		File dir = new File(dirs);

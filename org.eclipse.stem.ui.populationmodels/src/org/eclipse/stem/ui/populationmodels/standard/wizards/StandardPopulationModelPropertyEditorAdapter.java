@@ -13,7 +13,6 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditor;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditorAdapter;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
 
 public class StandardPopulationModelPropertyEditorAdapter extends

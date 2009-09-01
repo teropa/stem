@@ -2,8 +2,6 @@ package org.eclipse.stem.ui.solvers.fd;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.stem.core.solver.SolverPropertyEditorAdapterFactory;
 import org.eclipse.stem.solvers.fd.presentation.FdEditor;
 import org.eclipse.stem.solvers.fd.presentation.FdSolverPropertyStringProviderAdapterFactory;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

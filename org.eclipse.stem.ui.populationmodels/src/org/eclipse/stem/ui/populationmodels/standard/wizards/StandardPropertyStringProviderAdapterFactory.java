@@ -13,8 +13,6 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.stem.populationmodels.standard.util.StandardAdapterFactory;

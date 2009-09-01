@@ -14,13 +14,11 @@ package org.eclipse.stem.populationmodels.standard.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.definitions.labels.AreaLabel;
-import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
@@ -450,6 +448,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		return count;
 	}
 	
+	@Override
 	public void reset() {
 		super.reset();
 		this.setCount(COUNT_EDEFAULT);

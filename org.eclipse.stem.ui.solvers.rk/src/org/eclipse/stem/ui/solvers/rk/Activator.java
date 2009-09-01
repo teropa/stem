@@ -1,16 +1,5 @@
 package org.eclipse.stem.ui.solvers.rk;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.stem.core.solver.SolverPropertyEditorAdapterFactory;
-import org.eclipse.stem.solvers.rk.presentation.RkEditor;
-import org.eclipse.stem.solvers.rk.presentation.RkSolverPropertyEditorAdapterFactory;
-import org.eclipse.stem.solvers.rk.presentation.RkSolverPropertyStringProviderAdapterFactory;
-import org.eclipse.stem.solvers.rk.provider.RkItemProviderAdapterFactory;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.osgi.framework.BundleContext;
-
 /*******************************************************************************
  * Copyright (c) 2006 2008 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
@@ -21,6 +10,13 @@ import org.osgi.framework.BundleContext;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.stem.solvers.rk.presentation.RkEditor;
+import org.eclipse.stem.solvers.rk.presentation.RkSolverPropertyStringProviderAdapterFactory;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
 
 
 /**

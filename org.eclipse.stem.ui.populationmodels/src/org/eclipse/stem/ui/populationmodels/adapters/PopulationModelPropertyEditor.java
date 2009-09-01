@@ -19,8 +19,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
-import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
-import org.eclipse.stem.ui.populationmodels.standard.wizards.PopulationModelWizardMessages;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 

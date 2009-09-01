@@ -11,7 +11,6 @@ package org.eclipse.stem.solvers.fd;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.Solver;
 
 /**

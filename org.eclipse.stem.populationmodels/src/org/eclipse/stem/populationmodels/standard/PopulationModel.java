@@ -11,7 +11,6 @@ package org.eclipse.stem.populationmodels.standard;
  *******************************************************************************/
 
 import org.eclipse.stem.core.model.NodeDecorator;
-import org.eclipse.stem.core.model.Decorator;
 
 /**
  * <!-- begin-user-doc -->

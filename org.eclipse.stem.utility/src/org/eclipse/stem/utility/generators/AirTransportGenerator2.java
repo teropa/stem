@@ -6,10 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -17,12 +14,12 @@ import java.util.StringTokenizer;
  * 
  * 1. Airport code
  * 2. STEM ID
- * 3. Total passangers (per year)
+ * 3. Total passengers (per year)
  * 4. Lat/Lon string
  * 5. Lat (number)
  * 6. Lon (number)
  * 
- * It generates multipe stem .properties files that the ant script converts to EMF models. 
+ * It generates multiple stem .properties files that the ant script converts to EMF models. 
  */
 @SuppressWarnings("nls")
 public class AirTransportGenerator2 {
@@ -433,7 +430,7 @@ public class AirTransportGenerator2 {
 		  // Turn two letter country code into three letter country code
 		  String country = GenUtils.extractAlpha1(stemCode);
 		  double numPassengers = totalPassengers.get(stemCode);
-		  numPassengers /= (double)DEFAULT_DIVISIOR;
+		  numPassengers /= DEFAULT_DIVISIOR;
 		  
 		  if(country.length() == 2) 
 			  country = level0IsoKeys.get(country);

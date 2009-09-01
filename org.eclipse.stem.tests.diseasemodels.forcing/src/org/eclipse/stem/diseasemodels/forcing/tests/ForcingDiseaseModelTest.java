@@ -12,22 +12,15 @@ package org.eclipse.stem.diseasemodels.forcing.tests;
  *******************************************************************************/
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
-import org.eclipse.stem.adapters.time.TimeProviderAdapter;
-import org.eclipse.stem.adapters.time.TimeProviderAdapterFactory.TimeProviderAdapterFactoryImpl;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
-import org.eclipse.stem.core.model.impl.STEMTimeImpl;
-import org.eclipse.stem.core.model.provider.STEMTimeItemProvider;
 import org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel;
 import org.eclipse.stem.diseasemodels.forcing.ForcingFactory;
 import org.eclipse.stem.diseasemodels.forcing.impl.ForcingDiseaseModelImpl;
 import org.eclipse.stem.diseasemodels.standard.SIRLabel;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
-import org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelValueImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.SIRLabelValueImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.StandardFactoryImpl;
 

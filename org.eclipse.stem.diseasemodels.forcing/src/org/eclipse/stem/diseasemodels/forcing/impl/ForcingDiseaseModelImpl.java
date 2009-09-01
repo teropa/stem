@@ -17,18 +17,17 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel;
 import org.eclipse.stem.diseasemodels.forcing.ForcingPackage;
-import org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelValueImpl;
-import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.impl.SIRLabelValueImpl;
+import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -142,7 +141,7 @@ public class ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelImpl imple
 	
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	
-	private Calendar calendar = Calendar.getInstance();
+	private final Calendar calendar = Calendar.getInstance();
 	
 	private static Map<Integer, Integer>signalMap;
 	
@@ -296,6 +295,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * already in that state is still enforced.
 	 * 
 	 */
+	@Override
 	public void doModelSpecificAdjustments(
 			final StandardDiseaseModelLabelValue state) {
 			final SILabelValue currentSI = (SILabelValue) state;

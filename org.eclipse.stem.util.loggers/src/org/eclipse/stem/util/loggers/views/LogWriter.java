@@ -20,7 +20,6 @@ import org.eclipse.stem.adapters.time.TimeProvider;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 
 /**
