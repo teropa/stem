@@ -510,8 +510,8 @@ public class MapCanvas
 					}
 
 					if (latLongPosition != null) {
-						double latitude = StemPolygon.getUnscaledLatitude(latLongPosition.y);
-						double longitude = StemPolygon.getUnscaledLongitude(latLongPosition.x);
+						double latitude = -1 * StemPolygon.getUnscaledLatitude(latLongPosition.y);
+						double longitude = -1 * StemPolygon.getUnscaledLongitude(latLongPosition.x);
 						sb.append("\nLatitude: " + latitude  + ", Longitude: " + longitude);
 					}
 					
