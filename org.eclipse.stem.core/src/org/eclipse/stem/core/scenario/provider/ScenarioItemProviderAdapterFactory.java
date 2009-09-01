@@ -148,6 +148,7 @@ public class ScenarioItemProviderAdapterFactory extends ScenarioAdapterFactory i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {

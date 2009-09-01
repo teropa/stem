@@ -172,6 +172,7 @@ public class SequencerItemProviderAdapterFactory extends SequencerAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
