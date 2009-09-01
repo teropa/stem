@@ -36,6 +36,7 @@ import org.eclipse.stem.diseasemodels.standard.provider.StochasticSIRDiseaseMode
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class ForcingDiseaseModelItemProvider
 	extends StochasticSIRDiseaseModelItemProvider
 	implements

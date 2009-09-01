@@ -78,6 +78,7 @@ public class RkAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unused") 
 	protected RkSwitch<Adapter> modelSwitch =
 		new RkSwitch<Adapter>() {
 			@Override

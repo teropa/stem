@@ -190,6 +190,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class SolverEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {

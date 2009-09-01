@@ -37,6 +37,7 @@ import org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationMo
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class StochasticStandardPopulationModelItemProvider
 	extends StandardPopulationModelItemProvider
 	implements

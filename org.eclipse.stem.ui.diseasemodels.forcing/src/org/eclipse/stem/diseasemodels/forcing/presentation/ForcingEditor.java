@@ -179,6 +179,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class ForcingEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {

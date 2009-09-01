@@ -42,6 +42,7 @@ import org.eclipse.stem.solvers.rk.RungeKutta;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class RungeKuttaItemProvider
 	extends SolverItemProvider
 	implements

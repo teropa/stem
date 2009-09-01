@@ -88,6 +88,7 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unused") 
 	protected StandardSwitch<Adapter> modelSwitch =
 		new StandardSwitch<Adapter>() {
 			@Override

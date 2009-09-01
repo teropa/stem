@@ -39,6 +39,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class StandardPopulationModelItemProvider
 	extends PopulationModelItemProvider
 	implements

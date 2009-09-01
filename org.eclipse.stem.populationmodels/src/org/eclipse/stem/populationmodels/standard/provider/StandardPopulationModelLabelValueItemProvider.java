@@ -36,6 +36,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class StandardPopulationModelLabelValueItemProvider
 	extends PopulationModelLabelValueItemProvider
 	implements

@@ -78,6 +78,7 @@ public class FdAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unused") 
 	protected FdSwitch<Adapter> modelSwitch =
 		new FdSwitch<Adapter>() {
 			@Override

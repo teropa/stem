@@ -28,6 +28,7 @@ import org.eclipse.stem.analysis.*;
  * @see org.eclipse.stem.analysis.AnalysisPackage
  * @generated
  */
+@SuppressWarnings("unused") 
 public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.

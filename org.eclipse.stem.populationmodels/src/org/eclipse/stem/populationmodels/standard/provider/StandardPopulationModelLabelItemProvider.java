@@ -37,6 +37,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("unused") 
 public class StandardPopulationModelLabelItemProvider
 	extends PopulationModelLabelItemProvider
 	implements
