@@ -22,6 +22,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
+@SuppressWarnings("all")
 abstract public class PopulationModelPropertyEditor extends Composite {
 
 	/**

@@ -30,6 +30,7 @@ import org.eclipse.stem.diseasemodels.standard.impl.StandardFactoryImpl;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("all")
 public class ForcingDiseaseModelTest extends TestCase {
 
 	/**

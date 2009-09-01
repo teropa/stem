@@ -31,6 +31,7 @@ import org.eclipse.stem.analysis.*;
  * @see org.eclipse.stem.analysis.AnalysisPackage
  * @generated
  */
+@SuppressWarnings("all")
 public class AnalysisSwitch<T> {
 	/**
 	 * The cached model package

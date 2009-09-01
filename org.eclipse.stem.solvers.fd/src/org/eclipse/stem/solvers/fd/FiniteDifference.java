@@ -23,6 +23,7 @@ import org.eclipse.stem.core.solver.Solver;
  * @model
  * @generated
  */
+@SuppressWarnings("all")
 public interface FiniteDifference extends Solver {
 	
 	

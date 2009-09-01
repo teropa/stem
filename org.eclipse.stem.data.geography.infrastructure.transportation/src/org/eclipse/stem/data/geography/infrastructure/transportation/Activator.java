@@ -17,6 +17,7 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
+@SuppressWarnings("all")
 public class Activator extends Plugin {
 
 	/**

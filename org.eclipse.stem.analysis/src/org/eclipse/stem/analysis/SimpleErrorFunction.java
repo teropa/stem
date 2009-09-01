@@ -22,5 +22,6 @@ package org.eclipse.stem.analysis;
  * @model
  * @generated
  */
+@SuppressWarnings("all")
 public interface SimpleErrorFunction extends ErrorFunction {
 } // SimpleErrorFunction

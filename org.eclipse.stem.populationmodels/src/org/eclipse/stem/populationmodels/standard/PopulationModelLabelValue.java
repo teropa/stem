@@ -24,5 +24,6 @@ import org.eclipse.stem.core.graph.LabelValue;
  * @model
  * @generated
  */
+@SuppressWarnings("all")
 public interface PopulationModelLabelValue extends LabelValue {
 } // PopulationModelLabelValue

@@ -1,8 +1,5 @@
 package org.eclipse.stem.analysis;
 
-import org.eclipse.emf.ecore.EObject;
-
-
 /*******************************************************************************
  * Copyright (c) 2007, 2008 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
@@ -14,6 +11,8 @@ import org.eclipse.emf.ecore.EObject;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
 * The class stores scenario reference data for a scenario disease as well as additional meta-data. 
@@ -21,8 +20,6 @@ import org.eclipse.emf.ecore.EObject;
 * @model
 * @generated NOT
 */
-
-public interface ReferenceScenarioDataMap extends EObject {	
-	
-	
+@SuppressWarnings("all")
+public interface ReferenceScenarioDataMap extends EObject {		
 }
