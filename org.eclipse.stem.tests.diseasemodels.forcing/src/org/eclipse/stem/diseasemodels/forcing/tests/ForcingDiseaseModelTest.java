@@ -1,10 +1,15 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id: ForcingDiseaseModelTest.java,v 1.2 2009/06/03 00:31:23 sedlund Exp $
- */
 package org.eclipse.stem.diseasemodels.forcing.tests;
+
+/*******************************************************************************
+ * Copyright (c) 2009 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import junit.framework.TestCase;
 
@@ -107,7 +112,7 @@ public class ForcingDiseaseModelTest extends TestCase {
 	public void testForcingDiseaseModel(){
 		ForcingDiseaseModelTesterImpl forcingDiseaseModel = new ForcingDiseaseModelTesterImpl();
 		SIRLabel label = StandardFactoryImpl.eINSTANCE.createSIRLabel();
-		SIRLabelValue labelVal = (SIRLabelValue)label.getProbeValue();
+		SIRLabelValue labelVal = label.getProbeValue();
 		labelVal.setS(1000d);
 		labelVal.setI(50d);
 		labelVal.setR(40d);

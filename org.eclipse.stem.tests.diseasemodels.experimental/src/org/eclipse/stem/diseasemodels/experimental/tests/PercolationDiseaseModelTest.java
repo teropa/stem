@@ -1,10 +1,15 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.diseasemodels.experimental.tests;
+
+/*******************************************************************************
+ * Copyright (c) 2009 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import java.util.Random;
 
@@ -119,9 +124,9 @@ public class PercolationDiseaseModelTest extends TestCase {
 			SEIRLabelValueImpl pCalculatedSeirAdditions,
 			SEIRLabelValueImpl pCalculatedSeirDeaths, long pRandomSeed, double pTestGain) {
 		
-		final SEIRLabelValue currentSEIR = (SEIRLabelValue) pCurrentSEIR;
-		final SEIRLabelValue seirAdditions = (SEIRLabelValue) pCalculatedSeirAdditions;
-		final SEIRLabelValue seirDeaths = (SEIRLabelValue) pCalculatedSeirDeaths;
+		final SEIRLabelValue currentSEIR = pCurrentSEIR;
+		final SEIRLabelValue seirAdditions = pCalculatedSeirAdditions;
+		final SEIRLabelValue seirDeaths = pCalculatedSeirDeaths;
 		
 		
 		// The noise is a multiplier of (1+/-x) with x small.

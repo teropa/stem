@@ -1,10 +1,15 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id: SimpleErrorFunctionImpl.java,v 1.3 2009/04/11 11:08:28 sedlund Exp $
- */
 package org.eclipse.stem.analysis.impl;
+
+/*******************************************************************************
+ * Copyright (c) 2009 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -78,6 +83,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	 * @override
 	 */
 	
+	@Override
 	public ErrorResult calculateError(ReferenceScenarioDataMap reference, ReferenceScenarioDataMap data) {
 		final ReferenceScenarioDataMapImpl _ref = (ReferenceScenarioDataMapImpl)reference;
 		final ReferenceScenarioDataMapImpl _data = (ReferenceScenarioDataMapImpl)data;
@@ -180,7 +186,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		
 		ErrorResult resultobj = aFactory.createErrorResult();
 		resultobj.setErrorByTimeStep(list);
-		result = result/(double)time.length;
+		result = result/time.length;
 		resultobj.setError(result);
 		
 		return resultobj;	
