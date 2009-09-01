@@ -21,6 +21,7 @@ import org.osgi.framework.BundleContext;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("synthetic-access")
 public final class ExampleEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.

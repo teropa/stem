@@ -29,6 +29,7 @@ import org.osgi.framework.BundleContext;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("synthetic-access")
 public final class RkEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.

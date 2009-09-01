@@ -28,6 +28,7 @@ import org.eclipse.stem.core.common.provider.CoreEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("synthetic-access")
 public final class FdEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.

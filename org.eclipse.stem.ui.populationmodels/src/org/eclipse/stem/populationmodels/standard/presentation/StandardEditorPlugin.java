@@ -31,6 +31,7 @@ import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPropertyStr
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("synthetic-access")
 public final class StandardEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.

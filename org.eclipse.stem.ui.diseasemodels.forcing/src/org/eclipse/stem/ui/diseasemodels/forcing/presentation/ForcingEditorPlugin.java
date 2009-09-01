@@ -26,6 +26,7 @@ import org.eclipse.stem.diseasemodels.standard.provider.DiseasemodelsEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("synthetic-access")
 public final class ForcingEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.

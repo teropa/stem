@@ -26,6 +26,7 @@ import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("synthetic-access")
 public final class StandardEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
@@ -94,6 +95,7 @@ public final class StandardEditPlugin extends EMFPlugin {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		
 		public Implementation() {
 			super();
 

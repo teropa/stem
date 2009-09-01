@@ -64,6 +64,7 @@ import org.eclipse.stem.ui.Activator;
  *
  * @generated
  */
+@SuppressWarnings("synthetic-access")
 public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	
 	// Number of threads
@@ -297,7 +298,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					nextState.set(nextValueAtX);
 					// The next value is valid now.
 					diseaseLabel.setNextValueValid(true);
-					double progress = (double)n/(double)numLabels;
+					double progress = n/numLabels;
 					jobs[threadnum].setProgress(progress);
 					if(n%setProgressEveryNthNode==0) {
 						// Get the progress for all threads
@@ -502,7 +503,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					deltaLabel.scale(h);
 					deltaLabel.scale(b21);
 					((IntegrationLabelValue)diseaseLabel.getProbeValue()).set(
-							(IntegrationLabelValue)deltaLabel.add((IntegrationLabelValue)
+							deltaLabel.add((IntegrationLabelValue)
 							diseaseLabel.
 							getTempValue()));	
 				}
@@ -531,7 +532,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					_k2[n].set(deltaLabel);
 					
 					IntegrationLabelValue estDelta = 
-						(IntegrationLabelValue)_k1[n].scale(b31);
+						_k1[n].scale(b31);
 					_k2[n].scale(b32);
 					estDelta.add(_k2[n]);
 					
@@ -923,7 +924,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		boolean redo = false;
 		for(Decorator d:this.getDecorators()) {
 			if(d instanceof IntegrationDecorator) {
-				EList<DynamicLabel> labels = (EList<DynamicLabel>)d.getLabelsToUpdate();
+				EList<DynamicLabel> labels = d.getLabelsToUpdate();
 				for(DynamicLabel l:labels) {
 					if(l instanceof IntegrationLabel) {
 						IntegrationLabel il = (IntegrationLabel)l;
@@ -940,7 +941,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		if(redo) {
 			for(Decorator d:redoList) {
 				if(d instanceof IntegrationDecorator) {
-					EList<DynamicLabel> labels = (EList<DynamicLabel>)d.getLabelsToUpdate();
+					EList<DynamicLabel> labels = d.getLabelsToUpdate();
 					for(DynamicLabel l:labels) {
 						if(l instanceof IntegrationLabel) {
 							IntegrationLabel il = (IntegrationLabel)l;
