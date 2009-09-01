@@ -15,10 +15,6 @@ package org.eclipse.stem.internal.data.geography.propertydata;
 import java.text.ParseException;
 import java.util.StringTokenizer;
 
-import org.eclipse.stem.core.graph.Edge;
-import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.definitions.nodes.GeographicFeature;
-
 /**
  * This class represents the data from a single property that specifies the
  * relationship of sharing a common border between two {@link GeographicFeature}

@@ -13,8 +13,6 @@ package org.eclipse.stem.internal.data.geography;
 
 import java.io.File;
 
-import org.eclipse.stem.definitions.nodes.GeographicFeature;
-import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.internal.data.DataGenerator;
 
 /**

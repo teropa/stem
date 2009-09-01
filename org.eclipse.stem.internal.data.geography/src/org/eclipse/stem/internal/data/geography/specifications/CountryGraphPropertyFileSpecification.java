@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
-import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.data.geography.ISOKey;
 import org.eclipse.stem.internal.data.specifications.GraphPropertyFileSpecification;
 

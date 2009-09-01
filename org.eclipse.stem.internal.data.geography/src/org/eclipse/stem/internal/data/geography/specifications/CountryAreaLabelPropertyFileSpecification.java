@@ -11,8 +11,6 @@ package org.eclipse.stem.internal.data.geography.specifications;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.data.geography.ISOKey;
 import org.eclipse.stem.definitions.labels.AreaLabel;

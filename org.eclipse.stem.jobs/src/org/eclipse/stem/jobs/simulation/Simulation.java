@@ -24,7 +24,6 @@ import org.eclipse.core.runtime.Preferences;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.Preferences.IPropertyChangeListener;
 import org.eclipse.core.runtime.Preferences.PropertyChangeEvent;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
@@ -36,8 +35,6 @@ import org.eclipse.stem.core.scenario.impl.ScenarioImpl;
 import org.eclipse.stem.core.scenario.provider.ScenarioItemProviderAdapterFactory;
 import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.jobs.Activator;
-import org.eclipse.stem.jobs.batch.BatchManagerEvent;
-import org.eclipse.stem.jobs.batch.IBatchManagerListenerSync;
 import org.eclipse.stem.jobs.execution.Executable;
 import org.eclipse.stem.jobs.preferences.PreferenceConstants;
 import org.eclipse.stem.jobs.preferences.SimulationManagementPreferencePage;
@@ -220,7 +217,8 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 				/**
 				   * @override
 				   */
-				  public void notifyChanged(Notification msg)
+				  @Override
+				public void notifyChanged(Notification msg)
 				  {
 					  Scenario scenario = (Scenario)msg.getNotifier();
 					  switch(msg.getFeatureID(Scenario.class)) {

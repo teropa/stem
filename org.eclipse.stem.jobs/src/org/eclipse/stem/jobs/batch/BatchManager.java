@@ -16,10 +16,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import javax.swing.ProgressMonitor;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -32,11 +29,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.experiment.Experiment;
-import org.eclipse.stem.core.modifier.Modifier;
-import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.jobs.Activator;
 import org.eclipse.stem.jobs.execution.ExecutableManager;
-import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.swt.widgets.Display;
 
 /**

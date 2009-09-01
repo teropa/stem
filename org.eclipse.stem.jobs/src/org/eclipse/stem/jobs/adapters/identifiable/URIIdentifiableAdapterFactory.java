@@ -12,7 +12,6 @@ package org.eclipse.stem.jobs.adapters.identifiable;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;

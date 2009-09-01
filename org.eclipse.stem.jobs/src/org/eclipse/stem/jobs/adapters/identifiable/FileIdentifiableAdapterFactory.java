@@ -13,7 +13,6 @@ package org.eclipse.stem.jobs.adapters.identifiable;
  *******************************************************************************/
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.common.Identifiable;

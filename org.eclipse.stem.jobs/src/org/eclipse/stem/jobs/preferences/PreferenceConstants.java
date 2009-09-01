@@ -1,6 +1,5 @@
 package org.eclipse.stem.jobs.preferences;
 
-import org.eclipse.stem.core.scenario.Scenario;
 
 /*******************************************************************************
  * Copyright (c) 2006 IBM Corporation and others.

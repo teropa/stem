@@ -12,8 +12,6 @@ package org.eclipse.stem.jobs.adapters.executable;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.core.runtime.IAdapterManager;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.jobs.execution.IExecutable;
 

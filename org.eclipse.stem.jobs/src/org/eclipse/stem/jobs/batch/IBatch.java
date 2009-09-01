@@ -14,8 +14,6 @@ package org.eclipse.stem.jobs.batch;
 
 import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.jobs.execution.IExecutable;
-import org.eclipse.stem.jobs.simulation.ISimulation;
-import org.eclipse.stem.jobs.simulation.Simulation;
 
 /**
  * This interface is implemented by classes that represent {@link Batch}

@@ -12,10 +12,7 @@ package org.eclipse.stem.jobs.adapters.executable.emf;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.stem.jobs.Activator;
 import org.eclipse.stem.jobs.execution.IExecutable;
 
 /**

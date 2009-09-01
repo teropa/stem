@@ -16,7 +16,6 @@ import java.util.List;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.GraphPackage;
-import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.data.geography.ISOKey;
 import org.eclipse.stem.internal.data.propertydata.PropertyData;

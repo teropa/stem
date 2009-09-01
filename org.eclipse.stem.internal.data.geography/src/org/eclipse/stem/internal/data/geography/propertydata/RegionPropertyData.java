@@ -12,7 +12,6 @@ package org.eclipse.stem.internal.data.geography.propertydata;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.data.geography.ISOKey;
 
 /**

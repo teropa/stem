@@ -15,12 +15,7 @@ package org.eclipse.stem.internal.data.geography.propertydata;
 import java.text.ParseException;
 import java.util.StringTokenizer;
 
-import org.eclipse.stem.core.graph.Edge;
-import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationship;
-import org.eclipse.stem.definitions.nodes.GeographicFeature;
-import org.eclipse.stem.definitions.nodes.Region;
-import org.eclipse.stem.data.geography.ISOKey;
 
 /**
  * This class represents data extracted from a properties file with data about a

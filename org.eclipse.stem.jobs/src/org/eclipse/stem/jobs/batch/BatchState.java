@@ -12,9 +12,6 @@ package org.eclipse.stem.jobs.batch;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.jobs.simulation.Simulation;
-import org.eclipse.stem.jobs.simulation.SimulationManager;
-import org.eclipse.stem.jobs.simulation.SimulationState;
 
 /**
  * This enumeration defines the states that a {@link Batch} can be in.
