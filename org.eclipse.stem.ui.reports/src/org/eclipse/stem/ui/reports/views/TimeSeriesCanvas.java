@@ -1103,6 +1103,7 @@ public class TimeSeriesCanvas extends Canvas {
 		 * @param propertyName
 		 * 
 		 */
+		@SuppressWarnings("cast")
 		public void addLineSeries(final String propertyName) {
 			final NumberDataSet orthoValues = NumberDataSetImpl
 					.create(relativeValues);
@@ -1117,7 +1118,7 @@ public class TimeSeriesCanvas extends Canvas {
 			
 			// replaces deprecated code: lineSeries.getMarker().setVisible(false);
 			if (!lineSeries.getMarkers().isEmpty()) {
-				Marker marker = lineSeries.getMarkers().get(0);
+				Marker marker = (Marker)lineSeries.getMarkers().get(0);
 				marker.setVisible(false);
 			}
 			

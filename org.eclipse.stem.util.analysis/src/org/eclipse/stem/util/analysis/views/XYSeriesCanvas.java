@@ -1103,6 +1103,7 @@ public class XYSeriesCanvas extends Canvas {
 		 * @param propertyName 
 		 *
 		 */
+		@SuppressWarnings("cast")
 		public void setColorDefs(String propertyName) {
 			this.scatterSeriesY.setSeriesIdentifier(propertyName);
 			if(propertyName.indexOf("XY")>=0) {
@@ -1120,7 +1121,7 @@ public class XYSeriesCanvas extends Canvas {
 				scatterSeriesY.getLineAttributes().setStyle(LineStyle.DOTTED_LITERAL);
 				scatterSeriesY.getLineAttributes().setVisible(true);
 				if (!scatterSeriesY.getMarkers().isEmpty()) {
-					Marker marker = scatterSeriesY.getMarkers().get(0);
+					Marker marker = (Marker)scatterSeriesY.getMarkers().get(0);
 					marker.setVisible(false);
 				}
 			}
