@@ -1,10 +1,15 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id: ExampleActionBarContributor.java,v 1.6 2009/03/11 03:43:57 sedlund Exp $
- */
 package org.eclipse.stem.diseasemodels.example.presentation;
+
+/*******************************************************************************
+ * Copyright (c) 2009 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import java.util.ArrayList;
 import java.util.Collection;
