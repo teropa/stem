@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+		<category
+            id="org.eclipse.stem.ui.wizards.stemcategory"
+            name="%_UI_STEM"
+            parentCategory="/"/>
+         <wizard
+            category="org.eclipse.stem.ui.wizards.stemcategory"
+            class="org.eclipse.stem.analysis.automaticexperiment.ui.NewAutomaticExperimentWizard"
+            icon="icons/full/customobj16/AutomaticExperiment.gif"
+            id="org.eclipse.stem.ui.wizards.newautoexperiment"
+            name="Automatic Experiment">
+      </wizard>
+   </extension>
+   
+	<extension
+        point="org.eclipse.ui.menus">      
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.eclipse.stem.ui.toolbar.newwizards">
+            <command
+                  commandId="org.eclipse.stem.ui.command.wiz.autoexperiment"
+                  icon="icons/full/customobj16/AutomaticExperiment.gif"
+                  label="Automatic Experiment"
+                  style="push"
+                  tooltip="%_UI_ExperimentModelWizard_description">
+            </command>
+            <separator
+                  name="additions">
+            </separator>
+         </toolbar>
+      </menuContribution>
+  </extension>
+  
+  <extension
+        point="org.eclipse.ui.commands">
+     <category
+           description="%_UI_STEM_WizCmd_Cat_Desc"
+           id="org.eclipse.stem.ui.wizards"
+           name="%_UI_STEM_WizCmd_Cat_Name">
+     </category>     
+     <command
+           defaultHandler="org.eclipse.stem.analysis.automaticexperiment.ui.NewAutomaticExperimentWizard$NewAutomaticExperimentWizardCommandHandler"
+           description="New Automatic Experiment"
+           id="org.eclipse.stem.ui.command.wiz.autoexperiment"
+           name="New Automatic Experiment">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.editors">
+     <editor
+          class="automaticexperiment.presentation.AutomaticexperimentEditor"
+          contributorClass="automaticexperiment.presentation.AutomaticexperimentActionBarContributor"
+          default="false"
+          extensions="automaticexperiment"
+          icon="icons/full/obj16/AutomaticexperimentModelFile.gif"
+          id="automaticexperiment.presentation.AutomaticExperimentEditorID"
+          name="Automatic Experiment Editor">
+    </editor>
+  </extension>
+  
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http:///org/eclipse/stem/core/automaticexperiment.ecore"
+            class="automaticexperiment.provider.AutomaticexperimentItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///org/eclipse/stem/core/automaticexperiment.ecore"
+            class="automaticexperiment.AutomaticexperimentPackage"
+            genModel="model/automaticexperiment.genmodel"/>
+   </extension>
+  
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+          <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.IdentifiableExecutableAdapterFactory" 
+            adaptableType="automaticexperiment.impl.AutomaticExperimentImpl">
+            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
+         </factory>
+	</extension>
+</plugin>

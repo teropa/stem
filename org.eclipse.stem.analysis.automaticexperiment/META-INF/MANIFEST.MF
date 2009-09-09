@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Automatic Experiment Plug-in
+Bundle-SymbolicName: org.eclipse.stem.analysis.automaticexperiment;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-Activator: org.eclipse.stem.analysis.automaticexperiment.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.stem.core,
+ org.eclipse.stem.analysis,
+ org.eclipse.stem.diseasemodels,
+ org.eclipse.stem.util.loggers,
+ org.eclipse.stem.ui,
+ org.junit
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ClassPath: .,
+ lib/flanagan.jar
+Import-Package: org.eclipse.emf.ecore.provider
+Export-Package: automaticexperiment,
+ org.eclipse.stem.analysis.automaticexperiment
