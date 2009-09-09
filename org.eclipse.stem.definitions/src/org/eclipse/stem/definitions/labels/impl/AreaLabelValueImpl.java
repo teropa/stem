@@ -134,7 +134,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	public void setArea(double newArea) {
 		double oldArea = area;
 		area = newArea;
-		if(area >= 0.0) {
+		if(area >= 1.0) {
 			setAverageExtent(Math.sqrt(area));
 		} else {
 			setAverageExtent(1.0);
