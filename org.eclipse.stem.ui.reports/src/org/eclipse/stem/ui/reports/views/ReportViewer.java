@@ -352,15 +352,23 @@ public class ReportViewer extends Viewer implements ISelectionChangedListener,
 			} // while
 
 			final Control[] allControls = composite.getChildren();
+			
 			for (final Control element : allControls) {
 				final ReportControl reportControl = (ReportControl) element;
-				final Identifiable testIdentifiable = reportControl
-						.getIdentifiable();
-				if ((testIdentifiable == null)
-						|| (!identifiablesToDisplay.contains(testIdentifiable))) {
-					// dispose if we know it is defunct
-					reportControl.remove();
-				} // if
+				try {
+					final Identifiable testIdentifiable = reportControl
+							.getIdentifiable();
+					if ((testIdentifiable == null)
+							|| (!identifiablesToDisplay
+									.contains(testIdentifiable))) {
+						// dispose if we know it is defunct
+						reportControl.remove();
+					} // if
+				} catch (org.eclipse.swt.SWTException swte) {
+					// if Widget is already disposed just do nothing
+					// System.out.println("swte: "+swte.getMessage());
+				}
+
 			} // for each ReportControl
 
 		}// if set not null
