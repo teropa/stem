@@ -5,6 +5,7 @@ feature@org.eclipse.stem.feature.prereq=COPY,${checkoutDir},org.eclipse.stem.fea
 
 !********** PLUGINS **********
 plugin@org.eclipse.stem.analysis=COPY,${checkoutDir},org.eclipse.stem.analysis
+plugin@org.eclipse.stem.analysis.automaticexperiment=COPY,${checkoutDir},org.eclipse.stem.analysis.automaticexperiment
 plugin@org.eclipse.stem.core=COPY,${checkoutDir},org.eclipse.stem.core
 plugin@org.eclipse.stem.data.diseasemodels.models=COPY,${checkoutDir},org.eclipse.stem.data.diseasemodels.models
 plugin@org.eclipse.stem.data.diseasemodels.scenarios=COPY,${checkoutDir},org.eclipse.stem.data.diseasemodels.scenarios
