@@ -87,6 +87,11 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	public static boolean reportEachUnresolvedIdentifiable = true;
 
 	/**
+	 * This flag controls the reporting of dangling air transport edges 
+	 */
+	public static boolean reportDanglingAirTransportEdges = false; 
+
+	/**
 	 * This flag controls the reporting of a single summary message of the 
 	 * number of unresolved {@link Identifiable} references encountered 
 	 * when creating the canonical {@link Graph}. Default: <code>false</code>
@@ -596,6 +601,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				.hasNext();) {
 			final UnresolvedIdentifiable unresolvedID = unresolvedIter
 					.next();
+				
 			CorePlugin.logInformation("In scenario "
 					+ produceTitle()
 					+ "\", model \""

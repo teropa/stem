@@ -37,6 +37,11 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 						SimulationManagementPreferencePage.DEFAULT_SIMULATION_REPORT_EACH_UNRESOLVED_IDENTIFIABLE);
 
 		store
+		.setDefault(
+				PreferenceConstants.REPORT_DANGLING_AIR_TRANPORT_EDGES_BOOLEAN,
+				SimulationManagementPreferencePage.DEFAULT_SIMULATION_REPORT_DANGLING_AIR_TRANPORT_EDGES);
+
+		store
 				.setDefault(
 						PreferenceConstants.REPORT_NUMBER_OF_UNRESOLVED_IDENTIFIABLES_BOOLEAN,
 						SimulationManagementPreferencePage.DEFAULT_SIMULATION_REPORT_NUMBER_UNRESOLVED_IDENTIFIABLE);

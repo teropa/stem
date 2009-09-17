@@ -163,6 +163,9 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 				.getInt(PreferenceConstants.SIMULATION_SLEEP_MILLISECONDS_INTEGER);
 		ScenarioImpl.reportEachUnresolvedIdentifiable = preferences
 				.getBoolean(PreferenceConstants.REPORT_EACH_UNRESOLVED_IDENTIFIABLE_BOOLEAN);
+		ScenarioImpl.reportDanglingAirTransportEdges = preferences
+			.getBoolean(PreferenceConstants.REPORT_DANGLING_AIR_TRANPORT_EDGES_BOOLEAN);
+
 		ScenarioImpl.reportNumberofUnresolvedIdentifiables = preferences
 				.getBoolean(PreferenceConstants.REPORT_NUMBER_OF_UNRESOLVED_IDENTIFIABLES_BOOLEAN);
 

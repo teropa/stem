@@ -71,6 +71,13 @@ public class SimulationManagementPreferencePage extends
 	public static final boolean DEFAULT_SIMULATION_REPORT_EACH_UNRESOLVED_IDENTIFIABLE = false;
 
 	/**
+	 * This is the default value for reporting all unresolved
+	 * Air transport edges Value: <code>false</code>
+	 */
+
+	public static final boolean DEFAULT_SIMULATION_REPORT_DANGLING_AIR_TRANPORT_EDGES = false;
+	
+	/**
 	 * This is the default value for reporting the number of unresolved
 	 * <code>Identifiables</code>. Value: <code>true</code>
 	 */
@@ -116,6 +123,10 @@ public class SimulationManagementPreferencePage extends
 				PreferenceConstants.REPORT_EACH_UNRESOLVED_IDENTIFIABLE_BOOLEAN,
 				Messages.getString("SMPPageReportUnresolved"), getFieldEditorParent()); //$NON-NLS-1$
 
+		final BooleanFieldEditor reportDanglingAirTransportEdgesFieldEditor = new BooleanFieldEditor(
+				PreferenceConstants.REPORT_DANGLING_AIR_TRANPORT_EDGES_BOOLEAN,
+				Messages.getString("SMPPageReportAirTransport"), getFieldEditorParent()); //$NON-NLS-1$
+
 		final BooleanFieldEditor reportNumberOfUnresolvedIdentifiablesFieldEditor = new BooleanFieldEditor(
 				PreferenceConstants.REPORT_NUMBER_OF_UNRESOLVED_IDENTIFIABLES_BOOLEAN,
 				Messages.getString("SMPPageReportNumUnresolved"), getFieldEditorParent()); //$NON-NLS-1$
@@ -127,6 +138,7 @@ public class SimulationManagementPreferencePage extends
 		addField(cyclePauseFieldEditor);
 		addField(cyclePauseSecondsFieldEditor);
 		addField(reportEachUnresolvedIdentifiableFieldEditor);
+		addField(reportDanglingAirTransportEdgesFieldEditor);
 		addField(reportNumberOfUnresolvedIdentifiablesFieldEditor);
 		addField(useScenariosCaching);
 	} // createFieldEditors

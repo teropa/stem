@@ -35,6 +35,7 @@ import org.eclipse.stem.core.model.GraphDecorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.scenario.impl.ScenarioImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model</b></em>'.
@@ -274,13 +275,8 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 					ui.setUnresolvedURI(edge.getNodeAURI());
 					ui.setIdentifiable(edge);
 					ui.setFieldName("NODE_A");
-					// Pipe transportation graphs always have
-					// dangling edges from an upper to a lower pipe
-					// transportation system. This is how we connect
-					// the systems together. Don't want to add
-					// add a dependency on the transportation plugin here
-					// so check the node A URI for the pipe transport pattern.
-					if(!edge.getNodeAURI().toString().contains("/transport/pipe"))
+					if(ScenarioImpl.reportDanglingAirTransportEdges ||
+							!edge.getURI().toString().contains("/pipetransport"))
 						graph.getUnresolvedIdentifiables().add(ui);
 				} // else
 			} // if nodeA
@@ -314,13 +310,8 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 					ui.setUnresolvedURI(edge.getNodeBURI());
 					ui.setIdentifiable(edge);
 					ui.setFieldName("NODE_B");
-					// Pipe transportation graphs always have
-					// dangling edges from an upper to a lower pipe
-					// transportation system. This is how we connect
-					// the systems together. Don't want to add
-					// add a dependency on the transportation plugin here
-					// so check the node B URI for the pipe transport pattern.
-					if(!edge.getNodeBURI().toString().contains("/transport/pipe"))
+					if(ScenarioImpl.reportDanglingAirTransportEdges ||
+							!edge.getURI().toString().contains("/pipetransport"))
 						graph.getUnresolvedIdentifiables().add(ui);
 				} // else
 			} // if nodeB

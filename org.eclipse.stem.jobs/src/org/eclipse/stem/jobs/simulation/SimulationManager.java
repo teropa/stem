@@ -277,11 +277,13 @@ public class SimulationManager extends ExecutableManager implements
 				
 			}
 			
+			final Simulation simulation = new Simulation(scenario,
+					getAndIncrementSimulationSequenceNumber());
+			
 			if(scenario.getCanonicalGraph() == null) 
 				scenario.initialize(); // needed for preferences ...
 			else scenario.reset();
-			final Simulation simulation = new Simulation(scenario,
-					getAndIncrementSimulationSequenceNumber());
+	
 			simulation.setPriority(Job.LONG);
 			retValue = new SimulationAdapter(simulation);
 

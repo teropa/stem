@@ -37,6 +37,12 @@ public class PreferenceConstants {
 	public static final String REPORT_EACH_UNRESOLVED_IDENTIFIABLE_BOOLEAN = "reportEachUnresolvedIdentifiable"; //$NON-NLS-1$
 
 	/**
+	 * This is the preference to report dangling air transport edges
+	 */
+
+	public static final String REPORT_DANGLING_AIR_TRANPORT_EDGES_BOOLEAN = "reportDanglingAirTransportEdges";
+	
+	/**
 	 * This is the preference that specifies that when the canonical graph is
 	 * created at the beginning of a <code>Simulation</code> that if there are
 	 * unresolved <code>Identifiable</code>s then the number should be
