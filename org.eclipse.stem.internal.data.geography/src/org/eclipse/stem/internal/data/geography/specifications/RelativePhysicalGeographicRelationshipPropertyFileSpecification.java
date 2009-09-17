@@ -72,6 +72,8 @@ public class RelativePhysicalGeographicRelationshipPropertyFileSpecification
 			retValue = new RelativePhysicalGeographicRelationshipPropertyData(
 					dataPropertyKey, propertyValue);
 		} catch (final ParseException e) {
+			e.printStackTrace();
+			System.err.println("Key:"+dataPropertyKey+" Value:"+propertyValue);
 			System.err.println(e.getMessage());
 		}
 		return retValue;

@@ -77,6 +77,8 @@ public class CommonBorderGeographicRelationshipPropertyFileSpecification extends
 			retValue = new CommonBorderGeographicRelationshipPropertyData(
 					dataPropertyKey, propertyValue);
 		} catch (final ParseException e) {
+			e.printStackTrace();
+			System.err.println("key:"+dataPropertyKey+" value:"+propertyValue);
 			System.err.println(e.getMessage());
 		}
 		return retValue;

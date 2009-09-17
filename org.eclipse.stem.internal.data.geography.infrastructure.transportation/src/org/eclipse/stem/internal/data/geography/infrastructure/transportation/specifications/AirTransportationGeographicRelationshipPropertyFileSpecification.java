@@ -154,6 +154,8 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 		try {
 			retValue = new AirTransportGeographicRelationshipPropertyData(propertyKey,propertyValue);
 		} catch (ParseException e) {
+			e.printStackTrace();
+			System.err.println("Key:"+propertyKey+" Value:"+propertyValue);
 			System.err.println(e.getMessage());
 		}
 		return retValue;

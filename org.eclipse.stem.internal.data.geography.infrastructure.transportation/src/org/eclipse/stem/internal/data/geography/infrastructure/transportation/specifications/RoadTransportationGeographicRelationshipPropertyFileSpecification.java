@@ -78,6 +78,8 @@ public class RoadTransportationGeographicRelationshipPropertyFileSpecification
 		try {
 			retValue = new RoadTransportGeographicRelationshipPropertyData(propertyKey,propertyValue);
 		} catch (ParseException e) {
+			e.printStackTrace();
+			System.err.println("Key:"+propertyKey+" Value:"+propertyValue);
 			System.err.println(e.getMessage());
 		}
 		return retValue;
