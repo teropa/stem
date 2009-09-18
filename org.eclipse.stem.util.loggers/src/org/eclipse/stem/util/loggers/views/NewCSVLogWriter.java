@@ -51,6 +51,7 @@ import org.eclipse.stem.diseasemodels.standard.provider.StandardItemProviderAdap
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.util.loggers.Activator;
+import org.eclipse.stem.util.loggers.preferences.PreferenceConstants;
 
 /**
  * A log writer writing CSV files containing data for a single state of the simulation.
@@ -98,6 +99,8 @@ public class NewCSVLogWriter extends LogWriter {
 	
 	private final Map<StateLevelMap, FileWriter> fileWriters;
 	
+	private boolean logIntegers;
+	
 	/**
 	 * 
 	 * @param dirName
@@ -105,6 +108,8 @@ public class NewCSVLogWriter extends LogWriter {
 	 * @param dm
 	 */
 	public NewCSVLogWriter(final String dirName, final ISimulation simulation, IntegrationDecorator dm) {
+		logIntegers = Activator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.LOG_INTEGER_PREFERENCE);
+		
 		needsHeader = true;
 		done = false;
 		icount = 0;
@@ -430,8 +435,9 @@ public class NewCSVLogWriter extends LogWriter {
 								// Write relative value for the property
 								// ItemPropertyDescriptor property = (ItemPropertyDescriptor)itemDescriptor;
 								// double value = rvp.getRelativeValue(property)*rvp.getDenominator(); // log absolute value, not relative
-								
-								sb.append(value);
+								if(logIntegers)
+									sb.append((int)value);
+								else sb.append(value);
 								if(nodeIterator.hasNext()) sb.append(",");
 								else sb.append("\n"); // new line
 								fw.write(sb.toString());

@@ -34,4 +34,12 @@
       </viewerContribution>
    </extension>
 
+	<extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+     	    category="org.eclipse.stem.ui.preferences.STEMPreferencePage"
+            class="org.eclipse.stem.util.loggers.preferences.LoggingPreferencePage"
+            id="org.eclipse.stem.util.loggers.preferences.LoggingPreferencePage"
+            name="%_UI_Logging"/>
+    </extension>
 </plugin>
