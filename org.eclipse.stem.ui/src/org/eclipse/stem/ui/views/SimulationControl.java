@@ -92,8 +92,6 @@ public class SimulationControl extends Composite implements
 	private Text  simulationTimeText;
 
 	private ProgressBar pb = null;
-	// Progress bar for iteration progress
-	private ProgressBar ipb = null;
 	
 	private Text simulationTitleText = null;
 
@@ -197,8 +195,6 @@ public class SimulationControl extends Composite implements
 		// Compute the new displaying bounds.
 		Rectangle pbBounds = this.computeTrim(pb.getBounds().x,
 				pb.getBounds().y, width,height);
-		Rectangle ipbBounds = this.computeTrim(ipb.getBounds().x,
-				ipb.getBounds().y, width,height);
 		Rectangle titleBounds = this.computeTrim(
 				        simulationTitleText.getBounds().x, 
 				        simulationTitleText.getBounds().y, width, height);
@@ -217,7 +213,6 @@ public class SimulationControl extends Composite implements
 				btnContainer.getBounds().y,width,height+2*MARGIN);
 		// Set the new boundaries.
 		pb.setBounds(pbBounds);
-		ipb.setBounds(ipbBounds);
 		
 		simulationTitleText.setBounds(titleBounds);
 		
@@ -258,11 +253,6 @@ public class SimulationControl extends Composite implements
 		pb.setMaximum(IExecutable.TOTAL_WORK);
 		pb.setSelection(BEGIN_WORK);
 		pb.redraw();
-		ipb.setMinimum(BEGIN_WORK);
-		ipb.setMaximum(IExecutable.TOTAL_WORK);
-		ipb.setSelection(BEGIN_WORK);
-		ipb.redraw();
-
 	}
 
 	/**
@@ -431,10 +421,6 @@ public class SimulationControl extends Composite implements
 		pb.setFont(fontRegistry.get(ISharedFonts.DEFAULT));
 		pb.setLayoutData(getProgressBarGridData());
 
-		ipb = new ProgressBar(mainContainer, SWT.SMOOTH | SWT.BORDER);
-		ipb.setFont(fontRegistry.get(ISharedFonts.DEFAULT));
-		ipb.setLayoutData(getProgressBarGridData());
-		
 		simulationTimeText = new Text(mainContainer, SWT.SMOOTH | SWT.BORDER);
 		simulationTimeText.setBackground(colorRegistry
 				.get(ISharedColors.GREEN));
@@ -709,8 +695,6 @@ public class SimulationControl extends Composite implements
 			}
 			break;
 		case RUNNING:
-			// Check the progress of the scenario and update the progress bar
-			ipb.setSelection((int)(event.getIterationProgress()*IExecutable.TOTAL_WORK));
 			break;	
 		case COMPLETED_SEQUENCE:
 		case PAUSED:
