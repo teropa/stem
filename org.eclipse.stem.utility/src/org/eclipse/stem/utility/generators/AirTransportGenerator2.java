@@ -3,11 +3,17 @@ package org.eclipse.stem.utility.generators;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
+
+import com.ibm.xylem.instructions.ReadSlotInstruction;
 
 /**
  * The utility takes as input a .csv file where each row has the following columns:
@@ -89,7 +95,11 @@ public class AirTransportGenerator2 {
 	// If only have airport for the country all flights are international
 	private static double DEFAULT_PERCENT_START_0_LEVEL_0_TO_LEVEL_m1 = 100;
 	
-	
+	/**
+	 * Map stem id to population
+	 */
+	private static Map<String,Integer> stemPopulationMap = new HashMap<String,Integer>();
+
 	static {
 		level0IsoKeys.put("TL", "TLS");
 		level0IsoKeys.put("TK", "TKL");
@@ -358,6 +368,7 @@ public class AirTransportGenerator2 {
 			System.exit(-1);
 		}
 		
+		readStemPopulationMap(PopulationPath);
 		
 		BufferedReader ireader = new BufferedReader(new InputStreamReader(new FileInputStream(propfile)));
 		   			
@@ -370,6 +381,7 @@ public class AirTransportGenerator2 {
 		while((line=ireader.readLine()) != null) {
 		  StringTokenizer st = new StringTokenizer(line, ",");
 		  String airportCode = st.nextToken().trim();
+		  if(airportCode.startsWith("#")) continue; // skip
 		  String stemCode = st.nextToken().trim();
 		  // trim at first space if found
 		
@@ -378,13 +390,19 @@ public class AirTransportGenerator2 {
 		  
 		  int startLevel = GenUtils.getLevel(stemCode);
 		  int passengers = Integer.parseInt(st.nextToken().trim());
-		  int population = Integer.parseInt(st.nextToken().trim());
-		  
-		  
+		  //int population = Integer.parseInt(st.nextToken().trim());
+		  boolean generated = (passengers == -1);
+		  Integer POPULATION = stemPopulationMap.get(stemCode);
+		  if(POPULATION == null && generated) {
+			  System.err.println("Error, population not found for "+stemCode);
+			  System.exit(-1);
+		  }
+		  int population = 0;
+		  if(POPULATION != null) population = POPULATION.intValue();
 		  // Skip rest
 		  String s = null;
 		  while(st.hasMoreTokens()) s=st.nextToken();
-		  boolean generated = (passengers == -1);
+		  
 		
 		  // 0.01 % per day or 15 / day, whichever is smallest
 		  double threshold = ((double)population*(double)DEFAULT_DIVISIOR)/10000.0;
@@ -548,4 +566,127 @@ public class AirTransportGenerator2 {
 		fw.write("# Record No. = Enclosing Node Key,  Node Key, ArrivalRate (individuals per RATE_TIME_PERIOD), DepartureRate(Individuals per RATE_TIME_PERIOD)"+LS); 
 		fw.flush();
 	}
+
+	public static String PopulationPath = "C:/stemws/org.eclipse.stem.internal.data.geography.population.human/resources/data/country/";
+
+	/**
+	 * read in the stem population data
+	 * 
+	 */
+	public static void readStemPopulationMap(String path) {
+		final String NOTFOUND = "xx";
+		String useName = NOTFOUND;
+
+		try {
+			File f = new File(path);
+
+			if(f.isDirectory()) {
+				String[] subFolders = f.list();
+				for(int i=0;i<subFolders.length;++i) 
+					readStemPopulationMap(path+File.separator+subFolders[i]);
+			} else {
+				if (f.getName().endsWith(".properties")) {
+											
+					BufferedReader fileReader = openReader(f);
+
+					// Add all the source URLs for this country.
+					if (fileReader != null) {
+						String buffer = null;
+						while (EOF(buffer = fileReader.readLine()) != true) {
+
+							// System.out.println(" "+buffer);
+							// Tokenize
+							// REJECT STRINGS
+							final String s1 = "RECORD_CLASSNAME";
+							final String s2 = "ISOKEY";
+							final String s3 = "ADMIN_LEVEL";
+							final String s4 = "VALID";
+							final String s5 = "SOURCE";
+							final String s6 = "POPULATION";
+							final String s7 = "YEAR";
+							final String s8 = "TITLE";
+							final String s9 = "#";
+							if ((buffer.indexOf(s1) == -1)
+									&& (buffer.indexOf(s2) == -1)
+									&& (buffer.indexOf(s3) == -1)
+									&& (buffer.indexOf(s4) == -1)
+									&& (buffer.indexOf(s5) == -1)
+									&& (buffer.indexOf(s6) == -1)
+									&& (buffer.indexOf(s7) == -1)
+									&& (buffer.indexOf(s8) == -1)
+									&& (buffer.indexOf(s9) == -1)
+									&& (buffer.indexOf("=") >= 1)) {
+
+								StringTokenizer tokenizer = new StringTokenizer(buffer, "="); //$NON-NLS-1$
+	
+								// Level 2
+								String stemID = tokenizer.nextToken().trim();
+								if(stemID.contains("ZZZ")) continue;
+								String population = tokenizer.nextToken().trim();
+	
+								// System.out.println(""+stemID2+" = "+population);
+								// populationIdMap.put(stemID2, new
+								// Integer(population.trim()));
+								try {
+									Integer popVal = new Integer(population);
+									int itest = popVal.intValue();
+									if (itest <= -1) {
+										System.out.println("invalid population val for country"
+														+ stemID);
+										System.exit(-1);
+									}
+									stemPopulationMap.put(stemID, itest);
+								} catch (NumberFormatException nfe) {
+										System.out
+												.println("!!!! invalid data"
+														+ buffer);
+										System.exit(-1);
+								}
+							} // Not header field
+						} // While !EOF
+					} // While FileReader is not null
+				} // is .properties file
+			} // Is file
+		} catch (Exception e) {
+			System.out.println("Error reading file" + useName);
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}// readStemPopulation()
+	
+	/**
+	 * Create a newBufferedReader
+	 * 
+	 * @param fileName
+	 *            the name of the file we want to open for reading
+	 * 
+	 * @return a reader to a given file
+	 */
+	static protected BufferedReader openReader(File file) {
+
+		try {
+
+			return new BufferedReader(new FileReader(file));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	/**
+	 * Indicate End-Of-File
+	 * 
+	 * @param buffer
+	 *            A buffer of diva data
+	 * 
+	 * @return True if we have reached End-Of-File
+	 */
+	static protected boolean EOF(String buffer) {
+		if (buffer == null )
+			return true;
+		return false;
+	}
+
 }
