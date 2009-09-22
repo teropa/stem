@@ -86,9 +86,9 @@ public class IntensityColorsLabelsMappingColorProviderAdapter extends
 		if(alpha < 0.0) alpha = 0.0f; // should never happen
 		if (alpha < ZERO_RELATIVE_VALUE_THRESHOLD) {
 			gcToUpdate.setAlpha(255);
-			
-			//gcToUpdate.setBackground(zero_FillColor);
-			gcToUpdate.setBackground(backgroundFillColor);
+			// NOTE: this allows a background color different from the ocean color (JHK)
+			gcToUpdate.setBackground(zero_FillColor);
+			//gcToUpdate.setBackground(backgroundFillColor);
 
 		} else {
 			if (useLogScaling == true) {
