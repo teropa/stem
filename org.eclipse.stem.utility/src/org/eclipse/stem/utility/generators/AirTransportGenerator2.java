@@ -7,13 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
-
-import com.ibm.xylem.instructions.ReadSlotInstruction;
 
 /**
  * The utility takes as input a .csv file where each row has the following columns:
