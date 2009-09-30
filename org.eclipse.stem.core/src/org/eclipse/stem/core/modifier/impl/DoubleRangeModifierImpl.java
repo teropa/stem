@@ -14,7 +14,6 @@ package org.eclipse.stem.core.modifier.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.stem.core.Constants;
 import org.eclipse.stem.core.modifier.DoubleRangeModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -209,7 +208,8 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 		} // if
 		
 		final double retValue = nextValue;
-		complete = Math.abs(retValue  - endValue) <= Constants.FLOAT_COMPARE;
+		
+		complete = (increment < 0.0)? (retValue <= endValue):(retValue >= endValue); 
 		
 		// Still incrementing?
 		if (!complete) {
