@@ -13,6 +13,7 @@ package org.eclipse.stem.ui.widgets;
  *******************************************************************************/
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -31,6 +32,7 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.ui.adapters.color.ColorProvider;
@@ -279,6 +281,19 @@ public class GeoViewOptionsBar extends Composite {
 	public void setDecorators(final List<Decorator> decorators) {
 		this.decorators = decorators;
 		selectedDecorator = decorators.isEmpty() ? null : decorators.get(0);
+		
+		// If we have BOTH a population decorator and a disease decorator
+		// try to initially select the disease by default
+		if ((decorators!=null)&&(decorators.size()>=2)) {
+			if(!(selectedDecorator instanceof DiseaseModel)) {
+				for(int i = 0; i < decorators.size(); i ++) {
+					if(decorators.get(i) instanceof DiseaseModel) {
+						selectedDecorator = decorators.get(i);
+						break;
+					}
+				}
+			}
+		}
 
 		initializeCombo(decoratorsCombo, getDecoratorNames(decorators),
 				getDecoratorIndex(selectedDecorator, decorators));

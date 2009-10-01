@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.stem.jobs;visibility:=reexport,
  org.eclipse.ui.views.log,
  org.eclipse.core.expressions,
  org.eclipse.ui.navigator,
- org.eclipse.ui.navigator.resources
+ org.eclipse.ui.navigator.resources,
+ org.eclipse.stem.diseasemodels;bundle-version="0.5.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.core.common.presentation,
  org.eclipse.stem.core.graph.presentation,
