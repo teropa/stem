@@ -66,12 +66,14 @@ abstract public class FeatureModifierEditCompositeAdapter extends AdapterImpl
 	 * default the <code>noneButton</code> is selected.
 	 * 
 	 * @param noneButton
+	 * @param singleValueButton
 	 * @param rangeButton
 	 * @param sequenceButton
 	 */
-	public void setSelectedButton(final Button noneButton,
+	public void setSelectedButton(final Button noneButton, final Button singleValueButton,
 			final Button rangeButton, final Button sequenceButton) {
 		noneButton.setSelection(true);
+		singleValueButton.setSelection(false);
 		rangeButton.setSelection(false);
 		sequenceButton.setSelection(false);
 	} // setSelectedButton

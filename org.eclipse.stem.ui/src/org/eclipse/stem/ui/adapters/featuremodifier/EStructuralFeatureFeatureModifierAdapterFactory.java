@@ -21,6 +21,7 @@ import org.eclipse.stem.core.modifier.ModifierFactory;
 import org.eclipse.stem.core.modifier.NOPModifier;
 import org.eclipse.stem.core.modifier.RangeModifier;
 import org.eclipse.stem.core.modifier.SequenceModifier;
+import org.eclipse.stem.core.modifier.SingleValueModifier;
 import org.eclipse.stem.data.geography.Activator;
 
 /**
@@ -113,6 +114,50 @@ public interface EStructuralFeatureFeatureModifierAdapterFactory {
 						retValue.setEStructuralFeature(feature);
 					} // else
 				} // if NOPModifier
+				else if (target == SingleValueModifier.class) {
+					// Yes
+					// Integer range?
+					if (feature.getEType() == EcorePackage.eINSTANCE.getEInt()) {
+						// Yes
+						retValue = ModifierFactory.eINSTANCE
+								.createIntegerModifier();
+						retValue.setEStructuralFeature(feature);
+					} // if integer range
+					// Long range?
+					else if (feature.getEType() == EcorePackage.eINSTANCE
+							.getELong()) {
+						// Yes
+						retValue = ModifierFactory.eINSTANCE
+								.createLongModifier();
+						retValue.setEStructuralFeature(feature);
+					} // if Long range
+					// Double range?
+					else if (feature.getEType() == EcorePackage.eINSTANCE
+							.getEDouble()) {
+						// Yes
+						retValue = ModifierFactory.eINSTANCE
+								.createDoubleModifier();
+						retValue.setEStructuralFeature(feature);
+					} // if double range
+					// STEMTime range?
+					else if (feature.getEType() == ModelPackage.eINSTANCE
+							.getSTEMTime()) {
+						// Yes
+						retValue = ModifierFactory.eINSTANCE
+								.createSTEMTimeModifier();
+						retValue.setEStructuralFeature(feature);
+					} // if STEMTime range
+					else {
+						// No
+						// Not implemented
+						Activator.logError("FeatureModifierAdapter for type \""
+								+ feature.getEType().getName()
+								+ "\" is not implemented.", null);
+						retValue = ModifierFactory.eINSTANCE
+								.createNOPModifier();
+						retValue.setEStructuralFeature(feature);
+					}
+				} // if Range Modifier
 				else if (target == RangeModifier.class) {
 					// Yes
 					// Integer range?

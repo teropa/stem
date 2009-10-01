@@ -33,6 +33,7 @@ import org.eclipse.stem.core.modifier.Modifier;
 import org.eclipse.stem.core.modifier.NOPModifier;
 import org.eclipse.stem.core.modifier.RangeModifier;
 import org.eclipse.stem.core.modifier.SequenceModifier;
+import org.eclipse.stem.core.modifier.SingleValueModifier;
 import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.ui.adapters.featuremodifier.EStructuralFeatureFeatureModifierAdapterFactory;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.FeatureModifierEditCompositeAdapter;
@@ -334,6 +335,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 		 * is displayed, which simply shows the current value of the feature.
 		 */
 		Button noneButton = null;
+		Button singleButton = null;
 		Button rangeButton = null;
 		Button sequenceButton = null;
 
@@ -390,14 +392,20 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 			noneButton.setText("None");
 			noneButton.setEnabled(modifiable);
 
+
+			// range button
+			singleButton = new Button(group, SWT.RADIO);
+			singleButton.setText(Messages.getString("Single.type"));
+			singleButton.setEnabled(modifiable);
+			
 			// range button
 			rangeButton = new Button(group, SWT.RADIO);
-			rangeButton.setText("Range");
+			rangeButton.setText(Messages.getString("Range.type"));
 			rangeButton.setEnabled(modifiable);
 			
 			// sequence button
 			sequenceButton = new Button(group, SWT.RADIO);
-			sequenceButton.setText("Sequence");
+			sequenceButton.setText(Messages.getString("Sequence.type"));
 			sequenceButton.setEnabled(modifiable);
 
 			final int offset = 10;
@@ -454,6 +462,24 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 					} // if
 				}
 			});
+			
+			singleButton.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(
+						@SuppressWarnings("unused") final SelectionEvent e) {
+					// Put up the single value modifier?
+					if (singleButton.getSelection()
+							&& !(featureModifier instanceof SingleValueModifier)) {
+						// Yes
+						setFeatureModifier(EStructuralFeatureFeatureModifierAdapterFactory.INSTANCE
+								.adapt(feature, SingleValueModifier.class));
+						switchToFeatureModifier(identifiable,
+								parentNewModifierPage);
+						// selectRangeButton();
+					} // if
+				}
+			});
+			
 			rangeButton.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(
@@ -495,6 +521,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 
 		void selectNoneButton() {
 			noneButton.setSelection(true);
+			singleButton.setSelection(false);
 			rangeButton.setSelection(false);
 			sequenceButton.setSelection(false);
 		} // selectNoneButton
@@ -549,7 +576,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 			fmecAdapter.setTarget(featureModifier);
 			setEditComposite(fmecAdapter.createEditComposite(
 					editCompositeHolder, identifiable, parentNewModifierPage));
-			fmecAdapter.setSelectedButton(noneButton, rangeButton,
+			fmecAdapter.setSelectedButton(noneButton, singleButton, rangeButton,
 					sequenceButton);
 		} // switchToFeatureModifier
 

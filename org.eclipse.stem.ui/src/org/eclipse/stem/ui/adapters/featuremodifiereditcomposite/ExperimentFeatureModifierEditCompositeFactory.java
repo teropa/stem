@@ -106,6 +106,38 @@ public class ExperimentFeatureModifierEditCompositeFactory extends
 	}
 
 	/**
+	 * @see org.eclipse.stem.core.modifier.util.ModifierAdapterFactory#createDoubleModifierAdapter()
+	 */
+	@Override
+	public Adapter createDoubleModifierAdapter() {
+		return new SingleValueFeatureModifierEditCompositeAdapter.DoubleFeatureModifierEditCompositeAdapter();
+	}
+
+	/**
+	 * @see org.eclipse.stem.core.modifier.util.ModifierAdapterFactory#createIntegerModifierAdapter()
+	 */
+	@Override
+	public Adapter createIntegerModifierAdapter() {
+		return new SingleValueFeatureModifierEditCompositeAdapter.IntegerFeatureModifierEditCompositeAdapter();
+	}
+
+	/**
+	 * @see org.eclipse.stem.core.modifier.util.ModifierAdapterFactory#createLongModifierAdapter()
+	 */
+	@Override
+	public Adapter createLongModifierAdapter() {
+		return new SingleValueFeatureModifierEditCompositeAdapter.LongFeatureModifierEditCompositeAdapter();
+	}
+
+	/**
+	 * @see org.eclipse.stem.core.modifier.util.ModifierAdapterFactory#createSTEMTimeModifierAdapter()
+	 */
+	@Override
+	public Adapter createSTEMTimeModifierAdapter() {
+		return new SingleValueFeatureModifierEditCompositeAdapter.STEMTimeFeatureModifierEditCompositeAdapter();
+	}
+	
+	/**
 	 * @see org.eclipse.stem.core.modifier.util.ModifierAdapterFactory#createDoubleSequenceModifierAdapter()
 	 */
 	@Override

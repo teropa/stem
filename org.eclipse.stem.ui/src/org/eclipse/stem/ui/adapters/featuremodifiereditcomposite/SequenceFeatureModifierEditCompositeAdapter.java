@@ -42,9 +42,10 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 	 *      org.eclipse.swt.widgets.Button, org.eclipse.swt.widgets.Button)
 	 */
 	@Override
-	public void setSelectedButton(final Button noneButton,
+	public void setSelectedButton(final Button noneButton, final Button singleValueButton,
 			final Button rangeButton, final Button sequenceButton) {
 		noneButton.setSelection(false);
+		singleValueButton.setSelection(false);
 		rangeButton.setSelection(false);
 		sequenceButton.setSelection(true);
 	} // setSelectedButton
