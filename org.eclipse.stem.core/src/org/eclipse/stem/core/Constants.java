@@ -222,9 +222,6 @@ public interface Constants {
 	 */
 	String IDENTIFIABLE_ROOT_CATEGORY_ID = IDENTIFIABLE_ROOT_CATEGORY_NAME;
 
-	/**
-	 * This is the value that is used to judge equality between two double values.
-	 */
-	double FLOAT_COMPARE = 0.0001;
+
 
 } // Constants
