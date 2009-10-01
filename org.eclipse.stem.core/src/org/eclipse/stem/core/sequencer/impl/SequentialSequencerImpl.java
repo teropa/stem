@@ -231,7 +231,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT:
-				return new Long(getTimeIncrement());
+				return getTimeIncrement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,7 +244,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT:
-				setTimeIncrement(((Long)newValue).longValue());
+				setTimeIncrement((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

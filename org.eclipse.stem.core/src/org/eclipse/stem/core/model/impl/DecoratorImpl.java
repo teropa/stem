@@ -196,7 +196,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public Graph getGraph() {
-		if (eContainerFeatureID != ModelPackage.DECORATOR__GRAPH) return null;
+		if (eContainerFeatureID() != ModelPackage.DECORATOR__GRAPH) return null;
 		return (Graph)eContainer();
 	}
 
@@ -216,7 +216,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public void setGraph(Graph newGraph) {
-		if (newGraph != eInternalContainer() || (eContainerFeatureID != ModelPackage.DECORATOR__GRAPH && newGraph != null)) {
+		if (newGraph != eInternalContainer() || (eContainerFeatureID() != ModelPackage.DECORATOR__GRAPH && newGraph != null)) {
 			if (EcoreUtil.isAncestor(this, newGraph))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
@@ -375,7 +375,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case ModelPackage.DECORATOR__GRAPH:
 				return eInternalContainer().eInverseRemove(this, GraphPackage.GRAPH__DECORATORS, Graph.class, msgs);
 		}
@@ -394,11 +394,11 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 			case ModelPackage.DECORATOR__GRAPH:
 				return getGraph();
 			case ModelPackage.DECORATOR__ENABLED:
-				return isEnabled() ? Boolean.TRUE : Boolean.FALSE;
+				return isEnabled();
 			case ModelPackage.DECORATOR__GRAPH_DECORATED:
-				return isGraphDecorated() ? Boolean.TRUE : Boolean.FALSE;
+				return isGraphDecorated();
 			case ModelPackage.DECORATOR__PROGRESS:
-				return new Double(getProgress());
+				return getProgress();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -419,13 +419,13 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 				setGraph((Graph)newValue);
 				return;
 			case ModelPackage.DECORATOR__ENABLED:
-				setEnabled(((Boolean)newValue).booleanValue());
+				setEnabled((Boolean)newValue);
 				return;
 			case ModelPackage.DECORATOR__GRAPH_DECORATED:
-				setGraphDecorated(((Boolean)newValue).booleanValue());
+				setGraphDecorated((Boolean)newValue);
 				return;
 			case ModelPackage.DECORATOR__PROGRESS:
-				setProgress(((Double)newValue).doubleValue());
+				setProgress((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

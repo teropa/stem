@@ -249,6 +249,45 @@ public class ModifierSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModifierPackage.SINGLE_VALUE_MODIFIER: {
+				SingleValueModifier singleValueModifier = (SingleValueModifier)theEObject;
+				T1 result = caseSingleValueModifier(singleValueModifier);
+				if (result == null) result = caseFeatureModifier(singleValueModifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModifierPackage.DOUBLE_MODIFIER: {
+				DoubleModifier doubleModifier = (DoubleModifier)theEObject;
+				T1 result = caseDoubleModifier(doubleModifier);
+				if (result == null) result = caseSingleValueModifier(doubleModifier);
+				if (result == null) result = caseFeatureModifier(doubleModifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModifierPackage.INTEGER_MODIFIER: {
+				IntegerModifier integerModifier = (IntegerModifier)theEObject;
+				T1 result = caseIntegerModifier(integerModifier);
+				if (result == null) result = caseSingleValueModifier(integerModifier);
+				if (result == null) result = caseFeatureModifier(integerModifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModifierPackage.LONG_MODIFIER: {
+				LongModifier longModifier = (LongModifier)theEObject;
+				T1 result = caseLongModifier(longModifier);
+				if (result == null) result = caseSingleValueModifier(longModifier);
+				if (result == null) result = caseFeatureModifier(longModifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModifierPackage.STEM_TIME_MODIFIER: {
+				STEMTimeModifier stemTimeModifier = (STEMTimeModifier)theEObject;
+				T1 result = caseSTEMTimeModifier(stemTimeModifier);
+				if (result == null) result = caseSingleValueModifier(stemTimeModifier);
+				if (result == null) result = caseFeatureModifier(stemTimeModifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -550,6 +589,81 @@ public class ModifierSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseModifiable(Modifiable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Single Value Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Single Value Modifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSingleValueModifier(SingleValueModifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Double Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Double Modifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseDoubleModifier(DoubleModifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integer Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integer Modifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIntegerModifier(IntegerModifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Long Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Long Modifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLongModifier(LongModifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>STEM Time Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>STEM Time Modifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSTEMTimeModifier(STEMTimeModifier object) {
 		return null;
 	}
 

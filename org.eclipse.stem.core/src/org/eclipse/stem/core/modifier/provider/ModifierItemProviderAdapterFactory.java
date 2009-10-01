@@ -448,6 +448,98 @@ public class ModifierItemProviderAdapterFactory extends ModifierAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.modifier.DoubleModifier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleModifierItemProvider doubleModifierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.modifier.DoubleModifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleModifierAdapter() {
+		if (doubleModifierItemProvider == null) {
+			doubleModifierItemProvider = new DoubleModifierItemProvider(this);
+		}
+
+		return doubleModifierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.modifier.IntegerModifier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerModifierItemProvider integerModifierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.modifier.IntegerModifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerModifierAdapter() {
+		if (integerModifierItemProvider == null) {
+			integerModifierItemProvider = new IntegerModifierItemProvider(this);
+		}
+
+		return integerModifierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.modifier.LongModifier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LongModifierItemProvider longModifierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.modifier.LongModifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLongModifierAdapter() {
+		if (longModifierItemProvider == null) {
+			longModifierItemProvider = new LongModifierItemProvider(this);
+		}
+
+		return longModifierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.modifier.STEMTimeModifier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected STEMTimeModifierItemProvider stemTimeModifierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.modifier.STEMTimeModifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSTEMTimeModifierAdapter() {
+		if (stemTimeModifierItemProvider == null) {
+			stemTimeModifierItemProvider = new STEMTimeModifierItemProvider(this);
+		}
+
+		return stemTimeModifierItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -497,7 +589,7 @@ public class ModifierItemProviderAdapterFactory extends ModifierAdapterFactory i
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -562,6 +654,10 @@ public class ModifierItemProviderAdapterFactory extends ModifierAdapterFactory i
 		if (stemTimeSequenceModifierItemProvider != null) stemTimeSequenceModifierItemProvider.dispose();
 		if (stringNOPModifierItemProvider != null) stringNOPModifierItemProvider.dispose();
 		if (stringSequenceModifierItemProvider != null) stringSequenceModifierItemProvider.dispose();
+		if (doubleModifierItemProvider != null) doubleModifierItemProvider.dispose();
+		if (integerModifierItemProvider != null) integerModifierItemProvider.dispose();
+		if (longModifierItemProvider != null) longModifierItemProvider.dispose();
+		if (stemTimeModifierItemProvider != null) stemTimeModifierItemProvider.dispose();
 	}
 
 }

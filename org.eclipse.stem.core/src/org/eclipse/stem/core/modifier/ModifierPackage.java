@@ -1961,6 +1961,443 @@ public interface ModifierPackage extends EPackage {
 	int MODIFIABLE_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.modifier.impl.SingleValueModifierImpl <em>Single Value Modifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.modifier.impl.SingleValueModifierImpl
+	 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getSingleValueModifier()
+	 * @generated
+	 */
+	int SINGLE_VALUE_MODIFIER = 20;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_VALUE_MODIFIER__TARGET = FEATURE_MODIFIER__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>EStructural Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_VALUE_MODIFIER__ESTRUCTURAL_FEATURE = FEATURE_MODIFIER__ESTRUCTURAL_FEATURE;
+
+	/**
+	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_VALUE_MODIFIER__FEATURE_NAME = FEATURE_MODIFIER__FEATURE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Feature Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_VALUE_MODIFIER__FEATURE_ID = FEATURE_MODIFIER__FEATURE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Current Value Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_VALUE_MODIFIER__CURRENT_VALUE_TEXT = FEATURE_MODIFIER__CURRENT_VALUE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Complete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_VALUE_MODIFIER__COMPLETE = FEATURE_MODIFIER__COMPLETE;
+
+	/**
+	 * The number of structural features of the '<em>Single Value Modifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_VALUE_MODIFIER_FEATURE_COUNT = FEATURE_MODIFIER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.modifier.impl.DoubleModifierImpl <em>Double Modifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.modifier.impl.DoubleModifierImpl
+	 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getDoubleModifier()
+	 * @generated
+	 */
+	int DOUBLE_MODIFIER = 21;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__TARGET = SINGLE_VALUE_MODIFIER__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>EStructural Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__ESTRUCTURAL_FEATURE = SINGLE_VALUE_MODIFIER__ESTRUCTURAL_FEATURE;
+
+	/**
+	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__FEATURE_NAME = SINGLE_VALUE_MODIFIER__FEATURE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Feature Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__FEATURE_ID = SINGLE_VALUE_MODIFIER__FEATURE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Current Value Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__CURRENT_VALUE_TEXT = SINGLE_VALUE_MODIFIER__CURRENT_VALUE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Complete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__COMPLETE = SINGLE_VALUE_MODIFIER__COMPLETE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Original Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER__ORIGINAL_VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Double Modifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_MODIFIER_FEATURE_COUNT = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.modifier.impl.IntegerModifierImpl <em>Integer Modifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.modifier.impl.IntegerModifierImpl
+	 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getIntegerModifier()
+	 * @generated
+	 */
+	int INTEGER_MODIFIER = 22;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__TARGET = SINGLE_VALUE_MODIFIER__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>EStructural Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__ESTRUCTURAL_FEATURE = SINGLE_VALUE_MODIFIER__ESTRUCTURAL_FEATURE;
+
+	/**
+	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__FEATURE_NAME = SINGLE_VALUE_MODIFIER__FEATURE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Feature Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__FEATURE_ID = SINGLE_VALUE_MODIFIER__FEATURE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Current Value Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__CURRENT_VALUE_TEXT = SINGLE_VALUE_MODIFIER__CURRENT_VALUE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Complete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__COMPLETE = SINGLE_VALUE_MODIFIER__COMPLETE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Original Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER__ORIGINAL_VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Integer Modifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_MODIFIER_FEATURE_COUNT = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.modifier.impl.LongModifierImpl <em>Long Modifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.modifier.impl.LongModifierImpl
+	 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getLongModifier()
+	 * @generated
+	 */
+	int LONG_MODIFIER = 23;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__TARGET = SINGLE_VALUE_MODIFIER__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>EStructural Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__ESTRUCTURAL_FEATURE = SINGLE_VALUE_MODIFIER__ESTRUCTURAL_FEATURE;
+
+	/**
+	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__FEATURE_NAME = SINGLE_VALUE_MODIFIER__FEATURE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Feature Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__FEATURE_ID = SINGLE_VALUE_MODIFIER__FEATURE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Current Value Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__CURRENT_VALUE_TEXT = SINGLE_VALUE_MODIFIER__CURRENT_VALUE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Complete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__COMPLETE = SINGLE_VALUE_MODIFIER__COMPLETE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Original Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER__ORIGINAL_VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Long Modifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LONG_MODIFIER_FEATURE_COUNT = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.modifier.impl.STEMTimeModifierImpl <em>STEM Time Modifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.modifier.impl.STEMTimeModifierImpl
+	 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getSTEMTimeModifier()
+	 * @generated
+	 */
+	int STEM_TIME_MODIFIER = 24;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__TARGET = SINGLE_VALUE_MODIFIER__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>EStructural Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__ESTRUCTURAL_FEATURE = SINGLE_VALUE_MODIFIER__ESTRUCTURAL_FEATURE;
+
+	/**
+	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__FEATURE_NAME = SINGLE_VALUE_MODIFIER__FEATURE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Feature Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__FEATURE_ID = SINGLE_VALUE_MODIFIER__FEATURE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Current Value Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__CURRENT_VALUE_TEXT = SINGLE_VALUE_MODIFIER__CURRENT_VALUE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Complete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__COMPLETE = SINGLE_VALUE_MODIFIER__COMPLETE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Original Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER__ORIGINAL_VALUE = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>STEM Time Modifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEM_TIME_MODIFIER_FEATURE_COUNT = SINGLE_VALUE_MODIFIER_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '<em>URI</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1968,7 +2405,7 @@ public interface ModifierPackage extends EPackage {
 	 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 20;
+	int URI = 25;
 
 
 	/**
@@ -2590,6 +3027,144 @@ public interface ModifierPackage extends EPackage {
 	EClass getModifiable();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.modifier.SingleValueModifier <em>Single Value Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Single Value Modifier</em>'.
+	 * @see org.eclipse.stem.core.modifier.SingleValueModifier
+	 * @generated
+	 */
+	EClass getSingleValueModifier();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.modifier.DoubleModifier <em>Double Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Double Modifier</em>'.
+	 * @see org.eclipse.stem.core.modifier.DoubleModifier
+	 * @generated
+	 */
+	EClass getDoubleModifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.modifier.DoubleModifier#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.DoubleModifier#getValue()
+	 * @see #getDoubleModifier()
+	 * @generated
+	 */
+	EAttribute getDoubleModifier_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.modifier.DoubleModifier#getOriginalValue <em>Original Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Original Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.DoubleModifier#getOriginalValue()
+	 * @see #getDoubleModifier()
+	 * @generated
+	 */
+	EAttribute getDoubleModifier_OriginalValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.modifier.IntegerModifier <em>Integer Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Modifier</em>'.
+	 * @see org.eclipse.stem.core.modifier.IntegerModifier
+	 * @generated
+	 */
+	EClass getIntegerModifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.modifier.IntegerModifier#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.IntegerModifier#getValue()
+	 * @see #getIntegerModifier()
+	 * @generated
+	 */
+	EAttribute getIntegerModifier_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.modifier.IntegerModifier#getOriginalValue <em>Original Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Original Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.IntegerModifier#getOriginalValue()
+	 * @see #getIntegerModifier()
+	 * @generated
+	 */
+	EAttribute getIntegerModifier_OriginalValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.modifier.LongModifier <em>Long Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Long Modifier</em>'.
+	 * @see org.eclipse.stem.core.modifier.LongModifier
+	 * @generated
+	 */
+	EClass getLongModifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.modifier.LongModifier#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.LongModifier#getValue()
+	 * @see #getLongModifier()
+	 * @generated
+	 */
+	EAttribute getLongModifier_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.modifier.LongModifier#getOriginalValue <em>Original Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Original Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.LongModifier#getOriginalValue()
+	 * @see #getLongModifier()
+	 * @generated
+	 */
+	EAttribute getLongModifier_OriginalValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.modifier.STEMTimeModifier <em>STEM Time Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>STEM Time Modifier</em>'.
+	 * @see org.eclipse.stem.core.modifier.STEMTimeModifier
+	 * @generated
+	 */
+	EClass getSTEMTimeModifier();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.core.modifier.STEMTimeModifier#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.STEMTimeModifier#getValue()
+	 * @see #getSTEMTimeModifier()
+	 * @generated
+	 */
+	EReference getSTEMTimeModifier_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.core.modifier.STEMTimeModifier#getOriginalValue <em>Original Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Original Value</em>'.
+	 * @see org.eclipse.stem.core.modifier.STEMTimeModifier#getOriginalValue()
+	 * @see #getSTEMTimeModifier()
+	 * @generated
+	 */
+	EReference getSTEMTimeModifier_OriginalValue();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.URI <em>URI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3125,6 +3700,120 @@ public interface ModifierPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MODIFIABLE = eINSTANCE.getModifiable();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.modifier.impl.SingleValueModifierImpl <em>Single Value Modifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.modifier.impl.SingleValueModifierImpl
+		 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getSingleValueModifier()
+		 * @generated
+		 */
+		EClass SINGLE_VALUE_MODIFIER = eINSTANCE.getSingleValueModifier();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.modifier.impl.DoubleModifierImpl <em>Double Modifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.modifier.impl.DoubleModifierImpl
+		 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getDoubleModifier()
+		 * @generated
+		 */
+		EClass DOUBLE_MODIFIER = eINSTANCE.getDoubleModifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_MODIFIER__VALUE = eINSTANCE.getDoubleModifier_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_MODIFIER__ORIGINAL_VALUE = eINSTANCE.getDoubleModifier_OriginalValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.modifier.impl.IntegerModifierImpl <em>Integer Modifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.modifier.impl.IntegerModifierImpl
+		 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getIntegerModifier()
+		 * @generated
+		 */
+		EClass INTEGER_MODIFIER = eINSTANCE.getIntegerModifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER_MODIFIER__VALUE = eINSTANCE.getIntegerModifier_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER_MODIFIER__ORIGINAL_VALUE = eINSTANCE.getIntegerModifier_OriginalValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.modifier.impl.LongModifierImpl <em>Long Modifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.modifier.impl.LongModifierImpl
+		 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getLongModifier()
+		 * @generated
+		 */
+		EClass LONG_MODIFIER = eINSTANCE.getLongModifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LONG_MODIFIER__VALUE = eINSTANCE.getLongModifier_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LONG_MODIFIER__ORIGINAL_VALUE = eINSTANCE.getLongModifier_OriginalValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.modifier.impl.STEMTimeModifierImpl <em>STEM Time Modifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.modifier.impl.STEMTimeModifierImpl
+		 * @see org.eclipse.stem.core.modifier.impl.ModifierPackageImpl#getSTEMTimeModifier()
+		 * @generated
+		 */
+		EClass STEM_TIME_MODIFIER = eINSTANCE.getSTEMTimeModifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STEM_TIME_MODIFIER__VALUE = eINSTANCE.getSTEMTimeModifier_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STEM_TIME_MODIFIER__ORIGINAL_VALUE = eINSTANCE.getSTEMTimeModifier_OriginalValue();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.

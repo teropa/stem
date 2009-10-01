@@ -208,7 +208,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 				if (resolve) return getEndValue();
 				return basicGetEndValue();
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__INCREMENT:
-				return new Long(getIncrement());
+				return getIncrement();
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE:
 				if (resolve) return getNextValue();
 				return basicGetNextValue();
@@ -233,7 +233,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 				setEndValue((STEMTime)newValue);
 				return;
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__INCREMENT:
-				setIncrement(((Long)newValue).longValue());
+				setIncrement((Long)newValue);
 				return;
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE:
 				setNextValue((STEMTime)newValue);

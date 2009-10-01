@@ -308,15 +308,15 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__START_VALUE:
-				return new Integer(getStartValue());
+				return getStartValue();
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__END_VALUE:
-				return new Integer(getEndValue());
+				return getEndValue();
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__INCREMENT:
-				return new Integer(getIncrement());
+				return getIncrement();
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__NEXT_VALUE:
-				return new Integer(getNextValue());
+				return getNextValue();
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__ORIGINAL_VALUE:
-				return new Integer(getOriginalValue());
+				return getOriginalValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,19 +330,19 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__START_VALUE:
-				setStartValue(((Integer)newValue).intValue());
+				setStartValue((Integer)newValue);
 				return;
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__END_VALUE:
-				setEndValue(((Integer)newValue).intValue());
+				setEndValue((Integer)newValue);
 				return;
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__INCREMENT:
-				setIncrement(((Integer)newValue).intValue());
+				setIncrement((Integer)newValue);
 				return;
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__NEXT_VALUE:
-				setNextValue(((Integer)newValue).intValue());
+				setNextValue((Integer)newValue);
 				return;
 			case ModifierPackage.INTEGER_RANGE_MODIFIER__ORIGINAL_VALUE:
-				setOriginalValue(((Integer)newValue).intValue());
+				setOriginalValue((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

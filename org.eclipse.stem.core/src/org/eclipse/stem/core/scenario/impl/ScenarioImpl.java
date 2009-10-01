@@ -646,7 +646,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			case ScenarioPackage.SCENARIO__CANONICAL_GRAPH:
 				return getCanonicalGraph();
 			case ScenarioPackage.SCENARIO__PROGRESS:
-				return new Double(getProgress());
+				return getProgress();
 			case ScenarioPackage.SCENARIO__SOLVER:
 				return getSolver();
 		}
@@ -672,7 +672,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				getScenarioDecorators().addAll((Collection<? extends Decorator>)newValue);
 				return;
 			case ScenarioPackage.SCENARIO__PROGRESS:
-				setProgress(((Double)newValue).doubleValue());
+				setProgress((Double)newValue);
 				return;
 			case ScenarioPackage.SCENARIO__SOLVER:
 				setSolver((Solver)newValue);

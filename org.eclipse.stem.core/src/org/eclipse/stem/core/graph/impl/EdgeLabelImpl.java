@@ -76,7 +76,7 @@ public abstract class EdgeLabelImpl extends LabelImpl implements EdgeLabel {
 	 * @generated
 	 */
 	public Edge getEdge() {
-		if (eContainerFeatureID != GraphPackage.EDGE_LABEL__EDGE) return null;
+		if (eContainerFeatureID() != GraphPackage.EDGE_LABEL__EDGE) return null;
 		return (Edge)eContainer();
 	}
 
@@ -96,7 +96,7 @@ public abstract class EdgeLabelImpl extends LabelImpl implements EdgeLabel {
 	 * @generated
 	 */
 	public void setEdge(Edge newEdge) {
-		if (newEdge != eInternalContainer() || (eContainerFeatureID != GraphPackage.EDGE_LABEL__EDGE && newEdge != null)) {
+		if (newEdge != eInternalContainer() || (eContainerFeatureID() != GraphPackage.EDGE_LABEL__EDGE && newEdge != null)) {
 			if (EcoreUtil.isAncestor(this, newEdge))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
@@ -148,7 +148,7 @@ public abstract class EdgeLabelImpl extends LabelImpl implements EdgeLabel {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case GraphPackage.EDGE_LABEL__EDGE:
 				return eInternalContainer().eInverseRemove(this, GraphPackage.EDGE__LABEL, Edge.class, msgs);
 		}

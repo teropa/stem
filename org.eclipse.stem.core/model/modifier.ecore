@@ -106,4 +106,22 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Modifiable" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="org.eclipse.emf.common.util.URI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleValueModifier" abstract="true"
+      eSuperTypes="#//FeatureModifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleModifier" eSuperTypes="#//SingleValueModifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalValue" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerModifier" eSuperTypes="#//SingleValueModifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalValue" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LongModifier" eSuperTypes="#//SingleValueModifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalValue" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="STEMTimeModifier" eSuperTypes="#//SingleValueModifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass model.ecore#//STEMTime"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalValue" eType="ecore:EClass model.ecore#//STEMTime"/>
+  </eClassifiers>
 </ecore:EPackage>

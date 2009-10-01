@@ -295,15 +295,15 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__START_VALUE:
-				return new Double(getStartValue());
+				return getStartValue();
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__END_VALUE:
-				return new Double(getEndValue());
+				return getEndValue();
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__INCREMENT:
-				return new Double(getIncrement());
+				return getIncrement();
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE:
-				return new Double(getNextValue());
+				return getNextValue();
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE:
-				return new Double(getOriginalValue());
+				return getOriginalValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,19 +316,19 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__START_VALUE:
-				setStartValue(((Double)newValue).doubleValue());
+				setStartValue((Double)newValue);
 				return;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__END_VALUE:
-				setEndValue(((Double)newValue).doubleValue());
+				setEndValue((Double)newValue);
 				return;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__INCREMENT:
-				setIncrement(((Double)newValue).doubleValue());
+				setIncrement((Double)newValue);
 				return;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE:
-				setNextValue(((Double)newValue).doubleValue());
+				setNextValue((Double)newValue);
 				return;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE:
-				setOriginalValue(((Double)newValue).doubleValue());
+				setOriginalValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

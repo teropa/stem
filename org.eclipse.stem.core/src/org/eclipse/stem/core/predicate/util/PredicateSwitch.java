@@ -215,9 +215,9 @@ public class PredicateSwitch<T1> {
 				if (result == null) result = caseIdentifiablePredicate(identifiablePredicateExpression);
 				if (result == null) result = casePredicateExpression(identifiablePredicateExpression);
 				if (result == null) result = caseIdentifiable(identifiablePredicateExpression);
-				if (result == null) result = casePredicate(identifiablePredicateExpression);
 				if (result == null) result = caseBooleanExpression(identifiablePredicateExpression);
 				if (result == null) result = caseComparable(identifiablePredicateExpression);
+				if (result == null) result = casePredicate(identifiablePredicateExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

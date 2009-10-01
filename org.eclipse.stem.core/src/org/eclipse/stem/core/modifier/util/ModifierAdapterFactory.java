@@ -160,6 +160,26 @@ public class ModifierAdapterFactory extends AdapterFactoryImpl {
 				return createModifiableAdapter();
 			}
 			@Override
+			public Adapter caseSingleValueModifier(SingleValueModifier object) {
+				return createSingleValueModifierAdapter();
+			}
+			@Override
+			public Adapter caseDoubleModifier(DoubleModifier object) {
+				return createDoubleModifierAdapter();
+			}
+			@Override
+			public Adapter caseIntegerModifier(IntegerModifier object) {
+				return createIntegerModifierAdapter();
+			}
+			@Override
+			public Adapter caseLongModifier(LongModifier object) {
+				return createLongModifierAdapter();
+			}
+			@Override
+			public Adapter caseSTEMTimeModifier(STEMTimeModifier object) {
+				return createSTEMTimeModifierAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -468,6 +488,76 @@ public class ModifierAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModifiableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.SingleValueModifier <em>Single Value Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.SingleValueModifier
+	 * @generated
+	 */
+	public Adapter createSingleValueModifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.DoubleModifier <em>Double Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.DoubleModifier
+	 * @generated
+	 */
+	public Adapter createDoubleModifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.IntegerModifier <em>Integer Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.IntegerModifier
+	 * @generated
+	 */
+	public Adapter createIntegerModifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.LongModifier <em>Long Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.LongModifier
+	 * @generated
+	 */
+	public Adapter createLongModifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.STEMTimeModifier <em>STEM Time Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.STEMTimeModifier
+	 * @generated
+	 */
+	public Adapter createSTEMTimeModifierAdapter() {
 		return null;
 	}
 

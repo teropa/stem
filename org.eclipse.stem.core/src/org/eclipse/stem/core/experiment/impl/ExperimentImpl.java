@@ -262,7 +262,7 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 			case ExperimentPackage.EXPERIMENT__MODIFIERS:
 				return getModifiers();
 			case ExperimentPackage.EXPERIMENT__COMPLETE:
-				return isComplete() ? Boolean.TRUE : Boolean.FALSE;
+				return isComplete();
 			case ExperimentPackage.EXPERIMENT__SCENARIO:
 				if (resolve) return getScenario();
 				return basicGetScenario();

@@ -376,7 +376,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 			case ModifierPackage.MODIFIER__FEATURE_MODIFIERS:
 				return getFeatureModifiers();
 			case ModifierPackage.MODIFIER__COMPLETE:
-				return isComplete() ? Boolean.TRUE : Boolean.FALSE;
+				return isComplete();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

@@ -164,7 +164,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 			case SolverPackage.SOLVER__DECORATORS:
 				return getDecorators();
 			case SolverPackage.SOLVER__INITIALIZED:
-				return isInitialized() ? Boolean.TRUE : Boolean.FALSE;
+				return isInitialized();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,7 +182,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 				setDecorators((EList<Decorator>)newValue);
 				return;
 			case SolverPackage.SOLVER__INITIALIZED:
-				setInitialized(((Boolean)newValue).booleanValue());
+				setInitialized((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

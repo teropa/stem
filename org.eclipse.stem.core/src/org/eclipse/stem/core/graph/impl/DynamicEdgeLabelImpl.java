@@ -89,7 +89,7 @@ public abstract class DynamicEdgeLabelImpl extends DynamicLabelImpl implements D
 	 * @generated
 	 */
 	public Edge getEdge() {
-		if (eContainerFeatureID != GraphPackage.DYNAMIC_EDGE_LABEL__EDGE) return null;
+		if (eContainerFeatureID() != GraphPackage.DYNAMIC_EDGE_LABEL__EDGE) return null;
 		return (Edge)eContainer();
 	}
 
@@ -109,7 +109,7 @@ public abstract class DynamicEdgeLabelImpl extends DynamicLabelImpl implements D
 	 * @generated
 	 */
 	public void setEdge(Edge newEdge) {
-		if (newEdge != eInternalContainer() || (eContainerFeatureID != GraphPackage.DYNAMIC_EDGE_LABEL__EDGE && newEdge != null)) {
+		if (newEdge != eInternalContainer() || (eContainerFeatureID() != GraphPackage.DYNAMIC_EDGE_LABEL__EDGE && newEdge != null)) {
 			if (EcoreUtil.isAncestor(this, newEdge))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
@@ -161,7 +161,7 @@ public abstract class DynamicEdgeLabelImpl extends DynamicLabelImpl implements D
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case GraphPackage.DYNAMIC_EDGE_LABEL__EDGE:
 				return eInternalContainer().eInverseRemove(this, GraphPackage.EDGE__LABEL, Edge.class, msgs);
 		}

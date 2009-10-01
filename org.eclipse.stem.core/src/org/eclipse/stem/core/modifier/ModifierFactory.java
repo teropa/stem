@@ -175,6 +175,42 @@ public interface ModifierFactory extends EFactory {
 	StringSequenceModifier createStringSequenceModifier();
 
 	/**
+	 * Returns a new object of class '<em>Double Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Modifier</em>'.
+	 * @generated
+	 */
+	DoubleModifier createDoubleModifier();
+
+	/**
+	 * Returns a new object of class '<em>Integer Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Modifier</em>'.
+	 * @generated
+	 */
+	IntegerModifier createIntegerModifier();
+
+	/**
+	 * Returns a new object of class '<em>Long Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Long Modifier</em>'.
+	 * @generated
+	 */
+	LongModifier createLongModifier();
+
+	/**
+	 * Returns a new object of class '<em>STEM Time Modifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>STEM Time Modifier</em>'.
+	 * @generated
+	 */
+	STEMTimeModifier createSTEMTimeModifier();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

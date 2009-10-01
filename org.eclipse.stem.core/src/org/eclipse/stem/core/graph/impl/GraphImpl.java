@@ -806,15 +806,15 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			case GraphPackage.GRAPH__DYNAMIC_LABELS:
 				return getDynamicLabels();
 			case GraphPackage.GRAPH__NUM_EDGES:
-				return new Integer(getNumEdges());
+				return getNumEdges();
 			case GraphPackage.GRAPH__NUM_NODES:
-				return new Integer(getNumNodes());
+				return getNumNodes();
 			case GraphPackage.GRAPH__NUM_GRAPH_LABELS:
-				return new Integer(getNumGraphLabels());
+				return getNumGraphLabels();
 			case GraphPackage.GRAPH__NUM_NODE_LABELS:
-				return new Integer(getNumNodeLabels());
+				return getNumNodeLabels();
 			case GraphPackage.GRAPH__NUM_DYNAMIC_LABELS:
-				return new Integer(getNumDynamicLabels());
+				return getNumDynamicLabels();
 			case GraphPackage.GRAPH__UNRESOLVED_IDENTIFIABLES:
 				return getUnresolvedIdentifiables();
 			case GraphPackage.GRAPH__DECORATORS:

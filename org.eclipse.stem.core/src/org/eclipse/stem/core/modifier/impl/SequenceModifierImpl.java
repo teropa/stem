@@ -221,9 +221,9 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModifierPackage.SEQUENCE_MODIFIER__SEQUENCE_SIZE:
-				return new Integer(getSequenceSize());
+				return getSequenceSize();
 			case ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX:
-				return new Integer(getCurrentSequenceIndex());
+				return getCurrentSequenceIndex();
 			case ModifierPackage.SEQUENCE_MODIFIER__NEXT_VALUE:
 				return getNextValue();
 			case ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE:
@@ -241,7 +241,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX:
-				setCurrentSequenceIndex(((Integer)newValue).intValue());
+				setCurrentSequenceIndex((Integer)newValue);
 				return;
 			case ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE:
 				setOriginalValue(newValue);

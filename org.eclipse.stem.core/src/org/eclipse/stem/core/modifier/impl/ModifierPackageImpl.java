@@ -27,13 +27,16 @@ import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.impl.GraphPackageImpl;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
+import org.eclipse.stem.core.modifier.DoubleModifier;
 import org.eclipse.stem.core.modifier.DoubleNOPModifier;
 import org.eclipse.stem.core.modifier.DoubleRangeModifier;
 import org.eclipse.stem.core.modifier.DoubleSequenceModifier;
 import org.eclipse.stem.core.modifier.FeatureModifier;
+import org.eclipse.stem.core.modifier.IntegerModifier;
 import org.eclipse.stem.core.modifier.IntegerNOPModifier;
 import org.eclipse.stem.core.modifier.IntegerRangeModifier;
 import org.eclipse.stem.core.modifier.IntegerSequenceModifier;
+import org.eclipse.stem.core.modifier.LongModifier;
 import org.eclipse.stem.core.modifier.LongNOPModifier;
 import org.eclipse.stem.core.modifier.LongRangeModifier;
 import org.eclipse.stem.core.modifier.LongSequenceModifier;
@@ -43,10 +46,12 @@ import org.eclipse.stem.core.modifier.ModifierFactory;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.NOPModifier;
 import org.eclipse.stem.core.modifier.RangeModifier;
+import org.eclipse.stem.core.modifier.STEMTimeModifier;
 import org.eclipse.stem.core.modifier.STEMTimeNOPModifier;
 import org.eclipse.stem.core.modifier.STEMTimeRangeModifier;
 import org.eclipse.stem.core.modifier.STEMTimeSequenceModifier;
 import org.eclipse.stem.core.modifier.SequenceModifier;
+import org.eclipse.stem.core.modifier.SingleValueModifier;
 import org.eclipse.stem.core.modifier.StringNOPModifier;
 import org.eclipse.stem.core.modifier.StringSequenceModifier;
 import org.eclipse.stem.core.predicate.PredicatePackage;
@@ -212,6 +217,41 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass singleValueModifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleModifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integerModifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass longModifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stemTimeModifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType uriEDataType = null;
 
 	/**
@@ -241,20 +281,10 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link ModifierPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -266,7 +296,7 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		if (isInited) return (ModifierPackage)EPackage.Registry.INSTANCE.getEPackage(ModifierPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ModifierPackageImpl theModifierPackage = (ModifierPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ModifierPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ModifierPackageImpl());
+		ModifierPackageImpl theModifierPackage = (ModifierPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ModifierPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ModifierPackageImpl());
 
 		isInited = true;
 
@@ -311,6 +341,9 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		// Mark meta-data to indicate it can't be changed
 		theModifierPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(ModifierPackage.eNS_URI, theModifierPackage);
 		return theModifierPackage;
 	}
 
@@ -841,6 +874,123 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSingleValueModifier() {
+		return singleValueModifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDoubleModifier() {
+		return doubleModifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleModifier_Value() {
+		return (EAttribute)doubleModifierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleModifier_OriginalValue() {
+		return (EAttribute)doubleModifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegerModifier() {
+		return integerModifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntegerModifier_Value() {
+		return (EAttribute)integerModifierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntegerModifier_OriginalValue() {
+		return (EAttribute)integerModifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLongModifier() {
+		return longModifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLongModifier_Value() {
+		return (EAttribute)longModifierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLongModifier_OriginalValue() {
+		return (EAttribute)longModifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSTEMTimeModifier() {
+		return stemTimeModifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSTEMTimeModifier_Value() {
+		return (EReference)stemTimeModifierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSTEMTimeModifier_OriginalValue() {
+		return (EReference)stemTimeModifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getURI() {
 		return uriEDataType;
 	}
@@ -951,6 +1101,24 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 
 		modifiableEClass = createEClass(MODIFIABLE);
 
+		singleValueModifierEClass = createEClass(SINGLE_VALUE_MODIFIER);
+
+		doubleModifierEClass = createEClass(DOUBLE_MODIFIER);
+		createEAttribute(doubleModifierEClass, DOUBLE_MODIFIER__VALUE);
+		createEAttribute(doubleModifierEClass, DOUBLE_MODIFIER__ORIGINAL_VALUE);
+
+		integerModifierEClass = createEClass(INTEGER_MODIFIER);
+		createEAttribute(integerModifierEClass, INTEGER_MODIFIER__VALUE);
+		createEAttribute(integerModifierEClass, INTEGER_MODIFIER__ORIGINAL_VALUE);
+
+		longModifierEClass = createEClass(LONG_MODIFIER);
+		createEAttribute(longModifierEClass, LONG_MODIFIER__VALUE);
+		createEAttribute(longModifierEClass, LONG_MODIFIER__ORIGINAL_VALUE);
+
+		stemTimeModifierEClass = createEClass(STEM_TIME_MODIFIER);
+		createEReference(stemTimeModifierEClass, STEM_TIME_MODIFIER__VALUE);
+		createEReference(stemTimeModifierEClass, STEM_TIME_MODIFIER__ORIGINAL_VALUE);
+
 		// Create data types
 		uriEDataType = createEDataType(URI);
 	}
@@ -1006,6 +1174,11 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		sequenceModifierEClass.getESuperTypes().add(this.getFeatureModifier());
 		stringNOPModifierEClass.getESuperTypes().add(this.getNOPModifier());
 		stringSequenceModifierEClass.getESuperTypes().add(this.getSequenceModifier());
+		singleValueModifierEClass.getESuperTypes().add(this.getFeatureModifier());
+		doubleModifierEClass.getESuperTypes().add(this.getSingleValueModifier());
+		integerModifierEClass.getESuperTypes().add(this.getSingleValueModifier());
+		longModifierEClass.getESuperTypes().add(this.getSingleValueModifier());
+		stemTimeModifierEClass.getESuperTypes().add(this.getSingleValueModifier());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(doubleNOPModifierEClass, DoubleNOPModifier.class, "DoubleNOPModifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -1094,6 +1267,24 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		initEAttribute(getStringSequenceModifier_Sequence(), ecorePackage.getEString(), "sequence", null, 0, -1, StringSequenceModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(modifiableEClass, Modifiable.class, "Modifiable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(singleValueModifierEClass, SingleValueModifier.class, "SingleValueModifier", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(doubleModifierEClass, DoubleModifier.class, "DoubleModifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getDoubleModifier_Value(), theEcorePackage.getEDouble(), "value", null, 0, 1, DoubleModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getDoubleModifier_OriginalValue(), theEcorePackage.getEDouble(), "originalValue", null, 0, 1, DoubleModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(integerModifierEClass, IntegerModifier.class, "IntegerModifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getIntegerModifier_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, IntegerModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getIntegerModifier_OriginalValue(), theEcorePackage.getEInt(), "originalValue", null, 0, 1, IntegerModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(longModifierEClass, LongModifier.class, "LongModifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getLongModifier_Value(), theEcorePackage.getELong(), "value", null, 0, 1, LongModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getLongModifier_OriginalValue(), theEcorePackage.getELong(), "originalValue", null, 0, 1, LongModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(stemTimeModifierEClass, STEMTimeModifier.class, "STEMTimeModifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSTEMTimeModifier_Value(), theModelPackage.getSTEMTime(), null, "value", null, 0, 1, STEMTimeModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSTEMTimeModifier_OriginalValue(), theModelPackage.getSTEMTime(), null, "originalValue", null, 0, 1, STEMTimeModifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Initialize data types
 		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

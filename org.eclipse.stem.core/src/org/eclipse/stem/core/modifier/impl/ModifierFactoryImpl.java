@@ -18,16 +18,18 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-//import org.eclipse.stem.core.modifier.*;
 import org.eclipse.stem.core.modifier.DoubleNOPModifier;
 import org.eclipse.stem.core.modifier.DoubleRangeModifier;
 import org.eclipse.stem.core.modifier.DoubleSequenceModifier;
+import org.eclipse.stem.core.modifier.DoubleModifier;
 import org.eclipse.stem.core.modifier.IntegerNOPModifier;
 import org.eclipse.stem.core.modifier.IntegerRangeModifier;
 import org.eclipse.stem.core.modifier.IntegerSequenceModifier;
+import org.eclipse.stem.core.modifier.IntegerModifier;
 import org.eclipse.stem.core.modifier.LongNOPModifier;
 import org.eclipse.stem.core.modifier.LongRangeModifier;
 import org.eclipse.stem.core.modifier.LongSequenceModifier;
+import org.eclipse.stem.core.modifier.LongModifier;
 import org.eclipse.stem.core.modifier.Modifier;
 import org.eclipse.stem.core.modifier.ModifierFactory;
 import org.eclipse.stem.core.modifier.ModifierPackage;
@@ -35,6 +37,7 @@ import org.eclipse.stem.core.modifier.NOPModifier;
 import org.eclipse.stem.core.modifier.STEMTimeNOPModifier;
 import org.eclipse.stem.core.modifier.STEMTimeRangeModifier;
 import org.eclipse.stem.core.modifier.STEMTimeSequenceModifier;
+import org.eclipse.stem.core.modifier.STEMTimeModifier;
 import org.eclipse.stem.core.modifier.StringNOPModifier;
 import org.eclipse.stem.core.modifier.StringSequenceModifier;
 
@@ -98,6 +101,10 @@ public class ModifierFactoryImpl extends EFactoryImpl implements ModifierFactory
 			case ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER: return createSTEMTimeSequenceModifier();
 			case ModifierPackage.STRING_NOP_MODIFIER: return createStringNOPModifier();
 			case ModifierPackage.STRING_SEQUENCE_MODIFIER: return createStringSequenceModifier();
+			case ModifierPackage.DOUBLE_MODIFIER: return createDoubleModifier();
+			case ModifierPackage.INTEGER_MODIFIER: return createIntegerModifier();
+			case ModifierPackage.LONG_MODIFIER: return createLongModifier();
+			case ModifierPackage.STEM_TIME_MODIFIER: return createSTEMTimeModifier();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -291,6 +298,46 @@ public class ModifierFactoryImpl extends EFactoryImpl implements ModifierFactory
 	public StringSequenceModifier createStringSequenceModifier() {
 		StringSequenceModifierImpl stringSequenceModifier = new StringSequenceModifierImpl();
 		return stringSequenceModifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleModifier createDoubleModifier() {
+		DoubleModifierImpl doubleModifier = new DoubleModifierImpl();
+		return doubleModifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerModifier createIntegerModifier() {
+		IntegerModifierImpl integerModifier = new IntegerModifierImpl();
+		return integerModifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LongModifier createLongModifier() {
+		LongModifierImpl longModifier = new LongModifierImpl();
+		return longModifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public STEMTimeModifier createSTEMTimeModifier() {
+		STEMTimeModifierImpl stemTimeModifier = new STEMTimeModifierImpl();
+		return stemTimeModifier;
 	}
 
 	/**

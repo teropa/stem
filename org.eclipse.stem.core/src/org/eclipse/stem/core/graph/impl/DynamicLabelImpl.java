@@ -293,7 +293,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GraphPackage.DYNAMIC_LABEL__NEXT_VALUE_VALID:
-				return isNextValueValid() ? Boolean.TRUE : Boolean.FALSE;
+				return isNextValueValid();
 			case GraphPackage.DYNAMIC_LABEL__NEXT_VALUE:
 				return getNextValue();
 			case GraphPackage.DYNAMIC_LABEL__DECORATOR:
@@ -311,7 +311,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GraphPackage.DYNAMIC_LABEL__NEXT_VALUE_VALID:
-				setNextValueValid(((Boolean)newValue).booleanValue());
+				setNextValueValid((Boolean)newValue);
 				return;
 			case GraphPackage.DYNAMIC_LABEL__NEXT_VALUE:
 				setNextValue((LabelValue)newValue);

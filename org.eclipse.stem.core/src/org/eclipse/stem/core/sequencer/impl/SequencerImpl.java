@@ -468,17 +468,17 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 			case SequencerPackage.SEQUENCER__NEXT_TIME:
 				return getNextTime();
 			case SequencerPackage.SEQUENCER__TIME_DELTA:
-				return new Long(getTimeDelta());
+				return getTimeDelta();
 			case SequencerPackage.SEQUENCER__DURATION:
-				return new Long(getDuration());
+				return getDuration();
 			case SequencerPackage.SEQUENCER__TIME_TO_STOP:
-				return isTimeToStop() ? Boolean.TRUE : Boolean.FALSE;
+				return isTimeToStop();
 			case SequencerPackage.SEQUENCER__WORK_COMPLETE:
-				return new Double(getWorkComplete());
+				return getWorkComplete();
 			case SequencerPackage.SEQUENCER__WORK_INCREMENT:
-				return new Integer(getWorkIncrement());
+				return getWorkIncrement();
 			case SequencerPackage.SEQUENCER__CYCLE:
-				return new Integer(getCycle());
+				return getCycle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -500,13 +500,13 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 				setCurrentTime((STEMTime)newValue);
 				return;
 			case SequencerPackage.SEQUENCER__DURATION:
-				setDuration(((Long)newValue).longValue());
+				setDuration((Long)newValue);
 				return;
 			case SequencerPackage.SEQUENCER__WORK_COMPLETE:
-				setWorkComplete(((Double)newValue).doubleValue());
+				setWorkComplete((Double)newValue);
 				return;
 			case SequencerPackage.SEQUENCER__CYCLE:
-				setCycle(((Integer)newValue).intValue());
+				setCycle((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -558,7 +558,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 			case GraphPackage.EDGE__LABEL:
 				return getLabel();
 			case GraphPackage.EDGE__DIRECTED:
-				return isDirected() ? Boolean.TRUE : Boolean.FALSE;
+				return isDirected();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -586,7 +586,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 				setLabel((EdgeLabel)newValue);
 				return;
 			case GraphPackage.EDGE__DIRECTED:
-				setDirected(((Boolean)newValue).booleanValue());
+				setDirected((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

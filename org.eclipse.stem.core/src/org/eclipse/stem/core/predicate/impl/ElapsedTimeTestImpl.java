@@ -253,11 +253,11 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID:
-				return isReferenceTimeValid() ? Boolean.TRUE : Boolean.FALSE;
+				return isReferenceTimeValid();
 			case PredicatePackage.ELAPSED_TIME_TEST__ELAPSED_MILLISECONDS:
-				return new Long(getElapsedMilliseconds());
+				return getElapsedMilliseconds();
 			case PredicatePackage.ELAPSED_TIME_TEST__NUMBEROF_DAYS:
-				return new Integer(getNumberofDays());
+				return getNumberofDays();
 			case PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME:
 				return getReferenceTime();
 		}
@@ -273,10 +273,10 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID:
-				setReferenceTimeValid(((Boolean)newValue).booleanValue());
+				setReferenceTimeValid((Boolean)newValue);
 				return;
 			case PredicatePackage.ELAPSED_TIME_TEST__NUMBEROF_DAYS:
-				setNumberofDays(((Integer)newValue).intValue());
+				setNumberofDays((Integer)newValue);
 				return;
 			case PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME:
 				setReferenceTime((STEMTime)newValue);

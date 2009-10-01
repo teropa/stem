@@ -336,11 +336,11 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 			case ModifierPackage.FEATURE_MODIFIER__FEATURE_NAME:
 				return getFeatureName();
 			case ModifierPackage.FEATURE_MODIFIER__FEATURE_ID:
-				return new Integer(getFeatureId());
+				return getFeatureId();
 			case ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT:
 				return getCurrentValueText();
 			case ModifierPackage.FEATURE_MODIFIER__COMPLETE:
-				return isComplete() ? Boolean.TRUE : Boolean.FALSE;
+				return isComplete();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -363,7 +363,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 				setFeatureName((String)newValue);
 				return;
 			case ModifierPackage.FEATURE_MODIFIER__FEATURE_ID:
-				setFeatureId(((Integer)newValue).intValue());
+				setFeatureId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

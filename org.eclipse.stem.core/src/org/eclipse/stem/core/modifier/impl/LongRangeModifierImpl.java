@@ -308,15 +308,15 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModifierPackage.LONG_RANGE_MODIFIER__START_VALUE:
-				return new Long(getStartValue());
+				return getStartValue();
 			case ModifierPackage.LONG_RANGE_MODIFIER__END_VALUE:
-				return new Long(getEndValue());
+				return getEndValue();
 			case ModifierPackage.LONG_RANGE_MODIFIER__INCREMENT:
-				return new Long(getIncrement());
+				return getIncrement();
 			case ModifierPackage.LONG_RANGE_MODIFIER__NEXT_VALUE:
-				return new Long(getNextValue());
+				return getNextValue();
 			case ModifierPackage.LONG_RANGE_MODIFIER__ORIGINAL_VALUE:
-				return new Long(getOriginalValue());
+				return getOriginalValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,19 +330,19 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModifierPackage.LONG_RANGE_MODIFIER__START_VALUE:
-				setStartValue(((Long)newValue).longValue());
+				setStartValue((Long)newValue);
 				return;
 			case ModifierPackage.LONG_RANGE_MODIFIER__END_VALUE:
-				setEndValue(((Long)newValue).longValue());
+				setEndValue((Long)newValue);
 				return;
 			case ModifierPackage.LONG_RANGE_MODIFIER__INCREMENT:
-				setIncrement(((Long)newValue).longValue());
+				setIncrement((Long)newValue);
 				return;
 			case ModifierPackage.LONG_RANGE_MODIFIER__NEXT_VALUE:
-				setNextValue(((Long)newValue).longValue());
+				setNextValue((Long)newValue);
 				return;
 			case ModifierPackage.LONG_RANGE_MODIFIER__ORIGINAL_VALUE:
-				setOriginalValue(((Long)newValue).longValue());
+				setOriginalValue((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
