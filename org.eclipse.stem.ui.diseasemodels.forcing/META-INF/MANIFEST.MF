@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.stem.ui.diseasemodels.forcing.editor;singleton:=true
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.stem.ui.diseasemodels.forcing.presentation.ForcingEditorPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -20,6 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.core;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.stem.definitions;visibility:=reexport,
- org.eclipse.stem.ui.diseasemodels;bundle-version="0.5.0",
- org.eclipse.stem.ui;bundle-version="0.5.0"
+ org.eclipse.stem.ui.diseasemodels,
+ org.eclipse.stem.ui
 Bundle-ActivationPolicy: lazy

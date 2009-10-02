@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.stem.util.loggers;singleton:=true
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.stem.util.loggers.Activator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.birt.chart.engine;visibility:=reexport,
  org.eclipse.stem.ui,
  org.eclipse.stem.diseasemodels,
  org.eclipse.stem.jobs,
- org.eclipse.stem.populationmodels;bundle-version="0.5.0"
+ org.eclipse.stem.populationmodels
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.util.loggers,
  org.eclipse.stem.util.loggers.views

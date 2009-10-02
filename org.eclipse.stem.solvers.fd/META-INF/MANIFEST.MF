@@ -2,17 +2,17 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.stem.solvers.fd;singleton:=true
-Bundle-Version: 0.5.0
+Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.stem.core;bundle-version="0.5.0",
+ org.eclipse.stem.core,
  org.eclipse.emf.ecore.edit;bundle-version="2.4.1",
- org.eclipse.stem.diseasemodels;bundle-version="0.5.0",
- org.eclipse.stem.ui;bundle-version="0.5.0"
+ org.eclipse.stem.diseasemodels,
+ org.eclipse.stem.ui
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.solvers.fd,
  org.eclipse.stem.solvers.fd.impl,
