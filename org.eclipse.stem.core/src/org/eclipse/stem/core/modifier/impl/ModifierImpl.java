@@ -230,6 +230,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 		else {
 			// No
 			// Scenario Decorators?
+			/* Commented out 6/10/09 since a modifier for infectors needs to modify the infector in the graph
 			for (Decorator scenarioDecorator : scenario.getScenarioDecorators()) {
 				// Our target?
 				if (scenarioDecorator.getURI().equals(targetURI)) {
@@ -238,7 +239,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 					break;
 				} // if
 			} // for each Scenario Decorator
-
+			*/
 			// Did we find a Scenario decorator?
 			if (retValue == null) {
 				// No
