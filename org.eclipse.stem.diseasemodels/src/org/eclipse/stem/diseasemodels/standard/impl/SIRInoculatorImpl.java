@@ -263,7 +263,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
-				return new Double(getInoculatedPercentage());
+				return getInoculatedPercentage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,7 +277,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
-				setInoculatedPercentage(((Double)newValue).doubleValue());
+				setInoculatedPercentage((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -622,21 +622,21 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE:
-				return new Double(getBackgroundMortalityRate());
+				return getBackgroundMortalityRate();
 			case StandardPackage.DISEASE_MODEL__POPULATION_IDENTIFIER:
 				return getPopulationIdentifier();
 			case StandardPackage.DISEASE_MODEL__TIME_PERIOD:
-				return new Long(getTimePeriod());
+				return getTimePeriod();
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
 				return getDiseaseName();
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
-				return new Double(getRelativeTolerance());
+				return getRelativeTolerance();
 			case StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE:
-				return isFiniteDifference() ? Boolean.TRUE : Boolean.FALSE;
+				return isFiniteDifference();
 			case StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT:
-				return isFrequencyDependent() ? Boolean.TRUE : Boolean.FALSE;
+				return isFrequencyDependent();
 			case StandardPackage.DISEASE_MODEL__BACKGROUND_BIRTH_RATE:
-				return new Double(getBackgroundBirthRate());
+				return getBackgroundBirthRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -654,28 +654,28 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE:
-				setBackgroundMortalityRate(((Double)newValue).doubleValue());
+				setBackgroundMortalityRate((Double)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL__POPULATION_IDENTIFIER:
 				setPopulationIdentifier((String)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL__TIME_PERIOD:
-				setTimePeriod(((Long)newValue).longValue());
+				setTimePeriod((Long)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
 				setDiseaseName((String)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
-				setRelativeTolerance(((Double)newValue).doubleValue());
+				setRelativeTolerance((Double)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE:
-				setFiniteDifference(((Boolean)newValue).booleanValue());
+				setFiniteDifference((Boolean)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT:
-				setFrequencyDependent(((Boolean)newValue).booleanValue());
+				setFrequencyDependent((Boolean)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL__BACKGROUND_BIRTH_RATE:
-				setBackgroundBirthRate(((Double)newValue).doubleValue());
+				setBackgroundBirthRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -349,7 +349,7 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.SIR_LABEL_VALUE__R:
-				return new Double(getR());
+				return getR();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -367,7 +367,7 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.SIR_LABEL_VALUE__R:
-				setR(((Double)newValue).doubleValue());
+				setR((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -280,7 +280,7 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.SI_LABEL_VALUE__I:
-				return new Double(getI());
+				return getI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,7 +294,7 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.SI_LABEL_VALUE__I:
-				setI(((Double)newValue).doubleValue());
+				setI((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

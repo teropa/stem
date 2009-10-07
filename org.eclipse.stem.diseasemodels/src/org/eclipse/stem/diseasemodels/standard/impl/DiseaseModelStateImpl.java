@@ -62,7 +62,7 @@ public abstract class DiseaseModelStateImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public DiseaseModelLabel getLabel() {
-		if (eContainerFeatureID != StandardPackage.DISEASE_MODEL_STATE__LABEL) return null;
+		if (eContainerFeatureID() != StandardPackage.DISEASE_MODEL_STATE__LABEL) return null;
 		return (DiseaseModelLabel)eContainer();
 	}
 
@@ -90,7 +90,7 @@ public abstract class DiseaseModelStateImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public void setLabel(DiseaseModelLabel newLabel) {
-		if (newLabel != eInternalContainer() || (eContainerFeatureID != StandardPackage.DISEASE_MODEL_STATE__LABEL && newLabel != null)) {
+		if (newLabel != eInternalContainer() || (eContainerFeatureID() != StandardPackage.DISEASE_MODEL_STATE__LABEL && newLabel != null)) {
 			if (EcoreUtil.isAncestor(this, newLabel))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
@@ -158,7 +158,7 @@ public abstract class DiseaseModelStateImpl extends EObjectImpl implements
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case StandardPackage.DISEASE_MODEL_STATE__LABEL:
 				return eInternalContainer().eInverseRemove(this, StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, DiseaseModelLabel.class, msgs);
 		}

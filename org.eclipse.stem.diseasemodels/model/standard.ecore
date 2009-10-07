@@ -72,7 +72,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="#//DiseaseModelLabel"
         eOpposite="#//DiseaseModelLabel/diseaseModelState"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Infector" abstract="true" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator">
+  <eClassifiers xsi:type="ecore:EClass" name="Infector" abstract="true" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator ../../org.eclipse.stem.core/model/modifier.ecore#//Modifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="diseaseModel" eType="#//StandardDiseaseModel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetURI" eType="#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diseaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

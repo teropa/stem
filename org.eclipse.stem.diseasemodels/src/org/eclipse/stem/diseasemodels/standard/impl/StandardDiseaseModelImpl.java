@@ -464,13 +464,13 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT:
-				return new Double(getTotalPopulationCount());
+				return getTotalPopulationCount();
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL:
-				return new Double(getTotalPopulationCountReciprocal());
+				return getTotalPopulationCountReciprocal();
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA:
-				return new Double(getTotalArea());
+				return getTotalArea();
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
-				return new Double(getReferencePopulationDensity());
+				return getReferencePopulationDensity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -483,13 +483,13 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT:
-				setTotalPopulationCount(((Double)newValue).doubleValue());
+				setTotalPopulationCount((Double)newValue);
 				return;
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA:
-				setTotalArea(((Double)newValue).doubleValue());
+				setTotalArea((Double)newValue);
 				return;
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
-				setReferencePopulationDensity(((Double)newValue).doubleValue());
+				setReferencePopulationDensity((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

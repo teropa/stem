@@ -394,7 +394,7 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.SEIR__INCUBATION_RATE:
-				return new Double(getIncubationRate());
+				return getIncubationRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,7 +412,7 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.SEIR__INCUBATION_RATE:
-				setIncubationRate(((Double)newValue).doubleValue());
+				setIncubationRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

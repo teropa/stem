@@ -139,7 +139,7 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
-				return new Double(getInfectiousCount());
+				return getInfectiousCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,7 +157,7 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
-				setInfectiousCount(((Double)newValue).doubleValue());
+				setInfectiousCount((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

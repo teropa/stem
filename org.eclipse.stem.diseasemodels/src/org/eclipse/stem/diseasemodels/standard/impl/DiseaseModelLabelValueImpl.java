@@ -301,11 +301,11 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
-				return new Double(getDiseaseDeaths());
+				return getDiseaseDeaths();
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT:
-				return new Double(getPopulationCount());
+				return getPopulationCount();
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__INCIDENCE:
-				return new Double(getIncidence());
+				return getIncidence();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,10 +323,10 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
-				setDiseaseDeaths(((Double)newValue).doubleValue());
+				setDiseaseDeaths((Double)newValue);
 				return;
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__INCIDENCE:
-				setIncidence(((Double)newValue).doubleValue());
+				setIncidence((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

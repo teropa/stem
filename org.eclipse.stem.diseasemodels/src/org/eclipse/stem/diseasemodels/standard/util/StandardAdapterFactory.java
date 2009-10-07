@@ -308,8 +308,8 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createDynamicNodeLabelAdapter();
 			}
 			@Override
-			public Adapter caseSanityChecker_1(SanityChecker object) {
-				return createSanityChecker_1Adapter();
+			public Adapter caseGraph_SanityChecker(SanityChecker object) {
+				return createGraph_SanityCheckerAdapter();
 			}
 			@Override
 			public Adapter caseLabelValue(LabelValue object) {
@@ -973,7 +973,7 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.stem.core.common.SanityChecker
 	 * @generated
 	 */
-	public Adapter createSanityChecker_1Adapter() {
+	public Adapter createGraph_SanityCheckerAdapter() {
 		return null;
 	}
 

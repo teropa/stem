@@ -15,6 +15,7 @@ package org.eclipse.stem.diseasemodels.standard;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.modifier.Modifiable;
 
 /**
  * This interface defines a class in an EMF model for the initialization of an
@@ -22,7 +23,7 @@ import org.eclipse.stem.core.model.NodeDecorator;
  * 
  * @model abstract="true"
  */
-public interface Infector extends NodeDecorator {
+public interface Infector extends NodeDecorator, Modifiable {
 
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a

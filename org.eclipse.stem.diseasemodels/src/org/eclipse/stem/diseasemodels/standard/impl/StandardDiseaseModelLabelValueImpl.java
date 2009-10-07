@@ -242,7 +242,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL_VALUE__S:
-				return new Double(getS());
+				return getS();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,7 +260,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL_VALUE__S:
-				setS(((Double)newValue).doubleValue());
+				setS((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

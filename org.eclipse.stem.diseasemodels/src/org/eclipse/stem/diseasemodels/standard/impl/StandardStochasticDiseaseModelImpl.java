@@ -133,7 +133,7 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN:
-				return new Double(getGain());
+				return getGain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,7 +147,7 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN:
-				setGain(((Double)newValue).doubleValue());
+				setGain((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

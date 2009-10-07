@@ -213,7 +213,7 @@ public class StandardSwitch<T1> {
 				T1 result = caseDiseaseModelLabelValue(diseaseModelLabelValue);
 				if (result == null) result = caseLabelValue(diseaseModelLabelValue);
 				if (result == null) result = caseIntegrationLabelValue(diseaseModelLabelValue);
-				if (result == null) result = caseSanityChecker_1(diseaseModelLabelValue);
+				if (result == null) result = caseGraph_SanityChecker(diseaseModelLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -227,6 +227,7 @@ public class StandardSwitch<T1> {
 				Infector infector = (Infector)theEObject;
 				T1 result = caseInfector(infector);
 				if (result == null) result = caseNodeDecorator(infector);
+				if (result == null) result = caseModifiable(infector);
 				if (result == null) result = caseDecorator(infector);
 				if (result == null) result = caseIdentifiable(infector);
 				if (result == null) result = caseComparable(infector);
@@ -274,7 +275,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseDiseaseModelLabelValue(seirLabelValue);
 				if (result == null) result = caseLabelValue(seirLabelValue);
 				if (result == null) result = caseIntegrationLabelValue(seirLabelValue);
-				if (result == null) result = caseSanityChecker_1(seirLabelValue);
+				if (result == null) result = caseGraph_SanityChecker(seirLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -307,6 +308,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseStandardInfector(siInfector);
 				if (result == null) result = caseInfector(siInfector);
 				if (result == null) result = caseNodeDecorator(siInfector);
+				if (result == null) result = caseModifiable(siInfector);
 				if (result == null) result = caseDecorator(siInfector);
 				if (result == null) result = caseIdentifiable(siInfector);
 				if (result == null) result = caseComparable(siInfector);
@@ -335,7 +337,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseDiseaseModelLabelValue(siLabelValue);
 				if (result == null) result = caseLabelValue(siLabelValue);
 				if (result == null) result = caseIntegrationLabelValue(siLabelValue);
-				if (result == null) result = caseSanityChecker_1(siLabelValue);
+				if (result == null) result = caseGraph_SanityChecker(siLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -378,7 +380,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseDiseaseModelLabelValue(sirLabelValue);
 				if (result == null) result = caseLabelValue(sirLabelValue);
 				if (result == null) result = caseIntegrationLabelValue(sirLabelValue);
-				if (result == null) result = caseSanityChecker_1(sirLabelValue);
+				if (result == null) result = caseGraph_SanityChecker(sirLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -416,7 +418,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseDiseaseModelLabelValue(standardDiseaseModelLabelValue);
 				if (result == null) result = caseLabelValue(standardDiseaseModelLabelValue);
 				if (result == null) result = caseIntegrationLabelValue(standardDiseaseModelLabelValue);
-				if (result == null) result = caseSanityChecker_1(standardDiseaseModelLabelValue);
+				if (result == null) result = caseGraph_SanityChecker(standardDiseaseModelLabelValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -432,6 +434,7 @@ public class StandardSwitch<T1> {
 				T1 result = caseStandardInfector(standardInfector);
 				if (result == null) result = caseInfector(standardInfector);
 				if (result == null) result = caseNodeDecorator(standardInfector);
+				if (result == null) result = caseModifiable(standardInfector);
 				if (result == null) result = caseDecorator(standardInfector);
 				if (result == null) result = caseIdentifiable(standardInfector);
 				if (result == null) result = caseComparable(standardInfector);
@@ -446,12 +449,12 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseSIR(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseStochasticDiseaseModel(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseSI(stochasticSEIRDiseaseModel);
-				if (result == null) result = caseDiseaseModel(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(stochasticSEIRDiseaseModel);
+				if (result == null) result = caseDiseaseModel(stochasticSEIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseNodeDecorator(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseSanityChecker(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseModifiable(stochasticSEIRDiseaseModel);
-				if (result == null) result = caseIntegrationDecorator(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseDecorator(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseIdentifiable(stochasticSEIRDiseaseModel);
 				if (result == null) result = caseComparable(stochasticSEIRDiseaseModel);
@@ -587,6 +590,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseStandardInfector(sirInoculator);
 				if (result == null) result = caseInfector(sirInoculator);
 				if (result == null) result = caseNodeDecorator(sirInoculator);
+				if (result == null) result = caseModifiable(sirInoculator);
 				if (result == null) result = caseDecorator(sirInoculator);
 				if (result == null) result = caseIdentifiable(sirInoculator);
 				if (result == null) result = caseComparable(sirInoculator);
@@ -1258,7 +1262,7 @@ public class StandardSwitch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseSanityChecker_1(SanityChecker object) {
+	public T1 caseGraph_SanityChecker(SanityChecker object) {
 		return null;
 	}
 

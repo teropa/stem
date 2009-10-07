@@ -114,7 +114,7 @@ public abstract class StandardDiseaseModelStateImpl extends
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO:
-				return new Double(getAreaRatio());
+				return getAreaRatio();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,7 +132,7 @@ public abstract class StandardDiseaseModelStateImpl extends
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO:
-				setAreaRatio(((Double)newValue).doubleValue());
+				setAreaRatio((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

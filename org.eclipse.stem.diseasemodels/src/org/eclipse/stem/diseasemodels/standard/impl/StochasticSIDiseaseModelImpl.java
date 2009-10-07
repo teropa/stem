@@ -274,11 +274,11 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STOCHASTIC_SI_DISEASE_MODEL__SEED:
-				return new Long(getSeed());
+				return getSeed();
 			case StandardPackage.STOCHASTIC_SI_DISEASE_MODEL__RANDOM_GENERATOR:
 				return getRandomGenerator();
 			case StandardPackage.STOCHASTIC_SI_DISEASE_MODEL__GAIN:
-				return new Double(getGain());
+				return getGain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -292,10 +292,10 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STOCHASTIC_SI_DISEASE_MODEL__SEED:
-				setSeed(((Long)newValue).longValue());
+				setSeed((Long)newValue);
 				return;
 			case StandardPackage.STOCHASTIC_SI_DISEASE_MODEL__GAIN:
-				setGain(((Double)newValue).doubleValue());
+				setGain((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

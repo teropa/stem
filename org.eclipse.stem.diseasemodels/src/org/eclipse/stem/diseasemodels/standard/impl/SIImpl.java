@@ -941,19 +941,19 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.SI__TRANSMISSION_RATE:
-				return new Double(getTransmissionRate());
+				return getTransmissionRate();
 			case StandardPackage.SI__NON_LINEARITY_COEFFICIENT:
-				return new Double(getNonLinearityCoefficient());
+				return getNonLinearityCoefficient();
 			case StandardPackage.SI__RECOVERY_RATE:
-				return new Double(getRecoveryRate());
+				return getRecoveryRate();
 			case StandardPackage.SI__INFECTIOUS_MORTALITY_RATE:
-				return new Double(getInfectiousMortalityRate());
+				return getInfectiousMortalityRate();
 			case StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
-				return new Double(getPhysicallyAdjacentInfectiousProportion());
+				return getPhysicallyAdjacentInfectiousProportion();
 			case StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION:
-				return new Double(getRoadNetworkInfectiousProportion());
+				return getRoadNetworkInfectiousProportion();
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
-				return new Double(getInfectiousMortality());
+				return getInfectiousMortality();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -971,25 +971,25 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.SI__TRANSMISSION_RATE:
-				setTransmissionRate(((Double)newValue).doubleValue());
+				setTransmissionRate((Double)newValue);
 				return;
 			case StandardPackage.SI__NON_LINEARITY_COEFFICIENT:
-				setNonLinearityCoefficient(((Double)newValue).doubleValue());
+				setNonLinearityCoefficient((Double)newValue);
 				return;
 			case StandardPackage.SI__RECOVERY_RATE:
-				setRecoveryRate(((Double)newValue).doubleValue());
+				setRecoveryRate((Double)newValue);
 				return;
 			case StandardPackage.SI__INFECTIOUS_MORTALITY_RATE:
-				setInfectiousMortalityRate(((Double)newValue).doubleValue());
+				setInfectiousMortalityRate((Double)newValue);
 				return;
 			case StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
-				setPhysicallyAdjacentInfectiousProportion(((Double)newValue).doubleValue());
+				setPhysicallyAdjacentInfectiousProportion((Double)newValue);
 				return;
 			case StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION:
-				setRoadNetworkInfectiousProportion(((Double)newValue).doubleValue());
+				setRoadNetworkInfectiousProportion((Double)newValue);
 				return;
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
-				setInfectiousMortality(((Double)newValue).doubleValue());
+				setInfectiousMortality((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

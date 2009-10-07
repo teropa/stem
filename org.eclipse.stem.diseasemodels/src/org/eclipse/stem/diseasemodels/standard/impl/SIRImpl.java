@@ -384,7 +384,7 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.SIR__IMMUNITY_LOSS_RATE:
-				return new Double(getImmunityLossRate());
+				return getImmunityLossRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -402,7 +402,7 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.SIR__IMMUNITY_LOSS_RATE:
-				setImmunityLossRate(((Double)newValue).doubleValue());
+				setImmunityLossRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
