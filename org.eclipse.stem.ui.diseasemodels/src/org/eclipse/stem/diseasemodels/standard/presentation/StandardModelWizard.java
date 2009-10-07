@@ -595,13 +595,13 @@ public class StandardModelWizard extends Wizard implements INewWizard {
 	}
 
 		/**
-		 * Get the URI from the page.
-		 * <!-- begin-user-doc -->
+	 * Get the URI from the page.
+	 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
-		*/
+	 * @generated
+	 */
 		public URI getModelURI() {
-			return initialObjectCreationPage.getFileURI();
-		}
+		return initialObjectCreationPage.getFileURI();
+	}
 
 }

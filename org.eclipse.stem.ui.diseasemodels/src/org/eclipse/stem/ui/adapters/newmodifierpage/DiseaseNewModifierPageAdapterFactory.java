@@ -62,6 +62,14 @@ public class DiseaseNewModifierPageAdapterFactory extends
 	}
 
 	/**
+	 * @see org.eclipse.stem.diseasemodels.standard.util.StandardAdapterFactory#createDiseaseModelAdapter()
+	 */
+	@Override
+	public Adapter createSIInfectorAdapter() {
+		return new SIInfectorNewModifierPageAdapter();
+	}
+
+	/**
 	 * This class adapts {@link DiseaseModel}s to {@link NewModifierPage}s
 	 */
 	private static class DiseaseNewModifierPageAdapter extends
@@ -104,4 +112,45 @@ public class DiseaseNewModifierPageAdapterFactory extends
 
 	} // DiseaseNewModifierPageAdapter
 
+	/**
+	 * This class adapts {@link SIInfector}s to {@link NewModifierPage}s
+	 */
+	private static class SIInfectorNewModifierPageAdapter extends
+			NewModifierPageAdapter {
+
+		/**
+		 * @see org.eclipse.stem.ui.adapters.newmodifierpage.NewModifierPageAdapter#createNewModifierPage()
+		 */
+		@Override
+		public NewModifierPage createNewModifierPage() {
+			return new NewModifierPage((Identifiable) getTarget()) {
+				@Override
+				protected boolean isUserSpecifiedProperty(
+						final EStructuralFeature feature) {
+					boolean retValue = super.isUserSpecifiedProperty(feature);
+					
+					retValue = retValue && !feature.equals(StandardPackage.eINSTANCE.getInfector_TargetURI());
+					
+					return retValue;
+				} // isUserSpecifiedProperty
+
+				@Override
+				protected String getBottomText() {
+					return "";
+				}
+
+				@Override
+				protected boolean isModifiableProperty(
+						final EStructuralFeature feature) {
+					boolean retValue = super.isModifiableProperty(feature);
+
+					retValue = retValue
+							&& !feature.equals(StandardPackage.eINSTANCE.getInfector_PopulationIdentifier());
+
+					return retValue;
+				} // isModifiableProperty
+			};
+		} // createNewModifierPage
+
+	} // DiseaseNewModifierPageAdapter
 } // DiseaseNewModifierPageAdapterFactory

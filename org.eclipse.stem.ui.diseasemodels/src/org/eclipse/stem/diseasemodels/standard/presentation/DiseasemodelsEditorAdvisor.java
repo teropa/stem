@@ -14,12 +14,19 @@ package org.eclipse.stem.diseasemodels.standard.presentation;
 import java.io.File;
 
 import java.util.Arrays;
+import java.util.List;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.stem.diseasemodels.standard.presentation.DiseasemodelsEditorPlugin;
+import org.eclipse.stem.core.common.presentation.CommonEditor;
+import org.eclipse.stem.core.graph.presentation.GraphEditor;
+import org.eclipse.stem.core.model.presentation.ModelEditor;
+import org.eclipse.stem.core.scenario.presentation.ScenarioEditor;
+import org.eclipse.stem.definitions.labels.presentation.LabelsEditor;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.jface.action.GroupMarker;
@@ -69,7 +76,19 @@ public final class DiseasemodelsEditorAdvisor extends WorkbenchAdvisor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final String[] FILE_EXTENSION_FILTERS = StandardEditor.FILE_EXTENSION_FILTERS.toArray(new String[0]);
+	private static final String[] FILE_EXTENSION_FILTERS = getFileExtensionFilters();
+
+	/**
+	 * Returns the default file extension filters. This method should only be used to initialize {@link #FILE_EXTENSION_FILTERS}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	private static String[] getFileExtensionFilters() {
+		List<String> result = new UniqueEList<String>();
+		result.addAll(StandardEditor.FILE_EXTENSION_FILTERS);
+		return result.toArray(new String[0]);
+	}
 
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
@@ -460,7 +479,7 @@ public final class DiseasemodelsEditorAdvisor extends WorkbenchAdvisor {
 				allFilters[0] = group.toString();
 			}
 			if (includeAllFilter) {
-				allFilters[allFilters.length - 1] = "*.*";
+				allFilters[allFilters.length - 1] = "*.*"; //$NON-NLS-1$
 			}
 			
 			fileDialog.setFilterExtensions(allFilters);
@@ -495,7 +514,8 @@ public final class DiseasemodelsEditorAdvisor extends WorkbenchAdvisor {
 			String filename = path + filenames[i];
 			if (extension != null) {
 				int dot = filename.lastIndexOf('.');
-				if (dot == -1 || !Arrays.asList(fileExtensionFilters).contains("*" + filename.substring(dot))) {
+				if (dot == -1 || !Arrays.asList(fileExtensionFilters).contains("*" + filename.substring(dot))) //$NON-NLS-1$
+				{
 					filename += extension;
 				}
 			}
@@ -560,7 +580,7 @@ public final class DiseasemodelsEditorAdvisor extends WorkbenchAdvisor {
 	}
 	
 	/**
-	 * @see org.eclipse.ui.application.WorkbenchAdvisor#createWorkbenchWindowAdvisor(org.eclipse.ui.application.IWorkbenchConfigurer)
+	 * @see org.eclipse.ui.application.WorkbenchAdvisor#createWorkbenchWindowAdvisor(org.eclipse.ui.application.IWorkbenchWindowConfigurer)
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

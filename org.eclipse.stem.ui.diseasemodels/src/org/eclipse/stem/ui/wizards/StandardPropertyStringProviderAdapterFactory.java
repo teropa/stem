@@ -60,6 +60,19 @@ public class StandardPropertyStringProviderAdapterFactory extends
 		} // if we didn't create one before
 		return adapter;
 	} // createDiseaseModelAdapter
+	
+	/**
+	 * @see org.eclipse.stem.diseasemodels.standard.util.StandardAdapterFactory#createInfectorAdapter()
+	 */
+	@Override
+	public Adapter createInfectorAdapter() {
+		// Have we created one before?
+		if (adapter == null) {
+			// No
+			adapter = new StandardPropertyStringProviderAdapter();
+		} // if we didn't create one before
+		return adapter;
+	} // createDiseaseModelAdapter
 
 	/**
 	 * This class represents 
