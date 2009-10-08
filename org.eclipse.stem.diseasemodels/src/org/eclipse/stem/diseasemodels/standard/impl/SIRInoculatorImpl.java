@@ -192,7 +192,10 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			} else if(diseaseModelLabel instanceof SEIRLabel) {
 				iLabel = (SEIRLabel) diseaseModelLabel;
 				sirValue = (SIRLabelValue)iLabel.getCurrentValue();
+			} else {
+				Activator.logError("SIRInoculatorImpl: Unknown or invalid disease model class for innoculation. ClassName= "+diseaseModelLabel.getClass().getName(),null);
 			}
+		
 			double currentSValue = sirValue.getS();
 			double percentTreated = getInoculatedPercentage();
 			if(percentTreated > 100.0) {
