@@ -327,7 +327,7 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 				else {
 					// No
 					// Is it a valid value?
-					retValue = isValidValue(text.getText(), 1.0);
+					retValue = isValidValue(text.getText(), 0.0);
 					if (!retValue) {
 						// No
 						errorMessage = DiseaseWizardMessages
