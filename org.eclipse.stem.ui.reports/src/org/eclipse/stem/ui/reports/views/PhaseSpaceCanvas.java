@@ -22,6 +22,7 @@ import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.AxisType;
 import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.model.attribute.IntersectionType;
+import org.eclipse.birt.chart.model.attribute.Marker;
 import org.eclipse.birt.chart.model.attribute.TickStyle;
 import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
@@ -391,8 +392,14 @@ public class PhaseSpaceCanvas extends Canvas {
 		lsy.getLineAttributes().setVisible(true);
 		lsy.getLineAttributes().setColor(ColorDefinitionImpl.BLUE());
 		lsy.setSeriesIdentifier(seriesIdentifier);
-		lsy.getMarker().setVisible(false);
-
+		
+		//lsy.getMarker().setVisible(false);
+		// replaces deprecated code: lineSeries.getMarker().setVisible(false);
+		if (!lsy.getMarkers().isEmpty()) {
+			Marker marker = lsy.getMarkers().get(0);
+			marker.setVisible(false);
+		}
+		
 		final SeriesDefinition sdX = SeriesDefinitionImpl.create();
 		final SeriesDefinition sdY = SeriesDefinitionImpl.create();
 
