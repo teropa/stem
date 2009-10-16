@@ -66,7 +66,7 @@ public class PercolationDiseaseModelImpl extends StochasticSEIRDiseaseModelImpl 
 		/*
 		 * This Must become a parameter
 		 */
-		final double CRITICAL_SUSCEPTIBLE = 0.3;
+		final double CRITICAL_SUSCEPTIBLE = 0.25;
 		
 		/*
          * 4) Compute the "Local Transmission Coefficient"
@@ -79,7 +79,9 @@ public class PercolationDiseaseModelImpl extends StochasticSEIRDiseaseModelImpl 
 		
 		double den = currentSEIR.getPopulationCount();
 
-        double se =  (currentSEIR.getS()+currentSEIR.getE()+currentSEIR.getI()) / den;
+		double se =  (currentSEIR.getS()+ currentSEIR.getE()+ currentSEIR.getI()) / den;
+        //double se =  (currentSEIR.getS()+ currentSEIR.getE()) / den;
+        //double se =  currentSEIR.getS() / den;
         double percFact = 1.0;
         double localTransmisionCoefficient = 0.0;
         
