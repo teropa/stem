@@ -30,7 +30,6 @@ import org.eclipse.stem.analysis.util.CSVscenarioLoader;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.LabelValue;
-import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
@@ -92,7 +91,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 */
 	protected String dataPath = DATA_PATH_EDEFAULT;
 	
-	private final static String URI_PREFIX_PATTERN = "geo/region/";
+	//private final static String URI_PREFIX_PATTERN = "geo/region/";
 	
 	/**
 	 * The default value of the '{@link #getDiseaseType() <em>Disease Type</em>}' attribute.
