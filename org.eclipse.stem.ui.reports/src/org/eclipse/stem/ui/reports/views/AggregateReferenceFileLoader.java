@@ -59,7 +59,7 @@ public class AggregateReferenceFileLoader {
 		dataFile = scenarioFile;
 		scenarioData = new File(dataFile);
 		if(!isDataFile(scenarioData)) {
-			throw new AggregateFileInitializationException("Not a valid data file, must be .csv or .txt");
+			throw new AggregateFileInitializationException("Not a valid data file, must be .csv or .txt "+dataFile);
 		} 
 		aggregateData = processFile();
 	}

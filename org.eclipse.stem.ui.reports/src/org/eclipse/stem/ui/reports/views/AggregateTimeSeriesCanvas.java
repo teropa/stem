@@ -29,6 +29,7 @@ import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.IntersectionType;
 import org.eclipse.birt.chart.model.attribute.LineAttributes;
 import org.eclipse.birt.chart.model.attribute.LineStyle;
+import org.eclipse.birt.chart.model.attribute.Marker;
 import org.eclipse.birt.chart.model.attribute.Position;
 import org.eclipse.birt.chart.model.attribute.TickStyle;
 import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
@@ -982,7 +983,12 @@ public class AggregateTimeSeriesCanvas extends Canvas {
 			} // if lineSeries==null
 			lineSeries.setDataSet(orthoValues);
 			((LineSeries) lineSeries).getLineAttributes().setVisible(true);
-			((LineSeries) lineSeries).getMarker().setVisible(false);
+			
+			// replaces deprecated code: lineSeries.getMarker().setVisible(false);
+			if (!((LineSeries) lineSeries).getMarkers().isEmpty()) {
+				Marker marker = ((LineSeries) lineSeries).getMarkers().get(0);
+				marker.setVisible(false);
+			}
 			
 			// Assign the line color
 			// based on selected property. Default is Blue
