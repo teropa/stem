@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -28,6 +29,8 @@ import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScen
 import org.eclipse.stem.analysis.util.CSVscenarioLoader;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.LabelValue;
+import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
@@ -89,6 +92,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 */
 	protected String dataPath = DATA_PATH_EDEFAULT;
 	
+	private final static String URI_PREFIX_PATTERN = "geo/region/";
 	
 	/**
 	 * The default value of the '{@link #getDiseaseType() <em>Disease Type</em>}' attribute.
@@ -160,7 +164,11 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	public void updateLabels(final STEMTime time, final long timeDelta, int cycle) {
 		
 		
-
+		// MAD 10/29/2009
+		// Commented out code, moved to "calculateDelta" for IntegrationDecorator.
+		// Not sure what updates need to happen to "updateLabels".
+		
+		/*
 		// Iterate through each of the labels we need to update.
 		for (final Iterator<DynamicLabel> currentStateLabelIter = getLabelsToUpdate()
 				.iterator(); currentStateLabelIter.hasNext();) {
@@ -197,6 +205,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 			
 		} // for
 		++fileLineCounter;
+		*/
 	} // updateLabels
 
 	/**
@@ -304,50 +313,72 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		double r  = 0.0;
 		
 		
-		
-		// compute the changes
-		if(dataInstance.getData(labelS).size() > fileLineCounter) {
-			String sString1 = dataInstance.getData(labelS).get(fileLineCounter);
-			s = new Double(sString1).doubleValue();
-		}// S 
-		
-		if (diseaseType.equals(IMPORT_TYPE_SEIR)) 
-			if(dataInstance.getData(labelE).size() > fileLineCounter) {
-				String eString1 = dataInstance.getData(labelE).get(fileLineCounter);
-				e = new Double(eString1).doubleValue();
-			}// E
-		
-		if(dataInstance.getData(labelI).size() > fileLineCounter) {
-			String iString1 = dataInstance.getData(labelI).get(fileLineCounter);
-			i = new Double(iString1).doubleValue();
-			// compute the changes
-		}//i
-				
-		if (diseaseType.equals(IMPORT_TYPE_SIR) || diseaseType.equals(IMPORT_TYPE_SEIR)) 
-			if(dataInstance.getData(labelR).size() > fileLineCounter) {
-				String rString1 = dataInstance.getData(labelR).get(fileLineCounter);
-				r = new Double(rString1).doubleValue();
-			}// R
 	
-		if (diseaseType.equals(IMPORT_TYPE_SI)) {
-			((SILabelValue)currentState).setS(s);
-			((SILabelValue)currentState).setI(i);
-			return new SILabelValueImpl( 0.0 , 0.0, 0.0, 0.0);
-		} else if (diseaseType.equals(IMPORT_TYPE_SIR)) {
-			((SIRLabelValue)currentState).setS(s);
-			((SIRLabelValue)currentState).setI(i);
-			((SIRLabelValue)currentState).setR(r);
-			return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0);
-		} else if (diseaseType.equals(IMPORT_TYPE_SEIR)) {
-			((SEIRLabelValue)currentState).setS(s);
-			((SEIRLabelValue)currentState).setE(e);
-			((SEIRLabelValue)currentState).setI(i);
-			((SEIRLabelValue)currentState).setR(r);
-			return new SEIRLabelValueImpl(0.0, 0.0, 0.0 , 0.0, 0.0, 0.0);
-		} else {
-			throw new UnsupportedOperationException("ExternalDataSource Invalid Type "+diseaseType+" must be SI, SIR, or SEIR");
-		}
+//		String id = ident.getURI().toString();
+//		int strt = id.indexOf(URI_PREFIX_PATTERN);
+//		if(strt>=0) {
+//			id = id.substring(strt+URI_PREFIX_PATTERN.length(),id.length());
+//		}
 		
+//		if((dataInstance!=null)&&(dataInstance.instance.containsKey(id))) {
+		
+		if(dataInstance!=null) {
+			// compute the changes
+			if(dataInstance.getData(labelS).size() > fileLineCounter) {
+				String sString1 = dataInstance.getData(labelS).get(fileLineCounter);
+				s = new Double(sString1).doubleValue();
+			}// S 
+			
+			if (diseaseType.equals(IMPORT_TYPE_SEIR)) 
+				if(dataInstance.getData(labelE).size() > fileLineCounter) {
+					String eString1 = dataInstance.getData(labelE).get(fileLineCounter);
+					e = new Double(eString1).doubleValue();
+				}// E
+			
+			if(dataInstance.getData(labelI).size() > fileLineCounter) {
+				String iString1 = dataInstance.getData(labelI).get(fileLineCounter);
+				i = new Double(iString1).doubleValue();
+				// compute the changes
+			}//i
+					
+			if (diseaseType.equals(IMPORT_TYPE_SIR) || diseaseType.equals(IMPORT_TYPE_SEIR)) 
+				if(dataInstance.getData(labelR).size() > fileLineCounter) {
+					String rString1 = dataInstance.getData(labelR).get(fileLineCounter);
+					r = new Double(rString1).doubleValue();
+				}// R
+		
+			if (diseaseType.equals(IMPORT_TYPE_SI)) {
+				((SILabelValue)currentState).setS(s);
+				((SILabelValue)currentState).setI(i);
+				return new SILabelValueImpl( 0.0 , 0.0, 0.0, 0.0);
+			} else if (diseaseType.equals(IMPORT_TYPE_SIR)) {
+				((SIRLabelValue)currentState).setS(s);
+				((SIRLabelValue)currentState).setI(i);
+				((SIRLabelValue)currentState).setR(r);
+				return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0);
+			} else if (diseaseType.equals(IMPORT_TYPE_SEIR)) {
+				((SEIRLabelValue)currentState).setS(s);
+				((SEIRLabelValue)currentState).setE(e);
+				((SEIRLabelValue)currentState).setI(i);
+				((SEIRLabelValue)currentState).setR(r);
+				return new SEIRLabelValueImpl(0.0, 0.0, 0.0 , 0.0, 0.0, 0.0);
+			} else {
+				throw new UnsupportedOperationException("ExternalDataSource Invalid Type "+diseaseType+" must be SI, SIR, or SEIR");
+			}
+		}else {
+			// if data == null
+			// no data for location in questions
+			if (diseaseType.equals(IMPORT_TYPE_SI)) {
+				return new SILabelValueImpl(0.0 , 0.0, 0.0, 0.0);
+			} else if (diseaseType.equals(IMPORT_TYPE_SIR)) {
+				return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0);
+			} else if (diseaseType.equals(IMPORT_TYPE_SEIR)) {
+				return new SEIRLabelValueImpl( 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0);
+			} else {
+				throw new UnsupportedOperationException("ExternalDataSource Invalid Type "+diseaseType+" must be SI, SIR, or SEIR");
+			}
+		}
+	
 		
 	} // importDiseaseData
 	
@@ -683,6 +714,66 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		result.append(diseaseType);
 		result.append(')');
 		return result.toString();
+	}
+
+
+
+
+	public void applyExternalDeltas(STEMTime time, long timeDelta,
+			EList<DynamicLabel> labels) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	public void calculateDelta(STEMTime time, long timeDelta,
+			EList<DynamicLabel> labels) {
+		// Iterate through each of the labels we need to update.
+		for (final DynamicLabel dynLabel : labels) {
+			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) dynLabel;
+
+			
+			
+			assert diseaseLabel.getPopulationLabel().getPopulationIdentifier()
+					.equals(getPopulationIdentifier());
+
+			// This is the current state of the disease for this label
+			final StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)diseaseLabel
+					.getCurrentValue();
+
+		
+			// 2) Compute the state transitions
+			final StandardDiseaseModelLabelValue nullAdditions = importDiseaseData(currentState, diseaseLabel, time, timeDelta);
+
+			
+			// This will be the state that we compute.
+			final StandardDiseaseModelLabelValue nextState = (StandardDiseaseModelLabelValue)diseaseLabel.getNextValue();
+
+			// Initialize the next state from the current state and then we'll
+			// make the changes to that.
+			nextState.set(currentState);
+			
+			
+			
+			assert nextState.sane():"disease state is insane after subtracting deaths: "+nextState.toString();
+			
+			
+			// The next value is valid now.
+			diseaseLabel.setNextValueValid(true);
+
+			
+		} // for
+		++fileLineCounter;		
+	}
+
+
+
+
+	public void doModelSpecificAdjustments(LabelValue label) {
+		// TODO Auto-generated method stub
+		
 	}
 
 } //ExternalDataSourceDiseaseModelImpl

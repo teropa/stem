@@ -16,6 +16,7 @@ package org.eclipse.stem.diseasemodels.externaldatasource;
 import java.io.File;
 
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 
@@ -24,7 +25,7 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
  * 
  * @model
  */
-public interface ExternalDataSourceDiseaseModel extends DiseaseModel {
+public interface ExternalDataSourceDiseaseModel extends DiseaseModel, IntegrationDecorator {
 
 
 	/**
