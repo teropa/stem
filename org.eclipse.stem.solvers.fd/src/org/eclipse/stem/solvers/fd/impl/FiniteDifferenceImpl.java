@@ -95,7 +95,7 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 					final IntegrationLabel iLabel = (IntegrationLabel) currentStateLabelIter.next();
 					((IntegrationLabelValue)iLabel.getProbeValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
 					((IntegrationLabelValue)iLabel.getTempValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
-				}
+				} else currentStateLabelIter.next();
 			}
 		}
 			
