@@ -20,6 +20,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
@@ -29,8 +30,12 @@ import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScen
 import org.eclipse.stem.analysis.util.CSVscenarioLoader;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.LabelValue;
+import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
@@ -228,6 +233,9 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		labelR = propertyR.getDisplayName(propertyR);
 	}// setPropertyLabels
 
+	// We need this to determine when a simulation is restarted so we 
+	// can reset the file line counter. Also needed to keep track of the line number in the file
+	private STEMTime firstSTEMTime = null;
 	
 	/**
 	 * 
@@ -240,9 +248,9 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 * @return
 	 */
 	public StandardDiseaseModelLabelValue importDiseaseData(
-			final StandardDiseaseModelLabelValue currentState,
+			final StandardDiseaseModelLabelValue deltaState,
 			final StandardDiseaseModelLabel diseaseLabel, final STEMTime time, final long timeDelta) {
-		
+			
 		if(labelS==null) setPropertyLabels();
 		
 	    // TODO
@@ -306,10 +314,10 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		// which is preventing disease deaths from being logged.
 		// method is StandardRelativeValueProviderAdapterFactory List<IItemPropertyDescriptor> getProperties()
 				
-		double s  = 0.0;
-		double e  = 0.0;
-		double i = 0.0;
-		double r  = 0.0;
+		double deltaS  = 0.0;
+		double deltaE  = 0.0;
+		double deltaI = 0.0;
+		double deltaR  = 0.0;
 		
 		
 	
@@ -323,43 +331,49 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		
 		if(dataInstance!=null) {
 			// compute the changes
-			if(dataInstance.getData(labelS).size() > fileLineCounter) {
+			if(dataInstance.getData(labelS).size() > fileLineCounter + 1) {
 				String sString1 = dataInstance.getData(labelS).get(fileLineCounter);
-				s = new Double(sString1).doubleValue();
+				String sString2 = dataInstance.getData(labelS).get(fileLineCounter+1);
+				deltaS = new Double(sString2).doubleValue() - new Double(sString1).doubleValue();
 			}// S 
 			
 			if (diseaseType.equals(IMPORT_TYPE_SEIR)) 
-				if(dataInstance.getData(labelE).size() > fileLineCounter) {
+				if(dataInstance.getData(labelE).size() > fileLineCounter + 1) {
 					String eString1 = dataInstance.getData(labelE).get(fileLineCounter);
-					e = new Double(eString1).doubleValue();
+					String eString2 = dataInstance.getData(labelE).get(fileLineCounter+1);
+					deltaE = new Double(eString2).doubleValue() - new Double(eString1).doubleValue();
 				}// E
 			
-			if(dataInstance.getData(labelI).size() > fileLineCounter) {
+			if(dataInstance.getData(labelI).size() > fileLineCounter + 1) {
 				String iString1 = dataInstance.getData(labelI).get(fileLineCounter);
-				i = new Double(iString1).doubleValue();
-				// compute the changes
+				String iString2 = dataInstance.getData(labelI).get(fileLineCounter+1);
+				deltaI = new Double(iString2).doubleValue() - new Double(iString1).doubleValue();
 			}//i
 					
 			if (diseaseType.equals(IMPORT_TYPE_SIR) || diseaseType.equals(IMPORT_TYPE_SEIR)) 
-				if(dataInstance.getData(labelR).size() > fileLineCounter) {
+				if(dataInstance.getData(labelR).size() > fileLineCounter + 1) {
 					String rString1 = dataInstance.getData(labelR).get(fileLineCounter);
-					r = new Double(rString1).doubleValue();
+					String rString2 = dataInstance.getData(labelR).get(fileLineCounter + 1);
+					deltaR = new Double(rString1).doubleValue() - new Double(rString1).doubleValue();
 				}// R
 		
 			if (diseaseType.equals(IMPORT_TYPE_SI)) {
-				((SILabelValue)currentState).setS(s);
-				((SILabelValue)currentState).setI(i);
+				((SILabelValue)deltaState).setS(deltaS);
+				((SILabelValue)deltaState).setI(deltaI);
+				((SILabelValue)deltaState).setIncidence(deltaI);
 				return new SILabelValueImpl( 0.0 , 0.0, 0.0, 0.0);
 			} else if (diseaseType.equals(IMPORT_TYPE_SIR)) {
-				((SIRLabelValue)currentState).setS(s);
-				((SIRLabelValue)currentState).setI(i);
-				((SIRLabelValue)currentState).setR(r);
+				((SIRLabelValue)deltaState).setS(deltaS);
+				((SIRLabelValue)deltaState).setI(deltaI);
+				((SIRLabelValue)deltaState).setR(deltaR);
+				((SIRLabelValue)deltaState).setIncidence(deltaI);
 				return new SIRLabelValueImpl(0.0, 0.0 , 0.0, 0.0, 0.0);
 			} else if (diseaseType.equals(IMPORT_TYPE_SEIR)) {
-				((SEIRLabelValue)currentState).setS(s);
-				((SEIRLabelValue)currentState).setE(e);
-				((SEIRLabelValue)currentState).setI(i);
-				((SEIRLabelValue)currentState).setR(r);
+				((SEIRLabelValue)deltaState).setS(deltaS);
+				((SEIRLabelValue)deltaState).setE(deltaE);
+				((SEIRLabelValue)deltaState).setI(deltaI);
+				((SEIRLabelValue)deltaState).setR(deltaR);
+				((SEIRLabelValue)deltaState).setIncidence(deltaI);
 				return new SEIRLabelValueImpl(0.0, 0.0, 0.0 , 0.0, 0.0, 0.0);
 			} else {
 				throw new UnsupportedOperationException("ExternalDataSource Invalid Type "+diseaseType+" must be SI, SIR, or SEIR");
@@ -716,19 +730,57 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	}
 
 
-
-
+	// This code is copied from the StandardDiseaseModelImpl. Should
+	// ExternalDataSourceDiseaseModel extend StandardDiseaseModel instead?
+	
 	public void applyExternalDeltas(STEMTime time, long timeDelta,
 			EList<DynamicLabel> labels) {
-		// TODO Auto-generated method stub
+		for (final Iterator<DynamicLabel> currentStateLabelIter = labels
+				.iterator(); currentStateLabelIter.hasNext();) {
+			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
+					.next();
+			
+			StandardDiseaseModelLabelValue myDelta = (StandardDiseaseModelLabelValue)diseaseLabel.getDeltaValue();
+			Node n = diseaseLabel.getNode();
+			
+			// Find other labels on the node that wants to exchange data
+			
+			EList<NodeLabel> labs = n.getLabels();
+			for(NodeLabel l:labs) {
+				if(l instanceof IntegrationLabel && !l.equals(diseaseLabel)) {
+					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
+					double additions = sdeLabelValue.getAdditions();
+					double substractions = sdeLabelValue.getSubstractions();
+					
+					// Additions are births and goes into the S state
+					myDelta.setS(myDelta.getS() + additions);
+					
+					// Substractions are deaths and are removed from all states
+					StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue());
+					double populationCount = currentState.getPopulationCount();
+					double factor = substractions/populationCount;
+					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe
+			
+					currentState.scale(factor);
+					myDelta.sub((IntegrationLabelValue)currentState);
+				}
+			}
+
+		}
 		
 	}
 
 
-
-
-	public void calculateDelta(STEMTime time, long timeDelta,
+	public synchronized void calculateDelta(STEMTime time, long timeDelta,
 			EList<DynamicLabel> labels) {
+		
+		if(firstSTEMTime == null || time.getTime().equals(firstSTEMTime.getTime()))
+			fileLineCounter = 0;
+		else
+			fileLineCounter = (int)((time.getTime().getTime() - firstSTEMTime.getTime().getTime()) / timeDelta);
+		
+		if(firstSTEMTime == null) firstSTEMTime = time;
+		
 		// Iterate through each of the labels we need to update.
 		for (final DynamicLabel dynLabel : labels) {
 			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) dynLabel;
@@ -739,32 +791,31 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 					.equals(getPopulationIdentifier());
 
 			// This is the current state of the disease for this label
-			final StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)diseaseLabel
-					.getCurrentValue();
+			final StandardDiseaseModelLabelValue deltaState = (StandardDiseaseModelLabelValue)diseaseLabel
+					.getDeltaValue();
 
 		
-			// 2) Compute the state transitions
-			final StandardDiseaseModelLabelValue nullAdditions = importDiseaseData(currentState, diseaseLabel, time, timeDelta);
+			// 2) This will set the delta
+			final StandardDiseaseModelLabelValue nullAdditions = importDiseaseData(deltaState, diseaseLabel, time, timeDelta);
 
 			
 			// This will be the state that we compute.
-			final StandardDiseaseModelLabelValue nextState = (StandardDiseaseModelLabelValue)diseaseLabel.getNextValue();
+//			final StandardDiseaseModelLabelValue nextState = (StandardDiseaseModelLabelValue)diseaseLabel.getNextValue();
 
 			// Initialize the next state from the current state and then we'll
 			// make the changes to that.
-			nextState.set(currentState);
+			// nextState.set(currentState);
 			
 			
 			
-			assert nextState.sane():"disease state is insane after subtracting deaths: "+nextState.toString();
+//			assert nextState.sane():"disease state is insane after subtracting deaths: "+nextState.toString();
 			
 			
 			// The next value is valid now.
-			diseaseLabel.setNextValueValid(true);
+//			diseaseLabel.setNextValueValid(true);
 
 			
 		} // for
-		++fileLineCounter;		
 	}
 
 
