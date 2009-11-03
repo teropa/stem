@@ -30,7 +30,7 @@ import automaticexperiment.AutomaticExperiment;
 public class AutomaticExperimentTest 
 	extends IdentifiableTest {
 	
-	private final static String AUTOMATIC_EXPERIMENT_FILE = "D:/Development/Workspaces/STEM-runtime/IsrSIRflu/experiments/sample.automaticexperiment";
+	private final static String AUTOMATIC_EXPERIMENT_FILE = "D:/Development/Workspaces/STEM-runtime/IsrSIRflu/experiments/sample.automaticexperiment"; //$NON-NLS-1$
 
 	public static void main(String[] args) {
 		TestRunner.run(AutomaticExperimentTest.class);
@@ -100,9 +100,9 @@ public class AutomaticExperimentTest
 	
 	static AutomaticExperiment loadAutomaticExperiment(final String filename) {
 		final ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*",
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", //$NON-NLS-1$
 				STEMXMIResourceFactoryImpl.INSTANCE);
-		resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap().put("platform",
+		resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap().put("platform", //$NON-NLS-1$
 				STEMXMIResourceFactoryImpl.INSTANCE);
 		final Resource resource = resourceSet.getResource(URI.createFileURI(filename), true);
 		try 
