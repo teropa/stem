@@ -39,7 +39,7 @@ public class GEDataTest extends TestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		name = "Test";
+		name = "Test"; //$NON-NLS-1$ 
 		double[][] d = {{0.0, 0,0},
 				{10.0, 0,0},
 				{10.0, 10,0},
@@ -68,10 +68,10 @@ public class GEDataTest extends TestCase {
 	 * 
 	 */
 	public void testGEData() {
-		Assert.assertNotNull("setup failed.",gedata);
-		GEData gedatax = new GEData("TestGEData",null);
+		Assert.assertNotNull("setup failed.",gedata);//$NON-NLS-1$ 
+		GEData gedatax = new GEData("TestGEData",null);//$NON-NLS-1$ 
 		if (gedatax == null) 
-			fail("Failed to create a GEData instance");
+			fail("Failed to create a GEData instance");//$NON-NLS-1$ 
 	}
 
 	/**
@@ -80,8 +80,8 @@ public class GEDataTest extends TestCase {
 	public void testGetCoordinatesAsString() {
 		String coord = gedata.getCoordinatesAsString(0);
 		if (coord == null || coord.length() <= 0)
-			fail("failed to create a KML string of Coordinates.");
-		GELog.debug(this," coord: "+coord);
+			fail("failed to create a KML string of Coordinates.");//$NON-NLS-1$ 
+		GELog.debug(this," coord: "+coord);//$NON-NLS-1$ 
 	}
 
 	/**
@@ -95,39 +95,39 @@ public class GEDataTest extends TestCase {
 	 * 
 	 */
 	public void testGetName() {
-		assertTrue(gedata.getName().equals("Test"));
-		gedata.setName("NewTest");
-		assertTrue(gedata.getName().equals("NewTest"));
+		assertTrue(gedata.getName().equals("Test"));//$NON-NLS-1$ 
+		gedata.setName("NewTest");//$NON-NLS-1$ 
+		assertTrue(gedata.getName().equals("NewTest"));//$NON-NLS-1$ 
 	}
 
 	/**
 	 * 
 	 */
 	public void testSetName() {
-		gedata.setName("Test2");
-		assertTrue(gedata.getName().equals("Test2"));
+		gedata.setName("Test2");//$NON-NLS-1$ 
+		assertTrue(gedata.getName().equals("Test2"));//$NON-NLS-1$ 
 	}
 
 	/**
 	 * 
 	 */
 	public void testGetId() {
-		assertTrue(gedata.getId().equals("Test"));
+		assertTrue(gedata.getId().equals("Test"));//$NON-NLS-1$ 
 	}
 
 	/**
 	 * 
 	 */
 	public void testSetId() {
-		gedata.setId("Test3");
-		assertTrue(gedata.getId().equals("Test3"));
+		gedata.setId("Test3");//$NON-NLS-1$ 
+		assertTrue(gedata.getId().equals("Test3"));//$NON-NLS-1$ 
 	}
 	/** 
 	 * 
 	 */
 	@SuppressWarnings("boxing")
 	public void testSetValue() {
-		Aspect testAspect = new Aspect("T","Test");
+		Aspect testAspect = new Aspect("T","Test");//$NON-NLS-1$ //$NON-NLS-2$ 
 		gedata.setValue(testAspect, 0.5);
 		double value = gedata.getValue(testAspect);
 		assertEquals(value,0.5);

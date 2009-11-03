@@ -127,7 +127,7 @@ public class GEInterfaceTest extends TestCase      {
 		// create an instance of GEInterface to test		
 		GEInterface gei = new GEInterface(null);
 		
-		boolean ok = gei.displayArea("USA/USA_2_MAP.xml","az",false);
+		boolean ok = gei.displayArea("USA/USA_2_MAP.xml","az",false);//$NON-NLS-1$ //$NON-NLS-2$ 
 		assertTrue(ok);
 	}
 	/**

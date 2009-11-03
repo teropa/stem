@@ -28,7 +28,7 @@ public class Activator extends Plugin {
 	/**
 	 * The plug-in ID
 	 */ 
-	public static final String PLUGIN_ID = Constants.ID_ROOT +".ge.tests";
+	public static final String PLUGIN_ID = Constants.ID_ROOT +".ge.tests"; //$NON-NLS-1$
 
 	/** 
 	 * The shared instance

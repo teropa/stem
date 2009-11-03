@@ -73,23 +73,23 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#Aspect(java.lang.String, java.lang.String)}.
 	 */
 	public void testAspect() {
-		Aspect a = new Aspect("T","Test");
-		Assert.assertNotNull("Constructor failed", a);	
+		Aspect a = new Aspect("T","Test"); //$NON-NLS-1$ //$NON-NLS-2$
+		Assert.assertNotNull("Constructor failed", a);	 //$NON-NLS-1$
 	}
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getAspect(java.lang.String)}.
 	 */
 	public void testGetAspect() {
 		
-		Aspect t = Aspect.getAspect("S");		
-		Assert.assertEquals(t.getCode(),"S");
+		Aspect t = Aspect.getAspect("S");		 //$NON-NLS-1$
+		Assert.assertEquals(t.getCode(),"S"); //$NON-NLS-1$
 	}
 	/**
 	 * Test method for 
 	 */
 	public void testGetDefault() {
 		Aspect defaultA = Aspect.getDefault();
-		Assert.assertEquals("I",defaultA.getCode());
+		Assert.assertEquals("I",defaultA.getCode()); //$NON-NLS-1$
 		
 	}
 	/**
@@ -97,15 +97,15 @@ public class AspectTest extends TestCase {
 	 */
 	public void testExists() {
 			
-		Assert.assertTrue(Aspect.exists("E"));
-		Assert.assertFalse(Aspect.exists("X"));
+		Assert.assertTrue(Aspect.exists("E")); //$NON-NLS-1$
+		Assert.assertFalse(Aspect.exists("X")); //$NON-NLS-1$
 	}
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getMap()}.
 	 */
 	public void testGetMap() {
 		Map<String,Aspect> map = Aspect.getMap();
-		Assert.assertNotNull("getMap failed", map);
+		Assert.assertNotNull("getMap failed", map); //$NON-NLS-1$
 	}
 
 	
@@ -114,18 +114,18 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getCode()}.
 	 */
 	public void testGetCode() {
-		Aspect test = Aspect.getAspect("R");
-		Assert.assertEquals(test.getCode(),"R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		Assert.assertEquals(test.getCode(),"R"); //$NON-NLS-1$
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#setCode(java.lang.String)}.
 	 */
 	public void testSetCode() {
-		Aspect test = Aspect.getAspect("R");
-		test.setCode("X");
-		Assert.assertEquals(test.getCode(),"X");
-		Assert.assertTrue(Aspect.exists("X"));
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setCode("X"); //$NON-NLS-1$
+		Assert.assertEquals(test.getCode(),"X"); //$NON-NLS-1$
+		Assert.assertTrue(Aspect.exists("X")); //$NON-NLS-1$
 	}
 
 	
@@ -134,16 +134,16 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#setName(java.lang.String)}.
 	 */
 	public void testSetName() {
-		Aspect test = Aspect.getAspect("R");
-		test.setName("NewName");
-		Assert.assertEquals(test.getName(),"NewName");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setName("NewName"); //$NON-NLS-1$
+		Assert.assertEquals(test.getName(),"NewName"); //$NON-NLS-1$
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#toString()}.
 	 */
 	public void testToString() {
-		Aspect test = Aspect.getAspect("R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
 		Assert.assertEquals(test.toString(),test.getCode());
 	}
 
@@ -151,7 +151,7 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getDescription()}.
 	 */
 	public void testGetDescription() {
-		Aspect test = Aspect.getAspect("R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
 		Assert.assertNotNull(test.getDescription());
 	}
 
@@ -159,16 +159,16 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#setDescription(java.lang.String)}.
 	 */
 	public void testSetDescription() {
-		Aspect test = Aspect.getAspect("R");
-		test.setDescription("New description");
-		Assert.assertEquals(test.getDescription(),"New description");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setDescription("New description"); //$NON-NLS-1$
+		Assert.assertEquals(test.getDescription(),"New description"); //$NON-NLS-1$
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getRange()}.
 	 */
 	public void testGetRange() {
-		Aspect test = Aspect.getAspect("R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
 		Assert.assertTrue(test.isSane());
 		
 	}
@@ -178,8 +178,8 @@ public class AspectTest extends TestCase {
 	 */
 	@SuppressWarnings("boxing")
 	public void testSetRangeString() {
-		Aspect test = Aspect.getAspect("R");
-		test.setRange("0.0,0.5,1.0");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setRange("0.0,0.5,1.0"); //$NON-NLS-1$
 		Assert.assertEquals(test.getRange(1),0.5);
 	}
 
@@ -187,7 +187,7 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getOpacity()}.
 	 */
 	public void testGetOpacity() {
-		Aspect test = Aspect.getAspect("R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
 		Assert.assertEquals(test.getOpacity(0), 0);
 	}
 
@@ -197,39 +197,39 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#setOpacity(java.lang.String)}.
 	 */
 	public void testSetOpacity() {
-		Aspect test = Aspect.getAspect("R");
-		test.setOpacity("0");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setOpacity("0"); //$NON-NLS-1$
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#setRed(java.lang.String)}.
 	 */
 	public void testSetRed() {
-		Aspect test = Aspect.getAspect("R");
-		test.setRed("0");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setRed("0"); //$NON-NLS-1$
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#setGreen(java.lang.String)}.
 	 */
 	public void testSetGreen() {
-		Aspect test = Aspect.getAspect("R");
-		test.setGreen("0,128,255");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setGreen("0,128,255"); //$NON-NLS-1$
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#setBlue(java.lang.String)}.
 	 */
 	public void testSetBlue() {
-		Aspect test = Aspect.getAspect("R");
-		test.setBlue("0,128,255");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
+		test.setBlue("0,128,255"); //$NON-NLS-1$
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getRed(int)}.
 	 */
 	public void testGetRed() {
-		Aspect test = Aspect.getAspect("R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
 		Assert.assertEquals(test.getRed(0), 0);
 	}
 
@@ -237,7 +237,7 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getGreen(int)}.
 	 */
 	public void testGetGreen() {
-		Aspect test = Aspect.getAspect("R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
 		Assert.assertEquals(test.getGreen(0), 240);
 	}
 
@@ -245,7 +245,7 @@ public class AspectTest extends TestCase {
 	 * Test method for {@link org.eclipse.stem.ui.ge.Aspect#getBlue(int)}.
 	 */
 	public void testGetBlue() {
-		Aspect test = Aspect.getAspect("R");
+		Aspect test = Aspect.getAspect("R"); //$NON-NLS-1$
 		Assert.assertEquals(test.getBlue(1), 0);
 	}
 

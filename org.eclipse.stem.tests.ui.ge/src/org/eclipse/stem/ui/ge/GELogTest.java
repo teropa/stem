@@ -46,8 +46,8 @@ public class GELogTest extends TestCase {
 	 */
 	public void testLogOn() {
 		GELog.DEBUG=true;
-		GELog.debug(this.getClass(),"DEBUG option turned ON");
-		GELog.debug("test msg");
+		GELog.debug(this.getClass(),"DEBUG option turned ON");//$NON-NLS-1$ 
+		GELog.debug("test msg");//$NON-NLS-1$ 
 		Assert.assertTrue(GELog.DEBUG);
 	}
 	/**
@@ -55,9 +55,9 @@ public class GELogTest extends TestCase {
 	 */
 	public void testLogDebug() {
 		GELog.DEBUG=true;
-		GELog.debug(this.getClass(),"Verify: GELogTest: ");
-		GELog.debug(this,"Verify: GELogTest: ");
-		GELog.debug("GELogTest.testLog","Verify: GELogTest.testLog: ");
+		GELog.debug(this.getClass(),"Verify: GELogTest: ");//$NON-NLS-1$ 
+		GELog.debug(this,"Verify: GELogTest: ");//$NON-NLS-1$ 
+		GELog.debug("GELogTest.testLog","Verify: GELogTest.testLog: ");//$NON-NLS-1$//$NON-NLS-2$  
 		Assert.assertTrue(GELog.DEBUG);
 	
 	}
@@ -66,7 +66,7 @@ public class GELogTest extends TestCase {
 	 */
 	public void testLogError() {
 		GELog.DEBUG=true;
-		GELog.error("GELogTest: error ",null);
+		GELog.error("GELogTest: error ",null);//$NON-NLS-1$ 
 		
 	}
 	/**
@@ -74,7 +74,7 @@ public class GELogTest extends TestCase {
 	 */
 	public void testLogInfo() {
 		GELog.DEBUG=true;
-		GELog.info("GELogTest: info ");
+		GELog.info("GELogTest: info ");//$NON-NLS-1$ 
 		
 	}
 
@@ -82,9 +82,9 @@ public class GELogTest extends TestCase {
 	 * 
 	 */
 	public void testLogOFF() {	
-		GELog.debug(this,"DEBUG option will be turned OFF");
+		GELog.debug(this,"DEBUG option will be turned OFF");//$NON-NLS-1$ 
 		GELog.DEBUG=false;
-		GELog.debug(this,"DEBUG option turned OFF");
+		GELog.debug(this,"DEBUG option turned OFF");//$NON-NLS-1$ 
 		Assert.assertFalse(GELog.DEBUG);
 	}
 	

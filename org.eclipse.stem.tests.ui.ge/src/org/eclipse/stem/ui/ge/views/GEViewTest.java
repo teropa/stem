@@ -47,7 +47,7 @@ public class GEViewTest extends TestCase
 	 * must match the id in the GEView class
 	 */
    private static final String VIEW_ID = 
-	   Constants.ID_ROOT+".ui.views.ge";
+	   Constants.ID_ROOT+".ui.views.ge";//$NON-NLS-1$ 
       
 
    /**
@@ -95,7 +95,7 @@ protected void setUp() throws Exception {
       waitForJobs();
       delay(3000);
    } catch (RuntimeException e) {
-	   Activator.logError("Unable to run GEViewTest in this environment", e);
+	   Activator.logError("Unable to run GEViewTest in this environment", e);//$NON-NLS-1$ 
 	}
       // Add additional setup code here.
    }
@@ -121,7 +121,7 @@ protected void tearDown() throws Exception {
 		     .hideView(geView);
 		  // Add additional teardown code here.
 	} catch (RuntimeException e) {
-		  Activator.logError("Unable to run GEViewTest in this environment", e);
+		  Activator.logError("Unable to run GEViewTest in this environment", e);//$NON-NLS-1$ 
 	}
    }
 
@@ -203,26 +203,26 @@ protected void tearDown() throws Exception {
          if (actual == null)
             return;
          throw new AssertionFailedError(
-            "expected is null, but actual is not");   
+            "expected is null, but actual is not");  //$NON-NLS-1$  
       }
       
       //else {
          if (actual == null)
             throw new AssertionFailedError(
-               "actual is null, but expected is not");
+               "actual is null, but expected is not");//$NON-NLS-1$ 
       //}
       assertEquals(
-         "expected.length "
+         "expected.length "//$NON-NLS-1$ 
             + expected.length
-            + ", but actual.length "
+            + ", but actual.length "//$NON-NLS-1$ 
             + actual.length,
          expected.length,
          actual.length);
       for (int i = 0; i < actual.length; i++)
          assertEquals(
-            "expected[" + i + 
-               "] is not equal to actual[" + 
-               i + "]",
+            "expected[" + i + //$NON-NLS-1$ 
+               "] is not equal to actual[" + //$NON-NLS-1$ 
+               i + "]",//$NON-NLS-1$ 
             expected[i],
             actual[i]);
    }

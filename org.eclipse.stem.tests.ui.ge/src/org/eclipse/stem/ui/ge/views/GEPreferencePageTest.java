@@ -52,17 +52,17 @@ public class GEPreferencePageTest extends TestCase {
 	public void testGetFolder() {
 		String folder = GEPreferencePage.getFolder();
 		if (folder == null)
-		  fail("Returned null from getFolder()");
+		  fail("Returned null from getFolder()");//$NON-NLS-1$ 
 	}
 
 	/**
 	 * Test method for {@link org.eclipse.stem.ui.ge.views.GEPreferencePage#setFolder(java.lang.String)}.
 	 */
 	public void testSetFolder() {
-		GEPreferencePage.setFolder("c:/tmp");
+		GEPreferencePage.setFolder("c:/tmp");//$NON-NLS-1$ 
 		String folder = GEPreferencePage.getFolder();
-		if (! "c:/tmp".equals(folder)) {
-			fail("setFolder failed.");
+		if (! "c:/tmp".equals(folder)) {//$NON-NLS-1$ 
+			fail("setFolder failed.");//$NON-NLS-1$ 
 		}
 	}
 
@@ -81,10 +81,10 @@ public class GEPreferencePageTest extends TestCase {
 	 */
 	
 	public void testGetServerHost() {
-		String expected = "localhost:8080";
+		String expected = "localhost:8080";//$NON-NLS-1$ 
 		String host = GEPreferencePage.getServerHost();
 		if (! expected.equals(host)) {
-			fail("getServerHost failed.");
+			fail("getServerHost failed.");//$NON-NLS-1$ 
 		}
 	}
 
@@ -95,7 +95,7 @@ public class GEPreferencePageTest extends TestCase {
 		int expected = GEPreferencePage.M_MANUAL_DISPLAY;
 		int test = GEPreferencePage.getMethod();
 		if ( expected != test ) {
-			fail("getMethod() failed.");
+			fail("getMethod() failed.");//$NON-NLS-1$ 
 		}
 	}
 
@@ -106,7 +106,7 @@ public class GEPreferencePageTest extends TestCase {
 		boolean expected = true;
 		boolean test = GEPreferencePage.isInternalServer();
 		if (expected != test) {
-			fail("IsInternalServer() failed.");
+			fail("IsInternalServer() failed.");//$NON-NLS-1$ 
 		}
 	}
 
@@ -117,7 +117,7 @@ public class GEPreferencePageTest extends TestCase {
 		boolean expected = true;
 		boolean test = GEPreferencePage.isAutoLaunch();
 		if (expected != test) {
-			fail("IsAutoLaunch() failed.");
+			fail("IsAutoLaunch() failed.");//$NON-NLS-1$ 
 		}
 	}
 
@@ -128,7 +128,7 @@ public class GEPreferencePageTest extends TestCase {
 		int expected = 1;
 		int test = GEPreferencePage.getWhichCycle();
 		if (expected != test) {
-			fail("GetWhichCycle() failed.");
+			fail("GetWhichCycle() failed.");//$NON-NLS-1$ 
 		}
 	}
 
