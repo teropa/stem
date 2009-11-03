@@ -25,7 +25,7 @@ public interface Constants {
 	 * {@value}
 	 */
 	String ID_POPULATION_MODEL_EXTENSION_POINT = org.eclipse.stem.core.Constants.ID_ROOT
-	+ ".populationmodels.populationmodel";
+	+ ".populationmodels.populationmodel"; //$NON-NLS-1$ 
 
 	
 	/**
@@ -35,6 +35,6 @@ public interface Constants {
 	 * 
 	 * @see org.eclipse.stem.core.Constants#EXECUTABLE_NAME_ATTRIBUTE
 	 */
-	String POPULATION_MODEL_ELEMENT = "classdef";
+	String POPULATION_MODEL_ELEMENT = "classdef"; //$NON-NLS-1$ 
 
 } // Constants
