@@ -56,16 +56,16 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 	
 
 	/** Key defining the mode of transport */
-	public static final String TRANSPORTATION_MODE_PROPERTY = "TRANSPORT_MODE";
+	public static final String TRANSPORTATION_MODE_PROPERTY = "TRANSPORT_MODE"; //$NON-NLS-1$
 
 	/** Key defining the type of population transported by this network */
-	public static final String POPULATION_ID_PROPERTY = "POPULATION_IDENTIFIER";
+	public static final String POPULATION_ID_PROPERTY = "POPULATION_IDENTIFIER"; //$NON-NLS-1$
 
 	/** The property specifying the time period rates are defined over */
-	public static final String RATE_TIME_PERIOD_PROPERTY = "RATE_TIME_PERIOD";
+	public static final String RATE_TIME_PERIOD_PROPERTY = "RATE_TIME_PERIOD"; //$NON-NLS-1$
 
 	/** The property specifying the average time someone spends in the network */
-	public static final String AVG_TIME_IN_SYSTEM_PROPERTY = "AVG_TIME_IN_SYSTEM";
+	public static final String AVG_TIME_IN_SYSTEM_PROPERTY = "AVG_TIME_IN_SYSTEM"; //$NON-NLS-1$
 
 	private String transportationMode;
 	private String populationIdentifier;
@@ -155,7 +155,7 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 			retValue = new AirTransportGeographicRelationshipPropertyData(propertyKey,propertyValue);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			System.err.println("Key:"+propertyKey+" Value:"+propertyValue);
+			System.err.println("Key:"+propertyKey+" Value:"+propertyValue); //$NON-NLS-1$ //$NON-NLS-2$
 			System.err.println(e.getMessage());
 		}
 		return retValue;
@@ -279,7 +279,7 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 		// Set properties. e.g. the identifier, etc.
 		// The URI
 		final String uriString = PipeStyleTransportSystem.URI_TYPE_PIPE_STYLE_TRANSPORT_SYSTEM
-				+ "/" + systemISOKey.toString();
+				+ "/" + systemISOKey.toString(); //$NON-NLS-1$
 		retValue.setURI(STEMURI.createURI(uriString));
 
 		// The population label
@@ -300,7 +300,7 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 		// Set properties. e.g. the identifier, etc.
 		// The URI
 		final String uriString = PipeStyleTransportSystem.URI_TYPE_PIPE_STYLE_TRANSPORT_SYSTEM
-				+ "/" + systemISOKey.toString();
+				+ "/" + systemISOKey.toString(); //$NON-NLS-1$
 		URI result = STEMURI.createURI(uriString);
 		return result;
 	}
@@ -351,13 +351,13 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 
 		// create the uri;
 		final StringBuilder sb = new StringBuilder(
-				"edge/relationship/relativephysical/");
+				"edge/relationship/relativephysical/"); //$NON-NLS-1$
 		sb.append(pipeTransportData.getTransportationSystemISOKey());
-		sb.append("_");
+		sb.append("_"); //$NON-NLS-1$
 		sb.append(pipeTransportData.getTransportationSystemISOKey());
-		sb.append("-");
+		sb.append("-"); //$NON-NLS-1$
 		sb.append(transportationMode);
-		sb.append("/");
+		sb.append("/"); //$NON-NLS-1$
 		sb.append(RelativePhysicalRelationship.CONTAINS_LITERAL.toString()
 				.toLowerCase());
 

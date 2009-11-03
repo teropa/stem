@@ -55,9 +55,9 @@ public class AirTransportGeographicRelationshipPropertyData extends
 				departureRate = Double.parseDouble(st.nextToken());
 				
 			} catch (final NumberFormatException e) {
-				throw new ParseException(propertyKey + ":" + e.getMessage(), 0);
+				throw new ParseException(propertyKey + ":" + e.getMessage(), 0); //$NON-NLS-1$
 			} catch (final NullPointerException e) {
-				throw new ParseException(propertyKey + ":" + e.getMessage(), 0);
+				throw new ParseException(propertyKey + ":" + e.getMessage(), 0); //$NON-NLS-1$
 			}
 		} // if
 	} // parseAndProcessProperty
@@ -100,7 +100,7 @@ public class AirTransportGeographicRelationshipPropertyData extends
 		sb.append(arrivalRate);
 		sb.append("] departureRate["); //$NON-NLS-1$
 		sb.append(departureRate);
-		sb.append("]");
+		sb.append("]"); //$NON-NLS-1$
 		
 		return sb.toString();
 	} // toString
