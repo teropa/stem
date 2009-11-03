@@ -51,10 +51,10 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 		
 		ErrorFunction errorFunction = null;
 		String errorFunctionName = automaticExperiment.getErrorFunction();
-		if (errorFunctionName.equals("Threshold error function")) {
+		if (errorFunctionName.equals("Threshold error function")) { //$NON-NLS-1$
 			errorFunction = AnalysisFactory.eINSTANCE.createThresholdErrorFunction();
 		}
-		if (errorFunctionName.equals("Simple error function")) {
+		if (errorFunctionName.equals("Simple error function")) { //$NON-NLS-1$
 			errorFunction = AnalysisFactory.eINSTANCE.createSimpleErrorFunction();
 		}		
 		setErrorFunction(errorFunction);
