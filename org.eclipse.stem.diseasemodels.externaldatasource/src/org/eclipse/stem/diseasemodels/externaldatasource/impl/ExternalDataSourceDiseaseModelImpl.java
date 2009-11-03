@@ -241,7 +241,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 * 
 	 * This method reads the next state data from the external dataFile
 	 * 
-	 * @param currentState
+	 * @param deltaState
 	 * @param diseaseLabel
 	 * @param time
 	 * @param timeDelta
@@ -320,7 +320,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		double deltaR  = 0.0;
 		
 		
-	
+		StandardDiseaseModelLabelValue currentValue = (StandardDiseaseModelLabelValue)diseaseLabel.getCurrentValue();
 //		String id = ident.getURI().toString();
 //		int strt = id.indexOf(URI_PREFIX_PATTERN);
 //		if(strt>=0) {
@@ -331,30 +331,26 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		
 		if(dataInstance!=null) {
 			// compute the changes
-			if(dataInstance.getData(labelS).size() > fileLineCounter + 1) {
+			if(dataInstance.getData(labelS).size() > fileLineCounter) {
 				String sString1 = dataInstance.getData(labelS).get(fileLineCounter);
-				String sString2 = dataInstance.getData(labelS).get(fileLineCounter+1);
-				deltaS = new Double(sString2).doubleValue() - new Double(sString1).doubleValue();
+				deltaS = new Double(sString1).doubleValue() - currentValue.getS();
 			}// S 
 			
 			if (diseaseType.equals(IMPORT_TYPE_SEIR)) 
-				if(dataInstance.getData(labelE).size() > fileLineCounter + 1) {
+				if(dataInstance.getData(labelE).size() > fileLineCounter) {
 					String eString1 = dataInstance.getData(labelE).get(fileLineCounter);
-					String eString2 = dataInstance.getData(labelE).get(fileLineCounter+1);
-					deltaE = new Double(eString2).doubleValue() - new Double(eString1).doubleValue();
+					deltaE = new Double(eString1).doubleValue() - ((SEIRLabelValue)currentValue).getE();
 				}// E
 			
-			if(dataInstance.getData(labelI).size() > fileLineCounter + 1) {
+			if(dataInstance.getData(labelI).size() > fileLineCounter) {
 				String iString1 = dataInstance.getData(labelI).get(fileLineCounter);
-				String iString2 = dataInstance.getData(labelI).get(fileLineCounter+1);
-				deltaI = new Double(iString2).doubleValue() - new Double(iString1).doubleValue();
+				deltaI = new Double(iString1).doubleValue() - ((SILabelValue)currentValue).getI();
 			}//i
 					
 			if (diseaseType.equals(IMPORT_TYPE_SIR) || diseaseType.equals(IMPORT_TYPE_SEIR)) 
-				if(dataInstance.getData(labelR).size() > fileLineCounter + 1) {
+				if(dataInstance.getData(labelR).size() > fileLineCounter) {
 					String rString1 = dataInstance.getData(labelR).get(fileLineCounter);
-					String rString2 = dataInstance.getData(labelR).get(fileLineCounter + 1);
-					deltaR = new Double(rString1).doubleValue() - new Double(rString1).doubleValue();
+					deltaR = new Double(rString1).doubleValue() - ((SEIRLabelValue)currentValue).getR();
 				}// R
 		
 			if (diseaseType.equals(IMPORT_TYPE_SI)) {
@@ -730,43 +726,15 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	}
 
 
-	// This code is copied from the StandardDiseaseModelImpl. Should
-	// ExternalDataSourceDiseaseModel extend StandardDiseaseModel instead?
+	/**
+	 *  Since data is read from a file we don't have to take into account
+	 *   birth/deaths etc from other decorators, the data is already supposed
+	 *	 to handle that.
+	 */
 	
 	public void applyExternalDeltas(STEMTime time, long timeDelta,
 			EList<DynamicLabel> labels) {
-		for (final Iterator<DynamicLabel> currentStateLabelIter = labels
-				.iterator(); currentStateLabelIter.hasNext();) {
-			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
-					.next();
-			
-			StandardDiseaseModelLabelValue myDelta = (StandardDiseaseModelLabelValue)diseaseLabel.getDeltaValue();
-			Node n = diseaseLabel.getNode();
-			
-			// Find other labels on the node that wants to exchange data
-			
-			EList<NodeLabel> labs = n.getLabels();
-			for(NodeLabel l:labs) {
-				if(l instanceof IntegrationLabel && !l.equals(diseaseLabel)) {
-					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
-					double additions = sdeLabelValue.getAdditions();
-					double substractions = sdeLabelValue.getSubstractions();
-					
-					// Additions are births and goes into the S state
-					myDelta.setS(myDelta.getS() + additions);
-					
-					// Substractions are deaths and are removed from all states
-					StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue());
-					double populationCount = currentState.getPopulationCount();
-					double factor = substractions/populationCount;
-					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe
-			
-					currentState.scale(factor);
-					myDelta.sub((IntegrationLabelValue)currentState);
-				}
-			}
-
-		}
+		// Nothing to do.
 		
 	}
 
