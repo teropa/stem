@@ -6,7 +6,7 @@ public class ErrorAnalysisAlgorithmFactory {
 	public ErrorAnalysisAlgorithm createErrorAnalysisAlgorithm(final String algorithmName)
 	{
 		ErrorAnalysisAlgorithm algorithm = null;
-		if (algorithmName.equals("Nedler-Mead Algorithm")) {
+		if (algorithmName.equals("Nedler-Mead Algorithm")) { //$NON-NLS-1$ 
 			algorithm = new SimplexAlgorithmExecuter();
 		}
 		return algorithm;

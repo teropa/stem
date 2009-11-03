@@ -206,12 +206,12 @@ public class CustomSimulationManager extends ExecutableManager {
 	 *            the {@link Scenario} to be simulated
 	 */
 	public void createAndRunSimulation(final Scenario scenario) {
-		new Job(Messages.getString("SimMgr.Start_Sim")) {
+		new Job(Messages.getString("SimMgr.Start_Sim")) { //$NON-NLS-1$ 
 			@Override
 			protected IStatus run(final IProgressMonitor monitor) {
 				try {
 					final ISimulation simulation = createSimulation(scenario, monitor);
-					monitor.subTask(Messages.getString("SimMgr.Run"));
+					monitor.subTask(Messages.getString("SimMgr.Run")); //$NON-NLS-1$ 
 					simulation.run();
 				} catch (final Exception e) {
 					// The error was logged in createSimulation

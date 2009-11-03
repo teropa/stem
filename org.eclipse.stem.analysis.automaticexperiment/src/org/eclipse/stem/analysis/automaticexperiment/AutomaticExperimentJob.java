@@ -17,7 +17,7 @@ public class AutomaticExperimentJob extends Executable {
 	protected boolean isRunning = false;
 
 	public AutomaticExperimentJob(String title, int sequenceNumber) {
-		super(title == null ? "" : title, sequenceNumber);
+		super(title == null ? "" : title, sequenceNumber); //$NON-NLS-1$
 	}
 	
 	public AutomaticExperimentJob(AutomaticExperiment toRun) {
