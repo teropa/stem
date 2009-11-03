@@ -78,7 +78,7 @@ public class CommonBorderGeographicRelationshipPropertyFileSpecification extends
 					dataPropertyKey, propertyValue);
 		} catch (final ParseException e) {
 			e.printStackTrace();
-			System.err.println("key:"+dataPropertyKey+" value:"+propertyValue);
+			System.err.println("key:"+dataPropertyKey+" value:"+propertyValue); //$NON-NLS-1$ //$NON-NLS-2$
 			System.err.println(e.getMessage());
 		}
 		return retValue;
