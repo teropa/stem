@@ -30,7 +30,7 @@ public interface CellularAutomataModelLabel extends DynamicNodeLabel {
 	 * labels.
 	 */
 	String URI_TYPE_DISEASE_MODEL_LABEL_SEGMENT = URI_TYPE_DYNAMIC_LABEL_SEGMENT
-			+ "/diseasemodel";
+			+ "/diseasemodel"; //$NON-NLS-1$
 
 	/**
 	 * This is the type URI for disease model labels
