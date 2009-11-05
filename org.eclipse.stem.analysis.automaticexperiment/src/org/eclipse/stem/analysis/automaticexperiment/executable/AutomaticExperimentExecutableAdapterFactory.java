@@ -1,5 +1,9 @@
 package org.eclipse.stem.analysis.automaticexperiment.executable;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithm;
 import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmFactory;
@@ -56,10 +60,16 @@ public class AutomaticExperimentExecutableAdapterFactory
 		public void run() {
 			final AutomaticExperiment automaticExperiment = (AutomaticExperiment)getTarget();
 			String algorithmName = automaticExperiment.getErrorAnalysisAlgorithm();
-			ErrorAnalysisAlgorithm algorithm = 
+			final ErrorAnalysisAlgorithm algorithm = 
 				ErrorAnalysisAlgorithmFactory.INSTANCE.createErrorAnalysisAlgorithm(algorithmName);
 			algorithm.init(automaticExperiment);
-			algorithm.execute();
+			// Stefan fix, we can't hold up the UI thread, it causes memory leaks
+			Job j = new Job("Minimizer algorith") {
+				protected IStatus run(IProgressMonitor monitor) {
+					algorithm.execute();
+					return Status.OK_STATUS;
+				}
+			};
 		}
 	}
 }
