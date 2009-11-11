@@ -1107,7 +1107,7 @@ public class TimeSeriesCanvas extends Canvas {
 			} // if lineSeries==null
 			lineSeries.setDataSet(orthoValues);
 			((LineSeries) lineSeries).getLineAttributes().setVisible(true);
-			((LineSeries) lineSeries).getMarker().setVisible(false);
+			//((LineSeries) lineSeries).getMarker().setVisible(false);
 			
 			// Assign the line color
 			// based on selected property. Default is Blue
