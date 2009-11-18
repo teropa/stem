@@ -131,9 +131,14 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		
 		// Now figure out the actual error
 		
-		double[] maxPopulation = new double[time.length];
+		double [] Xref = new double[time.length];
+		double [] Xdata = new double[time.length];
+		                             
+		double maxRef = 0.0;
+		double minRef = Double.MAX_VALUE;
+		
+		// Sum the I for all locations at each timestep
 		for(int icount =0; icount < time.length; icount ++) {
-			maxPopulation[icount] = 0.0;
 			Iterator<String> iter = commonInfectiousLocationsA.keySet().iterator();
 			////////////////////////
 			// all locations
@@ -144,50 +149,33 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 												
 				double iA = dataAI.get(icount).doubleValue();
 				double iB = dataBI.get(icount).doubleValue();
-		
-				// double denom = (iA+iB)/2.0;
-				// square of the average fraction of infectious people
-				// denom *= denom;
-				if ((iA > 0.0) || (iB > 0.0)) {
-					// we have a location with nonzero data
-					locationCount[icount] += 1.0;
-					// square of the DIFFERENCE
-							
-					// Changed 2/4/09. Drop the S data comparison
-					//double term = ((iA - iB) * (iA - iB))
-					//		+ ((sA - sB) * (sA - sB));
-							
-					double term = ((iA - iB) * (iA - iB));
-					
-					double numer = term;
-					// normalize
-					meanSqDiff[icount] += numer;
-				}
-						
-					
-			}// all locations
-					
-            ////////////////////////
 			
-			// normalize 
-			if(locationCount[icount] >= 1.0) {
-				meanSqDiff[icount] = Math.sqrt(meanSqDiff[icount] / locationCount[icount]);
+				Xref[icount]=Xref[icount]+iA;
+				Xdata[icount]=Xdata[icount]+iB;
 			}
-		}// for all time
+		}
+		
+		double nominator = 0.0; 
+		for(int icount =0; icount < time.length; icount ++) {
+			nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
+			if(Xref[icount]>maxRef)maxRef = Xref[icount];
+			if(Xref[icount]<minRef)minRef = Xref[icount];
+		}
+		
+		double error =  Math.sqrt(nominator/(double)time.length);
+		error = error / (maxRef-minRef);
+		
 		
 		// Sum all errors and divide by time
-		
-		double result = 0.0;
+	
 		BasicEList<Double> list = new BasicEList<Double>();
 		for(int i=0;i<time.length;++i) {
-			result += meanSqDiff[i];
-			list.add(meanSqDiff[i]);
+			list.add(Math.abs(Xref[i]-Xdata[i]));
 		}
 		
 		ErrorResult resultobj = aFactory.createErrorResult();
 		resultobj.setErrorByTimeStep(list);
-		result = result/time.length;
-		resultobj.setError(result);
+		resultobj.setError(error);
 		
 		return resultobj;	
 	}
