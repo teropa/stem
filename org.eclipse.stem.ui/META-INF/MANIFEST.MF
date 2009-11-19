@@ -10,12 +10,14 @@ Require-Bundle: org.eclipse.stem.jobs;visibility:=reexport,
  org.eclipse.stem.definitions,
  org.eclipse.stem.data.geography,
  org.eclipse.stem.data.geography.population.human,
+ org.eclipse.stem.diseasemodels,
  org.eclipse.emf.ecore.edit,
  org.eclipse.ui.views.log,
  org.eclipse.core.expressions,
  org.eclipse.ui.navigator,
  org.eclipse.ui.navigator.resources,
- org.eclipse.stem.diseasemodels
+ org.eclipse.ui.intro,
+ org.eclipse.ui.intro.universal
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.core.common.presentation,
  org.eclipse.stem.core.graph.presentation,

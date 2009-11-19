@@ -13,7 +13,7 @@
     </application>
   </extension>
   <extension
-        id="product"
+        id="org.eclipse.stem.ui.product"
         point="org.eclipse.core.runtime.products">
      <product
            application="org.eclipse.stem.ui.CoreEditorAdvisorApplication"
@@ -43,6 +43,52 @@
               name="appName"
               value="STEM (Incubation)">
         </property>
+        
+        <!-- These are for the Welcome/intro.  See plugin.properties -->
+          <property
+            name="introTitle"
+            value="%introTitle">
+         </property>
+         
+         <property
+            name="introBrandingImage"
+            value="product:branding/ohf64_64_32.gif">
+         </property>
+
+         <property
+            name="introBrandingImageText"
+            value="%introBrandingImageText">
+         </property>
+         
+         <property
+            name="introDescription-overview"
+            value="%introDescription-overview">
+         </property>
+         <property
+            name="introDescription-firststeps"
+            value="%introDescription-firststeps">
+         </property>
+         <property
+            name="introDescription-tutorials"
+            value="%introDescription-tutorials">
+         </property>
+         <property
+            name="introDescription-samples"
+            value="%introDescription-samples">
+         </property>
+         <property
+            name="introDescription-whatsnew"
+            value="%introDescription-whatsnew">
+         </property>
+         <property
+            name="introDescription-migrate"
+            value="%introDescription-migrate">
+         </property>
+         <property
+            name="introDescription-webresources"
+            value="%introDescription-webresources">
+         </property>         
+            
      </product>
   </extension>
    <extension
@@ -1415,4 +1461,47 @@
         </enablement>
      </actionProvider>
   </extension>
+  
+  <extension
+    point="org.eclipse.ui.intro">
+    <introProductBinding
+        introId="org.eclipse.ui.intro.universal"
+        productId="org.eclipse.stem.ui.product">
+    </introProductBinding>
+  </extension>
+  
+  <extension
+    point="org.eclipse.ui.intro.configExtension">
+    <configExtension
+        configId="org.eclipse.ui.intro.universalConfig"
+        content="$nl$/intro/overviewExtensionContent.xml">
+    </configExtension>
+    <configExtension
+        configId="org.eclipse.ui.intro.universalConfig"
+        content="$nl$/intro/whatsnewExtensionContent.xml">
+    </configExtension>
+    <configExtension
+        configId="org.eclipse.ui.intro.universalConfig"
+        content="$nl$/intro/tutorialsExtensionContent.xml">
+    </configExtension>
+  </extension>
+  <!--
+  <extension
+    point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="Help2"
+               tooltip="Help2">
+
+           <command
+                   commandId="org.eclipse.ui.help.quickStartAction"
+                   id="quickStartAction"
+                   style="push">
+           </command>
+         </menu>
+     </menuContribution>
+  </extension>
+  -->
+  
 </plugin>

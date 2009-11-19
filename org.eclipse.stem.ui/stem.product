@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="STEM (Incubation)" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" version="1.0.0" useFeatures="false" includeLaunchers="true">
+<product name="STEM (Incubation)" uid="org.eclipse.stem.ui.product" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" version="1.0.0" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.stem.ui/branding/ohf64_64_32.gif"/>
@@ -33,6 +33,7 @@
             winLargeLow="/org.eclipse.stem.ui/branding/ohf48_48_8.bmp"/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>
@@ -175,6 +176,8 @@
       <plugin id="org.eclipse.ui.cocoa" fragment="true"/>
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.ide"/>
+      <plugin id="org.eclipse.ui.intro"/>
+      <plugin id="org.eclipse.ui.intro.universal"/>
       <plugin id="org.eclipse.ui.navigator"/>
       <plugin id="org.eclipse.ui.navigator.resources"/>
       <plugin id="org.eclipse.ui.views"/>
