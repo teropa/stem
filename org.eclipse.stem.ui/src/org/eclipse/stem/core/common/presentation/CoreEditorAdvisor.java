@@ -638,6 +638,12 @@ public final class CoreEditorAdvisor extends WorkbenchAdvisor {
 			menu.add(ContributionItemFactory.OPEN_WINDOWS.create(window));
 			menu.add(ContributionItemFactory.VIEWS_SHORTLIST.create(window));
 			addToMenuAndRegister(menu, ActionFactory.PREFERENCES.create(window));
+			
+			menu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+			
+			IWorkbenchAction resetPerspective = ActionFactory.RESET_PERSPECTIVE.create(window);
+			addToMenuAndRegister(menu,resetPerspective);
+			
 			menu.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
 			
 			return menu;
@@ -647,17 +653,19 @@ public final class CoreEditorAdvisor extends WorkbenchAdvisor {
 		 * Creates the 'Help' menu.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @not generated
+		 * @generated NOT
 		 */
 		protected IMenuManager createHelpMenu(IWorkbenchWindow window) {
 			IMenuManager menu = new MenuManager(getString("_UI_Menu_Help_label"), IWorkbenchActionConstants.M_HELP); //$NON-NLS-1$
 			// Welcome or intro page would go here
 			// Help contents would go here
 			// Tips and tricks page would go here
+			IWorkbenchAction helpIntro = ActionFactory.INTRO.create(window);
 			IWorkbenchAction aboutAction = ActionFactory.ABOUT.create(window);			
 			IWorkbenchAction contentsAction = ActionFactory.HELP_CONTENTS.create(window);
+			
 			menu.add(new GroupMarker(IWorkbenchActionConstants.HELP_START));
-				
+			addToMenuAndRegister(menu,helpIntro);
 			addToMenuAndRegister(menu,contentsAction);
 			addToMenuAndRegister(menu,aboutAction);
 			menu.add(new GroupMarker(IWorkbenchActionConstants.HELP_END));
