@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+ <introContent>
+    <extensionContent id="org.eclipse.stem.tutorials" name="STEM Tutorials"
+        style="css/tutorials.css" alt-style="css/tutorials.properties" path="tutorials/@">
+        <group label="STEM Tutorials" id="content-group" style-id="content-group">
+            <link
+                url="http://wiki.eclipse.org/Tutorials_for_Developers"
+                label="STEM Tutorial web page" 
+                id="stem-tutorials-main" style-id="content-link">
+                <text>The main STEM Tutorial Web Page.</text>
+            </link>
+            <!-- 
+            <link
+                url="http://www.youtube.com/watch?v=LfiibQX4IFE"
+                label="STEM Video English" 
+                id="stem-tutorial-youtube-english" style-id="content-link">
+                <text>STEM Video Tutorial (English)</text>
+            </link> 
+            -->
+        </group>    
+    </extensionContent>
+</introContent>
