@@ -133,49 +133,50 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		
 		double [] Xref = new double[time.length];
 		double [] Xdata = new double[time.length];
-		                             
-		double maxRef = 0.0;
-		double minRef = Double.MAX_VALUE;
+		double [] nrmse_loc = new double[commonInfectiousLocationsA.keySet().size()];  
 		
-		// Sum the I for all locations at each timestep
-		for(int icount =0; icount < time.length; icount ++) {
-			Iterator<String> iter = commonInfectiousLocationsA.keySet().iterator();
-			////////////////////////
-			// all locations
-			while(iter.hasNext()) {
-				String id = iter.next();
-				List<Double> dataAI = commonInfectiousLocationsA.get(id);
-				List<Double> dataBI = commonInfectiousLocationsB.get(id);
+		double finalerror = 0.0;
+		BasicEList<Double> list = new BasicEList<Double>();
+		
+		// Calculate the normalized root mean square error for each location, then
+		// divide by the number of locatins
+		
+		int loc_iter = 0;
+		for(String loc:commonInfectiousLocationsA.keySet()) {
+			double maxRef = 0.0;
+			double minRef = Double.MAX_VALUE;
+			// Get the numbers at each time step for the location
+			for(int icount =0; icount < time.length; icount ++) {
+				List<Double> dataAI = commonInfectiousLocationsA.get(loc);
+				List<Double> dataBI = commonInfectiousLocationsB.get(loc);
 												
 				double iA = dataAI.get(icount).doubleValue();
 				double iB = dataBI.get(icount).doubleValue();
 			
-				Xref[icount]=Xref[icount]+iA;
-				Xdata[icount]=Xdata[icount]+iB;
+				Xref[icount]=iA;
+				Xdata[icount]=iB;
 			}
+		
+			double nominator = 0.0; 
+			for(int icount =0; icount < time.length; icount ++) {
+				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
+				if(Xref[icount]>maxRef)maxRef = Xref[icount];
+				if(Xref[icount]<minRef)minRef = Xref[icount];
+				list.set(icount, list.get(icount)+nominator);
+			}
+		
+			double error =  Math.sqrt(nominator/(double)time.length);
+			error = error / (maxRef-minRef);
+			finalerror += error;
+			nrmse_loc[loc_iter++] = error;
+		
 		}
 		
-		double nominator = 0.0; 
-		for(int icount =0; icount < time.length; icount ++) {
-			nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
-			if(Xref[icount]>maxRef)maxRef = Xref[icount];
-			if(Xref[icount]<minRef)minRef = Xref[icount];
-		}
-		
-		double error =  Math.sqrt(nominator/(double)time.length);
-		error = error / (maxRef-minRef);
-		
-		
-		// Sum all errors and divide by time
-	
-		BasicEList<Double> list = new BasicEList<Double>();
-		for(int i=0;i<time.length;++i) {
-			list.add(Math.abs(Xref[i]-Xdata[i]));
-		}
-		
+		// Divide the error by the number of locations
+		finalerror /= (double)nrmse_loc.length;
 		ErrorResult resultobj = aFactory.createErrorResult();
 		resultobj.setErrorByTimeStep(list);
-		resultobj.setError(error);
+		resultobj.setError(finalerror);
 		
 		return resultobj;	
 	}
