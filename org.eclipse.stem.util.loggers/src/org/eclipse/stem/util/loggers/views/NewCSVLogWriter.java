@@ -178,6 +178,10 @@ public class NewCSVLogWriter extends LogWriter {
 	
 	@Override
 	public void logHeader(ISimulation sim, IntegrationDecorator dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider) {	
+		
+		
+		int headerItemCount = 0;
+		
 		String dirs = this.directoryName;
 		File dir = new File(dirs);
 		if(!dir.exists()) {
@@ -248,12 +252,18 @@ public class NewCSVLogWriter extends LogWriter {
 					fw.write(",");
 					fw.write(TIME_LABEL);
 					fw.write(",");
+					
+					int nodeCount = 0;
+					
 					while(nodeIterator.hasNext()) {
 						Node node = nodeIterator.next();
 						String id = this.filterLocationId(node.getURI().toString());
 						fw.write(id);
+						headerItemCount++;
+						nodeCount++;
 						if(nodeIterator.hasNext()) fw.write(",");
 					}
+
 					fw.write("\n");
 				}
 			}
@@ -262,6 +272,7 @@ public class NewCSVLogWriter extends LogWriter {
 		} catch(IOException ioe) {
 			Activator.logError("Error writing log header ", ioe);
 		}
+
 	}
 	
 	/**
@@ -349,6 +360,15 @@ public class NewCSVLogWriter extends LogWriter {
 	@Override
 	public void logData(ISimulation sim, IntegrationDecorator dm, Map<Node, Integer>nodeLevels, TimeProvider timeProvider, boolean beforeStart) {
 		
+		
+		int dataColumnCount = 0;
+		
+		
+		int totalLabels = 0;
+		int labelsWritten = 0;
+		
+		int totalPropertyCount = 0;
+		int skipCount = 0;
 		// Increment iteration count
 		this.icount++;
 
@@ -361,15 +381,25 @@ public class NewCSVLogWriter extends LogWriter {
 				Iterator<Node> nodeIterator = this.getNodeIterator(resolution, nodeLevels);
 				boolean firstNode = true;
 				// Iterate over nodes for a given resolution
+				
+				int nodeCount = 0;
+				
 				while(nodeIterator.hasNext()) {
 					Node n = nodeIterator.next();
+					
+					nodeCount++;
+					
 					EList<NodeLabel> labels = n.getLabels();
 					for(int i=0;i<labels.size();++i) {
 						NodeLabel label = labels.get(i);
 						
+						totalLabels++;
+						
 						if(!(label instanceof IntegrationLabel)) {
 							continue;
 						}
+						
+						labelsWritten++;
 						
 						IItemPropertySource propertySource = null;
 						IntegrationLabelValue dmlv = null;
@@ -387,7 +417,10 @@ public class NewCSVLogWriter extends LogWriter {
 							propertySource = (IItemPropertySource) itemProviderFactory
 							.adapt(dmlv, IItemPropertySource.class);
 						}
-						if(propertySource == null) continue;
+						if(propertySource == null) {
+							skipCount++;
+							continue;
+						}
 						final List<IItemPropertyDescriptor> properties = propertySource
 							.getPropertyDescriptors(null);
 						
@@ -395,6 +428,8 @@ public class NewCSVLogWriter extends LogWriter {
 						//	.adapt(label, RelativeValueProvider.class);
 						//if(rvp == null) continue;
 						
+						
+						totalPropertyCount += properties.size();
 						
 						StringBuilder sb = new StringBuilder();
 						for(IItemPropertyDescriptor itemDescriptor:properties) {
@@ -438,6 +473,9 @@ public class NewCSVLogWriter extends LogWriter {
 								if(logIntegers)
 									sb.append((int)value);
 								else sb.append(value);
+								
+								dataColumnCount++;
+								
 								if(nodeIterator.hasNext()) sb.append(",");
 								else sb.append("\n"); // new line
 								fw.write(sb.toString());
@@ -445,13 +483,18 @@ public class NewCSVLogWriter extends LogWriter {
 						} // For each node label							
 					firstNode = false;
 					} // For each node
+
+				
 				} //  For each node resolution
 			needsHeader = false;
 		} catch(IOException ioe) {
 			Activator.logError("Error writing log header ", ioe);
 		}
-		
+
 		if(icount % FLUSH_EACH_ITERATION == 0) this.flushLoggerData();
+		
+		
+		
 	}
 	
 	/*
@@ -508,7 +551,22 @@ public class NewCSVLogWriter extends LogWriter {
 		ArrayList<Node> list = new ArrayList();
 		Set<Node>ns = nodeLevels.keySet();
 		for(Node n:ns) {
-			if(nodeLevels.get(n) == level) list.add(n);
+			if(nodeLevels.get(n) == level) {
+				
+				boolean write = false;
+				for (NodeLabel s:n.getLabels()) {
+					if(s instanceof IntegrationLabel) {
+						
+						write = true;
+						break;
+					}
+				}
+				if (!write) {
+					continue;
+				}
+				
+				list.add(n);
+			}
 		}
 		Collections.sort(list, new Comparator<Node>() {
 
