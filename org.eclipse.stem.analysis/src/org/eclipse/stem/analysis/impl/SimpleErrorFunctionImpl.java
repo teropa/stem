@@ -137,7 +137,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		
 		double finalerror = 0.0;
 		BasicEList<Double> list = new BasicEList<Double>();
-		
+		for(int i=0;i<time.length;++i)list.add(0.0);
 		// Calculate the normalized root mean square error for each location, then
 		// divide by the number of locatins
 		
@@ -162,7 +162,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
 				if(Xref[icount]>maxRef)maxRef = Xref[icount];
 				if(Xref[icount]<minRef)minRef = Xref[icount];
-				list.set(icount, list.get(icount)+nominator);
+				list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
 			}
 		
 			double error =  Math.sqrt(nominator/(double)time.length);
