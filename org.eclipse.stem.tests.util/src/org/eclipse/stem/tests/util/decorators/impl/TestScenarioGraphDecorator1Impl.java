@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.DynamicLabel;
 //import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.GraphDecoratorImpl;
 import org.eclipse.stem.tests.util.TestUtil;
@@ -430,7 +429,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 				.hasNext();) {
 			final TestDynamicLabel1 dynamicLabel = (TestDynamicLabel1) labelIter
 					.next();
-			dynamicLabel.setCurrentValue((LabelValue) EcoreUtil
+			dynamicLabel.setCurrentValue(EcoreUtil
 					.copy(RESET_VALUE));
 		}
 	} // resetLabels

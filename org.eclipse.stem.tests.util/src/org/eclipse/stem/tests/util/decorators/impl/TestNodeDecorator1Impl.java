@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
 //import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.NodeDecoratorImpl;
@@ -111,7 +110,7 @@ public class TestNodeDecorator1Impl extends NodeDecoratorImpl implements
 				.hasNext();) {
 			final DynamicLabel dynamicLabel = (DynamicLabel) labelIter
 					.next();
-			dynamicLabel.setCurrentValue((LabelValue) EcoreUtil
+			dynamicLabel.setCurrentValue(EcoreUtil
 					.copy(RESET_VALUE));
 		}
 	} // resetLabels
