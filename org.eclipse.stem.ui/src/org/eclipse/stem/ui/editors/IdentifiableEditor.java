@@ -31,14 +31,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -63,7 +61,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.provider.CommonItemProviderAdapterFactory;
 import org.eclipse.stem.core.experiment.provider.ExperimentItemProviderAdapterFactory;
 import org.eclipse.stem.core.graph.provider.GraphItemProviderAdapterFactory;
@@ -91,7 +88,7 @@ import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.properties.PropertySheet;
 
 /**
- * This class is the super-class of all editors that edit {@link Identifiable}s.
+ * This class is the super-class of all editors that edit {@link org.eclipse.stem.core.common.Identifiable}s.
  */
 abstract public class IdentifiableEditor extends MultiPageEditorPart implements
 		IMenuListener, ISelectionProvider, IEditingDomainProvider {

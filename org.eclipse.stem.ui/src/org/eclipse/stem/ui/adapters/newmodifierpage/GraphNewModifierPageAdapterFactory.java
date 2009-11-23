@@ -16,16 +16,14 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
-import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.GraphPackage;
-import org.eclipse.stem.core.graph.StaticLabel;
 import org.eclipse.stem.core.graph.util.GraphAdapterFactory;
 import org.eclipse.stem.data.geography.Activator;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
 
 /**
  * This class is an {@link NewModifierPageAdapterFactory} that adapts members of
- * the {@link Graph} model to {@link NewModifierPage}s.
+ * the {@link org.eclipse.stem.core.graph.Graph} model to {@link NewModifierPage}s.
  */
 public class GraphNewModifierPageAdapterFactory extends GraphAdapterFactory
 		implements NewModifierPageAdapterFactory {
@@ -64,7 +62,7 @@ public class GraphNewModifierPageAdapterFactory extends GraphAdapterFactory
 	}
 
 	/**
-	 * This class is extended by classes that adapt {@link StaticLabel}s to
+	 * This class is extended by classes that adapt {@link org.eclipse.stem.core.graph.StaticLabel}s to
 	 * {@link NewModifierPage}s.
 	 */
 	static public class StaticLabelNewModifierPageAdapter extends
@@ -81,7 +79,7 @@ public class GraphNewModifierPageAdapterFactory extends GraphAdapterFactory
 	} // StaticLabelNewModifierPageAdapter
 
 	/**
-	 * {@link NewModifierPage} for {@link StaticLabel}s.
+	 * {@link NewModifierPage} for {@link org.eclipse.stem.core.graph.StaticLabel}s.
 	 */
 	static public class StaticLabelNewModifierPage extends NewModifierPage {
 		/**

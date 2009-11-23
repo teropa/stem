@@ -16,12 +16,12 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.navigator.CommonNavigator;
 
 /**
- * This class is a {@link ILabelProvider} for {@link
- * IdentifiableInstanceTreeNode}s which appear in the {@link CommonNavigator}
- * framework that is used to explore STEM Projects.
+ * This class is a {@link ILabelProvider} for
+ * {@link IdentifiableInstanceTreeNode}s which appear in the
+ * {@link org.eclipse.ui.navigator.CommonNavigator} framework that is used to
+ * explore STEM Projects.
  * 
  * @see IdentifiableInstanceTreeNodeContentProvider
  */

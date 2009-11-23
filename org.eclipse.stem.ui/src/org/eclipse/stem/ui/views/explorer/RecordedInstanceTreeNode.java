@@ -12,10 +12,9 @@ package org.eclipse.stem.ui.views.explorer;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.jobs.simulation.Simulation;
-
 /**
- * This class represents an instance of a recorded {@link Simulation}.
+ * This class represents an instance of a recorded
+ * {@link org.eclipse.stem.jobs.simulation.Simulation}.
  */
 public class RecordedInstanceTreeNode {
 

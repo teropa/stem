@@ -13,14 +13,14 @@ package org.eclipse.stem.ui.views;
  *******************************************************************************/
 
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.ISharedImages;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * This class represents the eclipse view of the {@link Experiment}s that have
- * been imported into eclipse as plug-ins.
+ * This class represents the eclipse view of the
+ * {@link org.eclipse.stem.core.experiment.Experiment}s that have been imported
+ * into eclipse as plug-ins.
  */
 public class ExperimentsView extends IdentifiablePluginView {
 

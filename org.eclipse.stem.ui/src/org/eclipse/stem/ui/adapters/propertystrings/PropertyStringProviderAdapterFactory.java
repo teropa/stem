@@ -18,11 +18,10 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
-import org.eclipse.stem.core.common.Identifiable;
 
 /**
  * This interface is implemented by classes that create {@link Adapter}s that
- * adapt the properties of {@link  Identifiable}s to NLS'd {@link String}s.
+ * adapt the properties of {@link  org.eclipse.stem.core.common.Identifiable}s to NLS'd {@link String}s.
  */
 public interface PropertyStringProviderAdapterFactory {
 

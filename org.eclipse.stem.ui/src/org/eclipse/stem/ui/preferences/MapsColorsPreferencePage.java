@@ -21,7 +21,6 @@ import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.stem.ui.Activator;
-import org.eclipse.stem.ui.adapters.color.ColorProvider;
 import org.eclipse.stem.ui.adapters.color.IPreferencesContributer;
 import org.eclipse.stem.ui.adapters.color.RelativeValueColorPreferences;
 import org.eclipse.swt.widgets.Composite;
@@ -30,8 +29,9 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 
 /**
  * This class is a preference page for Maps Colors. It holds common maps colors
- * preferences and an extension point where other preferences contributers ({@link ColorProvider}s)
- * can add their own preferences.
+ * preferences and an extension point where other preferences contributers (
+ * {@link org.eclipse.stem.ui.adapters.color.ColorProvider}s) can add their own
+ * preferences.
  */
 public class MapsColorsPreferencePage extends FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {

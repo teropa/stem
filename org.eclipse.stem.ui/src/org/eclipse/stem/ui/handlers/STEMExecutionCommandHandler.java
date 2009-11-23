@@ -19,22 +19,19 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.stem.core.experiment.Experiment;
-import org.eclipse.stem.core.scenario.Scenario;
-import org.eclipse.stem.jobs.batch.BatchManager;
 import org.eclipse.stem.jobs.execution.IExecutable;
-import org.eclipse.stem.jobs.simulation.SimulationManager;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.perspectives.Simulation;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
  * This class is the top-level {@link IHandler} for the STEM "execution" command
- * handlers that begin and control the execution of {@link Experiment}s and
- * {@link Scenario}s.
+ * handlers that begin and control the execution of
+ * {@link org.eclipse.stem.core.experiment.Experiment}s and
+ * {@link org.eclipse.stem.core.scenario.Scenario}s.
  * 
- * @see BatchManager
- * @see SimulationManager
+ * @see org.eclipse.stem.jobs.batch.BatchManager
+ * @see org.eclipse.stem.jobs.simulation.SimulationManager
  */
 abstract public class STEMExecutionCommandHandler extends AbstractHandler
 		implements IHandler {

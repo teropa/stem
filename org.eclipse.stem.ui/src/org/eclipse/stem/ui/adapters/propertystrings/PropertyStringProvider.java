@@ -13,11 +13,10 @@ package org.eclipse.stem.ui.adapters.propertystrings;
  *******************************************************************************/
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.stem.core.common.Identifiable;
 
 /**
  * This interface is implemented by classes that provide NLS'd strings for
- * {@link Identifiable} properties.
+ * {@link org.eclipse.stem.core.common.Identifiable} properties.
  */
 public interface PropertyStringProvider {
 

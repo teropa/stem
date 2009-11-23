@@ -27,7 +27,6 @@ import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.data.geography.ISOKey;
 import org.eclipse.stem.definitions.nodes.NodesPackage;
-import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.internal.data.generatedplugin.DublinCore;
 import org.eclipse.stem.internal.data.geography.specifications.AdminLevelSet;
 import org.eclipse.stem.internal.data.geography.specifications.CountryGraphPropertyFileSpecification;
@@ -40,7 +39,7 @@ public class GeographicModelSpecification extends ModelSpecification implements
 
 	/**
 	 * This is referenced to cause the {@link NodesPackage} to register itself
-	 * as a package so that {@link Region}s in the {@link Graph}'s we're
+	 * as a package so that {@link org.eclipse.stem.definitions.nodes.Region}s in the {@link Graph}'s we're
 	 * deserializing can be created. Without it, the package will not be found.
 	 */
 	@SuppressWarnings("unused")

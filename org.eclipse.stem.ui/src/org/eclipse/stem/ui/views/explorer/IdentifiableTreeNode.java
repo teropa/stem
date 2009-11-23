@@ -13,26 +13,22 @@ package org.eclipse.stem.ui.views.explorer;
  *******************************************************************************/
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.jface.resource.ImageRegistry;
-import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.experiment.Experiment;
-import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.model.Decorator;
-import org.eclipse.stem.core.model.Model;
-import org.eclipse.stem.core.modifier.Modifier;
-import org.eclipse.stem.core.predicate.Predicate;
-import org.eclipse.stem.core.scenario.Scenario;
-import org.eclipse.stem.core.sequencer.Sequencer;
-import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.ui.wizards.NewSTEMProjectWizard;
-import org.eclipse.ui.navigator.CommonNavigator;
 
 /**
- * This class is used in the {@link CommonNavigator} based STEM Project Explorer
- * view to represent a group of one type of {@link Identifiable} component
- * (e.g., {@link Model}, {@link Graph}, {@link Decorator}, {@link Scenario},
- * {@link Sequencer} , {@link Experiment}, {@link Trigger}, {@link Modifier},
- * {@link Predicate}) that belong to a particular STEM Project instance.
+ * This class is used in the {@link org.eclipse.ui.navigator.CommonNavigator}
+ * based STEM Project Explorer view to represent a group of one type of
+ * {@link org.eclipse.stem.core.common.Identifiable} component (e.g.,
+ * {@link org.eclipse.stem.core.model.Model},
+ * {@link org.eclipse.stem.core.graph.Graph},
+ * {@link org.eclipse.stem.core.model.Decorator},
+ * {@link org.eclipse.stem.core.scenario.Scenario},
+ * {@link org.eclipse.stem.core.sequencer.Sequencer} ,
+ * {@link org.eclipse.stem.core.experiment.Experiment},
+ * {@link org.eclipse.stem.core.trigger.Trigger},
+ * {@link org.eclipse.stem.core.modifier.Modifier},
+ * {@link org.eclipse.stem.core.predicate.Predicate}) that belong to a
+ * particular STEM Project instance.
  */
 abstract public class IdentifiableTreeNode {
 
@@ -49,11 +45,11 @@ abstract public class IdentifiableTreeNode {
 	 *            the name of the component (e.g., "Scenarios")
 	 * @param folderName
 	 *            the non-NLS'd name of the folder in the project that
-	 *            {@link Identifiable}s that correspond to this node are
+	 *            {@link org.eclipse.stem.core.common.Identifiable}s that correspond to this node are
 	 *            serialized in.
 	 * @param imageKey
 	 *            the string that is used as a key into the
-	 *            {@link ImageRegistry} of the plug-in.
+	 *            {@link org.eclipse.jface.resource.ImageRegistry} of the plug-in.
 	 */
 	public IdentifiableTreeNode(final IProject project,
 			final String componentName, String folderName, String imageKey) {
@@ -80,7 +76,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * @return the non-NLS'd name of the folder in the project that
-	 *         {@link Identifiable}s that correspond to this node are serialized
+	 *         {@link org.eclipse.stem.core.common.Identifiable}s that correspond to this node are serialized
 	 *         in.
 	 */
 	public String getFolderName() {
@@ -106,7 +102,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Decorator}s.
+	 * {@link org.eclipse.stem.core.model.Decorator}s.
 	 */
 	public static class DecoratorsTreeNode extends IdentifiableTreeNode {
 
@@ -124,7 +120,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Scenario}s.
+	 * {@link org.eclipse.stem.core.scenario.Scenario}s.
 	 */
 	public static class ScenariosTreeNode extends IdentifiableTreeNode {
 
@@ -142,7 +138,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Experiment}s.
+	 * {@link org.eclipse.stem.core.experiment.Experiment}s.
 	 */
 	public static class ExperimentsTreeNode extends IdentifiableTreeNode {
 
@@ -160,7 +156,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Sequencer}s.
+	 * {@link org.eclipse.stem.core.sequencer.Sequencer}s.
 	 */
 	public static class SequencersTreeNode extends IdentifiableTreeNode {
 
@@ -178,7 +174,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Model}s.
+	 * {@link org.eclipse.stem.core.model.Model}s.
 	 */
 	public static class ModelsTreeNode extends IdentifiableTreeNode {
 
@@ -196,7 +192,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Graph}s.
+	 * {@link org.eclipse.stem.core.graph.Graph}s.
 	 */
 	public static class GraphsTreeNode extends IdentifiableTreeNode {
 
@@ -214,7 +210,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Trigger}s.
+	 * {@link org.eclipse.stem.core.trigger.Trigger}s.
 	 */
 	public static class TriggersTreeNode extends IdentifiableTreeNode {
 
@@ -232,7 +228,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Predicate}s.
+	 * {@link org.eclipse.stem.core.predicate.Predicate}s.
 	 */
 	public static class PredicatesTreeNode extends IdentifiableTreeNode {
 	
@@ -250,7 +246,7 @@ abstract public class IdentifiableTreeNode {
 
 	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
-	 * {@link Modifier}s.
+	 * {@link org.eclipse.stem.core.modifier.Modifier}s.
 	 */
 	public static class ModifiersTreeNode extends IdentifiableTreeNode {
 		/**

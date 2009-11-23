@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.modifier.FeatureModifier;
-import org.eclipse.stem.core.modifier.RangeModifier;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
 import org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite;
 import org.eclipse.swt.widgets.Button;

@@ -27,15 +27,9 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.stem.core.Utility;
-import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.presentation.CoreEditorAdvisor;
-import org.eclipse.stem.core.experiment.ExperimentPackage;
-import org.eclipse.stem.core.graph.GraphPackage;
-import org.eclipse.stem.core.model.ModelPackage;
-import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
@@ -73,7 +67,7 @@ abstract public class NewIdentifiableWizard extends Wizard implements
 
 	/**
 	 * The second page in the wizard that a user uses to specify the details of
-	 * the {@link DublinCore} metadata associated with the {@link Identifiable}
+	 * the {@link org.eclipse.stem.core.common.DublinCore} metadata associated with the {@link Identifiable}
 	 * being created.
 	 * 
 	 * @see #newIdentifiablePage
@@ -320,10 +314,10 @@ abstract public class NewIdentifiableWizard extends Wizard implements
 	 *         {@link #createIdentifiable(IProgressMonitor, URI)}. Typically,
 	 *         this is the EMF "eNAME" of the model in which the
 	 *         {@link Identifiable} is defined.
-	 * @see GraphPackage#eNAME
-	 * @see ModelPackage#eNAME
-	 * @see ScenarioPackage#eNAME
-	 * @see ExperimentPackage#eNAME
+	 * @see org.eclipse.stem.core.graph.GraphPackage#eNAME
+	 * @see org.eclipse.stem.core.model.ModelPackage#eNAME
+	 * @see org.eclipse.stem.core.scenario.ScenarioPackage#eNAME
+	 * @see  org.eclipse.stem.core.experiment.ExperimentPackage#eNAME
 	 */
 	abstract protected String getSerializationFileNameExtension();
 

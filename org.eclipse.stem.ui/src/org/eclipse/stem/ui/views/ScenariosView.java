@@ -13,14 +13,14 @@ package org.eclipse.stem.ui.views;
  *******************************************************************************/
 
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.ISharedImages;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * This class represents the eclipse view of the {@link Scenario}s that have
- * been imported into eclipse as plug-ins.
+ * This class represents the eclipse view of the
+ * {@link org.eclipse.stem.core.scenario.Scenario}s that have been imported into
+ * eclipse as plug-ins.
  */
 public class ScenariosView extends IdentifiablePluginView {
 
@@ -87,6 +87,7 @@ public class ScenariosView extends IdentifiablePluginView {
 		/**
 		 * @see org.eclipse.stem.ui.views.IdentifiablePluginView.IdentifiablePluginViewLabelContentProvider#getImage(java.lang.Object)
 		 */
+		@Override
 		public Image getImage(Object element) {
 			return (element instanceof IdentifiableDelegate) ? getScenarioIcon()
 					: super.getImage(element);

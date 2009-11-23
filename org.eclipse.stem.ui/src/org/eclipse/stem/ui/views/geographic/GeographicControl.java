@@ -54,13 +54,11 @@ import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong.Segment;
 import org.eclipse.stem.data.geography.centers.GeographicCenters;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationListener;
-import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.jobs.simulation.SimulationEvent;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapter;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory;
 import org.eclipse.stem.ui.adapters.color.IColorProviderChangedListener;
-import org.eclipse.stem.ui.views.geographic.map.MapCanvas;
 import org.eclipse.stem.ui.views.geographic.map.Messages;
 import org.eclipse.stem.ui.views.geographic.map.StemPolygon;
 import org.eclipse.stem.ui.views.geographic.map.StemPolygonsList;
@@ -79,7 +77,7 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 
 /**
  * This class represents a visualization of the geographic attributes of a
- * {@link org.eclipse.stem.jobs.simulation.Simulation}.
+ * {@link org.eclipse.stem.jobs.simulation.org.eclipse.stem.jobs.simulation.Simulation}.
  */
 abstract public class GeographicControl extends Composite implements
 		ISimulationListener, ISelectionProvider, IColorProviderChangedListener,
@@ -97,7 +95,7 @@ abstract public class GeographicControl extends Composite implements
 	protected static final int MARGIN_HEIGHT = 5;
 
 	/**
-	 * This is the {@link Simulation} that this control is listening to and
+	 * This is the {@link org.eclipse.stem.jobs.simulation.Simulation} that this control is listening to and
 	 * visualizing by rendering Lat/Long data on the {@link #mapCanvas}.
 	 */
 	private ISimulation simulation = null;
@@ -221,7 +219,7 @@ abstract public class GeographicControl extends Composite implements
 	} // setPreferences
 
 	/**
-	 * @return the {@link org.eclipse.stem.jobs.simulation.Simulation}
+	 * @return the {@link org.eclipse.stem.jobs.simulation.org.eclipse.stem.jobs.simulation.Simulation}
 	 */
 	public final ISimulation getSimulation() {
 		return simulation;
@@ -731,7 +729,8 @@ abstract public class GeographicControl extends Composite implements
 	 *            the parent SWT control that this {@link Composite} will be a
 	 *            child of
 	 * @return the SWT {@link Composite} to be displayed above the
-	 *         {@link MapCanvas} in the control
+	 *         {@link org.eclipse.stem.ui.views.geographic.map.MapCanvas} in the
+	 *         control
 	 */
 	protected Composite createTopComposite(final Composite parent) {
 		final Composite topComposite = new Composite(parent, SWT.NONE);

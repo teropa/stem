@@ -13,9 +13,7 @@ package org.eclipse.stem.ui.handlers;
  *******************************************************************************/
 
 import org.eclipse.core.expressions.PropertyTester;
-import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.core.experiment.ExperimentPackage;
-import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.ui.views.IdentifiableDelegate;
 
@@ -57,7 +55,7 @@ public class IdentifiableDelegatePropertyTester extends PropertyTester {
 	 * @param configElement
 	 * 		a configuration element for a plug-in
 	 * @return <code>true</code> if the configuration element is for a {@link
-	 * 	Experiment}.
+	 * 	org.eclipse.stem.core.experiment.Experiment}.
 	 */
 	private boolean isExperimentConfigurationElement(final String format) {
 		return format != null && format.equals(ExperimentPackage.eNS_URI);
@@ -67,7 +65,7 @@ public class IdentifiableDelegatePropertyTester extends PropertyTester {
 	 * @param configElement
 	 * 		a configuration element for a plug-in
 	 * @return <code>true</code> if the configuration element is for a {@link
-	 * 	Scenario}.
+	 * 	org.eclipse.stem.core.scenario.Scenario}.
 	 */
 	private boolean isScenarioConfigurationElement(final String format) {
 		return format != null && format.equals(ScenarioPackage.eNS_URI);

@@ -12,11 +12,9 @@ package org.eclipse.stem.ui.editors;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.core.scenario.Scenario;
-import org.eclipse.ui.part.EditorPart;
-
 /**
- * This class is an {@link EditorPart} that edits {@link Scenario}s.
+ * This class is an {@link org.eclipse.ui.part.EditorPart} that edits
+ * {@link org.eclipse.stem.core.scenario.Scenario}s.
  */
 public class ScenarioEditor extends IdentifiableEditor {
 

@@ -19,7 +19,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.stem.core.graph.DynamicLabel;
-import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
@@ -32,10 +31,9 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Widget;
 
 /**
- * This class is a compound SWT {@link Widget} that allows for the selection of
+ * This class is a compound SWT {@link org.eclipse.swt.widgets.Widget} that allows for the selection of
  * a properties of a {@link Decorator}.
  */
 public class ColorProviderPropertiesComposite extends Composite {
@@ -137,7 +135,7 @@ public class ColorProviderPropertiesComposite extends Composite {
 	 * 
 	 * @param decorator
 	 *            a {@link Decorator} that modifies the state of the canonical
-	 *            {@link Graph} in the
+	 *            {@link org.eclipse.stem.core.graph.Graph} in the
 	 *            {@link org.eclipse.stem.jobs.simulation.Simulation}.
 	 * @return a {@link List} of the properties of the {@link Decorator} that
 	 *         can be displayed.

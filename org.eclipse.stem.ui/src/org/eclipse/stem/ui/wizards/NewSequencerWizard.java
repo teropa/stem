@@ -13,12 +13,11 @@ package org.eclipse.stem.ui.wizards;
  *******************************************************************************/
 
 import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 
 /**
  * This class is a {@link NewIdentifiableWizard} for that creates new STEM
- * {@link Sequencer}s
+ * {@link org.eclipse.stem.core.sequencer.Sequencer}s
  */
 abstract public class NewSequencerWizard extends NewIdentifiableWizard {
 

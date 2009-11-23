@@ -14,8 +14,6 @@ package org.eclipse.stem.ui.views.explorer;
 
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
-import org.eclipse.stem.core.model.Decorator;
-import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.swt.graphics.Image;
 
@@ -25,8 +23,8 @@ import org.eclipse.swt.graphics.Image;
  * components of the STEM modeling framework. These contributions are instances
  * of {@link IdentifiableTreeNode} which are used to aggregate instances of a
  * single type of component in a STEM project. For instance, all of the
- * serialized {@link Decorator} instances, or all of the {@link Scenario}
- * instances.
+ * serialized {@link org.eclipse.stem.core.model.Decorator} instances, or all of
+ * the {@link org.eclipse.stem.core.scenario.Scenario} instances.
  */
 public class IdentifiableTreeNodeLabelProvider implements ILabelProvider {
 

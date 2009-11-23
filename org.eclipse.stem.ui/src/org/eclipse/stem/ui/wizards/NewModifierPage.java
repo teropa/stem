@@ -24,17 +24,14 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.StaticLabel;
 import org.eclipse.stem.core.modifier.FeatureModifier;
-import org.eclipse.stem.core.modifier.Modifier;
 import org.eclipse.stem.core.modifier.NOPModifier;
 import org.eclipse.stem.core.modifier.RangeModifier;
 import org.eclipse.stem.core.modifier.SequenceModifier;
 import org.eclipse.stem.core.modifier.SingleValueModifier;
-import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.ui.adapters.featuremodifier.EStructuralFeatureFeatureModifierAdapterFactory;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.FeatureModifierEditCompositeAdapter;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.FeatureModifierFeatureModifierEditCompositeAdapterFactory;
@@ -76,7 +73,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 
 	/**
 	 * This is the {@link Identifiable} for which the page is creating a
-	 * {@link Modifier}.
+	 * {@link org.eclipse.stem.core.modifier.Modifier}.
 	 */
 	protected Identifiable identifiable;
 
@@ -87,7 +84,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 	 * 
 	 * @param identifiable
 	 *            the {@link Identifiable} for which the page is creating a
-	 *            {@link Modifier}.
+	 *            {@link org.eclipse.stem.core.modifier.Modifier}.
 	 */
 	protected NewModifierPage(final Identifiable identifiable) {
 		super(Messages.getString("NModifierWiz.page_title"));
@@ -257,9 +254,10 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 	/**
 	 * @param feature
 	 *            the {@link EStructuralFeature} to test for modifiability
-	 * @return <code>true</code> (Default) if the feature represents a
-	 *         property that the user should be able to modify for an
-	 *         {@link Experiment} or a {@link Trigger}.
+	 * @return <code>true</code> (Default) if the feature represents a property
+	 *         that the user should be able to modify for an
+	 *         {@link org.eclipse.stem.core.experiment.Experiment} or a
+	 *         {@link org.eclipse.stem.core.trigger.Trigger}.
 	 */
 	protected boolean isModifiableProperty(final EStructuralFeature feature) {
 		boolean retValue = false;

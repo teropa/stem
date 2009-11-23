@@ -14,7 +14,6 @@ package org.eclipse.stem.ui.views.explorer;
 
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
-import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.ISharedImages;
 import org.eclipse.swt.graphics.Image;
@@ -22,7 +21,7 @@ import org.eclipse.swt.graphics.Image;
 /**
  * This class is an {@link ILabelProvider} for the contributions to the
  * org.eclipse.ui,navigator.navigatorContents extension point that represent
- * recorded {@link Simulation}s.
+ * recorded {@link org.eclipse.stem.jobs.simulation.Simulation}s.
  */
 public class RecordedTreeNodeLabelProvider implements ILabelProvider {
 

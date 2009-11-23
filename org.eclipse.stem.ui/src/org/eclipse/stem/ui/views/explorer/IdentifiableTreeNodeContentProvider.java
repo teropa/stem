@@ -13,11 +13,8 @@ package org.eclipse.stem.ui.views.explorer;
  *******************************************************************************/
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.stem.core.model.Decorator;
-import org.eclipse.stem.core.scenario.Scenario;
 
 /**
  * This class is a {@link IContentProvider} for the contributions to the
@@ -25,8 +22,8 @@ import org.eclipse.stem.core.scenario.Scenario;
  * components of the STEM modeling framework. These contributions are instances
  * of {@link IdentifiableTreeNode} which are used to aggregate instances of a
  * single type of component in a STEM project. For instance, all of the
- * serialized {@link Decorator} instances, or all of the {@link Scenario}
- * instances.
+ * serialized {@link org.eclipse.stem.core.model.Decorator} instances, or all of
+ * the {@link org.eclipse.stem.core.scenario.Scenario} instances.
  */
 public class IdentifiableTreeNodeContentProvider implements
 		ITreeContentProvider {

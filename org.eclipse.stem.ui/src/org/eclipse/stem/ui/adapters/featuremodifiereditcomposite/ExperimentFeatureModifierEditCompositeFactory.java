@@ -13,18 +13,17 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.core.modifier.util.ModifierAdapterFactory;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.RangeFeatureModifierEditCompositeAdapter.DoubleRangeFeatureModifierEditCompositeAdapter;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.RangeFeatureModifierEditCompositeAdapter.IntegerRangeFeatureModifierEditCompositeAdapter;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.RangeFeatureModifierEditCompositeAdapter.LongRangeFeatureModifierEditCompositeAdapter;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.RangeFeatureModifierEditCompositeAdapter.STEMTimeRangeFeatureModifierEditCompositeAdapter;
-import org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite;
 
 /**
- * This class is an {@link AdapterFactory} that adapts {@link FeatureModifier}s
- * to {@link FeatureModifierEditComposite}s.
+ * This class is an {@link org.eclipse.emf.common.notify.AdapterFactory} that
+ * adapts {@link org.eclipse.stem.core.modifier.FeatureModifier}s to
+ * {@link org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite}
+ * s.
  */
 public class ExperimentFeatureModifierEditCompositeFactory extends
 		ModifierAdapterFactory {

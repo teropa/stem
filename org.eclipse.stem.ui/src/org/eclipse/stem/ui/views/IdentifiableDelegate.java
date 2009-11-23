@@ -16,18 +16,12 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.Utility;
-import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.impl.DublinCoreImpl;
-import org.eclipse.stem.core.experiment.ExperimentPackage;
-import org.eclipse.stem.core.graph.GraphPackage;
-import org.eclipse.stem.core.model.ModelPackage;
-import org.eclipse.stem.core.scenario.ScenarioPackage;
-import org.eclipse.stem.core.sequencer.SequencerPackage;
 import org.eclipse.stem.jobs.Activator;
 
 /**
- * This class represents a serialized {@link Identifiable}.
+ * This class represents a serialized {@link org.eclipse.stem.core.common.Identifiable}.
  */
 public class IdentifiableDelegate extends PlatformObject implements
 		Comparable<IdentifiableDelegate> {

@@ -13,12 +13,10 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
  *******************************************************************************/
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.stem.core.modifier.FeatureModifier;
-import org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite;
 
 /**
- * This class is an adapter factory that adapts {@link FeatureModifier}s to
- * {@link FeatureModifierEditComposite}s.
+ * This class is an adapter factory that adapts {@link org.eclipse.stem.core.modifier.FeatureModifier}s to
+ * {@link org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite}s.
  */
 public interface FeatureModifierFeatureModifierEditCompositeAdapterFactory {
 

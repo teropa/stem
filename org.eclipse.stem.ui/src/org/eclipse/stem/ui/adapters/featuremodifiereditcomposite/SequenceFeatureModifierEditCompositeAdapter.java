@@ -19,7 +19,6 @@ import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.core.modifier.IntegerSequenceModifier;
 import org.eclipse.stem.core.modifier.LongSequenceModifier;
 import org.eclipse.stem.core.modifier.STEMTimeSequenceModifier;
-import org.eclipse.stem.core.modifier.SequenceModifier;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
 import org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite;
 import org.eclipse.swt.SWT;
@@ -32,7 +31,7 @@ import org.eclipse.swt.widgets.Label;
 
 /**
  * This class is a {@link FeatureModifierEditCompositeAdapter} for
- * {@link SequenceModifier}s.
+ * {@link  org.eclipse.stem.core.modifier.SequenceModifier}s.
  */
 abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 		FeatureModifierEditCompositeAdapter {

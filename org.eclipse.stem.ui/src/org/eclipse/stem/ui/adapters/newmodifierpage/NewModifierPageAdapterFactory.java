@@ -13,12 +13,11 @@ package org.eclipse.stem.ui.adapters.newmodifierpage;
  *******************************************************************************/
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.ui.wizards.NewModifierPage;
 
 /**
- * This class is an adapter factory that adapts {@link Identifiable}s to
- * {@link NewModifierPage}s.
+ * This class is an adapter factory that adapts
+ * {@link org.eclipse.stem.core.common.Identifiable}s to
+ * {@link org.eclipse.stem.ui.wizards.NewModifierPage}s.
  */
 public interface NewModifierPageAdapterFactory {
 

@@ -11,12 +11,11 @@ package org.eclipse.stem.ui.views.explorer;
  *******************************************************************************/
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.stem.jobs.simulation.Simulation;
-import org.eclipse.ui.navigator.CommonNavigator;
 
 /**
- * This class is used in the {@link CommonNavigator} based STEM Project Explorer
- * view to represent a group recorded {@link Simulation} runs that belong to a
+ * This class is used in the {@link org.eclipse.ui.navigator.CommonNavigator}
+ * based STEM Project Explorer view to represent a group recorded
+ * {@link org.eclipse.stem.jobs.simulation.Simulation} runs that belong to a
  * particular STEM Project instance.
  */
 public class RecordedTreeNode {
@@ -25,8 +24,8 @@ public class RecordedTreeNode {
 
 	/**
 	 *@param project
-	 * 		the {@link IProject} that is the parent of this {@link
-	 * 		RecordedTreeNode}.
+	 *            the {@link IProject} that is the parent of this
+	 *            {@link RecordedTreeNode}.
 	 */
 	public RecordedTreeNode(IProject project) {
 		this.project = project;

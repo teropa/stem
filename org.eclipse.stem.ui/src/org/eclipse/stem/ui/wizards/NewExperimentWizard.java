@@ -22,15 +22,15 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.core.experiment.ExperimentFactory;
 import org.eclipse.stem.core.experiment.ExperimentPackage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
- * This class is a Wizard for making new STEM {@link Experiment}s.
- *
+ * This class is a Wizard for making new STEM
+ * {@link org.eclipse.stem.core.experiment.Experiment}s.
+ * 
  * @see org.eclipse.stem.core.model.Model
  * @see org.eclipse.stem.ui.wizards.NewGraphWizard
  */

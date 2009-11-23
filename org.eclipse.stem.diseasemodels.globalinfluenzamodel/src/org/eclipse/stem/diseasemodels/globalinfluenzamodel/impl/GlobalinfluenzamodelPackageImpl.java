@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.diseasemodels.globalinfluenzamodel.GlobalInfluenzaModel;
 import org.eclipse.stem.diseasemodels.globalinfluenzamodel.GlobalinfluenzamodelFactory;
 import org.eclipse.stem.diseasemodels.globalinfluenzamodel.GlobalinfluenzamodelPackage;

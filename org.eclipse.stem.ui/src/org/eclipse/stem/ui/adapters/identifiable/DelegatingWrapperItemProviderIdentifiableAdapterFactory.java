@@ -14,13 +14,13 @@ package org.eclipse.stem.ui.adapters.identifiable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.jobs.adapters.executable.ExecutableAdapterFactory;
 import org.eclipse.stem.jobs.adapters.identifiable.IdentifiableAdapterFactory;
-import org.eclipse.stem.ui.views.IdentifiableDelegate;
 
 /**
- * This class is an {@link ExecutableAdapterFactory} that adapts
- * {@link IdentifiableDelegate}s to {@link Identifiable}s.
+ * This class is an
+ * {@link org.eclipse.stem.jobs.adapters.executable.ExecutableAdapterFactory}
+ * that adapts {@link org.eclipse.stem.ui.views.IdentifiableDelegate}s to
+ * {@link Identifiable}s.
  */
 public class DelegatingWrapperItemProviderIdentifiableAdapterFactory extends
 		IdentifiableAdapterFactory {

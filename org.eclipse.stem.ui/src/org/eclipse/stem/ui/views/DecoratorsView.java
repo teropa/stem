@@ -14,11 +14,10 @@ package org.eclipse.stem.ui.views;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * This class represents the eclipse view of the {@link Decorator}s that have
+ * This class represents the eclipse view of the {@link org.eclipse.stem.core.model.Decorator}s that have
  * been imported into eclipse as plug-ins.
  *
  * @see SequencersView

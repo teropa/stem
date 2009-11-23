@@ -13,13 +13,12 @@ package org.eclipse.stem.ui.views;
  *******************************************************************************/
 
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.ISharedImages;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * This class represents the eclipse view of the {@link Model}s that have been
+ * This class represents the eclipse view of the {@link org.eclipse.stem.core.model.Model}s that have been
  * imported into eclipse as plug-ins.
  */
 public class ModelsView extends IdentifiablePluginView {

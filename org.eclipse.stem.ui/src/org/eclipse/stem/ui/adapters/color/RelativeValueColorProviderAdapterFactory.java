@@ -12,13 +12,13 @@ package org.eclipse.stem.ui.adapters.color;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 /**
  * This interface is implemented by classes that create adapters that adapt
- * {@link  EObject}s to {@link RelativeValueColorProvider}s.
+ * {@link org.eclipse.emf.ecore.EObject}s to {@link RelativeValueColorProvider}
+ * s.
  */
 public interface RelativeValueColorProviderAdapterFactory extends
 		ComposeableAdapterFactory {

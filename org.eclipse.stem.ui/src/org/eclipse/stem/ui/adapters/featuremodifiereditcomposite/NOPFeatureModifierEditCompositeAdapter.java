@@ -13,12 +13,7 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
  *******************************************************************************/
 
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.modifier.DoubleNOPModifier;
 import org.eclipse.stem.core.modifier.FeatureModifier;
-import org.eclipse.stem.core.modifier.IntegerNOPModifier;
-import org.eclipse.stem.core.modifier.LongNOPModifier;
-import org.eclipse.stem.core.modifier.NOPModifier;
-import org.eclipse.stem.core.modifier.STEMTimeNOPModifier;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
 import org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite;
 import org.eclipse.swt.SWT;
@@ -29,7 +24,7 @@ import org.eclipse.swt.widgets.Label;
 
 /**
  * This class is a {@link FeatureModifierEditCompositeAdapter} for
- * {@link NOPModifier}s.
+ * {@link org.eclipse.stem.core.modifier.NOPModifier}s.
  */
 public class NOPFeatureModifierEditCompositeAdapter extends
 		FeatureModifierEditCompositeAdapter {
@@ -63,7 +58,7 @@ public class NOPFeatureModifierEditCompositeAdapter extends
 
 	/**
 	 * This class is a {@link FeatureModifierEditCompositeAdapter} for
-	 * {@link STEMTimeNOPModifier}s.
+	 * {@link org.eclipse.stem.core.modifier.STEMTimeNOPModifier}s.
 	 * 
 	 * @see ExperimentFeatureModifierEditCompositeFactory#createSTEMTimeNOPModifierAdapter()
 	 */
@@ -101,8 +96,10 @@ public class NOPFeatureModifierEditCompositeAdapter extends
 
 	/**
 	 * This class is a {@link FeatureModifierEditCompositeAdapter} for
-	 * {@link NOPModifier}s that are numeric like {@link IntegerNOPModifier},
-	 * {@link LongNOPModifier} and {@link DoubleNOPModifier}.
+	 * {@link org.eclipse.stem.core.modifier.NOPModifier}s that are numeric like
+	 * {@link org.eclipse.stem.core.modifier.IntegerNOPModifier},
+	 * {@link org.eclipse.stem.core.modifier.LongNOPModifier} and
+	 * {@link org.eclipse.stem.core.modifier.DoubleNOPModifier}.
 	 * 
 	 * @see ExperimentFeatureModifierEditCompositeFactory#createIntegerNOPModifierAdapter()
 	 * @see ExperimentFeatureModifierEditCompositeFactory#createLongNOPModifierAdapter()
@@ -142,7 +139,7 @@ public class NOPFeatureModifierEditCompositeAdapter extends
 
 	/**
 	 * This class is a {@link FeatureModifierEditCompositeAdapter} for
-	 * {@link STEMTimeNOPModifier}s.
+	 * {@link org.eclipse.stem.core.modifier.STEMTimeNOPModifier}s.
 	 * 
 	 * @see ExperimentFeatureModifierEditCompositeFactory#createSTEMTimeNOPModifierAdapter()
 	 */

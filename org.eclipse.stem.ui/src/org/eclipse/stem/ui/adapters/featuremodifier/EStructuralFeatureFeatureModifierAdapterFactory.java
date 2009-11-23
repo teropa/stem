@@ -14,7 +14,6 @@ package org.eclipse.stem.ui.adapters.featuremodifier;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.core.modifier.ModifierFactory;
@@ -38,7 +37,8 @@ public interface EStructuralFeatureFeatureModifierAdapterFactory {
 	/**
 	 * This class is an implementation of
 	 * {@link EStructuralFeatureFeatureModifierAdapterFactory} that adapts
-	 * {@link EStructuralFeature}s of {@link Identifiable}s to
+	 * {@link EStructuralFeature}s of
+	 * {@link org.eclipse.stem.core.common.Identifiable}s to
 	 * {@link FeatureModifier}s.
 	 * <p>
 	 * This implementation isn't quite complete as it doesn't allow the factory

@@ -12,7 +12,6 @@ package org.eclipse.stem.ui.adapters.color;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.AreaLabelValue;
@@ -21,7 +20,7 @@ import org.eclipse.stem.definitions.labels.PopulationLabelValue;
 import org.eclipse.stem.definitions.nodes.Region;
 
 /**
- * This class adapts {@link Node} objects to
+ * This class adapts {@link org.eclipse.stem.core.graph.Node} objects to
  * {@link PopulationRelativeValueColorProvider} object.
  */
 public class PopulationRelativeValueColorProviderAdapter extends

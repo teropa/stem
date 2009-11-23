@@ -18,7 +18,6 @@ import org.eclipse.stem.core.modifier.DoubleRangeModifier;
 import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.core.modifier.IntegerRangeModifier;
 import org.eclipse.stem.core.modifier.LongRangeModifier;
-import org.eclipse.stem.core.modifier.RangeModifier;
 import org.eclipse.stem.core.modifier.STEMTimeRangeModifier;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
 import org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite;
@@ -34,7 +33,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * This class is a {@link FeatureModifierEditCompositeAdapter} for
- * {@link RangeModifier}s.
+ * {@link org.eclipse.stem.core.modifier.RangeModifier}s.
  */
 abstract public class RangeFeatureModifierEditCompositeAdapter extends
 		FeatureModifierEditCompositeAdapter {

@@ -13,7 +13,6 @@ package org.eclipse.stem.ui.adapters.color;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.RowLayout;
@@ -22,7 +21,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Layout;
 
 /**
- * This factory create adapters that adapt {@link  Node}s to
+ * This factory create adapters that adapt
+ * {@link org.eclipse.stem.core.graph.Node}s to
  * {@link AreaRelativeValueColorProvider}s.
  */
 public class AreaRelativeValueColorProviderAdapterFactory extends
@@ -55,6 +55,7 @@ public class AreaRelativeValueColorProviderAdapterFactory extends
 	/**
 	 * @see org.eclipse.stem.ui.adapters.color.IColorProviderAdapterFactory#createPropertiesComposite(org.eclipse.swt.widgets.Composite, int, org.eclipse.stem.core.model.Decorator)
 	 */
+	@Override
 	public Composite createPropertiesComposite(final Composite parent, @SuppressWarnings("unused") final int style, @SuppressWarnings("unused") final Decorator selectedDecorator)
 	{
 		final Composite composite = new Composite(parent, SWT.NONE);

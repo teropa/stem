@@ -36,15 +36,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.experiment.Experiment;
-import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.model.Decorator;
-import org.eclipse.stem.core.model.Model;
-import org.eclipse.stem.core.modifier.Modifier;
-import org.eclipse.stem.core.predicate.Predicate;
-import org.eclipse.stem.core.scenario.Scenario;
-import org.eclipse.stem.core.sequencer.Sequencer;
-import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
@@ -67,7 +58,7 @@ public class NewSTEMProjectWizard extends Wizard implements INewWizard,
 			+ ".ui.wizards.newstemproject"; //$NON-NLS-1$
 
 	/**
-	 * The name of the folder used to serialize {@link Graph} in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.graph.Graph} in a project.
 	 */
 	public static final String GRAPHS_FOLDER_NAME = "graphs";
 
@@ -78,43 +69,43 @@ public class NewSTEMProjectWizard extends Wizard implements INewWizard,
 
 	
 	/**
-	 * The name of the folder used to serialize {@link Model}s in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.model.Model}s in a project.
 	 */
 	public static final String MODELS_FOLDER_NAME = "models";
 
 	/**
-	 * The name of the folder used to serialize {@link Scenario}s in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.scenario.Scenario}s in a project.
 	 */
 	public static final String SCEANARIOS_FOLDER_NAME = "scenarios";
 
 	/**
-	 * The name of the folder used to serialize {@link Decorator}s in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.model.Decorator}s in a project.
 	 */
 	public static final String DECORATORS_FOLDER_NAME = "decorators";
 
 	/**
-	 * The name of the folder used to serialize {@link Sequencer}s in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.sequencer.Sequencer}s in a project.
 	 */
 	public static final String SEQUENCERS_FOLDER_NAME = "sequencers";
 
 	/**
-	 * The name of the folder used to serialize {@link Experiment}s in a
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.experiment.Experiment}s in a
 	 * project.
 	 */
 	public static final String EXPERIMENTS_FOLDER_NAME = "experiments";
 
 	/**
-	 * The name of the folder used to serialize {@link Modifier}s in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.modifier.Modifier}s in a project.
 	 */
 	public static final String MODIFIERS_FOLDER_NAME = "modifiers";
 
 	/**
-	 * The name of the folder used to serialize {@link Trigger}s in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.trigger.Trigger}s in a project.
 	 */
 	public static final String TRIGGERS_FOLDER_NAME = "triggers";
 
 	/**
-	 * The name of the folder used to serialize {@link Predicate}s in a project.
+	 * The name of the folder used to serialize {@link org.eclipse.stem.core.predicate.Predicate}s in a project.
 	 */
 	public static final String PREDICATES_FOLDER_NAME = "predicates";
 

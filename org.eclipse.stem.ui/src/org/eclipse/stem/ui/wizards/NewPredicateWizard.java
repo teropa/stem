@@ -22,7 +22,6 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.predicate.IdentifiablePredicateExpression;
-import org.eclipse.stem.core.predicate.Predicate;
 import org.eclipse.stem.core.predicate.PredicateFactory;
 import org.eclipse.stem.core.predicate.PredicatePackage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -30,7 +29,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
  * This class is a {@link NewIdentifiableWizard} for that creates new STEM
- * {@link Predicate}s
+ * {@link org.eclipse.stem.core.predicate.Predicate}s
  */
 public class NewPredicateWizard extends NewIdentifiableWizard {
 

@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
-import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
 import org.eclipse.stem.definitions.labels.util.LabelsAdapterFactory;
 import org.eclipse.stem.ui.adapters.newmodifierpage.GraphNewModifierPageAdapterFactory.StaticLabelNewModifierPageAdapter;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
@@ -55,7 +54,7 @@ public class LabelsNewModifierPageAdapterFactory extends LabelsAdapterFactory
 
 	/**
 	 * This class is extended by classes that adapt
-	 * {@link PhysicalRelationshipLabel}s to {@link NewModifierPage}s.
+	 * {@link org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel}s to {@link NewModifierPage}s.
 	 */
 	public class PhysicalRelationshipLabelNewModifierPageAdapter extends
 			StaticLabelNewModifierPageAdapter {

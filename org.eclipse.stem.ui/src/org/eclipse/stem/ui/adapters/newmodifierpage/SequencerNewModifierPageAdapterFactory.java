@@ -15,14 +15,12 @@ package org.eclipse.stem.ui.adapters.newmodifierpage;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.sequencer.RealTimeSequencer;
-import org.eclipse.stem.core.sequencer.SequentialSequencer;
 import org.eclipse.stem.core.sequencer.util.SequencerAdapterFactory;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
 
 /**
  * This class is an {@link NewModifierPageAdapterFactory} that
- * adapts {@link SequentialSequencer}s to {@link NewModifierPage}s.
+ * adapts {@link org.eclipse.stem.core.sequencer.SequentialSequencer}s to {@link NewModifierPage}s.
  */
 public class SequencerNewModifierPageAdapterFactory extends
 		SequencerAdapterFactory implements
@@ -86,7 +84,7 @@ public class SequencerNewModifierPageAdapterFactory extends
 	} // SequentialSequencerNewModifierPageAdapter
 
 	/**
-	 * This class adapts {@link RealTimeSequencer}s to {@link NewModifierPage}s
+	 * This class adapts {@link org.eclipse.stem.core.sequencer.RealTimeSequencer}s to {@link NewModifierPage}s
 	 */
 	public static class RealTimeSequencerNewModifierPageAdapter extends
 			NewModifierPageAdapter {

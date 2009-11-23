@@ -19,7 +19,6 @@ import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationManagerListener;
-import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.jobs.simulation.SimulationManager;
 import org.eclipse.stem.jobs.simulation.SimulationManagerEvent;
 import org.eclipse.swt.graphics.Image;
@@ -28,7 +27,7 @@ import org.eclipse.ui.part.ViewPart;
 
 /**
  * This class is an Eclipse {@link ViewPart} that displays the currently active
- * {@link Simulation}s and their status.
+ * {@link org.eclipse.stem.jobs.simulation.Simulation}s and their status.
  * 
  * @see SimulationManager
  */

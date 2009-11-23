@@ -18,14 +18,14 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.AreaLabelValue;
 import org.eclipse.stem.definitions.nodes.Region;
 
 /**
- * This class adapts {@link Node} objects to <code>AreaRelativeValueColorProvider</code> object.
+ * This class adapts {@link org.eclipse.stem.core.graph.Node} objects to
+ * <code>AreaRelativeValueColorProvider</code> object.
  */
 public class AreaRelativeValueColorProviderAdapter 
 	extends AbstractRelativeValueColorProviderAdapter {

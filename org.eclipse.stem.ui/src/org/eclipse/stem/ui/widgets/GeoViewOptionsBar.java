@@ -13,7 +13,6 @@ package org.eclipse.stem.ui.widgets;
  *******************************************************************************/
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,8 +33,6 @@ import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
-import org.eclipse.stem.jobs.simulation.Simulation;
-import org.eclipse.stem.ui.adapters.color.ColorProvider;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory;
 import org.eclipse.stem.ui.adapters.color.IColorProviderAdapterFactory;
 import org.eclipse.stem.ui.adapters.color.IColorProviderChangedListener;
@@ -50,11 +47,10 @@ import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Widget;
 
 /**
- * This class is a compound SWT {@link Widget} that allows for the selection of
- * a {@link Decorator}s and {@link ColorProvider}s.
+ * This class is a compound SWT {@link org.eclipse.swt.widgets.Widget} that allows for the selection of
+ * a {@link Decorator}s and {@link org.eclipse.stem.ui.adapters.color.ColorProvider}s.
  */
 public class GeoViewOptionsBar extends Composite {
 
@@ -341,10 +337,10 @@ public class GeoViewOptionsBar extends Composite {
 	}
 
 	/**
-	 * Initialize the control from a {@link Simulation} instance.
+	 * Initialize the control from a {@link org.eclipse.stem.jobs.simulation.Simulation} instance.
 	 * 
 	 * @param simulation
-	 *            the {@link Simulation}
+	 *            the {@link org.eclipse.stem.jobs.simulation.Simulation}
 	 */
 	public void setSimulation(final ISimulation simulation) {
 		if (simulation == null)

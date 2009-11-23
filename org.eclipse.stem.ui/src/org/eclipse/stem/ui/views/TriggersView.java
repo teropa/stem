@@ -13,15 +13,14 @@ package org.eclipse.stem.ui.views;
  *******************************************************************************/
 
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.ISharedImages;
 import org.eclipse.swt.graphics.Image;
 
-
 /**
- * This class represents the eclipse view of the {@link Trigger}s that have been
- * imported into eclipse as plug-ins.
+ * This class represents the eclipse view of the
+ * {@link org.eclipse.stem.core.trigger.Trigger}s that have been imported into
+ * eclipse as plug-ins.
  */
 public class TriggersView extends IdentifiablePluginView {
 

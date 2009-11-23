@@ -19,11 +19,9 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
-import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.presentation.CoreEditorAdvisor;
 import org.eclipse.stem.ui.Activator;
@@ -62,7 +60,7 @@ abstract public class NewIdentifiablePage extends WizardPage {
 	 * serialized.
 	 * 
 	 * @see NewIdentifiableWizard#createIdentifiable(org.eclipse.core.runtime.IProgressMonitor,
-	 *      URI)
+	 *      org.eclipse.emf.common.util.URI)
 	 */
 	protected Text serializationFileNameField;
 

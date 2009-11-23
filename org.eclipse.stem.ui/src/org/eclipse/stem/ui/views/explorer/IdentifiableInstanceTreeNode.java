@@ -12,14 +12,12 @@ package org.eclipse.stem.ui.views.explorer;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.ui.navigator.CommonNavigator;
-
 /**
- * This class represents {@link Identifiable}s in the STEM Project Explorer view
- * that is implemented using the {@link CommonNavigator} framework. An instance
- * typically serves as a proxy for the file that serializes the {@link
- * Identifiable}.
+ * This class represents {@link org.eclipse.stem.core.common.Identifiable}s in
+ * the STEM Project Explorer view that is implemented using the
+ * {@link org.eclipse.ui.navigator.CommonNavigator} framework. An instance
+ * typically serves as a proxy for the file that serializes the
+ * {@link Identifiable}.
  * 
  * @see IdentifiableInstanceTreeNodeContentProvider
  * @see IdentifiableInstanceTreeNodeLabelProvider
