@@ -15,4 +15,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.definitions;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
