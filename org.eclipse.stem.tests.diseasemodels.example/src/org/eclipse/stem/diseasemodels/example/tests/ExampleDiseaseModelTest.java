@@ -89,7 +89,7 @@ public class ExampleDiseaseModelTest extends TestCase {
 	private void doTest(ExampleDiseaseModelTesterImpl experimentalDiseaseModel,
 			SEIRLabelValueImpl currentSEIR) {
 		
-		SEIRLabelValueImpl oldVal = (SEIRLabelValueImpl)EcoreUtil.copy(currentSEIR);
+		SEIRLabelValueImpl oldVal = EcoreUtil.copy(currentSEIR);
 		
 		doCalculateModelSpecificAdjustments(currentSEIR, RANDOM_SEED, TEST_GAIN);
 

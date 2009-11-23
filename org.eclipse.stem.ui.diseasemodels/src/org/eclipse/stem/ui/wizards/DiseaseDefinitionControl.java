@@ -41,9 +41,9 @@ public class DiseaseDefinitionControl extends Composite {
 
 	private static DiseaseModel[] diseaseModels = null;
 
-	private Combo combo;
+	private final Combo combo;
 
-	private DiseaseModelPropertyComposite diseaseModelPropertyComposite;
+	private final DiseaseModelPropertyComposite diseaseModelPropertyComposite;
 
 	/**
 	 * Create the composite
@@ -155,7 +155,7 @@ public class DiseaseDefinitionControl extends Composite {
 
 	
 	DiseaseModel getSelectedDiseaseModel() {
-		final DiseaseModel retValue = (DiseaseModel) EcoreUtil
+		final DiseaseModel retValue = EcoreUtil
 				.copy(getDiseaseModels()[combo.getSelectionIndex()]);
 		diseaseModelPropertyComposite.populateDiseaseModel(retValue);
 		return retValue;

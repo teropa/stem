@@ -181,9 +181,9 @@ public class PacketStyleTransportSystemDecoratorTest extends EdgeDecoratorTest {
 		retValue.setModel(scnModel);
 		
 		SequentialSequencer sequencer = SequencerFactory.eINSTANCE.createSequentialSequencer();
-		sequencer.setStartTime((STEMTime) EcoreUtil.copy(START_TIME));
-		sequencer.setCurrentTime((STEMTime) EcoreUtil.copy(START_TIME));
-		sequencer.setEndTime((STEMTime) EcoreUtil.copy(END_TIME));
+		sequencer.setStartTime(EcoreUtil.copy(START_TIME));
+		sequencer.setCurrentTime(EcoreUtil.copy(START_TIME));
+		sequencer.setEndTime(EcoreUtil.copy(END_TIME));
 		sequencer.setTimeIncrement(TIME_INCREMENT);
 		retValue.setSequencer(sequencer);
 		
@@ -280,6 +280,7 @@ public class PacketStyleTransportSystemDecoratorTest extends EdgeDecoratorTest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected PacketStyleTransportSystemDecorator getFixture() {
 		return fixture;
 	}

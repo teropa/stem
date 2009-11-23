@@ -39,9 +39,9 @@ public class PopulationModelDefinitionControl extends Composite {
 
 	private static PopulationModel[] populationModels = null;
 
-	private Combo combo;
+	private final Combo combo;
 
-	private PopulationModelPropertyComposite populationModelPropertyComposite;
+	private final PopulationModelPropertyComposite populationModelPropertyComposite;
 
 	/**
 	 * Create the composite
@@ -153,7 +153,7 @@ public class PopulationModelDefinitionControl extends Composite {
 
 	
 	PopulationModel getSelectedPopulationModel() {
-		final PopulationModel retValue = (PopulationModel) EcoreUtil
+		final PopulationModel retValue = EcoreUtil
 				.copy(getPopulationModels()[combo.getSelectionIndex()]);
 		populationModelPropertyComposite.populatePopulationModel(retValue);
 		return retValue;

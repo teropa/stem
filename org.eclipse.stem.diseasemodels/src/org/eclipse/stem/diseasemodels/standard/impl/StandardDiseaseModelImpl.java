@@ -443,7 +443,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 					myDelta.setS(myDelta.getS() + additions);
 					
 					// Substractions are deaths and are removed from all states
-					StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue());
+					StandardDiseaseModelLabelValue currentState = EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue());
 					double populationCount = currentState.getPopulationCount();
 					double factor = substractions/populationCount;
 					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe
@@ -618,7 +618,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				
 				DiseaseModelLabelValue move = null;
 				
-				move = (DiseaseModelLabelValue)EcoreUtil.copy(currsrclabelval);
+				move = EcoreUtil.copy(currsrclabelval);
 				
 				move.scale(factor);
 				// Don't touch disease deaths
@@ -969,7 +969,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						if(!found) continue; // skip edge
 						StandardDiseaseModelLabel otherLabel = (StandardDiseaseModelLabel)lab;
 						StandardDiseaseModelLabelValue otherValue = (StandardDiseaseModelLabelValue)otherLabel.getTempValue();
-						StandardDiseaseModelLabelValue change = (StandardDiseaseModelLabelValue)EcoreUtil.copy(otherValue);
+						StandardDiseaseModelLabelValue change = EcoreUtil.copy(otherValue);
 						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
 						double maxFlow = edgeLabelValue.getMaxFlow();
 						double flow = maxFlow;
@@ -998,7 +998,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						if(!found) continue; // skip edge
 						StandardDiseaseModelLabel thisLabel = (StandardDiseaseModelLabel)lab;
 						StandardDiseaseModelLabelValue thisValue = (StandardDiseaseModelLabelValue)thisLabel.getTempValue();
-						StandardDiseaseModelLabelValue change = (StandardDiseaseModelLabelValue)EcoreUtil.copy(thisValue);
+						StandardDiseaseModelLabelValue change = EcoreUtil.copy(thisValue);
 						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
 						double maxFlow = edgeLabelValue.getMaxFlow();
 						double popCount = ((StandardDiseaseModelLabelValue)thisLabel.getTempValue()).getPopulationCount();

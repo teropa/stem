@@ -260,9 +260,9 @@ public class SimulationManager extends ExecutableManager implements
 						if(sim.getScenario().equals(simulationScenario)) {
 							// The scenario is already running. Copy the whole scenario before resetting
 							Scenario newSimulation = null;
-							newSimulation = (Scenario)EcoreUtil.copy(simulationScenario);
-							if(simulationScenario.getModel() != null) newSimulation.setModel((Model)EcoreUtil.copy(simulationScenario.getModel()));
-							if(simulationScenario.getSequencer() != null) newSimulation.setSequencer((Sequencer)EcoreUtil.copy(simulationScenario.getSequencer()));
+							newSimulation = EcoreUtil.copy(simulationScenario);
+							if(simulationScenario.getModel() != null) newSimulation.setModel(EcoreUtil.copy(simulationScenario.getModel()));
+							if(simulationScenario.getSequencer() != null) newSimulation.setSequencer(EcoreUtil.copy(simulationScenario.getSequencer()));
 							running = true;
 							break;
 						}
