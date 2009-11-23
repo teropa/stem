@@ -178,7 +178,7 @@ public class WorldModelCreator {
 
 		for (final WorldModelRecord modelRecord : worldModels) {
 			worldModel.getModels().add(
-					(Model) EcoreUtil.copy(modelRecord.getModel()));
+					EcoreUtil.copy(modelRecord.getModel()));
 			retValue.addAdminLevels(modelRecord.getAdminLevels());
 		}
 

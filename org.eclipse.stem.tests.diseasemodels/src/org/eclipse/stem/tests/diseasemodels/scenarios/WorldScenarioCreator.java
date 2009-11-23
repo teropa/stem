@@ -39,18 +39,18 @@ import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelPackage;
-import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.tests.SequentialSequencerTest;
-import org.eclipse.stem.tests.util.CountryGraphCreator;
-import org.eclipse.stem.tests.util.CountryModelCreator;
 import org.eclipse.stem.definitions.nodes.NodesPackage;
 import org.eclipse.stem.diseasemodels.standard.Infector;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.tests.DeterministicSIDiseaseModelTest;
 import org.eclipse.stem.diseasemodels.standard.tests.SIDiseaseModelScenarioTest;
+import org.eclipse.stem.tests.util.CountryGraphCreator;
+import org.eclipse.stem.tests.util.CountryModelCreator;
+import org.eclipse.stem.tests.util.CountryDirectoryUtilities.CountryCode;
 
 /**
  * This class creates disease model scenarios.
@@ -220,9 +220,9 @@ public class WorldScenarioCreator {
 				dc.setFormat(ScenarioPackage.eNS_URI);
 
 				// Add the disease model to the model
-				final Model temp = (Model) EcoreUtil.copy(model);
+				final Model temp = EcoreUtil.copy(model);
 				temp.getNodeDecorators().add(
-						(NodeDecorator) EcoreUtil.copy(diseaseModel));
+						EcoreUtil.copy(diseaseModel));
 
 				scenario.setModel(temp);
 
