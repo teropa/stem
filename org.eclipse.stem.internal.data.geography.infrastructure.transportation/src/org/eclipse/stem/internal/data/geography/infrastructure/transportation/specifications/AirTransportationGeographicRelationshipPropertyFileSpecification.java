@@ -79,6 +79,7 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 	 *            
 	 * @override
 	 */
+	@Override
 	protected void collectPropertyDataSet(final Properties properties) {
 		// This will set the properties in this instance and also remove the
 		// non-data properties from the set such as the dublin core properties
@@ -165,6 +166,7 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 	 *  Populate the air transport in graph
 	 * @override
 	 */
+	@Override
 	protected void initializeIdentifiableFromPropertyDataSet(
 			Identifiable identifiable, List<PropertyData> propertyDataSet) {
 		final Graph graph = (Graph)identifiable;

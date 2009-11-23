@@ -31,7 +31,7 @@ import org.eclipse.swt.widgets.Label;
  */
 public class PopulationModelPropertyComposite extends Composite {
 
-	private Map<PopulationModel, PopulationModelPropertyEditor> modelMap = new HashMap<PopulationModel, PopulationModelPropertyEditor>();
+	private final Map<PopulationModel, PopulationModelPropertyEditor> modelMap = new HashMap<PopulationModel, PopulationModelPropertyEditor>();
 
 	private StackLayout stackLayout = null;
 
@@ -91,6 +91,7 @@ public class PopulationModelPropertyComposite extends Composite {
 		}
 	} // displayDiseaseModel
 	
+	@Override
 	public void dispose() {
 		super.dispose();
 	}

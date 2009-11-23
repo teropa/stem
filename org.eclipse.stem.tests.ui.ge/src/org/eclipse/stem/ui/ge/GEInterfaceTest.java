@@ -32,9 +32,10 @@ public class GEInterfaceTest extends TestCase      {
 	/**
 	 * this has the key part commented out.
 	 * To reestablish this test we need to be able to create a test scenario.
-	 * We beed to know how to do this.
+	 * We need to know how to do this.
 	 * 
 	 */
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 //		 This creates a scenario that's ready to be "stepped" (i.e.,
@@ -55,6 +56,7 @@ public class GEInterfaceTest extends TestCase      {
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}

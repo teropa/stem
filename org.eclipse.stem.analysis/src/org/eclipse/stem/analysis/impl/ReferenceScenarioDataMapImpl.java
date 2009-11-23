@@ -321,6 +321,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 		 * deep clone
 		 * @see java.lang.Object#clone()
 		 */
+		@Override
 		public  ReferenceScenarioDataInstance clone() {
 			this.getData();
 			ReferenceScenarioDataInstance newInstance = new ReferenceScenarioDataInstance(this.dataMap);
