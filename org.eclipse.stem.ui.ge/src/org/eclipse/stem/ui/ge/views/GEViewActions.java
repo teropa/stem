@@ -1,4 +1,16 @@
 package org.eclipse.stem.ui.ge.views;
+
+/*******************************************************************************
+ * Copyright (c) 2009 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -74,7 +86,7 @@ public class GEViewActions  {
 	/**
 	 * action invoked on double click
 	 */
-	private Action doubleClickAction= null;
+	private final Action doubleClickAction= null;
 
 		
 	/* *************************************************** 
@@ -122,6 +134,7 @@ public class GEViewActions  {
 		// actionStop - turn OFF logging
         // ------------------------------------
 		actionStop = new Action() {
+			@Override
 			public void run() {				
 				gei.setActive(contentProvider.getCurrentSimulation(),false);
 				geView.showMessage(Messages.getString("GEView.4")); //$NON-NLS-1$
@@ -135,6 +148,7 @@ public class GEViewActions  {
         //	actionStart - turn ON logging
 //		 ------------------------------------
 		actionStart = new Action() {
+			@Override
 			public void run() {								
 				String logFolder = geView.verifyFolder(GEPreferencePage.getFolder());
 				if (logFolder  == null) 
@@ -160,6 +174,7 @@ public class GEViewActions  {
 //		actionGEStart - launch an empty control.kml to start GE
 //		 ------------------------------------
 		actionGEStart = new Action() {
+			@Override
 			public void run() {
 				gei.startGE();
 				
@@ -173,6 +188,7 @@ public class GEViewActions  {
 //		actionGERestart - process a restart of the GE app
 //		 ------------------------------------
 		actionGERestart = new Action() {
+			@Override
 			public void run() {
 				gei.restartGE();
 				
@@ -187,6 +203,7 @@ public class GEViewActions  {
 //		actionGERun - launch control.kml to start GE reading KML
 //		 ------------------------------------
 		actionGERun = new Action() {
+			@Override
 			public void run() {
 				String folder = GEPreferencePage.getFolder();
 				folder = geView.displayFolderDialog(folder);
@@ -208,6 +225,7 @@ public class GEViewActions  {
 		//  It will not actually stop GE 
 //		 ------------------------------------
 		actionGEStop = new Action() {
+			@Override
 			public void run() {
 				gei.stopGE();
 				
@@ -222,6 +240,7 @@ public class GEViewActions  {
 		// actionMap - display current map in GoogleEarth 
         //------------------------------------
 		actionMap = new Action() {
+			@Override
 			public void run() {
 
 				boolean ok = gei.displayMap(contentProvider.getCurrentSimulation());
@@ -240,6 +259,7 @@ public class GEViewActions  {
 //		 actionMapNode - display Node in current map in GoogleEarth
 //		 ------------------------------------
 		actionMapNode = new Action() {
+			@Override
 			public void run() {
 				String area = null;
 				String adminFile = null;
@@ -284,6 +304,7 @@ public class GEViewActions  {
 //		 actionStatus - display status
 //		 ------------------------------------
 		actionStatus = new Action() {
+			@Override
 			public void run() {
 				boolean save = GELog.DEBUG;
 				GELog.DEBUG = true;
@@ -299,6 +320,7 @@ public class GEViewActions  {
 		//		 actionDebug - Flip DEBUG status 
 //		 ------------------------------------
 		actionDebug = new Action() {
+			@Override
 			public void run() {
 		      if (GELog.DEBUG) {				
 				  GELog.debug(this, "Turning DEBUG off");

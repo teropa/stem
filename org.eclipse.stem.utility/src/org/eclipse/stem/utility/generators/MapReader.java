@@ -1,5 +1,16 @@
 package org.eclipse.stem.utility.generators;
 
+/*******************************************************************************
+ * Copyright (c) 2009 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -16,7 +27,7 @@ import java.io.PrintWriter;
 
 /**
  * STEM II Data Migration/Generation Utilities - This class reads ESRI shape
- * files and converts each of them into a plain text file as ouput.
+ * files and converts each of them into a plain text file as output.
  */
 public class MapReader {
 
