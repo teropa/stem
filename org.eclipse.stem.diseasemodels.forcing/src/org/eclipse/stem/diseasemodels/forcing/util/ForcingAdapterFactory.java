@@ -90,7 +90,6 @@ public class ForcingAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unused") 
 	protected ForcingSwitch<Adapter> modelSwitch =
 		new ForcingSwitch<Adapter>() {
 			@Override

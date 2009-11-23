@@ -84,7 +84,6 @@ public class ExperimentalAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unused") 
 	protected ExperimentalSwitch<Adapter> modelSwitch =
 		new ExperimentalSwitch<Adapter>() {
 			@Override

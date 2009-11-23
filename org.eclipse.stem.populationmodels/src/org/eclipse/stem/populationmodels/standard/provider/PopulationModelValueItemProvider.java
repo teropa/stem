@@ -35,7 +35,6 @@ import org.eclipse.stem.core.graph.provider.LabelValueItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-@SuppressWarnings("unused") 
 public class PopulationModelValueItemProvider
 	extends LabelValueItemProvider
 	implements
