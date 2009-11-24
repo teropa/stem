@@ -297,6 +297,8 @@ public abstract class GeographicRenderer extends Composite implements
 		public void run() {
 			setGainFactor((float)factor);
 			lastGainFactorAction = this;
+			Composite parent = GeographicRenderer.this.getParent();
+			((GeographicControl)parent).refresh(); 
 		}
 
 	} // GainFactorAction
@@ -337,6 +339,8 @@ public abstract class GeographicRenderer extends Composite implements
 		@Override
 		public void run() {
 			toggleUseLogScaling();
+			Composite parent = GeographicRenderer.this.getParent();
+			((GeographicControl)parent).refresh(); 
 		}
 	} // LogarighmicAction
 
@@ -369,6 +373,8 @@ public abstract class GeographicRenderer extends Composite implements
 		@Override
 		public void run() {
 			toggleDrawPolygonBordersChoice();
+			Composite parent = GeographicRenderer.this.getParent();
+			((GeographicControl)parent).refresh(); 
 		}
 	} // DrawPolygonBordersAction
 
