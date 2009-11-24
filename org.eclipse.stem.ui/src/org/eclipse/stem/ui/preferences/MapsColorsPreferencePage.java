@@ -21,6 +21,7 @@ import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.adapters.color.ColorProvider;
 import org.eclipse.stem.ui.adapters.color.IPreferencesContributer;
 import org.eclipse.stem.ui.adapters.color.RelativeValueColorPreferences;
 import org.eclipse.swt.widgets.Composite;
@@ -71,9 +72,9 @@ public class MapsColorsPreferencePage extends FieldEditorPreferencePage
 	/**
 	 * Default borders color
 	 */
-	public static final String BORDERS_COLOR_DEFAULT_RGB_STRING = "255,255,0"; // Default
+	public static final String BORDERS_COLOR_DEFAULT_RGB_STRING = "0,80,80"; // Default
 	// is
-	// Yellow
+	// Dark blue green
 	/**
 	 * Default borders color
 	 */
