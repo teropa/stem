@@ -53,8 +53,7 @@ import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapterF
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong.Segment;
 import org.eclipse.stem.data.geography.centers.GeographicCenters;
 import org.eclipse.stem.jobs.simulation.ISimulation;
-import org.eclipse.stem.jobs.simulation.ISimulationListener;
-import org.eclipse.stem.jobs.simulation.SimulationEvent;
+import org.eclipse.stem.jobs.simulation.ISimulationListener;import org.eclipse.stem.jobs.simulation.SimulationEvent;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapter;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory;
@@ -1095,6 +1094,7 @@ abstract public class GeographicControl extends Composite implements
 			colorProviderAdapter.setSelectedDecorator(optionsBar
 					.getSelectedDecorator());
 			geographicRenderer.setColorProviderAdapter(colorProviderAdapter);
+			layout();
 		}
 	} // colorProviderChanged
 } // GeographicControl
