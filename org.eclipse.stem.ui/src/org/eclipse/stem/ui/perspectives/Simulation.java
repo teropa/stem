@@ -55,7 +55,8 @@ public class Simulation implements IPerspectiveFactory {
 				0.60f, MapView.ID_MAP_VIEW);
 		left.addView(SimulationControlView.ID_SIMULATION_CONTROL_VIEW);
 		left.addView(ProjectExplorer.VIEW_ID);
-
+		left.addView(ScenariosView.ID_SCENARIOS_VIEW);
+		
 		// Put the Scenario View on the bottom right
 		// and add all the shortcuts there also.
 		final IFolderLayout bottom = layout.createFolder("bottom", //$NON-NLS-1$
@@ -63,8 +64,15 @@ public class Simulation implements IPerspectiveFactory {
 
 		bottom.addView(ScenariosView.ID_SCENARIOS_VIEW);
 
+		// Add time series view
+		bottom.addView("org.eclipse.stem.ui.views.reports");
+		// Add phase plot view
+		bottom.addView("org.eclipse.stem.ui.views.reports.phaseSpace");
+		// Add CSV logger view
+		bottom.addView("org.eclipse.stem.ui.views.reports.phaseSpace");
 		// add Error Log view
-		bottom.addView("org.eclipse.pde.runtime.LogView"); //$NON-NLS-1$
+		bottom.addView("org.eclipse.stem.util.loggers"); //$NON-NLS-1$
+
 		// Add the Views to "Show View" menu
 		layout
 				.addShowViewShortcut(SimulationControlView.ID_SIMULATION_CONTROL_VIEW);
