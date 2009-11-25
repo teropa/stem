@@ -39,6 +39,7 @@ import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelPackage;
+import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
@@ -220,8 +221,8 @@ public class WorldScenarioCreator {
 				dc.setFormat(ScenarioPackage.eNS_URI);
 
 				// Add the disease model to the model
-				final Model temp = EcoreUtil.copy(model);
-				temp.getNodeDecorators().add(
+				final Model temp = (Model)EcoreUtil.copy(model);
+				temp.getNodeDecorators().add((NodeDecorator)
 						EcoreUtil.copy(diseaseModel));
 
 				scenario.setModel(temp);

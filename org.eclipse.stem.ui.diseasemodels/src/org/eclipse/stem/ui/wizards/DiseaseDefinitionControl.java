@@ -155,7 +155,7 @@ public class DiseaseDefinitionControl extends Composite {
 
 	
 	DiseaseModel getSelectedDiseaseModel() {
-		final DiseaseModel retValue = EcoreUtil
+		final DiseaseModel retValue = (DiseaseModel)EcoreUtil
 				.copy(getDiseaseModels()[combo.getSelectionIndex()]);
 		diseaseModelPropertyComposite.populateDiseaseModel(retValue);
 		return retValue;

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.LabelValue;
 //import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.STEMTime;
@@ -324,7 +325,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 				.hasNext();) {
 			final TestDynamicEdgeLabel dynamicLabel = (TestDynamicEdgeLabel) labelIter
 					.next();
-			dynamicLabel.setCurrentValue(EcoreUtil
+			dynamicLabel.setCurrentValue((LabelValue)EcoreUtil
 					.copy(RESET_VALUE));
 		}
 	} // resetLabels

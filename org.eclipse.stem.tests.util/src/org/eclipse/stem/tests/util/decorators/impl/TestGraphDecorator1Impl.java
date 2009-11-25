@@ -16,6 +16,7 @@ import java.util.Iterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.LabelValue;
 //import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.GraphDecoratorImpl;
@@ -91,7 +92,7 @@ public class TestGraphDecorator1Impl extends GraphDecoratorImpl implements
 				.hasNext();) {
 			final TestDynamicLabel1 dynamicLabel = (TestDynamicLabel1) labelIter
 					.next();
-			dynamicLabel.setCurrentValue(EcoreUtil
+			dynamicLabel.setCurrentValue((LabelValue)EcoreUtil
 					.copy(RESET_VALUE));
 		}
 		assert this.sane();

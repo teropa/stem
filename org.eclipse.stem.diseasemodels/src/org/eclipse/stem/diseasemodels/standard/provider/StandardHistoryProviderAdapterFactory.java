@@ -157,7 +157,7 @@ public class StandardHistoryProviderAdapterFactory extends
 						STEMTime timeKey = generateNextSTEMTime(cycle++);
 						synchronized (history) {
 							// Make of copy of the disease model label
-							final DiseaseModelLabel dml = EcoreUtil
+							final DiseaseModelLabel dml = (DiseaseModelLabel)EcoreUtil
 									.copy((DiseaseModelLabel) getTarget());
 							// When you copy an EObject, the references are
 							// copied as well this means that the Node that

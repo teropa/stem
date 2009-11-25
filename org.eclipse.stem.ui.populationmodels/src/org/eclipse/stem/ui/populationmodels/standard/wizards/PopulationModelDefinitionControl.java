@@ -153,7 +153,7 @@ public class PopulationModelDefinitionControl extends Composite {
 
 	
 	PopulationModel getSelectedPopulationModel() {
-		final PopulationModel retValue = EcoreUtil
+		final PopulationModel retValue = (PopulationModel)EcoreUtil
 				.copy(getPopulationModels()[combo.getSelectionIndex()]);
 		populationModelPropertyComposite.populatePopulationModel(retValue);
 		return retValue;
