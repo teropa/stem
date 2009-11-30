@@ -232,6 +232,21 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	// can reset the file line counter. Also needed to keep track of the line number in the file
 	private STEMTime firstSTEMTime = null;
 	
+	private synchronized void readDatafiles() {
+		if(scenarioMap == null) { // Not yet loaded
+			try {
+				CSVscenarioLoader loader = new CSVscenarioLoader(this.dataPath);
+				int maxresolution = loader.getMaxResolution();
+				scenarioMap = loader.parseAllFiles();
+				// Set the disease type here since we don't need that
+				// input from the end-user any longer
+				this.diseaseType = loader.getType().name();
+			} catch(ScenarioInitializationException sie) {
+				Activator.logError("Error reading scenario files", sie);
+			}
+		}
+	}
+	
 	/**
 	 * 
 	 * This method reads the next state data from the external dataFile
@@ -261,19 +276,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		int last = fileName.lastIndexOf(LOCATIONID_PREFIX);
 		last += LOCATIONID_PREFIX.length();
 		String key = fileName.substring(last,fileName.length());
-		if(scenarioMap == null) { // Not yet loaded
-			try {
-				CSVscenarioLoader loader = new CSVscenarioLoader(this.dataPath);
-				int maxresolution = loader.getMaxResolution();
-				scenarioMap = loader.parseAllFiles();
-				// Set the disease type here since we don't need that
-				// input from the end-user any longer
-				this.diseaseType = loader.getType().name();
-			} catch(ScenarioInitializationException sie) {
-				Activator.logError("Error reading scenario files", sie);
-				return null;
-			}
-		}
+		
 
 		dataInstance = scenarioMap.getLocation(key);
 		// if no data
@@ -345,7 +348,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 			if (diseaseType.equals(IMPORT_TYPE_SIR) || diseaseType.equals(IMPORT_TYPE_SEIR)) 
 				if(dataInstance.getData(labelR).size() > fileLineCounter) {
 					String rString1 = dataInstance.getData(labelR).get(fileLineCounter);
-					deltaR = new Double(rString1).doubleValue() - ((SEIRLabelValue)currentValue).getR();
+					deltaR = new Double(rString1).doubleValue() - ((SIRLabelValue)currentValue).getR();
 				}// R
 		
 			if (diseaseType.equals(IMPORT_TYPE_SI)) {
@@ -402,6 +405,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 */
 	@Override
 	public DiseaseModelLabel createDiseaseModelLabel() {
+		readDatafiles();
 		if (diseaseType==IMPORT_TYPE_SI) return StandardFactory.eINSTANCE.createSILabel();
 		if (diseaseType==IMPORT_TYPE_SIR) return StandardFactory.eINSTANCE.createSIRLabel();
 		// else default
@@ -413,6 +417,9 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 */
 	@Override
 	public DiseaseModelLabelValue createDiseaseModelLabelValue() {
+		readDatafiles();
+		if(diseaseType==IMPORT_TYPE_SI) return StandardFactory.eINSTANCE.createSILabelValue();
+		if(diseaseType==IMPORT_TYPE_SIR) return StandardFactory.eINSTANCE.createSIRLabelValue();
 		return StandardFactory.eINSTANCE.createSEIRLabelValue();
 	} // createDiseaseModelLabelValue
 	
