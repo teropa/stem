@@ -872,6 +872,7 @@ public class TimeSeriesCanvas extends Canvas {
 			yAxisPrimary.getScale().setStep(0.25);
 		}
 		useLinearTimeScale = !useLinearTimeScale;
+		this.draw();
 	}
 	
 	
@@ -890,6 +891,7 @@ public class TimeSeriesCanvas extends Canvas {
 			legend.setVisible(true);
 		}
 		showLegend = !showLegend;
+		this.draw();
 	}
 
 	/**
@@ -1058,6 +1060,7 @@ public class TimeSeriesCanvas extends Canvas {
 			    boolean state = !propertiesToPlot.get(property).booleanValue();
 			    propertiesToPlot.put(property, new Boolean(state));
 				setChecked(state);
+				draw();
 		}
 	}// DisplayableProperty
 	
