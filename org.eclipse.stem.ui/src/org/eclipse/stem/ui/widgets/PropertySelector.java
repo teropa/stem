@@ -107,7 +107,7 @@ public class PropertySelector extends Composite {
 	 * @param parent
 	 * @param style
 	 */
-	public PropertySelector(final Composite parent, final int style) {
+	public PropertySelector(final Composite parent, final int style, boolean allowPropertySelection) {
 		super(parent, style);
 		final FormLayout retValueLayout = new FormLayout();
 		this.setLayout(retValueLayout);
@@ -188,7 +188,7 @@ public class PropertySelector extends Composite {
 
 		} // SelectionAdapter
 				);
-
+		if(!allowPropertySelection)propertiesCombo.setEnabled(false);
 		setSimulation(null);
 	} // PropertySelector
 
