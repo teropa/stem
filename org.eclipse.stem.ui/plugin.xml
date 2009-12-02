@@ -1485,6 +1485,20 @@
         content="$nl$/intro/tutorialsExtensionContent.xml">
     </configExtension>
   </extension>
+
+
+  <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="org.eclipse.stem.ui.splashhandler.SplashHandler"
+            id="org.eclipse.stem.ui.splashhandler">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="org.eclipse.stem.ui.product"
+            splashId="org.eclipse.stem.ui.splashhandler">
+      </splashHandlerProductBinding>
+   </extension>  
+
   <!--
   <extension
     point="org.eclipse.ui.menus">
