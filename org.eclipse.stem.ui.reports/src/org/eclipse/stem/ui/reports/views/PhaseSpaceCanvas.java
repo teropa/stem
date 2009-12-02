@@ -221,6 +221,7 @@ public class PhaseSpaceCanvas extends Canvas {
 			minLogScaleValue = 0.5/denom;
 			/////////////////////////////////////////////////////////////
 			
+			if(propertyToPlotX == null || propertyToPlotY==null) return;
 			// time
 			STEMTime[] time = rvhp.getAllHistoricTimeValues();
 			// Get the values for the property to be plotted
@@ -441,6 +442,7 @@ public class PhaseSpaceCanvas extends Canvas {
 		xAxisLabel = defaultAxisLabel_X;
 		if (propertyToPlotX!= null) {
 			xAxisLabel = this.propertyToPlotX.getDisplayName(propertyToPlotX);
+			if(!useLinearScales) xAxisLabel = "Log("+xAxisLabel+")";
 		}
 		xAxisPrimary.getTitle( ).getCaption( ).setValue( xAxisLabel );
 		xAxisPrimary.getTitle( ).setVisible(true);
@@ -449,6 +451,7 @@ public class PhaseSpaceCanvas extends Canvas {
 		yAxisLabel = defaultAxisLabel_Y;
 		if (propertyToPlotY!= null) {
 			yAxisLabel = this.propertyToPlotY.getDisplayName(propertyToPlotY);
+			if(!useLinearScales) yAxisLabel = "Log("+yAxisLabel+")";
 		}
 		yAxisPrimary.getTitle( ).getCaption( ).setValue( yAxisLabel );
 		yAxisPrimary.getTitle( ).setVisible(true);

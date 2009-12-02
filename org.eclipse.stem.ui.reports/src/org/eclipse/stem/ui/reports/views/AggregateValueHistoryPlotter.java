@@ -149,7 +149,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 		identifiableTitle = new Label(this, SWT.NONE);
 		aggregateSeriesCanvas = new AggregateTimeSeriesCanvas(this);
 		aggregateSeriesCanvas.reset();
-		propertySelector = new PropertySelector(this, SWT.NONE);
+		propertySelector = new PropertySelector(this, SWT.NONE, true);
 
 		removeButton = new Button(this, SWT.NONE);
 		removeButton.setText(REMOVE_TEXT);

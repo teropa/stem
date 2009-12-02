@@ -81,9 +81,9 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 
 		identifiableTitle = new Label(this, SWT.NONE);
 		phaseSpaceCanvas = new PhaseSpaceCanvas(this);
-		propertySelectorX = new PropertySelector(this, SWT.NONE);
+		propertySelectorX = new PropertySelector(this, SWT.NONE, true);
 		propertySelectorX.setDisplayLabel(X_AXIS_LABEL);
-		propertySelectorY = new PropertySelector(this, SWT.NONE);
+		propertySelectorY = new PropertySelector(this, SWT.NONE, true);
 		propertySelectorY.setDisplayLabel(Y_AXIS_LABEL);
 
 		removeButton = new Button(this, SWT.NONE);
@@ -130,6 +130,8 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 		removeButtonFormData.right = new FormAttachment(90, 0);
 		removeButton.setLayoutData(removeButtonFormData);
 
+		final PhaseSpaceHistoryPlotter self = this;
+		
 		// X listener
 		propertySelectorX
 				.addPropertySelectionListener(new PropertySelector.PropertySelectionListener() {
@@ -148,9 +150,11 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 
 						selectedDynamicLabel = decoratorToLabelMap
 								.get(selectedDecorator);
-						switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
-								.adapt(selectedDynamicLabel,
-										RelativeValueHistoryProvider.class));
+						RelativeValueHistoryProviderAdapter rhvp = (RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
+						.adapt(selectedDynamicLabel,
+								RelativeValueHistoryProvider.class);
+						switchToRVHP(rhvp);
+						self.phaseSpaceCanvas.setDataSourceAndRedraw(rhvp, selectedProperty2, selectedProperty1);
 					}
 				});
 
@@ -172,9 +176,11 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 
 						selectedDynamicLabel = decoratorToLabelMap
 								.get(selectedDecorator);
-						switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
-								.adapt(selectedDynamicLabel,
-										RelativeValueHistoryProvider.class));
+						RelativeValueHistoryProviderAdapter rhvp = (RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
+						.adapt(selectedDynamicLabel,
+								RelativeValueHistoryProvider.class);
+						switchToRVHP(rhvp);
+						self.phaseSpaceCanvas.setDataSourceAndRedraw(rhvp, selectedProperty2, selectedProperty1);
 					}
 				});
 

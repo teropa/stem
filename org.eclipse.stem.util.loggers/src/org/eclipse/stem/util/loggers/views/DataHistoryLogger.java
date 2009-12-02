@@ -161,7 +161,7 @@ public class DataHistoryLogger extends LoggerControl implements
 		final Color bgColor = new Color(display, new RGB(170, 170, 190));
 		inner.setBackground(bgColor);
 
-		propertySelector = new PropertySelector(inner, SWT.NONE);
+		propertySelector = new PropertySelector(inner, SWT.NONE, true);
 		
 
 		

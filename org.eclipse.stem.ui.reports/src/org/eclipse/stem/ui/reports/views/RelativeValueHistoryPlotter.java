@@ -118,7 +118,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 
 		identifiableTitle = new Label(this, SWT.NONE);
 		timeSeriesCanvas = new TimeSeriesCanvas(this);
-		propertySelector = new PropertySelector(this, SWT.NONE);
+		propertySelector = new PropertySelector(this, SWT.NONE, false);
 
 		removeButton = new Button(this, SWT.NONE);
 		removeButton.setText(REMOVE_TEXT);
