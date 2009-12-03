@@ -410,6 +410,341 @@ public interface ForcingPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.forcing.impl.GaussianForcingDiseaseModelImpl <em>Gaussian Forcing Disease Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.forcing.impl.GaussianForcingDiseaseModelImpl
+	 * @see org.eclipse.stem.diseasemodels.forcing.impl.ForcingPackageImpl#getGaussianForcingDiseaseModel()
+	 * @generated
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL = 1;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__URI = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__TYPE_URI = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__DUBLIN_CORE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__LABELS_TO_UPDATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__GRAPH = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__ENABLED = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__GRAPH_DECORATED = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__PROGRESS = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Background Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__BACKGROUND_MORTALITY_RATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__BACKGROUND_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__POPULATION_IDENTIFIER = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__TIME_PERIOD = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Disease Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__DISEASE_NAME = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__DISEASE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__RELATIVE_TOLERANCE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__RELATIVE_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__FINITE_DIFFERENCE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__FINITE_DIFFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__FREQUENCY_DEPENDENT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__BACKGROUND_BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__TOTAL_POPULATION_COUNT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__TOTAL_POPULATION_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count Reciprocal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL;
+
+	/**
+	 * The feature id for the '<em><b>Total Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__TOTAL_AREA = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__TOTAL_AREA;
+
+	/**
+	 * The feature id for the '<em><b>Reference Population Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY;
+
+	/**
+	 * The feature id for the '<em><b>Transmission Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__TRANSMISSION_RATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__TRANSMISSION_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Non Linearity Coefficient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__NON_LINEARITY_COEFFICIENT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__NON_LINEARITY_COEFFICIENT;
+
+	/**
+	 * The feature id for the '<em><b>Recovery Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__RECOVERY_RATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__RECOVERY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Physically Adjacent Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__IMMUNITY_LOSS_RATE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Seed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__SEED = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__SEED;
+
+	/**
+	 * The feature id for the '<em><b>Random Generator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__RANDOM_GENERATOR = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__RANDOM_GENERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Gain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__GAIN = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__GAIN;
+
+	/**
+	 * The feature id for the '<em><b>Sigma2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2 = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Modulation Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Modulation Phase Shift</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Modulation Floor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Gaussian Forcing Disease Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL_FEATURE_COUNT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 4;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel <em>Disease Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,6 +808,60 @@ public interface ForcingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getForcingDiseaseModel_Attenuation();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel <em>Gaussian Forcing Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gaussian Forcing Disease Model</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel
+	 * @generated
+	 */
+	EClass getGaussianForcingDiseaseModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getSigma2 <em>Sigma2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sigma2</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getSigma2()
+	 * @see #getGaussianForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussianForcingDiseaseModel_Sigma2();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getModulationPeriod <em>Modulation Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modulation Period</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getModulationPeriod()
+	 * @see #getGaussianForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussianForcingDiseaseModel_ModulationPeriod();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getModulationPhaseShift <em>Modulation Phase Shift</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modulation Phase Shift</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getModulationPhaseShift()
+	 * @see #getGaussianForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussianForcingDiseaseModel_ModulationPhaseShift();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getModulationFloor <em>Modulation Floor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modulation Floor</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel#getModulationFloor()
+	 * @see #getGaussianForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussianForcingDiseaseModel_ModulationFloor();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -540,6 +929,43 @@ public interface ForcingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FORCING_DISEASE_MODEL__ATTENUATION = eINSTANCE.getForcingDiseaseModel_Attenuation();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.forcing.impl.GaussianForcingDiseaseModelImpl <em>Gaussian Forcing Disease Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.diseasemodels.forcing.impl.GaussianForcingDiseaseModelImpl
+		 * @see org.eclipse.stem.diseasemodels.forcing.impl.ForcingPackageImpl#getGaussianForcingDiseaseModel()
+		 * @generated
+		 */
+		EClass GAUSSIAN_FORCING_DISEASE_MODEL = eINSTANCE.getGaussianForcingDiseaseModel();
+		/**
+		 * The meta object literal for the '<em><b>Sigma2</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2 = eINSTANCE.getGaussianForcingDiseaseModel_Sigma2();
+		/**
+		 * The meta object literal for the '<em><b>Modulation Period</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD = eINSTANCE.getGaussianForcingDiseaseModel_ModulationPeriod();
+		/**
+		 * The meta object literal for the '<em><b>Modulation Phase Shift</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT = eINSTANCE.getGaussianForcingDiseaseModel_ModulationPhaseShift();
+		/**
+		 * The meta object literal for the '<em><b>Modulation Floor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR = eINSTANCE.getGaussianForcingDiseaseModel_ModulationFloor();
 
 	}
 

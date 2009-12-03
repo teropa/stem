@@ -40,6 +40,15 @@ public interface ForcingFactory extends EFactory {
 	ForcingDiseaseModel createForcingDiseaseModel();
 
 	/**
+	 * Returns a new object of class '<em>Gaussian Forcing Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gaussian Forcing Disease Model</em>'.
+	 * @generated
+	 */
+	GaussianForcingDiseaseModel createGaussianForcingDiseaseModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -448,15 +448,15 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT:
-				return new Double(getSeasonalModulationExponent());
+				return getSeasonalModulationExponent();
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PERIOD:
-				return new Double(getModulationPeriod());
+				return getModulationPeriod();
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT:
-				return new Double(getModulationPhaseShift());
+				return getModulationPhaseShift();
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
-				return new Double(getSeasonalModulationFloor());
+				return getSeasonalModulationFloor();
 			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
-				return new Double(getAttenuation());
+				return getAttenuation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -471,19 +471,19 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT:
-				setSeasonalModulationExponent(((Double)newValue).doubleValue());
+				setSeasonalModulationExponent((Double)newValue);
 				return;
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PERIOD:
-				setModulationPeriod(((Double)newValue).doubleValue());
+				setModulationPeriod((Double)newValue);
 				return;
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT:
-				setModulationPhaseShift(((Double)newValue).doubleValue());
+				setModulationPhaseShift((Double)newValue);
 				return;
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
-				setSeasonalModulationFloor(((Double)newValue).doubleValue());
+				setSeasonalModulationFloor((Double)newValue);
 				return;
 			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
-				setAttenuation(((Double)newValue).doubleValue());
+				setAttenuation((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -40,5 +40,16 @@
            title="%dc_title_E_S_SEIR">
      </dublin_core>
   </extension>
-
+	<extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.forcing.impl.GaussianForcingDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_edlund"
+           description="%dc_desc_E_S_SEIR"
+           identifier="org.eclipse.stem.diseasemodels.experimental.dublin_core4"
+           title="%dc_title_E_S_SEIR">
+     </dublin_core>
+  </extension>
 </plugin>

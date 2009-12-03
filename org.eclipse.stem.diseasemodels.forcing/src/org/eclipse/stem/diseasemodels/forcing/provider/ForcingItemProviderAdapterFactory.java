@@ -104,6 +104,29 @@ public class ForcingItemProviderAdapterFactory extends ForcingAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GaussianForcingDiseaseModelItemProvider gaussianForcingDiseaseModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGaussianForcingDiseaseModelAdapter() {
+		if (gaussianForcingDiseaseModelItemProvider == null) {
+			gaussianForcingDiseaseModelItemProvider = new GaussianForcingDiseaseModelItemProvider(this);
+		}
+
+		return gaussianForcingDiseaseModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,7 +176,7 @@ public class ForcingItemProviderAdapterFactory extends ForcingAdapterFactory imp
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -203,6 +226,7 @@ public class ForcingItemProviderAdapterFactory extends ForcingAdapterFactory imp
 	 */
 	public void dispose() {
 		if (forcingDiseaseModelItemProvider != null) forcingDiseaseModelItemProvider.dispose();
+		if (gaussianForcingDiseaseModelItemProvider != null) gaussianForcingDiseaseModelItemProvider.dispose();
 	}
 
 }
