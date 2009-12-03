@@ -300,7 +300,7 @@ public class ScenarioAnalysisSuite {
 					
 			this.comparisonScenarioDataMap = compLoader.parseAllFiles(actualRes);
 					
-			ThresholdMeanSquareDifference msd = new ThresholdMeanSquareDifference(referenceScenarioDataMap, comparisonScenarioDataMap);
+			SimplifiedMeanSquareDifference msd = new SimplifiedMeanSquareDifference(referenceScenarioDataMap, comparisonScenarioDataMap);
 					
 			ErrorResult result = 	msd.solve(runnableContext);	
 			return result;
