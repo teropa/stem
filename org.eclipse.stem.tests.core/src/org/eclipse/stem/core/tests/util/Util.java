@@ -15,6 +15,7 @@ package org.eclipse.stem.core.tests.util;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.DublinCore;
@@ -96,7 +97,7 @@ public class Util {
 		final Scenario scenario = ScenarioTest.createFixture();
 		refreshDublinCore(scenario);
 		final Graph canonicalGraph = scenario.getModel().getCanonicalGraph(
-				STEMURI.createURI("canonical"));
+				STEMURI.createURI("canonical"), new IdentifiableFilter(scenario.getModel().getDublinCore().getCoverage()));
 		Utility.serializeIdentifiable(canonicalGraph, createURI(fileName));
 	} // serializeCanonicalGraph
 

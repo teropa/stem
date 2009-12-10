@@ -492,7 +492,7 @@ public class GraphTest extends IdentifiableTest {
 		assertTrue(addGraph.getNumNodeLabels() == ADD_NUM_NODE_LABELS);
 
 		// Add the two graphs together
-		mainGraph.addGraph(addGraph);
+		mainGraph.addGraph(addGraph, null);
 
 		assertTrue(mainGraph.getNumEdges() == RESULT_NUM_EDGES);
 		assertTrue(mainGraph.getNumNodes() == RESULT_NUM_NODES);

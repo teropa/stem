@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
@@ -351,7 +352,7 @@ public class ScenarioTest extends IdentifiableTest {
 	public void testSerializeDeserializeCanonicalGraph() {
 		final Scenario scenario = getFixture();
 		final Graph canonicalGraph = scenario.getModel().getCanonicalGraph(
-				CANONICAL_GRAPH__URI);
+				CANONICAL_GRAPH__URI, new IdentifiableFilter(scenario.getModel().getDublinCore().getCoverage()));
 		try {
 			Utility.serializeIdentifiable(canonicalGraph,
 					CANONICAL_GRAPH_SERIALZATION_TEST_URI);
