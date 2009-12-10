@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 //import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
@@ -469,12 +470,13 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * 
 	 * @generated NOT
 	 */
-	public void addGraph(final Graph graph) {
-		getEdges().addAll(graph.getEdges());
-		getNodes().addAll(graph.getNodes());
-		getNodeLabels().addAll(graph.getNodeLabels());
+	public void addGraph(final Graph graph, IdentifiableFilter filter) {
+		getEdges().addAll(filter.filterEdges(graph.getEdges()));
+		getNodes().addAll(filter.filterNodes(graph.getNodes()));
+		getNodeLabels().addAll(filter.filterNodeLabels(graph.getNodeLabels()));
 		getDecorators().addAll(graph.getDecorators());
 
+		filter.filterLabels(graph.getGraphLabels());
 		// We need to update the graph labels to the new graph
 		for (final Iterator<Label> graphLabelIter = graph.getGraphLabels().values()
 				.iterator(); graphLabelIter.hasNext();) {

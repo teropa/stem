@@ -355,6 +355,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 */
 	public Set<Node> getChildSet(Node parent) {
 		Set<Node> children = new HashSet<Node>();
+		if(parent == null) return children;
 		String parentID = getTargetURI().lastSegment();
 		//RelativePhysicalRelationshipLabelValue
 		EList<Edge> allEdges = parent.getEdges();

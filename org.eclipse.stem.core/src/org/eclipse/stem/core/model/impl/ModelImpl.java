@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
@@ -191,10 +192,13 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * 
 	 * @generated NOT
 	 */
-	public Graph getCanonicalGraph(final URI uri) {
+	public Graph getCanonicalGraph(final URI uri, IdentifiableFilter parentFilter) {
 		final Graph retValue = GraphFactory.eINSTANCE.createGraph();
 		retValue.setURI(uri);
 
+		IdentifiableFilter myFilter = new IdentifiableFilter(this.getDublinCore().getCoverage());
+		if(parentFilter != null)myFilter.restrict(parentFilter);	
+		
 		// Basically, we iterate through each of the models getting their
 		// canonical graphs and then merge them together. Then we add in the
 		// graphs of this model and finally "resolve" all the "dangling" links
@@ -202,7 +206,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		for (final Iterator<Model> modelIter = getModels().iterator(); modelIter
 				.hasNext();) {
 			final Model model = (Model) modelIter.next();
-			retValue.addGraph(model.getCanonicalGraph(uri));
+			retValue.addGraph(model.getCanonicalGraph(uri, myFilter), myFilter);
 		} // for models
 
 		// Now do the graphs that are part of this model
@@ -215,7 +219,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			// final Copier copier = new Copier();
 			// final Graph copyGraph = (Graph) copier.copy(graph);
 			// copier.copyReferences();
-			retValue.addGraph(copyGraph);
+			retValue.addGraph(copyGraph, myFilter);
 		} // for graphs
 
 		// Hook up the Identifiables with other ones they reference via URI's,

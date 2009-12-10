@@ -15,6 +15,7 @@ package org.eclipse.stem.core.graph;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
@@ -166,7 +167,7 @@ public interface Graph extends Identifiable {
 	 * 
 	 * @model volatile="true" transient="true" changeable="false"
 	 */
-	void addGraph(Graph graph);
+	void addGraph(Graph graph, IdentifiableFilter filter);
 
 	/**
 	 * Put the {@link Edge} into the {@link Graph}.

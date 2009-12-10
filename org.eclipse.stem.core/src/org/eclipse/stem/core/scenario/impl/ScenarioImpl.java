@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.Constants;
 import org.eclipse.stem.core.CorePlugin;
+import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
@@ -441,7 +442,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.
-		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI);
+		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilter(getModel().getDublinCore().getCoverage()));
 
 		canonicalGraph.setTime((STEMTime) EcoreUtil.copy(getSequencer()
 				.getCurrentTime()));

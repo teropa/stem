@@ -14,6 +14,7 @@ package org.eclipse.stem.core.model;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
 
@@ -130,11 +131,13 @@ public interface Model extends Identifiable {
 	 * 
 	 * @param uri
 	 *            the {@link URI} of the newly created canonical graph
+	 * @param parentFilter
 	 * @return the canonical graph of the model
 	 * 
 	 * @model volatile="true" transient="true" changeable="false"
 	 *        resolveProxies="false"
 	 */
-	Graph getCanonicalGraph(URI uri);
+	Graph getCanonicalGraph(URI uri, IdentifiableFilter parentFilter);
 
 } // Model
+
