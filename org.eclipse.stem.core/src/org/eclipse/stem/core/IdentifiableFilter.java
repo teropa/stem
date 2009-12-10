@@ -47,9 +47,10 @@ public class IdentifiableFilter {
 		if(patterns == null)return map;
 		ArrayList<URI>remove = new ArrayList<URI>();
 		for(URI uri:map.keySet()) {
+			String lastSegment = uri.lastSegment();
 			boolean keep = false;
 			for(int i=0;i<patterns.length;++i) 
-				if(uri.toString().contains(patterns[i])) {keep = true;break;}
+				if(lastSegment.contains(patterns[i])) {keep = true;break;}
 			if(!keep)remove.add(uri);
 		}
 		for(URI u:remove)map.remove(u);
@@ -62,8 +63,8 @@ public class IdentifiableFilter {
 			Edge edge = map.get(uri);
 			boolean foundSource=false, foundDest = false;
 			for(int i=0;i<patterns.length;++i) {
-				if(edge.getNodeAURI().toString().contains(patterns[i])) foundSource = true;
-				if(edge.getNodeBURI().toString().contains(patterns[i])) foundDest = true;
+				if(edge.getNodeAURI().lastSegment().contains(patterns[i])) foundSource = true;
+				if(edge.getNodeBURI().lastSegment().contains(patterns[i])) foundDest = true;
 			}
 			if(!(foundSource && foundDest))remove.add(uri);
 		}
@@ -74,9 +75,10 @@ public class IdentifiableFilter {
 		if(patterns == null)return map;
 		ArrayList<URI>remove = new ArrayList<URI>();
 		for(URI uri:map.keySet()) {
+			String lastSegment = uri.lastSegment();
 			boolean keep = false;
 			for(int i=0;i<patterns.length;++i) 
-				if(uri.toString().contains(patterns[i])) {keep = true;break;}
+				if(lastSegment.contains(patterns[i])) {keep = true;break;}
 			if(!keep)remove.add(uri);
 		}
 		for(URI u:remove)map.remove(u);
@@ -86,9 +88,10 @@ public class IdentifiableFilter {
 		if(patterns == null)return map;
 		ArrayList<URI>remove = new ArrayList<URI>();
 		for(URI uri:map.keySet()) {
+			String lastSegment = uri.lastSegment();
 			boolean keep = false;
 			for(int i=0;i<patterns.length;++i) 
-				if(uri.toString().contains(patterns[i])) {keep = true;break;}
+				if(lastSegment.contains(patterns[i])) {keep = true;break;}
 			if(!keep)remove.add(uri);
 		}
 		for(URI u:remove)map.remove(u);
