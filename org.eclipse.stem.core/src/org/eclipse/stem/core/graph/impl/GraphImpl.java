@@ -471,14 +471,25 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public void addGraph(final Graph graph, IdentifiableFilter filter) {
-		getEdges().addAll(filter.filterEdges(graph.getEdges()));
-		getNodes().addAll(filter.filterNodes(graph.getNodes()));
-		getNodeLabels().addAll(filter.filterNodeLabels(graph.getNodeLabels()));
+		EMap<URI, Edge>edges = graph.getEdges();
+		EMap<URI, Node>nodes = graph.getNodes();
+		EMap<URI, NodeLabel>nodeLabels = graph.getNodeLabels();
+		EMap<URI, Label>graphLabels = graph.getGraphLabels();
+		
+		if(filter != null) {
+			filter.filterEdges(edges);
+			filter.filterNodes(nodes);
+			filter.filterNodeLabels(nodeLabels);
+			filter.filterLabels(graphLabels);
+		}
+		
+		getEdges().addAll(edges);
+		getNodes().addAll(nodes);
+		getNodeLabels().addAll(nodeLabels);
 		getDecorators().addAll(graph.getDecorators());
-
-		filter.filterLabels(graph.getGraphLabels());
+		
 		// We need to update the graph labels to the new graph
-		for (final Iterator<Label> graphLabelIter = graph.getGraphLabels().values()
+		for (final Iterator<Label> graphLabelIter = graphLabels.values()
 				.iterator(); graphLabelIter.hasNext();) {
 			final Label graphLabel = graphLabelIter.next();
 			graphLabel.setURIOfIdentifiableToBeLabeled(getURI());
