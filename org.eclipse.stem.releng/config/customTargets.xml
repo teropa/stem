@@ -174,15 +174,45 @@
 	<property name="packagesDir" value="${buildDirectory}/${buildLabel}" />
 	<property name="packagePostfix" value="${majorVersion}.${forceContextQualifier}" />
 	<target name="postBuild">
-		<move file="${packagesDir}/${buildId}-linux.gtk.x86.zip" tofile="${packagesDir}/STEM-linux.gtk.x86-${packagePostfix}.zip"/>
+		<antcall target="updateZipFile">
+			<param name="os_conf" value="linux.gtk.x86"/>
+		</antcall>
+		<antcall target="updateZipFile">
+			<param name="os_conf" value="linux.gtk.x86_64"/>
+		</antcall>
+		<antcall target="updateZipFile">
+			<param name="os_conf" value="win32.win32.x86"/>
+		</antcall>
+		<antcall target="updateZipFile">
+			<param name="os_conf" value="macosx.carbon.ppc"/>
+		</antcall>
+		<antcall target="updateZipFile">
+			<param name="os_conf" value="macosx.cocoa.x86"/>
+		</antcall>
+		<antcall target="updateZipFile">
+			<param name="os_conf" value="linux.gtk.ppc"/>
+		</antcall>
+
+		<!--move file="${packagesDir}/${buildId}-linux.gtk.x86.zip" tofile="${packagesDir}/STEM-linux.gtk.x86-${packagePostfix}.zip"/>
 		<move file="${packagesDir}/${buildId}-linux.gtk.x86_64.zip" tofile="${packagesDir}/STEM-linux.gtk.x86_64-${packagePostfix}.zip"/>
 		<move file="${packagesDir}/${buildId}-win32.win32.x86.zip" tofile="${packagesDir}/STEM-win32-${packagePostfix}.zip"/>
 		<move file="${packagesDir}/${buildId}-macosx.carbon.ppc.zip" tofile="${packagesDir}/STEM-macosx.carbon.ppc-${packagePostfix}.zip"/>
 		<move file="${packagesDir}/${buildId}-macosx.cocoa.x86.zip" tofile="${packagesDir}/STEM-macosx.cocoa.x86-${packagePostfix}.zip"/>
+		<move file="${packagesDir}/${buildId}-linux.gtk.ppc.zip" tofile="${packagesDir}/STEM-linux.gtk.ppc-${packagePostfix}.zip"/-->
 		
 		<!-- Add the default workspace to all zip files -->
+		<!--unzip src="${packagesDir}/STEM-linux.gtk.x86-${packagePostfix}.zip" dest="${packagesDir}/../../resources/configuration">
+			<patternset>
+				<include name="stem/configuration/config.ini"/>
+			</patternset>
+			<mapper type="flatten"/>
+		</unzip>
+		<propertyfile file="${packagesDir}/../../resources/configuration/config.ini">
+			<entry key="stem.buildId" value="${packagePostfix}"/>
+		</propertyfile>
 		<zip destfile="${packagesDir}/STEM-linux.gtk.x86-${packagePostfix}.zip" update="true">
 			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+			<zipfileset dir="${packagesDir}/../../resources/configuration" prefix="stem/configuration"/>
 		</zip>
 		<zip destfile="${packagesDir}/STEM-linux.gtk.x86_64-${packagePostfix}.zip" update="true">
 			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
@@ -196,12 +226,32 @@
 		<zip destfile="${packagesDir}/STEM-macosx.cocoa.x86-${packagePostfix}.zip" update="true">
 			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
 		</zip>
+		<zip destfile="${packagesDir}/STEM-linux.gtk.ppc-${packagePostfix}.zip" update="true">
+			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+		</zip-->
 		
 		<!-- Check if there is a request to publish the binaries -->
-		<istrue value="${toPublish}">
+		<!--istrue value="${toPublish}">
 			<antcall target="publish" />
 			<antcall target="updateWebSiteWithWeeklyBuild" />
-		</istrue>
+		</istrue-->
+	</target>
+	
+	<target name="updateZipFile">
+		<move file="${packagesDir}/${buildId}-${os_conf}.zip" tofile="${packagesDir}/STEM-${os_conf}-${packagePostfix}.zip"/>
+		<unzip src="${packagesDir}/STEM-${os_conf}-${packagePostfix}.zip" dest="${packagesDir}/../../resources/configuration">
+			<patternset>
+				<include name="stem/configuration/config.ini"/>
+			</patternset>
+			<mapper type="flatten"/>
+		</unzip>
+		<propertyfile file="${packagesDir}/../../resources/configuration/config.ini">
+			<entry key="stem.buildId" value="${packagePostfix}"/>
+		</propertyfile>
+		<zip destfile="${packagesDir}/STEM-${os_conf}-${packagePostfix}.zip" update="true">
+			<zipfileset dir="${packagesDir}/../../resources/workspace" prefix="stem/workspace"/>
+			<zipfileset dir="${packagesDir}/../../resources/configuration" prefix="stem/configuration"/>
+		</zip>
 	</target>
 
 	<!-- ===================================================================== -->

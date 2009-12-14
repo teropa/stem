@@ -3,11 +3,12 @@
 # root of build tree
 BUILD_ROOT=$(cd $(dirname $0); pwd)
 
-BUILD=`date -u +I%Y%m%d`
+BUILD=`date -u +%Y%m%d`
 sed -i -e s/QUALIFIER=.*/QUALIFIER=$BUILD/ local.sh
 
 source $BUILD_ROOT/local.sh
 
+QUALIFIER=$BUILD_TYPE$QUALIFIER
 echo Qualifier = $QUALIFIER
 
 BUILD_HOME=$BUILD_ROOT/build

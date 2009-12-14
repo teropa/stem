@@ -6,7 +6,7 @@ MAJOR_VERSION=1.0.0
 JAVA_HOME=/path/to/jdk
 
 # Eclipse SDK used for building
-ECLIPSE_HOME=/pat/to/eclipse
+ECLIPSE_HOME=/path/to/eclipse
 
 #Publishing information used for placing the binaries on the Eclipse downloads
 #server and updating the STEM downloads website
@@ -14,6 +14,9 @@ TO_PUBLISH=false
 ECLIPSE_DEVELOPER_USERNAME=username
 ECLIPSE_DEVELOPER_PASSWORD=password
 
+#Build type (I or M) letter will prefix the qualifier
+BUILD_TYPE=I
+
 #Do not edit the following, it's assigned automatically by the script
-#qualifier format: IYYYYMMDD
+#qualifier format: YYYYMMDD
 QUALIFIER=I20090806
