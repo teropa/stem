@@ -82,6 +82,7 @@ public class AutomaticExperimentExecutableAdapterFactory
 					return Status.OK_STATUS;
 				}
 			};
+			j.schedule();
 		}
 	}
 }
