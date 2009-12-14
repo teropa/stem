@@ -11,8 +11,10 @@ package automaticexperiment;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.stem.core.model.Decorator;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *   <li>{@link automaticexperiment.ModifiableParameter#getFeatureName <em>Feature Name</em>}</li>
  *   <li>{@link automaticexperiment.ModifiableParameter#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link automaticexperiment.ModifiableParameter#getUpperBound <em>Upper Bound</em>}</li>
+ *   <li>{@link automaticexperiment.ModifiableParameter#getTargetURI <em>Target URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -193,5 +196,31 @@ public interface ModifiableParameter extends EObject {
 	 * @generated
 	 */
 	void setUpperBound(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Target URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target URI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target URI</em>' attribute.
+	 * @see #setTargetURI(URI)
+	 * @see automaticexperiment.AutomaticexperimentPackage#getModifiableParameter_TargetURI()
+	 * @model dataType="org.eclipse.stem.core.common.URI"
+	 * @generated
+	 */
+	URI getTargetURI();
+
+	/**
+	 * Sets the value of the '{@link automaticexperiment.ModifiableParameter#getTargetURI <em>Target URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target URI</em>' attribute.
+	 * @see #getTargetURI()
+	 * @generated
+	 */
+	void setTargetURI(URI value);
 
 } // ModifiableParameter

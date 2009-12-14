@@ -96,6 +96,7 @@ import org.eclipse.stem.core.model.provider.ModelItemProviderAdapterFactory;
 import org.eclipse.stem.core.modifier.provider.ModifierItemProviderAdapterFactory;
 import org.eclipse.stem.core.scenario.provider.ScenarioItemProviderAdapterFactory;
 import org.eclipse.stem.core.sequencer.provider.SequencerItemProviderAdapterFactory;
+import org.eclipse.stem.core.solver.provider.SolverItemProviderAdapterFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -619,6 +620,7 @@ public class AutomaticexperimentEditor
 		adapterFactory.addAdapterFactory(new ScenarioItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -1019,6 +1021,7 @@ public class AutomaticexperimentEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IContentOutlinePage.class)) {

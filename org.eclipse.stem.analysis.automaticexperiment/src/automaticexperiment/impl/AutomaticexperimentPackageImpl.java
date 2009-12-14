@@ -24,6 +24,7 @@ import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 
+import org.eclipse.stem.core.solver.SolverPackage;
 import automaticexperiment.AutomaticExperiment;
 import automaticexperiment.AutomaticexperimentFactory;
 import automaticexperiment.AutomaticexperimentPackage;
@@ -103,6 +104,7 @@ public class AutomaticexperimentPackageImpl extends EPackageImpl implements Auto
 		ModifierPackage.eINSTANCE.eClass();
 		ScenarioPackage.eINSTANCE.eClass();
 		SequencerPackage.eINSTANCE.eClass();
+		SolverPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theAutomaticexperimentPackage.createPackageContents();
@@ -259,6 +261,15 @@ public class AutomaticexperimentPackageImpl extends EPackageImpl implements Auto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getModifiableParameter_TargetURI() {
+		return (EAttribute)modifiableParameterEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AutomaticexperimentFactory getAutomaticexperimentFactory() {
 		return (AutomaticexperimentFactory)getEFactoryInstance();
 	}
@@ -298,6 +309,7 @@ public class AutomaticexperimentPackageImpl extends EPackageImpl implements Auto
 		createEAttribute(modifiableParameterEClass, MODIFIABLE_PARAMETER__FEATURE_NAME);
 		createEAttribute(modifiableParameterEClass, MODIFIABLE_PARAMETER__LOWER_BOUND);
 		createEAttribute(modifiableParameterEClass, MODIFIABLE_PARAMETER__UPPER_BOUND);
+		createEAttribute(modifiableParameterEClass, MODIFIABLE_PARAMETER__TARGET_URI);
 	}
 
 	/**
@@ -352,6 +364,7 @@ public class AutomaticexperimentPackageImpl extends EPackageImpl implements Auto
 		initEAttribute(getModifiableParameter_FeatureName(), theEcorePackage.getEString(), "featureName", null, 1, 1, ModifiableParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModifiableParameter_LowerBound(), theEcorePackage.getEDouble(), "lowerBound", "-1", 0, 1, ModifiableParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModifiableParameter_UpperBound(), theEcorePackage.getEDouble(), "upperBound", "-1", 0, 1, ModifiableParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModifiableParameter_TargetURI(), theCommonPackage.getURI(), "targetURI", null, 0, 1, ModifiableParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

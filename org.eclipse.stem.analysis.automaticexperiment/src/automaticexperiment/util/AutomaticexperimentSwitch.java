@@ -11,6 +11,7 @@ package automaticexperiment.util;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import automaticexperiment.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;

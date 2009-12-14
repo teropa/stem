@@ -239,13 +239,22 @@ public interface AutomaticexperimentPackage extends EPackage {
 	int MODIFIABLE_PARAMETER__UPPER_BOUND = 5;
 
 	/**
+	 * The feature id for the '<em><b>Target URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODIFIABLE_PARAMETER__TARGET_URI = 6;
+
+	/**
 	 * The number of structural features of the '<em>Modifiable Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODIFIABLE_PARAMETER_FEATURE_COUNT = 6;
+	int MODIFIABLE_PARAMETER_FEATURE_COUNT = 7;
 
 
 	/**
@@ -412,6 +421,17 @@ public interface AutomaticexperimentPackage extends EPackage {
 	EAttribute getModifiableParameter_UpperBound();
 
 	/**
+	 * Returns the meta object for the attribute '{@link automaticexperiment.ModifiableParameter#getTargetURI <em>Target URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target URI</em>'.
+	 * @see automaticexperiment.ModifiableParameter#getTargetURI()
+	 * @see #getModifiableParameter()
+	 * @generated
+	 */
+	EAttribute getModifiableParameter_TargetURI();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -556,6 +576,14 @@ public interface AutomaticexperimentPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODIFIABLE_PARAMETER__UPPER_BOUND = eINSTANCE.getModifiableParameter_UpperBound();
+
+		/**
+		 * The meta object literal for the '<em><b>Target URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODIFIABLE_PARAMETER__TARGET_URI = eINSTANCE.getModifiableParameter_TargetURI();
 
 	}
 

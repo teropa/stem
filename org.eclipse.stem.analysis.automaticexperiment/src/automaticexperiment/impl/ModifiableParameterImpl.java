@@ -12,12 +12,14 @@ package automaticexperiment.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.stem.core.model.Decorator;
 import automaticexperiment.AutomaticexperimentPackage;
 import automaticexperiment.ModifiableParameter;
 
@@ -34,6 +36,7 @@ import automaticexperiment.ModifiableParameter;
  *   <li>{@link automaticexperiment.impl.ModifiableParameterImpl#getFeatureName <em>Feature Name</em>}</li>
  *   <li>{@link automaticexperiment.impl.ModifiableParameterImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link automaticexperiment.impl.ModifiableParameterImpl#getUpperBound <em>Upper Bound</em>}</li>
+ *   <li>{@link automaticexperiment.impl.ModifiableParameterImpl#getTargetURI <em>Target URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -149,6 +152,26 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @ordered
 	 */
 	protected double upperBound = UPPER_BOUND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI TARGET_URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI targetURI = TARGET_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -317,6 +340,27 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getTargetURI() {
+		return targetURI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetURI(URI newTargetURI) {
+		URI oldTargetURI = targetURI;
+		targetURI = newTargetURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI, oldTargetURI, targetURI));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -333,6 +377,8 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 				return getLowerBound();
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND:
 				return getUpperBound();
+			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI:
+				return getTargetURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -362,6 +408,9 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 				return;
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND:
 				setUpperBound((Double)newValue);
+				return;
+			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI:
+				setTargetURI((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -393,6 +442,9 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND:
 				setUpperBound(UPPER_BOUND_EDEFAULT);
 				return;
+			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI:
+				setTargetURI(TARGET_URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -417,6 +469,8 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 				return lowerBound != LOWER_BOUND_EDEFAULT;
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND:
 				return upperBound != UPPER_BOUND_EDEFAULT;
+			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI:
+				return TARGET_URI_EDEFAULT == null ? targetURI != null : !TARGET_URI_EDEFAULT.equals(targetURI);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -441,6 +495,8 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 		result.append(lowerBound);
 		result.append(", upperBound: ");
 		result.append(upperBound);
+		result.append(", targetURI: ");
+		result.append(targetURI);
 		result.append(')');
 		return result.toString();
 	}

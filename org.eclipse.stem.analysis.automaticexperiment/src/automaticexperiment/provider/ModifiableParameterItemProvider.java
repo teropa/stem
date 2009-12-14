@@ -73,6 +73,7 @@ public class ModifiableParameterItemProvider
 			addFeatureNamePropertyDescriptor(object);
 			addLowerBoundPropertyDescriptor(object);
 			addUpperBoundPropertyDescriptor(object);
+			addTargetURIPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -210,6 +211,28 @@ public class ModifiableParameterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Target URI feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetURIPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModifiableParameter_targetURI_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModifiableParameter_targetURI_feature", "_UI_ModifiableParameter_type"),
+				 AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__TARGET_URI,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ModifiableParameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,6 +274,7 @@ public class ModifiableParameterItemProvider
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE_NAME:
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__LOWER_BOUND:
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND:
+			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
