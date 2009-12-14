@@ -23,6 +23,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.stem.analysis.ErrorFunction;
 import org.eclipse.stem.analysis.ErrorResult;
@@ -59,7 +60,7 @@ public class SimplexAlgorithmExecuter
 	public void execute() {
 		long before = System.currentTimeMillis();
 		
-		simplexAlgorithm.execute(simplexFnToMinimize, initialParamsValues, paramsInitialSteps, tolerance);
+		simplexAlgorithm.execute(simplexFnToMinimize,  initialParamsValues, paramsInitialSteps, tolerance);
 		long after = System.currentTimeMillis();
 		System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
 		System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
@@ -99,7 +100,7 @@ public class SimplexAlgorithmExecuter
 	    private ErrorFunction errorFunction = null;
 	    private String[] parameterNames = null;
 	    private FileWriter resultWriter;
-	    
+	    private URI[] decoratorURIs = null;
 		public NedlearMeadSimplexFunction(
 				final List<ModifiableParameter> parameters,
 				final Scenario pBaseScenario, 
@@ -111,8 +112,10 @@ public class SimplexAlgorithmExecuter
 				this.errorFunction = errorFunction;
 				if (parameters != null) {
 					parameterNames = new String[parameters.size()];
+					decoratorURIs = new URI[parameters.size()];
 					int i=0;
 					for (final ModifiableParameter param:parameters) {
+						decoratorURIs[i]=param.getTargetURI();
 						parameterNames[i++] = param.getFeatureName();
 						resultWriter.write(parameterNames[i-1]);
 						resultWriter.write(",");
@@ -126,32 +129,41 @@ public class SimplexAlgorithmExecuter
 		}
 		
 		public double getValue(double[] parameters) {
-			if (simulation != null) {
-				baseScenario.reset();
-			}
+			
+			
 			simulation = createSimulation(baseScenario);
 			simulation.setSequenceNumber(simulation.getSequenceNumber()+1);
 			
 			// Descend into the Scenario looking for something with a double field
-			final EList<Decorator> decorators = baseScenario.getCanonicalGraph().getDecorators();
+			final EList<Decorator> decs = baseScenario.getCanonicalGraph().getDecorators();
 	
-			for (Decorator decorator : decorators) {
+			Decorator defaultDecorator = null;
+			for (Decorator decorator : decs) {
 				if (decorator instanceof DiseaseModel) {
-					DiseaseModel dm = (DiseaseModel)decorator;
-					// Look through the attributes in the DiseaseModel
-					for (EAttribute attribute : decorator.eClass().getEAllAttributes()) {
-						for (int i=0; i<parameterNames.length; i++) {
-							if (attribute.getName().equals(parameterNames[i])) {								
-								dm.eSet(attribute, new Double(parameters[i]));
-							}
-						}
-					}
-					if(!(dm instanceof AggregatingSIDiseaseModel)) {
-						csvLogger = new CustomCSVLogger(SIMULATION_OUTPUT_DIR, simulation, (IntegrationDecorator) dm);
-					}
+					defaultDecorator = decorator; 
+					break;
 				}
 			}
 			
+			for(int i=0;i<parameterNames.length;++i) {
+				Decorator decorator = defaultDecorator;
+				if(decoratorURIs[i] != null) 
+					for(Decorator scenarioDec:decs) 
+						if(decoratorURIs[i].toString().equals(scenarioDec.getURI().toString())) {
+							decorator = scenarioDec;
+							break;
+						}
+				for (EAttribute attribute : decorator.eClass().getEAllAttributes()) 
+					if(attribute.getName().equals(parameterNames[i])) 
+						decorator.eSet(attribute, new Double(parameters[i]));
+			}
+			
+			csvLogger = new CustomCSVLogger(SIMULATION_OUTPUT_DIR, simulation, (IntegrationDecorator) defaultDecorator);
+
+			// This will reinit the infectors/inoc etc to the new values 
+			baseScenario.reset();
+
+
 			//Run the simulation with the new parameters and return the error value
 			System.out.println("Running the simulation with the following parameters: ");
 			System.out.println("\tParameters Names: " + Arrays.toString(parameterNames));
@@ -177,7 +189,17 @@ public class SimplexAlgorithmExecuter
 		private double getErrorValue(String simulationUniqueId) {
 			ErrorResult result = null;
 			try {
-				CSVscenarioLoader loader2 = new CSVscenarioLoader(SIMULATION_OUTPUT_DIR + File.separator + simulationUniqueId + "/Flu");
+				final EList<Decorator> decs = baseScenario.getCanonicalGraph().getDecorators();
+				
+				DiseaseModel defaultDecorator = null;
+				for (Decorator decorator : decs) {
+					if (decorator instanceof DiseaseModel) {
+						defaultDecorator = (DiseaseModel)decorator; 
+						break;
+					}
+				}
+				
+				CSVscenarioLoader loader2 = new CSVscenarioLoader(SIMULATION_OUTPUT_DIR + File.separator + simulationUniqueId +"/"+defaultDecorator.getDiseaseName());
 				ReferenceScenarioDataMapImpl data = loader2.parseAllFiles(2);
 	
 				result = errorFunction.calculateError(ref, data);

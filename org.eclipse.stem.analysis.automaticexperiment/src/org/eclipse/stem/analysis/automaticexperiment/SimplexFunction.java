@@ -1,4 +1,5 @@
 package org.eclipse.stem.analysis.automaticexperiment;
+;
 
 /*******************************************************************************
  * Copyright (c) 2009 IBM Corporation and others.
