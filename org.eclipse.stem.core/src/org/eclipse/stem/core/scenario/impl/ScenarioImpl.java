@@ -39,6 +39,7 @@ import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.STEMTime;
@@ -414,10 +415,21 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		
 		//  Now give each decorator a chance to reset its dynamic
 		// labels in the canonical graph
+		
+		// SED fix. We need to reset the disease models first since the infectors
+		// inoculators depend up those being reset beforehand.
+		
+		ArrayList<Decorator>intDecorators = new ArrayList<Decorator>();
+		ArrayList<Decorator>otherDecorators = new ArrayList<Decorator>();
+		
 		for (final Iterator<Decorator> graphDecoratorIter = canonicalGraph.getDecorators()
 				.iterator(); graphDecoratorIter.hasNext();) {
 			final Decorator decorator = graphDecoratorIter
 					.next();
+			if(decorator instanceof IntegrationDecorator)intDecorators.add(decorator);
+			else otherDecorators.add(decorator);
+		}
+		for(Decorator decorator:intDecorators){
 			// Is the Decorator enabled?
 			if (decorator.isEnabled()) {
 				// Yes
@@ -426,6 +438,16 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			
 			// Reset the solver
 		} // for each decorator
+		for(Decorator decorator:otherDecorators){
+			// Is the Decorator enabled?
+			if (decorator.isEnabled()) {
+				// Yes
+				decorator.resetLabels();
+			} // if 
+			
+			// Reset the solver
+		} // for each decorator
+	
 		solver.reset();
 	}// reset
 
