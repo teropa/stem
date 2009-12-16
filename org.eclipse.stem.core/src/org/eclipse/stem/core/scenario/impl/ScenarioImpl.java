@@ -521,15 +521,25 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		// be copied however so that any state information they may generate and
 		// retain does not become part of the scenario itself. 
 
-		
+		ArrayList<Decorator>intDecorators = new ArrayList<Decorator>();
+		ArrayList<Decorator>otherDecorators = new ArrayList<Decorator>();
 		// Let the scenario decorators decorate the graph
 		for (final Iterator<Decorator> scenarioDecorators = getScenarioDecorators()
 				.iterator(); scenarioDecorators.hasNext();) {
 			final Decorator decorator = (Decorator) EcoreUtil.copy(scenarioDecorators.next());
+			if(decorator instanceof IntegrationDecorator)intDecorators.add(decorator);
+			else otherDecorators.add(decorator);
+		}
+		for(Decorator decorator:intDecorators) {
 			canonicalGraph.getDecorators().add(decorator);
 			decorator.decorateGraph();
 			decorator.setGraphDecorated(true);
-		} // for each scenario decorator
+		} 
+		for(Decorator decorator:otherDecorators) {
+			canonicalGraph.getDecorators().add(decorator);
+			decorator.decorateGraph();
+			decorator.setGraphDecorated(true);
+		} 
 
 		
 		// Are there any unresolved identifiables in the canonical graph and 
