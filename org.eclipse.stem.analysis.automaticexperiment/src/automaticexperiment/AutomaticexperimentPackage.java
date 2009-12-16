@@ -166,13 +166,22 @@ public interface AutomaticexperimentPackage extends EPackage {
 	int AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Re Init</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOMATIC_EXPERIMENT__RE_INIT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Automatic Experiment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOMATIC_EXPERIMENT_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 7;
+	int AUTOMATIC_EXPERIMENT_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link automaticexperiment.impl.ModifiableParameterImpl <em>Modifiable Parameter</em>}' class.
@@ -343,6 +352,17 @@ public interface AutomaticexperimentPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAutomaticExperiment_MaximumNumberOfIterations();
+
+	/**
+	 * Returns the meta object for the attribute '{@link automaticexperiment.AutomaticExperiment#isReInit <em>Re Init</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Re Init</em>'.
+	 * @see automaticexperiment.AutomaticExperiment#isReInit()
+	 * @see #getAutomaticExperiment()
+	 * @generated
+	 */
+	EAttribute getAutomaticExperiment_ReInit();
 
 	/**
 	 * Returns the meta object for class '{@link automaticexperiment.ModifiableParameter <em>Modifiable Parameter</em>}'.
@@ -518,6 +538,14 @@ public interface AutomaticexperimentPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS = eINSTANCE.getAutomaticExperiment_MaximumNumberOfIterations();
+
+		/**
+		 * The meta object literal for the '<em><b>Re Init</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUTOMATIC_EXPERIMENT__RE_INIT = eINSTANCE.getAutomaticExperiment_ReInit();
 
 		/**
 		 * The meta object literal for the '{@link automaticexperiment.impl.ModifiableParameterImpl <em>Modifiable Parameter</em>}' class.

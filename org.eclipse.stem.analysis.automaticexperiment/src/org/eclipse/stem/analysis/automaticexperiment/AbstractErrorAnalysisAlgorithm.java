@@ -34,6 +34,7 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 	protected String referenceDataDirectory = null;
 	protected long maxNumOfIterations = -1;
 	protected List<ModifiableParameter> parameters = null;
+	boolean repeat = false;
 
 	abstract public void execute();
 
@@ -59,6 +60,11 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 		
 		double tolerance = automaticExperiment.getTolerance();
 		setTolerance(tolerance);		
+		long maxIterations = automaticExperiment.getMaximumNumberOfIterations();
+		setMaximumNumberOfIterations(maxIterations);
+		
+		boolean repeatUntilNoImprovement = automaticExperiment.isReInit();
+		setReInit(repeatUntilNoImprovement);
 		
 		ErrorFunction errorFunction = null;
 		String errorFunctionName = automaticExperiment.getErrorFunction();
@@ -86,6 +92,9 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 		this.maxNumOfIterations = maxNumOfIterations;
 	}
 
+	public void setReInit(boolean repeat) {
+		this.repeat = repeat;
+	}
 	public void setParameters(List<ModifiableParameter> parameters) {
 		this.parameters = parameters;
 		paramsInitialSteps = new double[parameters.size()];

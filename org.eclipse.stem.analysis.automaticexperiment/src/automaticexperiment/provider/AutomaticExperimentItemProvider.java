@@ -76,6 +76,7 @@ public class AutomaticExperimentItemProvider
 			addTolerancePropertyDescriptor(object);
 			addReferanceDataDirPropertyDescriptor(object);
 			addMaximumNumberOfIterationsPropertyDescriptor(object);
+			addReInitPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -235,6 +236,28 @@ public class AutomaticExperimentItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Re Init feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReInitPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AutomaticExperiment_reInit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AutomaticExperiment_reInit_feature", "_UI_AutomaticExperiment_type"),
+				 AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__RE_INIT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -297,6 +320,7 @@ public class AutomaticExperimentItemProvider
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__TOLERANCE:
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR:
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS:
+			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

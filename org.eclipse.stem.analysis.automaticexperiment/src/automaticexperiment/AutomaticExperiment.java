@@ -30,6 +30,7 @@ import org.eclipse.stem.core.scenario.Scenario;
  *   <li>{@link automaticexperiment.AutomaticExperiment#getTolerance <em>Tolerance</em>}</li>
  *   <li>{@link automaticexperiment.AutomaticExperiment#getReferanceDataDir <em>Referance Data Dir</em>}</li>
  *   <li>{@link automaticexperiment.AutomaticExperiment#getMaximumNumberOfIterations <em>Maximum Number Of Iterations</em>}</li>
+ *   <li>{@link automaticexperiment.AutomaticExperiment#isReInit <em>Re Init</em>}</li>
  * </ul>
  * </p>
  *
@@ -209,5 +210,31 @@ public interface AutomaticExperiment extends Identifiable {
 	 * @generated
 	 */
 	void setMaximumNumberOfIterations(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Re Init</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Re Init</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Re Init</em>' attribute.
+	 * @see #setReInit(boolean)
+	 * @see automaticexperiment.AutomaticexperimentPackage#getAutomaticExperiment_ReInit()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isReInit();
+
+	/**
+	 * Sets the value of the '{@link automaticexperiment.AutomaticExperiment#isReInit <em>Re Init</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Re Init</em>' attribute.
+	 * @see #isReInit()
+	 * @generated
+	 */
+	void setReInit(boolean value);
 
 } // AutomaticExperiment

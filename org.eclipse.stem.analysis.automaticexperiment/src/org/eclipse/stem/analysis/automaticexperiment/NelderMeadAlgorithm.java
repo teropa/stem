@@ -1,5 +1,8 @@
 package org.eclipse.stem.analysis.automaticexperiment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /*******************************************************************************
  * Copyright (c) 2009 IBM Corporation and others.
@@ -66,11 +69,14 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 	int icount = -1;
 	double ynewlo;
 	double[] xmin;
-
-	public void execute(final SimplexFunction fn, final double[] startPoint,
-			final double[] step, final double terminatingVariance) {
+	
+	ArrayList<Double> minParamValues = new ArrayList<Double>();
+	ArrayList<Double> maxParamValues = new ArrayList<Double>();
+	
+	public void execute(final SimplexFunction fn,  final double[] startPoint,
+			final double[] step, final double terminatingVariance, long maxIter) {
 		execute(fn, startPoint, terminatingVariance, step,
-				1, -1);
+				1, (int)maxIter);
 	}
 	
 	/**
@@ -125,6 +131,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 			for (i = 0; i < n; i++) {
 				p[i + n * n] = start[i];
 			}
+			limit(start);
 			y[n] = fn.getValue(start);
 			icount = icount + 1;
 
@@ -134,6 +141,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 				for (i = 0; i < n; i++) {
 					p[i + j * n] = start[i];
 				}
+				limit(start);
 				y[j] = fn.getValue(start);
 				icount = icount + 1;
 				start[j] = x;
@@ -187,6 +195,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 				for (i = 0; i < n; i++) {
 					pstar[i] = pbar[i] + rcoeff * (pbar[i] - p[i + ihi * n]);
 				}
+				limit(pstar);
 				ystar = fn.getValue(pstar);
 				icount = icount + 1;
 				//
@@ -196,6 +205,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 					for (i = 0; i < n; i++) {
 						p2star[i] = pbar[i] + ecoeff * (pstar[i] - pbar[i]);
 					}
+					limit(p2star);
 					y2star = fn.getValue(p2star);
 					icount = icount + 1;
 					//
@@ -242,6 +252,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 							p2star[i] = pbar[i] + ccoeff
 									* (p[i + ihi * n] - pbar[i]);
 						}
+						limit(p2star);
 						y2star = fn.getValue(p2star);
 						icount = icount + 1;
 						//
@@ -254,6 +265,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 											* n]) * 0.5;
 									xmin[i] = p[i + j * n];
 								}
+								limit(xmin);
 								y[j] = fn.getValue(xmin);
 								icount = icount + 1;
 							}
@@ -285,6 +297,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 						for (i = 0; i < n; i++) {
 							p2star[i] = pbar[i] + ccoeff * (pstar[i] - pbar[i]);
 						}
+						limit(p2star);
 						y2star = fn.getValue(p2star);
 						icount = icount + 1;
 						//
@@ -355,6 +368,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 			for (i = 0; i < n; i++) {
 				del = step[i] * eps;
 				xmin[i] = xmin[i] + del;
+				limit(xmin);
 				z = fn.getValue(xmin);
 				icount = icount + 1;
 				if (z < ynewlo) {
@@ -362,6 +376,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 					break;
 				}
 				xmin[i] = xmin[i] - del - del;
+				limit(xmin);
 				z = fn.getValue(xmin);
 				icount = icount + 1;
 				if (z < ynewlo) {
@@ -385,6 +400,12 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 		}
 	}
 
+	private void limit(double []vals) {
+		for(int i=0;i<vals.length;++i) {
+			if(vals[i]<minParamValues.get(i)) vals[i] = minParamValues.get(i); 
+			else if(vals[i]>maxParamValues.get(i)) vals[i] = maxParamValues.get(i); 
+		}
+	}
 	public double getMinimumFunctionValue() {
 		return this.ynewlo;
 	}
@@ -395,7 +416,13 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 
 	public void setParameterLimits(final int parameterIndex,
 			final double lowerBound, final double upperBound) {
-		// TODO Auto-generated method stub
+		for(int i=0;i<parameterIndex+1-minParamValues.size();++i) minParamValues.add(0.0);
+		for(int i=0;i<parameterIndex+1-maxParamValues.size();++i) maxParamValues.add(0.0);
+		minParamValues.ensureCapacity(parameterIndex+1);
+		maxParamValues.ensureCapacity(parameterIndex+1);
+		minParamValues.set(parameterIndex, lowerBound);
+		maxParamValues.set(parameterIndex,upperBound);
+		
 	}
 
 }

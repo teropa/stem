@@ -40,6 +40,7 @@ import automaticexperiment.ModifiableParameter;
  *   <li>{@link automaticexperiment.impl.AutomaticExperimentImpl#getTolerance <em>Tolerance</em>}</li>
  *   <li>{@link automaticexperiment.impl.AutomaticExperimentImpl#getReferanceDataDir <em>Referance Data Dir</em>}</li>
  *   <li>{@link automaticexperiment.impl.AutomaticExperimentImpl#getMaximumNumberOfIterations <em>Maximum Number Of Iterations</em>}</li>
+ *   <li>{@link automaticexperiment.impl.AutomaticExperimentImpl#isReInit <em>Re Init</em>}</li>
  * </ul>
  * </p>
  *
@@ -165,6 +166,26 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @ordered
 	 */
 	protected long maximumNumberOfIterations = MAXIMUM_NUMBER_OF_ITERATIONS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isReInit() <em>Re Init</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReInit()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RE_INIT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReInit() <em>Re Init</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReInit()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean reInit = RE_INIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -345,6 +366,27 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReInit() {
+		return reInit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReInit(boolean newReInit) {
+		boolean oldReInit = reInit;
+		reInit = newReInit;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT, oldReInit, reInit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -363,6 +405,8 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 				return getReferanceDataDir();
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS:
 				return getMaximumNumberOfIterations();
+			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT:
+				return isReInit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -398,6 +442,9 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS:
 				setMaximumNumberOfIterations((Long)newValue);
 				return;
+			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT:
+				setReInit((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -431,6 +478,9 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS:
 				setMaximumNumberOfIterations(MAXIMUM_NUMBER_OF_ITERATIONS_EDEFAULT);
 				return;
+			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT:
+				setReInit(RE_INIT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -457,6 +507,8 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 				return REFERANCE_DATA_DIR_EDEFAULT == null ? referanceDataDir != null : !REFERANCE_DATA_DIR_EDEFAULT.equals(referanceDataDir);
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS:
 				return maximumNumberOfIterations != MAXIMUM_NUMBER_OF_ITERATIONS_EDEFAULT;
+			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT:
+				return reInit != RE_INIT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -481,6 +533,8 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 		result.append(referanceDataDir);
 		result.append(", maximumNumberOfIterations: ");
 		result.append(maximumNumberOfIterations);
+		result.append(", reInit: ");
+		result.append(reInit);
 		result.append(')');
 		return result.toString();
 	}

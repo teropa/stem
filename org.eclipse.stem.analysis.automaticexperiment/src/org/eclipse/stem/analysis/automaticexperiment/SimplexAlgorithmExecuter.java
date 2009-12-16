@@ -58,13 +58,24 @@ public class SimplexAlgorithmExecuter
 	 */
 	@Override
 	public void execute() {
-		long before = System.currentTimeMillis();
-		
-		simplexAlgorithm.execute(simplexFnToMinimize,  initialParamsValues, paramsInitialSteps, tolerance);
-		long after = System.currentTimeMillis();
-		System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
-		System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
-		System.out.println("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
+		for(;;) {
+			long before = System.currentTimeMillis();
+			simplexAlgorithm.execute(simplexFnToMinimize,  initialParamsValues, paramsInitialSteps, tolerance, this.maxNumOfIterations);
+			long after = System.currentTimeMillis();
+			System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
+			System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
+			System.out.println("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
+			
+			if(!this.repeat)break;
+			double [] minvals = simplexAlgorithm.getMinimumParametersValues();
+			boolean same = true;
+			for(int i=0;i<initialParamsValues.length;++i)
+				if(initialParamsValues[i] != minvals[i]) {same=false;break;}
+			if(same)break;
+			// Not same, reinit with new minimum
+			for(int i=0;i<initialParamsValues.length;++i)
+				initialParamsValues[i] = minvals[i];
+		}
 	}
 	
 	@Override

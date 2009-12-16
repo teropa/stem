@@ -198,6 +198,15 @@ public class AutomaticexperimentPackageImpl extends EPackageImpl implements Auto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAutomaticExperiment_ReInit() {
+		return (EAttribute)automaticExperimentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModifiableParameter() {
 		return modifiableParameterEClass;
 	}
@@ -301,6 +310,7 @@ public class AutomaticexperimentPackageImpl extends EPackageImpl implements Auto
 		createEAttribute(automaticExperimentEClass, AUTOMATIC_EXPERIMENT__TOLERANCE);
 		createEAttribute(automaticExperimentEClass, AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR);
 		createEAttribute(automaticExperimentEClass, AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS);
+		createEAttribute(automaticExperimentEClass, AUTOMATIC_EXPERIMENT__RE_INIT);
 
 		modifiableParameterEClass = createEClass(MODIFIABLE_PARAMETER);
 		createEAttribute(modifiableParameterEClass, MODIFIABLE_PARAMETER__INITIAL_VALUE);
@@ -356,6 +366,7 @@ public class AutomaticexperimentPackageImpl extends EPackageImpl implements Auto
 		initEAttribute(getAutomaticExperiment_Tolerance(), theEcorePackage.getEDouble(), "tolerance", null, 1, 1, AutomaticExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAutomaticExperiment_ReferanceDataDir(), theEcorePackage.getEString(), "referanceDataDir", null, 1, 1, AutomaticExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAutomaticExperiment_MaximumNumberOfIterations(), theEcorePackage.getELong(), "maximumNumberOfIterations", null, 1, 1, AutomaticExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAutomaticExperiment_ReInit(), theEcorePackage.getEBoolean(), "reInit", null, 1, 1, AutomaticExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modifiableParameterEClass, ModifiableParameter.class, "ModifiableParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModifiableParameter_InitialValue(), theEcorePackage.getEDouble(), "initialValue", null, 1, 1, ModifiableParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
