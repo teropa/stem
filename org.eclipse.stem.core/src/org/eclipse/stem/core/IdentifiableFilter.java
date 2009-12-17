@@ -49,8 +49,14 @@ public class IdentifiableFilter {
 		for(URI uri:map.keySet()) {
 			String lastSegment = uri.lastSegment();
 			boolean keep = false;
-			for(int i=0;i<patterns.length;++i) 
-				if(lastSegment.contains(patterns[i])) {keep = true;break;}
+		
+			for(int i=0;i<patterns.length;++i) {
+				String pat = patterns[i];
+				boolean wildcard = false;
+				if(pat.endsWith("*")) {pat = pat.substring(0, pat.length()-1);wildcard = true;}
+				if(wildcard && lastSegment.contains(pat)
+						|| !wildcard && lastSegment.equals(pat)) {keep = true;break;}
+			}
 			if(!keep)remove.add(uri);
 		}
 		for(URI u:remove)map.remove(u);
@@ -63,8 +69,14 @@ public class IdentifiableFilter {
 			Edge edge = map.get(uri);
 			boolean foundSource=false, foundDest = false;
 			for(int i=0;i<patterns.length;++i) {
-				if(edge.getNodeAURI().lastSegment().contains(patterns[i])) foundSource = true;
-				if(edge.getNodeBURI().lastSegment().contains(patterns[i])) foundDest = true;
+				String pat = patterns[i];
+				boolean wildcard = false;
+				if(pat.endsWith("*")) {pat = pat.substring(0, pat.length()-1);wildcard = true;}
+				
+				if(wildcard && edge.getNodeAURI().lastSegment().contains(pat)
+						|| !wildcard && edge.getNodeAURI().lastSegment().equals(pat)) foundSource = true;
+				if(wildcard && edge.getNodeBURI().lastSegment().contains(pat)
+						|| !wildcard && edge.getNodeBURI().lastSegment().equals(pat)) foundSource = true;			
 			}
 			if(!(foundSource && foundDest))remove.add(uri);
 		}
@@ -77,8 +89,13 @@ public class IdentifiableFilter {
 		for(URI uri:map.keySet()) {
 			String lastSegment = uri.lastSegment();
 			boolean keep = false;
-			for(int i=0;i<patterns.length;++i) 
-				if(lastSegment.contains(patterns[i])) {keep = true;break;}
+			for(int i=0;i<patterns.length;++i) {
+				String pat = patterns[i];
+				boolean wildcard = false;
+				if(pat.endsWith("*")) {pat = pat.substring(0, pat.length()-1);wildcard = true;}
+				if(wildcard && lastSegment.contains(pat) 
+						|| !wildcard && lastSegment.equals(pat)) {keep = true;break;}
+			}
 			if(!keep)remove.add(uri);
 		}
 		for(URI u:remove)map.remove(u);
@@ -90,15 +107,23 @@ public class IdentifiableFilter {
 		for(URI uri:map.keySet()) {
 			String lastSegment = uri.lastSegment();
 			boolean keep = false;
-			for(int i=0;i<patterns.length;++i) 
-				if(lastSegment.contains(patterns[i])) {keep = true;break;}
+			for(int i=0;i<patterns.length;++i) {		
+				String pat = patterns[i];
+				boolean wildcard = false;
+				if(pat.endsWith("*")) {pat = pat.substring(0, pat.length()-1);wildcard = true;}
+		
+				if(wildcard && lastSegment.contains(pat) ||
+						!wildcard && lastSegment.equals(pat)) {keep = true;break;}
 			if(!keep)remove.add(uri);
+			}
 		}
 		for(URI u:remove)map.remove(u);
 		return map;
 	}
 	public void restrict(IdentifiableFilter other) {
-		if(other.patterns == null)return;
+		// ToDO. The idea is that we need to consolidate a list of patterns into a single
+		// list if there are duplicates or more general patterns
+/*		if(other.patterns == null)return;
 		ArrayList<String>restrictedPatterns = new ArrayList<String>();
 		if(this.patterns != null) for(String mypat:this.patterns)restrictedPatterns.add(mypat);
 		for(String otherpat:other.patterns) if(!restrictedPatterns.contains(otherpat)) restrictedPatterns.add(otherpat);
@@ -114,5 +139,6 @@ public class IdentifiableFilter {
 			}
 		this.patterns = new String[restrictedPatterns.size()];
 		for(int i=0;i<restrictedPatterns.size();++i) this.patterns[i] = restrictedPatterns.get(i);
+	*/
 	}
 }
