@@ -24,7 +24,7 @@ public class NelderMeadAlgorithmTest extends TestCase {
 		NelderMeadAlgorithm nelder = new NelderMeadAlgorithm();
 		double[] initStart = { 1.8, 1.2 };
 		double[] step = { 0.5, 0.5 };
-		nelder.execute(new SampleFunction(), initStart, step, 0.01);
+		nelder.execute(new SampleFunction(), initStart, step, 0.01, -1);
 		System.out.println("Results:");
 		System.out.println("Minimum Parameters - " + Arrays.toString(nelder.getMinimumParametersValues()));
 		System.out.println("Minimum Function Value - " + nelder.getMinimumFunctionValue());
