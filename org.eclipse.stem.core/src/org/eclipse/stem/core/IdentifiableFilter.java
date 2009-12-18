@@ -76,7 +76,7 @@ public class IdentifiableFilter {
 				if(wildcard && edge.getNodeAURI().lastSegment().contains(pat)
 						|| !wildcard && edge.getNodeAURI().lastSegment().equals(pat)) foundSource = true;
 				if(wildcard && edge.getNodeBURI().lastSegment().contains(pat)
-						|| !wildcard && edge.getNodeBURI().lastSegment().equals(pat)) foundSource = true;			
+						|| !wildcard && edge.getNodeBURI().lastSegment().equals(pat)) foundDest = true;			
 			}
 			if(!(foundSource && foundDest))remove.add(uri);
 		}
