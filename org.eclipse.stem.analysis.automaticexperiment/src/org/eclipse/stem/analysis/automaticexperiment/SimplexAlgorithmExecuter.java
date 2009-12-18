@@ -58,23 +58,33 @@ public class SimplexAlgorithmExecuter
 	 */
 	@Override
 	public void execute() {
+		double prevmin = Double.MAX_VALUE;
+		double [] prevvals = new double[initialParamsValues.length];
 		for(;;) {
+			for(int i=0;i<initialParamsValues.length;++i) prevvals[i] = initialParamsValues[i];
 			long before = System.currentTimeMillis();
 			simplexAlgorithm.execute(simplexFnToMinimize,  initialParamsValues, paramsInitialSteps, tolerance, this.maxNumOfIterations);
 			long after = System.currentTimeMillis();
-			System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
-			System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
-			System.out.println("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
 			
-			if(!this.repeat)break;
-			double [] minvals = simplexAlgorithm.getMinimumParametersValues();
-			boolean same = true;
-			for(int i=0;i<initialParamsValues.length;++i)
-				if(initialParamsValues[i] != minvals[i]) {same=false;break;}
-			if(same)break;
+			if(!this.repeat) {
+				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
+				System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
+				System.out.println("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
+				break;
+			}
+			double newmin = simplexAlgorithm.getMinimumFunctionValue();
+			if(newmin >= prevmin) {
+				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
+				System.out.println("Minimum value: " + prevmin);
+				System.out.println("Parameters values: " + Arrays.toString(prevvals));
+				break; // we couldn't improve
+			}
 			// Not same, reinit with new minimum
-			for(int i=0;i<initialParamsValues.length;++i)
-				initialParamsValues[i] = minvals[i];
+			prevmin = simplexAlgorithm.getMinimumFunctionValue();
+			for(int i=0;i<initialParamsValues.length;++i){
+				initialParamsValues[i] = simplexAlgorithm.getMinimumParametersValues()[i];
+				prevvals[i] =  simplexAlgorithm.getMinimumParametersValues()[i];
+			}
 		}
 	}
 	
