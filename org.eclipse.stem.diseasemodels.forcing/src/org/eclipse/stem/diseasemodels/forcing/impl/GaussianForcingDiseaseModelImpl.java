@@ -6,6 +6,8 @@
  */
 package org.eclipse.stem.diseasemodels.forcing.impl;
 
+import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -115,6 +117,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	protected double modulationFloor = MODULATION_FLOOR_EDEFAULT;
 
 	private Calendar calendar = Calendar.getInstance();
+	private Calendar calendar2 = Calendar.getInstance();
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	
 	/**
@@ -247,6 +250,9 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.SIImpl#computeDiseaseDeltas(StandardDiseaseModelLabelValue,
 	 *      StandardDiseaseModelLabel, long)
 	 */
+	private ArrayList<Long> writtedTimes = new ArrayList<Long>();
+	private FileWriter fw;
+	private Long firstTime = new Long(Long.MAX_VALUE);
 	@Override
 	public StandardDiseaseModelLabelValue computeDiseaseDeltas(
 			final STEMTime time,
@@ -259,12 +265,19 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		double modulationPeriod = getModulationPeriod();
 		double phase = getModulationPhaseShift();	
 		double sigma2 = getSigma2();		
+		
+		synchronized(firstTime) {
+			if(firstTime.longValue() == Long.MAX_VALUE)
+				firstTime = new Long(time.getTime().getTime());
+		}
+		
 		// Get the day from time and adjust for the phase	
 		double day=0;
 		// Shared calendar object not thread safe
 		synchronized(calendar) {
 			calendar.setTimeInMillis(currentMillis+(long)(phase*MILLIS_PER_DAY));
-			day = calendar.get(Calendar.DAY_OF_YEAR) - 1; // 0-364 (365)
+			calendar2.setTimeInMillis(firstTime.longValue());
+			day = (calendar.getTimeInMillis() - calendar2.getTimeInMillis())/MILLIS_PER_DAY;
 		}
 		
 		day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
@@ -273,6 +286,18 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		// This is beta*
 		double transmissionRate = seasonalModulationFloor + modulation * (getAdjustedTransmissionRate(timeDelta));
 
+/*		synchronized(writtedTimes) {
+			if(!writtedTimes.contains(time.getTime().getTime())) {
+				try {
+				if(fw == null) fw = new FileWriter("beta.csv");
+				fw.write(time.getTime().getTime()+","+transmissionRate+"\n");
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+				writtedTimes.add(time.getTime().getTime());
+			}
+		}
+		*/
 		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
 		
 		// The effective Infectious population  is a dimensionles number normalize by total
