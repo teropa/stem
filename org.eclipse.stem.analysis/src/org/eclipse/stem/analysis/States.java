@@ -14,7 +14,7 @@ public class States {
 	/**
      * possible states with parameters to fit
      */
-	public static final String[] statesToFit= {"S","E","I","R","IR","IF"};
+	public static final String[] statesToFit= {"S","E","I","R","P"};
 	/**
 	 *  Susceptible index (for statesToFit)
 	 */
@@ -34,9 +34,5 @@ public class States {
 	/**
 	 *  Infectious recover index (for statesToFit)
 	 */
-	public static final int INFECTIOUS_RECOVER = 4;
-	/**
-	 *  Infectious died index (for statesToFit)
-	 */
-	public static final int INFECTIOUS_DIE     = 5;
+	public static final int POPULATION = 4;
 }
