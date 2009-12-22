@@ -87,6 +87,28 @@ public class ErrorFunctionImpl extends EObjectImpl implements ErrorFunction {
 		return infectious;
 	}
 	
-	
+	/**
+	 * From the dataMap extract a list of population values
+	 * @param dataMap
+	 * @return list of infectious people
+	 */
+	public List<Double> getPopulation(ReferenceScenarioDataInstance dataMap) {
+		final String POPULATION = States.statesToFit[States.POPULATION];
+		
+		 
+		// MUST exist
+		List<String> popList = dataMap.getData(POPULATION);
+		// We should standardize on P for population count
+		if(popList == null) popList =  dataMap.getData("Population Count");
+		assert(popList!=null);
+		
+		List<Double> populations = new ArrayList<Double>();
+		for (int i = 0; i < popList.size(); i ++) {
+			
+			double inf = (new Double(popList.get(i))).doubleValue();
+			populations.add(new Double(inf));
+		}
+		return populations;
+	}
 	
 } //ErrorFunctionImpl
