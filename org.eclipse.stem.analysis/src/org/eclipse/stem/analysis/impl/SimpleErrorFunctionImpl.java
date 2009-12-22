@@ -60,6 +60,11 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	 */
 	Map<String,List<Double>> commonInfectiousLocationsA = new HashMap<String,List<Double>>();
 	Map<String,List<Double>> commonInfectiousLocationsB = new HashMap<String,List<Double>>();
+	Map<String,List<Double>> commonPopulationLocationsA = new HashMap<String,List<Double>>();
+	Map<String,List<Double>> commonPopulationLocationsB = new HashMap<String,List<Double>>();
+
+	Map<String,Double> commonAvgPopulationLocationsA = new HashMap<String,Double>();
+	Map<String,Double> commonAvgPopulationLocationsB = new HashMap<String,Double>();
 
 	/**
 	 * number common locations with nonzero Inf count at time t
@@ -75,6 +80,9 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	public double[] time;
 	
 	protected AnalysisFactory aFactory = new AnalysisFactoryImpl();
+
+	// Set to true to weight the average by population size
+	private static boolean WEIGHTED_AVERAGE = false;
 	
 	/**
 	 * calculate delta for a simple error function
@@ -100,15 +108,17 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 				// get the lists of data only for those locations that are common to both maps						ReferenceScenarioDataInstance dataMapA = mapA.getLocation(id);
 				ReferenceScenarioDataInstance dataMapA = _ref.getLocation(id);
 				List<Double> dataAI = getInfectious(dataMapA);
-			
+				List<Double> dataAP = getPopulation(dataMapA);
 				commonInfectiousLocationsA.put(id,dataAI);
-												
+				commonPopulationLocationsA.put(id, dataAP);							
 							
 				// Map B
 				ReferenceScenarioDataInstance dataMapB = _data.getLocation(id);
 				List<Double> dataBI = getInfectious(dataMapB);
+				List<Double> dataBP = getPopulation(dataMapB);
 				commonInfectiousLocationsB.put(id,dataBI);
-												
+				commonPopulationLocationsB.put(id, dataBP);
+				
 				// init the array size
 				if (maxTime == -1) maxTime = dataAI.size();
 						
@@ -138,8 +148,27 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		double finalerror = 0.0;
 		BasicEList<Double> list = new BasicEList<Double>();
 		for(int i=0;i<time.length;++i)list.add(0.0);
+		
+		// Get the average population for each location
+		for(String loc:commonPopulationLocationsA.keySet()) {
+			List<Double>ld = commonPopulationLocationsA.get(loc);
+			double sum = 0;for(double d:ld)sum+=d;
+			sum /= (double)ld.size();
+			commonAvgPopulationLocationsA.put(loc, sum);
+		}		
+
+		// Get the average population for each location
+		for(String loc:commonPopulationLocationsB.keySet()) {
+			List<Double>ld = commonPopulationLocationsB.get(loc);
+			double sum = 0;for(double d:ld)sum+=d;
+			sum /= (double)ld.size();
+			commonAvgPopulationLocationsB.put(loc, sum);
+		}		
+
 		// Calculate the normalized root mean square error for each location, then
 		// divide by the number of locatins
+		
+		double weighted_denom = 0.0;
 		
 		int loc_iter = 0;
 		for(String loc:commonInfectiousLocationsA.keySet()) {
@@ -167,13 +196,17 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		
 			double error =  Math.sqrt(nominator/(double)time.length);
 			error = error / (maxRef-minRef);
-			finalerror += error;
+			if(WEIGHTED_AVERAGE) finalerror += commonAvgPopulationLocationsA.get(loc) * error;
+			else finalerror += error;
+			weighted_denom += commonAvgPopulationLocationsA.get(loc);
 			nrmse_loc[loc_iter++] = error;
 		
 		}
 		
 		// Divide the error by the number of locations
-		finalerror /= (double)nrmse_loc.length;
+		if(WEIGHTED_AVERAGE) finalerror /= weighted_denom; 
+		else finalerror /= (double)nrmse_loc.length;
+		
 		ErrorResult resultobj = aFactory.createErrorResult();
 		resultobj.setErrorByTimeStep(list);
 		resultobj.setError(finalerror);
