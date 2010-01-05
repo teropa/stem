@@ -22,6 +22,7 @@ import org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel;
 import org.eclipse.stem.diseasemodels.forcing.ForcingFactory;
 import org.eclipse.stem.diseasemodels.forcing.ForcingPackage;
 
+import org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel;
 import org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 
@@ -44,6 +45,12 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 	 * @generated
 	 */
 	private EClass gaussianForcingDiseaseModelEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gaussian2ForcingDiseaseModelEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -212,6 +219,60 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGaussian2ForcingDiseaseModel() {
+		return gaussian2ForcingDiseaseModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_Sigma2_2() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_Sigma2() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_ModulationPeriod() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_ModulationPhaseShift() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_ModulationFloor() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ForcingFactory getForcingFactory() {
 		return (ForcingFactory)getEFactoryInstance();
 	}
@@ -247,6 +308,13 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		createEAttribute(gaussianForcingDiseaseModelEClass, GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD);
 		createEAttribute(gaussianForcingDiseaseModelEClass, GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT);
 		createEAttribute(gaussianForcingDiseaseModelEClass, GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR);
+
+		gaussian2ForcingDiseaseModelEClass = createEClass(GAUSSIAN2_FORCING_DISEASE_MODEL);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR);
 	}
 
 	/**
@@ -283,6 +351,7 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		// Add supertypes to classes
 		forcingDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSIRDiseaseModel());
 		gaussianForcingDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSIRDiseaseModel());
+		gaussian2ForcingDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSIRDiseaseModel());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(forcingDiseaseModelEClass, ForcingDiseaseModel.class, "ForcingDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -297,6 +366,13 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		initEAttribute(getGaussianForcingDiseaseModel_ModulationPeriod(), ecorePackage.getEDouble(), "modulationPeriod", null, 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussianForcingDiseaseModel_ModulationPhaseShift(), ecorePackage.getEDouble(), "modulationPhaseShift", null, 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussianForcingDiseaseModel_ModulationFloor(), ecorePackage.getEDouble(), "modulationFloor", null, 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(gaussian2ForcingDiseaseModelEClass, Gaussian2ForcingDiseaseModel.class, "Gaussian2ForcingDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_Sigma2_2(), theEcorePackage.getEDouble(), "sigma2_2", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_Sigma2(), ecorePackage.getEDouble(), "sigma2", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_ModulationPeriod(), ecorePackage.getEDouble(), "modulationPeriod", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_ModulationPhaseShift(), ecorePackage.getEDouble(), "modulationPhaseShift", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_ModulationFloor(), theEcorePackage.getEDouble(), "modulationFloor", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

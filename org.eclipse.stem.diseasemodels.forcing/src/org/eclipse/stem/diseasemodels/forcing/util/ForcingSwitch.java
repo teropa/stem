@@ -149,6 +149,26 @@ public class ForcingSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL: {
+				Gaussian2ForcingDiseaseModel gaussian2ForcingDiseaseModel = (Gaussian2ForcingDiseaseModel)theEObject;
+				T1 result = caseGaussian2ForcingDiseaseModel(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseStochasticSIRDiseaseModel(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseSIR(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseStandardStochasticDiseaseModel(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseSI(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseStochasticDiseaseModel(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseStandardDiseaseModel(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseDiseaseModel(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseNodeDecorator(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseSanityChecker(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseModifiable(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseDecorator(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseIdentifiable(gaussian2ForcingDiseaseModel);
+				if (result == null) result = caseComparable(gaussian2ForcingDiseaseModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -180,6 +200,21 @@ public class ForcingSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseGaussianForcingDiseaseModel(GaussianForcingDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gaussian2 Forcing Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gaussian2 Forcing Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseGaussian2ForcingDiseaseModel(Gaussian2ForcingDiseaseModel object) {
 		return null;
 	}
 

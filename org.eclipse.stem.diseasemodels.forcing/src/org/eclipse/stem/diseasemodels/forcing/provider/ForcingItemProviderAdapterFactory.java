@@ -127,6 +127,29 @@ public class ForcingItemProviderAdapterFactory extends ForcingAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Gaussian2ForcingDiseaseModelItemProvider gaussian2ForcingDiseaseModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGaussian2ForcingDiseaseModelAdapter() {
+		if (gaussian2ForcingDiseaseModelItemProvider == null) {
+			gaussian2ForcingDiseaseModelItemProvider = new Gaussian2ForcingDiseaseModelItemProvider(this);
+		}
+
+		return gaussian2ForcingDiseaseModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +250,7 @@ public class ForcingItemProviderAdapterFactory extends ForcingAdapterFactory imp
 	public void dispose() {
 		if (forcingDiseaseModelItemProvider != null) forcingDiseaseModelItemProvider.dispose();
 		if (gaussianForcingDiseaseModelItemProvider != null) gaussianForcingDiseaseModelItemProvider.dispose();
+		if (gaussian2ForcingDiseaseModelItemProvider != null) gaussian2ForcingDiseaseModelItemProvider.dispose();
 	}
 
 }
