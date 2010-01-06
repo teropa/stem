@@ -432,10 +432,10 @@ public class TimeSeriesCanvas extends Canvas {
 						double log = Math.floor(Math.log10(maxY));
 						double adjustedMax = (Math.ceil(maxY/Math.pow(10, log)))*Math.pow(10, log);
 					    if(adjustedMax <= 1.0) adjustedMax = 1.0;
-					    adjustedMax = maxY*100.0;
-					    adjustedMax += 1.0;
-					    int mx = (int)adjustedMax;
-					    adjustedMax = ((double)mx)/100.0;
+					    //adjustedMax = maxY*100.0;
+					    //adjustedMax += 1.0;
+					    //int mx = (int)adjustedMax;
+					    //adjustedMax = ((double)mx)/100.0;
 						if (useLinearTimeScale) {
 							yAxisPrimary.getScale().setMax(NumberDataElementImpl.create(adjustedMax));
 							double step = adjustedMax / 10.0;
