@@ -321,7 +321,8 @@ public class LyapunovTrajectoryCanvas extends Canvas {
 			int colorIndex = i % MAXCOLORS;
 			lsy.getLineAttributes().setColor(lineColors[colorIndex]);
 			lsy.setSeriesIdentifier(seriesIdentifier);
-			lsy.getMarker().setVisible(false);
+			
+//			lsy.getMarker().setVisible(false);
 
 			final SeriesDefinition sdX = SeriesDefinitionImpl.create();
 			final SeriesDefinition sdY = SeriesDefinitionImpl.create();
