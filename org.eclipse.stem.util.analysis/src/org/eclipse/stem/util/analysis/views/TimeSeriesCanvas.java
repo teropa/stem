@@ -415,47 +415,48 @@ public class TimeSeriesCanvas extends Canvas {
 			
 			for (int i = 0; i < maxLines; i++) {
 				String property = control.getProperty(chartIndex,i);
-			
 				final double[] doubleValues = control.getValues(chartIndex,i);
 				
 				DataSeries series = dataSeriesMap.get(property);
 				
-				for (int j = 0; j < doubleValues.length; j++) {
-					integratedDifference[i] += doubleValues[j];
-					
-					if(doubleValues[j] <= minYscale) {
-						if(doubleValues[j] > 0.0) minYscale = doubleValues[j];
-					}
-					
-					if(doubleValues[j] >= maxY) {
-						maxY = doubleValues[j];
-						double log = Math.floor(Math.log10(maxY));
-						double adjustedMax = (Math.ceil(maxY/Math.pow(10, log)))*Math.pow(10, log);
-					    if(adjustedMax <= 1.0) adjustedMax = 1.0;
-					    //adjustedMax = maxY*100.0;
-					    //adjustedMax += 1.0;
-					    //int mx = (int)adjustedMax;
-					    //adjustedMax = ((double)mx)/100.0;
-						if (useLinearTimeScale) {
-							yAxisPrimary.getScale().setMax(NumberDataElementImpl.create(adjustedMax));
-							double step = adjustedMax / 10.0;
-							yAxisPrimary.getScale().setStep(step);
-						} else {
-							// keep 2 significant figures on scale axis
-							double ymax = Math.log(adjustedMax);
-							if(adjustedMax > 1.0) {
-								ymax += 0.499;
-								long imax = Math.round(ymax);
-								ymax = imax;
-							}
-							yAxisPrimary.getScale().setMax(NumberDataElementImpl.create(ymax));
-							double step = ymax/10.0;
-							yAxisPrimary.getScale().setStep(step);
+				if(dataSeriesMap.get(property).isVisible() == true) { 
+					for (int j = 0; j < doubleValues.length; j++) {
+						integratedDifference[i] += doubleValues[j];
+						
+						if(doubleValues[j] <= minYscale) {
+							if(doubleValues[j] > 0.0) minYscale = doubleValues[j];
 						}
 						
-						
+						if(doubleValues[j] >= maxY) {
+							maxY = doubleValues[j];
+							double log = Math.floor(Math.log10(maxY));
+							double adjustedMax = (Math.ceil(maxY/Math.pow(10, log)))*Math.pow(10, log);
+						    if(adjustedMax <= 1.0) adjustedMax = 1.0;
+						    //adjustedMax = maxY*100.0;
+						    //adjustedMax += 1.0;
+						    //int mx = (int)adjustedMax;
+						    //adjustedMax = ((double)mx)/100.0;
+							if (useLinearTimeScale) {
+								yAxisPrimary.getScale().setMax(NumberDataElementImpl.create(adjustedMax));
+								double step = adjustedMax / 10.0;
+								yAxisPrimary.getScale().setStep(step);
+							} else {
+								// keep 2 significant figures on scale axis
+								double ymax = Math.log(adjustedMax);
+								if(adjustedMax > 1.0) {
+									ymax += 0.499;
+									long imax = Math.round(ymax);
+									ymax = imax;
+								}
+								yAxisPrimary.getScale().setMax(NumberDataElementImpl.create(ymax));
+								double step = ymax/10.0;
+								yAxisPrimary.getScale().setStep(step);
+							}
+							
+							
+						}
 					}
-				}
+				} // is visible
 				integratedDifference[i] /= doubleValues.length;
 					// Any values?
 					if (doubleValues.length > 0) {
