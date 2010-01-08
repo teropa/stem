@@ -70,6 +70,10 @@ public class Gaussian2ForcingDiseaseModelItemProvider
 			addModulationPeriodPropertyDescriptor(object);
 			addModulationPhaseShiftPropertyDescriptor(object);
 			addModulationFloorPropertyDescriptor(object);
+			addAtt1PropertyDescriptor(object);
+			addAtt2PropertyDescriptor(object);
+			addAtt3PropertyDescriptor(object);
+			addAtt4PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -185,6 +189,94 @@ public class Gaussian2ForcingDiseaseModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Att1 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAtt1PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Gaussian2ForcingDiseaseModel_att1_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Gaussian2ForcingDiseaseModel_att1_feature", "_UI_Gaussian2ForcingDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Att2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAtt2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Gaussian2ForcingDiseaseModel_att2_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Gaussian2ForcingDiseaseModel_att2_feature", "_UI_Gaussian2ForcingDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Att3 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAtt3PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Gaussian2ForcingDiseaseModel_att3_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Gaussian2ForcingDiseaseModel_att3_feature", "_UI_Gaussian2ForcingDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Att4 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAtt4PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Gaussian2ForcingDiseaseModel_att4_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Gaussian2ForcingDiseaseModel_att4_feature", "_UI_Gaussian2ForcingDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Gaussian2ForcingDiseaseModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,6 +318,10 @@ public class Gaussian2ForcingDiseaseModelItemProvider
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD:
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT:
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR:
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1:
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2:
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3:
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

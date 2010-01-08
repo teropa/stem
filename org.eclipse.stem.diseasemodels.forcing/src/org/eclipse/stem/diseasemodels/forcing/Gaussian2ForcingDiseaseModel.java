@@ -21,6 +21,10 @@ import org.eclipse.stem.diseasemodels.standard.StochasticSIRDiseaseModel;
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getModulationPeriod <em>Modulation Period</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getModulationPhaseShift <em>Modulation Phase Shift</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getModulationFloor <em>Modulation Floor</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt1 <em>Att1</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt2 <em>Att2</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt3 <em>Att3</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt4 <em>Att4</em>}</li>
  * </ul>
  * </p>
  *
@@ -158,5 +162,109 @@ public interface Gaussian2ForcingDiseaseModel extends StochasticSIRDiseaseModel 
 	 * @generated
 	 */
 	void setModulationFloor(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Att1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Att1</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Att1</em>' attribute.
+	 * @see #setAtt1(double)
+	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussian2ForcingDiseaseModel_Att1()
+	 * @model
+	 * @generated
+	 */
+	double getAtt1();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt1 <em>Att1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Att1</em>' attribute.
+	 * @see #getAtt1()
+	 * @generated
+	 */
+	void setAtt1(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Att2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Att2</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Att2</em>' attribute.
+	 * @see #setAtt2(double)
+	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussian2ForcingDiseaseModel_Att2()
+	 * @model
+	 * @generated
+	 */
+	double getAtt2();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt2 <em>Att2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Att2</em>' attribute.
+	 * @see #getAtt2()
+	 * @generated
+	 */
+	void setAtt2(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Att3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Att3</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Att3</em>' attribute.
+	 * @see #setAtt3(double)
+	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussian2ForcingDiseaseModel_Att3()
+	 * @model
+	 * @generated
+	 */
+	double getAtt3();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt3 <em>Att3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Att3</em>' attribute.
+	 * @see #getAtt3()
+	 * @generated
+	 */
+	void setAtt3(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Att4</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Att4</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Att4</em>' attribute.
+	 * @see #setAtt4(double)
+	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussian2ForcingDiseaseModel_Att4()
+	 * @model
+	 * @generated
+	 */
+	double getAtt4();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt4 <em>Att4</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Att4</em>' attribute.
+	 * @see #getAtt4()
+	 * @generated
+	 */
+	void setAtt4(double value);
 
 } // Gaussian2ForcingDiseaseModel

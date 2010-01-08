@@ -1079,13 +1079,49 @@ public interface ForcingPackage extends EPackage {
 	int GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Att1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1 = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Att2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2 = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Att3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3 = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Att4</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4 = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Gaussian2 Forcing Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 5;
+	int GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 9;
 
 
 	/**
@@ -1273,6 +1309,50 @@ public interface ForcingPackage extends EPackage {
 	EAttribute getGaussian2ForcingDiseaseModel_ModulationFloor();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt1 <em>Att1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Att1</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt1()
+	 * @see #getGaussian2ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian2ForcingDiseaseModel_Att1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt2 <em>Att2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Att2</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt2()
+	 * @see #getGaussian2ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian2ForcingDiseaseModel_Att2();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt3 <em>Att3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Att3</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt3()
+	 * @see #getGaussian2ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian2ForcingDiseaseModel_Att3();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt4 <em>Att4</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Att4</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel#getAtt4()
+	 * @see #getGaussian2ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian2ForcingDiseaseModel_Att4();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1419,6 +1499,34 @@ public interface ForcingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR = eINSTANCE.getGaussian2ForcingDiseaseModel_ModulationFloor();
+		/**
+		 * The meta object literal for the '<em><b>Att1</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1 = eINSTANCE.getGaussian2ForcingDiseaseModel_Att1();
+		/**
+		 * The meta object literal for the '<em><b>Att2</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2 = eINSTANCE.getGaussian2ForcingDiseaseModel_Att2();
+		/**
+		 * The meta object literal for the '<em><b>Att3</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3 = eINSTANCE.getGaussian2ForcingDiseaseModel_Att3();
+		/**
+		 * The meta object literal for the '<em><b>Att4</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4 = eINSTANCE.getGaussian2ForcingDiseaseModel_Att4();
 
 	}
 

@@ -273,6 +273,42 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_Att1() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_Att2() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_Att3() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian2ForcingDiseaseModel_Att4() {
+		return (EAttribute)gaussian2ForcingDiseaseModelEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ForcingFactory getForcingFactory() {
 		return (ForcingFactory)getEFactoryInstance();
 	}
@@ -315,6 +351,10 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD);
 		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT);
 		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3);
+		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4);
 	}
 
 	/**
@@ -373,6 +413,10 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		initEAttribute(getGaussian2ForcingDiseaseModel_ModulationPeriod(), ecorePackage.getEDouble(), "modulationPeriod", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussian2ForcingDiseaseModel_ModulationPhaseShift(), ecorePackage.getEDouble(), "modulationPhaseShift", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussian2ForcingDiseaseModel_ModulationFloor(), theEcorePackage.getEDouble(), "modulationFloor", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_Att1(), theEcorePackage.getEDouble(), "att1", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_Att2(), theEcorePackage.getEDouble(), "att2", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_Att3(), theEcorePackage.getEDouble(), "att3", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian2ForcingDiseaseModel_Att4(), theEcorePackage.getEDouble(), "att4", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

@@ -40,6 +40,10 @@ import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImp
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian2ForcingDiseaseModelImpl#getModulationPeriod <em>Modulation Period</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian2ForcingDiseaseModelImpl#getModulationPhaseShift <em>Modulation Phase Shift</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian2ForcingDiseaseModelImpl#getModulationFloor <em>Modulation Floor</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian2ForcingDiseaseModelImpl#getAtt1 <em>Att1</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian2ForcingDiseaseModelImpl#getAtt2 <em>Att2</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian2ForcingDiseaseModelImpl#getAtt3 <em>Att3</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian2ForcingDiseaseModelImpl#getAtt4 <em>Att4</em>}</li>
  * </ul>
  * </p>
  *
@@ -145,6 +149,86 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @ordered
 	 */
 	protected double modulationFloor = MODULATION_FLOOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAtt1() <em>Att1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt1()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ATT1_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getAtt1() <em>Att1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt1()
+	 * @generated
+	 * @ordered
+	 */
+	protected double att1 = ATT1_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAtt2() <em>Att2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt2()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ATT2_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getAtt2() <em>Att2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt2()
+	 * @generated
+	 * @ordered
+	 */
+	protected double att2 = ATT2_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAtt3() <em>Att3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt3()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ATT3_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getAtt3() <em>Att3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt3()
+	 * @generated
+	 * @ordered
+	 */
+	protected double att3 = ATT3_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAtt4() <em>Att4</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt4()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ATT4_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getAtt4() <em>Att4</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtt4()
+	 * @generated
+	 * @ordered
+	 */
+	protected double att4 = ATT4_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,6 +354,90 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR, oldModulationFloor, modulationFloor));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getAtt1() {
+		return att1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAtt1(double newAtt1) {
+		double oldAtt1 = att1;
+		att1 = newAtt1;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1, oldAtt1, att1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getAtt2() {
+		return att2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAtt2(double newAtt2) {
+		double oldAtt2 = att2;
+		att2 = newAtt2;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2, oldAtt2, att2));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getAtt3() {
+		return att3;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAtt3(double newAtt3) {
+		double oldAtt3 = att3;
+		att3 = newAtt3;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3, oldAtt3, att3));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getAtt4() {
+		return att4;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAtt4(double newAtt4) {
+		double oldAtt4 = att4;
+		att4 = newAtt4;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4, oldAtt4, att4));
+	}
+
 	private Long firstTime = new Long(Long.MAX_VALUE);
 	private Calendar calendar = Calendar.getInstance();
 	private Calendar calendar2 = Calendar.getInstance();
@@ -315,6 +483,13 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		// This is beta*
 		double transmissionRate = seasonalModulationFloor + (getAdjustedTransmissionRate(timeDelta)) * (modulation1+modulation2);
 
+		if(day >= 116 && day <= 119) // April 24 - 27
+			transmissionRate = transmissionRate * this.getAtt1();
+		else 	if(day >= 120 && day <= 127) // April 28 - May 5
+			transmissionRate = transmissionRate * this.getAtt2();
+		else if(day >= 128 && day <= 132) // May 6 - May 10
+			transmissionRate = transmissionRate * this.getAtt3();
+		
 		synchronized(writtedTimes) {
 			if(!writtedTimes.contains(time.getTime().getTime())) {
 				try {
@@ -425,6 +600,14 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				return getModulationPhaseShift();
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR:
 				return getModulationFloor();
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1:
+				return getAtt1();
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2:
+				return getAtt2();
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3:
+				return getAtt3();
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4:
+				return getAtt4();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -451,6 +634,18 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				return;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR:
 				setModulationFloor((Double)newValue);
+				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1:
+				setAtt1((Double)newValue);
+				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2:
+				setAtt2((Double)newValue);
+				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3:
+				setAtt3((Double)newValue);
+				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4:
+				setAtt4((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -479,6 +674,18 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR:
 				setModulationFloor(MODULATION_FLOOR_EDEFAULT);
 				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1:
+				setAtt1(ATT1_EDEFAULT);
+				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2:
+				setAtt2(ATT2_EDEFAULT);
+				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3:
+				setAtt3(ATT3_EDEFAULT);
+				return;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4:
+				setAtt4(ATT4_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -501,6 +708,14 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				return modulationPhaseShift != MODULATION_PHASE_SHIFT_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR:
 				return modulationFloor != MODULATION_FLOOR_EDEFAULT;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1:
+				return att1 != ATT1_EDEFAULT;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2:
+				return att2 != ATT2_EDEFAULT;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3:
+				return att3 != ATT3_EDEFAULT;
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4:
+				return att4 != ATT4_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -525,6 +740,14 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		result.append(modulationPhaseShift);
 		result.append(", modulationFloor: "); //$NON-NLS-1$
 		result.append(modulationFloor);
+		result.append(", att1: "); //$NON-NLS-1$
+		result.append(att1);
+		result.append(", att2: "); //$NON-NLS-1$
+		result.append(att2);
+		result.append(", att3: "); //$NON-NLS-1$
+		result.append(att3);
+		result.append(", att4: "); //$NON-NLS-1$
+		result.append(att4);
 		result.append(')');
 		return result.toString();
 	}
