@@ -82,7 +82,8 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	protected AnalysisFactory aFactory = new AnalysisFactoryImpl();
 
 	// Set to true to weight the average by population size
-	private static boolean WEIGHTED_AVERAGE = false;
+	private static boolean WEIGHTED_AVERAGE = true;
+	private static boolean FIT_INCIDENCE = true;
 	
 	/**
 	 * calculate delta for a simple error function
@@ -107,14 +108,18 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 			if(_data.containsLocation(id)) {
 				// get the lists of data only for those locations that are common to both maps						ReferenceScenarioDataInstance dataMapA = mapA.getLocation(id);
 				ReferenceScenarioDataInstance dataMapA = _ref.getLocation(id);
-				List<Double> dataAI = getInfectious(dataMapA);
+				List<Double> dataAI = null;
+				if(FIT_INCIDENCE) dataAI = getIncidence(dataMapA); 
+				else dataAI = getInfectious(dataMapA);
 				List<Double> dataAP = getPopulation(dataMapA);
 				commonInfectiousLocationsA.put(id,dataAI);
 				commonPopulationLocationsA.put(id, dataAP);							
 							
 				// Map B
 				ReferenceScenarioDataInstance dataMapB = _data.getLocation(id);
-				List<Double> dataBI = getInfectious(dataMapB);
+				List<Double> dataBI = null;
+				if(FIT_INCIDENCE) dataBI = getIncidence(dataMapB); 
+				else dataBI = getInfectious(dataMapB);
 				List<Double> dataBP = getPopulation(dataMapB);
 				commonInfectiousLocationsB.put(id,dataBI);
 				commonPopulationLocationsB.put(id, dataBP);
