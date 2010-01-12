@@ -6021,6 +6021,819 @@ public interface StandardPackage extends EPackage {
 	int SIR_INOCULATOR_FEATURE_COUNT = SI_INFECTOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIDiseaseModelImpl <em>Stochastic Poisson SI Disease Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIDiseaseModelImpl
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStochasticPoissonSIDiseaseModel()
+	 * @generated
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL = 38;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__URI = SI__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__TYPE_URI = SI__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__DUBLIN_CORE = SI__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__LABELS_TO_UPDATE = SI__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__GRAPH = SI__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__ENABLED = SI__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__GRAPH_DECORATED = SI__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__PROGRESS = SI__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Background Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__BACKGROUND_MORTALITY_RATE = SI__BACKGROUND_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__POPULATION_IDENTIFIER = SI__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__TIME_PERIOD = SI__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Disease Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__DISEASE_NAME = SI__DISEASE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__RELATIVE_TOLERANCE = SI__RELATIVE_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__FINITE_DIFFERENCE = SI__FINITE_DIFFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__FREQUENCY_DEPENDENT = SI__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = SI__BACKGROUND_BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__TOTAL_POPULATION_COUNT = SI__TOTAL_POPULATION_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count Reciprocal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL = SI__TOTAL_POPULATION_COUNT_RECIPROCAL;
+
+	/**
+	 * The feature id for the '<em><b>Total Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__TOTAL_AREA = SI__TOTAL_AREA;
+
+	/**
+	 * The feature id for the '<em><b>Reference Population Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = SI__REFERENCE_POPULATION_DENSITY;
+
+	/**
+	 * The feature id for the '<em><b>Transmission Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__TRANSMISSION_RATE = SI__TRANSMISSION_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Non Linearity Coefficient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__NON_LINEARITY_COEFFICIENT = SI__NON_LINEARITY_COEFFICIENT;
+
+	/**
+	 * The feature id for the '<em><b>Recovery Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__RECOVERY_RATE = SI__RECOVERY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE = SI__INFECTIOUS_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Physically Adjacent Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION = SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = SI__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY = SI__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The number of structural features of the '<em>Stochastic Poisson SI Disease Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL_FEATURE_COUNT = SI_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIRDiseaseModelImpl <em>Stochastic Poisson SIR Disease Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIRDiseaseModelImpl
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStochasticPoissonSIRDiseaseModel()
+	 * @generated
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL = 39;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__URI = SIR__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__TYPE_URI = SIR__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__DUBLIN_CORE = SIR__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__LABELS_TO_UPDATE = SIR__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__GRAPH = SIR__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__ENABLED = SIR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__GRAPH_DECORATED = SIR__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__PROGRESS = SIR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Background Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__BACKGROUND_MORTALITY_RATE = SIR__BACKGROUND_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__POPULATION_IDENTIFIER = SIR__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__TIME_PERIOD = SIR__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Disease Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__DISEASE_NAME = SIR__DISEASE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__RELATIVE_TOLERANCE = SIR__RELATIVE_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__FINITE_DIFFERENCE = SIR__FINITE_DIFFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__FREQUENCY_DEPENDENT = SIR__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = SIR__BACKGROUND_BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__TOTAL_POPULATION_COUNT = SIR__TOTAL_POPULATION_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count Reciprocal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL = SIR__TOTAL_POPULATION_COUNT_RECIPROCAL;
+
+	/**
+	 * The feature id for the '<em><b>Total Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__TOTAL_AREA = SIR__TOTAL_AREA;
+
+	/**
+	 * The feature id for the '<em><b>Reference Population Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = SIR__REFERENCE_POPULATION_DENSITY;
+
+	/**
+	 * The feature id for the '<em><b>Transmission Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__TRANSMISSION_RATE = SIR__TRANSMISSION_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Non Linearity Coefficient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__NON_LINEARITY_COEFFICIENT = SIR__NON_LINEARITY_COEFFICIENT;
+
+	/**
+	 * The feature id for the '<em><b>Recovery Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__RECOVERY_RATE = SIR__RECOVERY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE = SIR__INFECTIOUS_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Physically Adjacent Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION = SIR__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = SIR__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SIR__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE = SIR__IMMUNITY_LOSS_RATE;
+
+	/**
+	 * The number of structural features of the '<em>Stochastic Poisson SIR Disease Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL_FEATURE_COUNT = SIR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSEIRDiseaseModelImpl <em>Stochastic Poisson SEIR Disease Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSEIRDiseaseModelImpl
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStochasticPoissonSEIRDiseaseModel()
+	 * @generated
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL = 40;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__URI = SEIR__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__TYPE_URI = SEIR__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__DUBLIN_CORE = SEIR__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__LABELS_TO_UPDATE = SEIR__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__GRAPH = SEIR__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__ENABLED = SEIR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__GRAPH_DECORATED = SEIR__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__PROGRESS = SEIR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Background Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__BACKGROUND_MORTALITY_RATE = SEIR__BACKGROUND_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__POPULATION_IDENTIFIER = SEIR__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__TIME_PERIOD = SEIR__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Disease Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__DISEASE_NAME = SEIR__DISEASE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__RELATIVE_TOLERANCE = SEIR__RELATIVE_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__FINITE_DIFFERENCE = SEIR__FINITE_DIFFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__FREQUENCY_DEPENDENT = SEIR__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = SEIR__BACKGROUND_BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__TOTAL_POPULATION_COUNT = SEIR__TOTAL_POPULATION_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count Reciprocal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL = SEIR__TOTAL_POPULATION_COUNT_RECIPROCAL;
+
+	/**
+	 * The feature id for the '<em><b>Total Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__TOTAL_AREA = SEIR__TOTAL_AREA;
+
+	/**
+	 * The feature id for the '<em><b>Reference Population Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = SEIR__REFERENCE_POPULATION_DENSITY;
+
+	/**
+	 * The feature id for the '<em><b>Transmission Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__TRANSMISSION_RATE = SEIR__TRANSMISSION_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Non Linearity Coefficient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__NON_LINEARITY_COEFFICIENT = SEIR__NON_LINEARITY_COEFFICIENT;
+
+	/**
+	 * The feature id for the '<em><b>Recovery Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__RECOVERY_RATE = SEIR__RECOVERY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE = SEIR__INFECTIOUS_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Physically Adjacent Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION = SEIR__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = SEIR__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SEIR__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE = SEIR__IMMUNITY_LOSS_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Incubation Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__INCUBATION_RATE = SEIR__INCUBATION_RATE;
+
+	/**
+	 * The number of structural features of the '<em>Stochastic Poisson SEIR Disease Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL_FEATURE_COUNT = SEIR_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>URI</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6028,7 +6841,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 38;
+	int URI = 41;
 
 
 	/**
@@ -6039,7 +6852,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getEList()
 	 * @generated
 	 */
-	int ELIST = 39;
+	int ELIST = 42;
 
 
 	/**
@@ -6050,7 +6863,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getRandom()
 	 * @generated
 	 */
-	int RANDOM = 40;
+	int RANDOM = 43;
 
 
 	/**
@@ -7087,6 +7900,36 @@ public interface StandardPackage extends EPackage {
 	EAttribute getSIRInoculator_InoculatedPercentage();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel <em>Stochastic Poisson SI Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stochastic Poisson SI Disease Model</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel
+	 * @generated
+	 */
+	EClass getStochasticPoissonSIDiseaseModel();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIRDiseaseModel <em>Stochastic Poisson SIR Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stochastic Poisson SIR Disease Model</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIRDiseaseModel
+	 * @generated
+	 */
+	EClass getStochasticPoissonSIRDiseaseModel();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel <em>Stochastic Poisson SEIR Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stochastic Poisson SEIR Disease Model</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel
+	 * @generated
+	 */
+	EClass getStochasticPoissonSEIRDiseaseModel();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.URI <em>URI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7992,6 +8835,36 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SIR_INOCULATOR__INOCULATED_PERCENTAGE = eINSTANCE.getSIRInoculator_InoculatedPercentage();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIDiseaseModelImpl <em>Stochastic Poisson SI Disease Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIDiseaseModelImpl
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStochasticPoissonSIDiseaseModel()
+		 * @generated
+		 */
+		EClass STOCHASTIC_POISSON_SI_DISEASE_MODEL = eINSTANCE.getStochasticPoissonSIDiseaseModel();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIRDiseaseModelImpl <em>Stochastic Poisson SIR Disease Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIRDiseaseModelImpl
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStochasticPoissonSIRDiseaseModel()
+		 * @generated
+		 */
+		EClass STOCHASTIC_POISSON_SIR_DISEASE_MODEL = eINSTANCE.getStochasticPoissonSIRDiseaseModel();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSEIRDiseaseModelImpl <em>Stochastic Poisson SEIR Disease Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSEIRDiseaseModelImpl
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getStochasticPoissonSEIRDiseaseModel()
+		 * @generated
+		 */
+		EClass STOCHASTIC_POISSON_SEIR_DISEASE_MODEL = eINSTANCE.getStochasticPoissonSEIRDiseaseModel();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.

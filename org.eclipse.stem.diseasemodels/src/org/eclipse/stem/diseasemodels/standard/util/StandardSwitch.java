@@ -597,6 +597,57 @@ public class StandardSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StandardPackage.STOCHASTIC_POISSON_SI_DISEASE_MODEL: {
+				StochasticPoissonSIDiseaseModel stochasticPoissonSIDiseaseModel = (StochasticPoissonSIDiseaseModel)theEObject;
+				T1 result = caseStochasticPoissonSIDiseaseModel(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseSI(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseStandardDiseaseModel(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseDiseaseModel(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseNodeDecorator(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseSanityChecker(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseModifiable(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseDecorator(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseIdentifiable(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = caseComparable(stochasticPoissonSIDiseaseModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StandardPackage.STOCHASTIC_POISSON_SIR_DISEASE_MODEL: {
+				StochasticPoissonSIRDiseaseModel stochasticPoissonSIRDiseaseModel = (StochasticPoissonSIRDiseaseModel)theEObject;
+				T1 result = caseStochasticPoissonSIRDiseaseModel(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseSIR(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseSI(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseStandardDiseaseModel(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseDiseaseModel(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseNodeDecorator(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseSanityChecker(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseModifiable(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseDecorator(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseIdentifiable(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = caseComparable(stochasticPoissonSIRDiseaseModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StandardPackage.STOCHASTIC_POISSON_SEIR_DISEASE_MODEL: {
+				StochasticPoissonSEIRDiseaseModel stochasticPoissonSEIRDiseaseModel = (StochasticPoissonSEIRDiseaseModel)theEObject;
+				T1 result = caseStochasticPoissonSEIRDiseaseModel(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseSEIR(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseSIR(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseSI(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseStandardDiseaseModel(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseDiseaseModel(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseNodeDecorator(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseSanityChecker(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseModifiable(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseDecorator(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseIdentifiable(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = caseComparable(stochasticPoissonSEIRDiseaseModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1127,6 +1178,51 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseSIRInoculator(SIRInoculator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stochastic Poisson SI Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stochastic Poisson SI Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStochasticPoissonSIDiseaseModel(StochasticPoissonSIDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stochastic Poisson SIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stochastic Poisson SIR Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStochasticPoissonSIRDiseaseModel(StochasticPoissonSIRDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stochastic Poisson SEIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stochastic Poisson SEIR Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStochasticPoissonSEIRDiseaseModel(StochasticPoissonSEIRDiseaseModel object) {
 		return null;
 	}
 

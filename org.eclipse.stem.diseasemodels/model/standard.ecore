@@ -243,4 +243,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="org.eclipse.emf.common.util.URI"/>
   <eClassifiers xsi:type="ecore:EDataType" name="EList" instanceClassName="org.eclipse.emf.common.util.EList"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Random" instanceClassName="java.util.Random"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StochasticPoissonSIDiseaseModel" eSuperTypes="#//SI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StochasticPoissonSIRDiseaseModel" eSuperTypes="#//SIR"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StochasticPoissonSEIRDiseaseModel" eSuperTypes="#//SEIR"/>
 </ecore:EPackage>

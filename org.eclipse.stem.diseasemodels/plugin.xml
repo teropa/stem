@@ -97,6 +97,42 @@
      </dublin_core>
   </extension>
   <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_edlund"
+           description="%dc_desc_S_SI"
+           identifier="foo"
+           title="%dc_desc_S_SI">
+     </dublin_core>
+  </extension>
+   <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIRDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_edlund"
+           description="%dc_desc_S_SI"
+           identifier="foo"
+           title="%dc_desc_S_SI">
+     </dublin_core>
+  </extension>
+   <extension
+        point="org.eclipse.stem.diseasemodels.diseasemodel">
+     <classdef
+           class="org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSEIRDiseaseModelImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_edlund"
+           description="%dc_desc_S_SI"
+           identifier="foo"
+           title="%dc_desc_S_SI">
+     </dublin_core>
+  </extension>
+  <extension
         point="org.eclipse.core.runtime.preferences">
      <initializer
            class="org.eclipse.stem.diseasemodels.preferences.PreferenceInitializer">

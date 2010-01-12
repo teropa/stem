@@ -202,6 +202,33 @@ public interface StandardFactory extends EFactory {
 	SIRInoculator createSIRInoculator();
 
 	/**
+	 * Returns a new object of class '<em>Stochastic Poisson SI Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stochastic Poisson SI Disease Model</em>'.
+	 * @generated
+	 */
+	StochasticPoissonSIDiseaseModel createStochasticPoissonSIDiseaseModel();
+
+	/**
+	 * Returns a new object of class '<em>Stochastic Poisson SIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stochastic Poisson SIR Disease Model</em>'.
+	 * @generated
+	 */
+	StochasticPoissonSIRDiseaseModel createStochasticPoissonSIRDiseaseModel();
+
+	/**
+	 * Returns a new object of class '<em>Stochastic Poisson SEIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stochastic Poisson SEIR Disease Model</em>'.
+	 * @generated
+	 */
+	StochasticPoissonSEIRDiseaseModel createStochasticPoissonSEIRDiseaseModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

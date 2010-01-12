@@ -104,6 +104,9 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 			case StandardPackage.AGGREGATING_SEIR_DISEASE_MODEL: return createAggregatingSEIRDiseaseModel();
 			case StandardPackage.AGGREGATING_SIR_DISEASE_MODEL: return createAggregatingSIRDiseaseModel();
 			case StandardPackage.SIR_INOCULATOR: return createSIRInoculator();
+			case StandardPackage.STOCHASTIC_POISSON_SI_DISEASE_MODEL: return createStochasticPoissonSIDiseaseModel();
+			case StandardPackage.STOCHASTIC_POISSON_SIR_DISEASE_MODEL: return createStochasticPoissonSIRDiseaseModel();
+			case StandardPackage.STOCHASTIC_POISSON_SEIR_DISEASE_MODEL: return createStochasticPoissonSEIRDiseaseModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -335,6 +338,36 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 	public SIRInoculator createSIRInoculator() {
 		SIRInoculatorImpl sirInoculator = new SIRInoculatorImpl();
 		return sirInoculator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StochasticPoissonSIDiseaseModel createStochasticPoissonSIDiseaseModel() {
+		StochasticPoissonSIDiseaseModelImpl stochasticPoissonSIDiseaseModel = new StochasticPoissonSIDiseaseModelImpl();
+		return stochasticPoissonSIDiseaseModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StochasticPoissonSIRDiseaseModel createStochasticPoissonSIRDiseaseModel() {
+		StochasticPoissonSIRDiseaseModelImpl stochasticPoissonSIRDiseaseModel = new StochasticPoissonSIRDiseaseModelImpl();
+		return stochasticPoissonSIRDiseaseModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StochasticPoissonSEIRDiseaseModel createStochasticPoissonSEIRDiseaseModel() {
+		StochasticPoissonSEIRDiseaseModelImpl stochasticPoissonSEIRDiseaseModel = new StochasticPoissonSEIRDiseaseModelImpl();
+		return stochasticPoissonSEIRDiseaseModel;
 	}
 
 	/**

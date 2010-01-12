@@ -507,6 +507,75 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StochasticPoissonSIDiseaseModelItemProvider stochasticPoissonSIDiseaseModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStochasticPoissonSIDiseaseModelAdapter() {
+		if (stochasticPoissonSIDiseaseModelItemProvider == null) {
+			stochasticPoissonSIDiseaseModelItemProvider = new StochasticPoissonSIDiseaseModelItemProvider(this);
+		}
+
+		return stochasticPoissonSIDiseaseModelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIRDiseaseModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StochasticPoissonSIRDiseaseModelItemProvider stochasticPoissonSIRDiseaseModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIRDiseaseModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStochasticPoissonSIRDiseaseModelAdapter() {
+		if (stochasticPoissonSIRDiseaseModelItemProvider == null) {
+			stochasticPoissonSIRDiseaseModelItemProvider = new StochasticPoissonSIRDiseaseModelItemProvider(this);
+		}
+
+		return stochasticPoissonSIRDiseaseModelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StochasticPoissonSEIRDiseaseModelItemProvider stochasticPoissonSEIRDiseaseModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStochasticPoissonSEIRDiseaseModelAdapter() {
+		if (stochasticPoissonSEIRDiseaseModelItemProvider == null) {
+			stochasticPoissonSEIRDiseaseModelItemProvider = new StochasticPoissonSEIRDiseaseModelItemProvider(this);
+		}
+
+		return stochasticPoissonSEIRDiseaseModelItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.standard.StochasticSIDiseaseModel} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -704,6 +773,9 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory
 		if (aggregatingSEIRDiseaseModelItemProvider != null) aggregatingSEIRDiseaseModelItemProvider.dispose();
 		if (aggregatingSIRDiseaseModelItemProvider != null) aggregatingSIRDiseaseModelItemProvider.dispose();
 		if (sirInoculatorItemProvider != null) sirInoculatorItemProvider.dispose();
+		if (stochasticPoissonSIDiseaseModelItemProvider != null) stochasticPoissonSIDiseaseModelItemProvider.dispose();
+		if (stochasticPoissonSIRDiseaseModelItemProvider != null) stochasticPoissonSIRDiseaseModelItemProvider.dispose();
+		if (stochasticPoissonSEIRDiseaseModelItemProvider != null) stochasticPoissonSEIRDiseaseModelItemProvider.dispose();
 	}
 
 }

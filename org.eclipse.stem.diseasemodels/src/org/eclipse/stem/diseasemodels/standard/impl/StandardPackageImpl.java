@@ -67,6 +67,9 @@ import org.eclipse.stem.diseasemodels.standard.StandardInfector;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 import org.eclipse.stem.diseasemodels.standard.StandardStochasticDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StochasticDiseaseModel;
+import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel;
+import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel;
+import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StochasticSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StochasticSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StochasticSIRDiseaseModel;
@@ -343,6 +346,27 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass sirInoculatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stochasticPoissonSIDiseaseModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stochasticPoissonSIRDiseaseModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stochasticPoissonSEIRDiseaseModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1307,6 +1331,33 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStochasticPoissonSIDiseaseModel() {
+		return stochasticPoissonSIDiseaseModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStochasticPoissonSIRDiseaseModel() {
+		return stochasticPoissonSIRDiseaseModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStochasticPoissonSEIRDiseaseModel() {
+		return stochasticPoissonSEIRDiseaseModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getURI() {
 		return uriEDataType;
 	}
@@ -1492,6 +1543,12 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		sirInoculatorEClass = createEClass(SIR_INOCULATOR);
 		createEAttribute(sirInoculatorEClass, SIR_INOCULATOR__INOCULATED_PERCENTAGE);
 
+		stochasticPoissonSIDiseaseModelEClass = createEClass(STOCHASTIC_POISSON_SI_DISEASE_MODEL);
+
+		stochasticPoissonSIRDiseaseModelEClass = createEClass(STOCHASTIC_POISSON_SIR_DISEASE_MODEL);
+
+		stochasticPoissonSEIRDiseaseModelEClass = createEClass(STOCHASTIC_POISSON_SEIR_DISEASE_MODEL);
+
 		// Create data types
 		uriEDataType = createEDataType(URI);
 		eListEDataType = createEDataType(ELIST);
@@ -1575,6 +1632,9 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		stochasticDiseaseModelEClass.getESuperTypes().add(this.getDiseaseModel());
 		standardStochasticDiseaseModelEClass.getESuperTypes().add(this.getStochasticDiseaseModel());
 		sirInoculatorEClass.getESuperTypes().add(this.getSIInfector());
+		stochasticPoissonSIDiseaseModelEClass.getESuperTypes().add(this.getSI());
+		stochasticPoissonSIRDiseaseModelEClass.getESuperTypes().add(this.getSIR());
+		stochasticPoissonSEIRDiseaseModelEClass.getESuperTypes().add(this.getSEIR());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(deterministicSEIRDiseaseModelEClass, DeterministicSEIRDiseaseModel.class, "DeterministicSEIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -1796,6 +1856,12 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		initEClass(sirInoculatorEClass, SIRInoculator.class, "SIRInoculator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getSIRInoculator_InoculatedPercentage(), ecorePackage.getEDouble(), "inoculatedPercentage", "1", 0, 1, SIRInoculator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+
+		initEClass(stochasticPoissonSIDiseaseModelEClass, StochasticPoissonSIDiseaseModel.class, "StochasticPoissonSIDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(stochasticPoissonSIRDiseaseModelEClass, StochasticPoissonSIRDiseaseModel.class, "StochasticPoissonSIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(stochasticPoissonSEIRDiseaseModelEClass, StochasticPoissonSEIRDiseaseModel.class, "StochasticPoissonSEIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Initialize data types
 		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

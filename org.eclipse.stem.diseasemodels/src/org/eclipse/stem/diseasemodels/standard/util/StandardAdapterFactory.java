@@ -272,6 +272,18 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createSIRInoculatorAdapter();
 			}
 			@Override
+			public Adapter caseStochasticPoissonSIDiseaseModel(StochasticPoissonSIDiseaseModel object) {
+				return createStochasticPoissonSIDiseaseModelAdapter();
+			}
+			@Override
+			public Adapter caseStochasticPoissonSIRDiseaseModel(StochasticPoissonSIRDiseaseModel object) {
+				return createStochasticPoissonSIRDiseaseModelAdapter();
+			}
+			@Override
+			public Adapter caseStochasticPoissonSEIRDiseaseModel(StochasticPoissonSEIRDiseaseModel object) {
+				return createStochasticPoissonSEIRDiseaseModelAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -841,6 +853,48 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSIRInoculatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel <em>Stochastic Poisson SI Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel
+	 * @generated
+	 */
+	public Adapter createStochasticPoissonSIDiseaseModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIRDiseaseModel <em>Stochastic Poisson SIR Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIRDiseaseModel
+	 * @generated
+	 */
+	public Adapter createStochasticPoissonSIRDiseaseModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel <em>Stochastic Poisson SEIR Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel
+	 * @generated
+	 */
+	public Adapter createStochasticPoissonSEIRDiseaseModelAdapter() {
 		return null;
 	}
 
