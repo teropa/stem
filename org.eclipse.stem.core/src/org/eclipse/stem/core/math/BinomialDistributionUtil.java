@@ -14,6 +14,11 @@ package org.eclipse.stem.core.math;
 
 /**
  * Utility primarily used by stochastic models
+ * This technique makes a random pick from a binomial distribution.
+ * The complex part of this operationn is to compute the binomial coefficient
+ * efficiently (see for example: http://en.wikipedia.org/wiki/Binomial_distribution)
+ * In order to do the computation for large N (large S) we compute the log of the binomial coefficent
+ * so we do a sum (instead of a factorial product) and then exponentiate the result. 
  */
 public class BinomialDistributionUtil {
 
