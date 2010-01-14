@@ -32,6 +32,7 @@ public class BinomialDistributionUtil {
 	  * @return K Random pick
 	  **/ 
 	 public static int fastPickFromBinomialDist(double p, int n, double rndVAR){
+		 if(p == 0 || n == 0) return 0;
 		 double Bsum = 0.0;
 		 // compute this once
 		 double lnFactorialN = lnFactorial(n);
