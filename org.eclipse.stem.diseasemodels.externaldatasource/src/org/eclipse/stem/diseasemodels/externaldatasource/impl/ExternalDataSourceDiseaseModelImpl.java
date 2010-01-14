@@ -796,4 +796,9 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 		
 	}
 
+
+	public boolean isDeterministic() {
+		return true;
+	}
+
 } //ExternalDataSourceDiseaseModelImpl

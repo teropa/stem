@@ -146,4 +146,9 @@ public class CellularDiseaseModelImpl extends SIImpl implements CellularDiseaseM
 	public void doModelSpecificAdjustments(LabelValue label) {
 		// Nothing
 	}
+	
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
 } //CellularDiseaseModelImpl
