@@ -375,4 +375,9 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		
 	}
 
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
+
 } //StandardPopulationModelImpl
