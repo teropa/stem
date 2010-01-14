@@ -248,7 +248,8 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 					// Attempt one step (cycle) in the simulation
 					try {
 						
-						scenario.step();
+						boolean success = scenario.step();
+						if(!success) {keepRunning = false;retValue = Status.CANCEL_STATUS;}
 						assert scenario.sane();
 
 						// To sleep, per chance to dream?
