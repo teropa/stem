@@ -18,9 +18,9 @@ import junit.textui.TestRunner;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.Constants;
-import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
@@ -636,7 +636,7 @@ public class ModelTest extends IdentifiableTest {
 
 		final Model model = getFixture();
 		final Graph canonicalGraph = model
-				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilter(model.getDublinCore().getCoverage()));
+				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
 
 		assertTrue(canonicalGraph.sane());
 
@@ -806,8 +806,8 @@ public class ModelTest extends IdentifiableTest {
 	public void testNonDestructiveGetCanonicalGraph() {
 		final Model model = getFixture();
 
-		final Graph graph1 = model.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilter(model.getDublinCore().getCoverage()));
-		final Graph graph2 = model.getCanonicalGraph(CANONICAL_GRAPH2_URI, new IdentifiableFilter(model.getDublinCore().getCoverage()));
+		final Graph graph1 = model.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
+		final Graph graph2 = model.getCanonicalGraph(CANONICAL_GRAPH2_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
 
 		final DublinCore dc1 = graph1.getDublinCore();
 		final DublinCore dc2 = graph2.getDublinCore();
@@ -844,7 +844,7 @@ public class ModelTest extends IdentifiableTest {
 	public void testGetUnresolvedCanonicalGraph() {
 		final Model model = getUnresolvedFixture();
 		final Graph canonicalGraph = model
-				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilter(model.getDublinCore().getCoverage()));
+				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
 
 		// The URI of the graph should be what we think it should be
 		assertTrue(canonicalGraph.getURI().equals(CANONICAL_GRAPH1_URI));
@@ -874,7 +874,7 @@ public class ModelTest extends IdentifiableTest {
 	public void testGetURIs() {
 		final Model model = getFixture();
 		final Graph canonicalGraph = model
-				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilter(model.getDublinCore().getCoverage()));
+				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
 
 		assertTrue(canonicalGraph.sane());
 

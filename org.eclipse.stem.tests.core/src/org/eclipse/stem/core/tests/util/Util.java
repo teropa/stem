@@ -15,11 +15,11 @@ package org.eclipse.stem.core.tests.util;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.tests.GraphTest;
 import org.eclipse.stem.core.model.Model;
@@ -97,7 +97,7 @@ public class Util {
 		final Scenario scenario = ScenarioTest.createFixture();
 		refreshDublinCore(scenario);
 		final Graph canonicalGraph = scenario.getModel().getCanonicalGraph(
-				STEMURI.createURI("canonical"), new IdentifiableFilter(scenario.getModel().getDublinCore().getCoverage()));
+				STEMURI.createURI("canonical"), new IdentifiableFilterImpl(scenario.getModel().getDublinCore().getCoverage()));
 		Utility.serializeIdentifiable(canonicalGraph, createURI(fileName));
 	} // serializeCanonicalGraph
 
