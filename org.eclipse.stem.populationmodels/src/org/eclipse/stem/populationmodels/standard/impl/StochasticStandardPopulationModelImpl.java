@@ -149,7 +149,7 @@ public class StochasticStandardPopulationModelImpl extends StandardPopulationMod
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN:
-				return new Double(getGain());
+				return getGain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,7 +163,7 @@ public class StochasticStandardPopulationModelImpl extends StandardPopulationMod
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN:
-				setGain(((Double)newValue).doubleValue());
+				setGain((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

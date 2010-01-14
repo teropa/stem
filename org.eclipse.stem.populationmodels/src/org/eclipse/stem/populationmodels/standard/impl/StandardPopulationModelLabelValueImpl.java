@@ -295,15 +295,15 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT:
-				return new Double(getCount());
+				return getCount();
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE:
-				return new Double(getIncidence());
+				return getIncidence();
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS:
-				return new Double(getBirths());
+				return getBirths();
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS:
-				return new Double(getDeaths());
+				return getDeaths();
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY:
-				return new Double(getDensity());
+				return getDensity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -317,16 +317,16 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT:
-				setCount(((Double)newValue).doubleValue());
+				setCount((Double)newValue);
 				return;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE:
-				setIncidence(((Double)newValue).doubleValue());
+				setIncidence((Double)newValue);
 				return;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS:
-				setBirths(((Double)newValue).doubleValue());
+				setBirths((Double)newValue);
 				return;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS:
-				setDeaths(((Double)newValue).doubleValue());
+				setDeaths((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

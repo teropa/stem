@@ -212,11 +212,11 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE:
-				return new Double(getBirthRate());
+				return getBirthRate();
 			case StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE:
-				return new Double(getDeathRate());
+				return getDeathRate();
 			case StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD:
-				return new Long(getTimePeriod());
+				return getTimePeriod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,13 +230,13 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE:
-				setBirthRate(((Double)newValue).doubleValue());
+				setBirthRate((Double)newValue);
 				return;
 			case StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE:
-				setDeathRate(((Double)newValue).doubleValue());
+				setDeathRate((Double)newValue);
 				return;
 			case StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD:
-				setTimePeriod(((Long)newValue).longValue());
+				setTimePeriod((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -375,7 +375,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		
 	}
 
-	@Override
+	
 	public boolean isDeterministic() {
 		return true;
 	}
