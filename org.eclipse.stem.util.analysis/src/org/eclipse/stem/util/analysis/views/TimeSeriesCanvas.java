@@ -327,9 +327,10 @@ public class TimeSeriesCanvas extends Canvas {
 				.getString("CC.title")); //$NON-NLS-1$
 		
 		resetData();
+		
 		addPaintListener(new PaintListener() {
 			public void paintControl(final PaintEvent pe) {
-
+				
 				final Composite source = (Composite) pe.getSource();
 				final org.eclipse.swt.graphics.Rectangle d = source
 						.getClientArea();
@@ -373,7 +374,7 @@ public class TimeSeriesCanvas extends Canvas {
 		//clearData();
 		resetData();
 
-		
+		yAxisPrimary.getSeriesDefinitions().clear();
 		
 		int maxLines = control.getNumProperties(chartIndex);
 	
@@ -399,7 +400,6 @@ public class TimeSeriesCanvas extends Canvas {
 		// update the context menu with the new properties to plot
 		updateContextMenu(this);
 		
-		resetData();
 		
 		
 		double[] integratedDifference = new double[maxLines];
@@ -488,7 +488,19 @@ public class TimeSeriesCanvas extends Canvas {
 								}
 						} // for cycleNumber
 						
-						
+						if(xAxisPrimary.getSeriesDefinitions().get(0).getSeries().size() != cycleNumbers.size()) {
+							// The number of data points have changed, create a new series for the x axis
+							xAxisPrimary.getSeriesDefinitions().clear();
+							final Series xAxisSeries = SeriesImpl.create();
+
+							final NumberDataSet xValues = NumberDataSetImpl.create(cycleNumbers);
+							xAxisSeries.setDataSet(xValues);
+							final SeriesDefinition sdX = SeriesDefinitionImpl.create();
+
+							xAxisPrimary.getSeriesDefinitions().add(sdX);
+							sdX.getSeries().add(xAxisSeries);
+						}
+							
 						
 						setCycles = true; // we set them only once
 						
@@ -795,13 +807,8 @@ public class TimeSeriesCanvas extends Canvas {
 
 	private void clearData() {
 		
-		Iterator<String> iter = dataSeriesMap.keySet().iterator();
-		while((iter!=null)&&(iter.hasNext())) {
-			String key = iter.next();
-			DataSeries series = dataSeriesMap.get(key);
-			series.relativeValues.clear();
-			series.addValue(new Double(0.0));
-		}
+
+		dataSeriesMap.clear();
 		cycleNumbers.clear();
 	}
 
