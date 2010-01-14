@@ -126,7 +126,21 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	 * @generated NOT
 	 */
 	@Override
-	public void step(STEMTime time, long timeDelta, int cycle) {
+	public boolean step(STEMTime time, long timeDelta, int cycle) {
+		
+		// Validate all decorators that return deltas to make sure
+		// they are of deterministic nature. The Runge Kutta integratio
+		// can only handle determininistic variants
+		
+		for(Decorator decorator:this.getDecorators()) 
+			if(decorator instanceof IntegrationDecorator) {
+				IntegrationDecorator idec = (IntegrationDecorator)decorator;
+				if(!idec.isDeterministic()) {
+					Activator.logError("Error, decorator: "+idec+" is not deterministic. The Runge Kutta Integrator can only handle deterministic models.", new Exception());
+					return false;
+				}
+			}
+		
 		if(!this.isInitialized())
 			this.initialize(time);
 		
@@ -219,7 +233,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			if(j.h < minStep) minStep = j.h;
 			if(j.t != currentT) Activator.logError("Error, one thread was in misstep with other threads, its time was "+j.t+" versus "+currentT, new Exception());
 		}
-		
+		return true;
 	}
 	
 	/**

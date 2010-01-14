@@ -66,7 +66,7 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 	 * @generated NOT
 	 */
 	@Override
-	public void step(STEMTime time, long timeDelta, int cycle) {
+	public boolean step(STEMTime time, long timeDelta, int cycle) {
 		
 		if(!this.isInitialized()) 
 			initialize(time);
@@ -142,6 +142,7 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 		
 		//this.setCurrentX(currentT);
 		//this.setStepSize(minStep); // smallest one from above.
+		return true;
 	}
 	
 	/**
