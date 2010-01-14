@@ -132,4 +132,9 @@ public class StochasticPoissonSIRDiseaseModelImpl extends SIRImpl implements Sto
 		
 	}
 
+	@Override
+	public boolean isDeterministic() {
+		return false;
+	}
+	
 } //StochasticPoissonSIRDiseaseModelImpl

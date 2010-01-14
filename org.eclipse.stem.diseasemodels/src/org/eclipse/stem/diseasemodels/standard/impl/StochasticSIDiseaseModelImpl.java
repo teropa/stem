@@ -192,6 +192,10 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 		return;
 	} // doModelSpecificAdjustments
 	
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -133,6 +133,11 @@ public class StochasticPoissonSEIRDiseaseModelImpl extends SEIRImpl implements S
 	
 	} // computeDiseaseDeltas
 	
+	@Override
+	public boolean isDeterministic() {
+		return false;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,4 +153,5 @@ public class StochasticPoissonSEIRDiseaseModelImpl extends SEIRImpl implements S
 		
 	}
 
+	
 } //StochasticPoissonSEIRDiseaseModelImpl

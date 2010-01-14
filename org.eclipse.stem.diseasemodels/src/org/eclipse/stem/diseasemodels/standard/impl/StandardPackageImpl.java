@@ -1836,6 +1836,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		initEClass(integrationDecoratorEClass, IntegrationDecorator.class, "IntegrationDecorator", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
+		addEOperation(integrationDecoratorEClass, theEcorePackage.getEBoolean(), "isDeterministic", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
 		initEClass(aggregatingSIDiseaseModelEClass, AggregatingSIDiseaseModel.class, "AggregatingSIDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(aggregatingDiseaseModelStateEClass, AggregatingDiseaseModelState.class, "AggregatingDiseaseModelState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

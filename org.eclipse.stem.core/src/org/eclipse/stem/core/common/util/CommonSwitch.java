@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -108,6 +109,12 @@ public class CommonSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CommonPackage.IDENTIFIABLE_FILTER: {
+				IdentifiableFilter identifiableFilter = (IdentifiableFilter)theEObject;
+				T1 result = caseIdentifiableFilter(identifiableFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -154,6 +161,21 @@ public class CommonSwitch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseComparable(Comparable<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIdentifiableFilter(IdentifiableFilter object) {
 		return null;
 	}
 

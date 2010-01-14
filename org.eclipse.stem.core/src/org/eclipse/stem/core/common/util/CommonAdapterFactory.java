@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -92,6 +93,10 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 				return createComparableAdapter();
 			}
 			@Override
+			public Adapter caseIdentifiableFilter(IdentifiableFilter object) {
+				return createIdentifiableFilterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -150,6 +155,20 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.common.IdentifiableFilter <em>Identifiable Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.common.IdentifiableFilter
+	 * @generated
+	 */
+	public Adapter createIdentifiableFilterAdapter() {
 		return null;
 	}
 

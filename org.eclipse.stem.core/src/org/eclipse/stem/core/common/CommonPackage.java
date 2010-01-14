@@ -339,6 +339,25 @@ public interface CommonPackage extends EPackage {
 	int IDENTIFIABLE_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.common.impl.IdentifiableFilterImpl <em>Identifiable Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.common.impl.IdentifiableFilterImpl
+	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getIdentifiableFilter()
+	 * @generated
+	 */
+	int IDENTIFIABLE_FILTER = 3;
+
+	/**
+	 * The number of structural features of the '<em>Identifiable Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE_FILTER_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>URI</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,7 +365,7 @@ public interface CommonPackage extends EPackage {
 	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 3;
+	int URI = 4;
 
 
 	/**
@@ -645,6 +664,16 @@ public interface CommonPackage extends EPackage {
 	EClass getComparable();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.common.IdentifiableFilter <em>Identifiable Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Identifiable Filter</em>'.
+	 * @see org.eclipse.stem.core.common.IdentifiableFilter
+	 * @generated
+	 */
+	EClass getIdentifiableFilter();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.URI <em>URI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -898,6 +927,16 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPARABLE = eINSTANCE.getComparable();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.common.impl.IdentifiableFilterImpl <em>Identifiable Filter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.common.impl.IdentifiableFilterImpl
+		 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getIdentifiableFilter()
+		 * @generated
+		 */
+		EClass IDENTIFIABLE_FILTER = eINSTANCE.getIdentifiableFilter();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.

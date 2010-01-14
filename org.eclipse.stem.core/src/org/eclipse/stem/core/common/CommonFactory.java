@@ -40,6 +40,15 @@ public interface CommonFactory extends EFactory {
 	DublinCore createDublinCore();
 
 	/**
+	 * Returns a new object of class '<em>Identifiable Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Identifiable Filter</em>'.
+	 * @generated
+	 */
+	IdentifiableFilter createIdentifiableFilter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

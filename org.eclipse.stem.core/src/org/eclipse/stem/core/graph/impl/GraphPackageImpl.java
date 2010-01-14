@@ -1142,6 +1142,7 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 
 		op = addEOperation(graphEClass, null, "addGraph", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getGraph(), "graph", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theCommonPackage.getIdentifiableFilter(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		op = addEOperation(graphEClass, null, "putEdge", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getEdge(), "edge", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$

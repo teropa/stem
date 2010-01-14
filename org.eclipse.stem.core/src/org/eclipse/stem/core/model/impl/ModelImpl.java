@@ -18,10 +18,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
@@ -182,6 +183,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		return edgeDecorators;
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * 
@@ -193,11 +195,12 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * @generated NOT
 	 */
 	public Graph getCanonicalGraph(final URI uri, IdentifiableFilter parentFilter) {
+		IdentifiableFilterImpl _parentfilter = (IdentifiableFilterImpl)parentFilter;
 		final Graph retValue = GraphFactory.eINSTANCE.createGraph();
 		retValue.setURI(uri);
 
-		IdentifiableFilter myFilter = new IdentifiableFilter(this.getDublinCore().getCoverage());
-		if(parentFilter != null)myFilter.restrict(parentFilter);	
+		IdentifiableFilterImpl myFilter = new IdentifiableFilterImpl(this.getDublinCore().getCoverage());
+		if(parentFilter != null)myFilter.restrict(_parentfilter);	
 		
 		// Basically, we iterate through each of the models getting their
 		// canonical graphs and then merge them together. Then we add in the

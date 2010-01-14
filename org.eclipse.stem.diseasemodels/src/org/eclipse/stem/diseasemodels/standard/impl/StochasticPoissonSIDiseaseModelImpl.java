@@ -54,7 +54,7 @@ public class StochasticPoissonSIDiseaseModelImpl extends SIImpl implements Stoch
 			final STEMTime time,
 			final StandardDiseaseModelLabelValue currentState,
 			final StandardDiseaseModelLabel diseaseLabel, final long timeDelta, DiseaseModelLabelValue returnValue) {
-		
+		 
 		final SILabelValue currentSI = (SILabelValue) currentState;
 		
 		// This is beta*
@@ -107,6 +107,11 @@ public class StochasticPoissonSIDiseaseModelImpl extends SIImpl implements Stoch
 				
 			}
 		 
+	 @Override
+		public boolean isDeterministic() {
+			return false;
+		}
+	 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

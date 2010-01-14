@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -72,6 +73,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CommonPackage.DUBLIN_CORE: return createDublinCore();
+			case CommonPackage.IDENTIFIABLE_FILTER: return createIdentifiableFilter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -115,6 +117,16 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public DublinCore createDublinCore() {
 		DublinCoreImpl dublinCore = new DublinCoreImpl();
 		return dublinCore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IdentifiableFilter createIdentifiableFilter() {
+		IdentifiableFilterImpl identifiableFilter = new IdentifiableFilterImpl();
+		return identifiableFilter;
 	}
 
 	/**

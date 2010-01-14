@@ -194,7 +194,11 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 			
 	} // doModelSpecificAdjustments
 	
-
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

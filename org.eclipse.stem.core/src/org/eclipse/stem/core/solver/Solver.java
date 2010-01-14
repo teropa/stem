@@ -93,7 +93,7 @@ public interface Solver extends Identifiable {
 	 * @model
 	 * @generated
 	 */
-	void step(STEMTime time, long timeDelta, int cycle);
+	boolean step(STEMTime time, long timeDelta, int cycle);
 
 	/**
 	 * <!-- begin-user-doc -->

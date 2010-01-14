@@ -26,6 +26,7 @@ import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
 
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.experiment.ExperimentPackage;
 import org.eclipse.stem.core.experiment.impl.ExperimentPackageImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
@@ -79,6 +80,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EClass comparableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass identifiableFilterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -428,6 +436,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIdentifiableFilter() {
+		return identifiableFilterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getURI() {
 		return uriEDataType;
 	}
@@ -489,6 +506,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEReference(identifiableEClass, IDENTIFIABLE__DUBLIN_CORE);
 
 		comparableEClass = createEClass(COMPARABLE);
+
+		identifiableFilterEClass = createEClass(IDENTIFIABLE_FILTER);
 
 		// Create data types
 		uriEDataType = createEDataType(URI);
@@ -562,6 +581,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		addEOperation(identifiableEClass, ecorePackage.getEBoolean(), "sane", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(identifiableFilterEClass, IdentifiableFilter.class, "IdentifiableFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Initialize data types
 		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

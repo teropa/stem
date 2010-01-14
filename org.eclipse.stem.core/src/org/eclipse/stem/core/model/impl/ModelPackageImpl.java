@@ -516,6 +516,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		op = addEOperation(modelEClass, theGraphPackage.getGraph(), "getCanonicalGraph", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getURI(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theCommonPackage.getIdentifiableFilter(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(nodeDecoratorEClass, NodeDecorator.class, "NodeDecorator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

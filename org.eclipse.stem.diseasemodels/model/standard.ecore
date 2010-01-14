@@ -215,7 +215,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="IntegrationLabelValue" instanceClassName="org.eclipse.stem.core.graph.IntegrationLabelValue"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntegrationDecorator" instanceClassName="org.eclipse.stem.core.model.IntegrationDecorator"
-      abstract="true" interface="true"/>
+      abstract="true" interface="true">
+    <eOperations name="isDeterministic" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatingSIDiseaseModel" eSuperTypes="#//SI"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatingDiseaseModelState" eSuperTypes="#//DiseaseModelState">
     <eStructuralFeatures xsi:type="ecore:EReference" name="childrensLabels" upperBound="-1"

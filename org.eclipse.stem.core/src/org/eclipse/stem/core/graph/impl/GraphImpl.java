@@ -34,8 +34,9 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 //import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.IdentifiableFilter;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
@@ -401,6 +402,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		return retValue;
 	} // getNodeLabelsByTypeURI
 
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -471,16 +473,17 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public void addGraph(final Graph graph, IdentifiableFilter filter) {
+		IdentifiableFilterImpl _filter = (IdentifiableFilterImpl)filter;
 		EMap<URI, Edge>edges = graph.getEdges();
 		EMap<URI, Node>nodes = graph.getNodes();
 		EMap<URI, NodeLabel>nodeLabels = graph.getNodeLabels();
 		EMap<URI, Label>graphLabels = graph.getGraphLabels();
 		
 		if(filter != null) {
-			filter.filterEdges(edges);
-			filter.filterNodes(nodes);
-			filter.filterNodeLabels(nodeLabels);
-			filter.filterLabels(graphLabels);
+			_filter.filterEdges(edges);
+			_filter.filterNodes(nodes);
+			_filter.filterNodeLabels(nodeLabels);
+			_filter.filterLabels(graphLabels);
 		}
 		
 		getEdges().addAll(edges);

@@ -53,4 +53,12 @@ public interface IntegrationDecorator extends EObject {
 	 */
 	void doModelSpecificAdjustments(LabelValue label);
 
+	/**
+	 * Determine whether the decorator is deterministic. The developer returns
+	 * the proper value here depending upon whether calculatedDelta always
+	 * returns the same delta for the same input
+	 * 
+	 * @return true If the decorator is deterministic, false otherwise
+	 */
+	public boolean isDeterministic();
 }

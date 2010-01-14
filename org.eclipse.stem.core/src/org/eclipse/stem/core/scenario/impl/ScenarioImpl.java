@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.Constants;
 import org.eclipse.stem.core.CorePlugin;
-import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
@@ -345,7 +345,9 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * @generated NOT
 	 */
 	public boolean step() {
+		boolean success = true;
 		// Is the sequencer finished?
+		
 		if (!getSequencer().isTimeToStop()) {
 			// No
 			// Is there a canonical graph?
@@ -388,7 +390,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			if(solver.getDecorators() == null) solver.setDecorators(canonicalGraph.getDecorators());
 			
 			// Do the one step using the current solver
-			solver.step(currentTime, timeDelta, getSequencer().getCycle());
+			success = solver.step(currentTime, timeDelta, getSequencer().getCycle());
 						
 			// Everything should still be sane
 			assert sane();
@@ -398,8 +400,8 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			// it all over again.
 			canonicalGraph.switchToNextValue(currentTime);
 		} // if sequencer finished
-
-		return !getSequencer().isTimeToStop();
+		if(success) success = !getSequencer().isTimeToStop();
+		return success;
 	} // step
 
 	/**
@@ -464,7 +466,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.
-		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilter(getModel().getDublinCore().getCoverage()));
+		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()));
 
 		canonicalGraph.setTime((STEMTime) EcoreUtil.copy(getSequencer()
 				.getCurrentTime()));

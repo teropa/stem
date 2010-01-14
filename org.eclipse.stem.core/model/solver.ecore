@@ -4,7 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="solver"
     nsURI="http://org/eclipse/stem/core/solver" nsPrefix="org.eclipse.stem.core.solver">
   <eClassifiers xsi:type="ecore:EClass" name="Solver" eSuperTypes="common.ecore#//Identifiable">
-    <eOperations name="step">
+    <eOperations name="step" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
       <eParameters name="time" eType="ecore:EClass model.ecore#//STEMTime"/>
       <eParameters name="timeDelta" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
       <eParameters name="cycle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>

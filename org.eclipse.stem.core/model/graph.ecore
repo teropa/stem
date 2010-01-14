@@ -36,6 +36,7 @@
     </eOperations>
     <eOperations name="addGraph">
       <eParameters name="graph" eType="#//Graph"/>
+      <eParameters name="filter" eType="ecore:EClass common.ecore#//IdentifiableFilter"/>
     </eOperations>
     <eOperations name="putEdge">
       <eParameters name="edge" eType="#//Edge"/>

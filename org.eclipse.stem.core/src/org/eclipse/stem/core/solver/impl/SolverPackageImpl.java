@@ -270,7 +270,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getSolver_Decorators(), g1, "decorators", null, 0, 1, Solver.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getSolver_Initialized(), theEcorePackage.getEBoolean(), "initialized", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		EOperation op = addEOperation(solverEClass, null, "step", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		EOperation op = addEOperation(solverEClass, theEcorePackage.getEBoolean(), "step", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theModelPackage.getSTEMTime(), "time", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theEcorePackage.getELong(), "timeDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theEcorePackage.getEInt(), "cycle", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$

@@ -34,6 +34,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="common.ecore#//Identifiable">
     <eOperations name="getCanonicalGraph" eType="ecore:EClass graph.ecore#//Graph">
       <eParameters name="uri" eType="#//URI"/>
+      <eParameters name="filter" eType="ecore:EClass common.ecore#//IdentifiableFilter"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
         eType="#//Model"/>

@@ -136,7 +136,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void step(STEMTime time, long timeDelta, int cycle) {
+	public boolean step(STEMTime time, long timeDelta, int cycle) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

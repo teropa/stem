@@ -88,4 +88,9 @@ public class DeterministicSEIRDiseaseModelImpl extends SEIRImpl implements
 		return StandardPackage.Literals.DETERMINISTIC_SEIR_DISEASE_MODEL;
 	}
 
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
+	
 } // DeterministicSEIRDiseaseModelImpl

@@ -362,6 +362,11 @@ public class StochasticSEIRDiseaseModelImpl extends SEIRImpl implements
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

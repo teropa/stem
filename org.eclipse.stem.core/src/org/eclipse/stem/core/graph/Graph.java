@@ -15,8 +15,8 @@ package org.eclipse.stem.core.graph;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.stem.core.IdentifiableFilter;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.STEMTime;
@@ -144,6 +144,14 @@ public interface Graph extends Identifiable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addGraph(Graph graph, IdentifiableFilter filter);
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * This collection of Labels contains references to ALL of the
 	 * {@link DynamicLabel}s in the {@link Graph}. It is used by
@@ -162,12 +170,6 @@ public interface Graph extends Identifiable {
 	 */
 	EList<Decorator> getDecorators();
 	
-	/**
-	 * Add the {@link Edge}s, {@link Node}s and {@link Label}s to this {@link Graph}.
-	 * 
-	 * @model volatile="true" transient="true" changeable="false"
-	 */
-	void addGraph(Graph graph, IdentifiableFilter filter);
 
 	/**
 	 * Put the {@link Edge} into the {@link Graph}.

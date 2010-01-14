@@ -85,4 +85,8 @@ public class DeterministicSIDiseaseModelImpl extends SIImpl implements
 		// Nothing
 	}
 
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
 } // DeterministicSIDiseaseModelImpl

@@ -737,4 +737,8 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 		return true;
 	} // sane
 
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
 } // AggregatingSIDiseaseModelImpl

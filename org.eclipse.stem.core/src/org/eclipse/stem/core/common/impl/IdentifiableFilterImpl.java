@@ -1,38 +1,58 @@
-package org.eclipse.stem.core;
-
-/******************************************************************************* 
- * Copyright (c) 2006, 2009 IBM Corporation and others. 
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- * 
- * Contributors: 
- *     IBM Corporation - initial API and implementation 
- *******************************************************************************/
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package org.eclipse.stem.core.common.impl;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 
 /**
- * The class is used to filter out nodes and edges that does not match a pattern in the URI. The pattern is
- * specified in the "coverage" property of the Dublin Core. The format of this property is a list of patterns
- * separated by ';'. 
- * 
- * @author edlund
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Identifiable Filter</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * </p>
  *
+ * @generated
  */
-public class IdentifiableFilter {
+public class IdentifiableFilterImpl extends EObjectImpl implements IdentifiableFilter {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IdentifiableFilterImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CommonPackage.Literals.IDENTIFIABLE_FILTER;
+	}
 
 	private String []patterns;
-	public IdentifiableFilter(String filter) {
+	public IdentifiableFilterImpl(String filter) {
 		if(filter == null)return;
 		if(filter.contains(":"))return; // Internal use by STEM, not specified by the user
 		StringTokenizer st = new StringTokenizer(filter.toString(), ";");
@@ -120,7 +140,7 @@ public class IdentifiableFilter {
 		for(URI u:remove)map.remove(u);
 		return map;
 	}
-	public void restrict(IdentifiableFilter other) {
+	public void restrict(IdentifiableFilterImpl other) {
 		// ToDO. The idea is that we need to consolidate a list of patterns into a single
 		// list if there are duplicates or more general patterns
 /*		if(other.patterns == null)return;
@@ -141,4 +161,5 @@ public class IdentifiableFilter {
 		for(int i=0;i<restrictedPatterns.size();++i) this.patterns[i] = restrictedPatterns.get(i);
 	*/
 	}
-}
+	
+} //IdentifiableFilterImpl

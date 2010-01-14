@@ -104,6 +104,29 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.common.IdentifiableFilter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IdentifiableFilterItemProvider identifiableFilterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.common.IdentifiableFilter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIdentifiableFilterAdapter() {
+		if (identifiableFilterItemProvider == null) {
+			identifiableFilterItemProvider = new IdentifiableFilterItemProvider(this);
+		}
+
+		return identifiableFilterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +227,7 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	 */
 	public void dispose() {
 		if (dublinCoreItemProvider != null) dublinCoreItemProvider.dispose();
+		if (identifiableFilterItemProvider != null) identifiableFilterItemProvider.dispose();
 	}
 
 }

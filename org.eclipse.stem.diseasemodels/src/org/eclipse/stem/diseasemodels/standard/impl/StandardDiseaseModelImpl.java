@@ -881,6 +881,17 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	} // doModelSpecificAdjustments
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isDeterministic() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * computeDiseaseDeltas. This method calculates the delta changes for each disease state depending 
 	 * on disease parameters and mixing factors
 	 * 
