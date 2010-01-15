@@ -77,7 +77,7 @@ public class StochasticPoissonSEIRDiseaseModelItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StochasticPoissonSEIRDiseaseModel")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("full/custom16/disease")); //$NON-NLS-1$
 	}
 
 	/**
