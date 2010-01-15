@@ -66,10 +66,10 @@ public class StochasticPoissonSIRDiseaseModelItemProvider
 	}
 
 	/**
-	 * This returns StochasticPoissonSIRDiseaseModel.gif.
+	 * This returns This returns disease.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {

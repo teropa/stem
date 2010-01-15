@@ -54,7 +54,7 @@ public class StochasticPoissonSIDiseaseModelItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -66,10 +66,10 @@ public class StochasticPoissonSIDiseaseModelItemProvider
 	}
 
 	/**
-	 * This returns StochasticPoissonSIDiseaseModel.gif.
+	 * This returns This returns disease.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
