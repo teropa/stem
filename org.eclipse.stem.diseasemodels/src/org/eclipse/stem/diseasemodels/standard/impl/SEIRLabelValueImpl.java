@@ -274,7 +274,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 		double newE = this.getE() + seirValue.getE();
 		double newI = this.getI() + seirValue.getI();
 		double newR = this.getR() + seirValue.getR();
-		
+	
 		double factor = 1.0;
 		if(newS < newE && newS < newI && newS < newR && newS < 0.0) {
 			// Scale using S
@@ -294,6 +294,21 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 			factor = -seirValue.getR()/this.getR();
 		}
 		if(adjusted) this.scale(factor);
+		
+		// Due to precision limitations it is still possible the number if tiny negative. Adjust if necessary
+		newS = this.getS() + seirValue.getS();
+		newE = this.getE() + seirValue.getE();
+		newI = this.getI() + seirValue.getI();
+		newR = this.getR() + seirValue.getR();
+
+		if(newS<0)
+			this.setS(-seirValue.getS());
+		if(newE<0)
+			this.setE(-seirValue.getE());
+		if(newI<0)
+			this.setI(-seirValue.getI());
+		if(newR<0)
+			this.setR(-seirValue.getR());
 		return adjusted;
 	}
 

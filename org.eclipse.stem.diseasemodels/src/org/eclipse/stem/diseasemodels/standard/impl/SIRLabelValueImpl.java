@@ -301,6 +301,19 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 			factor = -sirValue.getR()/this.getR();
 		}
 		if(adjusted) this.scale(factor);
+		
+		
+		// Due to precision limitations it is still possible the number if tiny negative. Adjust if necessary
+		newS = this.getS() + sirValue.getS();
+		newI = this.getI() + sirValue.getI();
+		newR = this.getR() + sirValue.getR();
+
+		if(newS<0)
+			this.setS(-sirValue.getS());
+		if(newI<0)
+			this.setI(-sirValue.getI());
+		if(newR<0)
+			this.setR(-sirValue.getR());
 		return adjusted;
 	}
 	/**

@@ -401,6 +401,14 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 			factor = -siValue.getI()/this.getI();
 		}
 		if(adjusted) this.scale(factor);
+		// Due to precision limitations it is still possible the number if tiny negative. Adjust if necessary
+		newS = this.getS() + siValue.getS();
+		newI = this.getI() + siValue.getI();
+	
+		if(newS<0)
+			this.setS(-siValue.getS());
+		if(newI<0)
+			this.setI(-siValue.getI());
 		return adjusted;
 	}
 
