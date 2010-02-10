@@ -47,9 +47,13 @@ import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.provider.StandardItemProviderAdapterFactory;
 import org.eclipse.stem.jobs.simulation.ISimulation;
+import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.util.loggers.Activator;
 import org.eclipse.stem.util.loggers.preferences.PreferenceConstants;
 
@@ -123,10 +127,15 @@ public class NewCSVLogWriter extends LogWriter {
 		}
 		// Ugh
 		String diseaseName = null;
-		if(dm instanceof DiseaseModel)
+		String populationName = null;
+		if(dm instanceof DiseaseModel) {
 			diseaseName = ((DiseaseModel)dm).getDiseaseName();
-		else if (dm instanceof PopulationModel)
+			populationName = ((DiseaseModel)dm).getPopulationIdentifier();
+		}
+		else if (dm instanceof PopulationModel) {
 			diseaseName = ((PopulationModel)dm).getName();
+			populationName = ((PopulationModel)dm).getPopulationIdentifier();
+		}
 		try {
 			this.directoryName = dirName + sep+uniqueID + sep + diseaseName.trim() + sep;
 		} catch(Exception e) {
@@ -224,16 +233,27 @@ public class NewCSVLogWriter extends LogWriter {
 				return;
 			}
 			IItemPropertySource propertySource = null;
+			ArrayList<String>populationIdentifiers = new ArrayList<String>();
+			
 			if(dm instanceof DiseaseModel) {
 				StandardItemProviderAdapterFactory itemProviderFactory = getItemProviderFactory();
 				IntegrationLabelValue dmlv = (IntegrationLabelValue)label.getCurrentValue();
 				propertySource = (IItemPropertySource) itemProviderFactory
 				.adapt(dmlv, IItemPropertySource.class);
+				 populationIdentifiers.add(((DiseaseModel)dm).getPopulationIdentifier());
 			} else if (dm instanceof PopulationModel) {
 				org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory itemProviderFactory = getPopulationModelItemProviderFactory();
 				IntegrationLabelValue dmlv = (IntegrationLabelValue)label.getCurrentValue();
 				propertySource = (IItemPropertySource) itemProviderFactory
 				.adapt(dmlv, IItemPropertySource.class);
+				 populationIdentifiers.add(((PopulationModel)dm).getPopulationIdentifier());
+				 
+				 if(dm instanceof DemographicPopulationModel) {
+					 // We need to create separate log directories for each population group
+					 DemographicPopulationModel dpm = (DemographicPopulationModel)dm;
+					 for(PopulationGroup g:dpm.getPopulationGroups()) 
+						 populationIdentifiers.add(g.getIdentifier());
+				 }
 			}
 			if(propertySource == null) 
 				Activator.logError("Cannot find property source for logger", null);
@@ -242,29 +262,33 @@ public class NewCSVLogWriter extends LogWriter {
 				
 			for(IItemPropertyDescriptor property:properties) {	
 				for(int level = minLevel;level <=maxLevel;++level) {
-					StateLevelMap slm = new StateLevelMap(property.getDisplayName(property), level);
-					String file = dirs+sep+property.getDisplayName(property)+"_"+level+CSV_EXT;
-					FileWriter fw = new FileWriter(file);
-					fileWriters.put(slm, fw);
-					Iterator<Node> nodeIterator = this.getNodeIterator(level, nodeLevels);
-					// Iterate over nodes for a given resolution
-					fw.write(ITERATION_LABEL);
-					fw.write(",");
-					fw.write(TIME_LABEL);
-					fw.write(",");
-					
-					int nodeCount = 0;
-					
-					while(nodeIterator.hasNext()) {
-						Node node = nodeIterator.next();
-						String id = this.filterLocationId(node.getURI().toString());
-						fw.write(id);
-						headerItemCount++;
-						nodeCount++;
-						if(nodeIterator.hasNext()) fw.write(",");
+					for(String pid:populationIdentifiers) {
+						StateLevelMap slm = new StateLevelMap(pid, property.getDisplayName(property), level);
+						File pdir = new File(dirs+pid+sep);
+						if(!pdir.exists())pdir.mkdir();
+						String file = dirs+pid+sep+property.getDisplayName(property)+"_"+level+CSV_EXT;
+						FileWriter fw = new FileWriter(file);
+						fileWriters.put(slm, fw);
+						Iterator<Node> nodeIterator = this.getNodeIterator(level, nodeLevels);
+						// Iterate over nodes for a given resolution
+						fw.write(ITERATION_LABEL);
+						fw.write(",");
+						fw.write(TIME_LABEL);
+						fw.write(",");
+						
+						int nodeCount = 0;
+						
+						while(nodeIterator.hasNext()) {
+							Node node = nodeIterator.next();
+							String id = this.filterLocationId(node.getURI().toString());
+							fw.write(id);
+							headerItemCount++;
+							nodeCount++;
+							if(nodeIterator.hasNext()) fw.write(",");
+						}
+	
+						fw.write("\n");
 					}
-
-					fw.write("\n");
 				}
 			}
 					
@@ -404,18 +428,21 @@ public class NewCSVLogWriter extends LogWriter {
 						IItemPropertySource propertySource = null;
 						IntegrationLabelValue dmlv = null;
 						
-						if(dm instanceof DiseaseModel) {
+						String populationIdentifier = null;
+						if(dm instanceof DiseaseModel && label instanceof DiseaseModelLabel &&
+								((DiseaseModelLabel)label).getPopulationModelLabel().getPopulationIdentifier().equals(((DiseaseModel)dm).getPopulationIdentifier())) {							
 							StandardItemProviderAdapterFactory itemProviderFactory = getItemProviderFactory();
 							IntegrationLabel dmLabel = (IntegrationLabel)label;
 							// The current value
 							dmlv = (IntegrationLabelValue)dmLabel.getCurrentValue();
-							propertySource = (IItemPropertySource) itemProviderFactory
-							.adapt(dmlv, PropertySource.class);
-						} else if (dm instanceof PopulationModel) {
+							propertySource = (IItemPropertySource) itemProviderFactory.adapt(dmlv, PropertySource.class);
+							populationIdentifier = ((DiseaseModelLabel)label).getPopulationModelLabel().getPopulationIdentifier();
+						} else if (dm instanceof PopulationModel && label instanceof PopulationModelLabel &&
+								((PopulationModelLabel)label).getPopulationLabel().getPopulationIdentifier().equals(((PopulationModel)dm).getPopulationIdentifier())) {
 							org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory itemProviderFactory = getPopulationModelItemProviderFactory();
 							dmlv = (IntegrationLabelValue)label.getCurrentValue();
-							propertySource = (IItemPropertySource) itemProviderFactory
-							.adapt(dmlv, IItemPropertySource.class);
+							propertySource = (IItemPropertySource) itemProviderFactory.adapt(dmlv, IItemPropertySource.class);
+							populationIdentifier = ((PopulationModelLabel)label).getPopulationIdentifier();
 						}
 						if(propertySource == null) {
 							skipCount++;
@@ -434,7 +461,7 @@ public class NewCSVLogWriter extends LogWriter {
 						StringBuilder sb = new StringBuilder();
 						for(IItemPropertyDescriptor itemDescriptor:properties) {
 								sb.setLength(0);
-								StateLevelMap slm = new StateLevelMap(itemDescriptor.getDisplayName(itemDescriptor), resolution);
+								StateLevelMap slm = new StateLevelMap(populationIdentifier, itemDescriptor.getDisplayName(itemDescriptor), resolution);
 								FileWriter fw = fileWriters.get(slm);
 								if(fw == null) {
 									Activator.logError("Error, no file writer found for "+slm, null);
@@ -600,32 +627,35 @@ public class NewCSVLogWriter extends LogWriter {
 	 * the label (i.e. disease state) and by 
 	 */
 	private class StateLevelMap {
+		private final String popId;
 		private final String state;
 		private final int level;
 		
-		public StateLevelMap(String state, int level) {
+		public StateLevelMap(String popId,String state, int level) {
+			this.popId = popId;
 			this.state = state;
 			this.level = level;
 		}
 		
+		public String getPopulationId() {return this.popId;}
 		public int getLevel() {return this.level;}
 		public String getState() {return this.state;}
 		
 		@Override
 		public int hashCode() {
-			return state.hashCode() + level; // ugh
+			return state.hashCode()+popId.hashCode() + level; // ugh
 		}
 		
 		@Override
 		public boolean equals(Object o) {
 			if(!(o instanceof StateLevelMap)) return false;
 			StateLevelMap slm = (StateLevelMap)o;
-			return (slm.getState().equals(this.state) && slm.getLevel() == level);
+			return (slm.getState().equals(this.state) && slm.getPopulationId().equals(this.popId) && slm.getLevel() == level);
 		}
 		
 		@Override
 		public String toString() {
-			return this.state+"_"+this.level;
+			return this.popId+" - "+this.state+"_"+this.level;
 		}
 	}
 
