@@ -2176,13 +2176,22 @@ public interface StandardPackage extends EPackage {
 	int DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Population Model Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Disease Model Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISEASE_MODEL_LABEL_FEATURE_COUNT = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 2;
+	int DISEASE_MODEL_LABEL_FEATURE_COUNT = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl <em>Disease Model Label Value</em>}' class.
@@ -2522,6 +2531,15 @@ public interface StandardPackage extends EPackage {
 	int STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE = DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
 
 	/**
+	 * The feature id for the '<em><b>Population Model Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL = DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL;
+
+	/**
 	 * The number of structural features of the '<em>Disease Model Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2667,6 +2685,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEIR_LABEL__DISEASE_MODEL_STATE = STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Population Model Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEIR_LABEL__POPULATION_MODEL_LABEL = STANDARD_DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
@@ -3478,6 +3505,15 @@ public interface StandardPackage extends EPackage {
 	int SI_LABEL__DISEASE_MODEL_STATE = STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
 
 	/**
+	 * The feature id for the '<em><b>Population Model Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_LABEL__POPULATION_MODEL_LABEL = STANDARD_DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3638,6 +3674,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SIR_LABEL__DISEASE_MODEL_STATE = STANDARD_DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Population Model Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_LABEL__POPULATION_MODEL_LABEL = STANDARD_DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
@@ -7027,6 +7072,17 @@ public interface StandardPackage extends EPackage {
 	EReference getDiseaseModelLabel_DiseaseModelState();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getPopulationModelLabel <em>Population Model Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Population Model Label</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getPopulationModelLabel()
+	 * @see #getDiseaseModelLabel()
+	 * @generated
+	 */
+	EReference getDiseaseModelLabel_PopulationModelLabel();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue <em>Disease Model Label Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8113,6 +8169,14 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE = eINSTANCE.getDiseaseModelLabel_DiseaseModelState();
+
+		/**
+		 * The meta object literal for the '<em><b>Population Model Label</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL = eINSTANCE.getDiseaseModelLabel_PopulationModelLabel();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelLabelValueImpl <em>Disease Model Label Value</em>}' class.

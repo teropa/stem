@@ -4,7 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
     nsURI="http:///org/eclipse/stem/core/model.ecore" nsPrefix="org.eclipse.stem.core.model">
   <eClassifiers xsi:type="ecore:EClass" name="Decorator" eSuperTypes="common.ecore#//Identifiable">
-    <eOperations name="decorateGraph"/>
+    <eOperations name="decorateGraph" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eOperations name="updateLabels">
       <eParameters name="time" eType="#//STEMTime"/>
       <eParameters name="timerPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -17,6 +17,9 @@
       </eGenericType>
       <eParameters name="partition" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
       <eParameters name="max" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="prepare">
+      <eParameters name="model" eType="#//Model"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelsToUpdate" upperBound="-1"
         eType="ecore:EClass graph.ecore#//DynamicLabel" eOpposite="graph.ecore#//DynamicLabel/decorator"/>
@@ -36,6 +39,7 @@
       <eParameters name="uri" eType="#//URI"/>
       <eParameters name="filter" eType="ecore:EClass common.ecore#//IdentifiableFilter"/>
     </eOperations>
+    <eOperations name="prepare"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
         eType="#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="graphs" upperBound="-1"

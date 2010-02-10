@@ -39,6 +39,7 @@ import org.eclipse.stem.core.graph.GraphPackage;
 
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.STEMTime;
 
@@ -191,6 +192,18 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	}
 	
 	/**
+	 * 
+	 * Prepare the decorator. A subclass needs to override this method if
+	 * pre-processing steps are necessary before the decorator is being used
+	 * 
+	 * @generated NOT
+	 */
+	  
+	public void prepare(Model model) {
+		// Nothing to do
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -299,7 +312,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * 
 	 * @generated NOT
 	 */
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		CorePlugin.logError("decorateGraph() not implemented in \""+
 				getDublinCore().getTitle()
 				+ "\" of type \"" + this.getClass().getCanonicalName()

@@ -11,6 +11,7 @@ package org.eclipse.stem.core.model.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -244,6 +245,42 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	} // getCanonicalGraph
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void prepare() {
+		// Iterate submodels and call prepare
+		for (final Iterator<Model> modelIter = getModels().iterator(); modelIter
+		.hasNext();) {
+			final Model model = (Model) modelIter.next();
+			model.prepare();
+		} // for models
+		
+		ArrayList<NodeDecorator>list = (ArrayList<NodeDecorator>)EcoreUtil.copyAll(getNodeDecorators());
+		for (final Iterator<NodeDecorator> nodeDecoratorIter = list.iterator(); nodeDecoratorIter
+		.hasNext();) {
+			final NodeDecorator nodeDecorator = (NodeDecorator) nodeDecoratorIter.next();
+			nodeDecorator.prepare(this);
+		}
+		
+		ArrayList<EdgeDecorator>list2 = (ArrayList<EdgeDecorator>)EcoreUtil.copyAll(getEdgeDecorators());
+		for (final Iterator<EdgeDecorator> edgeDecoratorIter = list2.iterator(); edgeDecoratorIter
+		.hasNext();) {
+			final EdgeDecorator edgeDecorator = (EdgeDecorator) edgeDecoratorIter.next();
+			edgeDecorator.prepare(this);
+		}
+		
+		ArrayList<GraphDecorator>list3 = (ArrayList<GraphDecorator>)EcoreUtil.copyAll(getGraphDecorators());
+		for (final Iterator<GraphDecorator> graphDecoratorIter = list3.iterator(); graphDecoratorIter
+		.hasNext();) {
+			final GraphDecorator graphDecorator = (GraphDecorator) graphDecoratorIter.next();
+			graphDecorator.prepare(this);
+		}
+
+	}
+
+	/**
 	 * Process all of the components of a graph and link up all unresolved URI
 	 * references in the graph.
 	 * 
@@ -357,6 +394,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 *            the {@link Graph} to decorate
 	 */
 	private void invokeNodeDecorators(Graph graph) {
+		ArrayList<Decorator>failed = null; 
 		for (final Iterator<NodeDecorator> nodeDecoratorIter = getNodeDecorators().iterator(); nodeDecoratorIter
 				.hasNext();) {
 			final NodeDecorator nodeDecorator = (NodeDecorator) nodeDecoratorIter
@@ -364,8 +402,17 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			final Decorator canonicalDecorator = (Decorator) EcoreUtil
 					.copy(nodeDecorator);
 			graph.getDecorators().add(canonicalDecorator);
-			canonicalDecorator.decorateGraph();
+			boolean success = canonicalDecorator.decorateGraph();
+			if(!success) {
+				if(failed == null)failed = new ArrayList<Decorator>();
+				failed.add(canonicalDecorator);
+			}
 		} // for
+		
+		// Redo failed decorators. This can happen due to dependencies, for instance a population model must be allowed to decorate
+		// before a disease model
+		if(failed!=null)
+			for(Decorator d:failed)d.decorateGraph();
 	} // invokeNodeDecorators
 
 	/**

@@ -45,6 +45,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Aggregating SI Disease Model</b></em>'.
@@ -80,7 +81,7 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#decorateGraph()
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		final Node rootNode = getRootNode(getGraph());
 		// Did we find a root node?
 		if (rootNode != null) {
@@ -95,6 +96,7 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 									+ " didn't find a root node for the graph.  Missing containment relationship?",
 							null);
 		} // else
+		return true;
 	} // decorateGraph
 
 	/**
@@ -201,7 +203,7 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 				// No
 				final EList childrensLabels = getChildrensLabels(node);
 
-				final PopulationLabel populationLabel = getOrCreatePopulationLabel(
+				final PopulationModelLabel populationLabel = getOrCreatePopulationLabel(
 						node, getPopulationIdentifier());
 
 				final DiseaseModelLabel dml = createDiseaseModelLabel();
@@ -300,18 +302,18 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 	 * @return a {@link PopulationLabel} that labels the parameter
 	 *         <code>node</node>, either by finding it labeling the {@link Node}, or by creating it.
 	 */
-	private PopulationLabel getOrCreatePopulationLabel(final Node node,
+	private PopulationModelLabel getOrCreatePopulationLabel(final Node node,
 			final String populationIdentifier) {
-		PopulationLabel retValue = null;
+		PopulationModelLabel retValue = null;
 
 		// Try to find the population label if it exists
 		for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter
 				.hasNext();) {
 			final Label label = labelIter.next();
 			// Is it the population label we're looking for?
-			if (label instanceof PopulationLabel) {
-				final PopulationLabel populationLabel = (PopulationLabel) label;
-				if (populationLabel.getName().equals(populationIdentifier)) {
+			if (label instanceof PopulationModelLabel) {
+				final PopulationModelLabel populationLabel = (PopulationModelLabel) label;
+				if (populationLabel.getPopulationIdentifier().equals(populationIdentifier)) {
 					// Yes
 					retValue = populationLabel;
 					break;
@@ -323,7 +325,7 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 		if (retValue == null) {
 			// No
 			// Make one then.
-			retValue = LabelsFactory.eINSTANCE.createPopulationLabel();
+			retValue = org.eclipse.stem.populationmodels.standard.StandardFactory.eINSTANCE.createPopulationModelLabel();
 			retValue.setURIOfIdentifiableToBeLabeled(node.getURI());
 			// We don't set the population value
 			node.getLabels().add(retValue);

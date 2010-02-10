@@ -436,7 +436,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		isInited = true;
 
 		// Initialize simple dependencies
-		LabelsPackage.eINSTANCE.eClass();
+		org.eclipse.stem.populationmodels.standard.StandardPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theStandardPackage.createPackageContents();
@@ -586,6 +586,15 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EReference getDiseaseModelLabel_DiseaseModelState() {
 		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDiseaseModelLabel_PopulationModelLabel() {
+		return (EReference)diseaseModelLabelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1427,6 +1436,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		diseaseModelLabelEClass = createEClass(DISEASE_MODEL_LABEL);
 		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__POPULATION_LABEL);
 		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE);
+		createEReference(diseaseModelLabelEClass, DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL);
 
 		diseaseModelLabelValueEClass = createEClass(DISEASE_MODEL_LABEL_VALUE);
 		createEAttribute(diseaseModelLabelValueEClass, DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS);
@@ -1584,6 +1594,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
 		LabelsPackage theLabelsPackage = (LabelsPackage)EPackage.Registry.INSTANCE.getEPackage(LabelsPackage.eNS_URI);
+		org.eclipse.stem.populationmodels.standard.StandardPackage theStandardPackage_1 = (org.eclipse.stem.populationmodels.standard.StandardPackage)EPackage.Registry.INSTANCE.getEPackage(org.eclipse.stem.populationmodels.standard.StandardPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1677,6 +1688,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(diseaseModelLabelEClass, DiseaseModelLabel.class, "DiseaseModelLabel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDiseaseModelLabel_PopulationLabel(), theLabelsPackage.getPopulationLabel(), null, "populationLabel", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDiseaseModelLabel_DiseaseModelState(), this.getDiseaseModelState(), this.getDiseaseModelState_Label(), "diseaseModelState", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDiseaseModelLabel_PopulationModelLabel(), theStandardPackage_1.getPopulationModelLabel(), null, "populationModelLabel", null, 0, 1, DiseaseModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(diseaseModelLabelValueEClass, DiseaseModelLabelValue.class, "DiseaseModelLabelValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getDiseaseModelLabelValue_DiseaseDeaths(), ecorePackage.getEDouble(), "diseaseDeaths", "0", 0, 1, DiseaseModelLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$

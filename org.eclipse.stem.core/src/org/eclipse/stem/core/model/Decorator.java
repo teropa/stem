@@ -174,7 +174,7 @@ public interface Decorator extends Identifiable {
 	 * 
 	 * @model volatile="true" transient="true" changeable="false"
 	 */
-	void decorateGraph();
+	boolean decorateGraph();
 
 	/**
 	 * Process each of the {@link DynamicLabel}s that this
@@ -210,5 +210,13 @@ public interface Decorator extends Identifiable {
 	 * @generated
 	 */
 	EList<DynamicLabel> getLabelsToUpdate(int partition, int max);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void prepare(Model model);
 
 } // Decorator

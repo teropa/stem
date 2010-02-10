@@ -63,5 +63,5 @@ public interface StandardDiseaseModelLabel extends DiseaseModelLabel, Integratio
 	 */
 	public void setNextS(double s);
 
-	
+
 } // StandardDiseaseModelLabel

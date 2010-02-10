@@ -44,6 +44,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="populationLabel" eType="ecore:EClass ../../org.eclipse.stem.definitions/model/labels.ecore#//PopulationLabel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diseaseModelState" eType="#//DiseaseModelState"
         containment="true" resolveProxies="false" eOpposite="#//DiseaseModelState/label"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="populationModelLabel" eType="ecore:EClass ../../org.eclipse.stem.populationmodels/model/standard.ecore#//PopulationModelLabel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DiseaseModelLabelValue" abstract="true"
       eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue #//IntegrationLabelValue">

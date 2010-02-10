@@ -20,6 +20,7 @@ import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 //import org.eclipse.stem.core.graph.provider.GraphEditPlugin;
 //import org.eclipse.stem.core.model.provider.ModelEditPlugin;
 //import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
+import org.eclipse.stem.populationmodels.standard.provider.StandardEditPlugin;
 import org.eclipse.stem.definitions.labels.provider.DefinitionsEditPlugin;
 
 /**

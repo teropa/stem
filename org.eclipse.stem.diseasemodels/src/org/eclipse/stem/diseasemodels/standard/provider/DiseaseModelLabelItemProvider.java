@@ -72,6 +72,7 @@ public class DiseaseModelLabelItemProvider extends DynamicNodeLabelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addPopulationLabelPropertyDescriptor(object);
+			addPopulationModelLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,28 @@ public class DiseaseModelLabelItemProvider extends DynamicNodeLabelItemProvider
 				 getString("_UI_DiseaseModelLabel_populationLabel_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModelLabel_populationLabel_feature", "_UI_DiseaseModelLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_LABEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Population Model Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPopulationModelLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DiseaseModelLabel_populationModelLabel_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DiseaseModelLabel_populationModelLabel_feature", "_UI_DiseaseModelLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL,
 				 true,
 				 false,
 				 true,

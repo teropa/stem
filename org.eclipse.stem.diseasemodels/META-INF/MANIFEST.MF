@@ -14,6 +14,7 @@ Export-Package: org.eclipse.stem.diseasemodels,
  org.eclipse.stem.diseasemodels.standard.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.definitions;visibility:=reexport,
- org.eclipse.stem.transport
+ org.eclipse.stem.transport,
+ org.eclipse.stem.populationmodels
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

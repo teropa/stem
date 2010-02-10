@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 
 /**
  * This interface defines a class in an EMF model for an STEM Disease model
@@ -74,6 +75,32 @@ public interface DiseaseModelLabel extends DynamicNodeLabel {
 	 */
 	void setDiseaseModelState(DiseaseModelState value);
 	
+	/**
+	 * Returns the value of the '<em><b>Population Model Label</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Population Model Label</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Population Model Label</em>' reference.
+	 * @see #setPopulationModelLabel(PopulationModelLabel)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getDiseaseModelLabel_PopulationModelLabel()
+	 * @model
+	 * @generated
+	 */
+	PopulationModelLabel getPopulationModelLabel();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel#getPopulationModelLabel <em>Population Model Label</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Population Model Label</em>' reference.
+	 * @see #getPopulationModelLabel()
+	 * @generated
+	 */
+	void setPopulationModelLabel(PopulationModelLabel value);
+
 	/**
 	 * @return the value of the number of population members who have died from
 	 *         the disease.

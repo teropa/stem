@@ -464,6 +464,11 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		// the values of dynamic labels for each step of the simulation.
 		getSequencer().reset();
 
+		// Prepare the model and perform any pre-processing steps necessary
+		// before we begin
+		
+		getModel().prepare();
+		
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.
 		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()));
@@ -526,7 +531,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		ArrayList<Decorator>intDecorators = new ArrayList<Decorator>();
 		ArrayList<Decorator>otherDecorators = new ArrayList<Decorator>();
 		// Let the scenario decorators decorate the graph
-		for (final Iterator<Decorator> scenarioDecorators = getScenarioDecorators()
+		for (final Iterator<Decorator> scenarioDecorators = this.getScenarioDecorators()
 				.iterator(); scenarioDecorators.hasNext();) {
 			final Decorator decorator = (Decorator) EcoreUtil.copy(scenarioDecorators.next());
 			if(decorator instanceof IntegrationDecorator)intDecorators.add(decorator);

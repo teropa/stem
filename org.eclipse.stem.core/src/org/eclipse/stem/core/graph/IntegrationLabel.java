@@ -72,7 +72,7 @@ public interface IntegrationLabel  extends EObject {
 	LabelValue getOriginalValue();
 	
 	/**
-	 *Ugh 
+	 * Return the decorator 
 	 *
 	 *@return Decorator
 	 */
@@ -85,6 +85,14 @@ public interface IntegrationLabel  extends EObject {
 	 * @param value true if valid
 	*/
 	public void setNextValueValid(boolean value);
+	
+	/**
+	 * Get the identifier, e.g. population identifier
+	 * 
+	 *@return String The identifier 
+	 */
+	
+	public String getIdentifier();
 	
 	/**
 	 * reset. Reset the label using the 

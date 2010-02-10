@@ -86,7 +86,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph()
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		// Do we have an action?
 		if (action != null) {
 			// Yes
@@ -102,6 +102,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 			// No
 			CorePlugin.logInformation("No action specified for trigger \""+this.getDublinCore().getTitle()+ "\"", null);
 		}
+		return true;
 	} // decorateGraph
 
 	/**

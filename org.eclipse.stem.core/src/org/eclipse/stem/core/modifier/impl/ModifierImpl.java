@@ -198,8 +198,9 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph()
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		// Nothing
+		return true;
 	} // decorateGraph
 
 	/**

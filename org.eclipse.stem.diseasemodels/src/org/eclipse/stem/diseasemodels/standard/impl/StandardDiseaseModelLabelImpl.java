@@ -63,6 +63,16 @@ public abstract class StandardDiseaseModelLabelImpl extends
 	} // reset
 
 	/**
+	 * Return the identifier for the label, i.e. the population identifier
+	 * 
+	 * @return String The identifier
+	 */
+	
+	public String getIdentifier() {
+		return this.getPopulationModelLabel().getPopulationIdentifier();
+	}
+	
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */

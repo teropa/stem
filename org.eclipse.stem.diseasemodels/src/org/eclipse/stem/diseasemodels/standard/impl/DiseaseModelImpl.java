@@ -18,11 +18,16 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.NodeLabel;
 //import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.Model;
+import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.NodeDecoratorImpl;
 //import org.eclipse.stem.definitions.labels.AreaLabel;
@@ -33,6 +38,12 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.Infector;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationGroup;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.StandardFactory;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Disease Model</b></em>'.
@@ -565,18 +576,62 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	} // getPopulationLabels
 
 	/**
+	 * Search through the graph and find all of the population model labels (i.e. dynamic labels) that have
+	 * the same identifier.
+	 * 
+	 * @param populationIdentifier
+	 *            the population being labeled
+	 * @param graph
+	 *            the graph to search
+	 * @return the PopulationLabel instances of the graph that match the
+	 *         identifier.
+	 */
+	protected Collection<PopulationModelLabel> getPopulationModelLabels(
+			final String populationIdentifier, final Graph graph) {
+		final List<PopulationModelLabel> retValue = new ArrayList<PopulationModelLabel>();
+
+		// Iterate through all of the population labels in the graph
+		EList<NodeLabel> labels = graph.getNodeLabelsByTypeURI(
+				PopulationModelLabel.URI_TYPE_DYNAMIC_POPULATION_LABEL);
+		for (NodeLabel pl:labels) {
+			final PopulationModelLabel populationLabel = (PopulationModelLabel) pl;
+			// Is this label for the population we're looking for?
+			if (populationLabel.getPopulationIdentifier().equals(
+					populationIdentifier)) {
+				// Yes
+				// If there is a problem with the "node uri" of the population
+				// label then it would not have been associated with a node
+				// instance in the graph at this point. This is a problem for
+				// disease models that are trying to label the node (there isn't
+				// one!). So filter out those mistakes here.
+
+				// Does the population label have an associated node?
+				if (populationLabel.getNode() != null) {
+					// Yes
+					retValue.add(populationLabel);
+				} // if the population label has a node
+			} // if the population we're looking for
+		} // for each population label
+
+		return retValue;
+	} // getPopulationLabels
+	
+	/**
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override
-	public void decorateGraph() {
-		for (final Iterator<PopulationLabel> populationLabelIter = getPopulationLabels(
-				getPopulationIdentifier(), getGraph()).iterator(); populationLabelIter
+	public boolean decorateGraph() {
+		boolean success = false;
+				
+		for (final Iterator<PopulationModelLabel> populationModelLabelIter = getPopulationModelLabels(
+				getPopulationIdentifier(), getGraph()).iterator(); populationModelLabelIter
 				.hasNext();) {
-			final PopulationLabel populationLabel = populationLabelIter.next();
+			success = true;
+			final PopulationModelLabel populationModelLabel = populationModelLabelIter.next();
 
 			final DiseaseModelLabel dml = createDiseaseModelLabel();
-			DiseaseModelLabelImpl.labelNode(dml, populationLabel,
-					populationLabel.getNode());
+			DiseaseModelLabelImpl.labelNode(dml, populationModelLabel,
+					populationModelLabel.getNode());
 			getLabelsToUpdate().add(dml);
 
 			getGraph().putNodeLabel(dml);
@@ -588,7 +643,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 			dml.setDiseaseModelState(initializeDiseaseState(diseaseModelState,
 					dml));
 		} // for each population label
-
+		
 		// We've made one pass labeling the Node's with the disease model label,
 		// and we created DiseaseModelState instances that are specific to this
 		// disease that hold state information useful in its computations.
@@ -605,8 +660,53 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		// For instance for StandardDiseaseModels, it initializes the
 		// susceptiable population from the population
 		resetLabels();
+		return success;
 	} // decorateGraph
 
+	
+	/**
+	 * Prepare the decorator. A subclass needs to override this method if
+	 * pre-processing steps are necessary before the decorator is being used
+	 * 
+	 * 
+	 */
+	@Override
+	public void prepare(Model model) {
+
+		// Check whether a population model exists for the disease model. If not, create
+		// a new population model with birth/death rate 0.
+		
+		boolean found = false;
+		for(NodeDecorator dec: model.getNodeDecorators()) {
+			if(dec instanceof DemographicPopulationModel) {
+				DemographicPopulationModel dpm = (DemographicPopulationModel)dec;
+				if(dpm.getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+					found = true;
+					break;
+				}
+				// Any of the groups match?
+				boolean match = false;
+				for(PopulationGroup pg:dpm.getPopulationGroups()) {
+					if(pg.getIdentifier().equals(this.getPopulationIdentifier())) {match=true;break;}
+				}
+				if(match) {
+					found = true;
+					break;
+				}
+			} else
+			if(dec instanceof PopulationModel && 
+					((PopulationModel)dec).getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+				found = true;break;
+			}
+		}
+		if(!found) {
+			// Create a new standard population model
+			StandardPopulationModel spm = StandardFactory.eINSTANCE.createStandardPopulationModel();
+			spm.setPopulationIdentifier(this.getPopulationIdentifier());
+			model.getNodeDecorators().add(spm);
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * 

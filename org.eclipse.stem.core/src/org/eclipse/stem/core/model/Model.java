@@ -139,5 +139,13 @@ public interface Model extends Identifiable {
 	 */
 	Graph getCanonicalGraph(URI uri, IdentifiableFilter filter);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void prepare();
+
 } // Model
 

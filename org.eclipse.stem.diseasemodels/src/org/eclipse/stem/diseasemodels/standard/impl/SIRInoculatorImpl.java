@@ -94,7 +94,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 
 		final Graph graph = getGraph();
 
@@ -142,7 +142,8 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 							final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
 							// Yes
 							// Is it updated by this disease model?
-							if (diseaseModelLabel.getDecorator() == diseaseModel) {
+							if (diseaseModelLabel.getDecorator() == diseaseModel &&
+									diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(diseaseModel.getPopulationIdentifier())) {
 								// Yes
 								doInitialization(diseaseModelLabel);
 								getLabelsToInfect().add(diseaseModelLabel);
@@ -150,7 +151,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 							} // if
 						}
 					} // for
-				} // if node to infect was found
+				} // if node to infect was foundÿ
 				else {
 					// No
 					// The target URI was probably bad
@@ -170,6 +171,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 		} // else node not found
 
 		this.setProgress(1.0); // we're done
+		return true;
 	} // decorateGraph
 
 	/**

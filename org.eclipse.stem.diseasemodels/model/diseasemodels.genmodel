@@ -6,7 +6,7 @@
     modelPluginID="org.eclipse.stem.diseasemodels" modelName="Diseasemodels" nonNLSMarkers="true"
     richClientPlatform="true" testsDirectory="/org.eclipse.stem.tests.diseasemodels/src"
     importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels ../../org.eclipse.stem.core/model/core.genmodel#//solver">
+    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels ../../org.eclipse.stem.core/model/core.genmodel#//solver ../../org.eclipse.stem.populationmodels/model/standard.genmodel#//standard">
   <foreignModel>@model</foreignModel>
   <genPackages prefix="Standard" basePackage="org.eclipse.stem.diseasemodels" disposableProviderFactory="true"
       generateExampleClass="false" ecorePackage="standard.ecore#/">
@@ -21,8 +21,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/populationIdentifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/timePeriod"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/diseaseName"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/stepSize"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/currentX"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/relativeTolerance"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/finiteDifference"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModel/frequencyDependent"/>
@@ -48,16 +46,9 @@
     <genClasses image="false" ecoreClass="standard.ecore#//DiseaseModelLabel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/populationLabel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/diseaseModelState"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/currentDiseaseModelLabelValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/nextDiseaseModelLabelValue"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/deltaValue"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/currentY"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/currentDiseaseModelTempLabelValue"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/yScale"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelLabel/populationModelLabel"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//DiseaseModelLabelValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModelLabelValue/births"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModelLabelValue/deaths"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModelLabelValue/diseaseDeaths"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModelLabelValue/populationCount"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//DiseaseModelLabelValue/incidence"/>
@@ -73,11 +64,9 @@
       <genOperations ecoreOperation="standard.ecore#//DiseaseModelLabelValue/scale">
         <genParameters ecoreParameter="standard.ecore#//DiseaseModelLabelValue/scale/scaleFactor"/>
       </genOperations>
-      <genOperations ecoreOperation="standard.ecore#//DiseaseModelLabelValue/maxerror">
-        <genParameters ecoreParameter="standard.ecore#//DiseaseModelLabelValue/maxerror/value"/>
-        <genParameters ecoreParameter="standard.ecore#//DiseaseModelLabelValue/maxerror/reltol"/>
-      </genOperations>
       <genOperations ecoreOperation="standard.ecore#//DiseaseModelLabelValue/zeroOutPopulationCount"/>
+      <genOperations ecoreOperation="standard.ecore#//DiseaseModelLabelValue/getAdditions"/>
+      <genOperations ecoreOperation="standard.ecore#//DiseaseModelLabelValue/getSubstractions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//DiseaseModelState">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//DiseaseModelState/label"/>
@@ -97,8 +86,11 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//SEIRLabel">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//SEIRLabel/currentSEIRValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//SEIRLabel/nextSEIRValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SEIRLabel/deltaValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SEIRLabel/probeValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SEIRLabel/tempValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SEIRLabel/originalValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SEIRLabel/errorScale"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//SEIRLabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SEIRLabelValue/e"/>
@@ -136,8 +128,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SIInfector/infectiousCount"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//SILabel">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//SILabel/currentSIValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//SILabel/nextSIValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SILabel/deltaValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SILabel/probeValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SILabel/tempValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SILabel/originalValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SILabel/errorScale"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//SILabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SILabelValue/i"/>
@@ -149,8 +144,11 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//SIRLabel">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//SIRLabel/currentSIRValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//SIRLabel/nextSIRValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SIRLabel/deltaValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SIRLabel/probeValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SIRLabel/tempValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SIRLabel/originalValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//SIRLabel/errorScale"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//SIRLabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SIRLabelValue/r"/>
@@ -176,12 +174,7 @@
         <genParameters ecoreParameter="standard.ecore#//StandardDiseaseModel/doModelSpecificAdjustments/label"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="standard.ecore#//StandardDiseaseModelLabel">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//StandardDiseaseModelLabel/currentStandardDiseaseModelLabelValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//StandardDiseaseModelLabel/nextStandardDiseaseModelLabelValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//StandardDiseaseModelLabel/deltaStandardDiseaseModelLabelValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference standard.ecore#//StandardDiseaseModelLabel/currentYStandardDiseaseModelLabelValue"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="standard.ecore#//StandardDiseaseModelLabel"/>
     <genClasses image="false" ecoreClass="standard.ecore#//StandardDiseaseModelLabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardDiseaseModelLabelValue/s"/>
     </genClasses>
@@ -193,6 +186,11 @@
     <genClasses image="false" ecoreClass="standard.ecore#//StochasticSIDiseaseModel"/>
     <genClasses image="false" ecoreClass="standard.ecore#//StochasticSIRDiseaseModel"/>
     <genClasses image="false" ecoreClass="standard.ecore#//SanityChecker"/>
+    <genClasses image="false" ecoreClass="standard.ecore#//IntegrationLabel"/>
+    <genClasses image="false" ecoreClass="standard.ecore#//IntegrationLabelValue"/>
+    <genClasses image="false" ecoreClass="standard.ecore#//IntegrationDecorator">
+      <genOperations ecoreOperation="standard.ecore#//IntegrationDecorator/isDeterministic"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//AggregatingSIDiseaseModel"/>
     <genClasses image="false" ecoreClass="standard.ecore#//AggregatingDiseaseModelState">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//AggregatingDiseaseModelState/childrensLabels"/>
@@ -210,5 +208,8 @@
     <genClasses ecoreClass="standard.ecore#//SIRInoculator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SIRInoculator/inoculatedPercentage"/>
     </genClasses>
+    <genClasses ecoreClass="standard.ecore#//StochasticPoissonSIDiseaseModel"/>
+    <genClasses ecoreClass="standard.ecore#//StochasticPoissonSIRDiseaseModel"/>
+    <genClasses ecoreClass="standard.ecore#//StochasticPoissonSEIRDiseaseModel"/>
   </genPackages>
 </genmodel:GenModel>

@@ -81,6 +81,10 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelState;
 //import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Disease Model</b></em>'.
@@ -434,7 +438,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			
 			EList<NodeLabel> labs = n.getLabels();
 			for(NodeLabel l:labs) {
-				if(l instanceof IntegrationLabel && !l.equals(diseaseLabel)) {
+				if(l instanceof IntegrationLabel && !l.equals(diseaseLabel)
+						&& ((IntegrationLabel)l).getIdentifier().equals(diseaseLabel.getIdentifier())) {
 					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
 					double additions = sdeLabelValue.getAdditions();
 					double substractions = sdeLabelValue.getSubstractions();
@@ -584,49 +589,59 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				PipeTransportEdgeLabelValue label = (PipeTransportEdgeLabelValue) ptedge.getLabel().getCurrentValue();
 				double maxflow = label.getMaxFlow();
 				
+				DiseaseModelLabel srcLabel= null;
 				DiseaseModelLabelValue nextsrclabelval=null, nextdestlabelval=null, currsrclabelval=null, currdestlabelval=null;
-				PopulationLabelValue srcpoplabval = null, destpoplabval = null;
+				String popIdSrc=null;
 				for(NodeLabel nlabel:source.getLabels()) {
 					if(nlabel instanceof DiseaseModelLabel) {
 						currsrclabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getCurrentValue();
 						nextsrclabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getNextValue();
-					} else if(nlabel instanceof PopulationLabel) {
-						srcpoplabval = ((PopulationLabel)nlabel).getCurrentPopulationValue();
+						popIdSrc = ((DiseaseModelLabel)nlabel).getPopulationModelLabel().getPopulationIdentifier();
+						srcLabel = (DiseaseModelLabel)nlabel;
+					} else continue;
+				
+					for(NodeLabel nlabel2:dest.getLabels()) {
+						if(nlabel2 instanceof DiseaseModelLabel &&
+								((DiseaseModelLabel)nlabel2).getPopulationModelLabel().getPopulationIdentifier().equals(popIdSrc)) {
+							currdestlabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel2).getCurrentValue();
+							nextdestlabelval  =  (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel2).getNextValue();
+						}
 					}
-				}
-				
-				for(NodeLabel nlabel:dest.getLabels()) {
-					if(nlabel instanceof DiseaseModelLabel) {
-						currdestlabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getCurrentValue();
-						nextdestlabelval  =  (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getNextValue();
-					} else if(nlabel instanceof PopulationLabel) {
-						destpoplabval = ((PopulationLabel)nlabel).getCurrentPopulationValue();
+					
+					if(currsrclabelval == null || currdestlabelval == null) {
+						continue; // possible for transport pipes connected to regions above the lowest region part of the model
 					}
-				}
-				
-				if(currsrclabelval == null || currdestlabelval == null) {
-					continue; // possible for transport pipes connected to regions above the lowest region part of the model
-				}
-				
-				// Check, make sure we don't move more people than available
-				
-				double flow = maxflow;	
-				if(currsrclabelval.getPopulationCount() < flow) flow = currsrclabelval.getPopulationCount(); // check
-				
-				double factor = flow / currsrclabelval.getPopulationCount();
-				if(Double.isNaN(factor)) factor = 0.0;
-				
-				DiseaseModelLabelValue move = null;
-				
-				move = (DiseaseModelLabelValue)EcoreUtil.copy(currsrclabelval);
-				
-				move.scale(factor);
-				// Don't touch disease deaths
-				move.setDiseaseDeaths(0.0);
-		
-				currdestlabelval.add((IntegrationLabelValue)move);
-				
-				destpoplabval.setCount(currdestlabelval.getPopulationCount());
+					
+					// Check, make sure we don't move more people than available
+					
+					double flow = maxflow;	
+					if(currsrclabelval.getPopulationCount() < flow) flow = currsrclabelval.getPopulationCount(); // check
+					
+					double factor = flow / currsrclabelval.getPopulationCount();
+					if(Double.isNaN(factor)) factor = 0.0;
+					
+					DiseaseModelLabelValue move = null;
+					
+					move = (DiseaseModelLabelValue)EcoreUtil.copy(currsrclabelval);
+					
+					move.scale(factor);
+					// Don't touch disease deaths
+					move.setDiseaseDeaths(0.0);
+			
+					currdestlabelval.add((IntegrationLabelValue)move);
+					
+					// We've copied the disease labels. Now check to see if there is any population
+					// label on the target node, if so set it to the population count of the disease label.
+					// If there is no population label, this method will be called again later after
+					// the population label has been created
+					
+					for(NodeLabel lab:dest.getLabels()) {
+						if(lab instanceof StandardPopulationModelLabel &&
+							((StandardPopulationModelLabel)lab).getPopulationIdentifier().equals(srcLabel.getPopulationModelLabel().getPopulationIdentifier())) {
+							((StandardPopulationModelLabelValue)lab.getCurrentValue()).setCount(currdestlabelval.getPopulationCount());
+						}			
+					}	
+				} // for each label on the source node
 			}
 		}
 		

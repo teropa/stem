@@ -165,7 +165,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 
 		final Graph graph = getGraph();
 
@@ -208,7 +208,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 						final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
 						// Yes
 						// Is it updated by this disease model?
-						if (diseaseModelLabel.getDecorator() == diseaseModel) {
+						if (diseaseModelLabel.getDecorator() == diseaseModel && diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
 							// Yes
 							doInitialization(diseaseModelLabel);
 							getLabelsToInfect().add(diseaseModelLabel);
@@ -235,6 +235,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		} // else node not found
 
 		this.setProgress(1.0); // we're done
+		return true;
 	} // decorateGraph
 
 	/**
