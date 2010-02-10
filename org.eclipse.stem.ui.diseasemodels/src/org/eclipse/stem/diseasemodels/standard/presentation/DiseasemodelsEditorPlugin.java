@@ -19,6 +19,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
 //import org.eclipse.stem.definitions.labels.provider.DefinitionsEditPlugin;
+import org.eclipse.stem.populationmodels.standard.provider.StandardEditPlugin;
 import org.eclipse.stem.ui.adapters.newmodifierpage.DiseaseNewModifierPageAdapterFactory;
 import org.eclipse.stem.ui.diseasemodels.ISharedImages;
 import org.eclipse.stem.ui.wizards.StandardDiseaseModelPropertyEditorAdapterFactory;

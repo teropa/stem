@@ -34,6 +34,8 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#sub(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue) <em>Sub</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#scale(double) <em>Scale</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#zeroOutPopulationCount() <em>Zero Out Population Count</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getAdditions() <em>Get Additions</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getSubstractions() <em>Get Substractions</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -220,6 +222,32 @@ public abstract class DiseaseModelLabelValueTest extends TestCase {
 		assertTrue(fixture.getPopulationCount()== 0);
 	} // testZeroOutPopulationCount
 	
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getAdditions() <em>Get Additions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getAdditions()
+	 * @generated
+	 */
+	public void testGetAdditions() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getSubstractions() <em>Get Substractions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue#getSubstractions()
+	 * @generated
+	 */
+	public void testGetSubstractions() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 	/**
 	 * @return the expected population count for the disease model label value

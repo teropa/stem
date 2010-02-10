@@ -81,6 +81,10 @@ public abstract class AbstractRelativeValueColorProviderAdapter extends ColorPro
 	 */
 	protected Decorator selectedDecorator = null;
 	/**
+	 * Reference to the selected {@link Decorator}
+	 */
+	protected String selectedPopulationIdentifier = null;
+	/**
 	 * Instance of a relative value provider
 	 */
 	protected RelativeValueProviderAdapter rvp = null;
@@ -207,6 +211,14 @@ public abstract class AbstractRelativeValueColorProviderAdapter extends ColorPro
 	public void setSelectedDecorator(Decorator selectedDecorator) {
 		this.selectedDecorator = selectedDecorator;
 	} // setSelectedDecorator
+	
+	/**
+	 * @see org.eclipse.stem.ui.adapters.color.ColorProvider#setSelectedDecorator(org.eclipse.stem.core.model.Decorator)
+	 */
+	public void setSelectedPopulationIdentifier(String selectedId) {
+		this.selectedPopulationIdentifier = selectedId;
+	} // setSelectedDecorator
+	
 	
 	/**
 	 * Method will set the target object at the instance of {@link RelativeValueProvider}.

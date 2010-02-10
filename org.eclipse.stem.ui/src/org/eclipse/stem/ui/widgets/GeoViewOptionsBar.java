@@ -33,6 +33,9 @@ import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
+import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationGroup;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory;
 import org.eclipse.stem.ui.adapters.color.IColorProviderAdapterFactory;
 import org.eclipse.stem.ui.adapters.color.IColorProviderChangedListener;
@@ -68,6 +71,11 @@ public class GeoViewOptionsBar extends Composite {
 	 */
 	Combo decoratorsCombo;
 	/**
+	 * Combo for selecting decorators
+	 */
+	Combo populationsCombo;
+
+	/**
 	 * Combo for selecting the color provider
 	 */
 	Combo colorProvidersCombo;
@@ -75,12 +83,18 @@ public class GeoViewOptionsBar extends Composite {
 	/**
 	 * A constant to set the width of the decorators combo
 	 */
-	static final int DECORATORS_WIDTH = 55;
+	static final int DECORATORS_WIDTH = 35;
+	
+	/**
+	 * A constant to set the width of the pop id combo
+	 */
+	
+	static final int POPIDS_WIDTH=25;
 	
 	/**
 	 * A constant to set the width of the color providers combo
 	 */
-	static final int PROVIDERS_WIDTH  = 65;
+	static final int PROVIDERS_WIDTH  = 45;
 	
 	/**
 	 * Combo for selecting edges
@@ -108,6 +122,11 @@ public class GeoViewOptionsBar extends Composite {
 	 */
 	List<Decorator> decorators;
 	/**
+	 * List of available populations for the selected decorator
+	 */
+	List<String> populationIdentifiers;
+
+	/**
 	 * List of available color providers
 	 */
 	List<Class> supportedColorProviders = null;
@@ -127,6 +146,11 @@ public class GeoViewOptionsBar extends Composite {
 	 * The selected decorator
 	 */
 	Decorator selectedDecorator;
+	/**
+	 * The selected population identifier
+	 */
+	String selectedPopulationIdentifier;
+	
 	/**
 	 * Decorator filter to be used
 	 */
@@ -179,6 +203,10 @@ public class GeoViewOptionsBar extends Composite {
 		decoratorsCombo = new Combo(geoViewOptionsGroup, SWT.DROP_DOWN
 				| SWT.READ_ONLY | SWT.CENTER);
 
+		// Combo Box of population identifiers
+		populationsCombo = new Combo(geoViewOptionsGroup, SWT.DROP_DOWN
+				| SWT.READ_ONLY | SWT.CENTER);
+
 		// Combo Box of the color providers
 		colorProvidersCombo = new Combo(geoViewOptionsGroup, SWT.DROP_DOWN
 				| SWT.READ_ONLY | SWT.CENTER);
@@ -188,9 +216,16 @@ public class GeoViewOptionsBar extends Composite {
 		decoratorsComboFormData.left = new FormAttachment(0, 0);
 		decoratorsComboFormData.right = new FormAttachment(DECORATORS_WIDTH, 0);
 		decoratorsCombo.setLayoutData(decoratorsComboFormData);
-				
+
+		final FormData populationComboFormData = new FormData();
+		populationComboFormData.top = new FormAttachment(decoratorsCombo, 5);
+		populationComboFormData.left = new FormAttachment(0, 0);
+		populationComboFormData.right = new FormAttachment(POPIDS_WIDTH, 0);
+		populationsCombo.setLayoutData(populationComboFormData);
+
+		
 		final FormData colorProvidersComboFormData = new FormData();
-		colorProvidersComboFormData.top = new FormAttachment(decoratorsCombo, 5);
+		colorProvidersComboFormData.top = new FormAttachment(populationsCombo, 5);
 		colorProvidersComboFormData.left = new FormAttachment(0, 0);
 		colorProvidersComboFormData.right = new FormAttachment(PROVIDERS_WIDTH, 0);
 		colorProvidersCombo.setLayoutData(colorProvidersComboFormData);
@@ -200,6 +235,7 @@ public class GeoViewOptionsBar extends Composite {
 
 		this.pack();
 
+		
 		decoratorsCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(
@@ -213,9 +249,17 @@ public class GeoViewOptionsBar extends Composite {
 					if (selectedDecorator != tempDecorator) {
 						// Yes
 						selectedDecorator = tempDecorator;
+						ArrayList<String> popIds = getPopulationIdentifiers(selectedDecorator);
+						populationIdentifiers = popIds;
+						if(populationIdentifiers != null) selectedPopulationIdentifier = populationIdentifiers.get(0);
+						
+						initializeCombo(populationsCombo, getPopulationIdNames(popIds),
+								getPopulationIdIndex(selectedPopulationIdentifier, populationIdentifiers));
+						
+		
 						updateColorProviderComposites();
 						firePropertySelectionEvent(new PropertySelectionEvent(
-								selectedDecorator, null, colorProvidersCombo));
+								selectedDecorator, selectedPopulationIdentifier, null, colorProvidersCombo));
 					} // if Decorators changed
 
 				} // if any decorators
@@ -223,6 +267,29 @@ public class GeoViewOptionsBar extends Composite {
 		} // SelectionAdapter
 				);
 
+		populationsCombo.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(
+					@SuppressWarnings("unused") final SelectionEvent e) {
+				// Any decorators?
+				if (!populationIdentifiers.isEmpty()) {
+					// Yes
+					final String tempPopId = populationIdentifiers
+							.get(populationsCombo.getSelectionIndex());
+					// Was there a change in selected Decorators?
+					if (!selectedPopulationIdentifier.equals(tempPopId)) {
+						// Yes
+						selectedPopulationIdentifier = tempPopId;
+						updateColorProviderComposites();
+						firePropertySelectionEvent(new PropertySelectionEvent(
+								selectedDecorator, selectedPopulationIdentifier, null, colorProvidersCombo));
+					} // if Decorators changed
+
+				} // if any decorators
+			}
+		} // SelectionAdapter
+				);
+		
 		colorProvidersCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(
@@ -251,7 +318,7 @@ public class GeoViewOptionsBar extends Composite {
 				}
 				else {
 					String edgePrefix = edgeTypeToUriPrefixMap.get(selectedEdges);
-					firePropertySelectionEvent(new PropertySelectionEvent(null,
+					firePropertySelectionEvent(new PropertySelectionEvent(null, null,
 							null, edgePrefix));
 				}
 			}
@@ -291,8 +358,45 @@ public class GeoViewOptionsBar extends Composite {
 			}
 		}
 
+		ArrayList<String> popIds = getPopulationIdentifiers(selectedDecorator);
+		populationIdentifiers = popIds;
+		if(populationIdentifiers != null) selectedPopulationIdentifier = populationIdentifiers.get(0);
+		
 		initializeCombo(decoratorsCombo, getDecoratorNames(decorators),
 				getDecoratorIndex(selectedDecorator, decorators));
+
+		initializeCombo(populationsCombo, getPopulationIdNames(popIds),
+				getPopulationIdIndex(selectedPopulationIdentifier, populationIdentifiers));
+
+	} // setDecorators
+	
+	ArrayList<String> getPopulationIdentifiers(Decorator decorator) {
+		if(decorator == null)return null;
+		ArrayList<String>popIds = new ArrayList<String>();
+		if(decorator instanceof DiseaseModel) {
+			popIds.add(((DiseaseModel)decorator).getPopulationIdentifier());
+		} else if(decorator instanceof DemographicPopulationModel) {
+			popIds.add(((DemographicPopulationModel)decorator).getPopulationIdentifier());
+			for(PopulationGroup g:((DemographicPopulationModel)decorator).getPopulationGroups()) {
+				popIds.add(g.getIdentifier());
+			}
+		} else if(decorator instanceof StandardPopulationModel) {
+			popIds.add(((StandardPopulationModel)decorator).getPopulationIdentifier());
+		}
+		return popIds;
+	}
+	/**
+	 * Sets the Population Identifiers
+	 * 
+	 * @param popIds
+	 */
+	public void setPopulationIdentifiers(final List<String> popIds) {
+		this.populationIdentifiers = popIds;
+		selectedPopulationIdentifier = popIds.isEmpty() ? null : popIds.get(0);
+		
+
+		initializeCombo(populationsCombo, getPopulationIdNames(popIds),
+				getPopulationIdIndex(selectedPopulationIdentifier, populationIdentifiers));
 	} // setDecorators
 
 	/**
@@ -392,7 +496,7 @@ public class GeoViewOptionsBar extends Composite {
 							public void propertySelected(
 									final ColorProviderPropertiesComposite.PropertySelectionEvent propertySelectionEvent) {
 								firePropertySelectionEvent(new PropertySelectionEvent(
-										null, null, propertySelectionEvent
+										null, null,null, propertySelectionEvent
 												.getSource()));
 							}
 						});
@@ -499,6 +603,24 @@ public class GeoViewOptionsBar extends Composite {
 	} // getDecoratorNames
 
 	/**
+	 * @param popIds
+	 *            a list of population ids
+	 * @return an array of the names 
+	 */
+	private String[] getPopulationIdNames(final List<String> popIds) {
+		final List<String> retValue = new ArrayList<String>();
+		if (popIds != null) {
+			// Yes
+			for (final String decid : popIds) {
+				String title = decid;
+				title = title == null ? "null" : title;
+				retValue.add(title);
+			} // for each decorator
+		} // if
+		return retValue.toArray(new String[] {});
+	} // getDecoratorNames
+	
+	/**
 	 * @param selectedDecorator
 	 * @param decorators
 	 *            a list of {@link Decorator}s.
@@ -515,6 +637,18 @@ public class GeoViewOptionsBar extends Composite {
 		return 0;
 	} // getDecoratorIndex
 
+	/**
+	 */
+	private int getPopulationIdIndex(final String selectedPopId,
+			final List<String> popIds) {
+		if (selectedPopId != null && popIds != null
+				&& !popIds.isEmpty()) {
+			// Yes
+			return popIds.indexOf(selectedPopId);
+		} // if
+		return 0;
+	} // getDecoratorIndex
+	
 	/**
 	 * @param listener
 	 */
@@ -590,6 +724,7 @@ public class GeoViewOptionsBar extends Composite {
 		private static final long serialVersionUID = 1L;
 		private transient final ItemPropertyDescriptor property;
 		private transient final Decorator decorator;
+		private transient final String populationIdentifier;
 
 		/**
 		 * @param decorator
@@ -598,11 +733,12 @@ public class GeoViewOptionsBar extends Composite {
 		 *            the property that was selected.
 		 * @param source
 		 */
-		public PropertySelectionEvent(final Decorator decorator,
+		public PropertySelectionEvent(final Decorator decorator, String popId,
 				final ItemPropertyDescriptor property, final Object source) {
 			super(source);
 			this.decorator = decorator;
 			this.property = property;
+			this.populationIdentifier = popId;
 		}
 
 		/**
@@ -612,6 +748,13 @@ public class GeoViewOptionsBar extends Composite {
 			return decorator;
 		}
 
+		/**
+		 * @return the population identifier
+		 */
+		public final String getPopulationIdentifier() {
+			return populationIdentifier;
+		}
+		
 		/**
 		 * @return the property
 		 */
@@ -638,5 +781,12 @@ public class GeoViewOptionsBar extends Composite {
 	 */
 	public Decorator getSelectedDecorator() {
 		return selectedDecorator;
+	}
+	
+	/**
+	 * @return the selected population identifier
+	 */
+	public String getSelectedPopulationIdentifier() {
+		return selectedPopulationIdentifier;
 	}
 } // PropertySelector

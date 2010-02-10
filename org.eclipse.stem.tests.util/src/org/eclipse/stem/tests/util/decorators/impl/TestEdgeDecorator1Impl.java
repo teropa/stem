@@ -275,7 +275,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		final Node nodeA = getGraph().getNode(getNodeAURI());
 		final Node nodeB = getGraph().getNode(getNodeBURI());
 
@@ -295,6 +295,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 		getGraph().putEdge(edge);
 
 		assert edge.sane();
+		return true;
 	} // decorateGraph
 
 	/**

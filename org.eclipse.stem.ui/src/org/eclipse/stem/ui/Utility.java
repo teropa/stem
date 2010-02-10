@@ -203,7 +203,7 @@ public class Utility {
 		return URI.createURI(sb.toString());
 	} // createGraphURI
 
-	private static URI createPopulationGraphURI(final URI labelURI) {
+	public static URI createPopulationGraphURI(final URI labelURI) {
 		
 		final String prefix = URI.createPlatformPluginURI(org.eclipse.stem.data.geography.population.human.Activator.PLUGIN_ID, false).toString();
 		//final StringBuilder sb = new StringBuilder("platform:/plugin/" + org.eclipse.stem.data.geography.population.human.Activator.PLUGIN_ID + "/resources/data");

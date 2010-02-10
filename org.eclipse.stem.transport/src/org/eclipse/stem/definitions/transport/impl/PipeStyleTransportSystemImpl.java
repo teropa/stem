@@ -158,7 +158,7 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__OUT_TRANSPORT_EDGES:
 				return getOutTransportEdges();
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY:
-				return new Double(getMaxCapacity());
+				return getMaxCapacity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,7 +181,7 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 				getOutTransportEdges().addAll((Collection<? extends PipeTransportEdge>)newValue);
 				return;
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY:
-				setMaxCapacity(((Double)newValue).doubleValue());
+				setMaxCapacity((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

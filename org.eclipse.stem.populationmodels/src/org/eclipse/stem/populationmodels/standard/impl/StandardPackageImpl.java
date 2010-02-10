@@ -31,6 +31,8 @@ import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.solver.SolverPackage;
 
 import org.eclipse.stem.definitions.labels.LabelsPackage;
+import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
@@ -117,6 +119,20 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass stochasticStandardPopulationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass demographicPopulationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass populationGroupEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -261,6 +277,15 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EReference getPopulationModelLabel_PopulationLabel() {
 		return (EReference)populationModelLabelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopulationModelLabel_PopulationIdentifier() {
+		return (EAttribute)populationModelLabelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -430,6 +455,51 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDemographicPopulationModel() {
+		return demographicPopulationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDemographicPopulationModel_PopulationGroups() {
+		return (EReference)demographicPopulationModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPopulationGroup() {
+		return populationGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopulationGroup_Identifier() {
+		return (EAttribute)populationGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopulationGroup_Fraction() {
+		return (EAttribute)populationGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StandardFactory getStandardFactory() {
 		return (StandardFactory)getEFactoryInstance();
 	}
@@ -464,6 +534,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		populationModelLabelEClass = createEClass(POPULATION_MODEL_LABEL);
 		createEReference(populationModelLabelEClass, POPULATION_MODEL_LABEL__POPULATION_LABEL);
+		createEAttribute(populationModelLabelEClass, POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER);
 
 		standardPopulationModelLabelEClass = createEClass(STANDARD_POPULATION_MODEL_LABEL);
 		createEReference(standardPopulationModelLabelEClass, STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE);
@@ -489,6 +560,13 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		stochasticStandardPopulationModelEClass = createEClass(STOCHASTIC_STANDARD_POPULATION_MODEL);
 		createEAttribute(stochasticStandardPopulationModelEClass, STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN);
+
+		demographicPopulationModelEClass = createEClass(DEMOGRAPHIC_POPULATION_MODEL);
+		createEReference(demographicPopulationModelEClass, DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS);
+
+		populationGroupEClass = createEClass(POPULATION_GROUP);
+		createEAttribute(populationGroupEClass, POPULATION_GROUP__IDENTIFIER);
+		createEAttribute(populationGroupEClass, POPULATION_GROUP__FRACTION);
 	}
 
 	/**
@@ -535,6 +613,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		standardPopulationModelLabelValueEClass.getESuperTypes().add(this.getPopulationModelLabelValue());
 		standardPopulationModelLabelValueEClass.getESuperTypes().add(this.getIntegrationLabelValue());
 		stochasticStandardPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
+		demographicPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(populationModelEClass, PopulationModel.class, "PopulationModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -548,6 +627,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		initEClass(populationModelLabelEClass, PopulationModelLabel.class, "PopulationModelLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPopulationModelLabel_PopulationLabel(), theLabelsPackage.getPopulationLabel(), null, "populationLabel", null, 0, 1, PopulationModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPopulationModelLabel_PopulationIdentifier(), theEcorePackage.getEString(), "populationIdentifier", null, 0, 1, PopulationModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(standardPopulationModelLabelEClass, StandardPopulationModelLabel.class, "StandardPopulationModelLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStandardPopulationModelLabel_DeltaValue(), this.getStandardPopulationModelLabelValue(), null, "deltaValue", null, 0, 1, StandardPopulationModelLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -580,6 +660,13 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		initEClass(stochasticStandardPopulationModelEClass, StochasticStandardPopulationModel.class, "StochasticStandardPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStochasticStandardPopulationModel_Gain(), theEcorePackage.getEDouble(), "gain", "0.01", 0, 1, StochasticStandardPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(demographicPopulationModelEClass, DemographicPopulationModel.class, "DemographicPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDemographicPopulationModel_PopulationGroups(), this.getPopulationGroup(), null, "populationGroups", null, 1, -1, DemographicPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(populationGroupEClass, PopulationGroup.class, "PopulationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPopulationGroup_Identifier(), theEcorePackage.getEString(), "identifier", null, 0, 1, PopulationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPopulationGroup_Fraction(), theEcorePackage.getEDouble(), "fraction", "0.5", 0, 1, PopulationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

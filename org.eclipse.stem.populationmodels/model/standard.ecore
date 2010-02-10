@@ -19,6 +19,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PopulationModelLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//DynamicNodeLabel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="populationLabel" eType="ecore:EClass ../../org.eclipse.stem.definitions/model/labels.ecore#//PopulationLabel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationIdentifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StandardPopulationModelLabel" eSuperTypes="#//PopulationModelLabel #//IntegrationLabel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deltaValue" eType="#//StandardPopulationModelLabelValue"/>
@@ -50,5 +51,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="StochasticStandardPopulationModel" eSuperTypes="#//StandardPopulationModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gain" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.01"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DemographicPopulationModel" eSuperTypes="#//StandardPopulationModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="populationGroups" lowerBound="1"
+        upperBound="-1" eType="#//PopulationGroup" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PopulationGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fraction" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.5"/>
   </eClassifiers>
 </ecore:EPackage>

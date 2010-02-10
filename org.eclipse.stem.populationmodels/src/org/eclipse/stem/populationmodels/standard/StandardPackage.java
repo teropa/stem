@@ -424,13 +424,22 @@ public interface StandardPackage extends EPackage {
 	int POPULATION_MODEL_LABEL__POPULATION_LABEL = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Population Model Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POPULATION_MODEL_LABEL_FEATURE_COUNT = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 1;
+	int POPULATION_MODEL_LABEL_FEATURE_COUNT = GraphPackage.DYNAMIC_NODE_LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelLabelImpl <em>Population Model Label</em>}' class.
@@ -540,6 +549,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int STANDARD_POPULATION_MODEL_LABEL__POPULATION_LABEL = POPULATION_MODEL_LABEL__POPULATION_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER = POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Delta Value</b></em>' reference.
@@ -884,6 +902,190 @@ public interface StandardPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.DemographicPopulationModelImpl <em>Demographic Population Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.DemographicPopulationModelImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getDemographicPopulationModel()
+	 * @generated
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL = 10;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__URI = STANDARD_POPULATION_MODEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__TYPE_URI = STANDARD_POPULATION_MODEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__DUBLIN_CORE = STANDARD_POPULATION_MODEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__LABELS_TO_UPDATE = STANDARD_POPULATION_MODEL__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__GRAPH = STANDARD_POPULATION_MODEL__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__ENABLED = STANDARD_POPULATION_MODEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__GRAPH_DECORATED = STANDARD_POPULATION_MODEL__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__PROGRESS = STANDARD_POPULATION_MODEL__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__POPULATION_IDENTIFIER = STANDARD_POPULATION_MODEL__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__NAME = STANDARD_POPULATION_MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__BIRTH_RATE = STANDARD_POPULATION_MODEL__BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Death Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__DEATH_RATE = STANDARD_POPULATION_MODEL__DEATH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__TIME_PERIOD = STANDARD_POPULATION_MODEL__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Population Groups</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Demographic Population Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL_FEATURE_COUNT = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.PopulationGroupImpl <em>Population Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.PopulationGroupImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getPopulationGroup()
+	 * @generated
+	 */
+	int POPULATION_GROUP = 11;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_GROUP__IDENTIFIER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Fraction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_GROUP__FRACTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Population Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_GROUP_FEATURE_COUNT = 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.PopulationModel <em>Population Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,6 +1180,17 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPopulationModelLabel_PopulationLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.PopulationModelLabel#getPopulationIdentifier <em>Population Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Population Identifier</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationModelLabel#getPopulationIdentifier()
+	 * @see #getPopulationModelLabel()
+	 * @generated
+	 */
+	EAttribute getPopulationModelLabel_PopulationIdentifier();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel <em>Population Model Label</em>}'.
@@ -1174,6 +1387,59 @@ public interface StandardPackage extends EPackage {
 	EAttribute getStochasticStandardPopulationModel_Gain();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.DemographicPopulationModel <em>Demographic Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Demographic Population Model</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.DemographicPopulationModel
+	 * @generated
+	 */
+	EClass getDemographicPopulationModel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.populationmodels.standard.DemographicPopulationModel#getPopulationGroups <em>Population Groups</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Population Groups</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.DemographicPopulationModel#getPopulationGroups()
+	 * @see #getDemographicPopulationModel()
+	 * @generated
+	 */
+	EReference getDemographicPopulationModel_PopulationGroups();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.PopulationGroup <em>Population Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Population Group</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationGroup
+	 * @generated
+	 */
+	EClass getPopulationGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.PopulationGroup#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationGroup#getIdentifier()
+	 * @see #getPopulationGroup()
+	 * @generated
+	 */
+	EAttribute getPopulationGroup_Identifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.PopulationGroup#getFraction <em>Fraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fraction</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationGroup#getFraction()
+	 * @see #getPopulationGroup()
+	 * @generated
+	 */
+	EAttribute getPopulationGroup_Fraction();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1272,6 +1538,14 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EReference POPULATION_MODEL_LABEL__POPULATION_LABEL = eINSTANCE.getPopulationModelLabel_PopulationLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Population Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER = eINSTANCE.getPopulationModelLabel_PopulationIdentifier();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelLabelImpl <em>Population Model Label</em>}' class.
@@ -1430,6 +1704,50 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STOCHASTIC_STANDARD_POPULATION_MODEL__GAIN = eINSTANCE.getStochasticStandardPopulationModel_Gain();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.DemographicPopulationModelImpl <em>Demographic Population Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.DemographicPopulationModelImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getDemographicPopulationModel()
+		 * @generated
+		 */
+		EClass DEMOGRAPHIC_POPULATION_MODEL = eINSTANCE.getDemographicPopulationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Population Groups</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS = eINSTANCE.getDemographicPopulationModel_PopulationGroups();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.PopulationGroupImpl <em>Population Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.PopulationGroupImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getPopulationGroup()
+		 * @generated
+		 */
+		EClass POPULATION_GROUP = eINSTANCE.getPopulationGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_GROUP__IDENTIFIER = eINSTANCE.getPopulationGroup_Identifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Fraction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_GROUP__FRACTION = eINSTANCE.getPopulationGroup_Fraction();
 
 	}
 

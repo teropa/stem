@@ -219,6 +219,52 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.populationmodels.standard.DemographicPopulationModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DemographicPopulationModelItemProvider demographicPopulationModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.populationmodels.standard.DemographicPopulationModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDemographicPopulationModelAdapter() {
+		if (demographicPopulationModelItemProvider == null) {
+			demographicPopulationModelItemProvider = new DemographicPopulationModelItemProvider(this);
+		}
+
+		return demographicPopulationModelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.populationmodels.standard.PopulationGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PopulationGroupItemProvider populationGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.populationmodels.standard.PopulationGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPopulationGroupAdapter() {
+		if (populationGroupItemProvider == null) {
+			populationGroupItemProvider = new PopulationGroupItemProvider(this);
+		}
+
+		return populationGroupItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,6 +369,8 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 		if (populationModelLabelValueItemProvider != null) populationModelLabelValueItemProvider.dispose();
 		if (standardPopulationModelLabelValueItemProvider != null) standardPopulationModelLabelValueItemProvider.dispose();
 		if (stochasticStandardPopulationModelItemProvider != null) stochasticStandardPopulationModelItemProvider.dispose();
+		if (demographicPopulationModelItemProvider != null) demographicPopulationModelItemProvider.dispose();
+		if (populationGroupItemProvider != null) populationGroupItemProvider.dispose();
 	}
 
 }

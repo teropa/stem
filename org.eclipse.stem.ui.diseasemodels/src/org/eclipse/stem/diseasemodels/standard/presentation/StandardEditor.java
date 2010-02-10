@@ -649,6 +649,7 @@ public class StandardEditor
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new LabelsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

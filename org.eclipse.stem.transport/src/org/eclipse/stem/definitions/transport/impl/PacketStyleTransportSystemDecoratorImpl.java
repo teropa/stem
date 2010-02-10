@@ -79,9 +79,10 @@ public class PacketStyleTransportSystemDecoratorImpl extends EdgeDecoratorImpl i
 	/**
 	 * Initialize the graph. Makes sure all of the rates for the edges are zeroed out.
 	 */
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		//There is nothing to do except reset the labels.		
 		resetLabels();
+		return true;
 	}
 	
 	/**

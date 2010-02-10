@@ -60,7 +60,7 @@ import org.eclipse.stem.tests.util.labels.TestIntegerLabelValue;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getNodeLabelsByTypeURI(org.eclipse.emf.common.util.URI) <em>Get Node Labels By Type URI</em>}</li>
- *   <li>{@link org.eclipse.stem.core.graph.Graph#addGraph(org.eclipse.stem.core.graph.Graph) <em>Add Graph</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.graph.Graph#addGraph(org.eclipse.stem.core.graph.Graph, org.eclipse.stem.core.common.IdentifiableFilter) <em>Add Graph</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#putEdge(org.eclipse.stem.core.graph.Edge) <em>Put Edge</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getEdge(org.eclipse.emf.common.util.URI) <em>Get Edge</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#putNode(org.eclipse.stem.core.graph.Node) <em>Put Node</em>}</li>
@@ -455,6 +455,19 @@ public class GraphTest extends IdentifiableTest {
 				.getNodeLabelsByTypeURI(DynamicLabel.URI_TYPE_DYNAMIC_LABEL);
 		assertTrue(nodeLabels.size() == 2);
 	} // testGetNodeLabelsByTypeURI__URI
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#addGraph(org.eclipse.stem.core.graph.Graph, org.eclipse.stem.core.common.IdentifiableFilter) <em>Add Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.graph.Graph#addGraph(org.eclipse.stem.core.graph.Graph, org.eclipse.stem.core.common.IdentifiableFilter)
+	 * @generated
+	 */
+	public void testAddGraph__Graph_IdentifiableFilter() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 	/**
 	 * Test the sanity of the fixture

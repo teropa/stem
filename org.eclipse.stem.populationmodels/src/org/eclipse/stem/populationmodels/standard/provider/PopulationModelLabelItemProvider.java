@@ -29,6 +29,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.stem.core.graph.provider.DynamicNodeLabelItemProvider;
 
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
@@ -71,6 +73,7 @@ public class PopulationModelLabelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addPopulationLabelPropertyDescriptor(object);
+			addPopulationIdentifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +96,28 @@ public class PopulationModelLabelItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Population Identifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPopulationIdentifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopulationModelLabel_populationIdentifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopulationModelLabel_populationIdentifier_feature", "_UI_PopulationModelLabel_type"),
+				 StandardPackage.Literals.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -133,6 +158,12 @@ public class PopulationModelLabelItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(PopulationModelLabel.class)) {
+			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

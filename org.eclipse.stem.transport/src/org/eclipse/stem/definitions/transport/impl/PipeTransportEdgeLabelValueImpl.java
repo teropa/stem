@@ -147,9 +147,9 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW:
-				return new Double(getMaxFlow());
+				return getMaxFlow();
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD:
-				return new Long(getTimePeriod());
+				return getTimePeriod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,10 +163,10 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW:
-				setMaxFlow(((Double)newValue).doubleValue());
+				setMaxFlow((Double)newValue);
 				return;
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD:
-				setTimePeriod(((Long)newValue).longValue());
+				setTimePeriod((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

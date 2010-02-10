@@ -105,7 +105,7 @@ public class PacketTransportLabelValueImpl extends LabelValueImpl implements Pac
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TransportPackage.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY:
-				return new Double(getCapacity());
+				return getCapacity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -119,7 +119,7 @@ public class PacketTransportLabelValueImpl extends LabelValueImpl implements Pac
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TransportPackage.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY:
-				setCapacity(((Double)newValue).doubleValue());
+				setCapacity((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

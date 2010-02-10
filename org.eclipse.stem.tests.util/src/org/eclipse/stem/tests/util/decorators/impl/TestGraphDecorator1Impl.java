@@ -58,10 +58,11 @@ public class TestGraphDecorator1Impl extends GraphDecoratorImpl implements
 	 * @generated NOT
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		final DynamicLabel dynamicLabel = TestUtil.createDynamicLabel(getGraph().getURI());
 		getLabelsToUpdate().add(dynamicLabel);
 		getGraph().putGraphLabel(dynamicLabel);
+		return true;
 	} // decorateGraph
 
 	/**

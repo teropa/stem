@@ -842,7 +842,7 @@ abstract public class GeographicControl extends Composite implements
 
 	protected StemPolygonsList createPolygonsToDraw(
 			final IProgressMonitor monitor) {
-		return createPolygonsToDraw(optionsBar.getSelectedDecorator(), monitor);
+		return createPolygonsToDraw(optionsBar.getSelectedDecorator(), optionsBar.getSelectedPopulationIdentifier(), monitor);
 	} // createPolygonsToDraw
 
 	/**
@@ -851,6 +851,7 @@ abstract public class GeographicControl extends Composite implements
 	 * 
 	 * @param selectedDecorator
 	 *            the {@link Decorator} that contains the selected property.
+	 * @param seletedPopulationIdentifier The selected population identifier
 	 * @param selectedProperty
 	 *            the property of the selected {@link Decorator} to visualize
 	 * @param monitor
@@ -858,7 +859,7 @@ abstract public class GeographicControl extends Composite implements
 	 * @return a collection of polygon values to render in the
 	 *         {@link #mapCanvas}
 	 */
-	StemPolygonsList createPolygonsToDraw(final Decorator selectedDecorator,
+	StemPolygonsList createPolygonsToDraw(final Decorator selectedDecorator, String selectedPopulationIdentifier,
 			final IProgressMonitor monitor) {
 		final StemPolygonsList retValue = new StemPolygonsList();
 
@@ -1084,6 +1085,7 @@ abstract public class GeographicControl extends Composite implements
 	 */
 	public void colorProviderChanged(final Class selectedColorProvider) {
 		final Decorator decorator = optionsBar.getSelectedDecorator();
+		
 		if(decorator == null) return;
 		final AdapterFactory adapterFactory = ColorProviderAdapterFactory.INSTANCE
 				.getFactoryForType(selectedColorProvider);
@@ -1093,6 +1095,7 @@ abstract public class GeographicControl extends Composite implements
 			colorProviderAdapter = (ColorProviderAdapter) adapter;
 			colorProviderAdapter.setSelectedDecorator(optionsBar
 					.getSelectedDecorator());
+			colorProviderAdapter.setSelectedPopulationIdentifier(optionsBar.getSelectedPopulationIdentifier());
 			geographicRenderer.setColorProviderAdapter(colorProviderAdapter);
 			layout();
 		}

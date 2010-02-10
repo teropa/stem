@@ -121,7 +121,7 @@ public class LoadUnloadEdgeImpl extends MigrationEdgeImpl implements LoadUnloadE
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TransportPackage.LOAD_UNLOAD_EDGE__LOADING_EDGE:
-				return isLoadingEdge() ? Boolean.TRUE : Boolean.FALSE;
+				return isLoadingEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -135,7 +135,7 @@ public class LoadUnloadEdgeImpl extends MigrationEdgeImpl implements LoadUnloadE
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TransportPackage.LOAD_UNLOAD_EDGE__LOADING_EDGE:
-				setLoadingEdge(((Boolean)newValue).booleanValue());
+				setLoadingEdge((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -60,6 +60,9 @@ public class StandardTests extends TestSuite {
 		suite.addTestSuite(AggregatingSEIRDiseaseModelTest.class);
 		suite.addTestSuite(AggregatingSIRDiseaseModelTest.class);
 		suite.addTestSuite(SIRInoculatorTest.class);
+		suite.addTestSuite(StochasticPoissonSIDiseaseModelTest.class);
+		suite.addTestSuite(StochasticPoissonSIRDiseaseModelTest.class);
+		suite.addTestSuite(StochasticPoissonSEIRDiseaseModelTest.class);
 		return suite;
 	}
 

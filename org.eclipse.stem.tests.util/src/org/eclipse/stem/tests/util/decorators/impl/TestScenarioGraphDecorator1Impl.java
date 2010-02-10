@@ -394,13 +394,14 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		final DynamicLabel dynamicLabel = TestUtil.createDynamicLabel(getGraph()
 				.getURI());
 		dynamicLabel.setURI(LABEL_URI);
 		getLabelsToUpdate().add(dynamicLabel);
 		getGraph().putGraphLabel(dynamicLabel);
 //		getGraph().addDynamicLabel(dynamicLabel);
+		return true;
 	} // decorateGraph
 
 	/**

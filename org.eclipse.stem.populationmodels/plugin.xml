@@ -51,5 +51,16 @@
             title="org.eclipse.stem.populationmodels.dublin_core1">
       </dublin_core>
    </extension>
+   <extension
+         point="org.eclipse.stem.populationmodels.populationmodel">
+      <classdef
+            class="org.eclipse.stem.populationmodels.standard.impl.DemographicPopulationModelImpl">
+      </classdef>
+      <dublin_core
+            category_id="/"
+            identifier="org.eclipse.stem.populationmodels.dublin_core1"
+            title="org.eclipse.stem.populationmodels.dublin_core1">
+      </dublin_core>
+   </extension>
 
 </plugin>

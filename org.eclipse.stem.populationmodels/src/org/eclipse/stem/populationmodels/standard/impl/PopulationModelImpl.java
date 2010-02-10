@@ -152,7 +152,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * 
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		for (final Iterator<PopulationLabel> populationLabelIter = getPopulationLabels(
 				getPopulationIdentifier(), getGraph()).iterator(); populationLabelIter
 				.hasNext();) {
@@ -161,6 +161,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 			if(this.getPopulationIdentifier().equals(populationLabel.getPopulationIdentifier())) {
 				final PopulationModelLabel pl = createPopulationLabel();
 				pl.setPopulationLabel(populationLabel); // Remember the static population label
+				pl.setPopulationIdentifier(populationLabel.getPopulationIdentifier());
 				getLabelsToUpdate().add(pl);
 				populationLabel.getNode().getLabels().add(pl);
 				pl.setNode(populationLabel.getNode());
@@ -169,10 +170,8 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 		} // for each population label
 
 		
-		// This initializes the disease model values from the population values.
-		// For instance for StandardDiseaseModels, it initializes the
-		// susceptiable population from the population
 		resetLabels();
+		return true;
 	} // decorateGraph
 	
 	/**
@@ -216,6 +215,38 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 		return retValue;
 	} // getPopulationLabels
 	
+	/**
+	 * Search through the graph and find all of the population model labels (i.e. dynamic ones, not static) that have
+	 * the same identifier.
+	 * 
+	 * @param populationIdentifier
+	 *            the population being labeled
+	 * @param graph
+	 *            the graph to search
+	 * @return the PopulationLabel instances of the graph that match the
+	 *         identifier.
+	 */
+	protected Collection<PopulationModelLabel> getPopulationModelLabels(
+			final String populationIdentifier, final Graph graph) {
+		final List<PopulationModelLabel> retValue = new ArrayList<PopulationModelLabel>();
+
+		// Iterate through all of the population labels in the graph
+		EList<NodeLabel> labels = graph.getNodeLabelsByTypeURI(
+				PopulationModelLabel.URI_TYPE_DYNAMIC_POPULATION_LABEL);
+		for (NodeLabel pl:labels) {
+			final PopulationModelLabel populationModelLabel = (PopulationModelLabel) pl;
+			// Is this label for the population we're looking for?
+			if (populationModelLabel.getPopulationIdentifier().equals(
+					populationIdentifier)) {
+			 	if (populationModelLabel.getNode() != null) {
+					// Yes
+					retValue.add(populationModelLabel);
+				} // if the population label has a node
+			} // if the population we're looking for
+		} // for each population label
+
+		return retValue;
+	} // getPopulationLabels
 	/**
 	 * <!-- begin-user-doc -->
 	 * 

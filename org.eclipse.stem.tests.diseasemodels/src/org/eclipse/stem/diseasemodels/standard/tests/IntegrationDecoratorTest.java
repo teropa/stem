@@ -19,6 +19,12 @@ import org.eclipse.stem.core.model.IntegrationDecorator;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Integration Decorator</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.stem.core.model.IntegrationDecorator#isDeterministic() <em>Is Deterministic</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class IntegrationDecoratorTest extends TestCase {
@@ -59,6 +65,19 @@ public abstract class IntegrationDecoratorTest extends TestCase {
 	 */
 	protected IntegrationDecorator getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.model.IntegrationDecorator#isDeterministic() <em>Is Deterministic</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.model.IntegrationDecorator#isDeterministic()
+	 * @generated
+	 */
+	public void testIsDeterministic() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //IntegrationDecoratorTest

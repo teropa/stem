@@ -455,7 +455,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE_VALID:
-				return isNextValueValid() ? Boolean.TRUE : Boolean.FALSE;
+				return isNextValueValid();
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE:
 				return getNextValue();
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR:
@@ -468,7 +468,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 				if (resolve) return getDeactivationTime();
 				return basicGetDeactivationTime();
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE:
-				return new Double(getActivatedRate());
+				return getActivatedRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -482,7 +482,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE_VALID:
-				setNextValueValid(((Boolean)newValue).booleanValue());
+				setNextValueValid((Boolean)newValue);
 				return;
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE:
 				setNextValue((LabelValue)newValue);
@@ -497,7 +497,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 				setDeactivationTime((STEMTime)newValue);
 				return;
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE:
-				setActivatedRate(((Double)newValue).doubleValue());
+				setActivatedRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

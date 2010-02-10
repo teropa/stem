@@ -186,6 +186,25 @@ public class StandardSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StandardPackage.DEMOGRAPHIC_POPULATION_MODEL: {
+				DemographicPopulationModel demographicPopulationModel = (DemographicPopulationModel)theEObject;
+				T1 result = caseDemographicPopulationModel(demographicPopulationModel);
+				if (result == null) result = caseStandardPopulationModel(demographicPopulationModel);
+				if (result == null) result = casePopulationModel(demographicPopulationModel);
+				if (result == null) result = caseIntegrationDecorator(demographicPopulationModel);
+				if (result == null) result = caseNodeDecorator(demographicPopulationModel);
+				if (result == null) result = caseDecorator(demographicPopulationModel);
+				if (result == null) result = caseIdentifiable(demographicPopulationModel);
+				if (result == null) result = caseComparable(demographicPopulationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StandardPackage.POPULATION_GROUP: {
+				PopulationGroup populationGroup = (PopulationGroup)theEObject;
+				T1 result = casePopulationGroup(populationGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -337,6 +356,36 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseStochasticStandardPopulationModel(StochasticStandardPopulationModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Demographic Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Demographic Population Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseDemographicPopulationModel(DemographicPopulationModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Population Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Population Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePopulationGroup(PopulationGroup object) {
 		return null;
 	}
 

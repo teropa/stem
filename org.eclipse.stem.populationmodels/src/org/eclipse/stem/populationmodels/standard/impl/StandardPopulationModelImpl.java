@@ -28,6 +28,7 @@ import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
@@ -199,8 +200,9 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * 
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		super.decorateGraph();
+		return true;
 	} // decorateGraph
 	
 	/**
@@ -303,7 +305,9 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 
 	@Override
 	public PopulationModelLabel createPopulationLabel() {
-		return StandardFactory.eINSTANCE.createStandardPopulationModelLabel();
+		PopulationModelLabel retValue =  StandardFactory.eINSTANCE.createStandardPopulationModelLabel();
+		retValue.setTypeURI(PopulationModelLabel.URI_TYPE_DYNAMIC_POPULATION_LABEL);
+		return retValue;
 	}
 
 	@Override
@@ -348,7 +352,8 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 			
 			EList<NodeLabel> labs = n.getLabels();
 			for(NodeLabel l:labs) {
-				if(l instanceof IntegrationLabel && !l.equals(plabel)) {
+				if(l instanceof IntegrationLabel && !l.equals(plabel) &&
+						((IntegrationLabel)l).getIdentifier().equals(plabel.getIdentifier())) {
 					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
 					double additions = sdeLabelValue.getAdditions();
 					double substractions = sdeLabelValue.getSubstractions();

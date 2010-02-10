@@ -32,6 +32,8 @@ abstract public class PopulationModelPropertyEditor extends Composite {
 	 */
 	public static boolean isUserSpecifiedPopulationModelProperty(final EStructuralFeature feature) {
 		boolean retValue = false;
+		if(feature.getFeatureID() == StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS)
+			return false;
 		final EClass containingClass = feature.getEContainingClass();
 		// Is it a disease model property?
 		if (containingClass.equals(StandardPackage.eINSTANCE.getPopulationModel())

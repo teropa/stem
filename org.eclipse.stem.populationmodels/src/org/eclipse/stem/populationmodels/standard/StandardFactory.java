@@ -86,6 +86,24 @@ public interface StandardFactory extends EFactory {
 	StochasticStandardPopulationModel createStochasticStandardPopulationModel();
 
 	/**
+	 * Returns a new object of class '<em>Demographic Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Demographic Population Model</em>'.
+	 * @generated
+	 */
+	DemographicPopulationModel createDemographicPopulationModel();
+
+	/**
+	 * Returns a new object of class '<em>Population Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Population Group</em>'.
+	 * @generated
+	 */
+	PopulationGroup createPopulationGroup();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

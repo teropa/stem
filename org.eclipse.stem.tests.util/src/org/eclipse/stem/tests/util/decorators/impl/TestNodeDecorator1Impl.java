@@ -62,7 +62,7 @@ public class TestNodeDecorator1Impl extends NodeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	@Override
-	public void decorateGraph() {
+	public boolean decorateGraph() {
 		final TestNodeDecorator1 tnd = DecoratorsFactory.eINSTANCE
 		.createTestNodeDecorator1();
 		getGraph().getDecorators().add(tnd);
@@ -74,6 +74,7 @@ public class TestNodeDecorator1Impl extends NodeDecoratorImpl implements
 			getLabelsToUpdate().add(dynamicNodeLabel);
 			node.getLabels().add(dynamicNodeLabel);
 		} // for
+		return true;
 	} // decorateGraph
 
 	/**

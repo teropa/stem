@@ -44,7 +44,8 @@ import org.eclipse.stem.tests.util.decorators.TestEdgeDecorator1;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI) <em>Get Canonical Graph</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter) <em>Get Canonical Graph</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.Model#prepare() <em>Prepare</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -602,6 +603,32 @@ public class ModelTest extends IdentifiableTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter) <em>Get Canonical Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter)
+	 * @generated
+	 */
+	public void testGetCanonicalGraph__URI_IdentifiableFilter() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.model.Model#prepare() <em>Prepare</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.model.Model#prepare()
+	 * @generated
+	 */
+	public void testPrepare() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

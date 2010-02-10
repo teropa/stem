@@ -31,6 +31,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.PopulationModelLabelImpl#getPopulationLabel <em>Population Label</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.PopulationModelLabelImpl#getPopulationIdentifier <em>Population Identifier</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +47,25 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * @ordered
 	 */
 	protected PopulationLabel populationLabel;
+
+	/**
+	 * The default value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPopulationIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String POPULATION_IDENTIFIER_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPopulationIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,12 +129,35 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPopulationIdentifier() {
+		return populationIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPopulationIdentifier(String newPopulationIdentifier) {
+		String oldPopulationIdentifier = populationIdentifier;
+		populationIdentifier = newPopulationIdentifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL:
 				if (resolve) return getPopulationLabel();
 				return basicGetPopulationLabel();
+			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER:
+				return getPopulationIdentifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -129,6 +172,9 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 		switch (featureID) {
 			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL:
 				setPopulationLabel((PopulationLabel)newValue);
+				return;
+			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER:
+				setPopulationIdentifier((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -145,6 +191,9 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL:
 				setPopulationLabel((PopulationLabel)null);
 				return;
+			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER:
+				setPopulationIdentifier(POPULATION_IDENTIFIER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -159,8 +208,26 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 		switch (featureID) {
 			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL:
 				return populationLabel != null;
+			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER:
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (populationIdentifier: ");
+		result.append(populationIdentifier);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PopulationModelLabelImpl

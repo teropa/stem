@@ -132,6 +132,14 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createStochasticStandardPopulationModelAdapter();
 			}
 			@Override
+			public Adapter caseDemographicPopulationModel(DemographicPopulationModel object) {
+				return createDemographicPopulationModelAdapter();
+			}
+			@Override
+			public Adapter casePopulationGroup(PopulationGroup object) {
+				return createPopulationGroupAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -328,6 +336,34 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStochasticStandardPopulationModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.DemographicPopulationModel <em>Demographic Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.DemographicPopulationModel
+	 * @generated
+	 */
+	public Adapter createDemographicPopulationModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.PopulationGroup <em>Population Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationGroup
+	 * @generated
+	 */
+	public Adapter createPopulationGroupAdapter() {
 		return null;
 	}
 

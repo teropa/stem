@@ -71,6 +71,8 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 			case StandardPackage.POPULATION_MODEL_LABEL_VALUE: return createPopulationModelLabelValue();
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE: return createStandardPopulationModelLabelValue();
 			case StandardPackage.STOCHASTIC_STANDARD_POPULATION_MODEL: return createStochasticStandardPopulationModel();
+			case StandardPackage.DEMOGRAPHIC_POPULATION_MODEL: return createDemographicPopulationModel();
+			case StandardPackage.POPULATION_GROUP: return createPopulationGroup();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -134,6 +136,26 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 	public StochasticStandardPopulationModel createStochasticStandardPopulationModel() {
 		StochasticStandardPopulationModelImpl stochasticStandardPopulationModel = new StochasticStandardPopulationModelImpl();
 		return stochasticStandardPopulationModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DemographicPopulationModel createDemographicPopulationModel() {
+		DemographicPopulationModelImpl demographicPopulationModel = new DemographicPopulationModelImpl();
+		return demographicPopulationModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PopulationGroup createPopulationGroup() {
+		PopulationGroupImpl populationGroup = new PopulationGroupImpl();
+		return populationGroup;
 	}
 
 	/**

@@ -49,5 +49,10 @@ public interface ColorProvider {
 	 * @param selectedDecorator The selected decorator
 	 */
 	public void setSelectedDecorator(final Decorator selectedDecorator);
+	/**
+	 * The method will set the population model
+	 * @param selectedPopulationId The selected popoulation id
+	 */
+	public void setSelectedPopulationIdentifier(final String selectedPopulationId);
 }
 // ColorProvider

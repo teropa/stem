@@ -105,6 +105,16 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 		setErrorScale(StandardFactory.eINSTANCE.createStandardPopulationModelLabelValue());
 		setDeltaValue(StandardFactory.eINSTANCE.createStandardPopulationModelLabelValue());
 	}
+	
+	/**
+	 * Return the identifier for the label, i.e. the population identifier
+	 * 
+	 * @return String The identifier
+	 */
+	
+	public String getIdentifier() {
+		return this.getPopulationIdentifier();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

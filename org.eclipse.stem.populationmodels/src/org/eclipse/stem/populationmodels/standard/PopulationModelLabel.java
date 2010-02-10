@@ -12,6 +12,8 @@ package org.eclipse.stem.populationmodels.standard;
  *******************************************************************************/
 
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 
@@ -24,6 +26,7 @@ import org.eclipse.stem.definitions.labels.PopulationLabel;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.PopulationModelLabel#getPopulationLabel <em>Population Label</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.PopulationModelLabel#getPopulationIdentifier <em>Population Identifier</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,6 +36,19 @@ import org.eclipse.stem.definitions.labels.PopulationLabel;
  */
 public interface PopulationModelLabel extends DynamicNodeLabel {
 
+	/**
+	 * This is the segment of the type URI that prefixes all other segments in a
+	 * dynamic population label type URI.
+	 */
+	String URI_TYPE_DYNAMIC_POPULATION_LABEL_SEGMENT = URI_TYPE_LABEL_SEGMENT
+			+ "/dynpopulation";
+
+	/**
+	 * This is the type URI for dynamic population labels
+	 */
+	URI URI_TYPE_DYNAMIC_POPULATION_LABEL = STEMURI
+			.createTypeURI(URI_TYPE_DYNAMIC_POPULATION_LABEL_SEGMENT);
+	
 	/**
 	 * Returns the value of the '<em><b>Population Label</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -58,4 +74,30 @@ public interface PopulationModelLabel extends DynamicNodeLabel {
 	 * @generated
 	 */
 	void setPopulationLabel(PopulationLabel value);
+
+	/**
+	 * Returns the value of the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Population Identifier</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Population Identifier</em>' attribute.
+	 * @see #setPopulationIdentifier(String)
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getPopulationModelLabel_PopulationIdentifier()
+	 * @model
+	 * @generated
+	 */
+	String getPopulationIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.populationmodels.standard.PopulationModelLabel#getPopulationIdentifier <em>Population Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Population Identifier</em>' attribute.
+	 * @see #getPopulationIdentifier()
+	 * @generated
+	 */
+	void setPopulationIdentifier(String value);
 } // PopulationModelLabel

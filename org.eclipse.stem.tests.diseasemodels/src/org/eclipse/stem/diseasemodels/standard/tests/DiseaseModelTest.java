@@ -216,7 +216,8 @@ public abstract class DiseaseModelTest extends TestCase {
 	 */
 	public void testGetAdjustedBackgroundBirthRate__long() {
 		// TODO: implement this operation test method
-		assertTrue(true);
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

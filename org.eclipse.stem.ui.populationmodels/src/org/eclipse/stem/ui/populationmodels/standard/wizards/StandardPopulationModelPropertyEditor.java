@@ -12,25 +12,36 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
+import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
+import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
@@ -40,6 +51,15 @@ import org.eclipse.swt.widgets.Text;
  */
 public class StandardPopulationModelPropertyEditor extends PopulationModelPropertyEditor {
 
+	private ArrayList<Composite>groupComposites = new ArrayList<Composite>();
+	private ArrayList<Text>groupIDComposites = new ArrayList<Text>();
+	private ArrayList<Text>groupFracComposites = new ArrayList<Text>();
+	
+	private static String DEFAULT_POPULATION_ID_PREFIX = "group";
+	private static String DEFAULT_POPULATION_FRACTION = "1.0";
+	
+	Group allGroups;
+	
 	/**
 	 * Create the composite
 	 * 
@@ -52,10 +72,12 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			final ModifyListener projectValidator) {
 		super(parent, style);
 
+		
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 3;
-		setLayout(gridLayout);
-
+		this.setLayout(gridLayout);
+		
+		
 		// Get the adapter that will provide NLS'd names for the
 		// properties of the disease model
 		final PropertyStringProviderAdapter pspa = (PropertyStringProviderAdapter) PropertyStringProviderAdapterFactory.INSTANCE
@@ -75,6 +97,9 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 					.getFeature(null);
 			// Is this a disease model property that the user should specify?
 			if (isUserSpecifiedPopulationModelProperty(feature)) {
+				if(feature.getFeatureID() == StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS) {
+					
+				}
 				// Yes
 				final Label label = new Label(this, SWT.NONE);
 				label.setText(pspa.getPropertyName(descriptor));
@@ -122,8 +147,143 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 		pmtpDefGD.grabExcessHorizontalSpace = true;
 		pmtpDefGD.horizontalSpan = 3;
 		pmtpDefLabel.setLayoutData(pmtpDefGD);
+		
+		
+		if(populationModel instanceof DemographicPopulationModel) {
+			allGroups = new Group(this, SWT.NONE);
+			GridLayout singleColGridLayout = new GridLayout();
+			singleColGridLayout.numColumns = 1;
+			allGroups.setLayout(singleColGridLayout);
+			GridData gd = new GridData(GridData.FILL, GridData.CENTER, true, false);
+			gd.horizontalSpan = 3;
+			allGroups.setLayoutData(gd);
+			
+			addPopulationGroupField(allGroups, projectValidator);
+			
+			final Button addButton = new Button(this, SWT.NONE);
+			final GridData buttonGD = new GridData(GridData.BEGINNING);
+			addButton.setText(PopulationModelWizardMessages.getString("addGroup"));
+			addButton.setToolTipText(PopulationModelWizardMessages.getString("addGroupTT"));
+			buttonGD.grabExcessHorizontalSpace = true;
+			buttonGD.horizontalSpan = 3;
+			addButton.setLayoutData(buttonGD);
+			final StandardPopulationModelPropertyEditor self = this;
+			addButton.addSelectionListener(new SelectionListener() {
+				
+				@Override
+				public void widgetSelected(SelectionEvent arg0) {
+					addPopulationGroupField(allGroups, projectValidator);
+					self.getParent().getParent().getParent().layout(true);
+				}
+				
+				@Override
+				public void widgetDefaultSelected(SelectionEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		}
 	} // StandardDiseaseModelPropertyEditor
 
+	private void addPopulationGroupField(final Composite parent, final ModifyListener projectValidator) {
+		
+		Group groupInfo = new Group(parent, SWT.BORDER);
+		GridLayout gridLayout = new GridLayout();
+		gridLayout.numColumns = 5;
+		groupInfo.setLayout(gridLayout);
+		GridData gridData = new GridData(GridData.FILL, GridData.CENTER, true, false);
+		gridData.horizontalSpan = 3;
+		groupInfo.setLayoutData(gridData);
+		
+		groupComposites.add(groupInfo);
+	
+		final Button removeButton = new Button(groupInfo, SWT.NONE);
+		removeButton.setText(PopulationModelWizardMessages.getString("removeGroup"));
+		removeButton.setToolTipText(PopulationModelWizardMessages.getString("removeGroupTT"));
+		
+		removeButton.addSelectionListener(new SelectionListener() {
+		
+		
+			
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				int ind = groupComposites.indexOf(removeButton.getParent());
+				if(ind == -1) {
+					Activator.logError("Error, group composite not found!", new Exception());
+				}
+				groupComposites.remove(ind);
+				groupFracComposites.remove(ind);
+				groupIDComposites.remove(ind);
+				
+				removeButton.getParent().dispose();
+				parent.getParent().getParent().getParent().getParent().layout(true);
+				if(groupIDComposites.size() > 0)
+					groupIDComposites.get(0).setText(groupIDComposites.get(0).getText()); // force validation
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		removeButton.setLayoutData(new GridData(GridData.BEGINNING, GridData.CENTER, true, false));
+		
+		Label label = new Label(groupInfo, SWT.NONE);
+		label.setText(PopulationModelWizardMessages.getString("populationId"));
+		GridData labelGD = new GridData(GridData.END);
+		labelGD.grabExcessHorizontalSpace = true;
+		labelGD.horizontalAlignment = GridData.END;
+		labelGD.verticalAlignment = GridData.CENTER;
+		labelGD.horizontalIndent = 0;
+		label.setLayoutData(labelGD);
+		
+		Text text = new Text(groupInfo, SWT.BORDER|SWT.TRAIL);
+		String id = DEFAULT_POPULATION_ID_PREFIX+(groupComposites.size());
+		text.setText(id);
+		GridData textGD = new GridData(GridData.FILL);
+		textGD.grabExcessHorizontalSpace = true;
+		textGD.horizontalAlignment = GridData.FILL;
+		textGD.verticalAlignment = GridData.CENTER;
+		text.setLayoutData(textGD);
+		text.addModifyListener(projectValidator);
+		groupIDComposites.add(text);
+		
+		label = new Label(groupInfo, SWT.NONE);
+		label.setText(PopulationModelWizardMessages.getString("populationIdFraction"));
+		labelGD = new GridData(GridData.END);
+		labelGD.grabExcessHorizontalSpace = true;
+		labelGD.horizontalAlignment = GridData.END;
+		labelGD.verticalAlignment = GridData.CENTER;
+		labelGD.horizontalIndent = 0;
+		label.setLayoutData(labelGD);
+		
+		text = new Text(groupInfo, SWT.BORDER|SWT.TRAIL);
+		
+		double frac = Double.parseDouble(DEFAULT_POPULATION_FRACTION);
+		double sum=0;for(Text t:groupFracComposites) {
+			try {
+			sum+=Double.parseDouble(t.getText());
+			} catch(NumberFormatException pe) {
+				// Ignore page will be invalidated
+			}
+		}
+		if(frac+sum > 1.0)frac = 1.0-sum;
+		if (frac <0)frac = 0.0;
+		text.setText(frac+"");
+		
+		textGD = new GridData(GridData.FILL);
+		textGD.grabExcessHorizontalSpace = true;
+		textGD.horizontalAlignment = GridData.FILL;
+		textGD.verticalAlignment = GridData.CENTER;
+		text.setLayoutData(textGD);
+		text.addModifyListener(projectValidator);
+		groupFracComposites.add(text);
+		groupInfo.pack();
+		
+//		this.removeAllGroups();
+//		this.layoutAllGroups();
+	}
 	/**
 	 * @param diseaseModel
 	 *            the {@link DiseaseModel} instance to populate.
@@ -153,6 +313,20 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 				break;
 			} // switch
 		} // for each Map.entry
+		
+		if(populationModel instanceof DemographicPopulationModel) {
+			DemographicPopulationModel dpm = (DemographicPopulationModel)populationModel;
+			
+			// Add groups	
+			for(int i=0;i<groupIDComposites.size();++i) {
+				PopulationGroup newGroup = StandardFactory.eINSTANCE.createPopulationGroup();
+				String id = groupIDComposites.get(i).getText();
+				double fr = Double.parseDouble(groupFracComposites.get(i).getText());
+				newGroup.setIdentifier(id);
+				newGroup.setFraction(fr);
+				dpm.getPopulationGroups().add(newGroup);
+			}
+		}
 	} // populate
 
 	/**
@@ -271,6 +445,35 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 				}
 			}
 		} // if gain
+		
+		// Check that the group fractions add up to < 1.0
+		
+		if(retValue) {
+			double sum = 0;
+			for(Text t:groupFracComposites) {
+				if(!isValidValue(t.getText(), 0)) {
+					retValue = false;
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr13"); //$NON-NLS-1$
+					break;
+				}
+				sum+=Double.parseDouble(t.getText());
+			}
+			if(sum > 1.0) {
+				retValue = false;
+				errorMessage = PopulationModelWizardMessages.getString("NDizWizErr11"); //$NON-NLS-1$
+			}
+		}
+		// Check group IDs
+		
+		if(retValue) {
+			for(Text t:groupIDComposites) {
+				if(t.getText().trim().equals("")) {
+					retValue = false;
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr12"); //$NON-NLS-1$
+					break;
+				}
+			}
+		}
 		
 		return retValue;
 	} // validate
