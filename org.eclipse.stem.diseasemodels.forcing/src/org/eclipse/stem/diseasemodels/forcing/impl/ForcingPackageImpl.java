@@ -165,15 +165,6 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getForcingDiseaseModel_Attenuation() {
-		return (EAttribute)forcingDiseaseModelEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGaussianForcingDiseaseModel() {
 		return gaussianForcingDiseaseModelEClass;
 	}
@@ -337,7 +328,6 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		createEAttribute(forcingDiseaseModelEClass, FORCING_DISEASE_MODEL__MODULATION_PERIOD);
 		createEAttribute(forcingDiseaseModelEClass, FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT);
 		createEAttribute(forcingDiseaseModelEClass, FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR);
-		createEAttribute(forcingDiseaseModelEClass, FORCING_DISEASE_MODEL__ATTENUATION);
 
 		gaussianForcingDiseaseModelEClass = createEClass(GAUSSIAN_FORCING_DISEASE_MODEL);
 		createEAttribute(gaussianForcingDiseaseModelEClass, GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2);
@@ -399,13 +389,12 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		initEAttribute(getForcingDiseaseModel_ModulationPeriod(), ecorePackage.getEDouble(), "modulationPeriod", "365.256363051", 0, 1, ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getForcingDiseaseModel_ModulationPhaseShift(), ecorePackage.getEDouble(), "modulationPhaseShift", "0.0", 0, 1, ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getForcingDiseaseModel_SeasonalModulationFloor(), theEcorePackage.getEDouble(), "seasonalModulationFloor", "0.6", 0, 1, ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(getForcingDiseaseModel_Attenuation(), theEcorePackage.getEDouble(), "attenuation", "0.1", 0, 1, ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(gaussianForcingDiseaseModelEClass, GaussianForcingDiseaseModel.class, "GaussianForcingDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getGaussianForcingDiseaseModel_Sigma2(), ecorePackage.getEDouble(), "sigma2", null, 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getGaussianForcingDiseaseModel_ModulationPeriod(), ecorePackage.getEDouble(), "modulationPeriod", null, 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getGaussianForcingDiseaseModel_ModulationPhaseShift(), ecorePackage.getEDouble(), "modulationPhaseShift", null, 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getGaussianForcingDiseaseModel_ModulationFloor(), ecorePackage.getEDouble(), "modulationFloor", null, 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussianForcingDiseaseModel_Sigma2(), ecorePackage.getEDouble(), "sigma2", "100", 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getGaussianForcingDiseaseModel_ModulationPeriod(), ecorePackage.getEDouble(), "modulationPeriod", "365.25", 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getGaussianForcingDiseaseModel_ModulationPhaseShift(), ecorePackage.getEDouble(), "modulationPhaseShift", "0", 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getGaussianForcingDiseaseModel_ModulationFloor(), ecorePackage.getEDouble(), "modulationFloor", "0.6", 0, 1, GaussianForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(gaussian2ForcingDiseaseModelEClass, Gaussian2ForcingDiseaseModel.class, "Gaussian2ForcingDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getGaussian2ForcingDiseaseModel_Sigma2_2(), theEcorePackage.getEDouble(), "sigma2_2", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

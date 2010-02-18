@@ -75,7 +75,6 @@ public class ForcingDiseaseModelItemProvider
 			addModulationPeriodPropertyDescriptor(object);
 			addModulationPhaseShiftPropertyDescriptor(object);
 			addSeasonalModulationFloorPropertyDescriptor(object);
-			addAttenuationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -169,28 +168,6 @@ public class ForcingDiseaseModelItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Attenuation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAttenuationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ForcingDiseaseModel_attenuation_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_ForcingDiseaseModel_attenuation_feature", "_UI_ForcingDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ForcingPackage.Literals.FORCING_DISEASE_MODEL__ATTENUATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns ForcingDiseaseModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,7 +208,6 @@ public class ForcingDiseaseModelItemProvider
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PERIOD:
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT:
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
-			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

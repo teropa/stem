@@ -1,10 +1,14 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.diseasemodels.forcing;
+/*******************************************************************************
+ * Copyright (c) 2010 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import org.eclipse.stem.diseasemodels.standard.StochasticSIRDiseaseModel;
 
@@ -31,6 +35,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 
 	/**
 	 * Returns the value of the '<em><b>Sigma2</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sigma2</em>' attribute isn't clear,
@@ -40,7 +45,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 	 * @return the value of the '<em>Sigma2</em>' attribute.
 	 * @see #setSigma2(double)
 	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussianForcingDiseaseModel_Sigma2()
-	 * @model
+	 * @model default="100"
 	 * @generated
 	 */
 	double getSigma2();
@@ -57,6 +62,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 
 	/**
 	 * Returns the value of the '<em><b>Modulation Period</b></em>' attribute.
+	 * The default value is <code>"365.25"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Modulation Period</em>' attribute isn't clear,
@@ -66,7 +72,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 	 * @return the value of the '<em>Modulation Period</em>' attribute.
 	 * @see #setModulationPeriod(double)
 	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussianForcingDiseaseModel_ModulationPeriod()
-	 * @model
+	 * @model default="365.25"
 	 * @generated
 	 */
 	double getModulationPeriod();
@@ -83,6 +89,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 
 	/**
 	 * Returns the value of the '<em><b>Modulation Phase Shift</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Modulation Phase Shift</em>' attribute isn't clear,
@@ -92,7 +99,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 	 * @return the value of the '<em>Modulation Phase Shift</em>' attribute.
 	 * @see #setModulationPhaseShift(double)
 	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussianForcingDiseaseModel_ModulationPhaseShift()
-	 * @model
+	 * @model default="0"
 	 * @generated
 	 */
 	double getModulationPhaseShift();
@@ -109,6 +116,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 
 	/**
 	 * Returns the value of the '<em><b>Modulation Floor</b></em>' attribute.
+	 * The default value is <code>"0.6"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Modulation Floor</em>' attribute isn't clear,
@@ -118,7 +126,7 @@ public interface GaussianForcingDiseaseModel extends StochasticSIRDiseaseModel {
 	 * @return the value of the '<em>Modulation Floor</em>' attribute.
 	 * @see #setModulationFloor(double)
 	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussianForcingDiseaseModel_ModulationFloor()
-	 * @model
+	 * @model default="0.6"
 	 * @generated
 	 */
 	double getModulationFloor();

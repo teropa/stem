@@ -40,7 +40,6 @@ import org.eclipse.stem.diseasemodels.standard.impl.StochasticSIRDiseaseModelImp
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.ForcingDiseaseModelImpl#getModulationPeriod <em>Modulation Period</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.ForcingDiseaseModelImpl#getModulationPhaseShift <em>Modulation Phase Shift</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.ForcingDiseaseModelImpl#getSeasonalModulationFloor <em>Seasonal Modulation Floor</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.ForcingDiseaseModelImpl#getAttenuation <em>Attenuation</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,44 +120,11 @@ public class ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelImpl imple
 	 * @ordered
 	 */
 	protected double seasonalModulationFloor = SEASONAL_MODULATION_FLOOR_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getAttenuation() <em>Attenuation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttenuation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double ATTENUATION_EDEFAULT = 0.1;
-	/**
-	 * The cached value of the '{@link #getAttenuation() <em>Attenuation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttenuation()
-	 * @generated
-	 * @ordered
-	 */
-	protected double attenuation = ATTENUATION_EDEFAULT;
-	
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	
 	private final Calendar calendar = Calendar.getInstance();
 	
-	private static Map<Integer, Integer>signalMap;
 	
-	static {
-		signalMap = new HashMap<Integer, Integer>();
-		signalMap.put(1999, 1);
-		signalMap.put(2000, 1);
-		signalMap.put(2001, 1);
-		signalMap.put(2002, 1);
-		signalMap.put(2003, 1);
-		signalMap.put(2004, 1);
-		signalMap.put(2005, 1);
-		signalMap.put(2006, 1);
-		signalMap.put(2007, 1);
-		signalMap.put(2008, 1);
-	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,17 +185,13 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			year = calendar.get(Calendar.YEAR);
 		}
 		
-			// Temp for now
-		double attenuation = 1.0;
-		if(signalMap.containsKey(year))
-			attenuation = (signalMap.get(year) == 0)? this.getAttenuation():1.0;
 		
 		double modulation = seasonalModulationFloor + (1-seasonalModulationFloor)*Math.pow(Math.abs(Math.sin(phase + Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY))), seasonalModulationExponent);
 		
 		
 		
 		// This is beta*
-		double transmissionRate = modulation * attenuation * (getAdjustedTransmissionRate(timeDelta));
+		double transmissionRate = modulation * (getAdjustedTransmissionRate(timeDelta));
 
 		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
 		
@@ -421,29 +383,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getAttenuation() {
-		return attenuation;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAttenuation(double newAttenuation) {
-		double oldAttenuation = attenuation;
-		attenuation = newAttenuation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION, oldAttenuation, attenuation));
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -455,8 +394,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				return getModulationPhaseShift();
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
 				return getSeasonalModulationFloor();
-			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
-				return getAttenuation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -481,9 +418,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				return;
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
 				setSeasonalModulationFloor((Double)newValue);
-				return;
-			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
-				setAttenuation((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -510,9 +444,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
 				setSeasonalModulationFloor(SEASONAL_MODULATION_FLOOR_EDEFAULT);
 				return;
-			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
-				setAttenuation(ATTENUATION_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -534,8 +465,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				return modulationPhaseShift != MODULATION_PHASE_SHIFT_EDEFAULT;
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
 				return seasonalModulationFloor != SEASONAL_MODULATION_FLOOR_EDEFAULT;
-			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
-				return attenuation != ATTENUATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -559,8 +488,6 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		result.append(modulationPhaseShift);
 		result.append(", seasonalModulationFloor: "); //$NON-NLS-1$
 		result.append(seasonalModulationFloor);
-		result.append(", attenuation: "); //$NON-NLS-1$
-		result.append(attenuation);
 		result.append(')');
 		return result.toString();
 	}

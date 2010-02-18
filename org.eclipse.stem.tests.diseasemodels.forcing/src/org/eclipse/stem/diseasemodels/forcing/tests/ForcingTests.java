@@ -41,6 +41,8 @@ public class ForcingTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ForcingTests("forcing Tests"); //$NON-NLS-1$
 		suite.addTestSuite(ForcingDiseaseModelTest.class);
+		suite.addTestSuite(GaussianForcingDiseaseModelTest.class);
+		suite.addTestSuite(Gaussian2ForcingDiseaseModelTest.class);
 		return suite;
 	}
 

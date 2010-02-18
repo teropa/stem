@@ -1,10 +1,14 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.diseasemodels.forcing.impl;
+/*******************************************************************************
+ * Copyright (c) 2010 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -51,7 +55,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double SIGMA2_EDEFAULT = 0.0;
+	protected static final double SIGMA2_EDEFAULT = 100.0;
 	/**
 	 * The cached value of the '{@link #getSigma2() <em>Sigma2</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,7 +73,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double MODULATION_PERIOD_EDEFAULT = 0.0;
+	protected static final double MODULATION_PERIOD_EDEFAULT = 365.25;
 	/**
 	 * The cached value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -105,7 +109,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double MODULATION_FLOOR_EDEFAULT = 0.0;
+	protected static final double MODULATION_FLOOR_EDEFAULT = 0.6;
 	/**
 	 * The cached value of the '{@link #getModulationFloor() <em>Modulation Floor</em>}' attribute.
 	 * <!-- begin-user-doc -->

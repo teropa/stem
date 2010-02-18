@@ -14,14 +14,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="seasonalModulationFloor"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.6"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attenuation" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-        defaultValueLiteral="0.1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GaussianForcingDiseaseModel" eSuperTypes="../../org.eclipse.stem.diseasemodels/model/standard.ecore#//StochasticSIRDiseaseModel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulationPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulationPhaseShift" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulationFloor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulationPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="365.25"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulationPhaseShift" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulationFloor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gaussian2ForcingDiseaseModel" eSuperTypes="../../org.eclipse.stem.diseasemodels/model/standard.ecore#//StochasticSIRDiseaseModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma2_2" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>

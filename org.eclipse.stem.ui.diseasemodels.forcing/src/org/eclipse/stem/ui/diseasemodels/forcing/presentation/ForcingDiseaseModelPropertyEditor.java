@@ -187,12 +187,6 @@ public class ForcingDiseaseModelPropertyEditor extends
 				((ForcingDiseaseModel) diseaseModel)
 						.setModulationPhaseShift(dVal);
 				break;
-			case ForcingPackage.FORCING_DISEASE_MODEL__ATTENUATION:
-				dVal = (new Double(entry.getValue().getText())).doubleValue();
-				((ForcingDiseaseModel) diseaseModel)
-						.setAttenuation(dVal);
-				break;
-
 			default:
 				break;
 			} // switch

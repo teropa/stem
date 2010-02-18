@@ -105,31 +105,4 @@ public interface ForcingDiseaseModel extends StochasticSIRDiseaseModel {
 	 * @generated
 	 */
 	void setSeasonalModulationFloor(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Attenuation</b></em>' attribute.
-	 * The default value is <code>"0.1"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Attenuation</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attenuation</em>' attribute.
-	 * @see #setAttenuation(double)
-	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getForcingDiseaseModel_Attenuation()
-	 * @model default="0.1"
-	 * @generated
-	 */
-	double getAttenuation();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel#getAttenuation <em>Attenuation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attenuation</em>' attribute.
-	 * @see #getAttenuation()
-	 * @generated
-	 */
-	void setAttenuation(double value);
 } // ExampleDiseaseModel

@@ -391,22 +391,13 @@ public interface ForcingPackage extends EPackage {
 	int FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Attenuation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORCING_DISEASE_MODEL__ATTENUATION = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORCING_DISEASE_MODEL_FEATURE_COUNT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 5;
+	int FORCING_DISEASE_MODEL_FEATURE_COUNT = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL_FEATURE_COUNT + 4;
 
 
 	/**
@@ -1179,17 +1170,6 @@ public interface ForcingPackage extends EPackage {
 	EAttribute getForcingDiseaseModel_SeasonalModulationFloor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel#getAttenuation <em>Attenuation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Attenuation</em>'.
-	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel#getAttenuation()
-	 * @see #getForcingDiseaseModel()
-	 * @generated
-	 */
-	EAttribute getForcingDiseaseModel_Attenuation();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel <em>Gaussian Forcing Disease Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1411,13 +1391,6 @@ public interface ForcingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR = eINSTANCE.getForcingDiseaseModel_SeasonalModulationFloor();
-		/**
-		 * The meta object literal for the '<em><b>Attenuation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FORCING_DISEASE_MODEL__ATTENUATION = eINSTANCE.getForcingDiseaseModel_Attenuation();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.forcing.impl.GaussianForcingDiseaseModelImpl <em>Gaussian Forcing Disease Model</em>}' class.
 		 * <!-- begin-user-doc -->

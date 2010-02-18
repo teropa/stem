@@ -122,4 +122,15 @@ public class ForcingPropertyStringProviderAdapterFactory extends
 		return adapter;
 	}// createForcingDiseaseModelAdapter()
 
+	/**
+	 * @see org.eclipse.stem.diseasemodels.forcing.util.ForcngAdapterFactory#createExampleDiseaseModelAdapter()
+	 */
+	@Override
+	public Adapter createGaussianForcingDiseaseModelAdapter() {
+		// Have we created one before?
+		if (adapter == null) {
+			adapter = (StandardPropertyStringProviderAdapterFactory.StandardPropertyStringProviderAdapter)createForcingDiseaseModelAdapter();
+		} // if we didn't create one before
+		return adapter;
+	}// createForcingDiseaseModelAdapter()
 } // ForcingPropertyStringProviderAdapterFactory
