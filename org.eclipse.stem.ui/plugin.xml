@@ -17,7 +17,7 @@
         point="org.eclipse.core.runtime.products">
      <product
            application="org.eclipse.stem.ui.CoreEditorAdvisorApplication"
-           name="STEM (Incubation)">
+           name="STEM">
         <property
               name="preferenceCustomization"
               value="plugin_customization.ini"/>
@@ -41,7 +41,7 @@
               value="branding/ohf64_64_32.gif"/>
         <property
               name="appName"
-              value="STEM (Incubation)">
+              value="STEM">
         </property>
         
         <!-- These are for the Welcome/intro.  See plugin.properties -->
@@ -93,7 +93,7 @@
   </extension>
    <extension
          point="org.eclipse.ui.newWizards">
-      <category
+      <category 
             id="org.eclipse.stem.ui.wizards.stemcategory"
             name="%_UI_STEM"
             parentCategory="/"/>

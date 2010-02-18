@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: STEM Geography
 Bundle-SymbolicName: org.eclipse.stem.geography;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.stem.geography.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.core
 Bundle-ActivationPolicy: lazy
-Bundle-Vendor: %providerName
+Bundle-Vendor: Eclipse.org
 Export-Package: org.eclipse.stem.geography,
  org.eclipse.stem.geography.centers
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

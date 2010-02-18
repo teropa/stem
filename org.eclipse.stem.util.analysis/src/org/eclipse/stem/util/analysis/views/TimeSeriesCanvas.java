@@ -151,6 +151,12 @@ public class TimeSeriesCanvas extends Canvas {
 	 */
 	protected final Map<String,DataSeries> dataSeriesMap = new HashMap<String,DataSeries>();
 	
+	/**
+	 * Keep track of which timeseries are visible
+	 */
+	
+	protected Map<String, Boolean>visibleMap =  new HashMap<String,Boolean>();
+
 
 	/**
 	 * These are the cycle numbers that match the relative values that will be
@@ -385,6 +391,12 @@ public class TimeSeriesCanvas extends Canvas {
 			if(!dataSeriesMap.containsKey(property)) {
 				// new property
 				DataSeries series = new DataSeries(property, seriesCount, overlayMode);
+				if(visibleMap.containsKey(property))
+						series.setVisible(visibleMap.get(property));
+				else {
+					series.setVisible(true);
+					visibleMap.put(property, true);
+				}
 				seriesCount ++;
 				dataSeriesMap.put(property, series);
 			}
@@ -807,7 +819,6 @@ public class TimeSeriesCanvas extends Canvas {
 
 	private void clearData() {
 		
-
 		dataSeriesMap.clear();
 		cycleNumbers.clear();
 	}
@@ -1032,6 +1043,7 @@ public class TimeSeriesCanvas extends Canvas {
 				series.toggleVisible();
 				dataSeriesMap.put(property,series);
 				setChecked(series.isVisible());
+				visibleMap.put(property, series.isVisible());
 				draw();
 		}
 	}// DisplayableProperty

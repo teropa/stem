@@ -696,7 +696,7 @@ public class GeographyPluginFileGenerator extends PluginFileGenerator {
 		propertiesWriter
 				.println("# Generated: " + createGeneratedDateComment()); //$NON-NLS-1$
 		propertiesWriter
-				.println("pluginName = STEM Geographic Definitions (Incubation)"); //$NON-NLS-1$
+				.println("pluginName = STEM Geographic Definitions"); //$NON-NLS-1$
 		propertiesWriter.println("providerName = " + PROVIDER_NAME); //$NON-NLS-1$
 	} // outputPluginPropertiesHeader
 

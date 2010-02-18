@@ -180,7 +180,7 @@ public class GeographyModelGenerator extends ModelGenerator {
 			System.out.println();
 			final PrintStream ps = new PrintStream(pluginPropertiesOS);
 			ps
-					.println("pluginName = STEM Geographic Model Definitions (Incubation)"); //$NON-NLS-1$
+					.println("pluginName = STEM Geographic Model Definitions"); //$NON-NLS-1$
 			ps.println("providerName = " + PluginFileGenerator.PROVIDER_NAME); //$NON-NLS-1$
 			ps.println(PluginFileGenerator.UI_STEM_CATEGORY_NAME
 					+ " = " + PluginFileGenerator.STEM_CATEGORY_NAME); //$NON-NLS-1$

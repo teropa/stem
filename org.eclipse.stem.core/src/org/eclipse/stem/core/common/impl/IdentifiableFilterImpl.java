@@ -1,10 +1,14 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.core.common.impl;
+/*******************************************************************************
+ * Copyright (c) 2010 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -55,6 +59,7 @@ public class IdentifiableFilterImpl extends EObjectImpl implements IdentifiableF
 	public IdentifiableFilterImpl(String filter) {
 		if(filter == null)return;
 		if(filter.contains(":"))return; // Internal use by STEM, not specified by the user
+		if(filter.trim().equals(""))return;
 		StringTokenizer st = new StringTokenizer(filter.toString(), ";");
 		patterns = new String[st.countTokens()];
 		for(int i=0;i<patterns.length;++i) {

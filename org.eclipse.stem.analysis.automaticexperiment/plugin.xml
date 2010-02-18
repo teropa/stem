@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
+	<!--
    <extension
          point="org.eclipse.ui.newWizards">
-		<category
-            id="org.eclipse.stem.ui.wizards.stemcategory"
-            name="%_UI_STEM"
-            parentCategory="/"/>
          <wizard
             category="org.eclipse.stem.ui.wizards.stemcategory"
             class="org.eclipse.stem.analysis.automaticexperiment.ui.NewAutomaticExperimentWizard"
@@ -27,15 +24,16 @@
                   icon="icons/full/customobj16/AutomaticExperiment.gif"
                   label="Automatic Experiment"
                   style="push"
-                  tooltip="%_UI_ExperimentModelWizard_description">
+                  tooltip="Automatic Experiment">
             </command>
             <separator
                   name="additions">
             </separator>
          </toolbar>
       </menuContribution>
+     
   </extension>
-  
+  -->
   <extension
         point="org.eclipse.ui.commands">
      <category
