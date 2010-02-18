@@ -100,6 +100,7 @@
 		<pathelement location="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography.models/${targetBin}" />
 		<pathelement location="${pluginRootDirectory}/${ID_ROOT}.data.geography/${targetBin}" />
 		<pathelement location="${pluginRootDirectory}/${ID_ROOT}.diseasemodels/${targetBin}" />
+		<pathelement location="${pluginRootDirectory}/${ID_ROOT}.populationmodels/${targetBin}" />
 		<fileset dir="${baseLocation}/plugins/">
 			<include name="*emf*.jar" />
 		</fileset>
