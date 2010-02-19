@@ -65,7 +65,8 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 
 	Map<String,Double> commonAvgPopulationLocationsA = new HashMap<String,Double>();
 	Map<String,Double> commonAvgPopulationLocationsB = new HashMap<String,Double>();
-
+	Map<String, Double> commonMaxLocationsA = new HashMap<String, Double>();
+	
 	/**
 	 * number common locations with nonzero Inf count at time t
 	 */
@@ -84,6 +85,8 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	// Set to true to weight the average by population size
 	private static boolean WEIGHTED_AVERAGE = true;
 	private static boolean FIT_INCIDENCE = true;
+	private static boolean USE_THRESHOLD = true;
+	private static double THRESHOLD = 0.1;
 	
 	/**
 	 * calculate delta for a simple error function
@@ -170,6 +173,14 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 			commonAvgPopulationLocationsB.put(loc, sum);
 		}		
 
+		// Get the maximum value for the A series (reference)
+		for(String loc:commonPopulationLocationsA.keySet()) {
+			List<Double>ld = commonPopulationLocationsA.get(loc);
+			double max = Double.MIN_VALUE;
+			for(double d:ld)if(d >max)max=d;
+			commonMaxLocationsA.put(loc, max);
+		}
+		
 		// Calculate the normalized root mean square error for each location, then
 		// divide by the number of locatins
 		
@@ -192,14 +203,18 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 			}
 		
 			double nominator = 0.0; 
+			double timesteps = 0;
 			for(int icount =0; icount < time.length; icount ++) {
+				if(USE_THRESHOLD && Xdata[icount]<THRESHOLD*commonMaxLocationsA.get(loc)) continue;
 				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
 				if(Xref[icount]>maxRef)maxRef = Xref[icount];
 				if(Xref[icount]<minRef)minRef = Xref[icount];
 				list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
+				++timesteps;
 			}
-		
-			double error =  Math.sqrt(nominator/(double)time.length);
+			System.out.println("timesteps:"+timesteps);
+			double error = Double.MAX_VALUE;
+		    if(timesteps > 0) error = Math.sqrt(nominator/timesteps);
 			error = error / (maxRef-minRef);
 			if(WEIGHTED_AVERAGE) finalerror += commonAvgPopulationLocationsA.get(loc) * error;
 			else finalerror += error;
