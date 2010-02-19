@@ -175,7 +175,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 
 		// Get the maximum value for the A series (reference)
 		for(String loc:commonPopulationLocationsA.keySet()) {
-			List<Double>ld = commonPopulationLocationsA.get(loc);
+			List<Double>ld = commonInfectiousLocationsA.get(loc);
 			double max = Double.MIN_VALUE;
 			for(double d:ld)if(d >max)max=d;
 			commonMaxLocationsA.put(loc, max);
@@ -205,10 +205,10 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 			double nominator = 0.0; 
 			double timesteps = 0;
 			for(int icount =0; icount < time.length; icount ++) {
-				if(USE_THRESHOLD && Xdata[icount]<THRESHOLD*commonMaxLocationsA.get(loc)) continue;
-				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
 				if(Xref[icount]>maxRef)maxRef = Xref[icount];
 				if(Xref[icount]<minRef)minRef = Xref[icount];
+				if(USE_THRESHOLD && Xdata[icount]<THRESHOLD*commonMaxLocationsA.get(loc)) continue;
+				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
 				list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
 				++timesteps;
 			}
