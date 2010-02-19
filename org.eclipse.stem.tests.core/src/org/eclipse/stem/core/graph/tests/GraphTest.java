@@ -54,6 +54,8 @@ import org.eclipse.stem.tests.util.labels.TestIntegerLabelValue;
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getNumGraphLabels() <em>Num Graph Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getNumNodeLabels() <em>Num Node Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getNumDynamicLabels() <em>Num Dynamic Labels</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.graph.Graph#getNodes() <em>Nodes</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.graph.Graph#getEdges() <em>Edges</em>}</li>
  * </ul>
  * </p>
  * <p>
@@ -441,6 +443,58 @@ public class GraphTest extends IdentifiableTest {
 	} // testGetNumDynamicLabels
 
 	/**
+	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#getNodes() <em>Nodes</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.graph.Graph#getNodes()
+	 * @generated
+	 */
+	public void testGetNodes() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#isSetNodes() <em>isSetNodes()</em>}' method.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.graph.Graph#isSetNodes()
+	 * @generated
+	 */
+	public void testIsSetNodes() {
+		// TODO: implement this test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#getEdges() <em>Edges</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.graph.Graph#getEdges()
+	 * @generated
+	 */
+	public void testGetEdges() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#isSetEdges() <em>isSetEdges()</em>}' method.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.graph.Graph#isSetEdges()
+	 * @generated
+	 */
+	public void testIsSetEdges() {
+		// TODO: implement this test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '
 	 * {@link org.eclipse.stem.core.graph.Graph#getNodeLabelsByTypeURI(org.eclipse.emf.common.util.URI)
 	 * <em>Get Node Labels By Type URI</em>}' operation. <!-- begin-user-doc -->
@@ -675,7 +729,7 @@ public class GraphTest extends IdentifiableTest {
 			assertFalse(valuesSwapped((DynamicLabel) dynamicLabelIter.next()));
 		} // for each dynamic label
 
-		for (final Iterator nodeIterator = mainGraph.getNodes().values()
+		for (final Iterator nodeIterator = mainGraph.getNodesMap().values()
 				.iterator(); nodeIterator.hasNext();) {
 			final Node node = (Node) nodeIterator.next();
 			for (final Iterator labelIter = node.getLabels().iterator(); labelIter
@@ -724,7 +778,7 @@ public class GraphTest extends IdentifiableTest {
 			}
 		} // for graph labels
 
-		for (final Iterator nodeIterator = mainGraph.getNodes().values()
+		for (final Iterator nodeIterator = mainGraph.getNodesMap().values()
 				.iterator(); nodeIterator.hasNext();) {
 			final Node node = (Node) nodeIterator.next();
 			for (final Iterator labelIter = node.getLabels().iterator(); labelIter
@@ -738,7 +792,7 @@ public class GraphTest extends IdentifiableTest {
 			} // for node's labels
 		} // for each node
 
-		for (final Iterator edgeIterator = mainGraph.getEdges().values()
+		for (final Iterator edgeIterator = mainGraph.getEdgesMap().values()
 				.iterator(); edgeIterator.hasNext();) {
 			final Edge edge = (Edge) edgeIterator.next();
 			final Label label = edge.getLabel();

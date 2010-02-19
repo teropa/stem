@@ -712,8 +712,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		pipeTransportationNodeEdgesMap = new HashMap<Node, List<PipeTransportEdge>>();
 		// Traverse all pipe transport edges and determine what
 		// geographic level their source (A) node is at
-		for(URI edgeURI : graph.getEdges().keySet()) {
-			Edge edge = graph.getEdges().get(edgeURI);
+		for(URI edgeURI : graph.getEdgesMap().keySet()) {
+			Edge edge = graph.getEdgesMap().get(edgeURI);
 			
 			if(edge instanceof PipeTransportEdge) {
 				PipeTransportEdge pedge = (PipeTransportEdge)edge;

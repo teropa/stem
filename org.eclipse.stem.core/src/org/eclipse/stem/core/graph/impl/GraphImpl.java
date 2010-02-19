@@ -59,8 +59,8 @@ import org.eclipse.stem.core.model.STEMTime;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getEdges <em>Edges</em>}</li>
- *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getNodes <em>Nodes</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getEdgesMap <em>Edges Map</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getNodesMap <em>Nodes Map</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getGraphLabels <em>Graph Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getNodeLabels <em>Node Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getDynamicLabels <em>Dynamic Labels</em>}</li>
@@ -72,6 +72,8 @@ import org.eclipse.stem.core.model.STEMTime;
  *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getUnresolvedIdentifiables <em>Unresolved Identifiables</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getDecorators <em>Decorators</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getTime <em>Time</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getNodes <em>Nodes</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.graph.impl.GraphImpl#getEdges <em>Edges</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,30 +82,30 @@ import org.eclipse.stem.core.model.STEMTime;
 public class GraphImpl extends IdentifiableImpl implements Graph {
 	
 	/**
+	 * The cached value of the '{@link #getEdgesMap() <em>Edges Map</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEdgesMap()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<URI, Edge> edgesMap;
+
+	/**
+	 * The cached value of the '{@link #getNodesMap() <em>Nodes Map</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNodesMap()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<URI, Node> nodesMap;
+
+	/**
 	 * This is used to generate unique URI's for each Graph generated
 	 */
 	static int graphCounter = 0;
 	
-	/**
-	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' map. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<URI, Edge> edges;
-
-	/**
-	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' map. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getNodes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<URI, Node> nodes;
-
 	/**
 	 * The cached value of the '{@link #getGraphLabels() <em>Graph Labels</em>}' map.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -205,6 +207,8 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 */
 	protected STEMTime time;
 
+	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -227,6 +231,30 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EMap<URI, Edge> getEdgesMap() {
+		if (edgesMap == null) {
+			edgesMap = new EcoreEMap<URI,Edge>(GraphPackage.Literals.URI_TO_EDGE_MAP_ENTRY, URIToEdgeMapEntryImpl.class, this, GraphPackage.GRAPH__EDGES_MAP);
+		}
+		return edgesMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EMap<URI, Node> getNodesMap() {
+		if (nodesMap == null) {
+			nodesMap = new EcoreEMap<URI,Node>(GraphPackage.Literals.URI_TO_NODE_MAP_ENTRY, URIToNodeMapEntryImpl.class, this, GraphPackage.GRAPH__NODES_MAP);
+		}
+		return nodesMap;
+	}
+
+	/**
 	 * @see org.eclipse.stem.common.impl.IdentifiableImpl#setURI(org.eclipse.emf.common.util.URI)
 	 * @generated NOT
 	 */
@@ -241,28 +269,6 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			label.setURIOfIdentifiableToBeLabeled(newURI);
 		} // for
 	} // setURI
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EMap<URI, Edge> getEdges() {
-		if (edges == null) {
-			edges = new EcoreEMap<URI,Edge>(GraphPackage.Literals.URI_TO_EDGE_MAP_ENTRY, URIToEdgeMapEntryImpl.class, this, GraphPackage.GRAPH__EDGES);
-		}
-		return edges;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EMap<URI, Node> getNodes() {
-		if (nodes == null) {
-			nodes = new EcoreEMap<URI,Node>(GraphPackage.Literals.URI_TO_NODE_MAP_ENTRY, URIToNodeMapEntryImpl.class, this, GraphPackage.GRAPH__NODES);
-		}
-		return nodes;
-	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -352,6 +358,47 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.GRAPH__TIME, newTime, newTime));
 	}
 
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Node> getNodes() {
+		EList<Node>result = new BasicEList<Node>();
+		for(Node n:nodesMap.values()) result.add(n);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isSetNodes() {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Edge> getEdges() {
+		EList<Edge>result = new BasicEList<Edge>();
+		for(Edge e:edgesMap.values()) result.add(e);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isSetEdges() {
+		return true;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * 
@@ -420,7 +467,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumEdges() {
-		return edges == null ? 0 : getEdges().size();
+		return edgesMap == null ? 0 : getEdgesMap().size();
 	} // getNumEdges
 
 	/**
@@ -429,7 +476,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumNodes() {
-		return nodes == null ? 0 : getNodes().size();
+		return nodesMap == null ? 0 : getNodesMap().size();
 	} // getNumNodes
 
 	/**
@@ -474,8 +521,8 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 */
 	public void addGraph(final Graph graph, IdentifiableFilter filter) {
 		IdentifiableFilterImpl _filter = (IdentifiableFilterImpl)filter;
-		EMap<URI, Edge>edges = graph.getEdges();
-		EMap<URI, Node>nodes = graph.getNodes();
+		EMap<URI, Edge>edges = graph.getEdgesMap();
+		EMap<URI, Node>nodes = graph.getNodesMap();
 		EMap<URI, NodeLabel>nodeLabels = graph.getNodeLabels();
 		EMap<URI, Label>graphLabels = graph.getGraphLabels();
 		
@@ -486,8 +533,8 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			_filter.filterLabels(graphLabels);
 		}
 		
-		getEdges().addAll(edges);
-		getNodes().addAll(nodes);
+		getEdgesMap().addAll(edges);
+		getNodesMap().addAll(nodes);
 		getNodeLabels().addAll(nodeLabels);
 		getDecorators().addAll(graph.getDecorators());
 		
@@ -509,7 +556,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public void putEdge(Edge edge) {
-		getEdges().put(edge.getURI(), edge);
+		getEdgesMap().put(edge.getURI(), edge);
 		final EdgeLabel edgeLabel = edge.getLabel();
 		// Dynamic?
 		if (edgeLabel instanceof DynamicLabel) {
@@ -524,7 +571,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public Edge getEdge(URI uri) {
-		return getEdges().get(uri);
+		return getEdgesMap().get(uri);
 	} // getEdge
 
 	/**
@@ -533,7 +580,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public void putNode(Node node) {
-		getNodes().put(node.getURI(), node);
+		getNodesMap().put(node.getURI(), node);
 		for (NodeLabel nodeLabel : node.getLabels()) {
 			putNodeLabel(nodeLabel);
 		} // for each NodeLabel
@@ -545,7 +592,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public Node getNode(URI uri) {
-		return getNodes().get(uri);
+		return getNodesMap().get(uri);
 	} // getNode
 
 	/**
@@ -667,9 +714,9 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		int dynamicLabelCount = 0;
 
 		// Nodes
-		if (nodes != null) {
+		if (nodesMap != null) {
 			// Yes
-			for (final Iterator<Node> nodeIter = getNodes().values().iterator(); nodeIter
+			for (final Iterator<Node> nodeIter = getNodesMap().values().iterator(); nodeIter
 					.hasNext()
 					&& retValue;) {
 				final Node node = nodeIter.next();
@@ -708,9 +755,9 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if
 
 		// Edges?
-		if (edges != null) {
+		if (edgesMap != null) {
 			// Yes
-			for (final Iterator<Edge> edgeIter = getEdges().values().iterator(); edgeIter
+			for (final Iterator<Edge> edgeIter = getEdgesMap().values().iterator(); edgeIter
 					.hasNext()
 					&& retValue;) {
 				final Edge edge = edgeIter.next();
@@ -782,10 +829,10 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphPackage.GRAPH__EDGES:
-				return ((InternalEList<?>)getEdges()).basicRemove(otherEnd, msgs);
-			case GraphPackage.GRAPH__NODES:
-				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
+			case GraphPackage.GRAPH__EDGES_MAP:
+				return ((InternalEList<?>)getEdgesMap()).basicRemove(otherEnd, msgs);
+			case GraphPackage.GRAPH__NODES_MAP:
+				return ((InternalEList<?>)getNodesMap()).basicRemove(otherEnd, msgs);
 			case GraphPackage.GRAPH__GRAPH_LABELS:
 				return ((InternalEList<?>)getGraphLabels()).basicRemove(otherEnd, msgs);
 			case GraphPackage.GRAPH__NODE_LABELS:
@@ -796,6 +843,10 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 				return ((InternalEList<?>)getDecorators()).basicRemove(otherEnd, msgs);
 			case GraphPackage.GRAPH__TIME:
 				return basicSetTime(null, msgs);
+			case GraphPackage.GRAPH__NODES:
+				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
+			case GraphPackage.GRAPH__EDGES:
+				return ((InternalEList<?>)getEdges()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -807,12 +858,12 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphPackage.GRAPH__EDGES:
-				if (coreType) return getEdges();
-				else return getEdges().map();
-			case GraphPackage.GRAPH__NODES:
-				if (coreType) return getNodes();
-				else return getNodes().map();
+			case GraphPackage.GRAPH__EDGES_MAP:
+				if (coreType) return getEdgesMap();
+				else return getEdgesMap().map();
+			case GraphPackage.GRAPH__NODES_MAP:
+				if (coreType) return getNodesMap();
+				else return getNodesMap().map();
 			case GraphPackage.GRAPH__GRAPH_LABELS:
 				if (coreType) return getGraphLabels();
 				else return getGraphLabels().map();
@@ -837,6 +888,10 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 				return getDecorators();
 			case GraphPackage.GRAPH__TIME:
 				return getTime();
+			case GraphPackage.GRAPH__NODES:
+				return getNodes();
+			case GraphPackage.GRAPH__EDGES:
+				return getEdges();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -849,11 +904,11 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphPackage.GRAPH__EDGES:
-				((EStructuralFeature.Setting)getEdges()).set(newValue);
+			case GraphPackage.GRAPH__EDGES_MAP:
+				((EStructuralFeature.Setting)getEdgesMap()).set(newValue);
 				return;
-			case GraphPackage.GRAPH__NODES:
-				((EStructuralFeature.Setting)getNodes()).set(newValue);
+			case GraphPackage.GRAPH__NODES_MAP:
+				((EStructuralFeature.Setting)getNodesMap()).set(newValue);
 				return;
 			case GraphPackage.GRAPH__GRAPH_LABELS:
 				((EStructuralFeature.Setting)getGraphLabels()).set(newValue);
@@ -887,11 +942,11 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphPackage.GRAPH__EDGES:
-				getEdges().clear();
+			case GraphPackage.GRAPH__EDGES_MAP:
+				getEdgesMap().clear();
 				return;
-			case GraphPackage.GRAPH__NODES:
-				getNodes().clear();
+			case GraphPackage.GRAPH__NODES_MAP:
+				getNodesMap().clear();
 				return;
 			case GraphPackage.GRAPH__GRAPH_LABELS:
 				getGraphLabels().clear();
@@ -922,10 +977,10 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphPackage.GRAPH__EDGES:
-				return edges != null && !edges.isEmpty();
-			case GraphPackage.GRAPH__NODES:
-				return nodes != null && !nodes.isEmpty();
+			case GraphPackage.GRAPH__EDGES_MAP:
+				return edgesMap != null && !edgesMap.isEmpty();
+			case GraphPackage.GRAPH__NODES_MAP:
+				return nodesMap != null && !nodesMap.isEmpty();
 			case GraphPackage.GRAPH__GRAPH_LABELS:
 				return graphLabels != null && !graphLabels.isEmpty();
 			case GraphPackage.GRAPH__NODE_LABELS:
@@ -948,6 +1003,10 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 				return decorators != null && !decorators.isEmpty();
 			case GraphPackage.GRAPH__TIME:
 				return time != null;
+			case GraphPackage.GRAPH__NODES:
+				return isSetNodes();
+			case GraphPackage.GRAPH__EDGES:
+				return isSetEdges();
 		}
 		return super.eIsSet(featureID);
 	}

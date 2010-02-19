@@ -486,8 +486,8 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		  while (unresolved.hasNext()) {
 		   UnresolvedIdentifiable temp = unresolved.next();
 		   
-		   if (canonicalGraph.getNodes().get(temp.getUnresolvedURI()) != null 
-		     || canonicalGraph.getEdges().get(temp.getUnresolvedURI()) != null) {
+		   if (canonicalGraph.getNodesMap().get(temp.getUnresolvedURI()) != null 
+		     || canonicalGraph.getEdgesMap().get(temp.getUnresolvedURI()) != null) {
 		    unresolved.remove();
 		   }
 		}

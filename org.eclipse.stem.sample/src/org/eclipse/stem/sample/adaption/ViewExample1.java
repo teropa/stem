@@ -348,7 +348,7 @@ public class ViewExample1 extends ViewPart {
 			// the getNodes call returns a Map instance where the keys are the
 			// URI's of the Node instances. We get the values of the map to
 			// interate through the nodes.
-			for (final Iterator nodeIter = canonicalGraph.getNodes().values()
+			for (final Iterator nodeIter = canonicalGraph.getNodesMap().values()
 					.iterator(); nodeIter.hasNext();) {
 				final Node node = (Node) nodeIter.next();
 

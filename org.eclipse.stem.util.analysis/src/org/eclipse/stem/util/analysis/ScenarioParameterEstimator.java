@@ -19,8 +19,10 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.stem.analysis.States;
 import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl;
 import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScenarioDataInstance;
+import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
+import org.eclipse.stem.ui.Utility;
 import org.eclipse.stem.util.analysis.views.EstimatorControl;
 import org.eclipse.stem.util.analysis.views.Messages;
 
@@ -486,7 +488,16 @@ public class ScenarioParameterEstimator {
 		}
 		// syntax is
 		// stem://org.eclipse.stem/label/population/ISR/2/human/2006/IL-05-623
-		String composite = "stem://org.eclipse.stem/"+POPULATION_URI_PREFIX + "/" + countryCode +"/"+getLevel(id)+"/"+SPECIES+"/"+YEAR+"/"+id;	
+		
+		// Hack to fix year problem. We don't know the year, try until we guess right
+		String composite = null;
+		for(int year=2000;year<2020;++year) {
+			composite = "stem://org.eclipse.stem/"+POPULATION_URI_PREFIX + "/" + countryCode +"/"+getLevel(id)+"/"+SPECIES+"/"+year+"/"+id;
+			
+			final URI populationGraphURI = Utility.createPopulationGraphURI(URI.createURI(composite));
+			final Graph populationGraph = (Graph) Utility.getIdentifiable(populationGraphURI);
+			if(populationGraph != null) break;
+		}
 		URI uri = URI.createURI(composite);	
 		return uri;
 	}// getPopulationURI

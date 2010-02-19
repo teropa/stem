@@ -297,7 +297,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 
 		// Go through each edge in the graph and try to hook it up with the
 		// nodes it references
-		for (final Iterator<Edge> edgeIter = graph.getEdges().values().iterator(); edgeIter
+		for (final Iterator<Edge> edgeIter = graph.getEdgesMap().values().iterator(); edgeIter
 				.hasNext();) {
 			final Edge edge = (Edge) edgeIter.next();
 

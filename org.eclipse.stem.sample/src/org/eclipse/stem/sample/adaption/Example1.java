@@ -58,7 +58,7 @@ public class Example1 {
 		// "getNodes" returns a map indexed by the URI of each of the nodes,
 		// thus we need to get the values of the map to have an actual list to
 		// iterator over.
-		for (final Iterator nodeIter = canonicalGraph.getNodes().values()
+		for (final Iterator nodeIter = canonicalGraph.getNodesMap().values()
 				.iterator(); nodeIter.hasNext();) {
 			final Node node = (Node) nodeIter.next();
 
@@ -82,7 +82,7 @@ public class Example1 {
 
 		// For fun, let's do the edges, there might not be anything defined for
 		// them...yet
-		for (final Iterator edgeIter = canonicalGraph.getEdges().values()
+		for (final Iterator edgeIter = canonicalGraph.getEdgesMap().values()
 				.iterator(); edgeIter.hasNext();) {
 			final Edge edge = (Edge) edgeIter.next();
 			final LatLongProvider latLongProvider = (LatLongProvider) LatLongProviderAdapterFactory.INSTANCE

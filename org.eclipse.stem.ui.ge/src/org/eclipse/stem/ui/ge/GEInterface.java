@@ -1006,7 +1006,7 @@ public class GEInterface
 			// thus we need to get the values of the map to have an actual list to
 			// iterator over.				
 			int errctr = 0;
-			for (final Iterator nodeIter = canonicalGraph.getNodes().values()
+			for (final Iterator nodeIter = canonicalGraph.getNodesMap().values()
 					.iterator(); nodeIter.hasNext();) {
 				final Node node = (Node) nodeIter.next();
 			    String nodeTitle = node.getDublinCore().getTitle();
@@ -1665,7 +1665,7 @@ public class GEInterface
 			// "getNodes" returns a map indexed by the URI of each of the nodes,
 			// thus we need to get the values of the map to have an actual list to
 			// iterator over.				
-			for (final Iterator nodeIter = canonicalGraph.getNodes().values()
+			for (final Iterator nodeIter = canonicalGraph.getNodesMap().values()
 					.iterator(); nodeIter.hasNext();) {
 				counter++;
 				if (counter>100) {

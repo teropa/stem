@@ -53,6 +53,7 @@
     <genClasses image="false" ecoreClass="common.ecore#//Comparable">
       <genTypeParameters ecoreTypeParameter="common.ecore#//Comparable/T"/>
     </genClasses>
+    <genClasses ecoreClass="common.ecore#//IdentifiableFilter"/>
   </genPackages>
   <genPackages prefix="Experiment" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
@@ -97,8 +98,8 @@
       </genOperations>
     </genClasses>
     <genClasses provider="Stateful" image="false" ecoreClass="graph.ecore#//Graph">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/edges"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Graph/edgesMap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Graph/nodesMap"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/graphLabels"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/nodeLabels"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
@@ -112,11 +113,16 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//Graph/decorators"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference graph.ecore#//Graph/time"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graph.ecore#//Graph/nodes"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graph.ecore#//Graph/edges"/>
       <genOperations ecoreOperation="graph.ecore#//Graph/getNodeLabelsByTypeURI">
         <genParameters ecoreParameter="graph.ecore#//Graph/getNodeLabelsByTypeURI/typeURI"/>
       </genOperations>
       <genOperations ecoreOperation="graph.ecore#//Graph/addGraph">
         <genParameters ecoreParameter="graph.ecore#//Graph/addGraph/graph"/>
+        <genParameters ecoreParameter="graph.ecore#//Graph/addGraph/filter"/>
       </genOperations>
       <genOperations ecoreOperation="graph.ecore#//Graph/putEdge">
         <genParameters ecoreParameter="graph.ecore#//Graph/putEdge/edge"/>
@@ -226,6 +232,9 @@
         <genParameters ecoreParameter="model.ecore#//Decorator/getLabelsToUpdate/partition"/>
         <genParameters ecoreParameter="model.ecore#//Decorator/getLabelsToUpdate/max"/>
       </genOperations>
+      <genOperations ecoreOperation="model.ecore#//Decorator/prepare">
+        <genParameters ecoreParameter="model.ecore#//Decorator/prepare/model"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//EdgeDecorator"/>
     <genClasses image="false" ecoreClass="model.ecore#//GraphDecorator"/>
@@ -237,7 +246,9 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Model/edgeDecorators"/>
       <genOperations ecoreOperation="model.ecore#//Model/getCanonicalGraph">
         <genParameters ecoreParameter="model.ecore#//Model/getCanonicalGraph/uri"/>
+        <genParameters ecoreParameter="model.ecore#//Model/getCanonicalGraph/filter"/>
       </genOperations>
+      <genOperations ecoreOperation="model.ecore#//Model/prepare"/>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//NodeDecorator"/>
     <genClasses ecoreClass="model.ecore#//STEMTime">
@@ -338,6 +349,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//StringSequenceModifier/sequence"/>
     </genClasses>
     <genClasses provider="None" image="false" ecoreClass="modifier.ecore#//Modifiable"/>
+    <genClasses image="false" ecoreClass="modifier.ecore#//SingleValueModifier"/>
+    <genClasses ecoreClass="modifier.ecore#//DoubleModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleModifier/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//DoubleModifier/originalValue"/>
+    </genClasses>
+    <genClasses ecoreClass="modifier.ecore#//IntegerModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerModifier/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//IntegerModifier/originalValue"/>
+    </genClasses>
+    <genClasses ecoreClass="modifier.ecore#//LongModifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongModifier/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modifier.ecore#//LongModifier/originalValue"/>
+    </genClasses>
+    <genClasses ecoreClass="modifier.ecore#//STEMTimeModifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modifier.ecore#//STEMTimeModifier/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modifier.ecore#//STEMTimeModifier/originalValue"/>
+    </genClasses>
   </genPackages>
   <genPackages prefix="Predicate" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"

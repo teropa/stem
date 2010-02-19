@@ -301,7 +301,7 @@ abstract public class LoggerControl extends Composite implements
 		Map<Node, Integer> result = new HashMap<Node, Integer>();
 		final Graph graph = simulation.getScenario().getCanonicalGraph();
 		if (graph != null) {
-			final EMap<URI,Node> allNodes = graph.getNodes();
+			final EMap<URI,Node> allNodes = graph.getNodesMap();
 			final Set<URI> allGraphURIs = allNodes.keySet();
 		    Iterator<URI> graphIter2 = allGraphURIs.iterator();
 		  

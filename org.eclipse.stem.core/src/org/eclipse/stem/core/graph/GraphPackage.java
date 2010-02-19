@@ -487,22 +487,22 @@ public interface GraphPackage extends EPackage {
 	int GRAPH__DUBLIN_CORE = CommonPackage.IDENTIFIABLE__DUBLIN_CORE;
 
 	/**
-	 * The feature id for the '<em><b>Edges</b></em>' map.
+	 * The feature id for the '<em><b>Edges Map</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__EDGES = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
+	int GRAPH__EDGES_MAP = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' map.
+	 * The feature id for the '<em><b>Nodes Map</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__NODES = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
+	int GRAPH__NODES_MAP = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Graph Labels</b></em>' map.
@@ -604,13 +604,31 @@ public interface GraphPackage extends EPackage {
 	int GRAPH__TIME = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__NODES = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Edges</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__EDGES = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 14;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 13;
+	int GRAPH_FEATURE_COUNT = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.core.common.SanityChecker <em>Sanity Checker</em>}' class.
@@ -1643,26 +1661,26 @@ public interface GraphPackage extends EPackage {
 	EClass getGraph();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.stem.core.graph.Graph#getEdges <em>Edges</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipse.stem.core.graph.Graph#getEdgesMap <em>Edges Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Edges</em>'.
-	 * @see org.eclipse.stem.core.graph.Graph#getEdges()
+	 * @return the meta object for the map '<em>Edges Map</em>'.
+	 * @see org.eclipse.stem.core.graph.Graph#getEdgesMap()
 	 * @see #getGraph()
 	 * @generated
 	 */
-	EReference getGraph_Edges();
+	EReference getGraph_EdgesMap();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.stem.core.graph.Graph#getNodes <em>Nodes</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipse.stem.core.graph.Graph#getNodesMap <em>Nodes Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Nodes</em>'.
-	 * @see org.eclipse.stem.core.graph.Graph#getNodes()
+	 * @return the meta object for the map '<em>Nodes Map</em>'.
+	 * @see org.eclipse.stem.core.graph.Graph#getNodesMap()
 	 * @see #getGraph()
 	 * @generated
 	 */
-	EReference getGraph_Nodes();
+	EReference getGraph_NodesMap();
 
 	/**
 	 * Returns the meta object for the map '{@link org.eclipse.stem.core.graph.Graph#getGraphLabels <em>Graph Labels</em>}'.
@@ -1784,6 +1802,28 @@ public interface GraphPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGraph_Time();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.core.graph.Graph#getNodes <em>Nodes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Nodes</em>'.
+	 * @see org.eclipse.stem.core.graph.Graph#getNodes()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_Nodes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.core.graph.Graph#getEdges <em>Edges</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Edges</em>'.
+	 * @see org.eclipse.stem.core.graph.Graph#getEdges()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_Edges();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.core.graph.Label <em>Label</em>}'.
@@ -2366,20 +2406,20 @@ public interface GraphPackage extends EPackage {
 		EClass GRAPH = eINSTANCE.getGraph();
 
 		/**
-		 * The meta object literal for the '<em><b>Edges</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Edges Map</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH__EDGES = eINSTANCE.getGraph_Edges();
+		EReference GRAPH__EDGES_MAP = eINSTANCE.getGraph_EdgesMap();
 
 		/**
-		 * The meta object literal for the '<em><b>Nodes</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Nodes Map</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH__NODES = eINSTANCE.getGraph_Nodes();
+		EReference GRAPH__NODES_MAP = eINSTANCE.getGraph_NodesMap();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph Labels</b></em>' map feature.
@@ -2468,6 +2508,22 @@ public interface GraphPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAPH__TIME = eINSTANCE.getGraph_Time();
+
+		/**
+		 * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__NODES = eINSTANCE.getGraph_Nodes();
+
+		/**
+		 * The meta object literal for the '<em><b>Edges</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__EDGES = eINSTANCE.getGraph_Edges();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.core.graph.impl.LabelImpl <em>Label</em>}' class.
