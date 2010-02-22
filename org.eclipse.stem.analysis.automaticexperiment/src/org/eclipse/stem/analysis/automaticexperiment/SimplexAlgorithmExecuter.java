@@ -65,7 +65,7 @@ public class SimplexAlgorithmExecuter
 			long before = System.currentTimeMillis();
 			simplexAlgorithm.execute(simplexFnToMinimize,  initialParamsValues, paramsInitialSteps, tolerance, this.maxNumOfIterations);
 			long after = System.currentTimeMillis();
-			
+		
 			if(!this.repeat) {
 				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
 				System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
@@ -81,6 +81,7 @@ public class SimplexAlgorithmExecuter
 			}
 			// Not same, reinit with new minimum
 			prevmin = simplexAlgorithm.getMinimumFunctionValue();
+			
 			for(int i=0;i<initialParamsValues.length;++i){
 				initialParamsValues[i] = simplexAlgorithm.getMinimumParametersValues()[i];
 				prevvals[i] =  simplexAlgorithm.getMinimumParametersValues()[i];
@@ -193,12 +194,19 @@ public class SimplexAlgorithmExecuter
 			try {
 				for(double val:parameters) resultWriter.write(val+",");
 				runSimulation(simulation);
+			
+				ErrorResult result =  getErrorValue(simulation.getUniqueIDString());
+				error = result.getError();
 				
-				error = getErrorValue(simulation.getUniqueIDString());
 				System.out.println(" Error is: " + error);
 				resultWriter.write(error+"");
 				resultWriter.write(LS);
 				resultWriter.flush();
+				
+				// TODO: GUI output here
+				// Plot 1 from result.getError() (keep appending)
+				// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
+				
 			} catch(IOException ioe) {
 				ioe.printStackTrace();
 			}
@@ -207,7 +215,7 @@ public class SimplexAlgorithmExecuter
 			return error;
 		}
 		
-		private double getErrorValue(String simulationUniqueId) {
+		private ErrorResult getErrorValue(String simulationUniqueId) {
 			ErrorResult result = null;
 			try {
 				final EList<Decorator> decs = baseScenario.getCanonicalGraph().getDecorators();
@@ -227,7 +235,7 @@ public class SimplexAlgorithmExecuter
 			} catch (ScenarioInitializationException e) {
 				e.printStackTrace();
 			}
-			return result.getError();
+			return result;
 		}
 		
 		private void runSimulation(final ISimulation simulationToRun) {
