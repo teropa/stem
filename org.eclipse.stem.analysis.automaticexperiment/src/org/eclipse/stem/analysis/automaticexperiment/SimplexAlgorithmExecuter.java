@@ -54,6 +54,7 @@ public class SimplexAlgorithmExecuter
 	private ReferenceScenarioDataMapImpl ref;
 	private static AutoExpControl aeControl = null;
 	
+	
 	/**
 	 * @see org.eclipse.stem.analysis.automaticexperiment.AbstractErrorAnalysisAlgorithm#execute()
 	 */
@@ -87,13 +88,16 @@ public class SimplexAlgorithmExecuter
 				initialParamsValues[i] = simplexAlgorithm.getMinimumParametersValues()[i];
 				prevvals[i] =  simplexAlgorithm.getMinimumParametersValues()[i];
 			}
+			this.fireEvent(new ErrorAnalysisAlgorithmEvent(simplexAlgorithm.getMinimumErrorResult(), ALGORITHM_STATUS.RESTARTED_ALGORITHM));
+
 		}
+		this.fireEvent(new ErrorAnalysisAlgorithmEvent(simplexAlgorithm.getMinimumErrorResult(), ALGORITHM_STATUS.FINISHED_ALGORITHM));
 	}
 	
 	@Override
-	public void init(AutomaticExperiment automaticExperiment) {
+	public void init(AutomaticExperiment automaticExperiment, ErrorAnalysisAlgorithm alg) {
 		super.init(automaticExperiment);
-		simplexFnToMinimize = new NedlearMeadSimplexFunction(parameters, baseScenario, errorFunction);
+		simplexFnToMinimize = new NedlearMeadSimplexFunction(parameters, baseScenario, errorFunction, alg);
 		try {
 			CSVscenarioLoader loader1 = new CSVscenarioLoader(referenceDataDirectory);
 			ref = loader1.parseAllFiles(2);
@@ -124,15 +128,20 @@ public class SimplexAlgorithmExecuter
 	    private String[] parameterNames = null;
 	    private FileWriter resultWriter;
 	    private URI[] decoratorURIs = null;
+	    private ErrorAnalysisAlgorithm algorithm = null;
+	    
 		public NedlearMeadSimplexFunction(
 				final List<ModifiableParameter> parameters,
 				final Scenario pBaseScenario, 
-				final ErrorFunction errorFunction) {
+				final ErrorFunction errorFunction, 
+				final ErrorAnalysisAlgorithm algorithm) {
 			
 			try {
 				resultWriter = new FileWriter(LOG_FILE_NAME);
 				baseScenario = pBaseScenario;
 				this.errorFunction = errorFunction;
+				this.algorithm = algorithm;
+				
 				if (parameters != null) {
 					parameterNames = new String[parameters.size()];
 					decoratorURIs = new URI[parameters.size()];
@@ -151,7 +160,7 @@ public class SimplexAlgorithmExecuter
 			}
 		}
 		
-		public double getValue(double[] parameters) {
+		public ErrorResult getValue(double[] parameters) {
 			
 			
 			simulation = createSimulation(baseScenario);
@@ -192,11 +201,16 @@ public class SimplexAlgorithmExecuter
 			System.out.println("\tParameters Names: " + Arrays.toString(parameterNames));
 			System.out.println("\tParameters Values: " + Arrays.toString(parameters));
 			double error = 0.0;
+			ErrorResult result = null;
 			try {
 				for(double val:parameters) resultWriter.write(val+",");
 				runSimulation(simulation);
 			
-				ErrorResult result =  getErrorValue(simulation.getUniqueIDString());
+				result =  getErrorValue(simulation.getUniqueIDString());
+			
+				((AbstractErrorAnalysisAlgorithm)algorithm).fireEvent(
+						new ErrorAnalysisAlgorithmEvent(result, ALGORITHM_STATUS.FINISHED_SIMULATION));
+				
 				error = result.getError();
 				
 				System.out.println(" Error is: " + error);
@@ -230,7 +244,7 @@ public class SimplexAlgorithmExecuter
 			}
 			cleanup();
 			
-			return error;
+			return result;
 		}
 		
 		private ErrorResult getErrorValue(String simulationUniqueId) {
@@ -246,7 +260,7 @@ public class SimplexAlgorithmExecuter
 					}
 				}
 				
-				CSVscenarioLoader loader2 = new CSVscenarioLoader(SIMULATION_OUTPUT_DIR + File.separator + simulationUniqueId +"/"+defaultDecorator.getDiseaseName());
+				CSVscenarioLoader loader2 = new CSVscenarioLoader(SIMULATION_OUTPUT_DIR + File.separator + simulationUniqueId +"/"+defaultDecorator.getDiseaseName()+"/"+defaultDecorator.getPopulationIdentifier());
 				ReferenceScenarioDataMapImpl data = loader2.parseAllFiles(2);
 	
 				result = errorFunction.calculateError(ref, data);

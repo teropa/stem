@@ -12,6 +12,7 @@ package org.eclipse.stem.analysis.automaticexperiment;
  *******************************************************************************/
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.stem.analysis.AnalysisFactory;
@@ -35,7 +36,8 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 	protected long maxNumOfIterations = -1;
 	protected List<ModifiableParameter> parameters = null;
 	boolean repeat = false;
-
+	private ArrayList<ErrorAnalysisAlgorithmListener> listeners = new ArrayList<ErrorAnalysisAlgorithmListener>();
+	
 	abstract public void execute();
 
 	public void setBaseScenario(Scenario baseScenario) {
@@ -105,5 +107,11 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 			initialParamsValues[i] = param.getInitialValue();
 			i++;
 		}
+	}
+	
+	public void addListener(ErrorAnalysisAlgorithmListener l) {this.listeners.add(l);}
+	
+	protected void fireEvent(ErrorAnalysisAlgorithmEvent evt) {
+		for(ErrorAnalysisAlgorithmListener l:listeners) l.eventReceived(evt);
 	}
 }

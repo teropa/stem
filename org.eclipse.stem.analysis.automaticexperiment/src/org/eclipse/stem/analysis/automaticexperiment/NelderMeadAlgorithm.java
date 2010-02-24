@@ -2,6 +2,8 @@ package org.eclipse.stem.analysis.automaticexperiment;
 
 import java.util.ArrayList;
 
+import org.eclipse.stem.analysis.ErrorResult;
+
 
 /*******************************************************************************
  * Copyright (c) 2009 IBM Corporation and others.
@@ -57,16 +59,16 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 	double rcoeff = 1.0;
 	double rq;
 	double x;
-	double[] y;
-	double y2star;
-	double ylo;
-	double ystar;
+	ErrorResult[] y;
+	ErrorResult y2star;
+	ErrorResult ylo;
+	ErrorResult ystar;
 	double z;
 
 	int ifault = -1;
 	int numres = -1;
 	int icount = -1;
-	double ynewlo;
+	ErrorResult ynewlo;
 	double[] xmin;
 	
 	ArrayList<Double> minParamValues = new ArrayList<Double>();
@@ -111,7 +113,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 		pstar = new double[n];
 		p2star = new double[n];
 		pbar = new double[n];
-		y = new double[n + 1];
+		y = new ErrorResult[n + 1];
 		xmin = new double[n];
 
 		icount = 0;
@@ -131,7 +133,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 				p[i + n * n] = start[i];
 			}
 			limit(start);
-			y[n] = fn.getValue(start);
+			y[n] = fn.getValue(start).copy();
 			icount = icount + 1;
 
 			for (j = 0; j < n; j++) {
@@ -141,7 +143,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 					p[i + j * n] = start[i];
 				}
 				limit(start);
-				y[j] = fn.getValue(start);
+				y[j] = fn.getValue(start).copy();
 				icount = icount + 1;
 				start[j] = x;
 			}
@@ -151,12 +153,12 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 			// Find highest and lowest Y values. YNEWLO = Y(IHI) indicates
 			// the vertex of the simplex to be replaced.
 			//	                
-			ylo = y[0];
+			ylo = y[0].copy();
 			ilo = 0;
 
 			for (i = 1; i < nn; i++) {
-				if (y[i] < ylo) {
-					ylo = y[i];
+				if (y[i].getError() < ylo.getError()) {
+					ylo = y[i].copy();
 					ilo = i;
 				}
 			}
@@ -167,12 +169,12 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 				if (kcount != -1 && kcount <= icount) {
 					break;
 				}
-				ynewlo = y[0];
+				ynewlo = y[0].copy();
 				ihi = 0;
 
 				for (i = 1; i < nn; i++) {
-					if (ynewlo < y[i]) {
-						ynewlo = y[i];
+					if (ynewlo.getError() < y[i].getError()) {
+						ynewlo = y[i].copy();
 						ihi = i;
 					}
 				}
@@ -195,26 +197,26 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 					pstar[i] = pbar[i] + rcoeff * (pbar[i] - p[i + ihi * n]);
 				}
 				limit(pstar);
-				ystar = fn.getValue(pstar);
+				ystar = fn.getValue(pstar).copy();
 				icount = icount + 1;
 				//
 				// Successful reflection, so extension.
 				//
-				if (ystar < ylo) {
+				if (ystar.getError() < ylo.getError()) {
 					for (i = 0; i < n; i++) {
 						p2star[i] = pbar[i] + ecoeff * (pstar[i] - pbar[i]);
 					}
 					limit(p2star);
-					y2star = fn.getValue(p2star);
+					y2star = fn.getValue(p2star).copy();
 					icount = icount + 1;
 					//
 					// Check extension.
 					//
-					if (ystar < y2star) {
+					if (ystar.getError() < y2star.getError()) {
 						for (i = 0; i < n; i++) {
 							p[i + ihi * n] = pstar[i];
 						}
-						y[ihi] = ystar;
+						y[ihi] = ystar.copy();
 					}
 					//
 					// Retain extension or contraction.
@@ -223,7 +225,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 						for (i = 0; i < n; i++) {
 							p[i + ihi * n] = p2star[i];
 						}
-						y[ihi] = y2star;
+						y[ihi] = y2star.copy();
 					}
 				}
 				//
@@ -232,7 +234,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 				else {
 					l = 0;
 					for (i = 0; i < nn; i++) {
-						if (ystar < y[i]) {
+						if (ystar.getError() < y[i].getError()) {
 							l = l + 1;
 						}
 					}
@@ -241,7 +243,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 						for (i = 0; i < n; i++) {
 							p[i + ihi * n] = pstar[i];
 						}
-						y[ihi] = ystar;
+						y[ihi] = ystar.copy();
 					}
 					//
 					// Contraction on the Y(IHI) side of the centroid.
@@ -252,12 +254,12 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 									* (p[i + ihi * n] - pbar[i]);
 						}
 						limit(p2star);
-						y2star = fn.getValue(p2star);
+						y2star = fn.getValue(p2star).copy();
 						icount = icount + 1;
 						//
 						// Contract the whole simplex.
 						//
-						if (y[ihi] < y2star) {
+						if (y[ihi].getError() < y2star.getError()) {
 							for (j = 0; j < nn; j++) {
 								for (i = 0; i < n; i++) {
 									p[i + j * n] = (p[i + j * n] + p[i + ilo
@@ -265,15 +267,15 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 									xmin[i] = p[i + j * n];
 								}
 								limit(xmin);
-								y[j] = fn.getValue(xmin);
+								y[j] = fn.getValue(xmin).copy();
 								icount = icount + 1;
 							}
 							ylo = y[0];
 							ilo = 0;
 
 							for (i = 1; i < nn; i++) {
-								if (y[i] < ylo) {
-									ylo = y[i];
+								if (y[i].getError() < ylo.getError()) {
+									ylo = y[i].copy();
 									ilo = i;
 								}
 							}
@@ -286,7 +288,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 							for (i = 0; i < n; i++) {
 								p[i + ihi * n] = p2star[i];
 							}
-							y[ihi] = y2star;
+							y[ihi] = y2star.copy();
 						}
 					}
 					//
@@ -297,29 +299,29 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 							p2star[i] = pbar[i] + ccoeff * (pstar[i] - pbar[i]);
 						}
 						limit(p2star);
-						y2star = fn.getValue(p2star);
+						y2star = fn.getValue(p2star).copy();
 						icount = icount + 1;
 						//
 						// Retain reflection?
 						//
-						if (y2star <= ystar) {
+						if (y2star.getError() <= ystar.getError()) {
 							for (i = 0; i < n; i++) {
 								p[i + ihi * n] = p2star[i];
 							}
-							y[ihi] = y2star;
+							y[ihi] = y2star.copy();
 						} else {
 							for (i = 0; i < n; i++) {
 								p[i + ihi * n] = pstar[i];
 							}
-							y[ihi] = ystar;
+							y[ihi] = ystar.copy();
 						}
 					}
 				}
 				//
 				// Check if YLO improved.
 				//
-				if (y[ihi] < ylo) {
-					ylo = y[ihi];
+				if (y[ihi].getError() < ylo.getError()) {
+					ylo = y[ihi].copy();
 					ilo = ihi;
 				}
 				jcount = jcount - 1;
@@ -335,13 +337,13 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 
 					z = 0.0;
 					for (i = 0; i < nn; i++) {
-						z = z + y[i];
+						z = z + y[i].getError();
 					}
 					x = z / dnn;
 
 					z = 0.0;
 					for (i = 0; i < nn; i++) {
-						z = z + Math.pow(y[i] - x, 2);
+						z = z + Math.pow(y[i].getError() - x, 2);
 					}
 
 					if (z <= rq) {
@@ -355,7 +357,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 			for (i = 0; i < n; i++) {
 				xmin[i] = p[i + ilo * n];
 			}
-			ynewlo = y[ilo];
+			ynewlo = y[ilo].copy();
 
 			if (kcount != -1 && kcount < icount) {
 				ifault = 2;
@@ -368,17 +370,17 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 				del = step[i] * eps;
 				xmin[i] = xmin[i] + del;
 				limit(xmin);
-				z = fn.getValue(xmin);
+				z = fn.getValue(xmin).getError();
 				icount = icount + 1;
-				if (z < ynewlo) {
+				if (z < ynewlo.getError()) {
 					ifault = 2;
 					break;
 				}
 				xmin[i] = xmin[i] - del - del;
 				limit(xmin);
-				z = fn.getValue(xmin);
+				z = fn.getValue(xmin).getError();
 				icount = icount + 1;
-				if (z < ynewlo) {
+				if (z < ynewlo.getError()) {
 					ifault = 2;
 					break;
 				}
@@ -406,9 +408,11 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 		}
 	}
 	public double getMinimumFunctionValue() {
+		return this.ynewlo.getError();
+	}
+	public ErrorResult getMinimumErrorResult() {
 		return this.ynewlo;
 	}
-
 	public double[] getMinimumParametersValues() {
 		return this.xmin;
 	}

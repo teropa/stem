@@ -1,4 +1,6 @@
 package org.eclipse.stem.analysis.automaticexperiment;
+
+import org.eclipse.stem.analysis.ErrorResult;
 ;
 
 /*******************************************************************************
@@ -13,5 +15,5 @@ package org.eclipse.stem.analysis.automaticexperiment;
  *******************************************************************************/
 
 public interface SimplexFunction {
-	public double getValue(double[] parameters); 
+	public ErrorResult getValue(double[] parameters); 
 }
