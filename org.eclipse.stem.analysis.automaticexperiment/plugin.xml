@@ -35,6 +35,26 @@
   </extension>
   -->
   <extension
+        id="org.eclipse.stem.ui.STEMPerspective"
+        point="org.eclipse.ui.perspectives">
+     <perspective
+           class="org.eclipse.stem.analysis.automaticexperiment.PerspectiveFactory1"
+           id="org.eclipse.stem.analysis.automaticexperiment.perspective1"
+           name="name">
+     </perspective>
+  </extension>
+  <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="org.eclipse.stem.ui.views"
+            class="org.eclipse.stem.analysis.automaticexperiment.views.AutoExpView"
+            icon="icons/sample.gif"
+            id="org.eclipse.stem.analysis.automaticexperiment"
+            name="%AE_View">
+      </view>
+   </extension>
+  <extension
         point="org.eclipse.ui.commands">
      <category
            description="%_UI_STEM_WizCmd_Cat_Desc"

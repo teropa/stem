@@ -1,9 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Automatic Experiment Plug-in
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.stem.analysis.automaticexperiment;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.stem.analysis.automaticexperiment.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
@@ -17,4 +19,5 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ClassPath: .
 Import-Package: org.eclipse.emf.ecore.provider
 Export-Package: automaticexperiment,
- org.eclipse.stem.analysis.automaticexperiment
+ org.eclipse.stem.analysis.automaticexperiment,
+ org.eclipse.stem.analysis.automaticexperiment.views
