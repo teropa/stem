@@ -443,24 +443,6 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGraph_EdgesMap() {
-		return (EReference)graphEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGraph_NodesMap() {
-		return (EReference)graphEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getGraph_GraphLabels() {
 		return (EReference)graphEClass.getEStructuralFeatures().get(2);
 	}
@@ -561,7 +543,7 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 	 * @generated
 	 */
 	public EReference getGraph_Nodes() {
-		return (EReference)graphEClass.getEStructuralFeatures().get(13);
+		return (EReference)graphEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -570,7 +552,7 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 	 * @generated
 	 */
 	public EReference getGraph_Edges() {
-		return (EReference)graphEClass.getEStructuralFeatures().get(14);
+		return (EReference)graphEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -986,8 +968,8 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 		createEAttribute(edgeEClass, EDGE__DIRECTED);
 
 		graphEClass = createEClass(GRAPH);
-		createEReference(graphEClass, GRAPH__EDGES_MAP);
-		createEReference(graphEClass, GRAPH__NODES_MAP);
+		createEReference(graphEClass, GRAPH__EDGES);
+		createEReference(graphEClass, GRAPH__NODES);
 		createEReference(graphEClass, GRAPH__GRAPH_LABELS);
 		createEReference(graphEClass, GRAPH__NODE_LABELS);
 		createEReference(graphEClass, GRAPH__DYNAMIC_LABELS);
@@ -999,8 +981,6 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 		createEReference(graphEClass, GRAPH__UNRESOLVED_IDENTIFIABLES);
 		createEReference(graphEClass, GRAPH__DECORATORS);
 		createEReference(graphEClass, GRAPH__TIME);
-		createEReference(graphEClass, GRAPH__NODES);
-		createEReference(graphEClass, GRAPH__EDGES);
 
 		labelEClass = createEClass(LABEL);
 		createEAttribute(labelEClass, LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED);
@@ -1143,8 +1123,8 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 		addEParameter(op, this.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getGraph_EdgesMap(), this.getURIToEdgeMapEntry(), null, "edgesMap", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getGraph_NodesMap(), this.getURIToNodeMapEntry(), null, "nodesMap", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getGraph_Edges(), this.getURIToEdgeMapEntry(), null, "edges", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getGraph_Nodes(), this.getURIToNodeMapEntry(), null, "nodes", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getGraph_GraphLabels(), this.getURIToLabelMapEntry(), null, "graphLabels", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getGraph_NodeLabels(), this.getURIToNodeLabelMapEntry(), null, "nodeLabels", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getGraph_DynamicLabels(), this.getDynamicLabel(), null, "dynamicLabels", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1156,8 +1136,6 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 		initEReference(getGraph_UnresolvedIdentifiables(), this.getUnresolvedIdentifiable(), null, "unresolvedIdentifiables", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getGraph_Decorators(), theModelPackage.getDecorator(), theModelPackage.getDecorator_Graph(), "decorators", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getGraph_Time(), theModelPackage.getSTEMTime(), null, "time", null, 0, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getGraph_Nodes(), this.getNode(), null, "nodes", null, 0, -1, Graph.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getGraph_Edges(), this.getEdge(), null, "edges", null, 0, -1, Graph.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		op = addEOperation(graphEClass, this.getNodeLabel(), "getNodeLabelsByTypeURI", 0, -1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getURI(), "typeURI", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$

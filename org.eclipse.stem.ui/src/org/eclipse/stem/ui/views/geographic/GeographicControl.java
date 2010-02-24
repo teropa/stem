@@ -907,7 +907,7 @@ abstract public class GeographicControl extends Composite implements
 				final List<URI> edgeTypes = new LinkedList<URI>();
 
 				final Graph graph = selectedDecorator.getGraph();
-				final EMap<URI, Edge> allEdges = graph.getEdgesMap();
+				final EMap<URI, Edge> allEdges = graph.getEdges();
 				final Iterator<URI> iter = allEdges.keySet().iterator();
 				final List<Edge> edges = new ArrayList<Edge>();
 				while (iter.hasNext()) {

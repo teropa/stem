@@ -189,8 +189,6 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphPackage.Literals.GRAPH__EDGES_MAP);
-			childrenFeatures.add(GraphPackage.Literals.GRAPH__NODES_MAP);
 			childrenFeatures.add(GraphPackage.Literals.GRAPH__UNRESOLVED_IDENTIFIABLES);
 			childrenFeatures.add(GraphPackage.Literals.GRAPH__DECORATORS);
 		}
@@ -268,8 +266,8 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
-		case GraphPackage.GRAPH__EDGES_MAP:
-		case GraphPackage.GRAPH__NODES_MAP:
+		case GraphPackage.GRAPH__EDGES:
+		case GraphPackage.GRAPH__NODES:
 		case GraphPackage.GRAPH__GRAPH_LABELS:
 		case GraphPackage.GRAPH__UNRESOLVED_IDENTIFIABLES:
 		case GraphPackage.GRAPH__NODE_LABELS:
@@ -291,6 +289,8 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Graph.class)) {
+			case GraphPackage.GRAPH__EDGES:
+			case GraphPackage.GRAPH__NODES:
 			case GraphPackage.GRAPH__GRAPH_LABELS:
 			case GraphPackage.GRAPH__NODE_LABELS:
 			case GraphPackage.GRAPH__NUM_EDGES:
@@ -300,8 +300,6 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 			case GraphPackage.GRAPH__NUM_DYNAMIC_LABELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphPackage.GRAPH__EDGES_MAP:
-			case GraphPackage.GRAPH__NODES_MAP:
 			case GraphPackage.GRAPH__UNRESOLVED_IDENTIFIABLES:
 			case GraphPackage.GRAPH__DECORATORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -320,16 +318,6 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.GRAPH__EDGES_MAP,
-				 GraphFactory.eINSTANCE.create(GraphPackage.Literals.URI_TO_EDGE_MAP_ENTRY)));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.GRAPH__NODES_MAP,
-				 GraphFactory.eINSTANCE.create(GraphPackage.Literals.URI_TO_NODE_MAP_ENTRY)));
 	}
 
 	/**
@@ -675,7 +663,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 		@Override
 		public void notifyChanged(Notification msg) {
 			switch (msg.getFeatureID(Graph.class)) {
-			case GraphPackage.GRAPH__EDGES_MAP:
+			case GraphPackage.GRAPH__EDGES:
 				fireNotifyChanged(new NotificationWrapper(this, msg));
 				return;
 			} // switch
@@ -696,7 +684,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 				Collection<Object> newChildDescriptors, Object object) {
 			super.collectNewChildDescriptors(newChildDescriptors, object);
 			newChildDescriptors.add(createChildParameter(GraphPackage.eINSTANCE
-					.getGraph_EdgesMap(), GraphFactory.eINSTANCE.createEdge()));
+					.getGraph_Edges(), GraphFactory.eINSTANCE.createEdge()));
 		} // collectNewChildDescriptors
 
 		/**
@@ -713,7 +701,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 		 */
 		@Override
 		protected EMap<URI,Edge> getIdentifiableMap(Graph graph) {
-			return graph.getEdgesMap();
+			return graph.getEdges();
 		} // getIdentifiableMap
 
 		@Override
@@ -742,7 +730,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 		 */
 		@Override
 		protected EReference getMapReference() {
-			return GraphPackage.Literals.GRAPH__EDGES_MAP;
+			return GraphPackage.Literals.GRAPH__EDGES;
 		} // getMapReference
 
 	} // EdgesItemProvider
@@ -776,7 +764,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 		@Override
 		public void notifyChanged(Notification msg) {
 			switch (msg.getFeatureID(Graph.class)) {
-			case GraphPackage.GRAPH__NODES_MAP:
+			case GraphPackage.GRAPH__NODES:
 				fireNotifyChanged(new NotificationWrapper(this, msg));
 				return;
 			} // switch
@@ -797,7 +785,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 				Collection<Object> newChildDescriptors, Object object) {
 			super.collectNewChildDescriptors(newChildDescriptors, object);
 			newChildDescriptors.add(createChildParameter(GraphPackage.eINSTANCE
-					.getGraph_NodesMap(), GraphFactory.eINSTANCE.createNode()));
+					.getGraph_Nodes(), GraphFactory.eINSTANCE.createNode()));
 		} // collectNewChildDescriptors
 
 		/**
@@ -814,7 +802,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 		 */
 		@Override
 		protected EMap<URI,Node> getIdentifiableMap(Graph graph) {
-			return graph.getNodesMap();
+			return graph.getNodes();
 		}
 
 		@Override
@@ -842,7 +830,7 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 		 */
 		@Override
 		protected EReference getMapReference() {
-			return GraphPackage.Literals.GRAPH__NODES_MAP;
+			return GraphPackage.Literals.GRAPH__NODES;
 		}
 
 	} // NodesItemProvider

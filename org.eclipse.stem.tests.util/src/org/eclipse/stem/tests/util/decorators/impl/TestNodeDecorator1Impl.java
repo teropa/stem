@@ -66,7 +66,7 @@ public class TestNodeDecorator1Impl extends NodeDecoratorImpl implements
 		final TestNodeDecorator1 tnd = DecoratorsFactory.eINSTANCE
 		.createTestNodeDecorator1();
 		getGraph().getDecorators().add(tnd);
-		for (final Iterator nodeIter = getGraph().getNodesMap().values().iterator(); nodeIter
+		for (final Iterator nodeIter = getGraph().getNodes().values().iterator(); nodeIter
 				.hasNext();) {
 			final Node node = (Node) nodeIter.next();
 			final DynamicNodeLabel dynamicNodeLabel = TestUtil.createDynamicNodeLabel(node.getURI(), tnd);

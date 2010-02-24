@@ -88,40 +88,6 @@ import org.eclipse.stem.core.model.STEMTime;
 public interface Graph extends Identifiable {
 
 	/**
-	 * Returns the value of the '<em><b>Edges Map</b></em>' map.
-	 * The key is of type {@link org.eclipse.emf.common.util.URI},
-	 * and the value is of type {@link org.eclipse.stem.core.graph.Edge},
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Edges Map</em>' map isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edges Map</em>' map.
-	 * @see org.eclipse.stem.core.graph.GraphPackage#getGraph_EdgesMap()
-	 * @model mapType="org.eclipse.stem.core.graph.URIToEdgeMapEntry<org.eclipse.stem.core.graph.URI, org.eclipse.stem.core.graph.Edge>"
-	 * @generated
-	 */
-	EMap<URI, Edge> getEdgesMap();
-
-	/**
-	 * Returns the value of the '<em><b>Nodes Map</b></em>' map.
-	 * The key is of type {@link org.eclipse.emf.common.util.URI},
-	 * and the value is of type {@link org.eclipse.stem.core.graph.Node},
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nodes Map</em>' map isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nodes Map</em>' map.
-	 * @see org.eclipse.stem.core.graph.GraphPackage#getGraph_NodesMap()
-	 * @model mapType="org.eclipse.stem.core.graph.URIToNodeMapEntry<org.eclipse.stem.core.graph.URI, org.eclipse.stem.core.graph.Node>"
-	 * @generated
-	 */
-	EMap<URI, Node> getNodesMap();
-
-	/**
 	 * This is the segment of the type URI that prefixes all other segments in a
 	 * graph URI.
 	 */
@@ -144,58 +110,38 @@ public interface Graph extends Identifiable {
 	void setTime(STEMTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Nodes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.stem.core.graph.Node}.
+	 * Returns the value of the '<em><b>Nodes</b></em>' map.
+	 * The key is of type {@link org.eclipse.emf.common.util.URI},
+	 * and the value is of type {@link org.eclipse.stem.core.graph.Node},
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Nodes</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nodes</em>' containment reference list.
-	 * @see #isSetNodes()
+	 * @return the value of the '<em>Nodes</em>' map.
 	 * @see org.eclipse.stem.core.graph.GraphPackage#getGraph_Nodes()
-	 * @model containment="true" unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model mapType="org.eclipse.stem.core.graph.URIToNodeMapEntry<org.eclipse.stem.core.graph.URI, org.eclipse.stem.core.graph.Node>"
 	 * @generated
 	 */
-	EList<Node> getNodes();
+	EMap<URI, Node> getNodes();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.stem.core.graph.Graph#getNodes <em>Nodes</em>}' containment reference list is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Nodes</em>' containment reference list is set.
-	 * @see #getNodes()
-	 * @generated
-	 */
-	boolean isSetNodes();
-
-	/**
-	 * Returns the value of the '<em><b>Edges</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.stem.core.graph.Edge}.
+	 * Returns the value of the '<em><b>Edges</b></em>' map.
+	 * The key is of type {@link org.eclipse.emf.common.util.URI},
+	 * and the value is of type {@link org.eclipse.stem.core.graph.Edge},
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Edges</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edges</em>' containment reference list.
-	 * @see #isSetEdges()
+	 * @return the value of the '<em>Edges</em>' map.
 	 * @see org.eclipse.stem.core.graph.GraphPackage#getGraph_Edges()
-	 * @model containment="true" unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model mapType="org.eclipse.stem.core.graph.URIToEdgeMapEntry<org.eclipse.stem.core.graph.URI, org.eclipse.stem.core.graph.Edge>"
 	 * @generated
 	 */
-	EList<Edge> getEdges();
-
-	/**
-	 * Returns whether the value of the '{@link org.eclipse.stem.core.graph.Graph#getEdges <em>Edges</em>}' containment reference list is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Edges</em>' containment reference list is set.
-	 * @see #getEdges()
-	 * @generated
-	 */
-	boolean isSetEdges();
+	EMap<URI, Edge> getEdges();
 
 	/**
 	 * @return the map between {@link URI} and {@link Label} labeling the {@link Graph}

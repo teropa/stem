@@ -278,7 +278,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 
 		// An Edge Label?
 		if (retValue == null) {
-			for (Edge edge : graph.getEdgesMap().values()) {
+			for (Edge edge : graph.getEdges().values()) {
 				// Our target?
 				if (edge.getLabel().getURI().equals(targetURI)) {
 					// Yes

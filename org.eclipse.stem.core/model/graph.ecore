@@ -68,9 +68,9 @@
     <eOperations name="switchToNextValue">
       <eParameters name="currentTime" eType="ecore:EClass model.ecore#//STEMTime"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="edgesMap" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" upperBound="-1"
         eType="#//URIToEdgeMapEntry" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodesMap" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
         eType="#//URIToNodeMapEntry" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="graphLabels" upperBound="-1"
         eType="#//URIToLabelMapEntry" containment="true" resolveProxies="false"/>
@@ -95,12 +95,6 @@
         eOpposite="model.ecore#//Decorator/graph"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="ecore:EClass model.ecore#//STEMTime"
         containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
-        eType="#//Node" changeable="false" volatile="true" transient="true" unsettable="true"
-        derived="true" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" upperBound="-1"
-        eType="#//Edge" changeable="false" volatile="true" transient="true" unsettable="true"
-        derived="true" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Label" abstract="true" eSuperTypes="common.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uRIOfIdentifiableToBeLabeled"

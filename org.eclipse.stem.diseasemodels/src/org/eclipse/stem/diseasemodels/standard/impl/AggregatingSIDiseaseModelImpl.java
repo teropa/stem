@@ -107,7 +107,7 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 
 		Node parent = null;
 		// Find a node that has a containment edge directed at it
-		for (final Iterator<Node> nodeIter = graph.getNodesMap().values().iterator(); nodeIter
+		for (final Iterator<Node> nodeIter = graph.getNodes().values().iterator(); nodeIter
 				.hasNext();) {
 			final Node node = nodeIter.next();
 			// Is this node "contained" by another?

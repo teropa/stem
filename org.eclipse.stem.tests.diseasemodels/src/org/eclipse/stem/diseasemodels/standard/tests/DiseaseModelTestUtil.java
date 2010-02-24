@@ -838,7 +838,7 @@ public class DiseaseModelTestUtil {
 			final int column) {
 		Region retValue = null;
 
-		for (Iterator nodeIter = graph.getNodesMap().values().iterator(); nodeIter
+		for (Iterator nodeIter = graph.getNodes().values().iterator(); nodeIter
 				.hasNext();) {
 			final Region region = (Region) nodeIter.next();
 			final String name = region.getDublinCore().getTitle();

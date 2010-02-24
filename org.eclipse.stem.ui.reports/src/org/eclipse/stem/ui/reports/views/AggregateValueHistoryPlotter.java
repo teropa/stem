@@ -707,7 +707,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 		Map<Node, Integer> result = new HashMap<Node, Integer>();
 		final Graph graph = simulation.getScenario().getCanonicalGraph();
 		if (graph != null) {
-			final EMap<URI,Node> allNodes = graph.getNodesMap();
+			final EMap<URI,Node> allNodes = graph.getNodes();
 			final Set<URI> allGraphURIs = allNodes.keySet();
 		    Iterator<URI> graphIter2 = allGraphURIs.iterator();
 		  

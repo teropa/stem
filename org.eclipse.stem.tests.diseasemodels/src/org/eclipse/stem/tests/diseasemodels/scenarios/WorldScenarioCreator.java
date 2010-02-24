@@ -300,7 +300,7 @@ public class WorldScenarioCreator {
 				.hasNext();) {
 			Graph graph = (Graph) graphIter.next();
 			// Any nodes in this graph?
-			for (Iterator nodeIter = graph.getNodesMap().values().iterator(); nodeIter
+			for (Iterator nodeIter = graph.getNodes().values().iterator(); nodeIter
 					.hasNext();) {
 				Node node = (Node) nodeIter.next();
 				// got one

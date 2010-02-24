@@ -729,7 +729,7 @@ public class GraphTest extends IdentifiableTest {
 			assertFalse(valuesSwapped((DynamicLabel) dynamicLabelIter.next()));
 		} // for each dynamic label
 
-		for (final Iterator nodeIterator = mainGraph.getNodesMap().values()
+		for (final Iterator nodeIterator = mainGraph.getNodes().values()
 				.iterator(); nodeIterator.hasNext();) {
 			final Node node = (Node) nodeIterator.next();
 			for (final Iterator labelIter = node.getLabels().iterator(); labelIter
@@ -778,7 +778,7 @@ public class GraphTest extends IdentifiableTest {
 			}
 		} // for graph labels
 
-		for (final Iterator nodeIterator = mainGraph.getNodesMap().values()
+		for (final Iterator nodeIterator = mainGraph.getNodes().values()
 				.iterator(); nodeIterator.hasNext();) {
 			final Node node = (Node) nodeIterator.next();
 			for (final Iterator labelIter = node.getLabels().iterator(); labelIter
@@ -792,7 +792,7 @@ public class GraphTest extends IdentifiableTest {
 			} // for node's labels
 		} // for each node
 
-		for (final Iterator edgeIterator = mainGraph.getEdgesMap().values()
+		for (final Iterator edgeIterator = mainGraph.getEdges().values()
 				.iterator(); edgeIterator.hasNext();) {
 			final Edge edge = (Edge) edgeIterator.next();
 			final Label label = edge.getLabel();

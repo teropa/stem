@@ -210,7 +210,7 @@ public class PacketStyleTransportSystemDecoratorTest extends EdgeDecoratorTest {
 						
 		scn.initialize();
 		//scn.getCanonicalGraph()
-		LoadUnloadEdge luEdge = (LoadUnloadEdge)scn.getCanonicalGraph().getEdgesMap().values().toArray()[0];	
+		LoadUnloadEdge luEdge = (LoadUnloadEdge)scn.getCanonicalGraph().getEdges().values().toArray()[0];	
 		assertTrue(luEdge.getLabel().getCurrentValue().getMigrationRate()==0);
 		
 		while (scn.step()) {
@@ -235,7 +235,7 @@ public class PacketStyleTransportSystemDecoratorTest extends EdgeDecoratorTest {
 		
 		scn.initialize();
 		//scn.getCanonicalGraph()
-		LoadUnloadEdge luEdge = (LoadUnloadEdge)scn.getCanonicalGraph().getEdgesMap().values().toArray()[0];	
+		LoadUnloadEdge luEdge = (LoadUnloadEdge)scn.getCanonicalGraph().getEdges().values().toArray()[0];	
 		assertTrue(luEdge.getLabel().getCurrentValue().getMigrationRate()==0);
 		
 		while (scn.step()) {

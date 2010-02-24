@@ -356,7 +356,7 @@ public class UtilityView extends ViewPart {
 			// URI's of the Node instances. We get the values of the map to
 			// iterate through the nodes.
 			// Map<String,Rectangle[]> map = new HashMap<String,Rectangle[]>();
-			for (final Iterator nodeIter = canonicalGraph.getNodesMap().values()
+			for (final Iterator nodeIter = canonicalGraph.getNodes().values()
 					.iterator(); nodeIter.hasNext();) {
 				final Node node = (Node) nodeIter.next();
 

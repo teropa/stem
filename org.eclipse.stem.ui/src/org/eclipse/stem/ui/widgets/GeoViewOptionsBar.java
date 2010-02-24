@@ -422,7 +422,7 @@ public class GeoViewOptionsBar extends Composite {
 		if (selectedDecorator == null)
 			return;
 		
-		Set<URI> edgesURIs = selectedDecorator.getGraph().getEdgesMap().keySet();
+		Set<URI> edgesURIs = selectedDecorator.getGraph().getEdges().keySet();
 		Iterator<URI> iter = edgesURIs.iterator();
 		while(iter.hasNext()) {
 			URI nextUri = iter.next();
