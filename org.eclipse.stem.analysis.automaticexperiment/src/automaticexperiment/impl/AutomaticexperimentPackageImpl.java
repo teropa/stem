@@ -23,8 +23,8 @@ import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
-
 import org.eclipse.stem.core.solver.SolverPackage;
+
 import automaticexperiment.AutomaticExperiment;
 import automaticexperiment.AutomaticexperimentFactory;
 import automaticexperiment.AutomaticexperimentPackage;

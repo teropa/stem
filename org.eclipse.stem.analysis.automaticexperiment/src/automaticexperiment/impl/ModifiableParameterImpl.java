@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.stem.core.model.Decorator;
 import automaticexperiment.AutomaticexperimentPackage;
 import automaticexperiment.ModifiableParameter;
 

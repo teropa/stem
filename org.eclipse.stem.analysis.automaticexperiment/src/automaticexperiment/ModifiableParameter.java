@@ -14,7 +14,6 @@ package automaticexperiment;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.stem.core.model.Decorator;
 
 /**
  * <!-- begin-user-doc -->

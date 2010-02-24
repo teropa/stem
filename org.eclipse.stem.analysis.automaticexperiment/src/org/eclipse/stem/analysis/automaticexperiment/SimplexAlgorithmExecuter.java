@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.stem.analysis.ErrorFunction;
 import org.eclipse.stem.analysis.ErrorResult;
 import org.eclipse.stem.analysis.ScenarioInitializationException;
+import org.eclipse.stem.analysis.automaticexperiment.views.AutoExpControl;
 import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl;
 import org.eclipse.stem.analysis.util.CSVscenarioLoader;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.scenario.Scenario;
-import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.Simulation;
@@ -52,6 +52,7 @@ public class SimplexAlgorithmExecuter
 	static String LS = System.getProperty("line.separator"); 
 	private final CustomSimulationManager simMgr = CustomSimulationManager.getManager();
 	private ReferenceScenarioDataMapImpl ref;
+	private static AutoExpControl aeControl = null;
 	
 	/**
 	 * @see org.eclipse.stem.analysis.automaticexperiment.AbstractErrorAnalysisAlgorithm#execute()
@@ -204,9 +205,26 @@ public class SimplexAlgorithmExecuter
 				resultWriter.flush();
 				
 				// TODO: GUI output here
-				// Plot 1 from result.getError() (keep appending)
-				// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
 				
+				
+		 		/////////////////
+				//
+				//
+				if(aeControl==null) {
+					aeControl = AutoExpControl.getControl();
+					if((aeControl != null)&&(result!=null)) {
+						// Plot 1 from result.getError() (keep appending)
+						aeControl.appendLatestSeriesData(result.getError());
+						// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
+						aeControl.setErrorHistory(result.getErrorByTimeStep() );
+						
+						AutoExpControl.updateCharts();
+						
+					}
+				}
+				//
+				//
+				///////////////////
 			} catch(IOException ioe) {
 				ioe.printStackTrace();
 			}

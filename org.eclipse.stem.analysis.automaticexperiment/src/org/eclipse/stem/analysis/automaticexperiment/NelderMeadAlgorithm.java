@@ -1,7 +1,6 @@
 package org.eclipse.stem.analysis.automaticexperiment;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /*******************************************************************************
