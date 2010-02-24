@@ -48,4 +48,33 @@ public class AutomaticExperimentManager {
 	public void addListener(AutomaticExperimentManagerListener l) {
 		this.listeners.add(l);
 	}
+	
+	public static void main() {
+		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
+		manager.addListener(new AutomaticExperimentManagerListener() {
+			
+			@Override
+			public void eventReceived(AutomaticExperimentManagerEvent evt) {
+				if(evt.status == MANAGER_STATUS.SCHEDULED) {
+					ErrorAnalysisAlgorithm alg = evt.algorithm;
+					
+					alg.addListener(new ErrorAnalysisAlgorithmListener() {
+						
+						@Override
+						public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
+							if(evt.status == ALGORITHM_STATUS.FINISHED_ALGORITHM) {
+								// The algorithm has finished. Smallest value in 
+								//evt.result
+							} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
+								// One simulation is done. The result is in evt.result
+							} else if(evt.status == ALGORITHM_STATUS.RESTARTED_ALGORITHM) {
+								// The algorithm has restarted. Smallest value in 
+								// evt.result
+							}
+						}
+					});
+				}
+			}
+		});
+	}
 }
