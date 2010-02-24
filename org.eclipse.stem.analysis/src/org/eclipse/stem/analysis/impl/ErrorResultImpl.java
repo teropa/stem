@@ -12,11 +12,13 @@ package org.eclipse.stem.analysis.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.ErrorResult;
@@ -210,6 +212,16 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 		result.append(error);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public ErrorResult copy() {
+		ErrorResultImpl res = new ErrorResultImpl();
+		res.setError(this.getError());
+		EList<Double>newlist = new BasicEList<Double>();
+		for(double d:this.getErrorByTimeStep())newlist.add(d);
+		res.setErrorByTimeStep(newlist);
+		return res;
 	}
 
 } //ErrorResultImpl

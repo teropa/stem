@@ -84,4 +84,6 @@ public interface ErrorResult extends EObject {
 	 * @generated
 	 */
 	void setError(double value);
+	
+	public ErrorResult copy();
 } // ErrorResult
