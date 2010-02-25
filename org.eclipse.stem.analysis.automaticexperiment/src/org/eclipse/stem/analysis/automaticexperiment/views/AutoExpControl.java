@@ -20,6 +20,15 @@ import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.stem.analysis.ErrorResult;
+import org.eclipse.stem.analysis.automaticexperiment.ALGORITHM_STATUS;
+import org.eclipse.stem.analysis.automaticexperiment.AutomaticExperimentManager;
+import org.eclipse.stem.analysis.automaticexperiment.AutomaticExperimentManagerEvent;
+import org.eclipse.stem.analysis.automaticexperiment.AutomaticExperimentManagerListener;
+import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithm;
+import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmEvent;
+import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmListener;
+import org.eclipse.stem.analysis.automaticexperiment.MANAGER_STATUS;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.jobs.Activator;
 import org.eclipse.swt.SWT;
@@ -49,8 +58,6 @@ public class AutoExpControl extends AnalysisControl {
 	 * Input text field for the scenario folder of data to use in making the estimation
 	 */
 	public static Text text1;
-	
-	public static AutoExpControl self = null;
 	
 	/**
 	 * Folder to contain the data
@@ -88,9 +95,9 @@ public class AutoExpControl extends AnalysisControl {
 	protected static Composite chartComposite;
 	protected static Composite valuesComposite;
 	
-	private List<Double> latestTimeSeries = new ArrayList<Double>();
-	private double[] latestSeries;
-	private double[] errorHistory;
+	private static List<Double> latestTimeSeries = new ArrayList<Double>();
+	private static double[] latestSeries;
+	private static double[] errorHistory;
 	
 	/**
 	 * The dialog for the wizard
@@ -107,21 +114,74 @@ public class AutoExpControl extends AnalysisControl {
 	public AutoExpControl(final Composite parent) {
 		super(parent, SWT.None);
 		createContents();
-		self = this;
 	} // AutoExpControl
 	
-	/**
-	 * 
-	 * @return
-	 */
-	public static AutoExpControl getControl() {
-		return self;
-	}
+	
 
 	/**
 	 * Create the contents of the plotter
 	 */
 	void createContents() {
+		
+		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
+		manager.addListener(new AutomaticExperimentManagerListener() {
+			
+			@Override
+			public void eventReceived(AutomaticExperimentManagerEvent evt) {
+				if(evt.status == MANAGER_STATUS.SCHEDULED) {
+					ErrorAnalysisAlgorithm alg = evt.algorithm;
+					
+					alg.addListener(new ErrorAnalysisAlgorithmListener() {
+						
+						@Override
+						public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
+							if(evt.status == ALGORITHM_STATUS.FINISHED_ALGORITHM) {
+								// The algorithm has finished. Smallest value in 
+								//evt.result
+								/////////////////
+								
+							} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
+								// One simulation is done. The result is READY and stored in evt.result
+								System.out.println("Event result is ready !!! ");
+								ErrorResult result = evt.result;
+								if(result != null) {
+									// Plot 1 from result.getError() (keep appending)
+									appendLatestSeriesData(result.getError());
+									// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
+									setErrorHistory(result.getErrorByTimeStep() );
+									
+									////////////////////////////////////////////////////////////////////////
+									// The event notification doesn't come from the UI thread so we need to
+									// add a Runnable to the UI thread's execution queue to give the new
+									// source to the chart
+									final Display display = Display.getDefault();
+									if (!display.isDisposed()) {
+										// Yes
+										try {
+											display.asyncExec(new Runnable() {
+												public void run() {
+													
+													updateCharts();
+													
+												} // run
+											}); // display.asyncExec
+										} // try
+										catch (final Exception e) {
+											// Ignore there could be a race condition with the display being
+											// disposed when the system is shut down with a running
+											// simulation.
+										} // catch Exception
+									} // if (!display.isDisposed()) 
+								}// if(result != null)
+							} else if(evt.status == ALGORITHM_STATUS.RESTARTED_ALGORITHM) {
+								// The algorithm has restarted. Smallest value in 
+								// evt.result
+							}
+						}
+					});
+				}
+			}
+		});
 		
 		// Use form layout
 		setLayout(new FormLayout());
@@ -402,9 +462,8 @@ public class AutoExpControl extends AnalysisControl {
 			retVal[i] = Math.pow(dbl,chartIndex+1); 
 		}
 		
-		
-		if(chartIndex == 0) return errorHistory;
-		if(chartIndex == 1) return latestSeries;
+		if(chartIndex == 0) return latestSeries;
+		if(chartIndex == 1) return errorHistory;
 		
 		// should never happen
 		return retVal;
@@ -441,7 +500,7 @@ public class AutoExpControl extends AnalysisControl {
 	 * 
 	 * @param error
 	 */
-	public void appendLatestSeriesData(double error) {
+	public static void appendLatestSeriesData(double error) {
 		latestTimeSeries.add(new Double(error));
 		latestSeries = new double[latestTimeSeries.size()];
 		for(int i = 0; i < latestTimeSeries.size(); i ++) {
@@ -453,7 +512,7 @@ public class AutoExpControl extends AnalysisControl {
 	 * 
 	 * @param errorByTimeStep
 	 */
-	public void setErrorHistory(EList<Double> errorByTimeStep) {
+	public static void setErrorHistory(EList<Double> errorByTimeStep) {
 		errorHistory = new double[errorByTimeStep.size()];
 		for(int i = 0; i < errorByTimeStep.size(); i ++) {
 			errorHistory[i] = errorByTimeStep.get(i).doubleValue();

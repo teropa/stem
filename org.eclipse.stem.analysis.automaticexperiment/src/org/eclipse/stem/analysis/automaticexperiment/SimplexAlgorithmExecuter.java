@@ -221,24 +221,7 @@ public class SimplexAlgorithmExecuter
 				// TODO: GUI output here
 				
 				
-		 		/////////////////
-				//
-				//
-				if(aeControl==null) {
-					aeControl = AutoExpControl.getControl();
-					if((aeControl != null)&&(result!=null)) {
-						// Plot 1 from result.getError() (keep appending)
-						aeControl.appendLatestSeriesData(result.getError());
-						// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
-						aeControl.setErrorHistory(result.getErrorByTimeStep() );
-						
-						AutoExpControl.updateCharts();
-						
-					}
-				}
-				//
-				//
-				///////////////////
+		 		
 			} catch(IOException ioe) {
 				ioe.printStackTrace();
 			}
