@@ -62,6 +62,16 @@ public class SimplexAlgorithmExecuter
 	public void execute() {
 		double prevmin = Double.MAX_VALUE;
 		double [] prevvals = new double[initialParamsValues.length];
+		double [] minvals;
+		String [] parameterNames=null;
+		if (parameters != null) {
+			parameterNames = new String[parameters.size()];
+			int i=0;
+			for (final ModifiableParameter param:parameters) {
+				parameterNames[i++] = param.getFeatureName();
+			}
+		}
+		
 		for(;;) {
 			for(int i=0;i<initialParamsValues.length;++i) prevvals[i] = initialParamsValues[i];
 			long before = System.currentTimeMillis();
@@ -72,6 +82,7 @@ public class SimplexAlgorithmExecuter
 				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
 				System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
 				System.out.println("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
+				minvals = simplexAlgorithm.getMinimumParametersValues();
 				break;
 			}
 			double newmin = simplexAlgorithm.getMinimumFunctionValue();
@@ -79,6 +90,7 @@ public class SimplexAlgorithmExecuter
 				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
 				System.out.println("Minimum value: " + prevmin);
 				System.out.println("Parameters values: " + Arrays.toString(prevvals));
+				minvals = prevvals;
 				break; // we couldn't improve
 			}
 			// Not same, reinit with new minimum
@@ -88,10 +100,16 @@ public class SimplexAlgorithmExecuter
 				initialParamsValues[i] = simplexAlgorithm.getMinimumParametersValues()[i];
 				prevvals[i] =  simplexAlgorithm.getMinimumParametersValues()[i];
 			}
-			this.fireEvent(new ErrorAnalysisAlgorithmEvent(simplexAlgorithm.getMinimumErrorResult(), ALGORITHM_STATUS.RESTARTED_ALGORITHM));
+			ErrorAnalysisAlgorithmEvent newEvent = new ErrorAnalysisAlgorithmEvent(simplexAlgorithm.getMinimumErrorResult(), ALGORITHM_STATUS.RESTARTED_ALGORITHM);
+			newEvent.parameterNames = parameterNames;
+			newEvent.parameterValues = simplexAlgorithm.getMinimumParametersValues();
+			this.fireEvent(newEvent);
 
 		}
-		this.fireEvent(new ErrorAnalysisAlgorithmEvent(simplexAlgorithm.getMinimumErrorResult(), ALGORITHM_STATUS.FINISHED_ALGORITHM));
+		ErrorAnalysisAlgorithmEvent newEvent = new ErrorAnalysisAlgorithmEvent(simplexAlgorithm.getMinimumErrorResult(), ALGORITHM_STATUS.FINISHED_ALGORITHM);
+		newEvent.parameterNames = parameterNames;
+		newEvent.parameterValues = minvals;
+		this.fireEvent(newEvent);
 	}
 	
 	@Override
@@ -204,12 +222,19 @@ public class SimplexAlgorithmExecuter
 			ErrorResult result = null;
 			try {
 				for(double val:parameters) resultWriter.write(val+",");
+				ErrorAnalysisAlgorithmEvent newEvent = new ErrorAnalysisAlgorithmEvent(null, ALGORITHM_STATUS.STARTING_SIMULATION);
+				newEvent.parameterNames = parameterNames;
+				newEvent.parameterValues = parameters;
 				runSimulation(simulation);
 			
 				result =  getErrorValue(simulation.getUniqueIDString());
 			
+				newEvent = new ErrorAnalysisAlgorithmEvent(result, ALGORITHM_STATUS.FINISHED_SIMULATION);
+				newEvent.parameterNames = parameterNames;
+				newEvent.parameterValues = parameters;
+				
 				((AbstractErrorAnalysisAlgorithm)algorithm).fireEvent(
-						new ErrorAnalysisAlgorithmEvent(result, ALGORITHM_STATUS.FINISHED_SIMULATION));
+						newEvent);
 				
 				error = result.getError();
 				
