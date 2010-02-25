@@ -11,14 +11,9 @@ package org.eclipse.stem.analysis.automaticexperiment.executable;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.stem.analysis.automaticexperiment.AutomaticExperimentManager;
 import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithm;
-import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmFactory;
 import org.eclipse.stem.jobs.adapters.executable.emf.ExecutableAdapter;
 import org.eclipse.stem.jobs.adapters.executable.emf.ExecutableAdapterFactory;
 import org.eclipse.stem.jobs.execution.IExecutable;

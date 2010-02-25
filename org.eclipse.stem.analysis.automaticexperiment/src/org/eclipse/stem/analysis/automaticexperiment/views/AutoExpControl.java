@@ -33,6 +33,8 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.jobs.Activator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FormAttachment;
@@ -42,8 +44,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.TabFolder;
-import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Text;
 
 /**
@@ -63,7 +63,7 @@ public class AutoExpControl extends AnalysisControl {
 	 * Folder to contain the data
 	 * 
 	 */
-	static TabFolder tabFolder;
+	static CTabFolder tabFolder;
 	
 	/**
 	 * Text displaying the currently selected parameter estimator
@@ -203,19 +203,30 @@ public class AutoExpControl extends AnalysisControl {
 		
 		bottom += 1;
 		
-		
-		tabFolder = new TabFolder (this, SWT.NONE);
+		tabFolder = new CTabFolder(this, SWT.BORDER);
 		final FormData tabFormData = new FormData();
 		tabFormData.top = new FormAttachment(bottom, 0);
 		tabFormData.bottom = new FormAttachment(100, 0);
 		tabFormData.left = new FormAttachment(0, 0);
 		tabFormData.right = new FormAttachment(100, 0);
 		tabFolder.setLayoutData(tabFormData);
+		tabFolder.setSimple(false);
+		Color cyan = display.getSystemColor(SWT.COLOR_CYAN);
+		Color red = display.getSystemColor(SWT.COLOR_DARK_RED);
 		
+//		tabFolder.setSelectionBackground(new Color[]{display.getSystemColor(SWT.COLOR_DARK_BLUE),
+//				display.getSystemColor(SWT.COLOR_BLUE),
+//				display.getSystemColor(SWT.COLOR_WHITE),
+//				display.getSystemColor(SWT.COLOR_WHITE)},
+//				new int[] {25, 50, 100}); 
+		
+		tabFolder.setBackground(cyan);
+		tabFolder.setForeground(red);
+		tabFolder.setBorderVisible(true);
         /////////////
 		// charts
-		TabItem item0 = new TabItem (tabFolder, SWT.NULL);
-		item0.setText (Messages.getString("AUTO.CHARTS"));
+		CTabItem item0 = new CTabItem(tabFolder, SWT.BORDER);
+		item0.setText ("  "+Messages.getString("AUTO.CHARTS")+" ");
 		chartComposite = new Composite(tabFolder, SWT.BORDER);
     	GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 2;
@@ -227,22 +238,13 @@ public class AutoExpControl extends AnalysisControl {
  		
  		//////////////
  		// values
-		TabItem item1 = new TabItem(tabFolder, SWT.BORDER);
+		CTabItem item1 = new CTabItem(tabFolder, SWT.BORDER);
 		item1.setText(Messages.getString("AUTO.VALUES"));
 		
+		tabFolder.setSelection(item0);
+		
 		valuesComposite = new Composite(tabFolder, SWT.BORDER);
-//		valuesComposite.setLayout(new FormLayout());
-//		
-//		Label valueLabel = new Label(valuesComposite, SWT.NONE);
-//		valueLabel.setText("...testing");
-//		final FormData valuesFormData = new FormData();
-//		valuesFormData.top = new FormAttachment(0, 0);
-//		valuesFormData.bottom = new FormAttachment(6, 0);
-//		valuesFormData.left = new FormAttachment(40, 0);
-//		valuesFormData.right = new FormAttachment(100, 0);
-//		valueLabel.setLayoutData(valuesFormData);
-//		
-// 		item1.setControl(valuesComposite);
+
  		 
 		List<String> testNames = makeTestLabels("Name", 13);
 		List<String> testValues = makeTestLabels("Value", 13);

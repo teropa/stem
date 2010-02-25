@@ -17,6 +17,7 @@ import org.eclipse.stem.core.Constants;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
+import org.eclipse.ui.navigator.resources.ProjectExplorer;
 
 
 /**
@@ -40,16 +41,15 @@ public class AutomaticExperiment implements IPerspectiveFactory {
 
 		// We don't want to see the editor
 		layout.setEditorAreaVisible(false);
+		// Put the STEM Analysis View by itself on the top
+		layout.addStandaloneView(AutoExpView.ID_AutoExp_VIEW, true, IPageLayout.RIGHT,
+				0.0f, editorArea);
 		
-		// Put the STEM Analysis Views on top
-		final IFolderLayout top = layout.createFolder(
-				"top", IPageLayout.TOP, //$NON-NLS-1$
-				1.00f, editorArea);
+		// Put the ProjectExplorer view on the left
+		final IFolderLayout left = layout.createFolder("left", IPageLayout.LEFT, 0.60f, AutoExpView.ID_AutoExp_VIEW);
+		left.addView(ProjectExplorer.VIEW_ID);
 		
-		top.addView(AutoExpView.ID_AutoExp_VIEW);
-		
-		
-		// 
+		// add the view to the "Show Views" menu
 		layout.addShowViewShortcut(AutoExpView.ID_AutoExp_VIEW);
 		
 		// We don't want to see the editor
@@ -58,6 +58,7 @@ public class AutomaticExperiment implements IPerspectiveFactory {
 		// Add the Analysis perspective to the "Open Perspective" menu
 		layout.addPerspectiveShortcut(ID_STEM_AUTOMATIC_EXPERIMENT_PERSPECTIVE);
 
+		
 	} // createInitialLayout
 
 } // Analysis

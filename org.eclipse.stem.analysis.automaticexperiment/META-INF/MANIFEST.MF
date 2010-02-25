@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.stem.analysis,
  org.eclipse.stem.diseasemodels,
  org.eclipse.stem.util.loggers,
- org.eclipse.stem.ui
+ org.eclipse.stem.ui,
+ org.eclipse.ui.navigator.resources;bundle-version="3.4.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ClassPath: .
