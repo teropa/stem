@@ -87,7 +87,7 @@ public class AutomaticExperimentTest
 		ErrorAnalysisAlgorithm algorithm = 
 			ErrorAnalysisAlgorithmFactory.INSTANCE.createErrorAnalysisAlgorithm(algorithmName);
 		assertNotNull(algorithm);
-		algorithm.init(automaticExperiment);
+		algorithm.init(automaticExperiment, algorithm);
 		algorithm.execute();
 	}
 

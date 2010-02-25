@@ -13,8 +13,11 @@ package org.eclipse.stem.tests.automaticexperiment;
 
 import java.util.Arrays;
 
+import org.eclipse.stem.analysis.AnalysisPackage;
+import org.eclipse.stem.analysis.ErrorResult;
 import org.eclipse.stem.analysis.automaticexperiment.NelderMeadAlgorithm;
 import org.eclipse.stem.analysis.automaticexperiment.SimplexFunction;
+import org.eclipse.stem.analysis.impl.ErrorResultImpl;
 
 import junit.framework.TestCase;
 
@@ -35,7 +38,7 @@ public class NelderMeadAlgorithmTest extends TestCase {
 	
 	class SampleFunction implements SimplexFunction {
 
-		public double getValue(double[] parameters) {
+		public ErrorResult getValue(double[] parameters) {
 			//f(x,y) = -4x + x^2 - y - xy + y^2
 			//Local minimum for this function is -7 at x=3 and y=2
 			double x = parameters[0];
@@ -46,7 +49,9 @@ public class NelderMeadAlgorithmTest extends TestCase {
 			result -= x * y;
 			result += Math.pow(y, 2);
 			System.out.println("Function value for x=" + x + ", y=" + y + " is: " + result);
-			return result;
+			ErrorResult res = AnalysisPackage.eINSTANCE.getAnalysisFactory().createErrorResult();
+			res.setError(result);
+			return res;
 		}
 		
 	}
