@@ -96,6 +96,12 @@ public interface ISharedImages {
 
 	/**
 	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.experiment.Experiment}.
+	 */
+	String AUTOMATIC_EXPERIMENT_ICON = "automaticexperiment.image"; //$NON-NLS-1$
+	
+	/**
+	 * This image is the icon that represents an
 	 * {@link org.eclipse.stem.core.trigger.Trigger}.
 	 */
 	String TRIGGER_ICON = "trigger.image"; //$NON-NLS-1$

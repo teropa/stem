@@ -200,6 +200,9 @@ public class Activator extends AbstractUIPlugin {
 		registry.put(ISharedImages.EXPERIMENT_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Experiment.gif")); //$NON-NLS-1$
 		
+		registry.put(ISharedImages.AUTOMATIC_EXPERIMENT_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "AutomaticExperiment.gif")); //$NON-NLS-1$
+		
 		registry.put(ISharedImages.TRIGGER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Trigger.gif")); //$NON-NLS-1$
 		
