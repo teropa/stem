@@ -79,6 +79,7 @@ public class AutoExpControl extends AnalysisControl {
 	
 	// some colors
 	private static Color cyan;
+	private static Color cyanDark;
 	private static Color darkRed;
 	private static Color white;
 	private static Color black;
@@ -94,8 +95,11 @@ public class AutoExpControl extends AnalysisControl {
 	protected static TimeSeriesCanvas currentErrorByTime = null;
 	static final int CURRENT_ERROR_BY_TIME_ID = 1;
 	
-	protected static Composite chartComposite;
+	//protected static Composite chartComposite;
+	protected static Composite timeSeriesComposite;
+	protected static Composite runHistoryComposite;
 	protected static Composite valuesComposite;
+	protected static Composite controlsComposite;
 	
 	private static List<Double> errorHistoryList = new ArrayList<Double>();
 	private static double[] errorHistory;
@@ -140,6 +144,7 @@ public class AutoExpControl extends AnalysisControl {
 		setLayout(new FormLayout());
 		if(display==null) display = this.getDisplay();
 		cyan = display.getSystemColor(SWT.COLOR_CYAN);
+		cyanDark = new Color(display, 60, 240, 240);
 		darkRed = display.getSystemColor(SWT.COLOR_DARK_RED);
 		white = display.getSystemColor(SWT.COLOR_WHITE);
 		black = display.getSystemColor(SWT.COLOR_BLACK);
@@ -172,32 +177,53 @@ public class AutoExpControl extends AnalysisControl {
 		tabFolder.setSimple(false);
 		
 		
-//		tabFolder.setSelectionBackground(new Color[]{display.getSystemColor(SWT.COLOR_DARK_BLUE),
-//				display.getSystemColor(SWT.COLOR_BLUE),
-//				display.getSystemColor(SWT.COLOR_WHITE),
-//				display.getSystemColor(SWT.COLOR_WHITE)},
-//				new int[] {25, 50, 100}); 
+		tabFolder.setSelectionBackground(new Color[]{display.getSystemColor(SWT.COLOR_CYAN),
+				display.getSystemColor(SWT.COLOR_WHITE),
+				cyanDark,
+				display.getSystemColor(SWT.COLOR_BLUE)},
+				new int[] {25, 50, 100}); 
 		
-		tabFolder.setBackground(cyan);
+		tabFolder.setBackground(cyanDark);
 		tabFolder.setForeground(darkRed);
 		tabFolder.setBorderVisible(true);
+		
         /////////////
-		// charts
+		// RUN HISTORY
 		CTabItem item0 = new CTabItem(tabFolder, SWT.BORDER);
-		item0.setText ("  "+Messages.getString("AUTO.CHARTS")+" ");
-		chartComposite = new Composite(tabFolder, SWT.BORDER);
-    	GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 2;
- 		chartComposite.setLayout(new FormLayout());
- 		item0.setControl(chartComposite);
+		item0.setText ("  "+Messages.getString("AUTO.HISTORY")+" ");
+		runHistoryComposite = new Composite(tabFolder, SWT.BORDER);
+		runHistoryComposite.setLayout(new FormLayout());
+ 		item0.setControl(runHistoryComposite);
  		// set up the four data time series inside the chartComposite
- 		getEquationSeriesCharts(chartComposite); 
+ 		getRunHistoryChart(runHistoryComposite); 
+ 		
+ 		/////////////
+		// TIME SERIES
+ 		CTabItem item1 = new CTabItem(tabFolder, SWT.BORDER);
+		item1.setText ("  "+Messages.getString("AUTO.TIMESERIES")+" ");
+		timeSeriesComposite = new Composite(tabFolder, SWT.BORDER);
+		timeSeriesComposite.setLayout(new FormLayout());
+ 		item1.setControl(timeSeriesComposite);
+ 		// set up the four data time series inside the chartComposite
+ 		getTimeSeriesChart(timeSeriesComposite); 
  		
  		//////////////
- 		// values
-		CTabItem item1 = new CTabItem(tabFolder, SWT.BORDER);
-		item1.setText(Messages.getString("AUTO.VALUES"));
-		item1.setControl(valuesComposite);
+ 		// VALUES
+		CTabItem item2 = new CTabItem(tabFolder, SWT.BORDER);
+		item2.setText(Messages.getString("AUTO.VALUES"));
+		item2.setControl(valuesComposite);
+		
+		//////////////
+ 		// RESTART
+		controlsComposite = new Composite(tabFolder, SWT.BORDER);
+		controlsComposite.setLayout(new FormLayout());
+		CTabItem item3 = new CTabItem(tabFolder, SWT.BORDER);
+		item3.setText(Messages.getString("AUTO.RESTART"));
+		item3.setControl(controlsComposite);
+		Label restartLabel = new Label(controlsComposite, SWT.BORDER);
+		restartLabel.setText("Restart Controls Will Go HERE");
+		
+		
 		
 		tabFolder.setSelection(item0);
 		
@@ -299,11 +325,37 @@ public class AutoExpControl extends AnalysisControl {
 	
 	
 	/**
-	 * set up the four data time series charts
+	 * set up the time series chart
 	 * @param dataComposite
 	 */
-	private void getEquationSeriesCharts(Composite dataComposite) {
+	private void getTimeSeriesChart(Composite dataComposite) {
+				
+		// currentErrorByTime
+		currentErrorByTime = new TimeSeriesCanvas(this,dataComposite,
+				Messages.getString("AUTO.TITLE2"),
+				Messages.getString("AUTO.ERROR"),// y axis
+				Messages.getString("AUTO.TIME"),// x axis
+				Messages.getString("AUTO.TITLE2"), //first property (line series name)
+				foreGround,
+				backgroundGround,
+				frameColor, CURRENT_ERROR_BY_TIME_ID, true);
+		final FormData TimeSeries2FormData = new FormData();
+		currentErrorByTime.setLayoutData(TimeSeries2FormData);
+		TimeSeries2FormData.top = new FormAttachment(dataComposite, 0);
+		TimeSeries2FormData.bottom = new FormAttachment(100, 0);
+		TimeSeries2FormData.left = new FormAttachment(0, 0);
+		TimeSeries2FormData.right = new FormAttachment(100, 0);
 		
+		currentErrorByTime.redraw();
+		
+	}// getEquationSeries
+	
+	
+	/**
+	 * set up the run history charts
+	 * @param dataComposite
+	 */
+	private void getRunHistoryChart(Composite dataComposite) {
 		// errorConvergenceByRun
 		errorConvergenceByRun = new TimeSeriesCanvas(this,dataComposite,
 				Messages.getString("AUTO.TITLE1"),
@@ -318,27 +370,9 @@ public class AutoExpControl extends AnalysisControl {
 		TimeSeries1FormData.top = new FormAttachment(dataComposite, 0);
 		TimeSeries1FormData.bottom = new FormAttachment(100, 0);
 		TimeSeries1FormData.left = new FormAttachment(0, 0);
-		TimeSeries1FormData.right = new FormAttachment(50, 0);
-		
-		// currentErrorByTime
-		currentErrorByTime = new TimeSeriesCanvas(this,dataComposite,
-				Messages.getString("AUTO.TITLE2"),
-				Messages.getString("AUTO.ERROR"),// y axis
-				Messages.getString("AUTO.TIME"),// x axis
-				Messages.getString("AUTO.TITLE2"), //first property (line series name)
-				foreGround,
-				backgroundGround,
-				frameColor, CURRENT_ERROR_BY_TIME_ID, true);
-		final FormData TimeSeries2FormData = new FormData();
-		currentErrorByTime.setLayoutData(TimeSeries2FormData);
-		TimeSeries2FormData.top = new FormAttachment(dataComposite, 0);
-		TimeSeries2FormData.bottom = new FormAttachment(100, 0);
-		TimeSeries2FormData.left = new FormAttachment(50, 0);
-		TimeSeries2FormData.right = new FormAttachment(100, 0);
+		TimeSeries1FormData.right = new FormAttachment(100, 0);
 		
 		errorConvergenceByRun.redraw();
-		currentErrorByTime.redraw();
-		
 	
 	}// getEquationSeries
 	
