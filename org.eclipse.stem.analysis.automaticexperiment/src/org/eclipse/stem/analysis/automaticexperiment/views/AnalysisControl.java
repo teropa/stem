@@ -55,22 +55,12 @@ abstract public class AnalysisControl extends Composite  {
 	protected Label userMessageLabel = null;
 	
 
-
-	/**
-	 * button to trigger the analysis
-	 */
-	protected Button analyzeButton = null;
-
-	protected Button selectEstimatorButton = null;
-
 	
 	/**
 	 * The collection of ISelectionChangedListener waiting to be told about
 	 * selections.
 	 */
 	protected final List<ISelectionChangedListener> listeners = new CopyOnWriteArrayList<ISelectionChangedListener>();
-
-	
 
 	protected Label identifiableTitle;
 
@@ -126,26 +116,6 @@ abstract public class AnalysisControl extends Composite  {
 		return topComposite;
 	} // createTopComposite
 	
-	/**
-	 * creates the AnalyzeButtonComposite and its composite container
-	 * @param control
-	 * @param the button label
-	 * @return the composite
-	 */
-	Composite getAnalyzeButtonComposite(AnalysisControl control, String label) {
-		Composite analyzeComposite = new Composite(control, SWT.BORDER);
-	    FillLayout fillLayout = new FillLayout();
-	    fillLayout.type = SWT.HORIZONTAL;
-	    analyzeComposite.setLayout(fillLayout);
-	    Label leftLabel = new Label(analyzeComposite, SWT.NONE);
-	    leftLabel.setText(" ");// just a spacer
-	    analyzeButton = new Button(analyzeComposite, SWT.NONE);
-		analyzeButton.setText(label);
-		Label rightLabel = new Label(analyzeComposite, SWT.NONE);
-		rightLabel.setText(" ");// just a spacer
-	   
-	    return analyzeComposite;
-	}//getAnalyzeButtonComposite
 	
 
 

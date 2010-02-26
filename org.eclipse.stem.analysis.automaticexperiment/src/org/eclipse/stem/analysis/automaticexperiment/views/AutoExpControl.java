@@ -52,10 +52,6 @@ public class AutoExpControl extends AnalysisControl {
 	
 	private static Display display = null;
 	
-	/**
-	 * Input text field for the scenario folder of data to use in making the estimation
-	 */
-	public static Text text1;
 	
 	/**
 	 * Folder to contain the data
@@ -217,6 +213,7 @@ public class AutoExpControl extends AnalysisControl {
 						public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
 							
 							System.out.println("Event is "+evt.status);
+							
 							if(evt.status == ALGORITHM_STATUS.STARTING_SIMULATION) {
 								// set the label info
 								runParamNames = evt.parameterNames;
@@ -287,12 +284,16 @@ public class AutoExpControl extends AnalysisControl {
 	 * update the graphs
 	 */
 	public static void updateCharts() {
-		//statusLabel.setText(Messages.getString("AUTO.COMPLETE"));
-		//estimatorCanvas.draw();
-		
 		errorConvergenceByRun.draw();
 		currentErrorByTime.draw();
-		
+	}
+	
+	/**
+	 * redraw the graphs
+	 */
+	public static void redrawCharts() {
+		errorConvergenceByRun.redraw();
+		currentErrorByTime.redraw();
 	}
 	
 	

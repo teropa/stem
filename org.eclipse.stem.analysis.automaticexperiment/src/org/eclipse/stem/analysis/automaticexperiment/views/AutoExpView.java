@@ -38,7 +38,7 @@ public class AutoExpView extends ViewPart {
 	public void createPartControl(final Composite parent) {
 
 		analysisViewer = new AnalysisViewer(parent, AutoExpFactory.INSTANCE);
-		analysisViewer.setInput(SimulationManager.getManager());
+		//analysisViewer.setInput(SimulationManager.getManager());
 
 		getSite().setSelectionProvider(analysisViewer);
 
