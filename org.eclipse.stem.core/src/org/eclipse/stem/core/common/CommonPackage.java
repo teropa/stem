@@ -358,6 +358,164 @@ public interface CommonPackage extends EPackage {
 	int IDENTIFIABLE_FILTER_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.common.impl.DoubleValueListImpl <em>Double Value List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.common.impl.DoubleValueListImpl
+	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getDoubleValueList()
+	 * @generated
+	 */
+	int DOUBLE_VALUE_LIST = 4;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE_LIST__VALUES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE_LIST__IDENTIFIER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Double Value List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE_LIST_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.common.impl.DoubleValueMatrixImpl <em>Double Value Matrix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.common.impl.DoubleValueMatrixImpl
+	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getDoubleValueMatrix()
+	 * @generated
+	 */
+	int DOUBLE_VALUE_MATRIX = 5;
+
+	/**
+	 * The feature id for the '<em><b>Value Lists</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE_MATRIX__VALUE_LISTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Double Value Matrix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE_MATRIX_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.common.impl.DoubleValueImpl <em>Double Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.common.impl.DoubleValueImpl
+	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getDoubleValue()
+	 * @generated
+	 */
+	int DOUBLE_VALUE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE__IDENTIFIER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Double Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_VALUE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.common.impl.StringValueListImpl <em>String Value List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.common.impl.StringValueListImpl
+	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getStringValueList()
+	 * @generated
+	 */
+	int STRING_VALUE_LIST = 7;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE_LIST__VALUES = 0;
+
+	/**
+	 * The number of structural features of the '<em>String Value List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE_LIST_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.core.common.impl.StringValueImpl <em>String Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.common.impl.StringValueImpl
+	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getStringValue()
+	 * @generated
+	 */
+	int STRING_VALUE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>String Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '<em>URI</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -365,7 +523,7 @@ public interface CommonPackage extends EPackage {
 	 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 4;
+	int URI = 9;
 
 
 	/**
@@ -674,6 +832,133 @@ public interface CommonPackage extends EPackage {
 	EClass getIdentifiableFilter();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.common.DoubleValueList <em>Double Value List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Double Value List</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValueList
+	 * @generated
+	 */
+	EClass getDoubleValueList();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.core.common.DoubleValueList#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValueList#getValues()
+	 * @see #getDoubleValueList()
+	 * @generated
+	 */
+	EReference getDoubleValueList_Values();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.common.DoubleValueList#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValueList#getIdentifier()
+	 * @see #getDoubleValueList()
+	 * @generated
+	 */
+	EAttribute getDoubleValueList_Identifier();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.common.DoubleValueMatrix <em>Double Value Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Double Value Matrix</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValueMatrix
+	 * @generated
+	 */
+	EClass getDoubleValueMatrix();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.core.common.DoubleValueMatrix#getValueLists <em>Value Lists</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Value Lists</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValueMatrix#getValueLists()
+	 * @see #getDoubleValueMatrix()
+	 * @generated
+	 */
+	EReference getDoubleValueMatrix_ValueLists();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.common.DoubleValue <em>Double Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Double Value</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValue
+	 * @generated
+	 */
+	EClass getDoubleValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.common.DoubleValue#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValue#getIdentifier()
+	 * @see #getDoubleValue()
+	 * @generated
+	 */
+	EAttribute getDoubleValue_Identifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.common.DoubleValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.stem.core.common.DoubleValue#getValue()
+	 * @see #getDoubleValue()
+	 * @generated
+	 */
+	EAttribute getDoubleValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.common.StringValueList <em>String Value List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Value List</em>'.
+	 * @see org.eclipse.stem.core.common.StringValueList
+	 * @generated
+	 */
+	EClass getStringValueList();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.core.common.StringValueList#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see org.eclipse.stem.core.common.StringValueList#getValues()
+	 * @see #getStringValueList()
+	 * @generated
+	 */
+	EReference getStringValueList_Values();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.core.common.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Value</em>'.
+	 * @see org.eclipse.stem.core.common.StringValue
+	 * @generated
+	 */
+	EClass getStringValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.core.common.StringValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.stem.core.common.StringValue#getValue()
+	 * @see #getStringValue()
+	 * @generated
+	 */
+	EAttribute getStringValue_Value();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.URI <em>URI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -937,6 +1222,112 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IDENTIFIABLE_FILTER = eINSTANCE.getIdentifiableFilter();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.common.impl.DoubleValueListImpl <em>Double Value List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.common.impl.DoubleValueListImpl
+		 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getDoubleValueList()
+		 * @generated
+		 */
+		EClass DOUBLE_VALUE_LIST = eINSTANCE.getDoubleValueList();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOUBLE_VALUE_LIST__VALUES = eINSTANCE.getDoubleValueList_Values();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_VALUE_LIST__IDENTIFIER = eINSTANCE.getDoubleValueList_Identifier();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.common.impl.DoubleValueMatrixImpl <em>Double Value Matrix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.common.impl.DoubleValueMatrixImpl
+		 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getDoubleValueMatrix()
+		 * @generated
+		 */
+		EClass DOUBLE_VALUE_MATRIX = eINSTANCE.getDoubleValueMatrix();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Lists</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOUBLE_VALUE_MATRIX__VALUE_LISTS = eINSTANCE.getDoubleValueMatrix_ValueLists();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.common.impl.DoubleValueImpl <em>Double Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.common.impl.DoubleValueImpl
+		 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getDoubleValue()
+		 * @generated
+		 */
+		EClass DOUBLE_VALUE = eINSTANCE.getDoubleValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_VALUE__IDENTIFIER = eINSTANCE.getDoubleValue_Identifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_VALUE__VALUE = eINSTANCE.getDoubleValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.common.impl.StringValueListImpl <em>String Value List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.common.impl.StringValueListImpl
+		 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getStringValueList()
+		 * @generated
+		 */
+		EClass STRING_VALUE_LIST = eINSTANCE.getStringValueList();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRING_VALUE_LIST__VALUES = eINSTANCE.getStringValueList_Values();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.core.common.impl.StringValueImpl <em>String Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.core.common.impl.StringValueImpl
+		 * @see org.eclipse.stem.core.common.impl.CommonPackageImpl#getStringValue()
+		 * @generated
+		 */
+		EClass STRING_VALUE = eINSTANCE.getStringValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.

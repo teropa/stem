@@ -49,6 +49,51 @@ public interface CommonFactory extends EFactory {
 	IdentifiableFilter createIdentifiableFilter();
 
 	/**
+	 * Returns a new object of class '<em>Double Value List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Value List</em>'.
+	 * @generated
+	 */
+	DoubleValueList createDoubleValueList();
+
+	/**
+	 * Returns a new object of class '<em>Double Value Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Value Matrix</em>'.
+	 * @generated
+	 */
+	DoubleValueMatrix createDoubleValueMatrix();
+
+	/**
+	 * Returns a new object of class '<em>Double Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Value</em>'.
+	 * @generated
+	 */
+	DoubleValue createDoubleValue();
+
+	/**
+	 * Returns a new object of class '<em>String Value List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Value List</em>'.
+	 * @generated
+	 */
+	StringValueList createStringValueList();
+
+	/**
+	 * Returns a new object of class '<em>String Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Value</em>'.
+	 * @generated
+	 */
+	StringValue createStringValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

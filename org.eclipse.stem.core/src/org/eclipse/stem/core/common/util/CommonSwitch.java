@@ -17,9 +17,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.common.DoubleValue;
+import org.eclipse.stem.core.common.DoubleValueList;
+import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.IdentifiableFilter;
+import org.eclipse.stem.core.common.StringValue;
+import org.eclipse.stem.core.common.StringValueList;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -115,6 +120,36 @@ public class CommonSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CommonPackage.DOUBLE_VALUE_LIST: {
+				DoubleValueList doubleValueList = (DoubleValueList)theEObject;
+				T1 result = caseDoubleValueList(doubleValueList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.DOUBLE_VALUE_MATRIX: {
+				DoubleValueMatrix doubleValueMatrix = (DoubleValueMatrix)theEObject;
+				T1 result = caseDoubleValueMatrix(doubleValueMatrix);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.DOUBLE_VALUE: {
+				DoubleValue doubleValue = (DoubleValue)theEObject;
+				T1 result = caseDoubleValue(doubleValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.STRING_VALUE_LIST: {
+				StringValueList stringValueList = (StringValueList)theEObject;
+				T1 result = caseStringValueList(stringValueList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.STRING_VALUE: {
+				StringValue stringValue = (StringValue)theEObject;
+				T1 result = caseStringValue(stringValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -176,6 +211,81 @@ public class CommonSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseIdentifiableFilter(IdentifiableFilter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Double Value List</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Double Value List</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseDoubleValueList(DoubleValueList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Double Value Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Double Value Matrix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseDoubleValueMatrix(DoubleValueMatrix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Double Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Double Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseDoubleValue(DoubleValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Value List</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Value List</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStringValueList(StringValueList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStringValue(StringValue object) {
 		return null;
 	}
 

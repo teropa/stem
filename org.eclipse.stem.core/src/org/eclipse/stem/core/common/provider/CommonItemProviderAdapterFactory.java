@@ -127,6 +127,121 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.common.DoubleValueList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleValueListItemProvider doubleValueListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.common.DoubleValueList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleValueListAdapter() {
+		if (doubleValueListItemProvider == null) {
+			doubleValueListItemProvider = new DoubleValueListItemProvider(this);
+		}
+
+		return doubleValueListItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.common.DoubleValueMatrix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleValueMatrixItemProvider doubleValueMatrixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.common.DoubleValueMatrix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleValueMatrixAdapter() {
+		if (doubleValueMatrixItemProvider == null) {
+			doubleValueMatrixItemProvider = new DoubleValueMatrixItemProvider(this);
+		}
+
+		return doubleValueMatrixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.common.DoubleValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleValueItemProvider doubleValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.common.DoubleValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleValueAdapter() {
+		if (doubleValueItemProvider == null) {
+			doubleValueItemProvider = new DoubleValueItemProvider(this);
+		}
+
+		return doubleValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.common.StringValueList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringValueListItemProvider stringValueListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.common.StringValueList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringValueListAdapter() {
+		if (stringValueListItemProvider == null) {
+			stringValueListItemProvider = new StringValueListItemProvider(this);
+		}
+
+		return stringValueListItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.core.common.StringValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringValueItemProvider stringValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.core.common.StringValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringValueAdapter() {
+		if (stringValueItemProvider == null) {
+			stringValueItemProvider = new StringValueItemProvider(this);
+		}
+
+		return stringValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,6 +343,11 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	public void dispose() {
 		if (dublinCoreItemProvider != null) dublinCoreItemProvider.dispose();
 		if (identifiableFilterItemProvider != null) identifiableFilterItemProvider.dispose();
+		if (doubleValueListItemProvider != null) doubleValueListItemProvider.dispose();
+		if (doubleValueMatrixItemProvider != null) doubleValueMatrixItemProvider.dispose();
+		if (doubleValueItemProvider != null) doubleValueItemProvider.dispose();
+		if (stringValueListItemProvider != null) stringValueListItemProvider.dispose();
+		if (stringValueItemProvider != null) stringValueItemProvider.dispose();
 	}
 
 }

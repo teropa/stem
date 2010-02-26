@@ -23,10 +23,15 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.common.DoubleValue;
+import org.eclipse.stem.core.common.DoubleValueList;
+import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
 
 import org.eclipse.stem.core.common.IdentifiableFilter;
+import org.eclipse.stem.core.common.StringValue;
+import org.eclipse.stem.core.common.StringValueList;
 import org.eclipse.stem.core.experiment.ExperimentPackage;
 import org.eclipse.stem.core.experiment.impl.ExperimentPackageImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
@@ -87,6 +92,41 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EClass identifiableFilterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleValueListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleValueMatrixEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringValueListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -445,6 +485,114 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDoubleValueList() {
+		return doubleValueListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDoubleValueList_Values() {
+		return (EReference)doubleValueListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleValueList_Identifier() {
+		return (EAttribute)doubleValueListEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDoubleValueMatrix() {
+		return doubleValueMatrixEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDoubleValueMatrix_ValueLists() {
+		return (EReference)doubleValueMatrixEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDoubleValue() {
+		return doubleValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleValue_Identifier() {
+		return (EAttribute)doubleValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleValue_Value() {
+		return (EAttribute)doubleValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringValueList() {
+		return stringValueListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStringValueList_Values() {
+		return (EReference)stringValueListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringValue() {
+		return stringValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringValue_Value() {
+		return (EAttribute)stringValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getURI() {
 		return uriEDataType;
 	}
@@ -509,6 +657,23 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		identifiableFilterEClass = createEClass(IDENTIFIABLE_FILTER);
 
+		doubleValueListEClass = createEClass(DOUBLE_VALUE_LIST);
+		createEReference(doubleValueListEClass, DOUBLE_VALUE_LIST__VALUES);
+		createEAttribute(doubleValueListEClass, DOUBLE_VALUE_LIST__IDENTIFIER);
+
+		doubleValueMatrixEClass = createEClass(DOUBLE_VALUE_MATRIX);
+		createEReference(doubleValueMatrixEClass, DOUBLE_VALUE_MATRIX__VALUE_LISTS);
+
+		doubleValueEClass = createEClass(DOUBLE_VALUE);
+		createEAttribute(doubleValueEClass, DOUBLE_VALUE__IDENTIFIER);
+		createEAttribute(doubleValueEClass, DOUBLE_VALUE__VALUE);
+
+		stringValueListEClass = createEClass(STRING_VALUE_LIST);
+		createEReference(stringValueListEClass, STRING_VALUE_LIST__VALUES);
+
+		stringValueEClass = createEClass(STRING_VALUE);
+		createEAttribute(stringValueEClass, STRING_VALUE__VALUE);
+
 		// Create data types
 		uriEDataType = createEDataType(URI);
 	}
@@ -535,6 +700,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		setName(eNAME);
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
+
+		// Obtain other dependent packages
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(comparableEClass, "T"); //$NON-NLS-1$
@@ -583,6 +751,23 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(identifiableFilterEClass, IdentifiableFilter.class, "IdentifiableFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(doubleValueListEClass, DoubleValueList.class, "DoubleValueList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getDoubleValueList_Values(), this.getDoubleValue(), null, "values", null, 0, -1, DoubleValueList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getDoubleValueList_Identifier(), theEcorePackage.getEString(), "identifier", null, 0, 1, DoubleValueList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(doubleValueMatrixEClass, DoubleValueMatrix.class, "DoubleValueMatrix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getDoubleValueMatrix_ValueLists(), this.getDoubleValueList(), null, "valueLists", null, 0, -1, DoubleValueMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(doubleValueEClass, DoubleValue.class, "DoubleValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getDoubleValue_Identifier(), theEcorePackage.getEString(), "identifier", null, 0, 1, DoubleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getDoubleValue_Value(), theEcorePackage.getEDouble(), "value", null, 0, 1, DoubleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(stringValueListEClass, StringValueList.class, "StringValueList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getStringValueList_Values(), this.getStringValue(), null, "values", null, 0, -1, StringValueList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(stringValueEClass, StringValue.class, "StringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getStringValue_Value(), theEcorePackage.getEString(), "value", null, 0, 1, StringValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Initialize data types
 		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

@@ -25,6 +25,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 import org.eclipse.stem.diseasemodels.standard.StandardStochasticDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StochasticDiseaseModel;
+import org.eclipse.stem.ui.widgets.MatrixEditorWidget;
 import org.eclipse.stem.ui.wizards.DiseaseWizardMessages;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
@@ -53,6 +54,7 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 	} // isUserSpecifiedDiseaseModelProperty
 
 	protected final Map<EStructuralFeature, Text> map = new HashMap<EStructuralFeature, Text>();
+	protected final Map<EStructuralFeature, String[]> matrixMap = new HashMap<EStructuralFeature, String[]>();
 	protected String errorMessage;
 
 	public DiseaseModelPropertyEditor(Composite parent, int style) {

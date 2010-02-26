@@ -24,8 +24,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.common.DoubleValue;
+import org.eclipse.stem.core.common.DoubleValueList;
+import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.IdentifiableFilter;
+import org.eclipse.stem.core.common.StringValue;
+import org.eclipse.stem.core.common.StringValueList;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -74,6 +79,11 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		switch (eClass.getClassifierID()) {
 			case CommonPackage.DUBLIN_CORE: return createDublinCore();
 			case CommonPackage.IDENTIFIABLE_FILTER: return createIdentifiableFilter();
+			case CommonPackage.DOUBLE_VALUE_LIST: return createDoubleValueList();
+			case CommonPackage.DOUBLE_VALUE_MATRIX: return createDoubleValueMatrix();
+			case CommonPackage.DOUBLE_VALUE: return createDoubleValue();
+			case CommonPackage.STRING_VALUE_LIST: return createStringValueList();
+			case CommonPackage.STRING_VALUE: return createStringValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -127,6 +137,56 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public IdentifiableFilter createIdentifiableFilter() {
 		IdentifiableFilterImpl identifiableFilter = new IdentifiableFilterImpl();
 		return identifiableFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleValueList createDoubleValueList() {
+		DoubleValueListImpl doubleValueList = new DoubleValueListImpl();
+		return doubleValueList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleValueMatrix createDoubleValueMatrix() {
+		DoubleValueMatrixImpl doubleValueMatrix = new DoubleValueMatrixImpl();
+		return doubleValueMatrix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleValue createDoubleValue() {
+		DoubleValueImpl doubleValue = new DoubleValueImpl();
+		return doubleValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringValueList createStringValueList() {
+		StringValueListImpl stringValueList = new StringValueListImpl();
+		return stringValueList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringValue createStringValue() {
+		StringValueImpl stringValue = new StringValueImpl();
+		return stringValue;
 	}
 
 	/**

@@ -15,10 +15,12 @@ package org.eclipse.stem.ui.wizards;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.SEIR;
 import org.eclipse.stem.diseasemodels.standard.SI;
@@ -31,10 +33,15 @@ import org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor.DiseaseModelPrope
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
+import org.eclipse.stem.ui.widgets.MatrixEditorDialog;
+import org.eclipse.stem.ui.widgets.MatrixEditorWidget;
+import org.eclipse.stem.ui.widgets.MatrixEditorWidget.MatrixEditorValidator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
@@ -45,6 +52,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * This class is a {@link Composite} that presents the properties of a
@@ -99,19 +107,25 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 				// Get a string value for the default value of the feature
 
 				final String defaultValueString = getPropertyDefaultValueString(descriptor);
-
-				final Text text = new Text(this, SWT.BORDER | SWT.TRAIL);
-				text.setText(defaultValueString);
-				text.setToolTipText(pspa.getPropertyToolTip(descriptor));
-				map.put(feature, text);
-
-				final GridData textGD = new GridData(GridData.END);
-				textGD.grabExcessHorizontalSpace = true;
-				textGD.horizontalAlignment = SWT.FILL;
-				text.setLayoutData(textGD);
-
-				text.addModifyListener(projectValidator);
-
+				Text text = null;
+				
+				if(isListOrMap(feature))
+					handleListOrMap(feature);
+				
+				else {
+					text = new Text(this, SWT.BORDER | SWT.TRAIL);
+					text.setText(defaultValueString);
+					text.setToolTipText(pspa.getPropertyToolTip(descriptor));
+					map.put(feature, text);
+	
+					final GridData textGD = new GridData(GridData.END);
+					textGD.grabExcessHorizontalSpace = true;
+					textGD.horizontalAlignment = SWT.FILL;
+					text.setLayoutData(textGD);
+	
+					text.addModifyListener(projectValidator);
+				}
+				
 				boolean isDataPath = false;
 				if (feature.getName().equals("dataPath")) { //$NON-NLS-1$
 					isDataPath = true;
@@ -128,6 +142,7 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 							.getString("fileChooserButtonText")); //$NON-NLS-1$
 					fileChooserButton.setToolTipText(DiseaseWizardMessages
 							.getString("fileChooserButtonTooltipText")); //$NON-NLS-1$
+					final Text _text=text;
 					fileChooserButton
 							.addSelectionListener(new SelectionAdapter() {
 								@Override
@@ -160,7 +175,7 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 													+ selectedFiles[i] + "\"";
 										}
 									}
-									text.setText(selected);
+									_text.setText(selected);
 								} // widgetSelected
 							} // SelectionAdapter
 							);
@@ -182,7 +197,7 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 											.setText(DiseaseWizardMessages
 													.getString("dirChooserDialogTitle")); //$NON-NLS-1$
 									final String selected = dd.open();
-									text.setText(selected);
+									_text.setText(selected);
 								} // widgetSelected
 							} // SelectionAdapter
 							);
@@ -209,6 +224,138 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 		pmtpDefGD.horizontalSpan = 3;
 		pmtpDefLabel.setLayoutData(pmtpDefGD);
 	} // StandardDiseaseModelPropertyEditor
+
+	private void handleListOrMap(final EStructuralFeature feature) {
+		Button button = new Button(this, SWT.NONE);
+		Image image = null;
+		final EClassifier type = feature.getEType();
+		
+		if (type.getClassifierID() == CommonPackage.DOUBLE_VALUE_LIST ||
+		type.getClassifierID() == CommonPackage.STRING_VALUE_LIST)
+			image = AbstractUIPlugin.imageDescriptorFromPlugin(
+				"org.eclipse.stem.ui", "/icons/full/customobj16/List.gif").createImage();
+		else
+			image = AbstractUIPlugin.imageDescriptorFromPlugin(
+					"org.eclipse.stem.ui", "/icons/full/customobj16/Matrix.gif").createImage();
+		
+		button.setImage(image);
+		final GridData buttonGD = new GridData(GridData.END);
+		//buttonGD.grabExcessHorizontalSpace = true;
+		//buttonGD.horizontalAlignment = SWT.FILL;
+		button.setLayoutData(buttonGD);
+		
+		button.addSelectionListener(new SelectionListener() {
+			
+			public void widgetSelected(SelectionEvent arg0) {
+				String title=null;
+				short cols=0;
+				short rows=0;
+				String [] rownames=null;
+				String [] colnames=null;
+				boolean fixedSize=false;
+				MatrixEditorValidator validator = null;
+				String [] existingVals=null;
+				
+				// Retrieve any already entered values
+				if(matrixMap.get(feature)!=null) {
+					existingVals = matrixMap.get(feature);
+				}
+				
+				if(type.getClassifierID() == CommonPackage.DOUBLE_VALUE_LIST ||
+						type.getClassifierID() == CommonPackage.STRING_VALUE_LIST) {
+					fixedSize = getFixedSize(feature);
+					title = feature.getName();
+					cols = 1;
+					rows = getRowCount(feature);
+					if(!fixedSize && rows == 0)
+						rows = (existingVals != null)? (short)existingVals.length:(short)1;
+					
+					rownames = getRowNames(feature);
+					colnames = new String[1];colnames[0]=feature.getName();
+					
+				} else if(type.getClassifierID() == CommonPackage.DOUBLE_VALUE_MATRIX) {
+					title = feature.getName();
+					cols = getColCount(feature);
+					rows = getRowCount(feature);
+					rownames = getRowNames(feature);
+					colnames = rownames;
+					fixedSize = getFixedSize(feature);
+				}
+				
+				if(type.getClassifierID() == CommonPackage.DOUBLE_VALUE_LIST ||
+						type.getClassifierID() == CommonPackage.DOUBLE_VALUE_MATRIX) 
+					validator = new MatrixEditorValidator() {
+						
+						public boolean validateValue(String val) {
+							if(val == null || val.trim().equals("")) return false;
+							try {
+								Double.parseDouble(val.trim());
+							} catch(NumberFormatException nfe) {
+								return false;
+							}
+							return true;
+						}
+				};			
+				else if(type.getClassifierID() == CommonPackage.STRING_VALUE_LIST)
+					validator = new MatrixEditorValidator() {
+					
+					public boolean validateValue(String val) {
+						if(val == null || val.trim().equals("")) return false;
+						return true;
+					}
+				};	
+				
+				Shell shell = StandardDiseaseModelPropertyEditor.this.getShell();
+				MatrixEditorDialog dialog = new MatrixEditorDialog(shell, SWT.NONE, title, rows, cols, rownames, colnames, existingVals,fixedSize,validator);
+				
+				String []res = dialog.open();
+				
+				if(res!=null) {
+					matrixMap.put(feature, res);
+				}
+				
+			}
+			
+
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+
+	/**
+	 * These are overriden by subclass
+	 */
+	public short getColCount(EStructuralFeature feature) {
+		return 1;
+	}
+
+	public boolean getFixedSize(EStructuralFeature feature) {
+		return false;
+	}
+
+	public String[] getRowNames(EStructuralFeature feature) {
+		return null;
+	}
+	
+	public String[] getColNames(EStructuralFeature feature) {
+		return null;
+	}
+	
+	public short getRowCount(EStructuralFeature feature) {
+		return 1;
+	}
+	
+	private boolean isListOrMap(EStructuralFeature feature) {
+		EClassifier type = feature.getEType();
+		if(type.getClassifierID() == CommonPackage.DOUBLE_VALUE_LIST ||
+				type.getClassifierID() == CommonPackage.STRING_VALUE_LIST ||
+				type.getClassifierID() == CommonPackage.DOUBLE_VALUE_MATRIX)
+			return true;
+		else
+		return false;
+	}
 
 	/**
 	 * @param diseaseModel

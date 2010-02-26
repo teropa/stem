@@ -19,9 +19,14 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.common.DoubleValue;
+import org.eclipse.stem.core.common.DoubleValueList;
+import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.IdentifiableFilter;
+import org.eclipse.stem.core.common.StringValue;
+import org.eclipse.stem.core.common.StringValueList;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -97,6 +102,26 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 				return createIdentifiableFilterAdapter();
 			}
 			@Override
+			public Adapter caseDoubleValueList(DoubleValueList object) {
+				return createDoubleValueListAdapter();
+			}
+			@Override
+			public Adapter caseDoubleValueMatrix(DoubleValueMatrix object) {
+				return createDoubleValueMatrixAdapter();
+			}
+			@Override
+			public Adapter caseDoubleValue(DoubleValue object) {
+				return createDoubleValueAdapter();
+			}
+			@Override
+			public Adapter caseStringValueList(StringValueList object) {
+				return createStringValueListAdapter();
+			}
+			@Override
+			public Adapter caseStringValue(StringValue object) {
+				return createStringValueAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -169,6 +194,76 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIdentifiableFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.common.DoubleValueList <em>Double Value List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.common.DoubleValueList
+	 * @generated
+	 */
+	public Adapter createDoubleValueListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.common.DoubleValueMatrix <em>Double Value Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.common.DoubleValueMatrix
+	 * @generated
+	 */
+	public Adapter createDoubleValueMatrixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.common.DoubleValue <em>Double Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.common.DoubleValue
+	 * @generated
+	 */
+	public Adapter createDoubleValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.common.StringValueList <em>String Value List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.common.StringValueList
+	 * @generated
+	 */
+	public Adapter createStringValueListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.common.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.common.StringValue
+	 * @generated
+	 */
+	public Adapter createStringValueAdapter() {
 		return null;
 	}
 
