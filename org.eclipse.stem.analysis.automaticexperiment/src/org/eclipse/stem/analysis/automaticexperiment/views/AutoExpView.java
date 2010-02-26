@@ -13,7 +13,6 @@ package org.eclipse.stem.analysis.automaticexperiment.views;
  *******************************************************************************/
 
 
-import org.eclipse.stem.jobs.simulation.SimulationManager;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
