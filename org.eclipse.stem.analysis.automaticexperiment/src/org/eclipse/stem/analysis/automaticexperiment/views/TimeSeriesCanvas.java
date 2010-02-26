@@ -93,6 +93,8 @@ public class TimeSeriesCanvas extends Canvas {
 	 * some extra colors
 	 */
 	protected static final ColorDefinition[] colorDefault = {
+															ColorDefinitionImpl.RED(), 
+															ColorDefinitionImpl.GREEN(), 
 															ColorDefinitionImpl.BLUE(), 
 															ColorDefinitionImpl.BLACK(), 
 															ColorDefinitionImpl.GREY(),
@@ -104,11 +106,6 @@ public class TimeSeriesCanvas extends Canvas {
 	 */
 	private boolean overlayMode = false;
 	
-	/**
-	 * used to index the line series so we can step through default colors
-	 * when a user custom color is not yet assigned
-	 */
-	private int seriesCount  = 0;
 	
 
 	/**
@@ -224,6 +221,7 @@ public class TimeSeriesCanvas extends Canvas {
 			final String ordinateString, 
 			final String yAxisLabel, 
 			final String xAxisLabel,
+			final String firstProperty,
 			ColorDefinition foreground,
 			ColorDefinition background,
 			ColorDefinition framecolor,
@@ -251,7 +249,7 @@ public class TimeSeriesCanvas extends Canvas {
 		control = analysisControl;
 
 		
-		cm = createSimpleLineChart(dataSeriesMap, cycleNumbers, Messages
+		cm = createSimpleLineChart(firstProperty, dataSeriesMap, cycleNumbers, Messages
 				.getString("CC.title")); //$NON-NLS-1$
 		
 		resetData();
@@ -305,6 +303,7 @@ public class TimeSeriesCanvas extends Canvas {
 			final String ordinateString, 
 			final String yAxisLabel, 
 			final String xAxisLabel,
+			final String firstProperty,
 			ColorDefinition foreground,
 			ColorDefinition background,
 			ColorDefinition framecolor,
@@ -330,7 +329,7 @@ public class TimeSeriesCanvas extends Canvas {
 		control = (AnalysisControl) parent;
 
 		
-		cm = createSimpleLineChart(dataSeriesMap, cycleNumbers, Messages
+		cm = createSimpleLineChart(firstProperty, dataSeriesMap, cycleNumbers, Messages
 				.getString("CC.title")); //$NON-NLS-1$
 		
 		resetData();
@@ -391,14 +390,14 @@ public class TimeSeriesCanvas extends Canvas {
 			
 			if(!dataSeriesMap.containsKey(property)) {
 				// new property
-				DataSeries series = new DataSeries(property, seriesCount, overlayMode);
+				DataSeries series = new DataSeries(property, i, overlayMode);
 				if(visibleMap.containsKey(property))
 						series.setVisible(visibleMap.get(property));
 				else {
 					series.setVisible(true);
 					visibleMap.put(property, true);
 				}
-				seriesCount ++;
+				
 				dataSeriesMap.put(property, series);
 			}
 			DataSeries series = dataSeriesMap.get(property);
@@ -406,17 +405,8 @@ public class TimeSeriesCanvas extends Canvas {
 			
 		}
 		
-		
-		
-		
-	
-
 		// update the context menu with the new properties to plot
 		//updateContextMenu(this);
-		
-		
-		
-		
 		
 		maxY = -1.0;
 		
@@ -428,8 +418,8 @@ public class TimeSeriesCanvas extends Canvas {
 				String property = control.getProperty(chartIndex,i);
 				double[] doubleValues = control.getValues(chartIndex,i);
 				if(doubleValues==null) {
-					doubleValues = new double[1];
-					doubleValues[0] = 0;
+					doubleValues = new double[0];
+					//doubleValues[0] = 0;
 				}
 				DataSeries series = dataSeriesMap.get(property);
 				
@@ -545,6 +535,7 @@ public class TimeSeriesCanvas extends Canvas {
 	 * @return a <code>Chart</code>
 	 */
 	public final Chart createSimpleLineChart(
+			final String firstProperty,
 			final Map<String, DataSeries> dataSeriesMap,
 			final List<Integer> cycleNumbers, final String seriesIdentifier) {
 		
@@ -632,10 +623,9 @@ public class TimeSeriesCanvas extends Canvas {
 		// for now get ready to create only one line - we have no data yet.
 		// we will add more lines as we need them
 		// handle null
-		if(!dataSeriesMap.containsKey(Messages.getString("AUTO.TITLE1"))) {
-			DataSeries series = new DataSeries(Messages.getString("AUTO.TITLE1"), seriesCount, overlayMode);
-			seriesCount ++;
-			dataSeriesMap.put(Messages.getString("AUTO.TITLE1"), series);
+		if(!dataSeriesMap.containsKey(firstProperty)) {
+			DataSeries series = new DataSeries(Messages.getString("AUTO.TITLE1"), 0, overlayMode);
+			dataSeriesMap.put(firstProperty, series);
 		}
 
 		return retValue;
@@ -1130,7 +1120,7 @@ public class TimeSeriesCanvas extends Canvas {
 			
 			// Assign the line color
 			// based on selected property. Default is Blue
-			setColorDefs(propertyName);
+			setColorDefs(seriesIndex);
 			// If this is the "selected" region of a graph set the marker type
 		
 			// the series def
@@ -1160,6 +1150,32 @@ public class TimeSeriesCanvas extends Canvas {
 		
 
 		/**
+		 * Overloaded and simple method to set the colors
+		 * does not use the preferences
+		 * 
+		 * Sets the colors for a n array of LineSeries given the property to Plot
+		 * for each. Try to set color from the preferences (if specified for that
+		 * property) otherwise sets line color to blue.
+		 * @param propertyName 
+		 *
+		 */
+		public void setColorDefs(int index) {
+			// the default line color
+			if(index >= colorDefault.length) index = 0; // should never happen
+			ColorDefinition color = colorDefault[index];
+
+			this.lineSeries.setSeriesIdentifier(propertyName);
+			if (overlayMode) {
+					((LineSeries)this.lineSeries).getLineAttributes().setColor(color);
+					((LineSeries)this.lineSeries).getLineAttributes().setStyle(LineStyle.DOTTED_LITERAL);
+			} else {
+				((LineSeries)this.lineSeries).getLineAttributes().setColor(color);
+			}
+			
+			
+		}// getColorDefs
+		
+		/**
 		 * Sets the colors for a n array of LineSeries given the property to Plot
 		 * for each. Try to set color from the preferences (if specified for that
 		 * property) otherwise sets line color to blue.
@@ -1186,13 +1202,8 @@ public class TimeSeriesCanvas extends Canvas {
 			
 			this.lineSeries.setSeriesIdentifier(propertyName);
 			if (overlayMode) {
-				if(propertyName.indexOf("*")>=1) {
-					// barseries methods
-					((LineSeries)this.lineSeries).getLineAttributes().setColor(color);
-				} else {
 					((LineSeries)this.lineSeries).getLineAttributes().setColor(ColorDefinitionImpl.GREY());
 					((LineSeries)this.lineSeries).getLineAttributes().setStyle(LineStyle.DOTTED_LITERAL);
-				}
 			} else {
 				((LineSeries)this.lineSeries).getLineAttributes().setColor(color);
 			}

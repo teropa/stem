@@ -308,6 +308,7 @@ public class AutoExpControl extends AnalysisControl {
 				Messages.getString("AUTO.TITLE1"),
 				Messages.getString("AUTO.ERROR"), // yaxis
 				Messages.getString("AUTO.RUN"),// x axis
+				Messages.getString("AUTO.TITLE1"), // first propery (line series name)
 				foreGround,
 				backgroundGround,
 				frameColor, ERROR_CONVERGENCE_BY_RUN_ID, true);
@@ -323,6 +324,7 @@ public class AutoExpControl extends AnalysisControl {
 				Messages.getString("AUTO.TITLE2"),
 				Messages.getString("AUTO.ERROR"),// y axis
 				Messages.getString("AUTO.TIME"),// x axis
+				Messages.getString("AUTO.TITLE2"), //first property (line series name)
 				foreGround,
 				backgroundGround,
 				frameColor, CURRENT_ERROR_BY_TIME_ID, true);
@@ -332,6 +334,9 @@ public class AutoExpControl extends AnalysisControl {
 		TimeSeries2FormData.bottom = new FormAttachment(100, 0);
 		TimeSeries2FormData.left = new FormAttachment(50, 0);
 		TimeSeries2FormData.right = new FormAttachment(100, 0);
+		
+		errorConvergenceByRun.redraw();
+		currentErrorByTime.redraw();
 		
 	
 	}// getEquationSeries
@@ -459,23 +464,14 @@ public class AutoExpControl extends AnalysisControl {
 	 * @see org.eclipse.stem.util.analysis.views.AnalysisControl#getValues(int, int)
 	 */
 	public double[] getValues(int chartIndex, int state) {
-		//System.out.println("chart index = "+chartIndex+"  state= "+state);
-		// testing
-		int numPoints = 100;
-		double[] retVal = new double[numPoints];
-		for(int i = 0; i < numPoints; i ++) {
-			double dbl = i/100.0;
-			retVal[i] = Math.pow(dbl,chartIndex+1); 
-		}
 		
 		if(chartIndex == 0) return errorHistory;
 		if(chartIndex == 1) {
-			if(state==0) return bestSeries;
-			return newTimeSeries;
+			if(state==0) return newTimeSeries;
+			return bestSeries;
 		}
-		
 		// should never happen
-		return retVal;
+		return null;
 	}
 	
 	/**
