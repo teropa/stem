@@ -30,7 +30,7 @@ public class AutomaticExperiment implements IPerspectiveFactory {
 	 * The identifier of the Designer Perspective
 	 */
 	public static final String ID_STEM_AUTOMATIC_EXPERIMENT_PERSPECTIVE = Constants.ID_ROOT
-			+ ".analysis.automaticexperiment.perspectives.AutomaticExperimentPerspective"; //$NON-NLS-1$
+			+ ".analysis.automaticexperiment.perspective"; //$NON-NLS-1$
 
 	/**
 	 * @see org.eclipse.ui.IPerspectiveFactory#createInitialLayout(org.eclipse.ui

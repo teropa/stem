@@ -30,13 +30,11 @@ import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmEvent
 import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmListener;
 import org.eclipse.stem.analysis.automaticexperiment.MANAGER_STATUS;
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.jobs.Activator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -83,6 +81,12 @@ public class AutoExpControl extends AnalysisControl {
 	static final ColorDefinition backgroundGround = ColorDefinitionImpl.create(255, 255, 225);
 	static final ColorDefinition frameColor = ColorDefinitionImpl.WHITE();
 	
+	// some colors
+	private static Color cyan;
+	private static Color darkRed;
+	private static Color white;
+	private static Color black;
+	
 	/**
 	 * For now we will always set Two charts
 	 */
@@ -95,10 +99,19 @@ public class AutoExpControl extends AnalysisControl {
 	protected static Composite chartComposite;
 	protected static Composite valuesComposite;
 	
-	private static List<Double> latestTimeSeries = new ArrayList<Double>();
-	private static double[] latestSeries;
+	private static List<Double> errorHistoryList = new ArrayList<Double>();
 	private static double[] errorHistory;
+	private static double[] bestSeries;
+	private static double bestError = Double.MAX_VALUE;
+	private static double[] newTimeSeries;
 	
+	protected static String[] runParamNames;
+	protected static double[] initParamValues;
+	protected static double[] currentParamValues;
+	
+	protected static CLabel[] attributeLabels;
+	protected static CLabel[] initialValueLabels;
+	protected static CLabel[] latestValueLabels;
 	/**
 	 * The dialog for the wizard
 	 */
@@ -123,69 +136,16 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	void createContents() {
 		
-		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
-		manager.addListener(new AutomaticExperimentManagerListener() {
-			
-			@Override
-			public void eventReceived(AutomaticExperimentManagerEvent evt) {
-				if(evt.status == MANAGER_STATUS.SCHEDULED) {
-					ErrorAnalysisAlgorithm alg = evt.algorithm;
-					
-					alg.addListener(new ErrorAnalysisAlgorithmListener() {
-						
-						@Override
-						public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
-							if(evt.status == ALGORITHM_STATUS.FINISHED_ALGORITHM) {
-								// The algorithm has finished. Smallest value in 
-								//evt.result
-								/////////////////
-								
-							} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
-								// One simulation is done. The result is READY and stored in evt.result
-								System.out.println("Event result is ready !!! ");
-								ErrorResult result = evt.result;
-								if(result != null) {
-									// Plot 1 from result.getError() (keep appending)
-									appendLatestSeriesData(result.getError());
-									// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
-									setErrorHistory(result.getErrorByTimeStep() );
-									
-									////////////////////////////////////////////////////////////////////////
-									// The event notification doesn't come from the UI thread so we need to
-									// add a Runnable to the UI thread's execution queue to give the new
-									// source to the chart
-									final Display display = Display.getDefault();
-									if (!display.isDisposed()) {
-										// Yes
-										try {
-											display.asyncExec(new Runnable() {
-												public void run() {
-													
-													updateCharts();
-													
-												} // run
-											}); // display.asyncExec
-										} // try
-										catch (final Exception e) {
-											// Ignore there could be a race condition with the display being
-											// disposed when the system is shut down with a running
-											// simulation.
-										} // catch Exception
-									} // if (!display.isDisposed()) 
-								}// if(result != null)
-							} else if(evt.status == ALGORITHM_STATUS.RESTARTED_ALGORITHM) {
-								// The algorithm has restarted. Smallest value in 
-								// evt.result
-							}
-						}
-					});
-				}
-			}
-		});
+		
 		
 		// Use form layout
 		setLayout(new FormLayout());
 		if(display==null) display = this.getDisplay();
+		cyan = display.getSystemColor(SWT.COLOR_CYAN);
+		darkRed = display.getSystemColor(SWT.COLOR_DARK_RED);
+		white = display.getSystemColor(SWT.COLOR_WHITE);
+		black = display.getSystemColor(SWT.COLOR_BLACK);
+		
 		
 		identifiableTitle = new Label(this, SWT.NONE);
 		identifiableTitle.setText(Messages.getString("AUTO.TITLELABEL"));
@@ -199,11 +159,12 @@ public class AutoExpControl extends AnalysisControl {
 		titleFormData.left = new FormAttachment(0, 0);
 		titleFormData.right = new FormAttachment(100, 0);
 		
-		Color labelBackground = new Color(display, new RGB(180, 180, 200));
-		
 		bottom += 1;
 		
 		tabFolder = new CTabFolder(this, SWT.BORDER);
+		// set up the values composite
+		valuesComposite = new Composite(tabFolder, SWT.BORDER);
+		
 		final FormData tabFormData = new FormData();
 		tabFormData.top = new FormAttachment(bottom, 0);
 		tabFormData.bottom = new FormAttachment(100, 0);
@@ -211,8 +172,7 @@ public class AutoExpControl extends AnalysisControl {
 		tabFormData.right = new FormAttachment(100, 0);
 		tabFolder.setLayoutData(tabFormData);
 		tabFolder.setSimple(false);
-		Color cyan = display.getSystemColor(SWT.COLOR_CYAN);
-		Color red = display.getSystemColor(SWT.COLOR_DARK_RED);
+		
 		
 //		tabFolder.setSelectionBackground(new Color[]{display.getSystemColor(SWT.COLOR_DARK_BLUE),
 //				display.getSystemColor(SWT.COLOR_BLUE),
@@ -221,7 +181,7 @@ public class AutoExpControl extends AnalysisControl {
 //				new int[] {25, 50, 100}); 
 		
 		tabFolder.setBackground(cyan);
-		tabFolder.setForeground(red);
+		tabFolder.setForeground(darkRed);
 		tabFolder.setBorderVisible(true);
         /////////////
 		// charts
@@ -235,40 +195,91 @@ public class AutoExpControl extends AnalysisControl {
  		// set up the four data time series inside the chartComposite
  		getEquationSeriesCharts(chartComposite); 
  		
- 		
  		//////////////
  		// values
 		CTabItem item1 = new CTabItem(tabFolder, SWT.BORDER);
 		item1.setText(Messages.getString("AUTO.VALUES"));
+		item1.setControl(valuesComposite);
 		
 		tabFolder.setSelection(item0);
 		
-		valuesComposite = new Composite(tabFolder, SWT.BORDER);
-
- 		 
-		List<String> testNames = makeTestLabels("Name", 13);
-		List<String> testValues = makeTestLabels("Value", 13);
- 		updateValueLabels(testNames, testValues);
+		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
+		manager.addListener(new AutomaticExperimentManagerListener() {
+			
+			@Override
+			public void eventReceived(AutomaticExperimentManagerEvent evt) {
+				if(evt.status == MANAGER_STATUS.SCHEDULED) {
+					ErrorAnalysisAlgorithm alg = evt.algorithm;
+					alg.addListener(new ErrorAnalysisAlgorithmListener() {
+						@Override
+						public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
+							
+							System.out.println("Event is "+evt.status);
+							if(evt.status == ALGORITHM_STATUS.STARTING_SIMULATION) {
+								// set the label info
+								runParamNames = evt.parameterNames;
+								currentParamValues = evt.parameterValues;
+								// Add a Runnable to the UI thread's execution queue 
+								final Display display = Display.getDefault();
+								if (!display.isDisposed()) {
+									// Yes
+									try {
+										display.asyncExec(new Runnable() {
+											public void run() {
+												initializeValueLabels(runParamNames, currentParamValues);
+											} // run
+										}); // display.asyncExec
+									} // try
+									catch (final Exception e) {
+										// Ignore there could be a race condition with the display being disposed
+									} // catch Exception
+								} // if (!display.isDisposed()) 
+							//////////////////////////////////////
+							} else if(evt.status == ALGORITHM_STATUS.FINISHED_ALGORITHM) {
+								// The algorithm has finished. Smallest value in 
+								//evt.result
+								/////////////////
+								
+							} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
+								// One simulation is done. The result is READY and stored in evt.result
+								ErrorResult result = evt.result;
+								if(result != null) {
+									// Plot 1 from result.getError() (keep appending)
+									appendLatestErrorData(result.getError());
+									// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
+									setRecentTimeSeries(result.getError(), result.getErrorByTimeStep() );
+									final double[] latestVals = evt.parameterValues;
+									////////////////////////////////////////////////////////////////////////
+									// Add a Runnable to the UI thread's execution queue 
+									final Display display = Display.getDefault();
+									if (!display.isDisposed()) {
+										// Yes
+										try {
+											display.asyncExec(new Runnable() {
+												public void run() {
+													updateCharts();
+													updateValueLabels(latestVals);
+												} // run
+											}); // display.asyncExec
+										} // try
+										catch (final Exception e) {
+											// Ignore there could be a race condition with the display being disposed
+										} // catch Exception
+									} // if (!display.isDisposed()) 
+								}// if(result != null)
+							} else if(evt.status == ALGORITHM_STATUS.RESTARTED_ALGORITHM) {
+								// The algorithm has restarted. Smallest value in 
+								// evt.result
+							}
+						}
+					});
+				}
+			}
+		});
 		
-		item1.setControl(valuesComposite);
-		
-		
-		//mainComposite.setControl(estimatorCanvas);
 		updateCharts();
 		
-		
-		
-		
-		
-		
 	} // createContents
-	
-	
-
-
-	
-
-	
 	
 	/**
 	 * update the graphs
@@ -281,10 +292,6 @@ public class AutoExpControl extends AnalysisControl {
 		currentErrorByTime.draw();
 		
 	}
-	
-	
-	
-
 	
 	
 	
@@ -333,98 +340,93 @@ public class AutoExpControl extends AnalysisControl {
 	 * set up the four data time series charts
 	 * @param dataComposite
 	 */
-	protected static void updateValueLabels(List<String> attributes, List<String> values) {
+	protected static void updateValueLabels(double[] values) {
 		
-		Color bg = display.getSystemColor(SWT.COLOR_WHITE);
-		final int maxColumns = 10;
-		int numColumns = maxColumns;
-		
-		int numAttrEntries = attributes.size();
-		int numValEntries = values.size();
-		if(numValEntries != numAttrEntries) {
-			if(numAttrEntries<numValEntries) numAttrEntries = numValEntries;
-			Activator.logError("Error, num attributes != num values in AutoExpControl.java", null);
+		for(int i = 0; i < values.length; i ++) {
+			latestValueLabels[i].setText(""+values[i]);
 		}
-		if(numAttrEntries < numColumns) numColumns = numAttrEntries;
-		int numRows = ((numAttrEntries/numColumns) + 1);
-				
-		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = numColumns;
-		gridLayout.makeColumnsEqualWidth = true;
-		valuesComposite.setLayout(gridLayout); 
+		valuesComposite.redraw();
+	
+	}// updateValueLabels
+	
+	
+	/**
+	 * 
+	 * @param attributes
+	 * @param initialValues
+	 */
+	protected static void initializeValueLabels(String[] attributes, double[] initialValues) {
 		
-		int vcount = 0;
-		int acount = 0;
-		for(int j = 0; j < numRows; j ++) {
-			for(int i = 0; i < numColumns; i ++) {
-				CLabel lblName = new CLabel(valuesComposite, SWT.BORDER);
-				if(acount < numAttrEntries) {
-					lblName.setText(attributes.get(acount));
-				} else {
-					lblName.setText("");
-				}
-				acount ++;
-			}
-			for(int i = 0; i < numColumns; i ++) {
-				CLabel lblValue = new CLabel(valuesComposite, SWT.BORDER);
-				
-				if(vcount < numValEntries) {
-					lblValue.setText(values.get(vcount));
-					lblValue.setBackground(bg);
-				} else {
-					lblValue.setText("");
-				}
-				vcount ++;
-			}
-		}
+		int numAttrEntries = attributes.length;
+		int numColumns = numAttrEntries;
+
+		// Use form layout
+		valuesComposite.setLayout(new FormLayout());
+		int width = 100/numColumns;
+		int left = 0;
+		int right = width;
+		int height = 10;
 		
+		attributeLabels = new CLabel[numColumns];
+		initialValueLabels = new CLabel[numColumns];
+		latestValueLabels = new CLabel[numColumns];
+		
+			for(int i = 0; i < numColumns; i ++) {
+				
+				int bottom = height;
+				
+				attributeLabels[i] = new CLabel(valuesComposite, SWT.BORDER);
+				attributeLabels[i].setText(attributes[i]);
+				attributeLabels[i].setBackground(cyan);
+				final FormData titleFormData = new FormData();
+				attributeLabels[i].setLayoutData(titleFormData);
+				titleFormData.top = new FormAttachment(0, 0);
+				titleFormData.bottom = new FormAttachment(height, 0);
+				titleFormData.left = new FormAttachment(left, 0);
+				titleFormData.right = new FormAttachment(right, 0);
+				
+				bottom += height;
+				
+				initialValueLabels[i] = new CLabel(valuesComposite, SWT.BORDER);
+				initialValueLabels[i].setText(""+initialValues[i]);
+				initialValueLabels[i].setBackground(white);
+				initialValueLabels[i].setForeground(black);
+				final FormData initFormData = new FormData();
+				initialValueLabels[i].setLayoutData(initFormData);
+				initFormData.top = new FormAttachment(attributeLabels[i], 0);
+				initFormData.bottom = new FormAttachment(bottom, 0);
+				initFormData.left = new FormAttachment(left, 0);
+				initFormData.right = new FormAttachment(right, 0);
+				
+				bottom += height;
+				
+				latestValueLabels[i] = new CLabel(valuesComposite, SWT.BORDER);
+				latestValueLabels[i].setText(""+initialValues[i]); // start = initial values
+				latestValueLabels[i].setBackground(white);
+				latestValueLabels[i].setForeground(darkRed);
+				final FormData latestFormData = new FormData();
+				latestValueLabels[i].setLayoutData(latestFormData);
+				latestFormData.top = new FormAttachment(initialValueLabels[i], 0);
+				latestFormData.bottom = new FormAttachment(bottom, 0);
+				latestFormData.left = new FormAttachment(left, 0);
+				latestFormData.right = new FormAttachment(right, 0);
+				
+				left += width;
+				right += width;
+				
+				
+			}
+				
 		 
 		valuesComposite.layout();
-		valuesComposite.pack();
+		//valuesComposite.pack();
+		//valuesComposite.setVisible(true);
+		valuesComposite.redraw();
 		
 	
 	}// updateValueLabels
 	
-	protected static List<String> makeTestLabels(String prefix, int number) {
-		List<String> retVal = new ArrayList<String>();
-		for(int i = 0; i < number; i ++) {
-			String val = prefix+"_"+i;
-			retVal.add(val);
-		}
-		return retVal;
-	}
 	
-	
-	
-	
-	
-	/**
-	 * to remove the control e.g. by a remove button event
-	 */
-	public void remove() {
-		
-		updateStatusLabel();
-	}
-
-	
-	
-
-	protected void updateStatusLabel() {
-		//
-	}
-	
-
-	/**
-	 * Initialize the header label
-	 * 
-	 * @param folderName
-	 */
-	protected void initializeHeader(String folderName) {
-		//
-
-	} // initializeFromSimulation
-
-
 	
 	
 	
@@ -464,8 +466,8 @@ public class AutoExpControl extends AnalysisControl {
 			retVal[i] = Math.pow(dbl,chartIndex+1); 
 		}
 		
-		if(chartIndex == 0) return latestSeries;
-		if(chartIndex == 1) return errorHistory;
+		if(chartIndex == 0) return errorHistory;
+		if(chartIndex == 1) return newTimeSeries;
 		
 		// should never happen
 		return retVal;
@@ -502,11 +504,11 @@ public class AutoExpControl extends AnalysisControl {
 	 * 
 	 * @param error
 	 */
-	public static void appendLatestSeriesData(double error) {
-		latestTimeSeries.add(new Double(error));
-		latestSeries = new double[latestTimeSeries.size()];
-		for(int i = 0; i < latestTimeSeries.size(); i ++) {
-			latestSeries[i] = latestTimeSeries.get(i).doubleValue();
+	public static void appendLatestErrorData(double error) {
+		errorHistoryList.add(new Double(error));
+		errorHistory = new double[errorHistoryList.size()];
+		for(int i = 0; i < errorHistoryList.size(); i ++) {
+			errorHistory[i] = errorHistoryList.get(i).doubleValue();
 		}
 	}
 
@@ -514,11 +516,33 @@ public class AutoExpControl extends AnalysisControl {
 	 * 
 	 * @param errorByTimeStep
 	 */
-	public static void setErrorHistory(EList<Double> errorByTimeStep) {
-		errorHistory = new double[errorByTimeStep.size()];
+	public static void setRecentTimeSeries(double error, EList<Double> errorByTimeStep) {
+		newTimeSeries = new double[errorByTimeStep.size()];
 		for(int i = 0; i < errorByTimeStep.size(); i ++) {
-			errorHistory[i] = errorByTimeStep.get(i).doubleValue();
+			newTimeSeries[i] = errorByTimeStep.get(i).doubleValue();
 		}
+		if(bestSeries==null) bestSeries = newTimeSeries;
+		if(error <= bestError) {
+			bestError = error;
+			bestSeries = newTimeSeries;
+		}
+		
+		
+	}
+
+
+
+	@Override
+	protected void initializeHeader(String folderName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
 		
 	}
 	
