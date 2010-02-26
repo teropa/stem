@@ -6,7 +6,9 @@
  */
 package org.eclipse.stem.diseasemodels.multipopulation.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.math.BigDecimal;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,9 +19,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
+import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.LabelValue;
+import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage;
@@ -34,6 +39,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,7 +108,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT = 0.0;
+	protected static final double PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT = 0.01;
 
 	/**
 	 * The cached value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
@@ -122,7 +128,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT = 0.0;
+	protected static final double ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT = 0.05;
 
 	/**
 	 * The cached value of the '{@link #getRoadNetworkInfectiousProportion() <em>Road Network Infectious Proportion</em>}' attribute.
@@ -524,7 +530,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	public StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
 			STEMTime time, StandardDiseaseModelLabelValue currentLabelValue,
 			long timeDelta, DiseaseModelLabelValue returnValue) {
-		// TODO Auto-generated method stub
+		System.out.println("Jamie implement this");
 		return null;
 	}
 
@@ -533,7 +539,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			StandardDiseaseModelLabelValue currentState,
 			StandardDiseaseModelLabel diseaseLabel, long timeDelta,
 			DiseaseModelLabelValue returnValue) {
-		// TODO Auto-generated method stub
+		System.out.println("Jamie implement this");
 		return null;
 	}
 
@@ -574,5 +580,52 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	public void doModelSpecificAdjustments(LabelValue label) {
 		// Nothing to do here...
 	}
+
+	/**
+	 * We need to override this method to return all population model labels for the population groups
+	 * 
+	 * @param populationIdentifier
+	 *            the population being labeled
+	 * @param graph
+	 *            the graph to search
+	 * @return the PopulationLabel instances of the graph that match the
+	 *         identifier.
+	 */
+	@Override
+	protected Collection<PopulationModelLabel> getPopulationModelLabels(
+			final String populationIdentifier, final Graph graph) {
+		final List<PopulationModelLabel> retValue = new ArrayList<PopulationModelLabel>();
+
+		// Iterate through all of the population labels in the graph
+		EList<NodeLabel> labels = graph.getNodeLabelsByTypeURI(
+				PopulationModelLabel.URI_TYPE_DYNAMIC_POPULATION_LABEL);
+		for (NodeLabel pl:labels) {
+			final PopulationModelLabel populationLabel = (PopulationModelLabel) pl;
+			// Is this label for the population we're looking for?
+			boolean keep = false;
+			if (populationLabel.getPopulationIdentifier().equals(
+					populationIdentifier)) keep = true;
+			else
+				for(StringValue g:this.getPopulationGroups().getValues())
+					if(g.getValue().equals(populationLabel.getPopulationIdentifier())) {keep=true;break;}
+					
+			if (keep) {
+				// Yes
+				// If there is a problem with the "node uri" of the population
+				// label then it would not have been associated with a node
+				// instance in the graph at this point. This is a problem for
+				// disease models that are trying to label the node (there isn't
+				// one!). So filter out those mistakes here.
+
+				// Does the population label have an associated node?
+				if (populationLabel.getNode() != null) {
+					// Yes
+					retValue.add(populationLabel);
+				} // if the population label has a node
+			} // if the population we're looking for
+		} // for each population label
+
+		return retValue;
+	} // getPopulationLabels
 
 } //MultiPopulationSIDiseaseModelImpl

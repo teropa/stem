@@ -17,8 +17,10 @@
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.stem.core/model/common.ecore#//DoubleValueList"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="physicallyAdjacentInfectiousProportion"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.01"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadNetworkInfectiousProportion"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.05"/>
   </eClassifiers>
 </ecore:EPackage>

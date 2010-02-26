@@ -117,6 +117,7 @@ public interface MultiPopulationSIDiseaseModel extends StandardDiseaseModel {
 
 	/**
 	 * Returns the value of the '<em><b>Physically Adjacent Infectious Proportion</b></em>' attribute.
+	 * The default value is <code>"0.01"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Physically Adjacent Infectious Proportion</em>' attribute isn't clear,
@@ -126,7 +127,7 @@ public interface MultiPopulationSIDiseaseModel extends StandardDiseaseModel {
 	 * @return the value of the '<em>Physically Adjacent Infectious Proportion</em>' attribute.
 	 * @see #setPhysicallyAdjacentInfectiousProportion(double)
 	 * @see org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage#getMultiPopulationSIDiseaseModel_PhysicallyAdjacentInfectiousProportion()
-	 * @model
+	 * @model default="0.01"
 	 * @generated
 	 */
 	double getPhysicallyAdjacentInfectiousProportion();
@@ -143,6 +144,7 @@ public interface MultiPopulationSIDiseaseModel extends StandardDiseaseModel {
 
 	/**
 	 * Returns the value of the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * The default value is <code>"0.05"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Road Network Infectious Proportion</em>' attribute isn't clear,
@@ -152,7 +154,7 @@ public interface MultiPopulationSIDiseaseModel extends StandardDiseaseModel {
 	 * @return the value of the '<em>Road Network Infectious Proportion</em>' attribute.
 	 * @see #setRoadNetworkInfectiousProportion(double)
 	 * @see org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage#getMultiPopulationSIDiseaseModel_RoadNetworkInfectiousProportion()
-	 * @model
+	 * @model default="0.05"
 	 * @generated
 	 */
 	double getRoadNetworkInfectiousProportion();

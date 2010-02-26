@@ -11,9 +11,9 @@
       disposableProviderFactory="true" ecorePackage="multipopulation.ecore#/">
     <genClasses ecoreClass="multipopulation.ecore#//MultiPopulationSIDiseaseModel">
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSIDiseaseModel/populationGroups"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSIDiseaseModel/transmissionRate"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSIDiseaseModel/transmissionRate"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSIDiseaseModel/recoveryRate"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSIDiseaseModel/infectiousMortalityRate"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSIDiseaseModel/infectiousMortalityRate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute multipopulation.ecore#//MultiPopulationSIDiseaseModel/physicallyAdjacentInfectiousProportion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute multipopulation.ecore#//MultiPopulationSIDiseaseModel/roadNetworkInfectiousProportion"/>
     </genClasses>

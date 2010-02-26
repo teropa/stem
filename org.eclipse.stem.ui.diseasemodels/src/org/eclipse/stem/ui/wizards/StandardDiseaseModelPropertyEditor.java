@@ -282,29 +282,15 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 					fixedSize = getFixedSize(feature);
 				}
 				
-				if(type.getClassifierID() == CommonPackage.DOUBLE_VALUE_LIST ||
-						type.getClassifierID() == CommonPackage.DOUBLE_VALUE_MATRIX) 
-					validator = new MatrixEditorValidator() {
-						
-						public boolean validateValue(String val) {
-							if(val == null || val.trim().equals("")) return false;
-							try {
-								Double.parseDouble(val.trim());
-							} catch(NumberFormatException nfe) {
-								return false;
-							}
-							return true;
-						}
-				};			
-				else if(type.getClassifierID() == CommonPackage.STRING_VALUE_LIST)
-					validator = new MatrixEditorValidator() {
-					
-					public boolean validateValue(String val) {
-						if(val == null || val.trim().equals("")) return false;
-						return true;
-					}
-				};	
+				validator = getValidator(feature);
 				
+
+				// Pre-populate with 0 (default from EMF not possible since it's a reference)
+				if(existingVals == null && (type.getClassifierID() == CommonPackage.DOUBLE_VALUE_LIST || type.getClassifierID() == CommonPackage.DOUBLE_VALUE_MATRIX)) {
+					existingVals = new String[cols*rows];
+					for(int i=0;i<cols*rows;++i) existingVals[i]="0.0";
+				}
+
 				Shell shell = StandardDiseaseModelPropertyEditor.this.getShell();
 				MatrixEditorDialog dialog = new MatrixEditorDialog(shell, SWT.NONE, title, rows, cols, rownames, colnames, existingVals,fixedSize,validator);
 				
@@ -324,6 +310,39 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 		});
 	}
 
+	/**
+	 * getValidator. These are generic validators for strings and doubles. Override in 
+	 * subclass for more advanced validation (>0 etc.)
+	 * @param feature
+	 * @return
+	 */
+	public MatrixEditorValidator getValidator(EStructuralFeature feature) {
+		EClassifier type = feature.getEType();
+		MatrixEditorValidator validator=null;
+		if(type.getClassifierID() == CommonPackage.DOUBLE_VALUE_LIST ||
+				type.getClassifierID() == CommonPackage.DOUBLE_VALUE_MATRIX) 
+			validator = new MatrixEditorValidator() {
+				
+				public boolean validateValue(String val) {
+					if(val == null || val.trim().equals("")) return false;
+					try {
+						Double.parseDouble(val.trim());
+					} catch(NumberFormatException nfe) {
+						return false;
+					}
+					return true;
+				}
+		};			
+		else if(type.getClassifierID() == CommonPackage.STRING_VALUE_LIST)
+			validator = new MatrixEditorValidator() {
+			
+			public boolean validateValue(String val) {
+				if(val == null || val.trim().equals("")) return false;
+				return true;
+			}
+		};	
+		return validator;
+	}
 	/**
 	 * These are overriden by subclass
 	 */
@@ -371,6 +390,11 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 						.setReferencePopulationDensity(Double.parseDouble(entry
 								.getValue().getText()));
 				break;
+			}
+		}
+		if(diseaseModel instanceof SI)
+			for (final Map.Entry<EStructuralFeature, Text> entry : map.entrySet()) {
+			switch (entry.getKey().getFeatureID()) {	
 			case StandardPackage.STOCHASTIC_DISEASE_MODEL__SEED:
 				((StochasticDiseaseModel) diseaseModel).setSeed(Long
 						.parseLong(entry.getValue().getText()));
