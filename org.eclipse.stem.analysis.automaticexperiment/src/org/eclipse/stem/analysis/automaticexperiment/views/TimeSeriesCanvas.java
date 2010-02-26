@@ -380,13 +380,10 @@ public class TimeSeriesCanvas extends Canvas {
 		
 		//clearData();
 		resetData();
-
 		yAxisPrimary.getSeriesDefinitions().clear();
 		
-		
-		System.out.println("Enter Draw Method");
-		// one line per chart for now
-		int maxLines = 1;
+		// get the number of lines to plot for this type of chart
+		int maxLines = control.getNumProperties(chartIndex);
 	
 		// add all the rest of the line series now
 		for (int i = 0; i < maxLines; i ++) {
@@ -429,10 +426,10 @@ public class TimeSeriesCanvas extends Canvas {
 			
 			for (int i = 0; i < maxLines; i++) {
 				String property = control.getProperty(chartIndex,i);
-				final double[] doubleValues = control.getValues(chartIndex,i);
+				double[] doubleValues = control.getValues(chartIndex,i);
 				if(doubleValues==null) {
-					System.out.println("no data yet");
-					return;
+					doubleValues = new double[1];
+					doubleValues[0] = 0;
 				}
 				DataSeries series = dataSeriesMap.get(property);
 				

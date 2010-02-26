@@ -93,8 +93,10 @@ public class AutoExpControl extends AnalysisControl {
 	//protected static TimeSeriesCanvas[] equationSeries = new TimeSeriesCanvas[4];
 	
 	protected static TimeSeriesCanvas errorConvergenceByRun = null;
+	static final int ERROR_CONVERGENCE_BY_RUN_ID = 0;
 	
 	protected static TimeSeriesCanvas currentErrorByTime = null;
+	static final int CURRENT_ERROR_BY_TIME_ID = 1;
 	
 	protected static Composite chartComposite;
 	protected static Composite valuesComposite;
@@ -308,7 +310,7 @@ public class AutoExpControl extends AnalysisControl {
 				Messages.getString("AUTO.RUN"),// x axis
 				foreGround,
 				backgroundGround,
-				frameColor, 0, true);
+				frameColor, ERROR_CONVERGENCE_BY_RUN_ID, true);
 		final FormData TimeSeries1FormData = new FormData();
 		errorConvergenceByRun.setLayoutData(TimeSeries1FormData);
 		TimeSeries1FormData.top = new FormAttachment(dataComposite, 0);
@@ -323,7 +325,7 @@ public class AutoExpControl extends AnalysisControl {
 				Messages.getString("AUTO.TIME"),// x axis
 				foreGround,
 				backgroundGround,
-				frameColor, 1, true);
+				frameColor, CURRENT_ERROR_BY_TIME_ID, true);
 		final FormData TimeSeries2FormData = new FormData();
 		currentErrorByTime.setLayoutData(TimeSeries2FormData);
 		TimeSeries2FormData.top = new FormAttachment(dataComposite, 0);
@@ -467,7 +469,10 @@ public class AutoExpControl extends AnalysisControl {
 		}
 		
 		if(chartIndex == 0) return errorHistory;
-		if(chartIndex == 1) return newTimeSeries;
+		if(chartIndex == 1) {
+			if(state==0) return bestSeries;
+			return newTimeSeries;
+		}
 		
 		// should never happen
 		return retVal;
@@ -481,7 +486,10 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	public String getProperty(int chartIndex, int state) {
 		if(chartIndex==0) return Messages.getString("AUTO.TITLE1");
-		if(chartIndex==1) return Messages.getString("AUTO.TITLE2");
+		if(chartIndex==1) {
+			if(state==0) return Messages.getString("AUTO.TITLE2");
+			return Messages.getString("AUTO.TITLE3");
+		}
 		return  Messages.getString("AUTO.NOTFOUNDERROR");
 	}
 	
@@ -496,8 +504,9 @@ public class AutoExpControl extends AnalysisControl {
 	 * @see org.eclipse.stem.util.analysis.views.AnalysisControl#getNumProperties(int chartIndex)
 	 */
 	public int getNumProperties(int chartIndex) {
-		
-		return 0;
+		if(chartIndex==ERROR_CONVERGENCE_BY_RUN_ID) return 1; // one thing to chart
+		if(chartIndex==CURRENT_ERROR_BY_TIME_ID) return 2; // two things to chart
+		return 0; // should never happen
 	}
 
 	/**
