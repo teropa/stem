@@ -46,8 +46,14 @@ public class AutomaticExperiment implements IPerspectiveFactory {
 				0.0f, editorArea);
 		
 		// Put the ProjectExplorer view on the left
-		final IFolderLayout left = layout.createFolder("left", IPageLayout.LEFT, 0.60f, AutoExpView.ID_AutoExp_VIEW);
+		final IFolderLayout left = layout.createFolder("left", IPageLayout.LEFT, 0.20f, AutoExpView.ID_AutoExp_VIEW);
 		left.addView(ProjectExplorer.VIEW_ID);
+		
+		// Put the Error Log
+		final IFolderLayout bottom = layout.createFolder("right", IPageLayout.BOTTOM, //$NON-NLS-1$
+				0.60f, AutoExpView.ID_AutoExp_VIEW);
+		// add Error Log view
+		bottom.addView("org.eclipse.pde.runtime.LogView"); //$NON-NLS-1$
 		
 		// add the view to the "Show Views" menu
 		layout.addShowViewShortcut(AutoExpView.ID_AutoExp_VIEW);
