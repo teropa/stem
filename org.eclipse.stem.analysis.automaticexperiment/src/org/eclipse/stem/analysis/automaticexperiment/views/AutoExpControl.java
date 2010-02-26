@@ -82,12 +82,9 @@ public class AutoExpControl extends AnalysisControl {
 	private static Color white;
 	private static Color black;
 	
-	/**
-	 * For now we will always set Two charts
-	 */
-	//protected static TimeSeriesCanvas[] equationSeries = new TimeSeriesCanvas[4];
 	
-	protected static TimeSeriesCanvas errorConvergenceByRun = null;
+	
+	protected static RunHistoryCanvas errorConvergenceByRun = null;
 	static final int ERROR_CONVERGENCE_BY_RUN_ID = 0;
 	
 	protected static TimeSeriesCanvas currentErrorByTime = null;
@@ -135,9 +132,7 @@ public class AutoExpControl extends AnalysisControl {
 	 * Create the contents of the plotter
 	 */
 	void createContents() {
-		
-		
-		
+				
 		// Use form layout
 		setLayout(new FormLayout());
 		if(display==null) display = this.getDisplay();
@@ -355,7 +350,7 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	private void getRunHistoryChart(Composite dataComposite) {
 		// errorConvergenceByRun
-		errorConvergenceByRun = new TimeSeriesCanvas(this,dataComposite,
+		errorConvergenceByRun = new RunHistoryCanvas(this,dataComposite,
 				Messages.getString("AUTO.TITLE1"),
 				Messages.getString("AUTO.ERROR"), // yaxis
 				Messages.getString("AUTO.RUN"),// x axis
