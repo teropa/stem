@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="org.eclipse.stem.diseasemodels.multipopulation.provider.MultipopulationItemProviderAdapterFactory"
+            supportedTypes="org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+        	 org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+        	 org.eclipse.emf.edit.provider.ITreeItemContentProvider
+        	 org.eclipse.emf.edit.provider.IItemLabelProvider
+        	 org.eclipse.emf.edit.provider.IItemPropertySource"
+            uri="http:///org/eclipse/stem/diseasemodels/multipopulation.ecore">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage"
+            genModel="model/multipopulation.genmodel"
+            uri="http:///org/eclipse/stem/diseasemodels/multipopulation.ecore">
+      </package>
+   </extension>
+   <extension
+         point="org.eclipse.stem.diseasemodels.diseasemodel">
+      <classdef
+            class="org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSIDiseaseModelImpl">
+      </classdef>
+      <dublin_core
+            category_id="/"
+            creator="edlund"
+            description="A multi population SI disease model"
+            identifier="org.eclipse.stem.diseasemodels.multipopulation.si"
+            title="MultiPopulation SI Disease Model">
+      </dublin_core>
+   </extension>
+
+</plugin>

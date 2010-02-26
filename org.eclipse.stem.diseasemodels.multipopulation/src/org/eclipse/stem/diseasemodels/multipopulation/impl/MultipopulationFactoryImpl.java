@@ -1,0 +1,99 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package org.eclipse.stem.diseasemodels.multipopulation.impl;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import org.eclipse.stem.diseasemodels.multipopulation.*;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class MultipopulationFactoryImpl extends EFactoryImpl implements MultipopulationFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static MultipopulationFactory init() {
+		try {
+			MultipopulationFactory theMultipopulationFactory = (MultipopulationFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/eclipse/stem/diseasemodels/multipopulation.ecore"); 
+			if (theMultipopulationFactory != null) {
+				return theMultipopulationFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new MultipopulationFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultipopulationFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL: return createMultiPopulationSIDiseaseModel();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultiPopulationSIDiseaseModel createMultiPopulationSIDiseaseModel() {
+		MultiPopulationSIDiseaseModelImpl multiPopulationSIDiseaseModel = new MultiPopulationSIDiseaseModelImpl();
+		return multiPopulationSIDiseaseModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultipopulationPackage getMultipopulationPackage() {
+		return (MultipopulationPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static MultipopulationPackage getPackage() {
+		return MultipopulationPackage.eINSTANCE;
+	}
+
+} //MultipopulationFactoryImpl
