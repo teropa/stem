@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.stem.diseasemodels.multipopulation.presentation.MultipopulationModelWizardID"
+            name="%_UI_MultipopulationModelWizard_label"
+            class="org.eclipse.stem.diseasemodels.multipopulation.presentation.MultipopulationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MultipopulationModelFile.gif">
+         <description>%_UI_MultipopulationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.stem.diseasemodels.multipopulation.presentation.MultipopulationEditorID"
+            name="%_UI_MultipopulationEditor_label"
+            icon="icons/full/obj16/MultipopulationModelFile.gif"
+            extensions="multipopulation"
+            class="org.eclipse.stem.diseasemodels.multipopulation.presentation.MultipopulationEditor"
+            contributorClass="org.eclipse.stem.diseasemodels.multipopulation.presentation.MultipopulationActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+         <startup
+           class="org.eclipse.stem.diseasemodels.multipopulation.presentation.MultiPopulationPropertyStringProviderAdapterFactory">
+     </startup>
+   </extension>
+
+</plugin>
