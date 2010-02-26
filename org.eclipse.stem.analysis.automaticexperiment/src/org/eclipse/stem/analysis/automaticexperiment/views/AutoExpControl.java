@@ -261,12 +261,13 @@ public class AutoExpControl extends AnalysisControl {
 							} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
 								// One simulation is done. The result is READY and stored in evt.result
 								ErrorResult result = evt.result;
+								final double[] latestVals = evt.parameterValues;
 								if(result != null) {
 									// Plot 1 from result.getError() (keep appending)
 									appendLatestErrorData(result.getError());
 									// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
 									setRecentTimeSeries(result.getError(), result.getErrorByTimeStep() );
-									final double[] latestVals = evt.parameterValues;
+									
 									////////////////////////////////////////////////////////////////////////
 									// Add a Runnable to the UI thread's execution queue 
 									final Display display = Display.getDefault();
@@ -380,7 +381,9 @@ public class AutoExpControl extends AnalysisControl {
 		for(int i = 0; i < values.length; i ++) {
 			latestValueLabels[i].setText(""+values[i]);
 		}
+		
 		valuesComposite.redraw();
+		valuesComposite.update();
 	
 	}// updateValueLabels
 	
