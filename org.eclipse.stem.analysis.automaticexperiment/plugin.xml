@@ -47,7 +47,7 @@
   <extension
          point="org.eclipse.ui.views">
       <view
-            allowMultiple="false"
+            allowMultiple="true"
             category="org.eclipse.stem.ui.views"
             class="org.eclipse.stem.analysis.automaticexperiment.views.AutoExpView"
             icon="icons/full/customobj16/AutomaticExperiment.gif"
