@@ -225,6 +225,8 @@ public class SimplexAlgorithmExecuter
 				ErrorAnalysisAlgorithmEvent newEvent = new ErrorAnalysisAlgorithmEvent(null, ALGORITHM_STATUS.STARTING_SIMULATION);
 				newEvent.parameterNames = parameterNames;
 				newEvent.parameterValues = parameters;
+				((AbstractErrorAnalysisAlgorithm)algorithm).fireEvent(
+						newEvent);
 				runSimulation(simulation);
 			
 				result =  getErrorValue(simulation.getUniqueIDString());
