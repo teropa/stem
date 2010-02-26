@@ -85,7 +85,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	// Set to true to weight the average by population size
 	private static boolean WEIGHTED_AVERAGE = true;
 	private static boolean FIT_INCIDENCE = true;
-	private static boolean USE_THRESHOLD = true;
+	private static boolean USE_THRESHOLD = false;
 	private static double THRESHOLD = 0.1;
 	
 	/**
@@ -212,7 +212,6 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 				list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
 				++timesteps;
 			}
-			System.out.println("timesteps:"+timesteps);
 			double error = Double.MAX_VALUE;
 		    if(timesteps > 0) error = Math.sqrt(nominator/timesteps);
 			error = error / (maxRef-minRef);
