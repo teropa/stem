@@ -38,9 +38,12 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 
 /**
  * This class is a SWT GUI component that uses BIRT to plot
@@ -89,6 +92,9 @@ public class AutoExpControl extends AnalysisControl {
 	
 	protected static TimeSeriesCanvas currentErrorByTime = null;
 	static final int CURRENT_ERROR_BY_TIME_ID = 1;
+
+
+	private static final int NUMROWS = 10;
 	
 	//protected static Composite chartComposite;
 	protected static Composite timeSeriesComposite;
@@ -103,12 +109,19 @@ public class AutoExpControl extends AnalysisControl {
 	private static double[] newTimeSeries;
 	
 	protected static String[] runParamNames;
-	protected static double[] initParamValues;
-	protected static double[] currentParamValues;
+	protected static double[] bestParamValues;
+	protected static double[][] recentParamValues;
+	protected static double[] recentErrors;
 	
 	protected static CLabel[] attributeLabels;
-	protected static CLabel[] initialValueLabels;
-	protected static CLabel[] latestValueLabels;
+	protected static Text[] bestValueLabels;
+	protected static Text[][] recentValueLabels;
+	
+	protected static short row = 0; // which row are we updating
+	
+	protected static short numColumns = 0;
+	protected static boolean firstShift = true;
+	
 	/**
 	 * The dialog for the wizard
 	 */
@@ -236,7 +249,24 @@ public class AutoExpControl extends AnalysisControl {
 							if(evt.status == ALGORITHM_STATUS.STARTING_SIMULATION) {
 								// set the label info
 								runParamNames = evt.parameterNames;
-								currentParamValues = evt.parameterValues;
+								if(recentParamValues == null) {
+									numColumns = (short)runParamNames.length;
+									recentParamValues = new double[NUMROWS][runParamNames.length+1];
+									recentErrors = new double[NUMROWS];
+								}
+								if(row < NUMROWS) {
+									recentParamValues[row] = copyDoubleArray(evt.parameterValues);
+									recentErrors[row++] = -1; // not known yet
+								}
+								else {
+									// We need to shift up
+									for(int i=0;i<NUMROWS-1;++i) {
+										for(int j=0;j<runParamNames.length;++j) recentParamValues[i][j] = recentParamValues[i+1][j];
+										recentErrors[i]=recentErrors[i+1];
+									}
+									recentParamValues[row-1] = copyDoubleArray(evt.parameterValues);
+									recentErrors[row-1] = -1; // not known yet
+								}
 								// Add a Runnable to the UI thread's execution queue 
 								final Display display = Display.getDefault();
 								if (!display.isDisposed()) {
@@ -244,7 +274,8 @@ public class AutoExpControl extends AnalysisControl {
 									try {
 										display.asyncExec(new Runnable() {
 											public void run() {
-												initializeValueLabels(runParamNames, currentParamValues);
+												if(!valuesInitialized) initializeValueLabels(runParamNames);
+												updateValueLabels();
 											} // run
 										}); // display.asyncExec
 									} // try
@@ -261,12 +292,17 @@ public class AutoExpControl extends AnalysisControl {
 							} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
 								// One simulation is done. The result is READY and stored in evt.result
 								ErrorResult result = evt.result;
-								final double[] latestVals = evt.parameterValues;
+								recentErrors[row-1] = evt.result.getError();
 								if(result != null) {
 									// Plot 1 from result.getError() (keep appending)
 									appendLatestErrorData(result.getError());
 									// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
 									setRecentTimeSeries(result.getError(), result.getErrorByTimeStep() );
+									
+									if(bestParamValues == null) {
+										bestParamValues = copyDoubleArray(recentParamValues[row-1]);
+										bestError = result.getError();
+									}
 									
 									////////////////////////////////////////////////////////////////////////
 									// Add a Runnable to the UI thread's execution queue 
@@ -277,7 +313,7 @@ public class AutoExpControl extends AnalysisControl {
 											display.asyncExec(new Runnable() {
 												public void run() {
 													updateCharts();
-													updateValueLabels(latestVals);
+													updateValueLabels();
 												} // run
 											}); // display.asyncExec
 										} // try
@@ -376,10 +412,20 @@ public class AutoExpControl extends AnalysisControl {
 	 * set up the four data time series charts
 	 * @param dataComposite
 	 */
-	protected static void updateValueLabels(double[] values) {
-		
-		for(int i = 0; i < values.length; i ++) {
-			latestValueLabels[i].setText(""+values[i]);
+	protected static void updateValueLabels() {
+		if(bestParamValues != null) {
+			for(int i=0;i<numColumns;++i)
+				bestValueLabels[i].setText(bestParamValues[i]+"");
+			
+			bestValueLabels[numColumns].setText(bestError+"");
+		}
+		for(int i = 0; i < NUMROWS; ++i) 
+			for(int j=0;j<numColumns+1;++j) {
+				if(j< numColumns)
+					recentValueLabels[i][j].setText(recentParamValues[i][j]+"");
+				else if(recentErrors[i]!=-1)
+					recentValueLabels[i][j].setText(recentErrors[i]+"");			
+				else recentValueLabels[i][j].setText("...");
 		}
 		
 		valuesComposite.redraw();
@@ -388,79 +434,73 @@ public class AutoExpControl extends AnalysisControl {
 	}// updateValueLabels
 	
 	
+	static boolean valuesInitialized = false;
 	/**
 	 * 
 	 * @param attributes
 	 * @param initialValues
 	 */
-	protected static void initializeValueLabels(String[] attributes, double[] initialValues) {
+	protected static void initializeValueLabels(String[] attributes) {
 		
 		int numAttrEntries = attributes.length;
 		int numColumns = numAttrEntries;
 
 		// Use form layout
-		valuesComposite.setLayout(new FormLayout());
-		int width = 100/numColumns;
-		int left = 0;
-		int right = width;
-		int height = 10;
+		GridLayout gl = new GridLayout();
+		gl.numColumns = numColumns+1;
+		valuesComposite.setLayout(gl);
+		int width = 800/numColumns;
 		
-		attributeLabels = new CLabel[numColumns];
-		initialValueLabels = new CLabel[numColumns];
-		latestValueLabels = new CLabel[numColumns];
+		attributeLabels = new CLabel[numColumns+1];
+		bestValueLabels = new Text[numColumns+1];
+		recentValueLabels = new Text[NUMROWS][numColumns+1];
 		
 			for(int i = 0; i < numColumns; i ++) {
-				
-				int bottom = height;
-				
 				attributeLabels[i] = new CLabel(valuesComposite, SWT.BORDER);
 				attributeLabels[i].setText(attributes[i]);
 				attributeLabels[i].setBackground(cyan);
-				final FormData titleFormData = new FormData();
-				attributeLabels[i].setLayoutData(titleFormData);
-				titleFormData.top = new FormAttachment(0, 0);
-				titleFormData.bottom = new FormAttachment(height, 0);
-				titleFormData.left = new FormAttachment(left, 0);
-				titleFormData.right = new FormAttachment(right, 0);
-				
-				bottom += height;
-				
-				initialValueLabels[i] = new CLabel(valuesComposite, SWT.BORDER);
-				initialValueLabels[i].setText(""+initialValues[i]);
-				initialValueLabels[i].setBackground(white);
-				initialValueLabels[i].setForeground(black);
-				final FormData initFormData = new FormData();
-				initialValueLabels[i].setLayoutData(initFormData);
-				initFormData.top = new FormAttachment(attributeLabels[i], 0);
-				initFormData.bottom = new FormAttachment(bottom, 0);
-				initFormData.left = new FormAttachment(left, 0);
-				initFormData.right = new FormAttachment(right, 0);
-				
-				bottom += height;
-				
-				latestValueLabels[i] = new CLabel(valuesComposite, SWT.BORDER);
-				latestValueLabels[i].setText(""+initialValues[i]); // start = initial values
-				latestValueLabels[i].setBackground(white);
-				latestValueLabels[i].setForeground(darkRed);
-				final FormData latestFormData = new FormData();
-				latestValueLabels[i].setLayoutData(latestFormData);
-				latestFormData.top = new FormAttachment(initialValueLabels[i], 0);
-				latestFormData.bottom = new FormAttachment(bottom, 0);
-				latestFormData.left = new FormAttachment(left, 0);
-				latestFormData.right = new FormAttachment(right, 0);
-				
-				left += width;
-				right += width;
-				
-				
+				final GridData titleGridData = new GridData();
+				attributeLabels[i].setLayoutData(titleGridData);
+			    titleGridData.grabExcessHorizontalSpace=true;
+			    titleGridData.minimumWidth=width;
 			}
-				
+			attributeLabels[numColumns] = new CLabel(valuesComposite, SWT.BORDER);
+			attributeLabels[numColumns].setText("Error");
+			attributeLabels[numColumns].setBackground(cyan);
+			final GridData titleGridData = new GridData();
+			attributeLabels[numColumns].setLayoutData(titleGridData);
+		    titleGridData.grabExcessHorizontalSpace=true;
+		    titleGridData.minimumWidth=width;
+		    titleGridData.horizontalAlignment = GridData.FILL;
+			
+			for(int i = 0; i < numColumns+1; i ++) {
+				bestValueLabels[i] = new Text(valuesComposite, SWT.BORDER);
+				bestValueLabels[i].setText(""); // nothing yet
+				bestValueLabels[i].setBackground(new Color(null, 255, 128, 128)); //red
+				final GridData textGridData = new GridData();
+				bestValueLabels[i].setLayoutData(textGridData);
+			    textGridData.grabExcessHorizontalSpace=true;
+			    textGridData.minimumWidth=width;
+			    textGridData.horizontalAlignment = GridData.FILL;
+			}
+			
+			for(int i=0;i<NUMROWS;++i)
+				for(int j=0;j<numColumns+1;++j) {
+					recentValueLabels[i][j] = new Text(valuesComposite, SWT.BORDER);
+					recentValueLabels[i][j].setText(""); // nothing yet
+					recentValueLabels[i][j].setBackground(white);
+					final GridData textGridData = new GridData();
+					recentValueLabels[i][j].setLayoutData(textGridData);
+				    textGridData.grabExcessHorizontalSpace=true;
+				    textGridData.minimumWidth=width;
+				    textGridData.horizontalAlignment = GridData.FILL;
+				}	
 		 
 		valuesComposite.layout();
 		//valuesComposite.pack();
 		//valuesComposite.setVisible(true);
 		valuesComposite.redraw();
-		
+		valuesInitialized = true;
 	
 	}// updateValueLabels
 	
@@ -561,6 +601,7 @@ public class AutoExpControl extends AnalysisControl {
 		if(error <= bestError) {
 			bestError = error;
 			bestSeries = newTimeSeries;
+			bestParamValues = copyDoubleArray(recentParamValues[row-1]);
 		}
 		
 		
@@ -579,9 +620,14 @@ public class AutoExpControl extends AnalysisControl {
 	@Override
 	public void remove() {
 		// TODO Auto-generated method stub
-		
 	}
-	
+		
+	protected static double [] copyDoubleArray(double []s) {
+		double []t = new double[s.length];
+		int i=0;
+		for(double d:s)t[i++]=d;
+		return t;
+	}
 	
 	
 
