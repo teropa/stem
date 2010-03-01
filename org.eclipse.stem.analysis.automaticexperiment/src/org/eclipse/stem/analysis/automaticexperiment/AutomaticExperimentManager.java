@@ -11,6 +11,12 @@ import automaticexperiment.AutomaticExperiment;
 
 public class AutomaticExperimentManager {
 	private static AutomaticExperimentManager instance = null;
+	protected static boolean QUIT_NOW = false;
+	
+	public static void quitNow() {
+		QUIT_NOW = true;
+	}
+
 	private ArrayList<AutomaticExperimentManagerListener> listeners = new ArrayList<AutomaticExperimentManagerListener>();
 	
 	private AutomaticExperimentManager() {
@@ -21,11 +27,13 @@ public class AutomaticExperimentManager {
 	}
 	
 	public ErrorAnalysisAlgorithm createAlgorithm(String name) {
+		QUIT_NOW = false; // in case RESTARTING
 		ErrorAnalysisAlgorithm result = ErrorAnalysisAlgorithmFactory.INSTANCE.createErrorAnalysisAlgorithm(name);
 		return result;
 	}
 	
 	public void executeAlgorithm(final ErrorAnalysisAlgorithm algorithm, final AutomaticExperiment automaticExperiment) {
+		QUIT_NOW = false; // in case RESTARTING
 		algorithm.init(automaticExperiment, algorithm);
 		// Stefan fix, we can't hold up the UI thread, it causes memory leaks
 		Job j = new Job("Minimizer algorith") {
@@ -50,6 +58,7 @@ public class AutomaticExperimentManager {
 	}
 	
 	public static void main() {
+		QUIT_NOW = false; // in case RESTARTING
 		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
 		manager.addListener(new AutomaticExperimentManagerListener() {
 			
