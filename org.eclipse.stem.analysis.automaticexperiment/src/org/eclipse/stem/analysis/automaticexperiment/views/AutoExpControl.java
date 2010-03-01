@@ -19,6 +19,7 @@ import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.stem.analysis.ErrorResult;
 import org.eclipse.stem.analysis.automaticexperiment.ALGORITHM_STATUS;
@@ -30,6 +31,7 @@ import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmEvent
 import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithmListener;
 import org.eclipse.stem.analysis.automaticexperiment.MANAGER_STATUS;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.ui.ISharedImages;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
@@ -40,9 +42,12 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
 /**
@@ -53,6 +58,9 @@ public class AutoExpControl extends AnalysisControl {
 	
 	private static Display display = null;
 	
+	private ImageRegistry imageRegistry = null;
+	
+	private static AutomaticExperimentManager manager = null;
 	
 	/**
 	 * Folder to contain the data
@@ -110,6 +118,7 @@ public class AutoExpControl extends AnalysisControl {
 	
 	protected static String[] runParamNames;
 	protected static double[] bestParamValues;
+	protected static double[] restartParamValues;
 	protected static double[][] recentParamValues;
 	protected static double[] recentErrors;
 	
@@ -146,6 +155,11 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	void createContents() {
 				
+		// Set the image registry
+		if (imageRegistry == null) {
+			org.eclipse.stem.ui.Activator activator = org.eclipse.stem.ui.Activator.getDefault();
+			imageRegistry = activator.getImageRegistry();
+		}
 		// Use form layout
 		setLayout(new FormLayout());
 		if(display==null) display = this.getDisplay();
@@ -222,89 +236,47 @@ public class AutoExpControl extends AnalysisControl {
 		//////////////
  		// RESTART
 		controlsComposite = new Composite(tabFolder, SWT.BORDER);
-		controlsComposite.setLayout(new FormLayout());
 		CTabItem item3 = new CTabItem(tabFolder, SWT.BORDER);
-		item3.setText(Messages.getString("AUTO.RESTART"));
+		item3.setText(Messages.getString("AUTO.CONTROLS"));
 		item3.setControl(controlsComposite);
-		Label restartLabel = new Label(controlsComposite, SWT.BORDER);
-		restartLabel.setText("Restart Controls Will Go HERE");
+		getControls(controlsComposite);
 		
 		
 		
 		tabFolder.setSelection(item0);
-		
-		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
-		manager.addListener(new AutomaticExperimentManagerListener() {
-			
-			@Override
-			public void eventReceived(AutomaticExperimentManagerEvent evt) {
-				if(evt.status == MANAGER_STATUS.SCHEDULED) {
-					ErrorAnalysisAlgorithm alg = evt.algorithm;
-					alg.addListener(new ErrorAnalysisAlgorithmListener() {
-						@Override
-						public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
-							
-							System.out.println("Event is "+evt.status);
-							
-							if(evt.status == ALGORITHM_STATUS.STARTING_SIMULATION) {
-								// set the label info
-								runParamNames = evt.parameterNames;
-								if(recentParamValues == null) {
-									numColumns = (short)runParamNames.length;
-									recentParamValues = new double[NUMROWS][runParamNames.length+1];
-									recentErrors = new double[NUMROWS];
-								}
-								if(row < NUMROWS) {
-									recentParamValues[row] = copyDoubleArray(evt.parameterValues);
-									recentErrors[row++] = -1; // not known yet
-								}
-								else {
-									// We need to shift up
-									for(int i=0;i<NUMROWS-1;++i) {
-										for(int j=0;j<runParamNames.length;++j) recentParamValues[i][j] = recentParamValues[i+1][j];
-										recentErrors[i]=recentErrors[i+1];
+		if(manager==null) {
+			manager = AutomaticExperimentManager.getInstance();
+			manager.addListener(new AutomaticExperimentManagerListener() {
+				
+				@Override
+				public void eventReceived(AutomaticExperimentManagerEvent evt) {
+					if(evt.status == MANAGER_STATUS.SCHEDULED) {
+						ErrorAnalysisAlgorithm alg = evt.algorithm;
+						alg.addListener(new ErrorAnalysisAlgorithmListener() {
+							@Override
+							public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
+																
+								if(evt.status == ALGORITHM_STATUS.STARTING_SIMULATION) {
+									// set the label info
+									runParamNames = evt.parameterNames;
+									if(recentParamValues == null) {
+										numColumns = (short)runParamNames.length;
+										recentParamValues = new double[NUMROWS][runParamNames.length+1];
+										recentErrors = new double[NUMROWS];
 									}
-									recentParamValues[row-1] = copyDoubleArray(evt.parameterValues);
-									recentErrors[row-1] = -1; // not known yet
-								}
-								// Add a Runnable to the UI thread's execution queue 
-								final Display display = Display.getDefault();
-								if (!display.isDisposed()) {
-									// Yes
-									try {
-										display.asyncExec(new Runnable() {
-											public void run() {
-												if(!valuesInitialized) initializeValueLabels(runParamNames);
-												updateValueLabels();
-											} // run
-										}); // display.asyncExec
-									} // try
-									catch (final Exception e) {
-										// Ignore there could be a race condition with the display being disposed
-									} // catch Exception
-								} // if (!display.isDisposed()) 
-							//////////////////////////////////////
-							} else if(evt.status == ALGORITHM_STATUS.FINISHED_ALGORITHM) {
-								// The algorithm has finished. Smallest value in 
-								//evt.result
-								/////////////////
-								
-							} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
-								// One simulation is done. The result is READY and stored in evt.result
-								ErrorResult result = evt.result;
-								recentErrors[row-1] = evt.result.getError();
-								if(result != null) {
-									// Plot 1 from result.getError() (keep appending)
-									appendLatestErrorData(result.getError());
-									// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
-									setRecentTimeSeries(result.getError(), result.getErrorByTimeStep() );
-									
-									if(bestParamValues == null) {
-										bestParamValues = copyDoubleArray(recentParamValues[row-1]);
-										bestError = result.getError();
+									if(row < NUMROWS) {
+										recentParamValues[row] = copyDoubleArray(evt.parameterValues);
+										recentErrors[row++] = -1; // not known yet
 									}
-									
-									////////////////////////////////////////////////////////////////////////
+									else {
+										// We need to shift up
+										for(int i=0;i<NUMROWS-1;++i) {
+											for(int j=0;j<runParamNames.length;++j) recentParamValues[i][j] = recentParamValues[i+1][j];
+											recentErrors[i]=recentErrors[i+1];
+										}
+										recentParamValues[row-1] = copyDoubleArray(evt.parameterValues);
+										recentErrors[row-1] = -1; // not known yet
+									}
 									// Add a Runnable to the UI thread's execution queue 
 									final Display display = Display.getDefault();
 									if (!display.isDisposed()) {
@@ -312,7 +284,7 @@ public class AutoExpControl extends AnalysisControl {
 										try {
 											display.asyncExec(new Runnable() {
 												public void run() {
-													updateCharts();
+													if(!valuesInitialized) initializeValueLabels(runParamNames);
 													updateValueLabels();
 												} // run
 											}); // display.asyncExec
@@ -321,16 +293,57 @@ public class AutoExpControl extends AnalysisControl {
 											// Ignore there could be a race condition with the display being disposed
 										} // catch Exception
 									} // if (!display.isDisposed()) 
-								}// if(result != null)
-							} else if(evt.status == ALGORITHM_STATUS.RESTARTED_ALGORITHM) {
-								// The algorithm has restarted. Smallest value in 
-								// evt.result
+								//////////////////////////////////////
+								} else if(evt.status == ALGORITHM_STATUS.FINISHED_ALGORITHM) {
+									// The algorithm has finished. Smallest value in 
+									//evt.result
+									/////////////////
+									
+								} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
+									// One simulation is done. The result is READY and stored in evt.result
+									ErrorResult result = evt.result;
+									recentErrors[row-1] = evt.result.getError();
+									if(result != null) {
+										// Plot 1 from result.getError() (keep appending)
+										appendLatestErrorData(result.getError());
+										// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
+										setRecentTimeSeries(result.getError(), result.getErrorByTimeStep() );
+										
+										if(bestParamValues == null) {
+											bestParamValues = copyDoubleArray(recentParamValues[row-1]);
+											bestError = result.getError();
+										}
+										
+										////////////////////////////////////////////////////////////////////////
+										// Add a Runnable to the UI thread's execution queue 
+										final Display display = Display.getDefault();
+										if (!display.isDisposed()) {
+											// Yes
+											try {
+												display.asyncExec(new Runnable() {
+													public void run() {
+														updateCharts();
+														updateValueLabels();
+													} // run
+												}); // display.asyncExec
+											} // try
+											catch (final Exception e) {
+												// Ignore there could be a race condition with the display being disposed
+											} // catch Exception
+										} // if (!display.isDisposed()) 
+									}// if(result != null)
+								} else if(evt.status == ALGORITHM_STATUS.RESTARTED_ALGORITHM) {
+									// The algorithm has restarted. Smallest value in 
+									// evt.result
+								}
 							}
-						}
-					});
+						});
+					}
 				}
-			}
-		});
+			});
+			
+		}// if(manager null)
+		
 		
 		updateCharts();
 		
@@ -406,6 +419,65 @@ public class AutoExpControl extends AnalysisControl {
 	
 	}// getEquationSeries
 	
+	
+	/**
+	 * set up the time series chart
+	 * @param dataComposite
+	 */
+	private void getControls(Composite controlComposite) {
+		
+		// Use form layout
+		GridLayout gl = new GridLayout();
+		gl.numColumns = 3;
+		controlComposite.setLayout(gl);
+		
+		// row 1
+		// c1.
+		CLabel stopLabel = new CLabel(controlsComposite, SWT.NONE);
+		stopLabel.setText(Messages.getString("AUTO.STOP"));
+		// c2
+		Button stopButton = new Button(controlComposite, SWT.PUSH);
+		stopButton.setImage(imageRegistry.get(ISharedImages.STOP_ICON));
+		// c3
+		CLabel noLabel = new CLabel(controlsComposite, SWT.NONE);
+		noLabel.setText("");
+		
+		// row 2
+		// c1
+		CLabel restartLabel = new CLabel(controlsComposite, SWT.NONE);
+		restartLabel.setText(Messages.getString("AUTO.RESTART"));
+		// c2
+		Button restartButton = new Button(controlComposite, SWT.PUSH);
+		restartButton.setImage(imageRegistry.get(ISharedImages.RESTART_ICON));
+		// c3
+		CLabel paramsLabel = new CLabel(controlsComposite, SWT.NONE);
+		paramsLabel.setText("something with parameters goes here");
+		
+		
+		
+		// ACTIONS
+		stopButton.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				switch (e.type) {
+				case SWT.Selection:
+					AutomaticExperimentManager.quitNow();
+					break;
+				}
+			}
+		});
+		
+		restartButton.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				switch (e.type) {
+				case SWT.Selection:
+					AutomaticExperimentManager.restartNow(restartParamValues);
+					break;
+				}
+			}
+		});
+
+		
+	}// getEquationSeries
 	
 	
 	/**

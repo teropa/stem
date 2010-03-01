@@ -15,6 +15,11 @@ public class AutomaticExperimentManager {
 	
 	public static void quitNow() {
 		QUIT_NOW = true;
+		System.out.println("Stefan: Please quit now");
+	}
+	
+	public static void restartNow(double[] restartParamValues) {
+		System.out.println("Stefan: Restart with the valued provided");
 	}
 
 	private ArrayList<AutomaticExperimentManagerListener> listeners = new ArrayList<AutomaticExperimentManagerListener>();
