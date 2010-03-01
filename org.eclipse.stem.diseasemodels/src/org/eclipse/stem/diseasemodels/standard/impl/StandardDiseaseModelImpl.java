@@ -351,7 +351,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 
 			assert diseaseLabel.getPopulationLabel().getPopulationIdentifier()
 					.equals(getPopulationIdentifier());
-
+			
 			// This is the estimated state of the disease for this label
 			final StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)diseaseLabel
 					.getProbeValue();
@@ -363,7 +363,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			final StandardDiseaseModelLabelValue pipeTransportDeltas = getPipeTransportationDeltas(diseaseLabel, time, timeDelta, pipeDelta);
 
 			// 2) Compute Birth and Deaths state delta changes
-			final StandardDiseaseModelLabelValue diseaseDeathDeltas = computeDiseaseDeathsDeltas(time, currentState, timeDelta, birthDeathsDelta);
+			final StandardDiseaseModelLabelValue diseaseDeathDeltas = computeDiseaseDeathsDeltas(time, diseaseLabel, currentState, timeDelta, birthDeathsDelta);
 
 			StandardDiseaseModelLabelValue diseaseState = currentState;
 				
@@ -938,6 +938,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * 
 	 * @param time 
 	 * 			  STEM time
+	 * @param diseaseLabel
 	 * @param currentLabelValue
 	 *            the current label value of the disease model
 	 * @param timeDelta
@@ -948,6 +949,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	
 	public abstract StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
 			final STEMTime time,
+			final StandardDiseaseModelLabel diseaseLabel,
 			final StandardDiseaseModelLabelValue currentLabelValue, 
 			final long timeDelta, 
 			DiseaseModelLabelValue returnValue);

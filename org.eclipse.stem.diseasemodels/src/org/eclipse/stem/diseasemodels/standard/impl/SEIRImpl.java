@@ -118,7 +118,7 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	 */
 	@Override
 	public SEIRLabelValue computeDiseaseDeathsDeltas(
-			final STEMTime time, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
+			final STEMTime time, final StandardDiseaseModelLabel diseaseLabel, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
 
 		final SEIRLabelValue currentSEIR = (SEIRLabelValue) currentLabelValue;
 		

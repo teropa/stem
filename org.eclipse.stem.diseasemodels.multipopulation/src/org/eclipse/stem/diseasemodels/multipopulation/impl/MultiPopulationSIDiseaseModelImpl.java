@@ -35,6 +35,7 @@ import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImp
 import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelImpl;
 import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelValueImpl;
 import org.eclipse.stem.definitions.nodes.Region;
+import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
@@ -263,6 +264,29 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 */
 	public DoubleValueList getInfectiousMortalityRate() {
 		return infectiousMortalityRate;
+	}
+	
+	/**
+	 * Get the particular infectious mortality rate for a specific population group by name
+	 * @generated NOT
+	 */
+	public double getInfectiousMortality(String populationName) {
+		// next get it's INDEX in the model
+		// TODO we should encapsulate this code in a helper method
+		int populationIndex = -1;
+		EList<StringValue> groupList = populationGroups.getValues();
+		for(int i =0; i < groupList.size(); i ++) {
+			String nextPop = groupList.get(i).getValue();
+			if(nextPop.equalsIgnoreCase(populationName)) {
+			populationIndex = i;
+			break;
+			}	
+		}
+		if(populationIndex < 0) {
+			// should never happen
+			Activator.logError("Error, Infectious mortality rate note defined for population named "+populationName+" check spelling !!", new Exception());
+		}
+		return infectiousMortalityRate.getValues().get(populationIndex).getValue();
 	}
 
 	/**
@@ -537,13 +561,44 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		return null;
 	}
 
+	
+	/**
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#computeDeaths(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue,
+	 *      long)
+	 */
 	@Override
 	public StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
-			STEMTime time, StandardDiseaseModelLabelValue currentLabelValue,
-			long timeDelta, DiseaseModelLabelValue returnValue) {
-		System.out.println("Jamie implement this");
-		return null;
-	}
+			final STEMTime time, final StandardDiseaseModelLabel diseaseLabel, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
+
+		String thisPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
+		final SILabelValue currentSI = (SILabelValue) currentLabelValue;
+		
+		final double adjustedInfectiousMortalityRate = getAdjustedInfectiousMortalityRate(timeDelta, thisPopulation);
+		
+		final double diseaseDeaths = adjustedInfectiousMortalityRate
+				* currentSI.getI();
+
+		SILabelValueImpl ret = (SILabelValueImpl)returnValue;
+		ret.setS(0.0);
+		ret.setI(-diseaseDeaths);
+		ret.setIncidence(0.0);
+		ret.setDiseaseDeaths(diseaseDeaths);
+		
+		return ret;
+	} // computeBirthDeathsDeltas
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public double getAdjustedInfectiousMortalityRate(long timeDelta, final String populationName) {
+		// TODO this division can be eliminated if timeDelta==getTimePeriod
+		return getInfectiousMortality(populationName)
+		* ((double) timeDelta / (double) getTimePeriod());
+	} // getAdjustedInfectiousMortalityRate
+
+
 
 	@Override
 	public StandardDiseaseModelLabelValue computeDiseaseDeltas(STEMTime time,
@@ -556,13 +611,10 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		// which population is "this"....
 		final SILabelValue currentSI = (SILabelValue) currentState;
 		String thisPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
-		String myClass = diseaseLabel.getClass().getCanonicalName();
-		// DEBUG
-		System.out.println("my class = "+myClass);
-		
+				
 		// next get it's INDEX in the model
 		// TODO we should encapsulate this code in a helper method
-		int populationIndex = 0;
+		int populationIndex = -1;
 		EList<StringValue> groupList = populationGroups.getValues();
 		for(int i =0; i < groupList.size(); i ++) {
 			String nextPop = groupList.get(i).getValue();
@@ -570,6 +622,10 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			populationIndex = i;
 			break;
 			}	
+		}
+		if(populationIndex < 0) {
+			// should never happen
+			Activator.logError("MultiPopulationSIDiseaseModel.computeDiseaseDeltas() Error, Population named "+thisPopulation+" not found. check spelling !!", new Exception());
 		}
 	
 			
@@ -604,31 +660,27 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			EList<NodeLabel> nodeLabels = thisNode.getLabels();
 			for(int j = 0; j < nodeLabels.size(); j ++) {
 				NodeLabel label = nodeLabels.get(j);
-				// TODO we need to compare to THIS class
-				String otherClass = label.getClass().getCanonicalName();
-				// DEBUG
-				System.out.println("other class = "+otherClass);
-				if(otherClass.equalsIgnoreCase(myClass)) {
-					StandardDiseaseModelLabel otherDiseaseLabel = (StandardDiseaseModelLabel) label;
-					// now check the popualtion type
-					String otherPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
-					if(otherPopulation.equals(nextPop)) {
-						// Yes?
-						// then we found the label for the correct next population
-						
-						// for this population we need to get the EFFECTIVE Infectious including
-						// ALL neighboring nodes
-						double onsiteInfectious = ((SILabel) otherDiseaseLabel).getI();
-						final double effectiveInfectious = getNormalizedEffectiveInfectious(otherPopulation, thisNode, otherDiseaseLabel, onsiteInfectious);
-						
-					    // ADD up the new incidence
-						numberOfSusceptibleToInfected = adjustedTransmission * numberSusceptible * effectiveInfectious;
-						
-					} // if label correct for next other  population
-					
-				}// if right label by class s
-			}//for all labels in THIS node
+				if(label instanceof SILabel) {
+					if (this == ((SILabel)label).getDecorator()) {
+						StandardDiseaseModelLabel otherDiseaseLabel = (StandardDiseaseModelLabel) label;
+						// now check the popualtion type
+						String otherPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
+						if(otherPopulation.equals(nextPop)) {
+							// Yes?
+							// then we found the label for the correct next population
+							
 			
+							// for this population we need to get the EFFECTIVE Infectious including
+							// ALL neighboring nodes
+							double onsiteInfectious = ((SILabel) otherDiseaseLabel).getI();
+							final double effectiveInfectious = getNormalizedEffectiveInfectious(otherPopulation, thisNode, otherDiseaseLabel, onsiteInfectious);
+							
+						    // ADD up the new incidence
+							numberOfSusceptibleToInfected += adjustedTransmission * numberSusceptible * effectiveInfectious;
+						}
+					}
+				}// if it's an SI label
+			}//for all labels in THIS node
 		}// For all population in the model
 		
 		double numberOfInfectedToSusceptible = getAdjustedRecoveryRate(thisRecoveryRate, timeDelta) * currentSI.getI();

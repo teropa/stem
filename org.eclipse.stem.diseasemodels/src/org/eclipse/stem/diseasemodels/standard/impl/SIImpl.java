@@ -261,7 +261,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 */
 	@Override
 	public StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
-			final STEMTime time, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
+			final STEMTime time, final StandardDiseaseModelLabel diseaseLabel, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
 
 		final SILabelValue currentSEIR = (SILabelValue) currentLabelValue;
 		

@@ -132,9 +132,8 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	 */
 	@Override
 	public StandardDiseaseModelLabelValue computeDiseaseDeathsDeltas(
-			final STEMTime time, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
-
-
+			final STEMTime time, final StandardDiseaseModelLabel diseaseLabel, final StandardDiseaseModelLabelValue currentLabelValue, final long timeDelta, DiseaseModelLabelValue returnValue) {
+		
 		final SIRLabelValue currentSIR = (SIRLabelValue) currentLabelValue;
 		
 		final double adjustedInfectiousMortalityRate = getAdjustedInfectiousMortalityRate(timeDelta);
