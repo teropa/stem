@@ -30,6 +30,8 @@ import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
+import org.eclipse.stem.definitions.edges.impl.MigrationEdgeLabelImpl;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImpl;
 import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelImpl;
@@ -644,7 +646,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		double numberOfSusceptibleToInfected = 0.0;
 		double numberSusceptible = currentSI.getS();
 		Node thisNode = diseaseLabel.getNode();
-		for(int i = 0; i<= transmissionVector.size(); i ++) {
+		for(int i = 0; i< transmissionVector.size(); i ++) {
 			// We need to get the identifier of the ith population model
 			String nextPop = groupList.get(i).getValue();
 			
@@ -910,6 +912,9 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		return mixing;
 	} // getInfectiousChangeFromMixing
 	
+	
+	
+	
 
 	/**
 	 * Get the onsite total population for a particular population group by name
@@ -946,13 +951,74 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
     }
 	
 
+    /**
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getMigrationDeltas(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel,
+	 *      org.eclipse.stem.core.model.STEMTime)
+	 */
 	@Override
-	protected StandardDiseaseModelLabelValue getMigrationDeltas(
-			StandardDiseaseModelLabel diseaseLabel, STEMTime time,
-			DiseaseModelLabelValue returnValue) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	protected StandardDiseaseModelLabelValue getMigrationDeltas(final StandardDiseaseModelLabel diseaseLabel, final STEMTime time, DiseaseModelLabelValue returnValue) {
+		
+		double deltaS = 0.0;
+		double deltaI = 0.0;
+
+		// DO MIGRATION THROUGH MIGRATION EDGES
+	    // to/from THIS node
+		Node node = diseaseLabel.getNode();
+		for (final Iterator<Edge> migrationEdgeIter = MigrationEdgeLabelImpl.getMigrationEdgesFromNode(node).iterator(); migrationEdgeIter.hasNext();) {
+			//every edge is an A=>B Edge. For each node there might be two edges
+			//where THIS node can act as type A or type B (origin or destination)
+			final Edge migrationEdge = migrationEdgeIter.next();
+			MigrationEdgeLabel migrationLabel = (MigrationEdgeLabel) migrationEdge.getLabel();
+			double migrationRate = migrationLabel.getCurrentValue().getMigrationRate();
+			// get the other node
+			final Node otherNode = migrationEdge.getOtherNode(node);
+			// do a test to find out if this edge is an incoming or outgoing edge
+			// by getting the edges' destination node (which could be THIS node)
+			boolean incomming = (migrationEdge.getB().equals(node));
+			// is this incoming
+			if (incomming) {
+				// edge is incoming
+				for (final Iterator<NodeLabel> labelIter = otherNode.getLabels().iterator(); labelIter.hasNext();) {
+					final NodeLabel nodeLabel = labelIter.next();
+					// Is this a disease label?
+					if (nodeLabel instanceof StandardDiseaseModelLabel) {
+						final SILabel otherSILabel = (SILabel) nodeLabel;
+						// Yes
+						// Is it updated by this disease model?
+						if (this == otherSILabel.getDecorator()) {
+							deltaS  += migrationRate*otherSILabel.getTempValue().getS();
+							deltaI += migrationRate*otherSILabel.getTempValue().getI();
+							break;
+						} // if
+					}
+				} // for
+			} else {
+				// edge is outgoing
+				// edge is incoming
+				for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter.hasNext();) {
+					final NodeLabel nodeLabel = labelIter.next();
+					// Is this a disease label?
+					if (nodeLabel instanceof StandardDiseaseModelLabel) {
+						final SILabel thisSILabel = (SILabel) nodeLabel;
+						// Yes
+						// Is it updated by this disease model?
+						if (this == thisSILabel.getDecorator()) {
+							deltaS  -= migrationRate*thisSILabel.getTempValue().getS();
+							deltaI -= migrationRate*thisSILabel.getTempValue().getI();
+							break;
+						} // if
+					}
+				} // for
+			}
+		} // for each migration edge
+		SILabelValueImpl ret = (SILabelValueImpl)returnValue;
+		ret.setS(deltaS);
+		ret.setI(deltaI);
+		ret.setIncidence(0.0);
+		ret.setDiseaseDeaths(0.0);
+		return ret;
+	} // getMigrationDeltas
+
 
 	@Override
 	public DiseaseModelLabel createDiseaseModelLabel() {
@@ -1008,9 +1074,9 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			final PopulationModelLabel populationLabel = (PopulationModelLabel) pl;
 			// Is this label for the population we're looking for?
 			boolean keep = false;
-			if (populationLabel.getPopulationIdentifier().equals(
-					populationIdentifier)) keep = true;
-			else
+//			if (populationLabel.getPopulationIdentifier().equals(
+//					populationIdentifier)) keep = true;
+//			else
 				for(StringValue g:this.getPopulationGroups().getValues())
 					if(g.getValue().equals(populationLabel.getPopulationIdentifier())) {keep=true;break;}
 					
