@@ -162,7 +162,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * we scale the physicallyAdjacentInfectiousProportion by REFERENCE_COMMUTE_DISTANCE/LINEAR EXTENT
 	 * Where Linear Extent is Sqrt(Area).
 	 */
-	protected static final double REFERENCE_COMMUTE_DISTANCE = 45.0;
+	public static final double REFERENCE_COMMUTE_DISTANCE = 45.0;
 
 	/**
 	 * The cached value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
@@ -851,7 +851,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		
 		return retVal;
 
-	} // getPhysicallyAdjacentInfectious
+	} // getNormalizedEffectiveInfectious
 	
 	/**
 	 * This method correctly computes the mixing of the infectious population (onsite) with the infectious population
@@ -905,8 +905,15 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		} // for
 
 		return mixing;
-	} // getInfectious
+	} // getInfectiousChangeFromMixing
 	
+	
+	/**
+	 * 
+	 * @param diseaseModel
+	 * @param node
+	 * @return
+	 */
     private double getLocalPopulation(final SI diseaseModel, Node node) {
     	for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter.hasNext();) {
     		final NodeLabel nodeLabel = labelIter.next();
