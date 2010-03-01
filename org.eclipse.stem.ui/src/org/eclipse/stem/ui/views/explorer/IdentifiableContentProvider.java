@@ -71,9 +71,15 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 				// Yes
 				try {
 					for (final IResource identifiableFile : folder.members()) {
-						final Identifiable identifiable = Utility
-								.getIdentifiable((IFile) identifiableFile);
-						temp.add(identifiable);
+						IFile ifile = (IFile) identifiableFile;
+						// exclude any operating system files starting with '.'
+						if((ifile.getName().length()>0)&&( ifile.getName().charAt(0)!='.' )) {
+							final Identifiable identifiable = Utility.getIdentifiable((IFile) identifiableFile);
+							// here we want to protect the user and allow non STEM files in each Directory
+							// Just catch any exception and continue
+							if(identifiable != null) temp.add(identifiable);
+						}
+						
 					}
 				} catch (final CoreException e) {
 					Activator.logError("", e);
