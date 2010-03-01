@@ -152,6 +152,12 @@ public interface ISharedImages {
 	/**
 	 * This image is the icon to represent a STOP simulation event
 	 */
+	String RESTART_ICON = "restart.image"; //$NON-NLS-1$
+	
+
+	/**
+	 * This image is the icon to represent a STOP simulation event
+	 */
 	String STOP_ICON = "stop.image"; //$NON-NLS-1$
 
 	/**
