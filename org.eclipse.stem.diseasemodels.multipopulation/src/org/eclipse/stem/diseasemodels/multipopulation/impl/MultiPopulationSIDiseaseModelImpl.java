@@ -8,37 +8,48 @@ package org.eclipse.stem.diseasemodels.multipopulation.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
-import java.math.BigDecimal;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.LabelValue;
+import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.labels.AreaLabel;
+import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImpl;
+import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelImpl;
+import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelValueImpl;
+import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage;
-
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.Infector;
 import org.eclipse.stem.diseasemodels.standard.SIInfector;
+import org.eclipse.stem.diseasemodels.standard.SILabel;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
+import org.eclipse.stem.diseasemodels.standard.impl.SIImpl;
+import org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl;
-import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 
 /**
@@ -69,6 +80,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @ordered
 	 */
 	protected StringValueList populationGroups;
+	
 
 	/**
 	 * The cached value of the '{@link #getTransmissionRate() <em>Transmission Rate</em>}' containment reference.
@@ -421,7 +433,6 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -539,9 +550,349 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			StandardDiseaseModelLabelValue currentState,
 			StandardDiseaseModelLabel diseaseLabel, long timeDelta,
 			DiseaseModelLabelValue returnValue) {
-		System.out.println("Jamie implement this");
-		return null;
+		
+		// THIS method gets called multiple times, once for each population identifier
+		// in the population model.
+		// which population is "this"....
+		final SILabelValue currentSI = (SILabelValue) currentState;
+		String thisPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
+		String myClass = diseaseLabel.getClass().getCanonicalName();
+		// DEBUG
+		System.out.println("my class = "+myClass);
+		
+		// next get it's INDEX in the model
+		// TODO we should encapsulate this code in a helper method
+		int populationIndex = 0;
+		EList<StringValue> groupList = populationGroups.getValues();
+		for(int i =0; i < groupList.size(); i ++) {
+			String nextPop = groupList.get(i).getValue();
+			if(nextPop.equalsIgnoreCase(thisPopulation)) {
+			populationIndex = i;
+			break;
+			}	
+		}
+	
+			
+		// now we know the index of the current population being integrated.
+		// Get the correct transmission rate list from the MATRIX
+		EList<DoubleValue> transmissionVector = transmissionRate.getValueLists().get(populationIndex).getValues();
+		
+		// ALL the other disease parameters are also DoubleValueLists. We now iterate through all populations
+		// get the specific rate parameters from EACH list based on this population index
+		double thisRecoveryRate = recoveryRate.getValues().get(populationIndex).getValue();
+		
+		
+		//  NOW iterate over every population (including this one) to compute new infections
+		//  this includes infections within a population group
+		//  and all the cross terms
+		double numberOfSusceptibleToInfected = 0.0;
+		double numberSusceptible = currentSI.getS();
+		Node thisNode = diseaseLabel.getNode();
+		for(int i = 0; i<= transmissionVector.size(); i ++) {
+			// We need to get the identifier of the ith population model
+			String nextPop = groupList.get(i).getValue();
+			
+            //////////////////
+			// 1. compute BETA for transmission from the ith population to this population
+			 double specificTransmission = transmissionVector.get(i).getValue();
+			 double adjustedTransmission = getAdjustedTransmissionRate(specificTransmission, timeDelta);
+			 if(!this.isFrequencyDependent()) adjustedTransmission *= getTransmissionRateScaleFactor(diseaseLabel);
+			 
+			
+			// we need to get the disease label for the ith population as well.
+			// to get the on site number of infectios individuals of type i
+			EList<NodeLabel> nodeLabels = thisNode.getLabels();
+			for(int j = 0; j < nodeLabels.size(); j ++) {
+				NodeLabel label = nodeLabels.get(j);
+				// TODO we need to compare to THIS class
+				String otherClass = label.getClass().getCanonicalName();
+				// DEBUG
+				System.out.println("other class = "+otherClass);
+				if(otherClass.equalsIgnoreCase(myClass)) {
+					StandardDiseaseModelLabel otherDiseaseLabel = (StandardDiseaseModelLabel) label;
+					// now check the popualtion type
+					String otherPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
+					if(otherPopulation.equals(nextPop)) {
+						// Yes?
+						// then we found the label for the correct next population
+						
+						// for this population we need to get the EFFECTIVE Infectious including
+						// ALL neighboring nodes
+						double onsiteInfectious = ((SILabel) otherDiseaseLabel).getI();
+						final double effectiveInfectious = getNormalizedEffectiveInfectious(otherPopulation, thisNode, otherDiseaseLabel, onsiteInfectious);
+						
+					    // ADD up the new incidence
+						numberOfSusceptibleToInfected = adjustedTransmission * numberSusceptible * effectiveInfectious;
+						
+					} // if label correct for next other  population
+					
+				}// if right label by class s
+			}//for all labels in THIS node
+			
+		}// For all population in the model
+		
+		double numberOfInfectedToSusceptible = getAdjustedRecoveryRate(thisRecoveryRate, timeDelta) * currentSI.getI();
+		
+	
+		// Determine delta S
+		final double deltaS = - numberOfSusceptibleToInfected + numberOfInfectedToSusceptible;
+		// Determine delta I
+		final double deltaI = numberOfSusceptibleToInfected - numberOfInfectedToSusceptible;	
+	
+		SILabelValueImpl ret = (SILabelValueImpl)returnValue;
+		ret.setS(deltaS);
+		ret.setI(deltaI);
+		ret.setIncidence(numberOfSusceptibleToInfected);
+		ret.setDiseaseDeaths(0.0);
+		return ret;
+		
 	}
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns the time interval deltaT divided by the initial time period
+	 * @param timeDelta
+	 * @param specificTransmission
+	 * @return
+	 * 
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public double getAdjustedTransmissionRate(double specificTransmission, long timeDelta) {
+		return (specificTransmission * ((double) timeDelta / (double) getTimePeriod()) );
+	} // getAdjustedTransmissionRate
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * 
+	 * @param timeDelta
+	 * 
+	 * @return
+	 * 
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public double getAdjustedRecoveryRate(double specificRecoveryRate, long timeDelta) {
+		return (specificRecoveryRate * ((double) timeDelta / (double) getTimePeriod()) );
+	} // getAdjustedRecoveryRate
+	
+	
+	/**
+	 * This method is used to scale the transmission rate.
+ 	 * it returns the local density divided by a "reference" density
+	 * @param diseaseLabel the label being processed
+	 * @return the transmission rate scale factor for the label being processed
+	 */
+	public double getTransmissionRateScaleFactor(
+			StandardDiseaseModelLabel diseaseLabel) {
+		
+		double referenceDensity = getReferencePopulationDensity();
+		// assert(referenceDensity > 0);
+		// need editor check so ref density always >1. Default is 100.
+		assert getArea(diseaseLabel.getPopulationLabel()) > 0.0;
+		double localDensity = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount()/getArea(diseaseLabel.getPopulationLabel());
+		return localDensity/referenceDensity;
+	} // getTransmissionRateScaleFactor
+	
+	/**
+	 * This method replaces the onsiteInfectious value 
+	 * for a specific population type (by index)
+	 * with an effectiveInfectious of a particular population group (by name)
+	 * size based on mixing with neighboring sites. In this implementation the edges are bidirectional
+	 * and have a fixed weight based on getPhysicallyAdjacentInfectiousProportion() (called in the helper method
+	 * getInfectiousChangeFromMixing(). But the mixing is also weighted by the areas and populations of a site relative
+	 * to the area and population of it's neighbors. Note that the value returned must be NORMALIZED by the total
+	 * population because the product beta * S * Ieffective must have units of persons. Since S has units of persons
+	 * the Ieffective must be dimensionless (normalized to the population). beta is the infection rate and has units
+	 * of inverse time.
+	 * @see org.eclipse.stem.diseasemodels.standard.SI.getNormalizedEffectiveInfectious
+	 * @param targetPopulationName
+	 * @param node
+	 * @param diseaseLabel
+	 * @param onsiteInfectious
+	 * @generated NOT
+	 * @return
+	 */
+	public double getNormalizedEffectiveInfectious(final String targetPopulationName, final Node node, final StandardDiseaseModelLabel diseaseLabel, final double onsiteInfectious) {
+        // running tally of changes from mixing with other nodes
+		double infectiousChangeFromMixing = 0.0;
+		double borderDivisor = 0.0;
+		double roadDivisor = 0.0;
+		
+		for (final Iterator<Edge> commonBorderEdgeIter = CommonBorderRelationshipLabelImpl
+				.getCommonBorderEdgesFromNode(node).iterator(); commonBorderEdgeIter
+				.hasNext();) {
+			final Edge borderEdge = commonBorderEdgeIter.next();
+			// If it exists, we're looking for the label this disease model
+			// updates on the node at the other end of the border edge.
+			final Node otherNode = borderEdge.getOtherNode(node);
+			
+			// sum up the changes from each connected node.
+			// NOTE: some of these changes could be negative
+			///////////////////////////////////////////////////////////////////////
+			// get the Default or MAXIMUM value for the physAdjacentInfProportion
+			double physAdjacentInfProportion = getPhysicallyAdjacentInfectiousProportion();
+			// we need to scale the default Physically Adjacent Infectious proportion by
+			// the AREA of the REGION
+			if (otherNode instanceof Region) {
+				double otherAvgExtent = -1.0;
+				for (final Iterator<NodeLabel> labelIter = otherNode.getLabels().iterator(); labelIter.hasNext();) {
+					final NodeLabel nodeLabel = labelIter.next();
+					// Is this an area label?
+					if (nodeLabel instanceof AreaLabel) {
+						// Yes
+						final AreaLabel areaLabel = (AreaLabel) nodeLabel;
+						otherAvgExtent = areaLabel.getCurrentAreaValue().getAverageExtent();
+						break;
+					}
+				} // for
+				// IF we have a valid area 
+				// then we can re-scale the default Physically Adjacent Infectious proportion
+				if(otherAvgExtent >= 1.0) {
+					double scaleFactor = (SIImpl.REFERENCE_COMMUTE_DISTANCE/otherAvgExtent) ;
+					physAdjacentInfProportion *= scaleFactor;
+					if(physAdjacentInfProportion >= 1.0) physAdjacentInfProportion = 1.0;
+				}
+			}
+			// DONE with area
+			
+			
+			// for EACH connected Node add up the infectious of the particular
+			// population GROUPD
+			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, targetPopulationName, diseaseLabel, onsiteInfectious, physAdjacentInfProportion);
+		
+			borderDivisor += getPhysicallyAdjacentInfectiousProportion()*this.getLocalPopulation(this, otherNode, targetPopulationName);
+		} // for each border edge
+		
+		for (final Iterator<Edge> roadEdgeIter = RoadTransportRelationshipLabelImpl.getRoadEdgesFromNode(node).iterator(); 	roadEdgeIter.hasNext();) {
+			final Edge roadEdge = roadEdgeIter.next();
+			
+			// find the number of edges from the road edge - could be more than one
+			// also, roads have differenct capacities
+			final EdgeLabel edgeLabel = roadEdge.getLabel();
+			// init the number of crossings or total road connections across the border
+			double numCrossings = 1.0;
+		
+			if (edgeLabel instanceof RoadTransportRelationshipLabelImpl) {
+				RoadTransportRelationshipLabelValueImpl roadLabelValue = (RoadTransportRelationshipLabelValueImpl)(edgeLabel.getCurrentValue());
+				numCrossings = roadLabelValue.getNumberCrossings();
+			}
+			double infectiousProportion = getRoadNetworkInfectiousProportion() * numCrossings;
+			
+			// must never be greater than 1
+			if(infectiousProportion > 1.0) infectiousProportion = 1.0;
+			
+			// If it exists, we're looking for the label this disease model
+			// updates on the node at the other end of the border edge.
+			final Node otherNode = roadEdge.getOtherNode(node);
+		
+			// sum up the changes from each connected node by population group (by name).
+			// NOTE: some of these changes could be negative
+			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, targetPopulationName, diseaseLabel, onsiteInfectious, infectiousProportion);
+			
+			roadDivisor += infectiousProportion*this.getLocalPopulation(this, otherNode, targetPopulationName);
+		} // for each road edge
+		
+	
+		// return the sum normalized to the total population
+		double denom = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount() + borderDivisor + roadDivisor;
+		double retVal = 0.0;
+		if (denom > 0.0) {
+			retVal = ( onsiteInfectious + infectiousChangeFromMixing ) / denom;
+		}
+		
+		
+		return retVal;
+
+	} // getNormalizedEffectiveInfectious
+	
+	
+	
+	/**
+	 * This method correctly computes the mixing of the infectious population (onsite) with the infectious population
+	 * at neighboring nodes
+	 * @param diseaseModel
+	 * @param the node
+	 * @param diseaseLabel
+	 * @param onsiteInfectious
+	 * @param connectedInfectiousProportion (this is the weight given to the edge connection)
+	 * @return the number of population members at a node infected by the disease modeled by diseaseModel
+	 */
+	protected double getInfectiousChangeFromMixing(final MultiPopulationSIDiseaseModel diseaseModel,
+			final Node node, final String populationName, final StandardDiseaseModelLabel diseaseLabel, final double onsiteInfectious, double connectedInfectiousProportion) {
+	
+		// infectious from other sites mixing here at site 0
+		double mixing = 0.0;
+			
+		for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter
+				.hasNext();) {
+			final NodeLabel nodeLabel = labelIter.next();
+			// Is this a disease label?
+			if (nodeLabel instanceof StandardDiseaseModelLabel) {
+				final IntegrationLabel otherSILabel = (IntegrationLabel) nodeLabel;
+				// Yes
+				// Is it updated by this disease model?
+				if (diseaseModel == otherSILabel.getDecorator()) {
+					
+					
+					// CHECK THE POPULATION OF THE NEIGHBOR
+					StandardDiseaseModelLabel checkLabel = (StandardDiseaseModelLabel)otherSILabel;
+					String checkPopulation = checkLabel.getPopulationModelLabel().getPopulationIdentifier();
+					if(checkPopulation.equals(populationName)) {
+						if(this.isFrequencyDependent()) {
+							double Iother = (((SILabelValue)otherSILabel.getTempValue())).getI();
+							//double Iother = otherSILabel.getCurrentSIValue().getI();
+							double mixingFactor = connectedInfectiousProportion;					
+							mixing = Iother * mixingFactor;
+						} 
+					// break ? only one per population?
+					}//if(checkPopulation.equals(populationName)) 
+					
+				} // if
+			}
+		} // for
+
+		return mixing;
+	} // getInfectiousChangeFromMixing
+	
+
+	/**
+	 * Get the onsite total population for a particular population group by name
+	 * @param diseaseModel
+	 * @param node
+	 * @return
+	 */
+    private double getLocalPopulation(final MultiPopulationSIDiseaseModel diseaseModel, Node node,  final String populationName) {
+    	double totalPopulation = 0.0;
+    	for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter.hasNext();) {
+    		final NodeLabel nodeLabel = labelIter.next();
+    		// Is this a disease label?
+    		if (nodeLabel instanceof StandardDiseaseModelLabel) {
+    			final IntegrationLabel otherSILabel = (IntegrationLabel) nodeLabel;
+    			// Yes
+    			// Is it updated by this disease model?
+    			if (diseaseModel == otherSILabel.getDecorator()) {
+    				
+
+    				// CHECK THE POPULATION OF THE NEIGHBOR
+					StandardDiseaseModelLabel checkLabel = (StandardDiseaseModelLabel)otherSILabel;
+					String checkPopulation = checkLabel.getPopulationModelLabel().getPopulationIdentifier();
+					if(checkPopulation.equals(populationName)) {
+						totalPopulation = ((StandardDiseaseModelLabelValue)otherSILabel.getTempValue()).getPopulationCount();
+						return totalPopulation;
+					}//if(checkPopulation.equals(populationName)) 
+    				
+    				
+    			}
+    		     
+    		}
+    	}
+    	return 0.0;
+    }
+	
 
 	@Override
 	protected StandardDiseaseModelLabelValue getMigrationDeltas(
@@ -580,6 +931,8 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	public void doModelSpecificAdjustments(LabelValue label) {
 		// Nothing to do here...
 	}
+	
+	
 
 	/**
 	 * We need to override this method to return all population model labels for the population groups
