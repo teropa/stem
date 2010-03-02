@@ -806,7 +806,7 @@ public class TimeSeriesCanvas extends Canvas {
 		cycleNumbers.add(new Integer(0));
 	}
 
-	private void clearData() {
+	protected void clearData() {
 		
 		dataSeriesMap.clear();
 		cycleNumbers.clear();

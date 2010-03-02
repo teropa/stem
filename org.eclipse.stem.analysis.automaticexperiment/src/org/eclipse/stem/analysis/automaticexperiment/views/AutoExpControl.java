@@ -331,10 +331,11 @@ public class AutoExpControl extends AnalysisControl {
 								} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
 									// One simulation is done. The result is READY and stored in evt.result
 									ErrorResult result = evt.result;
+									final double plottableError = plottableError(result.getError());
 									recentErrors[row-1] = evt.result.getError();
 									if(result != null) {
 										// Plot 1 from result.getError() (keep appending)
-										appendLatestErrorData(result.getError());
+										appendLatestErrorData(plottableError);
 										// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
 										setRecentTimeSeries(result.getError(), result.getErrorByTimeStep() );
 										
@@ -378,15 +379,40 @@ public class AutoExpControl extends AnalysisControl {
 		
 	} // createContents
 	
+	/**
+	 * filter +ve, -ve infinity, etc
+	 * @param error
+	 * @return
+	 */
+	static double plottableError(double error) {
+		if((error==Double.POSITIVE_INFINITY)
+											||(error==Double.NEGATIVE_INFINITY)
+											||(error==Double.NaN)
+											||(error==Double.MAX_VALUE)) {
+			return 100.0;
+		} else {
+			return error;
+		}
+				
+				
+	}
+	
 	private void reset() {
 		// Reset everything at the beginning of an automated experiment
+		errorHistory = new double[1];
+		errorHistory[0] = 0;
+		
+		newTimeSeries = new double[1];
+		newTimeSeries[0] = 0;
+		
 		errorConvergenceByRun.resetData();
 		currentErrorByTime.resetData();
+		//errorConvergenceByRun.clearData();
+		//currentErrorByTime.clearData();
 		errorHistoryList = new ArrayList<Double>();
-		errorHistory = null;
+		
 		bestSeries = null;
 		bestError = Double.MAX_VALUE;
-		newTimeSeries = null;
 		
 		runParamNames = null;
 		bestParamValues = null;
@@ -546,7 +572,7 @@ public class AutoExpControl extends AnalysisControl {
 		CLabel stopLabel = new CLabel(controlsActionComposite, SWT.NONE);
 		stopLabel.setText(Messages.getString("AUTO.STOP"));
 		// c2
-		Button stopButton = new Button(controlsActionComposite, SWT.PUSH);
+		final Button stopButton = new Button(controlsActionComposite, SWT.PUSH);
 		stopButton.setImage(imageRegistry.get(ISharedImages.STOP_ICON));
 		// c3
 		CLabel noLabel1 = new CLabel(controlsActionComposite, SWT.NONE);
@@ -599,6 +625,7 @@ public class AutoExpControl extends AnalysisControl {
 					} else {
 						AutomaticExperimentManager.continueRun();
 					}
+					
 					break;
 				}
 			}
@@ -608,6 +635,7 @@ public class AutoExpControl extends AnalysisControl {
 			public void handleEvent(Event e) {
 				switch (e.type) {
 				case SWT.Selection:
+					stopButton.setEnabled(false);
 					AutomaticExperimentManager.quitNow();
 					break;
 				}
@@ -654,8 +682,10 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	private static void selectLatestAction() {
 		restartWithLatest = true;
-		for(int i = 0; i < (bestParamValues.length) -1; i ++) {
-			if(recentParamValues!=null) restartParamValues[i] = recentParamValues[row-1][i];
+		if(bestParamValues!=null) {
+			for(int i = 0; i < (bestParamValues.length) -1; i ++) {
+				if(recentParamValues!=null) restartParamValues[i] = recentParamValues[row-1][i];
+			}
 		}
 		updateRestartLabels(white);
 	} // select latest
