@@ -91,7 +91,7 @@ public class AutoExpControl extends AnalysisControl {
 	private static Color cyanDark;
 	private static Color darkRed;
 	private static Color white;
-	private static Color black;
+	private static Color lightGreen;
 	
 	
 	
@@ -109,6 +109,8 @@ public class AutoExpControl extends AnalysisControl {
 	protected static Composite runHistoryComposite;
 	protected static Composite valuesComposite;
 	protected static Composite controlsComposite;
+	protected static Composite controlsActionComposite;
+	protected static Composite controlsValuesComposite;
 	
 	private static List<Double> errorHistoryList = new ArrayList<Double>();
 	private static double[] errorHistory;
@@ -118,17 +120,26 @@ public class AutoExpControl extends AnalysisControl {
 	
 	protected static String[] runParamNames;
 	protected static double[] bestParamValues;
-	protected static double[] restartParamValues;
+	protected static double[] latestParamValues;
 	protected static double[][] recentParamValues;
+	protected static double[] restartParamValues;
 	protected static double[] recentErrors;
 	
 	protected static CLabel[] attributeLabels;
+	protected static CLabel[] controlLabels;
 	protected static Text[] bestValueLabels;
+	
 	protected static Text[][] recentValueLabels;
+	protected static Text[]   restartValues;
 	
 	protected static short row = 0; // which row are we updating
 	
 	protected static short numColumns = 0;
+	
+	/**
+	 * restart sim uses latest vals or best
+	 */
+	protected static boolean restartWithLatest= true;
 	
 	/**
 	 * The dialog for the wizard
@@ -166,7 +177,7 @@ public class AutoExpControl extends AnalysisControl {
 		cyanDark = new Color(display, 60, 240, 240);
 		darkRed = display.getSystemColor(SWT.COLOR_DARK_RED);
 		white = display.getSystemColor(SWT.COLOR_WHITE);
-		black = display.getSystemColor(SWT.COLOR_BLACK);
+		lightGreen = new Color(display, 128, 255, 128);
 		
 		
 		identifiableTitle = new Label(this, SWT.NONE);
@@ -235,10 +246,10 @@ public class AutoExpControl extends AnalysisControl {
 		//////////////
  		// RESTART
 		controlsComposite = new Composite(tabFolder, SWT.BORDER);
+		getControls();
 		CTabItem item3 = new CTabItem(tabFolder, SWT.BORDER);
 		item3.setText(Messages.getString("AUTO.CONTROLS"));
 		item3.setControl(controlsComposite);
-		getControls(controlsComposite);
 		
 		
 		
@@ -262,13 +273,28 @@ public class AutoExpControl extends AnalysisControl {
 									if(recentParamValues == null) {
 										numColumns = (short)runParamNames.length;
 										recentParamValues = new double[NUMROWS][runParamNames.length+1];
+										restartParamValues = new double[runParamNames.length];
+										latestParamValues = new double[runParamNames.length];
 										recentErrors = new double[NUMROWS];
+									} 
+									// we need to remember just the latest so we can toggle...
+									latestParamValues = copyDoubleArray(evt.parameterValues);
+									if(restartWithLatest) {
+										restartParamValues = latestParamValues;
+									} else {
+										// copy all but the error - it is not a parameter
+										if(bestParamValues!=null) {
+											for(int i = 0; i < (bestParamValues.length) -1; i ++) {
+												restartParamValues[i] = bestParamValues[i];
+											}
+										}
 									}
+									
+									
 									if(row < NUMROWS) {
 										recentParamValues[row] = copyDoubleArray(evt.parameterValues);
 										recentErrors[row++] = -1; // not known yet
-									}
-									else {
+									} else {
 										// We need to shift up
 										for(int i=0;i<NUMROWS-1;++i) {
 											for(int j=0;j<runParamNames.length;++j) recentParamValues[i][j] = recentParamValues[i+1][j];
@@ -284,7 +310,10 @@ public class AutoExpControl extends AnalysisControl {
 										try {
 											display.asyncExec(new Runnable() {
 												public void run() {
-													if(!valuesInitialized) initializeValueLabels(runParamNames);
+													if(!valuesInitialized) {
+														initializeValueLabels(runParamNames);
+														initializeControlLabels(runParamNames);
+													}
 													updateValueLabels();
 												} // run
 											}); // display.asyncExec
@@ -466,34 +495,77 @@ public class AutoExpControl extends AnalysisControl {
 	 * set up the time series chart
 	 * @param dataComposite
 	 */
-	private void getControls(Composite controlComposite) {
+	private void getControls() {
+		
+		controlsComposite.setLayout(new FormLayout());
+		
+		final FormData controlTopFormData = new FormData();
+		controlsActionComposite = new Composite(controlsComposite,SWT.BORDER);
+		controlsActionComposite.setLayoutData(controlTopFormData);
+		controlTopFormData.top = new FormAttachment(0, 0);
+		controlTopFormData.bottom = new FormAttachment(20, 0);
+		controlTopFormData.left = new FormAttachment(0, 0);
+		controlTopFormData.right = new FormAttachment(100, 0);
+		
+		
+		final FormData controlBottomFormData = new FormData();
+		controlsValuesComposite = new Composite(controlsComposite,SWT.BORDER);
+		controlsValuesComposite.setLayoutData(controlBottomFormData);
+		controlBottomFormData.top = new FormAttachment(controlsActionComposite, 0);
+		controlBottomFormData.bottom = new FormAttachment(100, 0);
+		controlBottomFormData.left = new FormAttachment(0, 0);
+		controlBottomFormData.right = new FormAttachment(100, 0);
+		
 		
 		// Use form layout
-		GridLayout gl = new GridLayout();
-		gl.numColumns = 3;
-		controlComposite.setLayout(gl);
+		GridLayout gridLayout = new GridLayout();
+		gridLayout.numColumns = 5;
+		gridLayout.makeColumnsEqualWidth = true;
+		controlsActionComposite.setLayout(gridLayout);
 		
 		// row 1
 		// c1.
-		CLabel stopLabel = new CLabel(controlsComposite, SWT.NONE);
+		CLabel stopLabel = new CLabel(controlsActionComposite, SWT.NONE);
 		stopLabel.setText(Messages.getString("AUTO.STOP"));
 		// c2
-		Button stopButton = new Button(controlComposite, SWT.PUSH);
+		Button stopButton = new Button(controlsActionComposite, SWT.PUSH);
 		stopButton.setImage(imageRegistry.get(ISharedImages.STOP_ICON));
 		// c3
-		CLabel noLabel = new CLabel(controlsComposite, SWT.NONE);
-		noLabel.setText("");
+		CLabel noLabel1 = new CLabel(controlsActionComposite, SWT.NONE);
+		noLabel1.setText("");
+		
+		Button[] radios = new Button[2];
+
+		radios[0] = new Button(controlsActionComposite, SWT.RADIO);
+	    radios[0].setSelection(true);
+	    radios[0].setText(Messages.getString("AUTO.LATEST"));
+	    radios[0].setBounds(10, 5, 75, 30);
+
+	    radios[1] = new Button(controlsActionComposite, SWT.RADIO);
+	    radios[1].setText(Messages.getString("AUTO.BEST"));
+	    radios[1].setBounds(10, 30, 75, 30);
+	    radios[0].setSelection(true);
+		
+		
 		
 		// row 2
 		// c1
-		CLabel restartLabel = new CLabel(controlsComposite, SWT.NONE);
+		CLabel restartLabel = new CLabel(controlsActionComposite, SWT.NONE);
 		restartLabel.setText(Messages.getString("AUTO.RESTART"));
 		// c2
-		Button restartButton = new Button(controlComposite, SWT.PUSH);
+		Button restartButton = new Button(controlsActionComposite, SWT.PUSH);
 		restartButton.setImage(imageRegistry.get(ISharedImages.RESTART_ICON));
 		// c3
-		CLabel paramsLabel = new CLabel(controlsComposite, SWT.NONE);
-		paramsLabel.setText("something with parameters goes here");
+		CLabel paramsLabel = new CLabel(controlsActionComposite, SWT.NONE);
+		paramsLabel.setText(Messages.getString("AUTO.RESTART_HEADER"));
+		///////////////////////
+		// c4
+		CLabel noLabel2 = new CLabel(controlsActionComposite, SWT.NONE);
+		noLabel2.setText("");
+		// c5
+		CLabel noLabel3 = new CLabel(controlsActionComposite, SWT.NONE);
+		noLabel3.setText("");
+		
 		
 		
 		
@@ -517,9 +589,56 @@ public class AutoExpControl extends AnalysisControl {
 				}
 			}
 		});
+		
+		radios[0].addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				switch (e.type) {
+				case SWT.Selection:
+					selectLatestAction();
+					break;
+				}
+			}
+		});
+		radios[1].addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				switch (e.type) {
+				case SWT.Selection:
+					selectBestAction();
+					break;
+				}
+			}
+		});
 
+		controlsComposite.pack();
+		controlsComposite.layout();
+		controlsComposite.setVisible(true);
 		
 	}// getEquationSeries
+	
+	/**
+	 * 
+	 */
+	private static void selectLatestAction() {
+		restartWithLatest = true;
+		if(latestParamValues != null) {
+			restartParamValues = latestParamValues;
+		}
+		updateRestartLabels(white);
+	} // select latest
+	
+	
+	/**
+	 * 
+	 */
+	private static void selectBestAction() {
+		restartWithLatest = false;
+		if(bestParamValues != null) {
+			for(int i = 0; i < (bestParamValues.length) -1; i ++) {
+				restartParamValues[i] = bestParamValues[i];
+			}
+		}
+		updateRestartLabels(lightGreen);
+	}// select best
 	
 	
 	/**
@@ -544,9 +663,39 @@ public class AutoExpControl extends AnalysisControl {
 		
 		valuesComposite.redraw();
 		valuesComposite.update();
+		
+		if(restartParamValues!=null) {
+			for(int j=0;j<numColumns;++j) {
+				restartValues[j].setText(restartParamValues[j]+"");
+				}
+			controlsValuesComposite.redraw();
+			controlsValuesComposite.update();
+		}
 	
 	}// updateValueLabels
 	
+	/**
+	 * called by radio button action
+	 */
+	protected static void updateRestartLabels(final Color bg) {
+		try {
+			display.asyncExec(new Runnable() {
+				public void run() {
+					if(restartParamValues!=null) {
+						for(int j=0;j<numColumns;++j) {
+							restartValues[j].setText(restartParamValues[j]+"");
+							restartValues[j].setBackground(bg);
+							}
+						controlsValuesComposite.redraw();
+						controlsValuesComposite.update();
+					}
+				} // run
+			}); // display.asyncExec
+		} // try
+		catch (final Exception e) {
+			// Ignore there could be a race condition with the display being disposed
+		} // catch Exception
+	}
 	
 	static boolean valuesInitialized = false;
 	/**
@@ -563,6 +712,7 @@ public class AutoExpControl extends AnalysisControl {
 		GridLayout gl = new GridLayout();
 		gl.numColumns = numColumns+1;
 		valuesComposite.setLayout(gl);
+		controlsValuesComposite.setLayout(gl);
 		int width = 800/numColumns;
 		
 		attributeLabels = new CLabel[numColumns+1];
@@ -590,7 +740,7 @@ public class AutoExpControl extends AnalysisControl {
 			for(int i = 0; i < numColumns+1; i ++) {
 				bestValueLabels[i] = new Text(valuesComposite, SWT.BORDER);
 				bestValueLabels[i].setText(""); // nothing yet
-				bestValueLabels[i].setBackground(new Color(null, 255, 128, 128)); //red
+				bestValueLabels[i].setBackground(lightGreen); 
 				final GridData textGridData = new GridData();
 				bestValueLabels[i].setLayoutData(textGridData);
 			    textGridData.grabExcessHorizontalSpace=true;
@@ -616,7 +766,62 @@ public class AutoExpControl extends AnalysisControl {
 		valuesComposite.redraw();
 		valuesInitialized = true;
 	
-	}// updateValueLabels
+	}// initializeValueLabels
+	
+	
+
+	/**
+	 * 
+	 * @param attributes
+	 * @param initialValues
+	 */
+	protected static void initializeControlLabels(String[] attributes) {
+		
+		int numAttrEntries = attributes.length;
+		int numColumns = numAttrEntries;
+
+		// Use form layout
+		GridLayout gl = new GridLayout();
+		gl.numColumns = numColumns;
+		
+		controlsValuesComposite.setLayout(gl);
+		int width = 800/numColumns;
+		
+		controlLabels = new CLabel[numColumns];
+		restartValues = new Text[numColumns];
+		
+			for(int i = 0; i < numColumns; i ++) {
+				controlLabels[i] = new CLabel(controlsValuesComposite, SWT.BORDER);
+				controlLabels[i].setText(attributes[i]);
+				controlLabels[i].setBackground(cyan);
+				final GridData titleGridData = new GridData();
+				controlLabels[i].setLayoutData(titleGridData);
+			    titleGridData.grabExcessHorizontalSpace=true;
+			    titleGridData.minimumWidth=width;
+			}
+		
+			final GridData titleGridData = new GridData();
+			
+		    titleGridData.grabExcessHorizontalSpace=true;
+		    titleGridData.minimumWidth=width;
+		    titleGridData.horizontalAlignment = GridData.FILL;
+			
+			for(int j=0;j<numColumns;++j) {
+				restartValues[j] = new Text(controlsValuesComposite, SWT.BORDER);
+				restartValues[j].setText(""); // nothing yet
+				restartValues[j].setBackground(white);
+				final GridData textGridData = new GridData();
+				restartValues[j].setLayoutData(textGridData);
+			    textGridData.grabExcessHorizontalSpace=true;
+			    textGridData.minimumWidth=width;
+			    textGridData.horizontalAlignment = GridData.FILL;
+			}	
+		 
+		controlsValuesComposite.layout();
+		controlsValuesComposite.redraw();
+		valuesInitialized = true;
+	
+	}// initializeControlLabels
 	
 	
 	
