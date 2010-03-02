@@ -86,7 +86,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	private static boolean WEIGHTED_AVERAGE = true;
 	private static boolean FIT_INCIDENCE = true;
 	private static boolean USE_THRESHOLD = false;
-	private static double THRESHOLD = 0.1;
+	private static double THRESHOLD = 0.05;
 	
 	/**
 	 * calculate delta for a simple error function
@@ -207,7 +207,13 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 			for(int icount =0; icount < time.length; icount ++) {
 				if(Xref[icount]>maxRef)maxRef = Xref[icount];
 				if(Xref[icount]<minRef)minRef = Xref[icount];
-				if(USE_THRESHOLD && Xdata[icount]<THRESHOLD*commonMaxLocationsA.get(loc)) continue;
+				
+				// If we use the threshold and both the reference and the model is less than
+				// the THRESHOLD*MAXref(loc) we don't measure the data point
+				
+				if(USE_THRESHOLD && (Xref[icount]<THRESHOLD*commonMaxLocationsA.get(loc) &&
+						Xdata[icount]<THRESHOLD*commonMaxLocationsA.get(loc))) continue;
+				
 				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
 				list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
 				++timesteps;
