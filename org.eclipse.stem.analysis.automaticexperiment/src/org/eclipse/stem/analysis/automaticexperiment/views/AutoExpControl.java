@@ -94,6 +94,7 @@ public class AutoExpControl extends AnalysisControl {
 	private static Color darkRed;
 	private static Color white;
 	private static Color lightGreen;
+	private static Color lightBlue;
 	
 	
 	
@@ -113,6 +114,7 @@ public class AutoExpControl extends AnalysisControl {
 	protected static Composite controlsComposite;
 	protected static Composite controlsActionComposite;
 	protected static Composite controlsValuesComposite;
+	protected static Composite settingsComposite;
 	
 	private static List<Double> errorHistoryList = new ArrayList<Double>();
 	private static double[] errorHistory;
@@ -176,10 +178,11 @@ public class AutoExpControl extends AnalysisControl {
 		setLayout(new FormLayout());
 		if(display==null) display = this.getDisplay();
 		cyan = display.getSystemColor(SWT.COLOR_CYAN);
-		cyanDark = new Color(display, 60, 240, 240);
+		cyanDark = new Color(display, 60, 220, 220);
 		darkRed = display.getSystemColor(SWT.COLOR_DARK_RED);
 		white = display.getSystemColor(SWT.COLOR_WHITE);
 		lightGreen = new Color(display, 128, 255, 128);
+		lightBlue = new Color(display, 128, 128, 255);
 		
 		
 		identifiableTitle = new Label(this, SWT.NONE);
@@ -209,11 +212,15 @@ public class AutoExpControl extends AnalysisControl {
 		tabFolder.setSimple(false);
 		
 		
-		tabFolder.setSelectionBackground(new Color[]{display.getSystemColor(SWT.COLOR_CYAN),
-				display.getSystemColor(SWT.COLOR_WHITE),
-				cyanDark,
-				display.getSystemColor(SWT.COLOR_BLUE)},
+		tabFolder.setSelectionBackground(new Color[]{
+				cyan,
+				white,
+				lightBlue,
+				lightBlue},
 				new int[] {25, 50, 100}); 
+		
+
+		tabFolder.setSelectionForeground(display.getSystemColor(SWT.COLOR_BLACK)); 
 		
 		tabFolder.setBackground(cyanDark);
 		tabFolder.setForeground(darkRed);
@@ -246,12 +253,20 @@ public class AutoExpControl extends AnalysisControl {
 		item2.setControl(valuesComposite);
 		
 		//////////////
- 		// RESTART
+ 		// Controls
 		controlsComposite = new Composite(tabFolder, SWT.BORDER);
 		getControls();
 		CTabItem item3 = new CTabItem(tabFolder, SWT.BORDER);
 		item3.setText(Messages.getString("AUTO.CONTROLS"));
 		item3.setControl(controlsComposite);
+		
+		//////////////
+ 		// Settings
+		settingsComposite = new Composite(tabFolder, SWT.BORDER);
+		getSettings();
+		CTabItem item4 = new CTabItem(tabFolder, SWT.BORDER);
+		item4.setText(Messages.getString("AUTO.SETTINGS"));
+		item4.setControl(settingsComposite);
 		
 		
 		
@@ -518,7 +533,7 @@ public class AutoExpControl extends AnalysisControl {
 	
 	
 	/**
-	 * set up the time series chart
+	 * set up the controls
 	 * @param dataComposite
 	 */
 	private void getControls() {
@@ -676,7 +691,28 @@ public class AutoExpControl extends AnalysisControl {
 		controlsComposite.layout();
 		controlsComposite.setVisible(true);
 		
-	}// getEquationSeries
+	}// getControls
+	
+	
+	/**
+	 * set up the controls
+	 * @param dataComposite
+	 */
+	private void getSettings() {
+		
+		settingsComposite.setLayout(new FormLayout());
+		
+		
+		settingsComposite.pack();
+		settingsComposite.layout();
+		settingsComposite.setVisible(true);
+		
+	}// getSETTINGS
+	
+	
+	
+	
+	
 	
 	/**
 	 * 
