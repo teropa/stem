@@ -77,7 +77,8 @@ public class SimplexAlgorithmExecuter
 			long before = System.currentTimeMillis();
 			simplexAlgorithm.execute(simplexFnToMinimize,  initialParamsValues, paramsInitialSteps, tolerance, this.maxNumOfIterations);
 			long after = System.currentTimeMillis();
-		
+			if(AutomaticExperimentManager.QUIT_NOW)
+				AutomaticExperimentManager.stopLatch.countDown();
 			if(!this.repeat || AutomaticExperimentManager.QUIT_NOW) {
 				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
 				System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());

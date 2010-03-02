@@ -1,6 +1,7 @@
 package org.eclipse.stem.analysis.automaticexperiment;
 
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -13,10 +14,16 @@ public class AutomaticExperimentManager {
 	private static AutomaticExperimentManager instance = null;
 	protected static boolean QUIT_NOW = false;
 	protected static boolean PAUSE_NOW = false;
+	protected static CountDownLatch stopLatch = null;
 	
 	public static void quitNow() {
+		stopLatch = new CountDownLatch(1);
 		QUIT_NOW = true;
-		System.out.println("Stefan: Please quit now");
+		try {
+			stopLatch.await();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void pause() {

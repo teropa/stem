@@ -637,6 +637,7 @@ public class AutoExpControl extends AnalysisControl {
 				case SWT.Selection:
 					stopButton.setEnabled(false);
 					AutomaticExperimentManager.quitNow();
+					stopButton.setEnabled(true);
 					break;
 				}
 			}
