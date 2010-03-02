@@ -80,6 +80,10 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	static Label statusLabel;
 	
+	/**
+	 * stop button
+	 */
+	 Button stopButton = null;
 	
 	/**
 	 * Colors for the time series chart
@@ -280,6 +284,7 @@ public class AutoExpControl extends AnalysisControl {
 					if(evt.status == MANAGER_STATUS.SCHEDULED) {
 						ErrorAnalysisAlgorithm alg = evt.algorithm;
 						AutoExpControl.this.reset();
+						AutoExpControl.this.stopButton.setEnabled(true);
 						alg.addListener(new ErrorAnalysisAlgorithmListener() {
 							@Override
 							public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
@@ -587,8 +592,9 @@ public class AutoExpControl extends AnalysisControl {
 		CLabel stopLabel = new CLabel(controlsActionComposite, SWT.NONE);
 		stopLabel.setText(Messages.getString("AUTO.STOP"));
 		// c2
-		final Button stopButton = new Button(controlsActionComposite, SWT.PUSH);
+		stopButton = new Button(controlsActionComposite, SWT.PUSH);
 		stopButton.setImage(imageRegistry.get(ISharedImages.STOP_ICON));
+		stopButton.setEnabled(false); // we'll enable when an experiment is started
 		// c3
 		CLabel noLabel1 = new CLabel(controlsActionComposite, SWT.NONE);
 		noLabel1.setText("");
@@ -652,7 +658,6 @@ public class AutoExpControl extends AnalysisControl {
 				case SWT.Selection:
 					stopButton.setEnabled(false);
 					AutomaticExperimentManager.quitNow();
-					stopButton.setEnabled(true);
 					break;
 				}
 			}
