@@ -120,7 +120,7 @@ public class AutoExpControl extends AnalysisControl {
 	
 	protected static String[] runParamNames;
 	protected static double[] bestParamValues;
-	protected static double[] latestParamValues;
+	
 	protected static double[][] recentParamValues;
 	protected static double[] restartParamValues;
 	protected static double[] recentErrors;
@@ -274,22 +274,9 @@ public class AutoExpControl extends AnalysisControl {
 										numColumns = (short)runParamNames.length;
 										recentParamValues = new double[NUMROWS][runParamNames.length+1];
 										restartParamValues = new double[runParamNames.length];
-										latestParamValues = new double[runParamNames.length];
+										
 										recentErrors = new double[NUMROWS];
 									} 
-									// we need to remember just the latest so we can toggle...
-									latestParamValues = copyDoubleArray(evt.parameterValues);
-									if(restartWithLatest) {
-										restartParamValues = latestParamValues;
-									} else {
-										// copy all but the error - it is not a parameter
-										if(bestParamValues!=null) {
-											for(int i = 0; i < (bestParamValues.length) -1; i ++) {
-												restartParamValues[i] = bestParamValues[i];
-											}
-										}
-									}
-									
 									
 									if(row < NUMROWS) {
 										recentParamValues[row] = copyDoubleArray(evt.parameterValues);
@@ -303,6 +290,17 @@ public class AutoExpControl extends AnalysisControl {
 										recentParamValues[row-1] = copyDoubleArray(evt.parameterValues);
 										recentErrors[row-1] = -1; // not known yet
 									}
+									
+									// copy all but the error - it is not a parameter
+									for(int i = 0; i < (restartParamValues.length) -1; i ++) {
+										if(restartWithLatest) {
+											if(recentParamValues!=null) restartParamValues[i] = recentParamValues[row-1][i];
+										} else {
+											if(bestParamValues!=null) restartParamValues[i] = bestParamValues[i];
+										}
+										
+									}
+									
 									// Add a Runnable to the UI thread's execution queue 
 									final Display display = Display.getDefault();
 									if (!display.isDisposed()) {
@@ -620,8 +618,8 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	private static void selectLatestAction() {
 		restartWithLatest = true;
-		if(latestParamValues != null) {
-			restartParamValues = latestParamValues;
+		for(int i = 0; i < (bestParamValues.length) -1; i ++) {
+			if(recentParamValues!=null) restartParamValues[i] = recentParamValues[row-1][i];
 		}
 		updateRestartLabels(white);
 	} // select latest
