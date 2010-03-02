@@ -266,11 +266,11 @@ public class AutoExpControl extends AnalysisControl {
 		
 		//////////////
  		// Settings
-		settingsComposite = new Composite(tabFolder, SWT.BORDER);
-		getSettings();
-		CTabItem item4 = new CTabItem(tabFolder, SWT.BORDER);
-		item4.setText(Messages.getString("AUTO.SETTINGS"));
-		item4.setControl(settingsComposite);
+//		settingsComposite = new Composite(tabFolder, SWT.BORDER);
+//		getSettings();
+//		CTabItem item4 = new CTabItem(tabFolder, SWT.BORDER);
+//		item4.setText(Messages.getString("AUTO.SETTINGS"));
+//		item4.setControl(settingsComposite);
 		
 		
 		
@@ -549,7 +549,7 @@ public class AutoExpControl extends AnalysisControl {
 		controlsActionComposite = new Composite(controlsComposite,SWT.BORDER);
 		controlsActionComposite.setLayoutData(controlTopFormData);
 		controlTopFormData.top = new FormAttachment(0, 0);
-		controlTopFormData.bottom = new FormAttachment(30, 0);
+		controlTopFormData.bottom = new FormAttachment(20, 0);
 		controlTopFormData.left = new FormAttachment(0, 0);
 		controlTopFormData.right = new FormAttachment(100, 0);
 		
@@ -569,23 +569,23 @@ public class AutoExpControl extends AnalysisControl {
 		gridLayout.makeColumnsEqualWidth = true;
 		controlsActionComposite.setLayout(gridLayout);
 		
-		// row 0 PAUSE
-		// c1
-		CLabel pauseLabel = new CLabel(controlsActionComposite, SWT.NONE);
-		pauseLabel.setText(Messages.getString("AUTO.PAUSE"));
-		// c2
-		Button pauseButton = new Button(controlsActionComposite, SWT.TOGGLE);
-		pauseButton.setImage(imageRegistry.get(ISharedImages.PAUSE_ICON));
-		// c3
-		CLabel noLabela = new CLabel(controlsActionComposite, SWT.NONE);
-		noLabela.setText("");
-		///////////////////////
-		// c4
-		CLabel noLabelb = new CLabel(controlsActionComposite, SWT.NONE);
-		noLabelb.setText("");
-		// c5
-		CLabel noLabelc = new CLabel(controlsActionComposite, SWT.NONE);
-		noLabelc.setText("");
+//		// row 0 PAUSE
+//		// c1
+//		CLabel pauseLabel = new CLabel(controlsActionComposite, SWT.NONE);
+//		pauseLabel.setText(Messages.getString("AUTO.PAUSE"));
+//		// c2
+//		Button pauseButton = new Button(controlsActionComposite, SWT.TOGGLE);
+//		pauseButton.setImage(imageRegistry.get(ISharedImages.PAUSE_ICON));
+//		// c3
+//		CLabel noLabela = new CLabel(controlsActionComposite, SWT.NONE);
+//		noLabela.setText("");
+//		///////////////////////
+//		// c4
+//		CLabel noLabelb = new CLabel(controlsActionComposite, SWT.NONE);
+//		noLabelb.setText("");
+//		// c5
+//		CLabel noLabelc = new CLabel(controlsActionComposite, SWT.NONE);
+//		noLabelc.setText("");
 		
 		// row 1
 		// c1.
@@ -635,22 +635,22 @@ public class AutoExpControl extends AnalysisControl {
 		
 		
 		// ACTIONS
-		pauseButton.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event e) {
-				switch (e.type) {
-				case SWT.Selection:
-					// toggle
-					pauseTrigger = !pauseTrigger;
-					if(pauseTrigger) {
-						AutomaticExperimentManager.pause();
-					} else {
-						AutomaticExperimentManager.continueRun();
-					}
-					
-					break;
-				}
-			}
-		});
+//		pauseButton.addListener(SWT.Selection, new Listener() {
+//			public void handleEvent(Event e) {
+//				switch (e.type) {
+//				case SWT.Selection:
+//					// toggle
+//					pauseTrigger = !pauseTrigger;
+//					if(pauseTrigger) {
+//						AutomaticExperimentManager.pause();
+//					} else {
+//						AutomaticExperimentManager.continueRun();
+//					}
+//					
+//					break;
+//				}
+//			}
+//		});
 		
 		stopButton.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event e) {
