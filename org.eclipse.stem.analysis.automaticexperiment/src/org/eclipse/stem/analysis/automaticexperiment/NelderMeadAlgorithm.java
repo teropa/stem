@@ -129,6 +129,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 		// Initial or restarted loop.
 		//
 		for (;;) {
+			if(AutomaticExperimentManager.QUIT_NOW) break;
 			for (i = 0; i < n; i++) {
 				p[i + n * n] = start[i];
 			}
@@ -146,7 +147,10 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 				y[j] = fn.getValue(start).copy();
 				icount = icount + 1;
 				start[j] = x;
+				if(AutomaticExperimentManager.QUIT_NOW) break;
 			}
+			if(AutomaticExperimentManager.QUIT_NOW) break;
+
 			//	                    
 			// The simplex construction is complete.
 			//	                    
@@ -166,6 +170,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 			// Inner loop.
 			//
 			for (;;) {
+				if(AutomaticExperimentManager.QUIT_NOW) break;
 				if (kcount != -1 && kcount <= icount) {
 					break;
 				}
@@ -385,9 +390,10 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 					break;
 				}
 				xmin[i] = xmin[i] + del;
+				if(AutomaticExperimentManager.QUIT_NOW) break;
 			}
 
-			if (ifault == 0) {
+			if (ifault == 0 || AutomaticExperimentManager.QUIT_NOW) {
 				break;
 			}
 			//
@@ -398,6 +404,7 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 			}
 			del = eps;
 			numres = numres + 1;
+			if(AutomaticExperimentManager.QUIT_NOW) break;
 		}
 	}
 
@@ -408,7 +415,9 @@ public class NelderMeadAlgorithm implements SimplexAlgorithm {
 		}
 	}
 	public double getMinimumFunctionValue() {
-		return this.ynewlo.getError();
+		if(this.ynewlo != null)
+			return this.ynewlo.getError();
+		return -1; // the algorithm was probably interrupted.
 	}
 	public ErrorResult getMinimumErrorResult() {
 		return this.ynewlo;

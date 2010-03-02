@@ -129,7 +129,6 @@ public class AutoExpControl extends AnalysisControl {
 	protected static short row = 0; // which row are we updating
 	
 	protected static short numColumns = 0;
-	protected static boolean firstShift = true;
 	
 	/**
 	 * The dialog for the wizard
@@ -252,6 +251,7 @@ public class AutoExpControl extends AnalysisControl {
 				public void eventReceived(AutomaticExperimentManagerEvent evt) {
 					if(evt.status == MANAGER_STATUS.SCHEDULED) {
 						ErrorAnalysisAlgorithm alg = evt.algorithm;
+						AutoExpControl.this.reset();
 						alg.addListener(new ErrorAnalysisAlgorithmListener() {
 							@Override
 							public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
@@ -348,6 +348,48 @@ public class AutoExpControl extends AnalysisControl {
 		updateCharts();
 		
 	} // createContents
+	
+	private void reset() {
+		// Reset everything at the beginning of an automated experiment
+		errorConvergenceByRun.resetData();
+		currentErrorByTime.resetData();
+		errorHistoryList = new ArrayList<Double>();
+		errorHistory = null;
+		bestSeries = null;
+		bestError = Double.MAX_VALUE;
+		newTimeSeries = null;
+		
+		runParamNames = null;
+		bestParamValues = null;
+		restartParamValues = null;
+		recentParamValues = null;
+		recentErrors = null;
+		
+		if(attributeLabels != null)
+			for(int i=0;i<attributeLabels.length;++i) {
+			attributeLabels[i].dispose();
+			attributeLabels[i] = null;
+		}
+		attributeLabels = null;
+		if(bestValueLabels != null) 
+			for(int i=0;i<bestValueLabels.length;++i) {
+				bestValueLabels[i].dispose();
+				bestValueLabels[i] = null;
+			}
+		bestValueLabels = null;
+		
+		if(recentValueLabels != null)
+			for(int i=0;i<recentValueLabels.length;++i)
+				for(int j=0;j<recentValueLabels[i].length;++j) {
+					recentValueLabels[i][j].dispose();
+					recentValueLabels[i][j] = null;
+				}
+		recentValueLabels = null;
+		
+		row = 0; 
+		numColumns = 0;
+		valuesInitialized = false;
+	}
 	
 	/**
 	 * update the graphs
