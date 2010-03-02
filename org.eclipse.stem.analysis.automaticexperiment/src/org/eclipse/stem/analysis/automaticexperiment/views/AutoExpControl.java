@@ -727,6 +727,7 @@ public class AutoExpControl extends AnalysisControl {
 				attributeLabels[i].setLayoutData(titleGridData);
 			    titleGridData.grabExcessHorizontalSpace=true;
 			    titleGridData.minimumWidth=width;
+			    titleGridData.horizontalAlignment = GridData.FILL;
 			}
 			attributeLabels[numColumns] = new CLabel(valuesComposite, SWT.BORDER);
 			attributeLabels[numColumns].setText("Error");
@@ -798,6 +799,7 @@ public class AutoExpControl extends AnalysisControl {
 				controlLabels[i].setLayoutData(titleGridData);
 			    titleGridData.grabExcessHorizontalSpace=true;
 			    titleGridData.minimumWidth=width;
+			    titleGridData.horizontalAlignment = GridData.FILL;
 			}
 		
 			final GridData titleGridData = new GridData();
