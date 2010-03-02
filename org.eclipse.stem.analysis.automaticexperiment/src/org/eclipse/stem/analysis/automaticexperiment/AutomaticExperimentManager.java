@@ -12,10 +12,20 @@ import automaticexperiment.AutomaticExperiment;
 public class AutomaticExperimentManager {
 	private static AutomaticExperimentManager instance = null;
 	protected static boolean QUIT_NOW = false;
+	protected static boolean PAUSE_NOW = false;
 	
 	public static void quitNow() {
 		QUIT_NOW = true;
 		System.out.println("Stefan: Please quit now");
+	}
+	
+	public static void pause() {
+		PAUSE_NOW = true;
+		System.out.println("Stefan: Please pause now");
+	}
+	public static void continueRun() {
+		PAUSE_NOW = false;
+		System.out.println("Stefan: Please continue now");
 	}
 	
 	public static void restartNow(double[] restartParamValues) {
@@ -33,12 +43,14 @@ public class AutomaticExperimentManager {
 	
 	public ErrorAnalysisAlgorithm createAlgorithm(String name) {
 		QUIT_NOW = false; // in case RESTARTING
+		PAUSE_NOW = false;
 		ErrorAnalysisAlgorithm result = ErrorAnalysisAlgorithmFactory.INSTANCE.createErrorAnalysisAlgorithm(name);
 		return result;
 	}
 	
 	public void executeAlgorithm(final ErrorAnalysisAlgorithm algorithm, final AutomaticExperiment automaticExperiment) {
 		QUIT_NOW = false; // in case RESTARTING
+		PAUSE_NOW = false;
 		algorithm.init(automaticExperiment, algorithm);
 		// Stefan fix, we can't hold up the UI thread, it causes memory leaks
 		Job j = new Job("Minimizer algorith") {
@@ -64,6 +76,7 @@ public class AutomaticExperimentManager {
 	
 	public static void main() {
 		QUIT_NOW = false; // in case RESTARTING
+		PAUSE_NOW = false;
 		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
 		manager.addListener(new AutomaticExperimentManagerListener() {
 			
