@@ -45,6 +45,7 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.data.geography.GeographicNames;
 import org.eclipse.stem.jobs.execution.IExecutable;
 import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.handlers.STEMExecutionCommandHandler;
 import org.eclipse.stem.ui.perspectives.Simulation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
@@ -149,8 +150,13 @@ public abstract class IdentifiablePluginView extends ViewPart {
 				if (executable != null) {
 					// Yes
 					executable.run();
-					Activator
-							.switchToPerspective(Simulation.ID_STEM_SIMULATION_PERSPECTIVE);
+					if(executable.getClass().getName().indexOf(STEMExecutionCommandHandler.DEFAULT_PERSPECTIVE_SUBSTRING_KEY)<0) {
+						// nothing, if not a default execution just don't switch perspectives
+					} else {
+						Activator.switchToPerspective(Simulation.ID_STEM_SIMULATION_PERSPECTIVE);
+					}
+					
+					
 				} // if
 			} // doubleClick
 		});
