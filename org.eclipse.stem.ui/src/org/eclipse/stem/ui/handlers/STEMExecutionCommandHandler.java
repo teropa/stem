@@ -35,6 +35,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
  */
 abstract public class STEMExecutionCommandHandler extends AbstractHandler
 		implements IHandler {
+	
+	public static final String DEFAULT_PERSPECTIVE_SUBSTRING_KEY = "Scenario";
 
 	/**
 	 * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands.ExecutionEvent)
@@ -46,6 +48,8 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 
 		final ISelection selection = HandlerUtil
 				.getCurrentSelectionChecked(executionEvent);
+		
+		boolean useSimulationPerspective = true;
 
 		// Structured Selection?
 		if (selection instanceof StructuredSelection) {
@@ -57,7 +61,11 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 				// .adapt(obj, IExecutable.class);
 				IExecutable executable = (IExecutable) Platform
 						.getAdapterManager().getAdapter(obj, IExecutable.class); 
-				 
+				
+				if(executable.getClass().getName().indexOf(DEFAULT_PERSPECTIVE_SUBSTRING_KEY)<0) {
+					useSimulationPerspective = false;
+				}
+				
 				// Were we successful in adapting?
 				if (executable != null) {
 					// Yes
@@ -76,8 +84,15 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 		// Flip to Simulation Perspective?
 		if (switchPerspective) {
 			// Yes
-			Activator
-					.switchToPerspective(Simulation.ID_STEM_SIMULATION_PERSPECTIVE);
+			System.out.println("****Switching perspectives");
+			if(useSimulationPerspective) {
+				Activator.switchToPerspective(Simulation.ID_STEM_SIMULATION_PERSPECTIVE);
+			}else {
+				// Nothing
+				// Just don't switch Perspectives
+				// so if running, e.g., in the automated experiment perspective just stay there
+			}
+			
 		} // if flip
 
 		return null;
