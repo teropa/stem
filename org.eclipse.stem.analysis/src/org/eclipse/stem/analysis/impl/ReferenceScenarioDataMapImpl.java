@@ -45,10 +45,11 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ReferenceScenarioDataMapImpl() {
 		super();
+		referenceScenarioDataMap = new HashMap<String, ReferenceScenarioDataInstance>();
 	}
 
 	/**

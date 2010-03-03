@@ -70,9 +70,8 @@ public class AutoExpControl extends AnalysisControl {
 	
 	static boolean pauseTrigger = false;
 	
-	/**
-	 * Text displaying the currently selected parameter estimator
-	 */
+	static double[] referenceIncidence;
+	static double[] modelIncidence;
 	
 	
 	/**
@@ -371,7 +370,7 @@ public class AutoExpControl extends AnalysisControl {
 										// Plot 1 from result.getError() (keep appending)
 										appendLatestErrorData(plottableError);
 										// Plot 2 from result.getErrorByTimestep() (same as we show in scenario comparison view)
-										setRecentTimeSeries(result.getError(), result.getErrorByTimeStep() );
+										setRecentTimeSeries(result.getError(), result.getErrorByTimeStep(), result.getReferenceByTime(), result.getModelByTime() );
 										
 										if(bestParamValues == null) {
 											bestParamValues = copyDoubleArray(recentParamValues[row-1]);
@@ -438,6 +437,12 @@ public class AutoExpControl extends AnalysisControl {
 		
 		newTimeSeries = new double[1];
 		newTimeSeries[0] = 0;
+		
+		referenceIncidence = new double[1];
+		referenceIncidence[0] = 0;
+		
+		modelIncidence = new double[1];
+		modelIncidence[0] = 0;
 		
 		errorConvergenceByRun.resetData();
 		currentErrorByTime.resetData();
@@ -991,7 +996,9 @@ public class AutoExpControl extends AnalysisControl {
 		if(chartIndex == 0) return errorHistory;
 		if(chartIndex == 1) {
 			if(state==0) return newTimeSeries;
-			return bestSeries;
+			if(state==1) return bestSeries;
+			if(state==2) return referenceIncidence;
+			if(state==3) return modelIncidence;
 		}
 		// should never happen
 		return null;
@@ -1007,7 +1014,9 @@ public class AutoExpControl extends AnalysisControl {
 		if(chartIndex==0) return Messages.getString("AUTO.TITLE1");
 		if(chartIndex==1) {
 			if(state==0) return Messages.getString("AUTO.TITLE2");
-			return Messages.getString("AUTO.TITLE3");
+			if(state==1) return Messages.getString("AUTO.TITLE3");
+			if(state==2) return Messages.getString("AUTO.TITLE4");
+			if(state==3) return Messages.getString("AUTO.TITLE5");
 		}
 		return  Messages.getString("AUTO.NOTFOUNDERROR");
 	}
@@ -1024,7 +1033,7 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	public int getNumProperties(int chartIndex) {
 		if(chartIndex==ERROR_CONVERGENCE_BY_RUN_ID) return 1; // one thing to chart
-		if(chartIndex==CURRENT_ERROR_BY_TIME_ID) return 2; // two things to chart
+		if(chartIndex==CURRENT_ERROR_BY_TIME_ID) return 4; // two things to chart
 		return 0; // should never happen
 	}
 
@@ -1042,12 +1051,19 @@ public class AutoExpControl extends AnalysisControl {
 
 	/**
 	 * 
+	 * @param error
 	 * @param errorByTimeStep
+	 * @param refIncidence
+	 * @param bestIncidence
 	 */
-	public static void setRecentTimeSeries(double error, EList<Double> errorByTimeStep) {
+	public static void setRecentTimeSeries(double error, EList<Double> errorByTimeStep, EList<Double> refIncidence, EList<Double> bestIncidence) {
 		newTimeSeries = new double[errorByTimeStep.size()];
+		referenceIncidence = new double[refIncidence.size()];
+		modelIncidence = new double[bestIncidence.size()];
 		for(int i = 0; i < errorByTimeStep.size(); i ++) {
 			newTimeSeries[i] = errorByTimeStep.get(i).doubleValue();
+			referenceIncidence[i] = refIncidence.get(i).doubleValue();
+			modelIncidence[i] = bestIncidence.get(i).doubleValue();
 		}
 		if(bestSeries==null) bestSeries = newTimeSeries;
 		if(error <= bestError) {
