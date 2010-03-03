@@ -24,6 +24,7 @@ import java.util.Map;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.jface.action.MenuManager;
@@ -141,21 +142,23 @@ public abstract class IdentifiablePluginView extends ViewPart {
 		// Listen for double-clicks on Executables
 		treeViewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(final DoubleClickEvent event) {
-				final IExecutable executable = (IExecutable) Platform
-						.getAdapterManager().getAdapter(
-								((StructuredSelection) event.getSelection())
-										.toList().get(0), IExecutable.class);
+				final IExecutable executable = (IExecutable) Platform.getAdapterManager().getAdapter(((StructuredSelection) event.getSelection()).toList().get(0), IExecutable.class);
 
 				// Were we successful in adapting?
 				if (executable != null) {
 					// Yes
 					executable.run();
-					if(executable.getClass().getName().indexOf(STEMExecutionCommandHandler.DEFAULT_PERSPECTIVE_SUBSTRING_KEY)<0) {
-						// nothing, if not a default execution just don't switch perspectives
-					} else {
-						Activator.switchToPerspective(Simulation.ID_STEM_SIMULATION_PERSPECTIVE);
-					}
 					
+					// Only switch to the Simulation Persepctive when the executable is a standard
+					// run (scenario). For other executables we may want to stay in other special
+					// perspectives
+					if(executable instanceof Adapter) {
+						Adapter a = (Adapter) executable;
+						Object obj = a.getTarget();
+						if( obj instanceof org.eclipse.stem.core.scenario.impl.ScenarioImpl ) {
+							Activator.switchToPerspective(Simulation.ID_STEM_SIMULATION_PERSPECTIVE);
+						}	
+					} // if adapter (usually true)
 					
 				} // if
 			} // doubleClick

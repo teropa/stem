@@ -36,8 +36,6 @@ import org.eclipse.ui.handlers.HandlerUtil;
 abstract public class STEMExecutionCommandHandler extends AbstractHandler
 		implements IHandler {
 	
-	public static final String DEFAULT_PERSPECTIVE_SUBSTRING_KEY = "Scenario";
-
 	/**
 	 * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands.ExecutionEvent)
 	 */
@@ -45,7 +43,10 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 			throws ExecutionException {
 
 		boolean switchPerspective = false;
-
+		
+		String name = executionEvent.getApplicationContext().getClass().getSimpleName();
+		System.out.println(" execution event name = "+name);
+		
 		final ISelection selection = HandlerUtil
 				.getCurrentSelectionChecked(executionEvent);
 		
@@ -62,7 +63,10 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 				IExecutable executable = (IExecutable) Platform
 						.getAdapterManager().getAdapter(obj, IExecutable.class); 
 				
-				if(executable.getClass().getName().indexOf(DEFAULT_PERSPECTIVE_SUBSTRING_KEY)<0) {
+				// Only switch to the Simulation Persepctive when the executable is a standard
+				// run (scenario). For other executables we may want to stay in other special
+				// perspectives
+				if( !(obj instanceof org.eclipse.stem.core.scenario.impl.ScenarioImpl )) {
 					useSimulationPerspective = false;
 				}
 				
