@@ -85,6 +85,10 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	 Button stopButton = null;
 	
+	 /**
+	  * restart button
+	  */
+	 Button restartButton = null; 
 	/**
 	 * Colors for the time series chart
 	 */
@@ -283,8 +287,13 @@ public class AutoExpControl extends AnalysisControl {
 				public void eventReceived(AutomaticExperimentManagerEvent evt) {
 					if(evt.status == MANAGER_STATUS.SCHEDULED) {
 						ErrorAnalysisAlgorithm alg = evt.algorithm;
-						AutoExpControl.this.reset();
-						AutoExpControl.this.stopButton.setEnabled(true);
+						display.syncExec(new Runnable() {
+							public void run() {
+								AutoExpControl.this.reset();
+								AutoExpControl.this.stopButton.setEnabled(true);
+								restartButton.setEnabled(false);
+							}
+						});
 						alg.addListener(new ErrorAnalysisAlgorithmListener() {
 							@Override
 							public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
@@ -314,7 +323,7 @@ public class AutoExpControl extends AnalysisControl {
 									}
 									
 									// copy all but the error - it is not a parameter
-									for(int i = 0; i < (restartParamValues.length) -1; i ++) {
+									for(int i = 0; i < (restartParamValues.length); i ++) {
 										if(restartWithLatest) {
 											if(recentParamValues!=null) restartParamValues[i] = recentParamValues[row-1][i];
 										} else {
@@ -347,7 +356,11 @@ public class AutoExpControl extends AnalysisControl {
 									// The algorithm has finished. Smallest value in 
 									//evt.result
 									/////////////////
-									
+									display.asyncExec(new Runnable() {
+										public void run() {
+											restartButton.setEnabled(true);
+										}
+									});
 								} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
 									// One simulation is done. The result is READY and stored in evt.result
 									ErrorResult result = evt.result;
@@ -460,6 +473,15 @@ public class AutoExpControl extends AnalysisControl {
 					recentValueLabels[i][j] = null;
 				}
 		recentValueLabels = null;
+		
+		if(controlLabels != null)
+			for(CLabel lab:controlLabels) lab.dispose(); 
+		
+		controlLabels = null;
+		
+		
+		if(restartValues!=null)
+			for(Text t:restartValues) t.dispose();
 		
 		row = 0; 
 		numColumns = 0;
@@ -618,8 +640,9 @@ public class AutoExpControl extends AnalysisControl {
 		CLabel restartLabel = new CLabel(controlsActionComposite, SWT.NONE);
 		restartLabel.setText(Messages.getString("AUTO.RESTART"));
 		// c2
-		Button restartButton = new Button(controlsActionComposite, SWT.PUSH);
+		restartButton = new Button(controlsActionComposite, SWT.PUSH);
 		restartButton.setImage(imageRegistry.get(ISharedImages.RESTART_ICON));
+		restartButton.setEnabled(false);
 		// c3
 		CLabel paramsLabel = new CLabel(controlsActionComposite, SWT.NONE);
 		paramsLabel.setText(Messages.getString("AUTO.RESTART_HEADER"));
@@ -657,7 +680,8 @@ public class AutoExpControl extends AnalysisControl {
 				switch (e.type) {
 				case SWT.Selection:
 					stopButton.setEnabled(false);
-					AutomaticExperimentManager.quitNow();
+					AutomaticExperimentManager.getInstance().quitNow();
+					restartButton.setEnabled(true);
 					break;
 				}
 			}
@@ -667,7 +691,7 @@ public class AutoExpControl extends AnalysisControl {
 			public void handleEvent(Event e) {
 				switch (e.type) {
 				case SWT.Selection:
-					AutomaticExperimentManager.restartNow(restartParamValues);
+					AutomaticExperimentManager.getInstance().restartNow(restartParamValues);
 					break;
 				}
 			}

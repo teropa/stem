@@ -31,6 +31,8 @@ public interface ErrorAnalysisAlgorithm {
 	public double getResultValue();
 	public void execute();
 	public void init(AutomaticExperiment automaticExperiment, ErrorAnalysisAlgorithm alg);
+	public void reinitStartParams(AutomaticExperiment exp, double [] vals);
 	public void addListener(ErrorAnalysisAlgorithmListener listener);
+	public void clearListeners();
 	
 }

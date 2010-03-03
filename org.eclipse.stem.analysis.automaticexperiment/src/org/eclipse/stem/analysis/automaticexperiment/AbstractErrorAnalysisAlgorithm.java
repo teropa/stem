@@ -82,6 +82,13 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 		setReferenceDataDirectory(refDir);
 	}
 
+	public void reinitStartParams(AutomaticExperiment experiment, double [] vals) {
+		int i=0;
+		for(ModifiableParameter p:experiment.getParameters()) {
+			p.setInitialValue(vals[i++]);
+		}
+		init(experiment);
+	}
 	public double[] getResultParameters() {
 		return simplexAlgorithm.getMinimumParametersValues();
 	}
@@ -110,6 +117,7 @@ public abstract class AbstractErrorAnalysisAlgorithm implements
 	}
 	
 	public void addListener(ErrorAnalysisAlgorithmListener l) {this.listeners.add(l);}
+	public void clearListeners() {this.listeners.clear();}
 	
 	protected void fireEvent(ErrorAnalysisAlgorithmEvent evt) {
 		for(ErrorAnalysisAlgorithmListener l:listeners) l.eventReceived(evt);

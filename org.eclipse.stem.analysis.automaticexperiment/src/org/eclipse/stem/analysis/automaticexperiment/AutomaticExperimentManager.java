@@ -15,8 +15,10 @@ public class AutomaticExperimentManager {
 	protected static boolean QUIT_NOW = false;
 	protected static boolean PAUSE_NOW = false;
 	protected static CountDownLatch stopLatch = null;
+	protected static ErrorAnalysisAlgorithm currentRunningAlgorithm = null;
+	protected static AutomaticExperiment currentRunningExperient;
 	
-	public static void quitNow() {
+	public void quitNow() {
 		stopLatch = new CountDownLatch(1);
 		QUIT_NOW = true;
 		try {
@@ -35,8 +37,23 @@ public class AutomaticExperimentManager {
 		System.out.println("Stefan: Please continue now");
 	}
 	
-	public static void restartNow(double[] restartParamValues) {
+	public void restartNow(double[] restartParamValues) {
 		System.out.println("Stefan: Restart with the valued provided");
+		QUIT_NOW = false;
+		currentRunningAlgorithm.reinitStartParams(currentRunningExperient, restartParamValues);
+		currentRunningAlgorithm.clearListeners();
+		// Stefan fix, we can't hold up the UI thread, it causes memory leaks
+		Job j = new Job("Minimizer algorith") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				currentRunningAlgorithm.execute();
+				return Status.OK_STATUS;
+			}
+		};
+		
+		AutomaticExperimentManagerEvent newEvent = new AutomaticExperimentManagerEvent(currentRunningExperient, currentRunningAlgorithm, MANAGER_STATUS.SCHEDULED);
+		fireEvent(newEvent);
+		j.schedule();
 	}
 
 	private ArrayList<AutomaticExperimentManagerListener> listeners = new ArrayList<AutomaticExperimentManagerListener>();
@@ -58,6 +75,9 @@ public class AutomaticExperimentManager {
 	public void executeAlgorithm(final ErrorAnalysisAlgorithm algorithm, final AutomaticExperiment automaticExperiment) {
 		QUIT_NOW = false; // in case RESTARTING
 		PAUSE_NOW = false;
+		currentRunningAlgorithm = algorithm;
+		currentRunningExperient = automaticExperiment;
+		
 		algorithm.init(automaticExperiment, algorithm);
 		// Stefan fix, we can't hold up the UI thread, it causes memory leaks
 		Job j = new Job("Minimizer algorith") {
@@ -67,13 +87,13 @@ public class AutomaticExperimentManager {
 				return Status.OK_STATUS;
 			}
 		};
-		j.schedule();
 		
 		AutomaticExperimentManagerEvent newEvent = new AutomaticExperimentManagerEvent(automaticExperiment, algorithm, MANAGER_STATUS.SCHEDULED);
 		fireEvent(newEvent);
+		j.schedule();
 	}
 	
-	private void fireEvent(AutomaticExperimentManagerEvent evt) {
+	private  void fireEvent(AutomaticExperimentManagerEvent evt) {
 		for(AutomaticExperimentManagerListener l:listeners) l.eventReceived(evt);
 	}
 	
@@ -81,6 +101,9 @@ public class AutomaticExperimentManager {
 		this.listeners.add(l);
 	}
 	
+	public void clearListeners() {
+		this.listeners.clear();
+	}
 	public static void main() {
 		QUIT_NOW = false; // in case RESTARTING
 		PAUSE_NOW = false;
