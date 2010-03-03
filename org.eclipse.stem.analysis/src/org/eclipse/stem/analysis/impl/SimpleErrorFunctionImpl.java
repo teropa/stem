@@ -85,7 +85,7 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	// Set to true to weight the average by population size
 	private static boolean WEIGHTED_AVERAGE = true;
 	private static boolean FIT_INCIDENCE = true;
-	private static boolean USE_THRESHOLD = false;
+	private static boolean USE_THRESHOLD = true;
 	private static double THRESHOLD = 0.05;
 	
 	/**
@@ -211,26 +211,27 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 				// If we use the threshold and both the reference and the model is less than
 				// the THRESHOLD*MAXref(loc) we don't measure the data point
 				
-				if(USE_THRESHOLD && (Xref[icount]<THRESHOLD*commonMaxLocationsA.get(loc) &&
-						Xdata[icount]<THRESHOLD*commonMaxLocationsA.get(loc))) continue;
+				if(USE_THRESHOLD && (Xref[icount]<=THRESHOLD*commonMaxLocationsA.get(loc) &&
+						Xdata[icount]<=THRESHOLD*commonMaxLocationsA.get(loc))) continue;
 				
 				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
 				list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
 				++timesteps;
 			}
 			double error = Double.MAX_VALUE;
-		    if(timesteps > 0) error = Math.sqrt(nominator/timesteps);
-			error = error / (maxRef-minRef);
-			if(WEIGHTED_AVERAGE) finalerror += commonAvgPopulationLocationsA.get(loc) * error;
-			else finalerror += error;
-			weighted_denom += commonAvgPopulationLocationsA.get(loc);
-			nrmse_loc[loc_iter++] = error;
+		    if(timesteps > 0 && maxRef-minRef > 0.0) {
+		    	error = Math.sqrt(nominator/timesteps);
+		    	error = error / (maxRef-minRef);
+		    	if(WEIGHTED_AVERAGE) finalerror += commonAvgPopulationLocationsA.get(loc) * error;
+		    	else finalerror += error;
+		    	if(WEIGHTED_AVERAGE) weighted_denom += commonAvgPopulationLocationsA.get(loc);
+		    	else weighted_denom += 1.0;
+		    }
 		
 		}
 		
 		// Divide the error by the number of locations
-		if(WEIGHTED_AVERAGE) finalerror /= weighted_denom; 
-		else finalerror /= (double)nrmse_loc.length;
+		finalerror /= weighted_denom; 
 		
 		ErrorResult resultobj = aFactory.createErrorResult();
 		resultobj.setErrorByTimeStep(list);
