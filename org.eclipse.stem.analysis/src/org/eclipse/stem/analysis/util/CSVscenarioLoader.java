@@ -252,6 +252,7 @@ public class CSVscenarioLoader {
 		for(int i = 0; i < diseaseData.size(); i ++) {
 			File f = diseaseData.get(i);
 			String name = f.getName();
+			if(name.startsWith(".")) continue; //skip system files
 			int _idx = name.lastIndexOf('_');
 			int dotidx = name.lastIndexOf('.');
 			if(_idx <0 || dotidx < 0 || dotidx < _idx) continue; // not a data file
