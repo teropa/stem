@@ -84,7 +84,6 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 		// Flip to Simulation Perspective?
 		if (switchPerspective) {
 			// Yes
-			System.out.println("****Switching perspectives");
 			if(useSimulationPerspective) {
 				Activator.switchToPerspective(Simulation.ID_STEM_SIMULATION_PERSPECTIVE);
 			}else {
