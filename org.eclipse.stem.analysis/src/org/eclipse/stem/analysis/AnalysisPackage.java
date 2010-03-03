@@ -169,13 +169,31 @@ public interface AnalysisPackage extends EPackage {
 	int ERROR_RESULT__ERROR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Reference By Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERROR_RESULT__REFERENCE_BY_TIME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Model By Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERROR_RESULT__MODEL_BY_TIME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Error Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_RESULT_FEATURE_COUNT = 2;
+	int ERROR_RESULT_FEATURE_COUNT = 4;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.analysis.ErrorFunction <em>Error Function</em>}'.
@@ -248,6 +266,28 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getErrorResult_Error();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.analysis.ErrorResult#getReferenceByTime <em>Reference By Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference By Time</em>'.
+	 * @see org.eclipse.stem.analysis.ErrorResult#getReferenceByTime()
+	 * @see #getErrorResult()
+	 * @generated
+	 */
+	EAttribute getErrorResult_ReferenceByTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.analysis.ErrorResult#getModelByTime <em>Model By Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model By Time</em>'.
+	 * @see org.eclipse.stem.analysis.ErrorResult#getModelByTime()
+	 * @see #getErrorResult()
+	 * @generated
+	 */
+	EAttribute getErrorResult_ModelByTime();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -330,6 +370,20 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ERROR_RESULT__ERROR = eINSTANCE.getErrorResult_Error();
+		/**
+		 * The meta object literal for the '<em><b>Reference By Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ERROR_RESULT__REFERENCE_BY_TIME = eINSTANCE.getErrorResult_ReferenceByTime();
+		/**
+		 * The meta object literal for the '<em><b>Model By Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ERROR_RESULT__MODEL_BY_TIME = eINSTANCE.getErrorResult_ModelByTime();
 
 	}
 

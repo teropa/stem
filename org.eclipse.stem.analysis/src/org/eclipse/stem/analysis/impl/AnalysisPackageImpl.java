@@ -92,20 +92,10 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link AnalysisPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -117,7 +107,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		if (isInited) return (AnalysisPackage)EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
 
 		// Obtain or create and register package
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof AnalysisPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new AnalysisPackageImpl());
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AnalysisPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AnalysisPackageImpl());
 
 		isInited = true;
 
@@ -130,6 +120,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Mark meta-data to indicate it can't be changed
 		theAnalysisPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(AnalysisPackage.eNS_URI, theAnalysisPackage);
 		return theAnalysisPackage;
 	}
 
@@ -201,6 +194,24 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getErrorResult_ReferenceByTime() {
+		return (EAttribute)errorResultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getErrorResult_ModelByTime() {
+		return (EAttribute)errorResultEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AnalysisFactory getAnalysisFactory() {
 		return (AnalysisFactory)getEFactoryInstance();
 	}
@@ -235,6 +246,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		errorResultEClass = createEClass(ERROR_RESULT);
 		createEAttribute(errorResultEClass, ERROR_RESULT__ERROR_BY_TIME_STEP);
 		createEAttribute(errorResultEClass, ERROR_RESULT__ERROR);
+		createEAttribute(errorResultEClass, ERROR_RESULT__REFERENCE_BY_TIME);
+		createEAttribute(errorResultEClass, ERROR_RESULT__MODEL_BY_TIME);
 	}
 
 	/**
@@ -287,6 +300,14 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getErrorResult_ErrorByTimeStep(), g1, "errorByTimeStep", null, 0, 1, ErrorResult.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getErrorResult_Error(), ecorePackage.getEDouble(), "error", null, 0, 1, ErrorResult.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEEList());
+		g2 = createEGenericType(ecorePackage.getEDoubleObject());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getErrorResult_ReferenceByTime(), g1, "referenceByTime", null, 0, 1, ErrorResult.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEEList());
+		g2 = createEGenericType(ecorePackage.getEDoubleObject());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getErrorResult_ModelByTime(), g1, "modelByTime", null, 0, 1, ErrorResult.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

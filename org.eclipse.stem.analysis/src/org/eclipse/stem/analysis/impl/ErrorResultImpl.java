@@ -32,6 +32,8 @@ import org.eclipse.stem.analysis.ErrorResult;
  * <ul>
  *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getErrorByTimeStep <em>Error By Time Step</em>}</li>
  *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getError <em>Error</em>}</li>
+ *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getReferenceByTime <em>Reference By Time</em>}</li>
+ *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getModelByTime <em>Model By Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +67,25 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @ordered
 	 */
 	protected double error = ERROR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferenceByTime() <em>Reference By Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceByTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Double> referenceByTime;
+	/**
+	 * The cached value of the '{@link #getModelByTime() <em>Model By Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelByTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Double> modelByTime;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,13 +153,59 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Double> getReferenceByTime() {
+		return referenceByTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceByTime(EList<Double> newReferenceByTime) {
+		EList<Double> oldReferenceByTime = referenceByTime;
+		referenceByTime = newReferenceByTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME, oldReferenceByTime, referenceByTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Double> getModelByTime() {
+		return modelByTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModelByTime(EList<Double> newModelByTime) {
+		EList<Double> oldModelByTime = modelByTime;
+		modelByTime = newModelByTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME, oldModelByTime, modelByTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AnalysisPackage.ERROR_RESULT__ERROR_BY_TIME_STEP:
 				return getErrorByTimeStep();
 			case AnalysisPackage.ERROR_RESULT__ERROR:
-				return new Double(getError());
+				return getError();
+			case AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME:
+				return getReferenceByTime();
+			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
+				return getModelByTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,7 +223,13 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 				setErrorByTimeStep((EList<Double>)newValue);
 				return;
 			case AnalysisPackage.ERROR_RESULT__ERROR:
-				setError(((Double)newValue).doubleValue());
+				setError((Double)newValue);
+				return;
+			case AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME:
+				setReferenceByTime((EList<Double>)newValue);
+				return;
+			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
+				setModelByTime((EList<Double>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +249,12 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 			case AnalysisPackage.ERROR_RESULT__ERROR:
 				setError(ERROR_EDEFAULT);
 				return;
+			case AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME:
+				setReferenceByTime((EList<Double>)null);
+				return;
+			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
+				setModelByTime((EList<Double>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +271,10 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 				return errorByTimeStep != null;
 			case AnalysisPackage.ERROR_RESULT__ERROR:
 				return error != ERROR_EDEFAULT;
+			case AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME:
+				return referenceByTime != null;
+			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
+				return modelByTime != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +293,10 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 		result.append(errorByTimeStep);
 		result.append(", error: ");
 		result.append(error);
+		result.append(", referenceByTime: ");
+		result.append(referenceByTime);
+		result.append(", modelByTime: ");
+		result.append(modelByTime);
 		result.append(')');
 		return result.toString();
 	}

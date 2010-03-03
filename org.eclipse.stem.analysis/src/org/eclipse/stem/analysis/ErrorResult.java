@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getErrorByTimeStep <em>Error By Time Step</em>}</li>
  *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getError <em>Error</em>}</li>
+ *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getReferenceByTime <em>Reference By Time</em>}</li>
+ *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getModelByTime <em>Model By Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,5 +87,57 @@ public interface ErrorResult extends EObject {
 	 */
 	void setError(double value);
 	
+	/**
+	 * Returns the value of the '<em><b>Reference By Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference By Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference By Time</em>' attribute.
+	 * @see #setReferenceByTime(EList)
+	 * @see org.eclipse.stem.analysis.AnalysisPackage#getErrorResult_ReferenceByTime()
+	 * @model many="false" transient="true"
+	 * @generated
+	 */
+	EList<Double> getReferenceByTime();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.analysis.ErrorResult#getReferenceByTime <em>Reference By Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference By Time</em>' attribute.
+	 * @see #getReferenceByTime()
+	 * @generated
+	 */
+	void setReferenceByTime(EList<Double> value);
+
+	/**
+	 * Returns the value of the '<em><b>Model By Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model By Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model By Time</em>' attribute.
+	 * @see #setModelByTime(EList)
+	 * @see org.eclipse.stem.analysis.AnalysisPackage#getErrorResult_ModelByTime()
+	 * @model many="false" transient="true"
+	 * @generated
+	 */
+	EList<Double> getModelByTime();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.analysis.ErrorResult#getModelByTime <em>Model By Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model By Time</em>' attribute.
+	 * @see #getModelByTime()
+	 * @generated
+	 */
+	void setModelByTime(EList<Double> value);
+
 	public ErrorResult copy();
 } // ErrorResult

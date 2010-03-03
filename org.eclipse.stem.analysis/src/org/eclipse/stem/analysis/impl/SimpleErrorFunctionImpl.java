@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.stem.analysis.AnalysisFactory;
@@ -237,6 +238,26 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		resultobj.setErrorByTimeStep(list);
 		resultobj.setError(finalerror);
 		
+		EList<Double>refByTime = new BasicEList<Double>();
+		EList<Double>dataByTime = new BasicEList<Double>();
+		
+		// Set the reference and model by time
+		for(int icount=0;icount<time.length;++icount) {
+			refByTime.add(0.0);dataByTime.add(0.0);}
+		for(String loc:commonInfectiousLocationsA.keySet()) {
+		 	for(int icount =0; icount < time.length; icount ++) {
+				List<Double> dataAI = commonInfectiousLocationsA.get(loc);
+				List<Double> dataBI = commonInfectiousLocationsB.get(loc);
+												
+				double iA = dataAI.get(icount).doubleValue();
+				double iB = dataBI.get(icount).doubleValue();
+			
+				refByTime.set(icount, refByTime.get(icount)+iA);
+				dataByTime.set(icount, dataByTime.get(icount)+iB);
+			}
+		}
+		resultobj.setReferenceByTime(refByTime);
+		resultobj.setModelByTime(dataByTime);
 		return resultobj;	
 	}
 } //SimpleErrorFunctionImpl
