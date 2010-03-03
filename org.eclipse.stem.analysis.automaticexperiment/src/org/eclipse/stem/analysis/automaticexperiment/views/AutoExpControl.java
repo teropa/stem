@@ -359,6 +359,7 @@ public class AutoExpControl extends AnalysisControl {
 									display.asyncExec(new Runnable() {
 										public void run() {
 											restartButton.setEnabled(true);
+											stopButton.setEnabled(false);
 										}
 									});
 								} else if(evt.status == ALGORITHM_STATUS.FINISHED_SIMULATION) {
