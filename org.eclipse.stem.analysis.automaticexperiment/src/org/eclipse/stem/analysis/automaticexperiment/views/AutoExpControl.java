@@ -108,14 +108,18 @@ public class AutoExpControl extends AnalysisControl {
 	protected static RunHistoryCanvas errorConvergenceByRun = null;
 	static final int ERROR_CONVERGENCE_BY_RUN_ID = 0;
 	
-	protected static TimeSeriesCanvas currentErrorByTime = null;
+	protected static ErrorTimeSeriesCanvas currentErrorByTime = null;
 	static final int CURRENT_ERROR_BY_TIME_ID = 1;
+	
+	protected static AggregateTimeSeriesCanvas aggregateErrorByTime = null;
+	static final int AGGREGATE_BY_TIME_ID = 2;
 
 
 	private static final int NUMROWS = 10;
 	
 	//protected static Composite chartComposite;
-	protected static Composite timeSeriesComposite;
+	protected static Composite errorTimeSeriesComposite;
+	protected static Composite aggregateTimeSeriesComposite;
 	protected static Composite runHistoryComposite;
 	protected static Composite valuesComposite;
 	protected static Composite controlsComposite;
@@ -127,7 +131,7 @@ public class AutoExpControl extends AnalysisControl {
 	private static double[] errorHistory;
 	private static double[] bestSeries;
 	private static double bestError = Double.MAX_VALUE;
-	private static double[] newTimeSeries;
+	private static double[] newErrorTimeSeries;
 	
 	protected static String[] runParamNames;
 	protected static double[] bestParamValues;
@@ -244,28 +248,38 @@ public class AutoExpControl extends AnalysisControl {
  		getRunHistoryChart(runHistoryComposite); 
  		
  		/////////////
-		// TIME SERIES
+		// AGGREGATE TIME SERIES
  		CTabItem item1 = new CTabItem(tabFolder, SWT.BORDER);
-		item1.setText ("  "+Messages.getString("AUTO.TIMESERIES")+" ");
-		timeSeriesComposite = new Composite(tabFolder, SWT.BORDER);
-		timeSeriesComposite.setLayout(new FormLayout());
- 		item1.setControl(timeSeriesComposite);
+		item1.setText ("  "+Messages.getString("AUTO.AGGREGATESERIES")+" ");
+		aggregateTimeSeriesComposite = new Composite(tabFolder, SWT.BORDER);
+		aggregateTimeSeriesComposite.setLayout(new FormLayout());
+ 		item1.setControl(aggregateTimeSeriesComposite);
  		// set up the four data time series inside the chartComposite
- 		getTimeSeriesChart(timeSeriesComposite); 
+ 		getAggregateTimeSeriesChart(aggregateTimeSeriesComposite); 
+ 		
+ 		/////////////
+		// ERROR TIME SERIES
+ 		CTabItem item2 = new CTabItem(tabFolder, SWT.BORDER);
+		item2.setText ("  "+Messages.getString("AUTO.ERRORSERIES")+" ");
+		errorTimeSeriesComposite = new Composite(tabFolder, SWT.BORDER);
+		errorTimeSeriesComposite.setLayout(new FormLayout());
+ 		item2.setControl(errorTimeSeriesComposite);
+ 		// set up the four data time series inside the chartComposite
+ 		getErrorTimeSeriesChart(errorTimeSeriesComposite); 
  		
  		//////////////
  		// VALUES
-		CTabItem item2 = new CTabItem(tabFolder, SWT.BORDER);
-		item2.setText(Messages.getString("AUTO.VALUES"));
-		item2.setControl(valuesComposite);
+		CTabItem item3 = new CTabItem(tabFolder, SWT.BORDER);
+		item3.setText(Messages.getString("AUTO.VALUES"));
+		item3.setControl(valuesComposite);
 		
 		//////////////
  		// Controls
 		controlsComposite = new Composite(tabFolder, SWT.BORDER);
 		getControls();
-		CTabItem item3 = new CTabItem(tabFolder, SWT.BORDER);
-		item3.setText(Messages.getString("AUTO.CONTROLS"));
-		item3.setControl(controlsComposite);
+		CTabItem item4 = new CTabItem(tabFolder, SWT.BORDER);
+		item4.setText(Messages.getString("AUTO.CONTROLS"));
+		item4.setControl(controlsComposite);
 		
 		//////////////
  		// Settings
@@ -435,8 +449,8 @@ public class AutoExpControl extends AnalysisControl {
 		errorHistory = new double[1];
 		errorHistory[0] = 0;
 		
-		newTimeSeries = new double[1];
-		newTimeSeries[0] = 0;
+		newErrorTimeSeries = new double[1];
+		newErrorTimeSeries[0] = 0;
 		
 		referenceIncidence = new double[1];
 		referenceIncidence[0] = 0;
@@ -446,6 +460,7 @@ public class AutoExpControl extends AnalysisControl {
 		
 		errorConvergenceByRun.resetData();
 		currentErrorByTime.resetData();
+		aggregateErrorByTime.resetData();
 		//errorConvergenceByRun.clearData();
 		//currentErrorByTime.clearData();
 		errorHistoryList = new ArrayList<Double>();
@@ -500,6 +515,7 @@ public class AutoExpControl extends AnalysisControl {
 	public static void updateCharts() {
 		errorConvergenceByRun.draw();
 		currentErrorByTime.draw();
+		aggregateErrorByTime.draw();
 	}
 	
 	/**
@@ -508,6 +524,7 @@ public class AutoExpControl extends AnalysisControl {
 	public static void redrawCharts() {
 		errorConvergenceByRun.redraw();
 		currentErrorByTime.redraw();
+		aggregateErrorByTime.redraw();
 	}
 	
 	
@@ -516,10 +533,10 @@ public class AutoExpControl extends AnalysisControl {
 	 * set up the time series chart
 	 * @param dataComposite
 	 */
-	private void getTimeSeriesChart(Composite dataComposite) {
+	private void getErrorTimeSeriesChart(Composite dataComposite) {
 				
 		// currentErrorByTime
-		currentErrorByTime = new TimeSeriesCanvas(this,dataComposite,
+		currentErrorByTime = new ErrorTimeSeriesCanvas(this,dataComposite,
 				Messages.getString("AUTO.TITLE2"),
 				Messages.getString("AUTO.ERROR"),// y axis
 				Messages.getString("AUTO.TIME"),// x axis
@@ -527,16 +544,42 @@ public class AutoExpControl extends AnalysisControl {
 				foreGround,
 				backgroundGround,
 				frameColor, CURRENT_ERROR_BY_TIME_ID, true);
-		final FormData TimeSeries2FormData = new FormData();
-		currentErrorByTime.setLayoutData(TimeSeries2FormData);
-		TimeSeries2FormData.top = new FormAttachment(dataComposite, 0);
-		TimeSeries2FormData.bottom = new FormAttachment(100, 0);
-		TimeSeries2FormData.left = new FormAttachment(0, 0);
-		TimeSeries2FormData.right = new FormAttachment(100, 0);
+		final FormData timeSeriesFormData = new FormData();
+		currentErrorByTime.setLayoutData(timeSeriesFormData);
+		timeSeriesFormData.top = new FormAttachment(dataComposite, 0);
+		timeSeriesFormData.bottom = new FormAttachment(100, 0);
+		timeSeriesFormData.left = new FormAttachment(0, 0);
+		timeSeriesFormData.right = new FormAttachment(100, 0);
 		
 		currentErrorByTime.redraw();
 		
-	}// getEquationSeries
+	}// getErrorTimeSeries
+	
+	/**
+	 * set up the time series chart
+	 * @param dataComposite
+	 */
+	private void getAggregateTimeSeriesChart(Composite dataComposite) {
+				
+		// currentErrorByTime
+		aggregateErrorByTime = new AggregateTimeSeriesCanvas(this,dataComposite,
+				Messages.getString("AUTO.TITLE4"),
+				Messages.getString("AUTO.INCIDENCE"),// y axis
+				Messages.getString("AUTO.TIME"),// x axis
+				Messages.getString("AUTO.TITLE4"), //first property (line series name)
+				foreGround,
+				backgroundGround,
+				frameColor, AGGREGATE_BY_TIME_ID, true);
+		final FormData timeSeriesFormData = new FormData();
+		aggregateErrorByTime.setLayoutData(timeSeriesFormData);
+		timeSeriesFormData.top = new FormAttachment(dataComposite, 0);
+		timeSeriesFormData.bottom = new FormAttachment(100, 0);
+		timeSeriesFormData.left = new FormAttachment(0, 0);
+		timeSeriesFormData.right = new FormAttachment(100, 0);
+		
+		aggregateErrorByTime.redraw();
+		
+	}// getAggregateTimeSeries
 	
 	
 	/**
@@ -995,10 +1038,12 @@ public class AutoExpControl extends AnalysisControl {
 		
 		if(chartIndex == 0) return errorHistory;
 		if(chartIndex == 1) {
-			if(state==0) return newTimeSeries;
+			if(state==0) return newErrorTimeSeries;
 			if(state==1) return bestSeries;
-			if(state==2) return referenceIncidence;
-			if(state==3) return modelIncidence;
+		}
+		if(chartIndex == 2) {
+			if(state==0) return referenceIncidence;
+			if(state==1) return modelIncidence;
 		}
 		// should never happen
 		return null;
@@ -1015,8 +1060,10 @@ public class AutoExpControl extends AnalysisControl {
 		if(chartIndex==1) {
 			if(state==0) return Messages.getString("AUTO.TITLE2");
 			if(state==1) return Messages.getString("AUTO.TITLE3");
-			if(state==2) return Messages.getString("AUTO.TITLE4");
-			if(state==3) return Messages.getString("AUTO.TITLE5");
+		}
+		if(chartIndex==2) {
+			if(state==0) return Messages.getString("AUTO.TITLE4");
+			if(state==1) return Messages.getString("AUTO.TITLE5");
 		}
 		return  Messages.getString("AUTO.NOTFOUNDERROR");
 	}
@@ -1033,7 +1080,8 @@ public class AutoExpControl extends AnalysisControl {
 	 */
 	public int getNumProperties(int chartIndex) {
 		if(chartIndex==ERROR_CONVERGENCE_BY_RUN_ID) return 1; // one thing to chart
-		if(chartIndex==CURRENT_ERROR_BY_TIME_ID) return 4; // two things to chart
+		if(chartIndex==CURRENT_ERROR_BY_TIME_ID) return 2; // two things to chart
+		if(chartIndex==AGGREGATE_BY_TIME_ID) return 2; // two things to chart
 		return 0; // should never happen
 	}
 
@@ -1056,19 +1104,19 @@ public class AutoExpControl extends AnalysisControl {
 	 * @param refIncidence
 	 * @param bestIncidence
 	 */
-	public static void setRecentTimeSeries(double error, EList<Double> errorByTimeStep, EList<Double> refIncidence, EList<Double> bestIncidence) {
-		newTimeSeries = new double[errorByTimeStep.size()];
+	public static void setRecentTimeSeries(double error, EList<Double> errorByTimeStep, EList<Double> refIncidence, EList<Double> incidence) {
+		newErrorTimeSeries = new double[errorByTimeStep.size()];
 		referenceIncidence = new double[refIncidence.size()];
-		modelIncidence = new double[bestIncidence.size()];
-		for(int i = 0; i < errorByTimeStep.size(); i ++) {
-			newTimeSeries[i] = errorByTimeStep.get(i).doubleValue();
+		modelIncidence = new double[incidence.size()];
+		for(int i = 0; i < errorByTimeStep.size(); i ++) { 
+			newErrorTimeSeries[i] = errorByTimeStep.get(i).doubleValue();
 			referenceIncidence[i] = refIncidence.get(i).doubleValue();
-			modelIncidence[i] = bestIncidence.get(i).doubleValue();
+			modelIncidence[i] = incidence.get(i).doubleValue();
 		}
-		if(bestSeries==null) bestSeries = newTimeSeries;
+		if(bestSeries==null) bestSeries = newErrorTimeSeries;
 		if(error <= bestError) {
 			bestError = error;
-			bestSeries = newTimeSeries;
+			bestSeries = newErrorTimeSeries;
 			bestParamValues = copyDoubleArray(recentParamValues[row-1]);
 		}
 		

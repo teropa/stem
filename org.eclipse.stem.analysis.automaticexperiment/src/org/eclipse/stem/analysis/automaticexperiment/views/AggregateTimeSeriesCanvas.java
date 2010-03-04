@@ -65,9 +65,9 @@ import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.IWorkbenchActionConstants;
 
 /**
- * TimeSeriesCanvas is a subclass of {@link Canvas} suitable for chart drawings.
+ * AggregateTimeSeriesCanvas is a subclass of {@link Canvas} suitable for chart drawings.
  */
-public class TimeSeriesCanvas extends Canvas {
+public class AggregateTimeSeriesCanvas extends Canvas {
 
 	protected IDeviceRenderer idr = null;
 
@@ -217,7 +217,7 @@ public class TimeSeriesCanvas extends Canvas {
 	 * @param chartIndex the index of this chart (0 if only one)
 	 * @param overlayMode used if we need to overlay traces in different colors
 	 */
-	public TimeSeriesCanvas(final AnalysisControl analysisControl, final Composite parent, 
+	public AggregateTimeSeriesCanvas(final AnalysisControl analysisControl, final Composite parent, 
 			final String ordinateString, 
 			final String yAxisLabel, 
 			final String xAxisLabel,
@@ -285,7 +285,7 @@ public class TimeSeriesCanvas extends Canvas {
 		createContextMenu(this);
 		
 
-	} // TimeSeriesCanvas
+	} // AggregateTimeSeriesCanvas
 	/**
 	 * Constructor.
 	 * 
@@ -299,7 +299,7 @@ public class TimeSeriesCanvas extends Canvas {
 	 * @param chartIndex the index of this chart (0 if only one)
 	 *  
 	 */
-	public TimeSeriesCanvas(final Composite parent, 
+	public AggregateTimeSeriesCanvas(final Composite parent, 
 			final String ordinateString, 
 			final String yAxisLabel, 
 			final String xAxisLabel,
@@ -365,13 +365,13 @@ public class TimeSeriesCanvas extends Canvas {
 		createContextMenu(this);
 		
 
-	} // TimeSeriesCanvas
+	} // AggregateTimeSeriesCanvas
 
 	
 	
 	/**
-	 * The method which gets the {@link TimeSeriesCanvas}' reports list, and
-	 * draws it on the {@link TimeSeriesCanvas}.
+	 * The method which gets the {@link AggregateTimeSeriesCanvas}' reports list, and
+	 * draws it on the {@link AggregateTimeSeriesCanvas}.
 	 * @return integratedDifference for each line series
 	 * 
 	 */
@@ -624,7 +624,7 @@ public class TimeSeriesCanvas extends Canvas {
 		// we will add more lines as we need them
 		// handle null
 		if(!dataSeriesMap.containsKey(firstProperty)) {
-			DataSeries series = new DataSeries(Messages.getString("AUTO.TITLE1"), 0, overlayMode);
+			DataSeries series = new DataSeries(Messages.getString("AUTO.TITLE4"), 0, overlayMode);
 			dataSeriesMap.put(firstProperty, series);
 		}
 
@@ -1243,4 +1243,4 @@ public class TimeSeriesCanvas extends Canvas {
 	}// DataSeries
 	////////////////////////////////////////////////////////
 	
-} // TimeSeriesCanvas
+} // AggregateTimeSeriesCanvas
