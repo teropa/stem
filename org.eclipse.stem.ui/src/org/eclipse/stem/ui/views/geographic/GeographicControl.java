@@ -51,9 +51,11 @@ import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProvider;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapter;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapterFactory;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong.Segment;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.data.geography.centers.GeographicCenters;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationListener;import org.eclipse.stem.jobs.simulation.SimulationEvent;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapter;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory;
@@ -881,6 +883,14 @@ abstract public class GeographicControl extends Composite implements
 			for (final DecoratorDisplayData.LabelData labelData : displayData
 					.getLabelData()) {
 
+				// Check that the population identifier matches. If not, skip it
+				DynamicNodeLabel lab = labelData.getLabel();
+				if(lab instanceof DiseaseModelLabel && 
+						!((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedPopulationIdentifier)) continue;
+				
+				if(lab instanceof PopulationModelLabel && 
+						!((PopulationModelLabel)lab).getPopulationIdentifier().equals(selectedPopulationIdentifier)) continue;
+				
 				// This is the Identifiable that will produce the lat/long data
 				// (if available).
 				final Identifiable identifiable = labelData.getLabel()

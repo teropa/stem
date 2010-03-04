@@ -28,6 +28,9 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumerator;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapter;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapterFactory;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
@@ -373,7 +376,16 @@ public class GeoViewOptionsBar extends Composite {
 	ArrayList<String> getPopulationIdentifiers(Decorator decorator) {
 		if(decorator == null)return null;
 		ArrayList<String>popIds = new ArrayList<String>();
-		if(decorator instanceof DiseaseModel) {
+		
+		PopulationEnumeratorAdapter pea = (PopulationEnumeratorAdapter)PopulationEnumeratorAdapterFactory.INSTANCE.adapt(decorator, PopulationEnumerator.class);
+		
+		if(pea != null) {
+			pea.setTarget(decorator);
+			String [] pis = pea.getPopulationIdentifiers();
+			for(int i=0;i<pis.length;++i)
+				popIds.add(pis[i]);
+		}
+		else if(decorator instanceof DiseaseModel) {
 			popIds.add(((DiseaseModel)decorator).getPopulationIdentifier());
 		} else if(decorator instanceof DemographicPopulationModel) {
 			popIds.add(((DemographicPopulationModel)decorator).getPopulationIdentifier());

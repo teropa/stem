@@ -18,6 +18,9 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumerator;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapter;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapterFactory.PopulationEnumeratorAdapterFactoryImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
@@ -61,12 +64,12 @@ public class IntensityColorsLabelsMappingColorProviderAdapter extends
 				DynamicNodeLabel nodeLabel = (DynamicNodeLabel)label;
 				if (nodeLabel.getDecorator() == selectedDecorator) {
 					if(selectedDecorator instanceof DiseaseModel) {
-						String popId = ((DiseaseModel)selectedDecorator).getPopulationIdentifier();
 						if(nodeLabel instanceof DiseaseModelLabel) {
-							if(! ((DiseaseModelLabel)nodeLabel).getPopulationModelLabel().getPopulationIdentifier().equals(popId))
-								continue; // wrong population identifier
+							if(!((DiseaseModelLabel)nodeLabel).getPopulationModelLabel().getPopulationIdentifier().equals(selectedPopulationIdentifier))
+								continue; // wrong population identifier			
 						}
-					} else if(selectedDecorator instanceof PopulationModel) {
+					} 
+					else if(selectedDecorator instanceof PopulationModel) {
 						String popId = selectedPopulationIdentifier;
 						if(nodeLabel instanceof PopulationModelLabel) {
 							if(! ((PopulationModelLabel)nodeLabel).getPopulationIdentifier().equals(popId))

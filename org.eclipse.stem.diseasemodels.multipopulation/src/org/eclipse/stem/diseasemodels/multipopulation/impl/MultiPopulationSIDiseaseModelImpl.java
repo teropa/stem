@@ -1099,4 +1099,9 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		return retValue;
 	} // getPopulationLabels
 
+	@Override
+	public boolean isDeterministic() {
+		return true;
+	}
+	
 } //MultiPopulationSIDiseaseModelImpl

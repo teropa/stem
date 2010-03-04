@@ -27,6 +27,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import javax.swing.plaf.multi.MultiPopupMenuUI;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -36,6 +38,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.stem.adapters.time.TimeProvider;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
@@ -45,6 +48,9 @@ import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumerator;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapter;
+import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapterFactory;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
@@ -241,6 +247,15 @@ public class NewCSVLogWriter extends LogWriter {
 				propertySource = (IItemPropertySource) itemProviderFactory
 				.adapt(dmlv, IItemPropertySource.class);
 				 populationIdentifiers.add(((DiseaseModel)dm).getPopulationIdentifier());
+				 PopulationEnumeratorAdapter en = (PopulationEnumeratorAdapter)PopulationEnumeratorAdapterFactory.INSTANCE.adapt(dm, PopulationEnumerator.class);
+				 if(en != null) {
+					 en.setTarget(dm);
+					 String [] pops = en.getPopulationIdentifiers();
+					 // Skip first one, it's already been added.
+					 if(pops.length > 1)
+						 for(int i=1;i<pops.length;++i)
+							 populationIdentifiers.add(pops[i]);
+				 }
 			} else if (dm instanceof PopulationModel) {
 				org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory itemProviderFactory = getPopulationModelItemProviderFactory();
 				IntegrationLabelValue dmlv = (IntegrationLabelValue)label.getCurrentValue();
@@ -429,7 +444,26 @@ public class NewCSVLogWriter extends LogWriter {
 						IntegrationLabelValue dmlv = null;
 						
 						String populationIdentifier = null;
-						if(dm instanceof DiseaseModel && label instanceof DiseaseModelLabel &&
+						
+						boolean matchSubPop = false;
+						PopulationEnumeratorAdapter en = (PopulationEnumeratorAdapter)PopulationEnumeratorAdapterFactory.INSTANCE.adapt(dm, PopulationEnumerator.class);
+						if(en != null && label instanceof DiseaseModelLabel) {
+							 en.setTarget(dm);
+							 String []subpops1 = en.getPopulationIdentifiers();
+							 String labelPop = ((DiseaseModelLabel)label).getPopulationModelLabel().getPopulationIdentifier();
+							 if(subpops1.length > 1)
+								 for(int j=1;j<subpops1.length;++j)
+									 if(labelPop.equals(subpops1[j])) {matchSubPop = true;break;}
+						}
+						
+						if(matchSubPop) {
+							StandardItemProviderAdapterFactory itemProviderFactory = getItemProviderFactory();
+							IntegrationLabel dmLabel = (IntegrationLabel)label;
+							// The current value
+							dmlv = (IntegrationLabelValue)dmLabel.getCurrentValue();
+							propertySource = (IItemPropertySource) itemProviderFactory.adapt(dmlv, PropertySource.class);
+							populationIdentifier = ((DiseaseModelLabel)label).getPopulationModelLabel().getPopulationIdentifier();
+						} else if(dm instanceof DiseaseModel && label instanceof DiseaseModelLabel &&
 								((DiseaseModelLabel)label).getPopulationModelLabel().getPopulationIdentifier().equals(((DiseaseModel)dm).getPopulationIdentifier())) {							
 							StandardItemProviderAdapterFactory itemProviderFactory = getItemProviderFactory();
 							IntegrationLabel dmLabel = (IntegrationLabel)label;

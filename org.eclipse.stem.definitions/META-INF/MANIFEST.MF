@@ -8,6 +8,7 @@ Bundle-Activator: org.eclipse.stem.definitions.Activator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.eclipse.stem.definitions,
+ org.eclipse.stem.definitions.adapters.population,
  org.eclipse.stem.definitions.adapters.relativevalue,
  org.eclipse.stem.definitions.adapters.relativevalue.history,
  org.eclipse.stem.definitions.adapters.spatial,
