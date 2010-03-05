@@ -138,12 +138,22 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 			retValue.setDiseaseName(idc.getDiseaseName());
 			retValue.setPopulationIdentifier(idc.getPopulation());
 			retValue.setTargetISOKey(idc.getIsoKey());
-			if(idc.isInfectorMode()) {
-				retValue.setInfectiousCount(idc.getNumberOfInfections());
-			} else {
-				((SIRInoculatorImpl) retValue).setInoculatedPercentage(idc.getPercentToInoculate());
+			if(idc.isInfectorMode() && idc.isPercentage()) {
+				retValue.setPercentage(true);
+				retValue.setInfections(idc.getNumber());
+			} else if(idc.isInfectorMode() && !idc.isPercentage()) {
+				retValue.setPercentage(false);
+				retValue.setInfections(idc.getNumber());
+			} else if( idc.isPercentage()){
+				((SIRInoculatorImpl) retValue).setInoculations(idc.getNumber());
+				retValue.setPercentage(true);
 				// just to be sure - since this is NOT and Infector
-				retValue.setInfectiousCount(0.0);
+				retValue.setInfections(0.0);
+			} else {
+				((SIRInoculatorImpl) retValue).setInoculations(idc.getNumber());
+				retValue.setPercentage(false);
+				// just to be sure - since this is NOT and Infector
+				retValue.setInfections(0.0);
 			}
 			return retValue;
 		} // getInfector
@@ -155,7 +165,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		protected String getDCDescription() {
 			if(idc.isInfectorMode()) {
 				return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION"), //$NON-NLS-1$
-						new Object[] { Double.valueOf(idc.getNumberOfInfections()),
+						new Object[] { Double.valueOf(idc.getNumber()),
 										idc.getPopulation(), 
 										idc.getDiseaseName(),
 										GeographicNames.getReverseHierarchyName(idc.getIsoKey()), idc.getIsoKey() 
@@ -163,7 +173,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 			} 
 			// else inoculator
 			return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION2"), //$NON-NLS-1$
-					new Object[] { Double.valueOf(idc.getPercentToInoculate()),
+					new Object[] { Double.valueOf(idc.getNumber()),
 									idc.getPopulation(), 
 									idc.getDiseaseName(),
 									GeographicNames.getReverseHierarchyName(idc.getIsoKey()), idc.getIsoKey() 

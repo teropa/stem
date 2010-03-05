@@ -64,13 +64,19 @@ public class InfectorDefinitionComposite extends Composite {
 	 */
 	private Button[] infectorModeRadioButtons = new Button[2];
 	
+	private Button useAbsoluteNumberButton = null;
+	private Button usePercentageButton = null;
+	
 	/** 
 	 * keep track of the mode.
 	 * infector by default
 	 */
 	private boolean infectorMode = true;
 	
-
+	/**
+	 * keep track of percentage or absolute number
+	 */
+	private boolean percentage = false;
 
 
 	/**
@@ -94,13 +100,20 @@ public class InfectorDefinitionComposite extends Composite {
 		fd_infectorMode.left = new FormAttachment(0, 0);
 		fd_infectorMode.right = new FormAttachment(100, 0);
 		infectorModeComposite.setLayoutData(fd_infectorMode);
-		
+
+		Composite percentModeComposite = createPercentModeRadioButtonsComposite(this);
+		final FormData fd_percentMode = new FormData();
+		fd_percentMode.top = new FormAttachment(infectorModeComposite, 5, SWT.BOTTOM);
+		fd_percentMode.left = new FormAttachment(0, 0);
+		fd_percentMode.right = new FormAttachment(100, 0);
+		percentModeComposite.setLayoutData(fd_percentMode);
+
 		// Disease Name
 		final Label diseaseNameLabel = new Label(this, SWT.NONE);
 		final FormData fd_diseaseNameLabel = new FormData();
 		fd_diseaseNameLabel.left = new FormAttachment(0, 0);
 		fd_diseaseNameLabel.right = new FormAttachment(margin1, 0);
-		fd_diseaseNameLabel.top = new FormAttachment(infectorModeComposite, 5, SWT.BOTTOM);
+		fd_diseaseNameLabel.top = new FormAttachment(percentModeComposite, 5, SWT.BOTTOM);
 		diseaseNameLabel.setLayoutData(fd_diseaseNameLabel);
 		diseaseNameLabel.setText(DiseaseWizardMessages.getString("NInfWizDN")); //$NON-NLS-1$
 
@@ -111,7 +124,7 @@ public class InfectorDefinitionComposite extends Composite {
 		final FormData fd_diseaseNameText = new FormData();
 		fd_diseaseNameText.left = new FormAttachment(diseaseNameLabel, 0);
 		fd_diseaseNameText.right = new FormAttachment(100, 0);
-		fd_diseaseNameText.top = new FormAttachment(infectorModeComposite, 5, SWT.BOTTOM);
+		fd_diseaseNameText.top = new FormAttachment(percentModeComposite, 5, SWT.BOTTOM);
 		diseaseNameText.setLayoutData(fd_diseaseNameText);
 		
 
@@ -147,7 +160,7 @@ public class InfectorDefinitionComposite extends Composite {
 		numberOfInfectionsLabel.setLayoutData(fd_numberOfInfectionsLabel);
 		
 		numberOfInfectionsText = new Text(this, SWT.BORDER);
-		numberOfInfectionsText.setText(StandardPackage.Literals.SI_INFECTOR__INFECTIOUS_COUNT.getDefaultValueLiteral());
+		numberOfInfectionsText.setText(StandardPackage.Literals.SI_INFECTOR__INFECTIONS.getDefaultValueLiteral());
 		numberOfInfectionsText.setToolTipText(DiseaseWizardMessages.getString("NInfWizNITT")); //$NON-NLS-1$
 		numberOfInfectionsText.addModifyListener(projectValidator);
 		
@@ -305,20 +318,12 @@ public class InfectorDefinitionComposite extends Composite {
 	    
 	    infectorModeRadioButtons[1] = new Button(radioComposite, SWT.RADIO);
 	    infectorModeRadioButtons[1].setText(DiseaseWizardMessages.getString("NInfectorWiz.inoculate"));//$NON-NLS-1$
-	    
+	    	    
 	    Listener listener = new Listener() {
 	        public void handleEvent(Event event) {
 	          if (event.widget == infectorModeRadioButtons[0]) {
 	        	infectorMode = infectorModeRadioButtons[0].getSelection();
 	          }
-	          // toggle the wizard
-	          if(infectorMode) {
-	        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNI")); //$NON-NLS-1$
-	          } else {
-	        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizPI")); //$NON-NLS-1$
-	          }
-	          // clear the text because we need to revalidate
-	          numberOfInfectionsText.setText("");
 	        }
 	      };
 	      // these are radio buttons so we only need to add the listener to one of them.
@@ -327,6 +332,44 @@ public class InfectorDefinitionComposite extends Composite {
 	    return radioComposite;
 	}//getinfectorModeRadioButtonsComposite
 	
+	/**
+	 * @param parent
+	 * @return the composite
+	 */
+	Composite createPercentModeRadioButtonsComposite(final Composite parent) {
+	    Composite radio2Composite = new Composite(parent, SWT.BORDER);
+	    FillLayout fillLayout2 = new FillLayout();
+	    fillLayout2.type = SWT.VERTICAL;
+	    radio2Composite.setLayout(fillLayout2);
+	    
+	    
+	    useAbsoluteNumberButton = new Button(radio2Composite, SWT.RADIO);
+	    useAbsoluteNumberButton.setSelection(true);
+	    useAbsoluteNumberButton.setText(DiseaseWizardMessages.getString("NInfWiz.absnumber"));
+	    
+	    usePercentageButton = new Button(radio2Composite, SWT.RADIO);
+	    usePercentageButton.setText(DiseaseWizardMessages.getString("NInfWiz.percentage"));
+	    
+	    Listener listener = new Listener() {
+	        public void handleEvent(Event event) {
+	          if(event.widget == useAbsoluteNumberButton || event.widget == usePercentageButton) {
+		          // toggle the wizard
+	        	  percentage = usePercentageButton.getSelection();
+		          if(!percentage) {
+		        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNI")); //$NON-NLS-1$
+		          } else {
+		        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizPI")); //$NON-NLS-1$
+		          }
+		          // clear the text because we need to revalidate
+		          numberOfInfectionsText.setText("");
+	          }
+	        }
+	      };
+	      // these are radio buttons so we only need to add the listener to one of them.
+	      useAbsoluteNumberButton.addListener(SWT.Selection, listener);
+	      
+	    return radio2Composite;
+	}//getinfectorModeRadioButtonsComposite
 
 
 	/**
@@ -461,7 +504,7 @@ public class InfectorDefinitionComposite extends Composite {
 	/**
 	 * @return the number of infections
 	 */
-	public double getNumberOfInfections() {
+	public double getNumber() {
 		try {
 			return Double.parseDouble(numberOfInfectionsText.getText());
 		} catch (final NumberFormatException e) {
@@ -471,17 +514,10 @@ public class InfectorDefinitionComposite extends Composite {
 		} // catch NumberFormatException
 	}
 	
-	/**
-	 * @return the percent to Inoculate
-	 */
-	public double getPercentToInoculate() {
-		try {
-			return Double.parseDouble(numberOfInfectionsText.getText());
-		} catch (final NumberFormatException e) {
-			Activator.logError(DiseaseWizardMessages
-					.getString("NInfWizError.7"), e); //$NON-NLS-1$
-			return 0.0;
-		} // catch NumberFormatException
+
+
+	public boolean isPercentage() {
+		return percentage;
 	}
 
 } // InfectorDefinitionComposite
