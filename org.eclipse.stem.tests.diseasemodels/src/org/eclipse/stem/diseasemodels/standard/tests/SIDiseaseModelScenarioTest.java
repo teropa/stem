@@ -81,7 +81,8 @@ public abstract class SIDiseaseModelScenarioTest extends
 						.createInfector();
 				infector.getDublinCore().setTitle("Infector");
 				infector.setTargetURI(targetURI);
-				infector.setInfectiousCount(NUMBER_TO_INFECT);
+				infector.setInfections(NUMBER_TO_INFECT);
+				infector.setPercentage(false);
 				retValue.add(infector);
 			} // if a standard disease
 		} // for each node decorator
