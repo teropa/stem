@@ -24,31 +24,31 @@ package org.eclipse.stem.diseasemodels.standard;
 public interface SIInfector extends StandardInfector {
 
 	/**
-	 * Returns the value of the '<em><b>Infections</b></em>' attribute.
+	 * Returns the value of the '<em><b>Infectious Count</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Infections</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Infectious Count</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Infections</em>' attribute.
-	 * @see #setInfections(double)
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIInfector_Infections()
+	 * @return the value of the '<em>Infectious Count</em>' attribute.
+	 * @see #setInfectiousCount(double)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIInfector_InfectiousCount()
 	 * @model default="1"
 	 * @generated
 	 */
-	double getInfections();
+	double getInfectiousCount();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIInfector#getInfections <em>Infections</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIInfector#getInfectiousCount <em>Infectious Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Infections</em>' attribute.
-	 * @see #getInfections()
+	 * @param value the new value of the '<em>Infectious Count</em>' attribute.
+	 * @see #getInfectiousCount()
 	 * @generated
 	 */
-	void setInfections(double value);
+	void setInfectiousCount(double value);
 
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a

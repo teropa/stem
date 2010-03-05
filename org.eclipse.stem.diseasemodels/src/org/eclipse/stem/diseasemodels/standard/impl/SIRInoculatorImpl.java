@@ -44,7 +44,8 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIRInoculatorImpl#getInoculations <em>Inoculations</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIRInoculatorImpl#getInoculatedPercentage <em>Inoculated Percentage</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIRInoculatorImpl#isInoculatePercentage <em>Inoculate Percentage</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,24 +53,44 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  */
 public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	/**
-	 * The default value of the '{@link #getInoculations() <em>Inoculations</em>}' attribute.
+	 * The default value of the '{@link #getInoculatedPercentage() <em>Inoculated Percentage</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInoculations()
+	 * @see #getInoculatedPercentage()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double INOCULATIONS_EDEFAULT = 1.0;
+	protected static final double INOCULATED_PERCENTAGE_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getInoculations() <em>Inoculations</em>}' attribute.
+	 * The cached value of the '{@link #getInoculatedPercentage() <em>Inoculated Percentage</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInoculations()
+	 * @see #getInoculatedPercentage()
 	 * @generated
 	 * @ordered
 	 */
-	protected double inoculations = INOCULATIONS_EDEFAULT;
+	protected double inoculatedPercentage = INOCULATED_PERCENTAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInoculatePercentage() <em>Inoculate Percentage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInoculatePercentage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INOCULATE_PERCENTAGE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isInoculatePercentage() <em>Inoculate Percentage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInoculatePercentage()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean inoculatePercentage = INOCULATE_PERCENTAGE_EDEFAULT;
 
 	/**
 	 * OverrideThe default value of the '{@link #getInfectiousCount() <em>Infectious Count</em>}' attribute.
@@ -128,7 +149,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			final Node parent = getGraph().getNode(getTargetURI());
 			Set<Node> allNodes = null;
 			
-			if(this.isPercentage()) {
+			if(this.isInoculatePercentage()) {
 				allNodes = getAllChildren(parent);				
 			} else {
 				allNodes = (Set<Node>) new BasicEList<Node>();
@@ -206,14 +227,14 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			}
 		
 			double currentSValue = sirValue.getS();
-			double treated = getInoculations();
-			if(isPercentage() && treated > 100.0) {
+			double treated = getInfectiousCount();
+			if(isInoculatePercentage() && treated > 100.0) {
 				Activator.logError("InoculatedPercentage must be <= 100%. Was "+treated+" Now resetting to 100%",null);
 				treated = 100.0;
 			}
 			
 			double inoculatedNumber = 0;
-			if(isPercentage())
+			if(isInoculatePercentage())
 				inoculatedNumber = currentSValue*(treated/100.0);
 			else inoculatedNumber = treated;
 			
@@ -253,8 +274,8 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getInoculations() {
-		return inoculations;
+	public double getInoculatedPercentage() {
+		return inoculatedPercentage;
 	}
 
 
@@ -263,11 +284,34 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInoculations(double newInoculations) {
-		double oldInoculations = inoculations;
-		inoculations = newInoculations;
+	public void setInoculatedPercentage(double newInoculatedPercentage) {
+		double oldInoculatedPercentage = inoculatedPercentage;
+		inoculatedPercentage = newInoculatedPercentage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_INOCULATOR__INOCULATIONS, oldInoculations, inoculations));
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE, oldInoculatedPercentage, inoculatedPercentage));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInoculatePercentage() {
+		return inoculatePercentage;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInoculatePercentage(boolean newInoculatePercentage) {
+		boolean oldInoculatePercentage = inoculatePercentage;
+		inoculatePercentage = newInoculatePercentage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE, oldInoculatePercentage, inoculatePercentage));
 	}
 
 
@@ -279,8 +323,10 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StandardPackage.SIR_INOCULATOR__INOCULATIONS:
-				return getInoculations();
+			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
+				return getInoculatedPercentage();
+			case StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE:
+				return isInoculatePercentage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,8 +339,11 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StandardPackage.SIR_INOCULATOR__INOCULATIONS:
-				setInoculations((Double)newValue);
+			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
+				setInoculatedPercentage((Double)newValue);
+				return;
+			case StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE:
+				setInoculatePercentage((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,8 +357,11 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StandardPackage.SIR_INOCULATOR__INOCULATIONS:
-				setInoculations(INOCULATIONS_EDEFAULT);
+			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
+				setInoculatedPercentage(INOCULATED_PERCENTAGE_EDEFAULT);
+				return;
+			case StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE:
+				setInoculatePercentage(INOCULATE_PERCENTAGE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -323,8 +375,10 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StandardPackage.SIR_INOCULATOR__INOCULATIONS:
-				return inoculations != INOCULATIONS_EDEFAULT;
+			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
+				return inoculatedPercentage != INOCULATED_PERCENTAGE_EDEFAULT;
+			case StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE:
+				return inoculatePercentage != INOCULATE_PERCENTAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -339,8 +393,10 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (inoculations: "); //$NON-NLS-1$
-		result.append(inoculations);
+		result.append(" (inoculatedPercentage: "); //$NON-NLS-1$
+		result.append(inoculatedPercentage);
+		result.append(", inoculatePercentage: "); //$NON-NLS-1$
+		result.append(inoculatePercentage);
 		result.append(')');
 		return result.toString();
 	}

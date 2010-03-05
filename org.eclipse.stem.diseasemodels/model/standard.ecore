@@ -81,7 +81,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelsToInfect" upperBound="-1"
         eType="#//DiseaseModelLabel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationIdentifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infectPercentage" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SEIR" abstract="true" eSuperTypes="#//SIR">
     <eOperations name="getAdjustedIncubationRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -136,7 +137,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SIDiseaseModelState" eSuperTypes="#//StandardDiseaseModelState"/>
   <eClassifiers xsi:type="ecore:EClass" name="SIInfector" eSuperTypes="#//StandardInfector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infections" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infectiousCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SILabel" eSuperTypes="#//StandardDiseaseModelLabel">
@@ -241,8 +242,10 @@
         defaultValueLiteral="0.01"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SIRInoculator" eSuperTypes="#//SIInfector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inoculations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inoculatedPercentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inoculatePercentage" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="org.eclipse.emf.common.util.URI"/>
   <eClassifiers xsi:type="ecore:EDataType" name="EList" instanceClassName="org.eclipse.emf.common.util.EList"/>

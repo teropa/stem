@@ -719,7 +719,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInfector_Percentage() {
+	public EAttribute getInfector_InfectPercentage() {
 		return (EAttribute)infectorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -908,7 +908,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSIInfector_Infections() {
+	public EAttribute getSIInfector_InfectiousCount() {
 		return (EAttribute)siInfectorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1340,8 +1340,17 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSIRInoculator_Inoculations() {
+	public EAttribute getSIRInoculator_InoculatedPercentage() {
 		return (EAttribute)sirInoculatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSIRInoculator_InoculatePercentage() {
+		return (EAttribute)sirInoculatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1462,7 +1471,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(infectorEClass, INFECTOR__TARGET_ISO_KEY);
 		createEReference(infectorEClass, INFECTOR__LABELS_TO_INFECT);
 		createEAttribute(infectorEClass, INFECTOR__POPULATION_IDENTIFIER);
-		createEAttribute(infectorEClass, INFECTOR__PERCENTAGE);
+		createEAttribute(infectorEClass, INFECTOR__INFECT_PERCENTAGE);
 
 		seirEClass = createEClass(SEIR);
 		createEAttribute(seirEClass, SEIR__INCUBATION_RATE);
@@ -1489,7 +1498,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		siDiseaseModelStateEClass = createEClass(SI_DISEASE_MODEL_STATE);
 
 		siInfectorEClass = createEClass(SI_INFECTOR);
-		createEAttribute(siInfectorEClass, SI_INFECTOR__INFECTIONS);
+		createEAttribute(siInfectorEClass, SI_INFECTOR__INFECTIOUS_COUNT);
 
 		siLabelEClass = createEClass(SI_LABEL);
 		createEReference(siLabelEClass, SI_LABEL__DELTA_VALUE);
@@ -1561,7 +1570,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(standardStochasticDiseaseModelEClass, STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN);
 
 		sirInoculatorEClass = createEClass(SIR_INOCULATOR);
-		createEAttribute(sirInoculatorEClass, SIR_INOCULATOR__INOCULATIONS);
+		createEAttribute(sirInoculatorEClass, SIR_INOCULATOR__INOCULATED_PERCENTAGE);
+		createEAttribute(sirInoculatorEClass, SIR_INOCULATOR__INOCULATE_PERCENTAGE);
 
 		stochasticPoissonSIDiseaseModelEClass = createEClass(STOCHASTIC_POISSON_SI_DISEASE_MODEL);
 
@@ -1733,7 +1743,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getInfector_TargetISOKey(), ecorePackage.getEString(), "targetISOKey", null, 0, 1, Infector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getInfector_LabelsToInfect(), this.getDiseaseModelLabel(), null, "labelsToInfect", null, 0, -1, Infector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getInfector_PopulationIdentifier(), ecorePackage.getEString(), "populationIdentifier", null, 0, 1, Infector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getInfector_Percentage(), theEcorePackage.getEBoolean(), "percentage", null, 0, 1, Infector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getInfector_InfectPercentage(), theEcorePackage.getEBoolean(), "infectPercentage", "false", 0, 1, Infector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(seirEClass, org.eclipse.stem.diseasemodels.standard.SEIR.class, "SEIR", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getSEIR_IncubationRate(), ecorePackage.getEDouble(), "incubationRate", "0.0", 0, 1, org.eclipse.stem.diseasemodels.standard.SEIR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1782,7 +1792,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(siDiseaseModelStateEClass, SIDiseaseModelState.class, "SIDiseaseModelState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(siInfectorEClass, SIInfector.class, "SIInfector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getSIInfector_Infections(), ecorePackage.getEDouble(), "infections", "1", 0, 1, SIInfector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getSIInfector_InfectiousCount(), ecorePackage.getEDouble(), "infectiousCount", "1", 0, 1, SIInfector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(siLabelEClass, SILabel.class, "SILabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getSILabel_DeltaValue(), this.getSILabelValue(), null, "deltaValue", null, 0, 1, SILabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1880,7 +1890,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		addEOperation(standardStochasticDiseaseModelEClass, ecorePackage.getEDouble(), "computeNoise", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(sirInoculatorEClass, SIRInoculator.class, "SIRInoculator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getSIRInoculator_Inoculations(), ecorePackage.getEDouble(), "inoculations", "1", 0, 1, SIRInoculator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getSIRInoculator_InoculatedPercentage(), ecorePackage.getEDouble(), "inoculatedPercentage", "1", 0, 1, SIRInoculator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getSIRInoculator_InoculatePercentage(), theEcorePackage.getEBoolean(), "inoculatePercentage", "true", 0, 1, SIRInoculator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(stochasticPoissonSIDiseaseModelEClass, StochasticPoissonSIDiseaseModel.class, "StochasticPoissonSIDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

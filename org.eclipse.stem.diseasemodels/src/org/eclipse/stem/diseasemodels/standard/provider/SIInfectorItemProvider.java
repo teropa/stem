@@ -69,25 +69,25 @@ public class SIInfectorItemProvider extends StandardInfectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInfectionsPropertyDescriptor(object);
+			addInfectiousCountPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Infections feature.
+	 * This adds a property descriptor for the Infectious Count feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInfectionsPropertyDescriptor(Object object) {
+	protected void addInfectiousCountPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SIInfector_infections_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SIInfector_infections_feature", "_UI_SIInfector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SI_INFECTOR__INFECTIONS,
+				 getString("_UI_SIInfector_infectiousCount_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SIInfector_infectiousCount_feature", "_UI_SIInfector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SI_INFECTOR__INFECTIOUS_COUNT,
 				 true,
 				 false,
 				 false,
@@ -130,7 +130,7 @@ public class SIInfectorItemProvider extends StandardInfectorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SIInfector.class)) {
-			case StandardPackage.SI_INFECTOR__INFECTIONS:
+			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -79,30 +79,31 @@ public interface Infector extends NodeDecorator, Modifiable {
 	void setPopulationIdentifier(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Percentage</b></em>' attribute.
+	 * Returns the value of the '<em><b>Infect Percentage</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Percentage</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Infect Percentage</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Percentage</em>' attribute.
-	 * @see #setPercentage(boolean)
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getInfector_Percentage()
-	 * @model
+	 * @return the value of the '<em>Infect Percentage</em>' attribute.
+	 * @see #setInfectPercentage(boolean)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getInfector_InfectPercentage()
+	 * @model default="false"
 	 * @generated
 	 */
-	boolean isPercentage();
+	boolean isInfectPercentage();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.Infector#isPercentage <em>Percentage</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.Infector#isInfectPercentage <em>Infect Percentage</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Percentage</em>' attribute.
-	 * @see #isPercentage()
+	 * @param value the new value of the '<em>Infect Percentage</em>' attribute.
+	 * @see #isInfectPercentage()
 	 * @generated
 	 */
-	void setPercentage(boolean value);
+	void setInfectPercentage(boolean value);
 
 	/**
 	 * @return the disease model that this infector initializes

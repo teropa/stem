@@ -24,31 +24,58 @@ package org.eclipse.stem.diseasemodels.standard;
 public interface SIRInoculator extends SIInfector {
 
 	/**
-	 * Returns the value of the '<em><b>Inoculations</b></em>' attribute.
+	 * Returns the value of the '<em><b>Inoculated Percentage</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Inoculations</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Inoculated Percentage</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inoculations</em>' attribute.
-	 * @see #setInoculations(double)
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRInoculator_Inoculations()
+	 * @return the value of the '<em>Inoculated Percentage</em>' attribute.
+	 * @see #setInoculatedPercentage(double)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRInoculator_InoculatedPercentage()
 	 * @model default="1"
 	 * @generated
 	 */
-	double getInoculations();
+	double getInoculatedPercentage();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRInoculator#getInoculations <em>Inoculations</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRInoculator#getInoculatedPercentage <em>Inoculated Percentage</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inoculations</em>' attribute.
-	 * @see #getInoculations()
+	 * @param value the new value of the '<em>Inoculated Percentage</em>' attribute.
+	 * @see #getInoculatedPercentage()
 	 * @generated
 	 */
-	void setInoculations(double value);
+	void setInoculatedPercentage(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Inoculate Percentage</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inoculate Percentage</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inoculate Percentage</em>' attribute.
+	 * @see #setInoculatePercentage(boolean)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIRInoculator_InoculatePercentage()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isInoculatePercentage();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIRInoculator#isInoculatePercentage <em>Inoculate Percentage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inoculate Percentage</em>' attribute.
+	 * @see #isInoculatePercentage()
+	 * @generated
+	 */
+	void setInoculatePercentage(boolean value);
 
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a

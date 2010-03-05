@@ -27,7 +27,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIInfectorImpl#getInfections <em>Infections</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIInfectorImpl#getInfectiousCount <em>Infectious Count</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,24 +35,24 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  */
 public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	/**
-	 * The default value of the '{@link #getInfections() <em>Infections</em>}' attribute.
+	 * The default value of the '{@link #getInfectiousCount() <em>Infectious Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInfections()
+	 * @see #getInfectiousCount()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double INFECTIONS_EDEFAULT = 1.0;
+	protected static final double INFECTIOUS_COUNT_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getInfections() <em>Infections</em>}' attribute.
+	 * The cached value of the '{@link #getInfectiousCount() <em>Infectious Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInfections()
+	 * @see #getInfectiousCount()
 	 * @generated
 	 * @ordered
 	 */
-	protected double infections = INFECTIONS_EDEFAULT;
+	protected double infectiousCount = INFECTIOUS_COUNT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -76,8 +76,8 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getInfections() {
-		return infections;
+	public double getInfectiousCount() {
+		return infectiousCount;
 	}
 
 	/**
@@ -85,11 +85,11 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInfections(double newInfections) {
-		double oldInfections = infections;
-		infections = newInfections;
+	public void setInfectiousCount(double newInfectiousCount) {
+		double oldInfectiousCount = infectiousCount;
+		infectiousCount = newInfectiousCount;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_INFECTOR__INFECTIONS, oldInfections, infections));
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT, oldInfectiousCount, infectiousCount));
 	}
 
 	/**
@@ -101,10 +101,10 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	protected void doInitialization(final DiseaseModelLabel diseaseModelLabel) {
 		final IntegrationLabel siLabel = (IntegrationLabel) diseaseModelLabel;
 		final SILabelValue siValue = (SILabelValue)siLabel.getCurrentValue();
-		double newSValue = siValue.getS() - getInfections();
+		double newSValue = siValue.getS() - getInfectiousCount();
 		// TODO log infectious count greater than Susceptible population
 		final double additionalInfectious = newSValue < 0 ? siValue.getS()
-				: getInfections();
+				: getInfectiousCount();
 		
 		final double newIValue = siValue.getI() + additionalInfectious;
 		
@@ -134,8 +134,8 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StandardPackage.SI_INFECTOR__INFECTIONS:
-				return getInfections();
+			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
+				return getInfectiousCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,8 +152,8 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StandardPackage.SI_INFECTOR__INFECTIONS:
-				setInfections((Double)newValue);
+			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
+				setInfectiousCount((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -170,8 +170,8 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StandardPackage.SI_INFECTOR__INFECTIONS:
-				setInfections(INFECTIONS_EDEFAULT);
+			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
+				setInfectiousCount(INFECTIOUS_COUNT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,8 +190,8 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StandardPackage.SI_INFECTOR__INFECTIONS:
-				return infections != INFECTIONS_EDEFAULT;
+			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
+				return infectiousCount != INFECTIOUS_COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -209,8 +209,8 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (infections: "); //$NON-NLS-1$
-		result.append(infections);
+		result.append(" (infectiousCount: "); //$NON-NLS-1$
+		result.append(infectiousCount);
 		result.append(')');
 		return result.toString();
 	}
