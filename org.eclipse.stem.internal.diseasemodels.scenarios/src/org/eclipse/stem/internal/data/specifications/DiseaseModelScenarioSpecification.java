@@ -225,7 +225,7 @@ public class DiseaseModelScenarioSpecification extends
 		sb.append(") "); //$NON-NLS-1$
 		sb.append(diseaseModel.getDiseaseName());
 		sb.append(", "); //$NON-NLS-1$
-		sb.append(infector.getInfectiousCount());
+		sb.append(infector.getInfections());
 		sb.append(" infections in "); //$NON-NLS-1$
 		sb.append(infectedRegionName);
 
@@ -286,7 +286,8 @@ public class DiseaseModelScenarioSpecification extends
 					retValue.setDiseaseName(diseaseModel.getDiseaseName());
 					retValue.setPopulationIdentifier(diseaseModel
 							.getPopulationIdentifier());
-					retValue.setInfectiousCount(INFECTIOUS_COUNT);
+					retValue.setInfections(INFECTIOUS_COUNT);
+					retValue.setPercentage(false);
 					retValue.getDublinCore().setTitle(
 							"Infect " + INFECTIOUS_COUNT + " " //$NON-NLS-1$ //$NON-NLS-2$
 									+ diseaseModel.getPopulationIdentifier()
