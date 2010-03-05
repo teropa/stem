@@ -139,21 +139,22 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 			retValue.setPopulationIdentifier(idc.getPopulation());
 			retValue.setTargetISOKey(idc.getIsoKey());
 			if(idc.isInfectorMode() && idc.isPercentage()) {
-				retValue.setPercentage(true);
-				retValue.setInfections(idc.getNumber());
+				retValue.setInfectPercentage(true);
+				retValue.setInfectiousCount(idc.getNumber());
 			} else if(idc.isInfectorMode() && !idc.isPercentage()) {
-				retValue.setPercentage(false);
-				retValue.setInfections(idc.getNumber());
+				retValue.setInfectPercentage(false);
+				retValue.setInfectiousCount(idc.getNumber());
 			} else if( idc.isPercentage()){
-				((SIRInoculatorImpl) retValue).setInoculations(idc.getNumber());
-				retValue.setPercentage(true);
+				((SIRInoculatorImpl) retValue).setInoculatedPercentage(idc.getNumber());
+				
+				((SIRInoculatorImpl) retValue).setInoculatePercentage(true);
 				// just to be sure - since this is NOT and Infector
-				retValue.setInfections(0.0);
+				retValue.setInfectiousCount(0.0);
 			} else {
-				((SIRInoculatorImpl) retValue).setInoculations(idc.getNumber());
-				retValue.setPercentage(false);
+				((SIRInoculatorImpl) retValue).setInoculatedPercentage(idc.getNumber());
+				((SIRInoculatorImpl) retValue).setInoculatePercentage(false);
 				// just to be sure - since this is NOT and Infector
-				retValue.setInfections(0.0);
+				retValue.setInfectiousCount(0.0);
 			}
 			return retValue;
 		} // getInfector

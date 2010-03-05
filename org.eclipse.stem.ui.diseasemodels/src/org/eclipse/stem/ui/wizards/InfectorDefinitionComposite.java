@@ -160,7 +160,7 @@ public class InfectorDefinitionComposite extends Composite {
 		numberOfInfectionsLabel.setLayoutData(fd_numberOfInfectionsLabel);
 		
 		numberOfInfectionsText = new Text(this, SWT.BORDER);
-		numberOfInfectionsText.setText(StandardPackage.Literals.SI_INFECTOR__INFECTIONS.getDefaultValueLiteral());
+		numberOfInfectionsText.setText(StandardPackage.Literals.SI_INFECTOR__INFECTIOUS_COUNT.getDefaultValueLiteral());
 		numberOfInfectionsText.setToolTipText(DiseaseWizardMessages.getString("NInfWizNITT")); //$NON-NLS-1$
 		numberOfInfectionsText.addModifyListener(projectValidator);
 		
