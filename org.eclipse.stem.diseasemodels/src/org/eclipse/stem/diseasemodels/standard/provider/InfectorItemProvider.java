@@ -76,6 +76,7 @@ public class InfectorItemProvider extends NodeDecoratorItemProvider implements
 			addTargetISOKeyPropertyDescriptor(object);
 			addLabelsToInfectPropertyDescriptor(object);
 			addPopulationIdentifierPropertyDescriptor(object);
+			addPercentagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -213,6 +214,28 @@ public class InfectorItemProvider extends NodeDecoratorItemProvider implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Percentage feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPercentagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Infector_percentage_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Infector_percentage_feature", "_UI_Infector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.INFECTOR__PERCENTAGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns infector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,6 +283,7 @@ public class InfectorItemProvider extends NodeDecoratorItemProvider implements
 			case StandardPackage.INFECTOR__DISEASE_NAME:
 			case StandardPackage.INFECTOR__TARGET_ISO_KEY:
 			case StandardPackage.INFECTOR__POPULATION_IDENTIFIER:
+			case StandardPackage.INFECTOR__PERCENTAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

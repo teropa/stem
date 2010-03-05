@@ -24,26 +24,36 @@ package org.eclipse.stem.diseasemodels.standard;
 public interface SIInfector extends StandardInfector {
 
 	/**
+	 * Returns the value of the '<em><b>Infections</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Infections</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Infections</em>' attribute.
+	 * @see #setInfections(double)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSIInfector_Infections()
+	 * @model default="1"
+	 * @generated
+	 */
+	double getInfections();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIInfector#getInfections <em>Infections</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Infections</em>' attribute.
+	 * @see #getInfections()
+	 * @generated
+	 */
+	void setInfections(double value);
+
+	/**
 	 * This is the segment of the type URI that prefixes all other segments in a
 	 * standard infector type URI.
 	 */
 	String URI_TYPE_SI_INFECTOR_SEGMENT = URI_TYPE_STANDARD_INFECTOR_SEGMENT
 			+ "/si";
-	
-	/**
-	 * @return the number of population members to be infectious
-	 * @model default="1";
-	 */
-	double getInfectiousCount();
-	
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SIInfector#getInfectiousCount <em>Infectious Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Infectious Count</em>' attribute.
-	 * @see #getInfectiousCount()
-	 * @generated
-	 */
-	void setInfectiousCount(double value);
-
 } // SIInfector

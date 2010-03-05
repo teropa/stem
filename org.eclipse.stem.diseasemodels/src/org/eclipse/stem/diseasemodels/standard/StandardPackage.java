@@ -2404,13 +2404,22 @@ public interface StandardPackage extends EPackage {
 	int INFECTOR__POPULATION_IDENTIFIER = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Percentage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR__PERCENTAGE = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Infector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFECTOR_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 6;
+	int INFECTOR_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelImpl <em>Disease Model Label</em>}' class.
@@ -3234,6 +3243,15 @@ public interface StandardPackage extends EPackage {
 	int STANDARD_INFECTOR__POPULATION_IDENTIFIER = INFECTOR__POPULATION_IDENTIFIER;
 
 	/**
+	 * The feature id for the '<em><b>Percentage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_INFECTOR__PERCENTAGE = INFECTOR__PERCENTAGE;
+
+	/**
 	 * The number of structural features of the '<em>Infector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3379,13 +3397,22 @@ public interface StandardPackage extends EPackage {
 	int SI_INFECTOR__POPULATION_IDENTIFIER = STANDARD_INFECTOR__POPULATION_IDENTIFIER;
 
 	/**
-	 * The feature id for the '<em><b>Infectious Count</b></em>' attribute.
+	 * The feature id for the '<em><b>Percentage</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SI_INFECTOR__INFECTIOUS_COUNT = STANDARD_INFECTOR_FEATURE_COUNT + 0;
+	int SI_INFECTOR__PERCENTAGE = STANDARD_INFECTOR__PERCENTAGE;
+
+	/**
+	 * The feature id for the '<em><b>Infections</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI_INFECTOR__INFECTIONS = STANDARD_INFECTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>SI Infector</em>' class.
@@ -6039,22 +6066,31 @@ public interface StandardPackage extends EPackage {
 	int SIR_INOCULATOR__POPULATION_IDENTIFIER = SI_INFECTOR__POPULATION_IDENTIFIER;
 
 	/**
-	 * The feature id for the '<em><b>Infectious Count</b></em>' attribute.
+	 * The feature id for the '<em><b>Percentage</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIR_INOCULATOR__INFECTIOUS_COUNT = SI_INFECTOR__INFECTIOUS_COUNT;
+	int SIR_INOCULATOR__PERCENTAGE = SI_INFECTOR__PERCENTAGE;
 
 	/**
-	 * The feature id for the '<em><b>Inoculated Percentage</b></em>' attribute.
+	 * The feature id for the '<em><b>Infections</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIR_INOCULATOR__INOCULATED_PERCENTAGE = SI_INFECTOR_FEATURE_COUNT + 0;
+	int SIR_INOCULATOR__INFECTIONS = SI_INFECTOR__INFECTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Inoculations</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR_INOCULATOR__INOCULATIONS = SI_INFECTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>SIR Inoculator</em>' class.
@@ -7223,6 +7259,17 @@ public interface StandardPackage extends EPackage {
 	EAttribute getInfector_PopulationIdentifier();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.Infector#isPercentage <em>Percentage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Percentage</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.Infector#isPercentage()
+	 * @see #getInfector()
+	 * @generated
+	 */
+	EAttribute getInfector_Percentage();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.SEIR <em>SEIR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7437,15 +7484,15 @@ public interface StandardPackage extends EPackage {
 	EClass getSIInfector();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.SIInfector#getInfectiousCount <em>Infectious Count</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.SIInfector#getInfections <em>Infections</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Infectious Count</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SIInfector#getInfectiousCount()
+	 * @return the meta object for the attribute '<em>Infections</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SIInfector#getInfections()
 	 * @see #getSIInfector()
 	 * @generated
 	 */
-	EAttribute getSIInfector_InfectiousCount();
+	EAttribute getSIInfector_Infections();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.SILabel <em>SI Label</em>}'.
@@ -7945,15 +7992,15 @@ public interface StandardPackage extends EPackage {
 	EClass getSIRInoculator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.SIRInoculator#getInoculatedPercentage <em>Inoculated Percentage</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.SIRInoculator#getInoculations <em>Inoculations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Inoculated Percentage</em>'.
-	 * @see org.eclipse.stem.diseasemodels.standard.SIRInoculator#getInoculatedPercentage()
+	 * @return the meta object for the attribute '<em>Inoculations</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SIRInoculator#getInoculations()
 	 * @see #getSIRInoculator()
 	 * @generated
 	 */
-	EAttribute getSIRInoculator_InoculatedPercentage();
+	EAttribute getSIRInoculator_Inoculations();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel <em>Stochastic Poisson SI Disease Model</em>}'.
@@ -8289,6 +8336,14 @@ public interface StandardPackage extends EPackage {
 		EAttribute INFECTOR__POPULATION_IDENTIFIER = eINSTANCE.getInfector_PopulationIdentifier();
 
 		/**
+		 * The meta object literal for the '<em><b>Percentage</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INFECTOR__PERCENTAGE = eINSTANCE.getInfector_Percentage();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SEIRImpl <em>SEIR</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8461,12 +8516,12 @@ public interface StandardPackage extends EPackage {
 		EClass SI_INFECTOR = eINSTANCE.getSIInfector();
 
 		/**
-		 * The meta object literal for the '<em><b>Infectious Count</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Infections</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SI_INFECTOR__INFECTIOUS_COUNT = eINSTANCE.getSIInfector_InfectiousCount();
+		EAttribute SI_INFECTOR__INFECTIONS = eINSTANCE.getSIInfector_Infections();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SILabelImpl <em>SI Label</em>}' class.
@@ -8893,12 +8948,12 @@ public interface StandardPackage extends EPackage {
 		EClass SIR_INOCULATOR = eINSTANCE.getSIRInoculator();
 
 		/**
-		 * The meta object literal for the '<em><b>Inoculated Percentage</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Inoculations</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SIR_INOCULATOR__INOCULATED_PERCENTAGE = eINSTANCE.getSIRInoculator_InoculatedPercentage();
+		EAttribute SIR_INOCULATOR__INOCULATIONS = eINSTANCE.getSIRInoculator_Inoculations();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.StochasticPoissonSIDiseaseModelImpl <em>Stochastic Poisson SI Disease Model</em>}' class.

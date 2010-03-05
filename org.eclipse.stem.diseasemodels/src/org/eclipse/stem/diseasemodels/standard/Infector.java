@@ -79,6 +79,32 @@ public interface Infector extends NodeDecorator, Modifiable {
 	void setPopulationIdentifier(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Percentage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Percentage</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Percentage</em>' attribute.
+	 * @see #setPercentage(boolean)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getInfector_Percentage()
+	 * @model
+	 * @generated
+	 */
+	boolean isPercentage();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.Infector#isPercentage <em>Percentage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Percentage</em>' attribute.
+	 * @see #isPercentage()
+	 * @generated
+	 */
+	void setPercentage(boolean value);
+
+	/**
 	 * @return the disease model that this infector initializes
 	 * @model containment="false"
 	 */

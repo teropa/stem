@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -53,6 +54,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.InfectorImpl#getTargetISOKey <em>Target ISO Key</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.InfectorImpl#getLabelsToInfect <em>Labels To Infect</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.InfectorImpl#getPopulationIdentifier <em>Population Identifier</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.InfectorImpl#isPercentage <em>Percentage</em>}</li>
  * </ul>
  * </p>
  *
@@ -154,6 +156,26 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isPercentage() <em>Percentage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPercentage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PERCENTAGE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPercentage() <em>Percentage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPercentage()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean percentage = PERCENTAGE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -195,37 +217,50 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		if (diseaseModel != null) {
 			// Yes
 			// Now try to find the node to be infected
-			final Node node = getGraph().getNode(getTargetURI());
+			final Node parent = getGraph().getNode(getTargetURI());
 			
-			// Did we find the Node?
-			if (node != null) {
-				// Yes
-				for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter
-						.hasNext();) {
-					final NodeLabel nodeLabel = labelIter.next();
-					// Is this a disease label?
-					if (nodeLabel instanceof DiseaseModelLabel) {
-						final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
-						// Yes
-						// Is it updated by this disease model?
-						if (diseaseModelLabel.getDecorator() == diseaseModel && diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
-							// Yes
-							doInitialization(diseaseModelLabel);
-							getLabelsToInfect().add(diseaseModelLabel);
-							break;
-						} // if
-					}
-				} // for
-			} // if node to infect was found
-			else {
-				// No
-				// The target URI was probably bad
-				Activator.logError("The node to infect specified by the URI \""
-						+ getTargetURI()
-						+ "\" was not found.  The URI is likely incorrect.",
-						null);
-			} // else node not found
+			Set<Node> allNodes = null;
+			
+			if(this.isPercentage()) {
+				allNodes = getAllChildren(parent);				
+			} else {
+				allNodes = (Set<Node>) new BasicEList<Node>();
+				allNodes.add(parent);
+			}			
 
+			Iterator<Node> iter = allNodes.iterator();
+			while(iter!=null && iter.hasNext()) {
+					Node node = iter.next();
+			
+					// Did we find the Node?
+					if (node != null) {
+						// Yes
+						for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter
+								.hasNext();) {
+							final NodeLabel nodeLabel = labelIter.next();
+							// Is this a disease label?
+							if (nodeLabel instanceof DiseaseModelLabel) {
+								final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
+								// Yes
+								// Is it updated by this disease model?
+								if (diseaseModelLabel.getDecorator() == diseaseModel && diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+									// Yes
+									doInitialization(diseaseModelLabel);
+									getLabelsToInfect().add(diseaseModelLabel);
+									break;
+								} // if
+							}
+						} // for
+					} // if node to infect was found
+				else {
+					// No
+					// The target URI was probably bad
+					Activator.logError("The node to infect specified by the URI \""
+							+ getTargetURI()
+							+ "\" was not found.  The URI is likely incorrect.",
+							null);
+				} // else node not found
+			} // for each node
 		} // if disease model found
 		else {
 			// No
@@ -487,6 +522,27 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPercentage() {
+		return percentage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPercentage(boolean newPercentage) {
+		boolean oldPercentage = percentage;
+		percentage = newPercentage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR__PERCENTAGE, oldPercentage, percentage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * @param featureID
 	 * @param resolve
@@ -513,6 +569,8 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 				return getLabelsToInfect();
 			case StandardPackage.INFECTOR__POPULATION_IDENTIFIER:
 				return getPopulationIdentifier();
+			case StandardPackage.INFECTOR__PERCENTAGE:
+				return isPercentage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -549,6 +607,9 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 			case StandardPackage.INFECTOR__POPULATION_IDENTIFIER:
 				setPopulationIdentifier((String)newValue);
 				return;
+			case StandardPackage.INFECTOR__PERCENTAGE:
+				setPercentage((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -582,6 +643,9 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 			case StandardPackage.INFECTOR__POPULATION_IDENTIFIER:
 				setPopulationIdentifier(POPULATION_IDENTIFIER_EDEFAULT);
 				return;
+			case StandardPackage.INFECTOR__PERCENTAGE:
+				setPercentage(PERCENTAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -611,6 +675,8 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 				return labelsToInfect != null && !labelsToInfect.isEmpty();
 			case StandardPackage.INFECTOR__POPULATION_IDENTIFIER:
 				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+			case StandardPackage.INFECTOR__PERCENTAGE:
+				return percentage != PERCENTAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

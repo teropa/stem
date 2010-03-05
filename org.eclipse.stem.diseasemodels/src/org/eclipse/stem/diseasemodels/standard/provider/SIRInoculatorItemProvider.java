@@ -66,25 +66,25 @@ public class SIRInoculatorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInoculatedPercentagePropertyDescriptor(object);
+			addInoculationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Inoculated Percentage feature.
+	 * This adds a property descriptor for the Inoculations feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInoculatedPercentagePropertyDescriptor(Object object) {
+	protected void addInoculationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SIRInoculator_inoculatedPercentage_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SIRInoculator_inoculatedPercentage_feature", "_UI_SIRInoculator_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SIR_INOCULATOR__INOCULATED_PERCENTAGE,
+				 getString("_UI_SIRInoculator_inoculations_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SIRInoculator_inoculations_feature", "_UI_SIRInoculator_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.SIR_INOCULATOR__INOCULATIONS,
 				 true,
 				 false,
 				 false,
@@ -130,7 +130,7 @@ public class SIRInoculatorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SIRInoculator.class)) {
-			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
+			case StandardPackage.SIR_INOCULATOR__INOCULATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
