@@ -29,6 +29,7 @@ import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValue
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapterFactory;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationListener;
 import org.eclipse.stem.jobs.simulation.SimulationEvent;
@@ -148,13 +149,21 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 						selectedProperty2 = propertySelectionEvent
 								.getProperty();
 
-						selectedDynamicLabel = decoratorToLabelMap
-								.get(selectedDecorator);
-						RelativeValueHistoryProviderAdapter rhvp = (RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
-						.adapt(selectedDynamicLabel,
-								RelativeValueHistoryProvider.class);
-						switchToRVHP(rhvp);
-						self.phaseSpaceCanvas.setDataSourceAndRedraw(rhvp, selectedProperty2, selectedProperty1);
+						String selectedId = propertySelectionEvent.getId();
+						
+						List<DynamicLabel>allLabels = decoratorToLabelsMap.get(selectedDecorator);
+						for(DynamicLabel lab:allLabels) {
+							if(lab instanceof DiseaseModelLabel &&
+									((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedId))
+							{selectedDynamicLabel = lab;break;}
+						}
+				
+						if(selectedDynamicLabel != null) {
+							RelativeValueHistoryProviderAdapter rhvp = (RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
+							.adapt(selectedDynamicLabel,RelativeValueHistoryProvider.class);
+							switchToRVHP(rhvp);
+							self.phaseSpaceCanvas.setDataSourceAndRedraw(rhvp, selectedProperty2, selectedProperty1);
+						}
 					}
 				});
 
@@ -174,13 +183,23 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 						selectedProperty1 = propertySelectionEvent
 								.getProperty();
 
-						selectedDynamicLabel = decoratorToLabelMap
-								.get(selectedDecorator);
-						RelativeValueHistoryProviderAdapter rhvp = (RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
-						.adapt(selectedDynamicLabel,
-								RelativeValueHistoryProvider.class);
-						switchToRVHP(rhvp);
-						self.phaseSpaceCanvas.setDataSourceAndRedraw(rhvp, selectedProperty2, selectedProperty1);
+						String selectedId = propertySelectionEvent.getId();
+						
+						
+						List<DynamicLabel>allLabels = decoratorToLabelsMap.get(selectedDecorator);
+						for(DynamicLabel lab:allLabels) {
+							if(lab instanceof DiseaseModelLabel &&
+									((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedId))
+							{selectedDynamicLabel = lab;break;}
+						}
+				
+						if(selectedDynamicLabel != null) {
+							RelativeValueHistoryProviderAdapter rhvp = (RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
+							.adapt(selectedDynamicLabel,
+									RelativeValueHistoryProvider.class);
+							switchToRVHP(rhvp);
+							self.phaseSpaceCanvas.setDataSourceAndRedraw(rhvp, selectedProperty2, selectedProperty1);
+						}
 					}
 				});
 
@@ -231,7 +250,7 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 		this.identifiable = identifiable;
 
 		final List<Decorator> decorators = new ArrayList<Decorator>();
-		decoratorToLabelMap = new HashMap<Decorator, DynamicLabel>();
+		decoratorToLabelsMap = new HashMap<Decorator, List<DynamicLabel>>();
 
 		identifiableTitle.setText(identifiable.getDublinCore().getTitle());
 		// Get the dynamic labels associated with this Identifiable
@@ -253,8 +272,14 @@ public class PhaseSpaceHistoryPlotter extends ReportControl implements
 						final Decorator decorator = dynamicNodeLabel
 								.getDecorator();
 						if (decorator != null) {
-							decoratorToLabelMap
-									.put(decorator, dynamicNodeLabel);
+							if(decoratorToLabelsMap.get(decorator)!=null) {
+								List<DynamicLabel>list = decoratorToLabelsMap.get(decorator);
+								list.add(dynamicNodeLabel);
+							} else {
+								ArrayList<DynamicLabel>newList = new ArrayList<DynamicLabel>();
+								newList.add(dynamicNodeLabel);
+								decoratorToLabelsMap.put(decorator, newList);
+							}
 							decorators.add(decorator);
 						} else {
 							Activator.logError("DynamicLabel \""

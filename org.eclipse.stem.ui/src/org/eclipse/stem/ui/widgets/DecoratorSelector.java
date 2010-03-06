@@ -45,37 +45,26 @@ import org.eclipse.swt.widgets.Label;
  * This class is a compound SWT widget that allows for the selection of a
  * property or properties of one or more {@link Decorator}s.
  */
-public class PropertySelector extends Composite {
+public class DecoratorSelector extends Composite {
 
-	private final List<PropertySelectionListener> propertySelectionListeners = new CopyOnWriteArrayList<PropertySelectionListener>();
+	private final List<DecoratorSelectionListener> propertySelectionListeners = new CopyOnWriteArrayList<DecoratorSelectionListener>();
 
 	private ISimulation simulation = null;
 
-	/**
-	 * This is the name of the property that should be displayed first (if
-	 * possible).
-	 * 
-	 * @see #setPreferences()
-	 */
-	private String initialPropertyName;
 
 	private final Label displayLabel;
 
 	Combo decoratorsCombo;
 
-	Combo propertiesCombo;
-
-	Combo popIdsCombo;
+	Combo populationIdCombo;
 
 	List<Decorator> decorators;
 
 	Decorator selectedDecorator;
 
-	List<ItemPropertyDescriptor> properties;
+	String selectedProperty;
 
-	ItemPropertyDescriptor selectedProperty;
-	
-	String selectedId;
+	String [] popIds;
 	
 	private DecoratorFilter decoratorFilter = new DecoratorFilter() {
 		/**
@@ -117,7 +106,7 @@ public class PropertySelector extends Composite {
 	 * @param parent
 	 * @param style
 	 */
-	public PropertySelector(final Composite parent, final int style, boolean allowPropertySelection) {
+	public DecoratorSelector(final Composite parent, final int style, boolean allowDecoratorSelection) {
 		super(parent, style);
 		final FormLayout retValueLayout = new FormLayout();
 		this.setLayout(retValueLayout);
@@ -130,29 +119,20 @@ public class PropertySelector extends Composite {
 				| SWT.CENTER);
 
 		// Combo Box of the Decorator Properties
-		propertiesCombo = new Combo(this, SWT.DROP_DOWN | SWT.READ_ONLY
+		populationIdCombo = new Combo(this, SWT.DROP_DOWN | SWT.READ_ONLY
 				| SWT.CENTER);
 
-		popIdsCombo = new Combo(this, SWT.DROP_DOWN | SWT.READ_ONLY 
-				| SWT.CENTER);
-		
 		final FormData decoratorsComboFormData = new FormData();
 		decoratorsComboFormData.top = new FormAttachment(displayLabel, 0);
 		decoratorsComboFormData.left = new FormAttachment(0, 0);
 		decoratorsComboFormData.right = new FormAttachment(100, 0);
 		decoratorsCombo.setLayoutData(decoratorsComboFormData);
 
-		final FormData propertiesComboFormData = new FormData();
-		propertiesComboFormData.top = new FormAttachment(decoratorsCombo, 0);
-		propertiesComboFormData.left = new FormAttachment(0, 0);
-		propertiesComboFormData.right = new FormAttachment(100, 0);
-		propertiesCombo.setLayoutData(propertiesComboFormData);
-
-		final FormData popIdsComboFormData = new FormData();
-		popIdsComboFormData.top = new FormAttachment(propertiesCombo, 0);
-		popIdsComboFormData.left = new FormAttachment(0, 0);
-		popIdsComboFormData.right = new FormAttachment(100, 0);
-		popIdsCombo.setLayoutData(popIdsComboFormData);
+		final FormData populationIdComboData = new FormData();
+		populationIdComboData.top = new FormAttachment(decoratorsCombo, 0);
+		populationIdComboData.left = new FormAttachment(0, 0);
+		populationIdComboData.right = new FormAttachment(100, 0);
+		populationIdCombo.setLayoutData(populationIdComboData);
 
 		this.pack();
 
@@ -169,19 +149,13 @@ public class PropertySelector extends Composite {
 					if (selectedDecorator != tempDecorator) {
 						// Yes
 						selectedDecorator = tempDecorator;
-						properties = getPropertiesToDisplay(selectedDecorator);
-						selectedProperty = selectCurrentDecoratorProperty(properties);
-						List<String> ids = getIdsToDisplay(selectedDecorator);
-						selectedId = ids.get(0);
-						initializeCombo(propertiesCombo,
-								getPropertyNames(properties), getPropertyIndex(
-										selectedProperty, properties));
-						String [] propIds = ids.toArray(new String[]{});
-						initializeCombo(popIdsCombo,
-								propIds, 0);
 
-						PropertySelector.this
-								.notifyPropertySelection(selectedProperty, selectedId);
+						popIds = getPopulationIdsToDisplay(selectedDecorator);
+						initializeCombo(populationIdCombo,
+								popIds, 0);
+
+						DecoratorSelector.this
+								.notifyDecoratorSelection(selectedProperty);
 					} // if Decorators changed
 
 				} // if any decorators
@@ -189,21 +163,20 @@ public class PropertySelector extends Composite {
 		} // SelectionAdapter
 		);
 
-		propertiesCombo.addSelectionListener(new SelectionAdapter() {
+		populationIdCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(@SuppressWarnings("unused")
 			final SelectionEvent e) {
 				// Any Decorator properties?
-				if (!properties.isEmpty()) {
+				if (!(popIds == null)) {
 					// Yes
 					// Is it different?
-					final ItemPropertyDescriptor temp = properties
-							.get(propertiesCombo.getSelectionIndex());
-					if (selectedProperty != temp) {
+					final String temp = popIds[populationIdCombo.getSelectionIndex()];
+					if (!selectedProperty.equals(temp)) {
 						// Yes
 						selectedProperty = temp;
-						PropertySelector.this
-								.notifyPropertySelection(selectedProperty, selectedId);
+						DecoratorSelector.this
+								.notifyDecoratorSelection(selectedProperty);
 					} // if
 
 				} // if
@@ -211,36 +184,18 @@ public class PropertySelector extends Composite {
 
 		} // SelectionAdapter
 				);
-		popIdsCombo.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(@SuppressWarnings("unused")
-			final SelectionEvent e) {
-				List<String>ids = getIdsToDisplay(selectedDecorator);
-					final String temp = ids
-							.get(popIdsCombo.getSelectionIndex());
-					if (!selectedId.equals(temp)) {
-						// Yes
-						selectedId = temp;
-						PropertySelector.this
-								.notifyPropertySelection(selectedProperty, selectedId);
-					} // if
-
-			} // widgetSelected
-
-		} // SelectionAdapter
-				);
-		if(!allowPropertySelection)propertiesCombo.setEnabled(false);
+		if(!allowDecoratorSelection)populationIdCombo.setEnabled(false);
 		setSimulation(null);
 	} // PropertySelector
 
-	void notifyPropertySelection(final ItemPropertyDescriptor selectedProperty, String popid) {
+	void notifyDecoratorSelection(final String selectedId) {
 		// Is there a property?
 		if (selectedProperty != null) {
 			// Yes
-			firePropertySelectionEvent(new PropertySelectionEvent(
-					selectedDecorator, selectedProperty, this,popid ));
+			fireDecoratorSelectionEvent(new DecoratorSelectionEvent(
+					selectedDecorator, selectedId, this));
 		} // if
-	} // notifyPropertySelection
+	} // notifyDecoratorSelection
 
 	/**
 	 * @return <code>true</code> if the control has been initialized.
@@ -255,23 +210,17 @@ public class PropertySelector extends Composite {
 	public void setDecorators(final List<Decorator> decorators) {
 		this.decorators = decorators;
 		selectedDecorator = decorators.isEmpty() ? null : decorators.get(0);
-		properties = getPropertiesToDisplay(selectedDecorator);
-		selectedProperty = selectCurrentDecoratorProperty(properties);
+		popIds = getPopulationIdsToDisplay(selectedDecorator);
+		if(popIds == null)popIds = new String[0];
+		selectedProperty = (popIds.length==0)? "":popIds[0]; // pick the first one
 
 		initializeCombo(decoratorsCombo, getDecoratorNames(decorators),
 				getDecoratorIndex(selectedDecorator, decorators));
 
-		initializeCombo(propertiesCombo, getPropertyNames(properties),
-				getPropertyIndex(selectedProperty, properties));
+		initializeCombo(populationIdCombo, popIds,
+				0);
 
-		List<String> ids = getIdsToDisplay(selectedDecorator);
-		if(ids != null) {
-			String [] propIds = ids.toArray(new String[]{});
-			initializeCombo(popIdsCombo,
-					propIds, 0);
-		}
-		selectedId  = (ids==null)? null:ids.get(0);
-		notifyPropertySelection(selectedProperty, selectedId);
+		notifyDecoratorSelection(selectedProperty);
 	} // setDecorators
 
 	/**
@@ -302,14 +251,6 @@ public class PropertySelector extends Composite {
 		this.decoratorFilter = decoratorFilter;
 	} // setDecoratorFilter
 
-	/**
-	 * @param propertySieve
-	 *            the sieve that selects the properties of a {@link Decorator}
-	 *            that should be displayed.
-	 */
-	public void setPropertySieve(final PropertySieve propertySieve) {
-		this.propertySieve = propertySieve;
-	} // setPropertySieve
 
 	/**
 	 * @param simulation
@@ -351,50 +292,26 @@ public class PropertySelector extends Composite {
 	 * @return a {@link List} of the properties of the {@link Decorator} that
 	 *         can should be displayed.
 	 */
-	List<ItemPropertyDescriptor> getPropertiesToDisplay(
+	String [] getPopulationIdsToDisplay(
 			final Decorator decorator) {
-		final List<ItemPropertyDescriptor> retValue = new ArrayList<ItemPropertyDescriptor>();
-		// Got Decorator?
-		if (decorator != null) {
-			// Yes
-			// Are there any labels to update?
-			if (!decorator.getLabelsToUpdate().isEmpty()) {
-				// Yes
-				// The first one is good enough
-				retValue.addAll(propertySieve.sieve(decorator
-						.getLabelsToUpdate().get(0)));
-			} // if labels to update
-		} // if got decorator
-		return retValue;
-	} // getPropertiesToDisplay
-
-	/**
-	 * @param decorator
-	 *            a {@link Decorator} that modifies the state of the canonical
-	 *            {@link Graph} in the
-	 *            {@link org.eclipse.stem.jobs.simulation.Simulation}.
-	 * @return a {@link List} of the ids, e.g. population ids
-	 */
-	List<String> getIdsToDisplay(
-			final Decorator decorator) {
-		final List<String> retValue = new ArrayList<String>();
 		if(decorator == null) return null;
 		PopulationEnumeratorAdapter pea = (PopulationEnumeratorAdapter)PopulationEnumeratorAdapterFactory.INSTANCE.adapt(decorator, PopulationEnumerator.class);
 		
-		if(pea != null) {
-			for(String s: pea.getPopulationIdentifiers()) retValue.add(s);
-			return retValue;
-		}
+		if(pea != null) 
+			return pea.getPopulationIdentifiers();
+		
 		if(decorator instanceof DiseaseModel) {
-			retValue.add(((DiseaseModel)decorator).getPopulationIdentifier());
-			return retValue;
+			String [] res = new String[1];
+			res[0]= ((DiseaseModel)decorator).getPopulationIdentifier();
+			return res;
 		}
 		if(decorator instanceof PopulationModel) {
-			retValue.add(((PopulationModel)decorator).getPopulationIdentifier());
-			return retValue;
+			String [] res = new String[1];
+			res[0]= ((PopulationModel)decorator).getPopulationIdentifier();
+			return res;
 		}
 		return null; // none found
-	} // getPropertiesToDisplay
+	} // getPopulationIdsToDisplay
 
 	// /**
 	// * @param decorators
@@ -407,31 +324,6 @@ public class PropertySelector extends Composite {
 	// return decorators.get(0);
 	// } // selectCurrentDecorator
 
-	/**
-	 * @param decoratorProperties
-	 *            a list of properties
-	 * @return the property of the decorator that should be the one to be
-	 *         displayed or <code>null</code> if decoratorProperties is empty
-	 */
-	ItemPropertyDescriptor selectCurrentDecoratorProperty(
-			final List<ItemPropertyDescriptor> decoratorProperties) {
-		// Look for a property with a name that matches the one specified in
-		// the preferences.
-		for (final ItemPropertyDescriptor property : decoratorProperties) {
-			// name match?
-			if (property.getDisplayName(property).equals(initialPropertyName)) {
-				// Yes
-				return property;
-			} // if
-		} // for each ItemPropertyDescriptor
-		// Didn't find a match, just use the first one.
-		// Any to use?
-		if (!decoratorProperties.isEmpty()) {
-			// Yes
-			return decoratorProperties.get(0);
-		} // if
-		return null;
-	} // selectCurrentDecoratorProperty
 
 	/**
 	 * @return the {@link Decorator} selected in the control, or
@@ -507,22 +399,6 @@ public class PropertySelector extends Composite {
 	} // getDecoratorIndex
 
 	/**
-	 * @param properties
-	 *            a list of {@link Decorator} properties.
-	 * @return the names of the properties.
-	 */
-	String[] getPropertyNames(final List<ItemPropertyDescriptor> properties) {
-		final List<String> retValue = new ArrayList<String>();
-		if (properties != null) {
-			// Yes
-			for (final ItemPropertyDescriptor property : properties) {
-				retValue.add(property.getDisplayName(property));
-			} // for each ItemPropertyDescriptor
-		} // if
-		return retValue.toArray(new String[] {});
-	} // getPropertyNames
-
-	/**
 	 * @param selectedDecoratorProperty
 	 * @param decoratorProperties
 	 * @return the index of the selectedDecoratorProperty in the
@@ -539,58 +415,28 @@ public class PropertySelector extends Composite {
 		return 0;
 	} // getPropertyIndex
 
-	/**
-	 * This method may be used to initialize a properties combo to display
-	 * (select) a particular property
-	 * 
-	 * @param preferredProperty
-	 *            the name of the property to display.
-	 * @return <code>true</code> if the preferredProperty was found,
-	 *         <code>false</code> otherwise.
-	 */
-	public boolean setDisplayedProperty(final String preferredProperty) {
-		final int index = propertiesCombo.indexOf(preferredProperty);
-		if (index >= 0) {
-			propertiesCombo.select(index);
-			initialPropertyName = preferredProperty;
-			properties = getPropertiesToDisplay(selectedDecorator);
-			for (final ItemPropertyDescriptor property : properties) {
-				// name match?
-				if (property.getDisplayName(property).equals(
-						initialPropertyName)) {
-					// Yes
-					selectedProperty = property;
-					break;
-				} // if
-			} // for each ItemPropertyDescriptor
-			firePropertySelectionEvent(new PropertySelectionEvent(
-					selectedDecorator, selectedProperty, propertiesCombo, selectedId));
-			return true;
-		}// if selector has items
-		return false;
-	}// setDisplayedPropperty()
-
+	
 	/**
 	 * @param listener
 	 */
-	public void addPropertySelectionListener(
-			final PropertySelectionListener listener) {
+	public void addDecoratorSelectionListener(
+			final DecoratorSelectionListener listener) {
 		propertySelectionListeners.add(listener);
 	}
 
 	/**
 	 * @param listener
 	 */
-	public void removePropertySelectionListener(
-			final PropertySelectionListener listener) {
+	public void removeDecoratorSelectionListener(
+			final DecoratorSelectionListener listener) {
 		propertySelectionListeners.remove(listener);
 	}
 
-	private void firePropertySelectionEvent(final PropertySelectionEvent pse) {
-		for (final PropertySelectionListener listener : propertySelectionListeners) {
-			listener.propertySelected(pse);
-		} // for each PropertySelectionListener
-	} // firePropertySelectionEvent
+	private void fireDecoratorSelectionEvent(final DecoratorSelectionEvent pse) {
+		for (final DecoratorSelectionListener listener : propertySelectionListeners) {
+			listener.decoratorSelected(pse);
+		} // for each DecoratorSelectionListener
+	} // fireDecoratorSelectionEvent
 
 	/**
 	 * This interface is implemented by classes that determine if a
@@ -623,23 +469,22 @@ public class PropertySelector extends Composite {
 	 * This interface is implemented by classes that wish to be notified
 	 * whenever a property is selected in this widget.
 	 */
-	public interface PropertySelectionListener {
+	public interface DecoratorSelectionListener {
 		/**
 		 * @param propertySelectionEvent
 		 */
-		void propertySelected(PropertySelectionEvent propertySelectionEvent);
-	} // PropertySelectionListener
+		void decoratorSelected(DecoratorSelectionEvent decoratorSelectionEvent);
+	} // DecoratorSelectionListener
 
 	/**
 	 * This class represents the event of a property being selected in the
 	 * widget.
 	 */
-	public static class PropertySelectionEvent extends EventObject {
+	public static class DecoratorSelectionEvent extends EventObject {
 		private static final long serialVersionUID = 1L;
-		private transient final ItemPropertyDescriptor property;
-		private transient final Decorator decorator;
 		private transient final String id;
-		
+		private transient final Decorator decorator;
+
 		/**
 		 * @param decorator
 		 *            the {@link Decorator}
@@ -647,11 +492,10 @@ public class PropertySelector extends Composite {
 		 *            the property that was selected.
 		 * @param source
 		 */
-		public PropertySelectionEvent(final Decorator decorator,
-				final ItemPropertyDescriptor property, final Object source, String id) {
+		public DecoratorSelectionEvent(final Decorator decorator,
+				final String id, final Object source) {
 			super(source);
 			this.decorator = decorator;
-			this.property = property;
 			this.id = id;
 		}
 
@@ -665,17 +509,10 @@ public class PropertySelector extends Composite {
 		/**
 		 * @return the property
 		 */
-		public final ItemPropertyDescriptor getProperty() {
-			return property;
-		}
-
-		/**
-		 * getId. Get the id (e.g. population id)
-		 */
-		
-		public String getId() {
+		public final String getId() {
 			return id;
 		}
+
 		/**
 		 * @see java.util.EventObject#toString()
 		 */
@@ -684,11 +521,10 @@ public class PropertySelector extends Composite {
 			final StringBuilder sb = new StringBuilder(
 					decorator == null ? "null," : decorator.getDublinCore()
 							.getTitle());
-			sb.append(property == null ? "null" : property
-					.getDisplayName(property));
+			sb.append(id == null ? "null" : id);
 			return sb.toString();
 		}
-	} // PropertySelectionEvent
+	} // DecoratorSelectionEvent
 
 	/**
 	 * @return the display label

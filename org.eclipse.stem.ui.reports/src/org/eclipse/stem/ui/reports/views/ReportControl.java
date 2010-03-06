@@ -62,7 +62,7 @@ abstract public class ReportControl extends Composite implements
 	protected Identifiable identifiable;
 	protected Decorator selectedDecorator;
 	protected DynamicLabel selectedDynamicLabel;
-	protected Map<Decorator, DynamicLabel> decoratorToLabelMap;
+	protected Map<Decorator, List<DynamicLabel>> decoratorToLabelsMap;
 
 	/**
 	 * button to remove this controller and view

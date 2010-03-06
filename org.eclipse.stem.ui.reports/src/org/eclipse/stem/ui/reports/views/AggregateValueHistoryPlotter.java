@@ -39,11 +39,13 @@ import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapterFactory;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationListenerSync;
 import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.jobs.simulation.SimulationEvent;
 import org.eclipse.stem.jobs.simulation.SimulationState;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.ui.reports.Activator;
 import org.eclipse.stem.ui.reports.MonitorPreferences;
 import org.eclipse.stem.ui.widgets.PropertySelector;
@@ -246,9 +248,17 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 								.getDecorator();
 
 						selectedProperties = getPropertiesToDisplay(selectedDecorator);
-						selectedDynamicLabel = decoratorToLabelMap
-								.get(selectedDecorator);
-						switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
+						String selectedId = propertySelectionEvent.getId();
+						
+						List<DynamicLabel>allLabels = decoratorToLabelsMap.get(selectedDecorator);
+						for(DynamicLabel lab:allLabels) {
+							if(lab instanceof DiseaseModelLabel &&
+									((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedId))
+							{selectedDynamicLabel = lab;break;}
+						}
+
+						if(selectedDynamicLabel != null)
+							switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
 								.adapt(selectedDynamicLabel,
 										RelativeValueHistoryProvider.class));
 					}
@@ -329,7 +339,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 				for (int i = 0; i < labels.size(); ++i) {
 					NodeLabel label = labels.get(i);
 
-					if (label instanceof DynamicLabel) {
+					if (label instanceof DynamicLabel && !(label instanceof PopulationModelLabel)) {
 						DynamicLabel dynamicLabel = (DynamicLabel) label;
 						final RelativeValueProviderAdapter rvp = (RelativeValueProviderAdapter) RelativeValueProviderAdapterFactory.INSTANCE
 								.adapt(dynamicLabel,

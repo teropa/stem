@@ -224,7 +224,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 			if(popRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_POPULATION;
 			if(densRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
 		
-			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
+			if(feature != null && feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
 				return densRef;
 			else
 				return popRef;

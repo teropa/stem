@@ -32,13 +32,15 @@ import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValue
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapterFactory;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationListener;
 import org.eclipse.stem.jobs.simulation.SimulationEvent;
 import org.eclipse.stem.jobs.simulation.SimulationManager;
 import org.eclipse.stem.jobs.simulation.SimulationState;
-import org.eclipse.stem.ui.widgets.PropertySelector;
-import org.eclipse.stem.ui.widgets.PropertySelector.PropertySelectionEvent;
+import org.eclipse.stem.ui.widgets.DecoratorSelector;
+import org.eclipse.stem.ui.widgets.DecoratorSelector.DecoratorSelectionEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -57,7 +59,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 		RelativeValueHistoryExtendedListener, ISimulationListener {
 
 	TimeSeriesCanvas timeSeriesCanvas;
-	PropertySelector propertySelector;
+	DecoratorSelector decoratorSelector;
 	List<ItemPropertyDescriptor> selectedProperties;
 
 	/**
@@ -80,7 +82,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 	 */
 	private final PropertySieve propertySieve = new PropertySieve() {
 		/**
-		 * @see org.eclipse.stem.ui.widgets.PropertySelector.PropertySieve#sieve(org.eclipse.stem.core.graph.DynamicLabel)
+		 * @see org.eclipse.stem.ui.widgets.DecoratorSelector.PropertySieve#sieve(org.eclipse.stem.core.graph.DynamicLabel)
 		 */
 		public List<ItemPropertyDescriptor> sieve(
 				final DynamicLabel dynamicLabel) {
@@ -118,7 +120,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 
 		identifiableTitle = new Label(this, SWT.NONE);
 		timeSeriesCanvas = new TimeSeriesCanvas(this);
-		propertySelector = new PropertySelector(this, SWT.NONE, false);
+		decoratorSelector = new DecoratorSelector(this, SWT.NONE, true);
 
 		removeButton = new Button(this, SWT.NONE);
 		removeButton.setText(REMOVE_TEXT);
@@ -132,45 +134,53 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 		final FormData chartFormData = new FormData();
 		timeSeriesCanvas.setLayoutData(chartFormData);
 		chartFormData.top = new FormAttachment(identifiableTitle, 0);
-		chartFormData.bottom = new FormAttachment(propertySelector, 0);
+		chartFormData.bottom = new FormAttachment(decoratorSelector, 0);
 		chartFormData.left = new FormAttachment(0, 0);
 		chartFormData.right = new FormAttachment(100, 0);
 
 		// Property Selector
-		final FormData propertySelectorFormData = new FormData();
-		// propertySelectorFormData.top = new FormAttachment(timeSeriesCanvas,
+		final FormData decoratorSelectorFormData = new FormData();
+		// decoratorSelectorFormData.top = new FormAttachment(timeSeriesCanvas,
 		// 0);
-		propertySelectorFormData.bottom = new FormAttachment(100, 0);
-		propertySelectorFormData.left = new FormAttachment(0, 0);
-		propertySelectorFormData.right = new FormAttachment(30, 0);
-		propertySelector.setLayoutData(propertySelectorFormData);
+		decoratorSelectorFormData.bottom = new FormAttachment(100, 0);
+		decoratorSelectorFormData.left = new FormAttachment(0, 0);
+		decoratorSelectorFormData.right = new FormAttachment(30, 0);
+		decoratorSelector.setLayoutData(decoratorSelectorFormData);
 
 		// RemoveButton
 		final FormData removeButtonFormData = new FormData();
-		// propertySelectorFormDataX.top = new FormAttachment(propertySelectorY,
+		// decoratorSelectorFormDataX.top = new FormAttachment(decoratorSelectorY,
 		// 0);
 		removeButtonFormData.bottom = new FormAttachment(100, 0);
-		removeButtonFormData.left = new FormAttachment(propertySelector, 0);
+		removeButtonFormData.left = new FormAttachment(decoratorSelector, 0);
 		removeButtonFormData.right = new FormAttachment(60, 0);
 		removeButton.setLayoutData(removeButtonFormData);
 
-		propertySelector
-				.addPropertySelectionListener(new PropertySelector.PropertySelectionListener() {
+		decoratorSelector
+				.addDecoratorSelectionListener(new DecoratorSelector.DecoratorSelectionListener() {
 
 					/**
-					 * @see org.eclipse.stem.ui.widgets.PropertySelector.PropertySelectionListener#propertySelected(org.eclipse.stem.ui.widgets.PropertySelector.PropertySelectionEvent)
+					 * @see org.eclipse.stem.ui.widgets.DecoratorSelector.PropertySelectionListener#propertySelected(org.eclipse.stem.ui.widgets.DecoratorSelector.PropertySelectionEvent)
 					 */
-					public void propertySelected(
-							final PropertySelectionEvent propertySelectionEvent) {
-						selectedDecorator = propertySelectionEvent
+					public void decoratorSelected(
+							final DecoratorSelectionEvent decoratorSelectionEvent) {
+						selectedDecorator = decoratorSelectionEvent
 								.getDecorator();
 
 						selectedProperties = getPropertiesToDisplay(selectedDecorator);
-						selectedDynamicLabel = decoratorToLabelMap
-								.get(selectedDecorator);
-						switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
+						String selectedPopId = decoratorSelectionEvent.getId();
+						List<DynamicLabel>allLabels = decoratorToLabelsMap.get(selectedDecorator);
+						if(allLabels != null) 
+							for(DynamicLabel lab:allLabels) {
+							if(lab instanceof DiseaseModelLabel &&
+									((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedPopId))
+							{selectedDynamicLabel = lab;break;}
+						}
+						if(selectedDynamicLabel != null)
+							switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
 								.adapt(selectedDynamicLabel,
 										RelativeValueHistoryProvider.class));
+						timeSeriesCanvas.setDataSourceAndRedraw(rvhp, selectedProperties);
 					}
 				});
 
@@ -195,7 +205,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 		switchToRVHP(null);
 		relativeValueHistoryExtended(null);
 		identifiableTitle.setText("");
-		propertySelector
+		decoratorSelector
 				.setDecorators((List<Decorator>) Collections.EMPTY_LIST);
 		dispose();
 	}
@@ -217,7 +227,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 		this.identifiable = identifiable;
 
 		final List<Decorator> decorators = new ArrayList<Decorator>();
-		decoratorToLabelMap = new HashMap<Decorator, DynamicLabel>();
+		decoratorToLabelsMap = new HashMap<Decorator, List<DynamicLabel>>();
 
 		identifiableTitle.setText(identifiable.getDublinCore().getTitle());
 		// Get the dynamic labels associated with this Identifiable
@@ -238,8 +248,16 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 						// Yes
 						final Decorator decorator = dynamicNodeLabel
 								.getDecorator();
+						
 						if(decorator != null) {
-							decoratorToLabelMap.put(decorator, dynamicNodeLabel);
+							if(decoratorToLabelsMap.get(decorator)!=null) {
+								List<DynamicLabel>list = decoratorToLabelsMap.get(decorator);
+								list.add(dynamicNodeLabel);
+							} else {
+								ArrayList<DynamicLabel>newList = new ArrayList<DynamicLabel>();
+								newList.add(dynamicNodeLabel);
+								decoratorToLabelsMap.put(decorator, newList);
+							}
 							decorators.add(decorator);
 						}
 					} // if
@@ -275,7 +293,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 			} // if any Decorators to plot
 
 		} // if Node
-		propertySelector.setDecorators(decorators);
+		decoratorSelector.setDecorators(decorators);
 	} // setIdentifiable
 
 	/**
@@ -318,7 +336,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 	@Override
 	protected void initializeFromSimulation(final ISimulation simulation) {
 		simulationNameLabel.setText(simulation.getName());
-		propertySelector.setSimulation(simulation);
+		decoratorSelector.setSimulation(simulation);
 
 	} // initializeFromSimulation
 
@@ -378,7 +396,7 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 			switchToRVHP(null);
 			relativeValueHistoryExtended(null);
 			identifiableTitle.setText("");
-			propertySelector
+			decoratorSelector
 					.setDecorators((List<Decorator>) Collections.EMPTY_LIST);
 		} // if
 
