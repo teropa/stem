@@ -179,7 +179,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 							} // if
 						}
 					} // for
-				} // if node to infect was foundÿ
+				} // if node to infect was foundï¿½
 				else {
 					// No
 					// The target URI was probably bad
@@ -227,9 +227,10 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			}
 		
 			double currentSValue = sirValue.getS();
-			double treated = getInfectiousCount();
+			double treated = getInoculatedPercentage();
+		
 			if(isInoculatePercentage() && treated > 100.0) {
-				Activator.logError("InoculatedPercentage must be <= 100%. Was "+treated+" Now resetting to 100%",null);
+				Activator.logError("Inoculated Percentage must be <= 100%. Was "+treated+" Now resetting to 100%",null);
 				treated = 100.0;
 			}
 			
