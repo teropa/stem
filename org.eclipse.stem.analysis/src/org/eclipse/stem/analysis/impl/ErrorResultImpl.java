@@ -301,7 +301,6 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 		return result.toString();
 	}
 
-	@Override
 	public ErrorResult copy() {
 		ErrorResultImpl res = new ErrorResultImpl();
 		res.setError(this.getError());
