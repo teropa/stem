@@ -110,14 +110,12 @@ public class AutomaticExperimentManager {
 		AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
 		manager.addListener(new AutomaticExperimentManagerListener() {
 			
-			@Override
 			public void eventReceived(AutomaticExperimentManagerEvent evt) {
 				if(evt.status == MANAGER_STATUS.SCHEDULED) {
 					ErrorAnalysisAlgorithm alg = evt.algorithm;
 					
 					alg.addListener(new ErrorAnalysisAlgorithmListener() {
 						
-						@Override
 						public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
 							if(evt.status == ALGORITHM_STATUS.FINISHED_ALGORITHM) {
 								// The algorithm has finished. Smallest value in 

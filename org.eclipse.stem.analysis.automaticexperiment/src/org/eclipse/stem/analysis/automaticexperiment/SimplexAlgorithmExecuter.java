@@ -113,7 +113,6 @@ public class SimplexAlgorithmExecuter
 		this.fireEvent(newEvent);
 	}
 	
-	@Override
 	public void init(AutomaticExperiment automaticExperiment, ErrorAnalysisAlgorithm alg) {
 		super.init(automaticExperiment);
 		simplexFnToMinimize = new NedlearMeadSimplexFunction(parameters, baseScenario, errorFunction, alg);
