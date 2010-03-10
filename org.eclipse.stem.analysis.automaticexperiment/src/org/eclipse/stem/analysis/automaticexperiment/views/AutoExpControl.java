@@ -296,7 +296,6 @@ public class AutoExpControl extends AnalysisControl {
 			manager = AutomaticExperimentManager.getInstance();
 			manager.addListener(new AutomaticExperimentManagerListener() {
 				
-				@Override
 				public void eventReceived(AutomaticExperimentManagerEvent evt) {
 					if(evt.status == MANAGER_STATUS.SCHEDULED) {
 						ErrorAnalysisAlgorithm alg = evt.algorithm;
@@ -308,7 +307,6 @@ public class AutoExpControl extends AnalysisControl {
 							}
 						});
 						alg.addListener(new ErrorAnalysisAlgorithmListener() {
-							@Override
 							public void eventReceived(ErrorAnalysisAlgorithmEvent evt) {
 																
 								if(evt.status == ALGORITHM_STATUS.STARTING_SIMULATION) {
