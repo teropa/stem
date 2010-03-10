@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.stem.ui.diseasemodels.multipopulation;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.stem.diseasemodels.multipopulation.presentation.MultipopulationEditorPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -20,6 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.stem.definitions;visibility:=reexport,
  org.eclipse.stem.populationmodels;visibility:=reexport,
- org.eclipse.stem.ui;bundle-version="1.0.0",
- org.eclipse.stem.ui.diseasemodels;bundle-version="1.0.0"
+ org.eclipse.stem.ui;bundle-version="1.0.1",
+ org.eclipse.stem.ui.diseasemodels;bundle-version="1.0.1"
 Bundle-ActivationPolicy: lazy
