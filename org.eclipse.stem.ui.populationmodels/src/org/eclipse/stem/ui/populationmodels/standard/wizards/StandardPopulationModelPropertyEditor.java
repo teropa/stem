@@ -170,13 +170,11 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			final StandardPopulationModelPropertyEditor self = this;
 			addButton.addSelectionListener(new SelectionListener() {
 				
-				@Override
 				public void widgetSelected(SelectionEvent arg0) {
 					addPopulationGroupField(allGroups, projectValidator);
 					self.getParent().getParent().getParent().layout(true);
 				}
 				
-				@Override
 				public void widgetDefaultSelected(SelectionEvent arg0) {
 					// TODO Auto-generated method stub
 					
@@ -205,7 +203,6 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 		
 		
 			
-			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				int ind = groupComposites.indexOf(removeButton.getParent());
 				if(ind == -1) {
@@ -221,7 +218,6 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 					groupIDComposites.get(0).setText(groupIDComposites.get(0).getText()); // force validation
 			}
 			
-			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
 				// TODO Auto-generated method stub
 				
