@@ -39,6 +39,7 @@ import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapterFactory;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.jobs.simulation.ISimulationListenerSync;
@@ -50,6 +51,7 @@ import org.eclipse.stem.ui.reports.Activator;
 import org.eclipse.stem.ui.reports.MonitorPreferences;
 import org.eclipse.stem.ui.widgets.PropertySelector;
 import org.eclipse.stem.ui.widgets.PropertySelector.PropertySelectionEvent;
+import org.eclipse.stem.ui.widgets.PropertySelector.PropertySelectionListener;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -78,8 +80,8 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 	
 	String selectedReferenceFile;
 	
-	Set<RelativeValueProviderAdapter> relativeValueProviderSet = new HashSet<RelativeValueProviderAdapter>();
-	double totalPopulation = 1.0;
+	HashMap<String, Set<RelativeValueProviderAdapter>> relativeValueProviderSet = new HashMap<String, Set<RelativeValueProviderAdapter>>();
+	HashMap<String, Double> totalPopulation = new HashMap<String, Double>(); // key is population id
 	/**
 	 * this simulations graph
 	 */
@@ -89,7 +91,8 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 	protected static final String REFERENCE_PROPERTY ="ref";
 	Set<ISimulation> activeSimulations = new HashSet<ISimulation>();
 	
-
+	String populationId;
+	
 	/**
 	 * This interface is implemented by classes that select out the properties
 	 * to be displayed.
@@ -153,6 +156,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 		aggregateSeriesCanvas.reset();
 		propertySelector = new PropertySelector(this, SWT.NONE, true);
 
+		
 		removeButton = new Button(this, SWT.NONE);
 		removeButton.setText(REMOVE_TEXT);
 		
@@ -248,19 +252,8 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 								.getDecorator();
 
 						selectedProperties = getPropertiesToDisplay(selectedDecorator);
-						String selectedId = propertySelectionEvent.getId();
+						populationId = propertySelectionEvent.getId();
 						
-						List<DynamicLabel>allLabels = decoratorToLabelsMap.get(selectedDecorator);
-						for(DynamicLabel lab:allLabels) {
-							if(lab instanceof DiseaseModelLabel &&
-									((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedId))
-							{selectedDynamicLabel = lab;break;}
-						}
-
-						if(selectedDynamicLabel != null)
-							switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
-								.adapt(selectedDynamicLabel,
-										RelativeValueHistoryProvider.class));
 					}
 				});
 
@@ -321,6 +314,11 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 			this.simulation.addSimulationListenerSync(this);
 			initializeFromSimulation(this.simulation);
 
+			ArrayList<Decorator>decorators = new ArrayList<Decorator>();
+			for(Decorator d:graph.getDecorators())
+				if(d instanceof DiseaseModel)decorators.add(d);
+			propertySelector.setDecorators(decorators);
+			
 			// collect the set of relativeValueProviderAdapters from this
 			// simulation
 			// 1. get the nodes
@@ -332,26 +330,36 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 			// 3. iterate over all the nodes at this level in the map and get a
 			// set of relative value providers
 			Iterator<Node> iter = getNodeIterator(level, nodeLevelsMap);
-			totalPopulation = 0.0;
 			while ((iter != null) && (iter.hasNext())) {
 				Node node = iter.next();
 				EList<NodeLabel> labels = node.getLabels();
 				for (int i = 0; i < labels.size(); ++i) {
 					NodeLabel label = labels.get(i);
 
-					if (label instanceof DynamicLabel && !(label instanceof PopulationModelLabel)) {
-						DynamicLabel dynamicLabel = (DynamicLabel) label;
+					if (label instanceof DiseaseModelLabel) {
+						DiseaseModelLabel dynamicLabel = (DiseaseModelLabel) label;
 						final RelativeValueProviderAdapter rvp = (RelativeValueProviderAdapter) RelativeValueProviderAdapterFactory.INSTANCE
 								.adapt(dynamicLabel,
 										RelativeValueProvider.class);
+						
+						
 						// Does the label have relative values?
 						if (rvp != null) {
 							// Yes
 							rvp.setTarget(dynamicLabel);
-							totalPopulation += rvp.getDenominator(null);
+							
+							// Get the population identifier for the label
+							String populationIdentifier = dynamicLabel.getPopulationModelLabel().getPopulationIdentifier();
+							if(totalPopulation.get(populationIdentifier) != null)
+								totalPopulation.put(populationIdentifier, totalPopulation.get(populationIdentifier)+rvp.getDenominator(null));
+							else totalPopulation.put(populationIdentifier, rvp.getDenominator(null));
 							// remember this rvp to use for aggregation later
-							relativeValueProviderSet.add(rvp);
-
+							if(relativeValueProviderSet.containsKey(populationIdentifier))
+								relativeValueProviderSet.get(populationIdentifier).add(rvp);
+							else {
+								relativeValueProviderSet.put(populationIdentifier, new HashSet<RelativeValueProviderAdapter>());
+								relativeValueProviderSet.get(populationIdentifier).add(rvp);
+							}
 							for (final Object element : rvp.getProperties()) {
 								final ItemPropertyDescriptor property = (ItemPropertyDescriptor) element;
 								allProperties.add(property);
@@ -363,10 +371,10 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 				}// For each node label
 			} // while have nodes
 			
-			
-			if(totalPopulation <= 0.0) {
-				totalPopulation = 1.0;
-			}
+			for(String p:totalPopulation.keySet())
+				if(totalPopulation.get(p) <= 0.0) {
+					totalPopulation.put(p, 1.0);
+				}
 		} else {
 			// No
 			// Just display a blank screen
@@ -447,18 +455,22 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 	 * @return the aggregate values to plot as an array of double
 	 */
 	public double[] getValues(String property) {
-		
+		if(populationId == null) {
+			double [] ret = new double[1];
+			ret[0]=1;
+			return ret;
+		}
 		List<Double> valList = dataMap.get(property);
 		double[] data = new double[timeCount];
 		for (int i = 0; i < timeCount; i ++) {
 			if ((valList!=null)&&(i < valList.size()) ){
 				data[i] = valList.get(i).doubleValue();
 				if(property.equalsIgnoreCase(REFERENCE_PROPERTY)) {	
-					data[i] /= totalPopulation;
+					data[i] /= totalPopulation.get(populationId);
 				}
 			} else {
 				// never add zero (need min nonzero value for log display)
-				data[i] = 1.0/totalPopulation;
+				data[i] = 1.0/totalPopulation.get(populationId);
 			}
 		}
 		return data;
@@ -654,16 +666,18 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 			// now loop through all nodes and integrate the data for this property
 			double totPop = 0.0;
 			double sum = 0.0;
-			Iterator<RelativeValueProviderAdapter> iter2 = relativeValueProviderSet.iterator();
-			while((iter2 !=null) && (iter2.hasNext())) {
-				RelativeValueProviderAdapter rvp = iter2.next();
-				double nodePopulation = rvp.getDenominator(null);
-				totPop += nodePopulation;
-				sum += (nodePopulation * rvp.getRelativeValue(property));
+			if(relativeValueProviderSet.get(populationId) != null) {
+				Iterator<RelativeValueProviderAdapter> iter2 = relativeValueProviderSet.get(populationId).iterator();
+				while((iter2 !=null) && (iter2.hasNext())) {
+					RelativeValueProviderAdapter rvp = iter2.next();
+					double nodePopulation = rvp.getDenominator(null);
+					totPop += nodePopulation;
+					sum += (nodePopulation * rvp.getRelativeValue(property));
+				}
 			}
 			if(totPop<= 0.0) totPop = 1.0; // avoid divide by zeros
-			totalPopulation = totPop;
-			aggregateSeriesCanvas.setMinYscale(1.0/totalPopulation);
+			totalPopulation.put(populationId, totPop);
+			aggregateSeriesCanvas.setMinYscale(1.0/totalPopulation.get(populationId));
 			sum /= totPop;
 			List<Double> aggregateList = dataMap.get(propertyKey);
 			// add the new data point
