@@ -150,7 +150,8 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			Set<Node> allNodes = null;
 			
 			if(this.isInoculatePercentage()) {
-				allNodes = getAllChildren(parent);				
+				allNodes = getAllChildren(parent);	
+				allNodes.add(parent);
 			} else {
 				allNodes = (Set<Node>) new BasicEList<Node>();
 				allNodes.add(parent);
