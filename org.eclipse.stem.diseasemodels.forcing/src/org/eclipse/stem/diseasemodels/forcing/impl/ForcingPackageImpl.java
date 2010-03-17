@@ -23,6 +23,7 @@ import org.eclipse.stem.diseasemodels.forcing.ForcingFactory;
 import org.eclipse.stem.diseasemodels.forcing.ForcingPackage;
 
 import org.eclipse.stem.diseasemodels.forcing.Gaussian2ForcingDiseaseModel;
+import org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel;
 import org.eclipse.stem.diseasemodels.forcing.GaussianForcingDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 
@@ -51,6 +52,12 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 	 * @generated
 	 */
 	private EClass gaussian2ForcingDiseaseModelEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gaussian3ForcingDiseaseModelEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -300,6 +307,42 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGaussian3ForcingDiseaseModel() {
+		return gaussian3ForcingDiseaseModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian3ForcingDiseaseModel_Sigma2_3() {
+		return (EAttribute)gaussian3ForcingDiseaseModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian3ForcingDiseaseModel_TransmissionRate2() {
+		return (EAttribute)gaussian3ForcingDiseaseModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGaussian3ForcingDiseaseModel_TransmissionRate3() {
+		return (EAttribute)gaussian3ForcingDiseaseModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ForcingFactory getForcingFactory() {
 		return (ForcingFactory)getEFactoryInstance();
 	}
@@ -345,6 +388,11 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2);
 		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3);
 		createEAttribute(gaussian2ForcingDiseaseModelEClass, GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4);
+
+		gaussian3ForcingDiseaseModelEClass = createEClass(GAUSSIAN3_FORCING_DISEASE_MODEL);
+		createEAttribute(gaussian3ForcingDiseaseModelEClass, GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3);
+		createEAttribute(gaussian3ForcingDiseaseModelEClass, GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2);
+		createEAttribute(gaussian3ForcingDiseaseModelEClass, GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3);
 	}
 
 	/**
@@ -382,6 +430,7 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		forcingDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSIRDiseaseModel());
 		gaussianForcingDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSIRDiseaseModel());
 		gaussian2ForcingDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSIRDiseaseModel());
+		gaussian3ForcingDiseaseModelEClass.getESuperTypes().add(this.getGaussian2ForcingDiseaseModel());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(forcingDiseaseModelEClass, ForcingDiseaseModel.class, "ForcingDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -406,6 +455,11 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		initEAttribute(getGaussian2ForcingDiseaseModel_Att2(), theEcorePackage.getEDouble(), "att2", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussian2ForcingDiseaseModel_Att3(), theEcorePackage.getEDouble(), "att3", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussian2ForcingDiseaseModel_Att4(), theEcorePackage.getEDouble(), "att4", null, 0, 1, Gaussian2ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(gaussian3ForcingDiseaseModelEClass, Gaussian3ForcingDiseaseModel.class, "Gaussian3ForcingDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getGaussian3ForcingDiseaseModel_Sigma2_3(), theEcorePackage.getEDouble(), "sigma2_3", null, 0, 1, Gaussian3ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian3ForcingDiseaseModel_TransmissionRate2(), theEcorePackage.getEDouble(), "transmissionRate2", null, 0, 1, Gaussian3ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian3ForcingDiseaseModel_TransmissionRate3(), theEcorePackage.getEDouble(), "transmissionRate3", null, 0, 1, Gaussian3ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

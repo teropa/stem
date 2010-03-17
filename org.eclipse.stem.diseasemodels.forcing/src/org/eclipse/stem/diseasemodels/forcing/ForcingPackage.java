@@ -1116,6 +1116,413 @@ public interface ForcingPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl <em>Gaussian3 Forcing Disease Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl
+	 * @see org.eclipse.stem.diseasemodels.forcing.impl.ForcingPackageImpl#getGaussian3ForcingDiseaseModel()
+	 * @generated
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL = 3;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__URI = GAUSSIAN2_FORCING_DISEASE_MODEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TYPE_URI = GAUSSIAN2_FORCING_DISEASE_MODEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__DUBLIN_CORE = GAUSSIAN2_FORCING_DISEASE_MODEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__LABELS_TO_UPDATE = GAUSSIAN2_FORCING_DISEASE_MODEL__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__GRAPH = GAUSSIAN2_FORCING_DISEASE_MODEL__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__ENABLED = GAUSSIAN2_FORCING_DISEASE_MODEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__GRAPH_DECORATED = GAUSSIAN2_FORCING_DISEASE_MODEL__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__PROGRESS = GAUSSIAN2_FORCING_DISEASE_MODEL__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Background Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__BACKGROUND_MORTALITY_RATE = GAUSSIAN2_FORCING_DISEASE_MODEL__BACKGROUND_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__POPULATION_IDENTIFIER = GAUSSIAN2_FORCING_DISEASE_MODEL__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TIME_PERIOD = GAUSSIAN2_FORCING_DISEASE_MODEL__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Disease Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__DISEASE_NAME = GAUSSIAN2_FORCING_DISEASE_MODEL__DISEASE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__RELATIVE_TOLERANCE = GAUSSIAN2_FORCING_DISEASE_MODEL__RELATIVE_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__FINITE_DIFFERENCE = GAUSSIAN2_FORCING_DISEASE_MODEL__FINITE_DIFFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__FREQUENCY_DEPENDENT = GAUSSIAN2_FORCING_DISEASE_MODEL__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = GAUSSIAN2_FORCING_DISEASE_MODEL__BACKGROUND_BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TOTAL_POPULATION_COUNT = GAUSSIAN2_FORCING_DISEASE_MODEL__TOTAL_POPULATION_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Total Population Count Reciprocal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL = GAUSSIAN2_FORCING_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL;
+
+	/**
+	 * The feature id for the '<em><b>Total Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TOTAL_AREA = GAUSSIAN2_FORCING_DISEASE_MODEL__TOTAL_AREA;
+
+	/**
+	 * The feature id for the '<em><b>Reference Population Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = GAUSSIAN2_FORCING_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY;
+
+	/**
+	 * The feature id for the '<em><b>Transmission Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE = GAUSSIAN2_FORCING_DISEASE_MODEL__TRANSMISSION_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Non Linearity Coefficient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__NON_LINEARITY_COEFFICIENT = GAUSSIAN2_FORCING_DISEASE_MODEL__NON_LINEARITY_COEFFICIENT;
+
+	/**
+	 * The feature id for the '<em><b>Recovery Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__RECOVERY_RATE = GAUSSIAN2_FORCING_DISEASE_MODEL__RECOVERY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE = GAUSSIAN2_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Physically Adjacent Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION = GAUSSIAN2_FORCING_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = GAUSSIAN2_FORCING_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY = GAUSSIAN2_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__IMMUNITY_LOSS_RATE = GAUSSIAN2_FORCING_DISEASE_MODEL__IMMUNITY_LOSS_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Seed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__SEED = GAUSSIAN2_FORCING_DISEASE_MODEL__SEED;
+
+	/**
+	 * The feature id for the '<em><b>Random Generator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__RANDOM_GENERATOR = GAUSSIAN2_FORCING_DISEASE_MODEL__RANDOM_GENERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Gain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__GAIN = GAUSSIAN2_FORCING_DISEASE_MODEL__GAIN;
+
+	/**
+	 * The feature id for the '<em><b>Sigma2 2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_2 = GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2;
+
+	/**
+	 * The feature id for the '<em><b>Sigma2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2 = GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2;
+
+	/**
+	 * The feature id for the '<em><b>Modulation Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_PERIOD = GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Modulation Phase Shift</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT = GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT;
+
+	/**
+	 * The feature id for the '<em><b>Modulation Floor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR = GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR;
+
+	/**
+	 * The feature id for the '<em><b>Att1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__ATT1 = GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1;
+
+	/**
+	 * The feature id for the '<em><b>Att2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__ATT2 = GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2;
+
+	/**
+	 * The feature id for the '<em><b>Att3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__ATT3 = GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3;
+
+	/**
+	 * The feature id for the '<em><b>Att4</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__ATT4 = GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4;
+
+	/**
+	 * The feature id for the '<em><b>Sigma2 3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3 = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Transmission Rate2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2 = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Transmission Rate3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3 = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Gaussian3 Forcing Disease Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL_FEATURE_COUNT = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 3;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.forcing.ForcingDiseaseModel <em>Disease Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1333,6 +1740,49 @@ public interface ForcingPackage extends EPackage {
 	EAttribute getGaussian2ForcingDiseaseModel_Att4();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel <em>Gaussian3 Forcing Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gaussian3 Forcing Disease Model</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel
+	 * @generated
+	 */
+	EClass getGaussian3ForcingDiseaseModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getSigma2_3 <em>Sigma2 3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sigma2 3</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getSigma2_3()
+	 * @see #getGaussian3ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian3ForcingDiseaseModel_Sigma2_3();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getTransmissionRate2 <em>Transmission Rate2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Transmission Rate2</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getTransmissionRate2()
+	 * @see #getGaussian3ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian3ForcingDiseaseModel_TransmissionRate2();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getTransmissionRate3 <em>Transmission Rate3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Transmission Rate3</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getTransmissionRate3()
+	 * @see #getGaussian3ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian3ForcingDiseaseModel_TransmissionRate3();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1500,6 +1950,36 @@ public interface ForcingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4 = eINSTANCE.getGaussian2ForcingDiseaseModel_Att4();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl <em>Gaussian3 Forcing Disease Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl
+		 * @see org.eclipse.stem.diseasemodels.forcing.impl.ForcingPackageImpl#getGaussian3ForcingDiseaseModel()
+		 * @generated
+		 */
+		EClass GAUSSIAN3_FORCING_DISEASE_MODEL = eINSTANCE.getGaussian3ForcingDiseaseModel();
+		/**
+		 * The meta object literal for the '<em><b>Sigma2 3</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3 = eINSTANCE.getGaussian3ForcingDiseaseModel_Sigma2_3();
+		/**
+		 * The meta object literal for the '<em><b>Transmission Rate2</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2 = eINSTANCE.getGaussian3ForcingDiseaseModel_TransmissionRate2();
+		/**
+		 * The meta object literal for the '<em><b>Transmission Rate3</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3 = eINSTANCE.getGaussian3ForcingDiseaseModel_TransmissionRate3();
 
 	}
 

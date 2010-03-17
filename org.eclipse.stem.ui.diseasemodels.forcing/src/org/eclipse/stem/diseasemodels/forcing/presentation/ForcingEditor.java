@@ -671,6 +671,7 @@ public class ForcingEditor
 		adapterFactory.addAdapterFactory(new ScenarioItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new LabelsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

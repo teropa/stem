@@ -68,6 +68,7 @@ public class ForcingFactoryImpl extends EFactoryImpl implements ForcingFactory {
 			case ForcingPackage.FORCING_DISEASE_MODEL: return createForcingDiseaseModel();
 			case ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL: return createGaussianForcingDiseaseModel();
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL: return createGaussian2ForcingDiseaseModel();
+			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL: return createGaussian3ForcingDiseaseModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -101,6 +102,16 @@ public class ForcingFactoryImpl extends EFactoryImpl implements ForcingFactory {
 	public Gaussian2ForcingDiseaseModel createGaussian2ForcingDiseaseModel() {
 		Gaussian2ForcingDiseaseModelImpl gaussian2ForcingDiseaseModel = new Gaussian2ForcingDiseaseModelImpl();
 		return gaussian2ForcingDiseaseModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Gaussian3ForcingDiseaseModel createGaussian3ForcingDiseaseModel() {
+		Gaussian3ForcingDiseaseModelImpl gaussian3ForcingDiseaseModel = new Gaussian3ForcingDiseaseModelImpl();
+		return gaussian3ForcingDiseaseModel;
 	}
 
 	/**

@@ -43,6 +43,7 @@ public class ForcingTests extends TestSuite {
 		suite.addTestSuite(ForcingDiseaseModelTest.class);
 		suite.addTestSuite(GaussianForcingDiseaseModelTest.class);
 		suite.addTestSuite(Gaussian2ForcingDiseaseModelTest.class);
+		suite.addTestSuite(Gaussian3ForcingDiseaseModelTest.class);
 		return suite;
 	}
 
