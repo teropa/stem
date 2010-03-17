@@ -18,8 +18,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Preferences;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.Preferences.IPropertyChangeListener;
@@ -28,12 +31,15 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.stem.core.Constants;
+import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.scenario.impl.ScenarioImpl;
 import org.eclipse.stem.core.scenario.provider.ScenarioItemProviderAdapterFactory;
 import org.eclipse.stem.core.sequencer.Sequencer;
+import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.jobs.Activator;
 import org.eclipse.stem.jobs.execution.Executable;
 import org.eclipse.stem.jobs.preferences.PreferenceConstants;
@@ -247,6 +253,24 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 
 					// Attempt one step (cycle) in the simulation
 					try {
+						if(scenario.getCanonicalGraph() == null)
+							scenario.initialize();
+						
+						if(scenario.getSolver() == null) {
+							Solver [] solvers = this.getSolvers();
+							// Use the default finite difference when not available
+							for(Solver s:solvers)
+								if(s.getClass().getName().equals("org.eclipse.stem.solvers.fd.impl.FiniteDifferenceImpl"))
+									{scenario.setSolver(s);break;}
+							
+						}
+						// Make sure the decorators are set on the solver
+						if(scenario.getSolver().getDecorators() == null) scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
+				
+						if(!scenario.getSolver().isInitialized()) {
+							scenario.getSolver().initialize(scenario.getSequencer().getNextTime());
+							setSimulationState(SimulationState.COMPLETED_CYCLE); // So that log is written with initial values
+						}
 						
 						boolean success = scenario.step();
 						if(!success) {keepRunning = false;retValue = Status.CANCEL_STATUS;}
@@ -593,4 +617,33 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 		Activator.getDefault().getPluginPreferences().removePropertyChangeListener(this);
 	}
 
+	private org.eclipse.stem.core.solver.Solver [] getSolvers() {
+		Solver [] solvers;
+		final IExtensionRegistry registry = Platform.getExtensionRegistry();
+		final IConfigurationElement[] solverConfigElements = registry
+				.getConfigurationElementsFor(org.eclipse.stem.core.Constants.ID_SOLVER_EXTENSION_POINT);
+
+		final List<Solver> temp = new ArrayList<Solver>();
+
+		solvers = new Solver[solverConfigElements.length];
+
+		for (int i = 0; i < solverConfigElements.length; i++) {
+			final IConfigurationElement element = solverConfigElements[i];
+			// Does the element specify the class of the disease model?
+				if (element.getName().equals(Constants.SOLVER_ELEMENT)) {
+					// Yes
+					try {
+						temp.add((Solver) element
+								.createExecutableExtension("class")); //$NON-NLS-1$
+					} catch (final Exception e) {
+						CorePlugin.logError(
+								"Can't create solver", e); //$NON-NLS-1$
+					}
+				} // if
+			} // for each configuration element
+
+			solvers = temp.toArray(new Solver[] {});
+
+		return solvers;
+	}
 } // Simulation

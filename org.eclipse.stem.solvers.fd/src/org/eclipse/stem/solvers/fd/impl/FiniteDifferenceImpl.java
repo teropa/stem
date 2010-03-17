@@ -68,8 +68,6 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 	@Override
 	public boolean step(STEMTime time, long timeDelta, int cycle) {
 		
-		if(!this.isInitialized()) 
-			initialize(time);
 		Activator act = org.eclipse.stem.ui.Activator.getDefault();
 		if(act != null) {
 			final Preferences preferences = act.getPluginPreferences();
@@ -228,46 +226,6 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 //		this.setProgress(1.0);
 	}
 	
-	/**
-	 * initialize before simulation begins. Rewind/forward any population model
-	 * values to the start time of the 
-	 * @param time
-	 */
-	private void initialize(STEMTime time) {
-		EList<Decorator> redoList = new BasicEList<Decorator>();
-		
-		boolean redo = false;
-		for(Decorator d:this.getDecorators()) {
-			if(d instanceof IntegrationDecorator) {
-				EList<DynamicLabel> labels = d.getLabelsToUpdate();
-				for(DynamicLabel l:labels) {
-					if(l instanceof IntegrationLabel) {
-						IntegrationLabel il = (IntegrationLabel)l;
-						il.reset(time);
-						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getAdditions() > 0.0 ||
-								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getSubstractions() > 0.0)
-							redo = true;
-					}
-				}
-			}
-			if(!redo)redoList.add(d);
-		}
-		// Fix decorators with unapplied deltas
-		if(redo) {
-			for(Decorator d:redoList) {
-				if(d instanceof IntegrationDecorator) {
-					EList<DynamicLabel> labels = d.getLabelsToUpdate();
-					for(DynamicLabel l:labels) {
-						if(l instanceof IntegrationLabel) {
-							IntegrationLabel il = (IntegrationLabel)l;
-							il.reset(time);
-						}
-					}
-				}
-			}
-		}
-		this.setInitialized(true);
-	}
 	/**
 	 * Reset the solver
 	 * @generated NOT
