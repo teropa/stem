@@ -314,6 +314,7 @@ public class DataHistoryLogger extends LoggerControl implements
 				// This will write the headers and the first line of data before first cycle
 				logWriter.logHeader(this.simulation, this.diseaseModel, this.nodeLevels, timeProvider);
 				// Don't log here since the models have not completly been initialized yet
+				// (sequencer has not rewinded values)
 				//logWriter.logData(this.simulation, this.diseaseModel, this.nodeLevels, timeProvider, true);
 			}
 		} else if(event.getSimulationState() == SimulationState.COMPLETED_CYCLE) {

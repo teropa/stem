@@ -141,9 +141,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				}
 			}
 		
-		if(!this.isInitialized())
-			this.initialize(time);
-		
 		Activator act = org.eclipse.stem.ui.Activator.getDefault();
 		if(act != null) {
 			final Preferences preferences = act.getPluginPreferences();
@@ -260,7 +257,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		// (initially 1.0) or the last step size used. 
 		
 		double h = this.getStepSize();
-		
 		// x is to keep track of how far we have advanced in the solution. It is essentially
 		// a double cycle representation
 		
@@ -805,7 +801,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				if(x < end && x+h > end) h = (end-x);
 					
 					
-
 					// Update the current value to the new position
 				for(Decorator sdm:iDecorators) {
 					for (final Iterator<DynamicLabel> currentStateLabelIter = sdm.getLabelsToUpdate(threadnum, num_threads)
@@ -896,6 +891,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				diseaseLabel.setNextValueValid(true);
 			}
 		}
+
 	}
 	
 	/**
@@ -915,46 +911,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		nextValueAtX.set(result.add(nextValueAtX));
 	}
 	
-	/**
-	 * initialize before simulation begins. Rewind/forward any population model
-	 * values to the start time of the 
-	 * @param time
-	 */
-	private void initialize(STEMTime time) {
-		EList<Decorator> redoList = new BasicEList<Decorator>();
-		
-		boolean redo = false;
-		for(Decorator d:this.getDecorators()) {
-			if(d instanceof IntegrationDecorator) {
-				EList<DynamicLabel> labels = d.getLabelsToUpdate();
-				for(DynamicLabel l:labels) {
-					if(l instanceof IntegrationLabel) {
-						IntegrationLabel il = (IntegrationLabel)l;
-						il.reset(time);
-						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getAdditions() > 0.0 ||
-								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getSubstractions() > 0.0)
-							redo = true;
-					}
-				}
-			}
-			if(!redo)redoList.add(d);
-		}
-		// Fix decorators with unapplied deltas
-		if(redo) {
-			for(Decorator d:redoList) {
-				if(d instanceof IntegrationDecorator) {
-					EList<DynamicLabel> labels = d.getLabelsToUpdate();
-					for(DynamicLabel l:labels) {
-						if(l instanceof IntegrationLabel) {
-							IntegrationLabel il = (IntegrationLabel)l;
-							il.reset(time);
-						}
-					}
-				}
-			}
-		}
-		this.setInitialized(true);
-	}
+	
 	
 	/**
 	 * Reset the solver
