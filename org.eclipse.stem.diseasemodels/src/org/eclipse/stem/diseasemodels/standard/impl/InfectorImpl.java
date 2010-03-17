@@ -222,7 +222,8 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 			Set<Node> allNodes = null;
 			
 			if(this.isInfectPercentage()) {
-				allNodes = getAllChildren(parent);				
+				allNodes = getAllChildren(parent);	
+				allNodes.add(parent);
 			} else {
 				allNodes = new HashSet<Node>();
 				allNodes.add(parent);

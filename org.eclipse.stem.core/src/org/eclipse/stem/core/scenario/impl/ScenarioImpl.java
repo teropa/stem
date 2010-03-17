@@ -14,11 +14,6 @@ package org.eclipse.stem.core.scenario.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -30,7 +25,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.stem.core.Constants;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
@@ -371,23 +365,6 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				decorator.setProgress(0.0);
 			}
 			
-			// This is the solver we will be using to advance the solution
-			// one step
-			
-			Solver solver = this.getSolver();
-			
-			// Needed to support old model where the solver was part of the decorator
-			
-			if(solver == null) {
-				Solver [] solvers = this.getSolvers();
-				// Use the default finite difference when not available
-				for(Solver s:solvers)
-					if(s.getClass().getName().equals("org.eclipse.stem.solvers.fd.impl.FiniteDifferenceImpl"))
-					{solver = s;this.setSolver(s);break;}
-			}
-			
-			// Make sure the decorators are set on the solver
-			if(solver.getDecorators() == null) solver.setDecorators(canonicalGraph.getDecorators());
 			
 			// Do the one step using the current solver
 			success = solver.step(currentTime, timeDelta, getSequencer().getCycle());
@@ -564,35 +541,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		}
 	} // initialize
 
-	private org.eclipse.stem.core.solver.Solver [] getSolvers() {
-		Solver [] solvers;
-		final IExtensionRegistry registry = Platform.getExtensionRegistry();
-		final IConfigurationElement[] solverConfigElements = registry
-				.getConfigurationElementsFor(org.eclipse.stem.core.Constants.ID_SOLVER_EXTENSION_POINT);
 
-		final List<Solver> temp = new ArrayList<Solver>();
-
-		solvers = new Solver[solverConfigElements.length];
-
-		for (int i = 0; i < solverConfigElements.length; i++) {
-			final IConfigurationElement element = solverConfigElements[i];
-			// Does the element specify the class of the disease model?
-				if (element.getName().equals(Constants.SOLVER_ELEMENT)) {
-					// Yes
-					try {
-						temp.add((Solver) element
-								.createExecutableExtension("class")); //$NON-NLS-1$
-					} catch (final Exception e) {
-						CorePlugin.logError(
-								"Can't create solver", e); //$NON-NLS-1$
-					}
-				} // if
-			} // for each configuration element
-
-			solvers = temp.toArray(new Solver[] {});
-
-		return solvers;
-	}
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

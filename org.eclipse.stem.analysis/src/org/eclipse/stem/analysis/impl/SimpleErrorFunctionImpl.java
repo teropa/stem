@@ -84,9 +84,10 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	protected AnalysisFactory aFactory = new AnalysisFactoryImpl();
 
 	// Set to true to weight the average by population size
-	private static boolean WEIGHTED_AVERAGE = true;
+	private static boolean AGGREGATE_NRMSE = true; // True if aggregate signal for locations first, then calculate NRMSE. False if use NRMSE per location then average.
+	private static boolean WEIGHTED_AVERAGE = true; // Only used if AGGREGATE_NRMSE = false;
 	private static boolean FIT_INCIDENCE = true;
-	private static boolean USE_THRESHOLD = true;
+	private static boolean USE_THRESHOLD = false;
 	private static double THRESHOLD = 0.05;
 	
 	/**
@@ -152,7 +153,6 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		
 		double [] Xref = new double[time.length];
 		double [] Xdata = new double[time.length];
-		double [] nrmse_loc = new double[commonInfectiousLocationsA.keySet().size()];  
 		
 		double finalerror = 0.0;
 		BasicEList<Double> list = new BasicEList<Double>();
@@ -187,53 +187,92 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		
 		double weighted_denom = 0.0;
 		
-		int loc_iter = 0;
-		for(String loc:commonInfectiousLocationsA.keySet()) {
-			double maxRef = 0.0;
-			double minRef = Double.MAX_VALUE;
-			// Get the numbers at each time step for the location
-			for(int icount =0; icount < time.length; icount ++) {
-				List<Double> dataAI = commonInfectiousLocationsA.get(loc);
-				List<Double> dataBI = commonInfectiousLocationsB.get(loc);
-												
-				double iA = dataAI.get(icount).doubleValue();
-				double iB = dataBI.get(icount).doubleValue();
+		if(!AGGREGATE_NRMSE) { // Use NRMSE per location first
+			for(String loc:commonInfectiousLocationsA.keySet()) {
+				double maxRef = 0.0;
+				double minRef = Double.MAX_VALUE;
+				// Get the numbers at each time step for the location
+				for(int icount =0; icount < time.length; icount ++) {
+					List<Double> dataAI = commonInfectiousLocationsA.get(loc);
+					List<Double> dataBI = commonInfectiousLocationsB.get(loc);
+													
+					double iA = dataAI.get(icount).doubleValue();
+					double iB = dataBI.get(icount).doubleValue();
+				
+					Xref[icount]=iA;
+					Xdata[icount]=iB;
+				}
 			
-				Xref[icount]=iA;
-				Xdata[icount]=iB;
+				double nominator = 0.0; 
+				double timesteps = 0;
+				for(int icount =0; icount < time.length; icount ++) {
+					if(Xref[icount]>maxRef)maxRef = Xref[icount];
+					if(Xref[icount]<minRef)minRef = Xref[icount];
+					
+					// If we use the threshold and both the reference and the model is less than
+					// the THRESHOLD*MAXref(loc) we don't measure the data point
+					
+					if(USE_THRESHOLD && (Xref[icount]<=THRESHOLD*commonMaxLocationsA.get(loc) &&
+							Xdata[icount]<=THRESHOLD*commonMaxLocationsA.get(loc))) continue;
+					
+					nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
+					list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
+					++timesteps;
+				}
+				double error = Double.MAX_VALUE;
+			    if(timesteps > 0 && maxRef-minRef > 0.0) {
+			    	error = Math.sqrt(nominator/timesteps);
+			    	error = error / (maxRef-minRef);
+			    	if(WEIGHTED_AVERAGE) finalerror += commonAvgPopulationLocationsA.get(loc) * error;
+			    	else finalerror += error;
+			    	if(WEIGHTED_AVERAGE) weighted_denom += commonAvgPopulationLocationsA.get(loc);
+			    	else weighted_denom += 1.0;
+			    }
+			
 			}
 		
-			double nominator = 0.0; 
-			double timesteps = 0;
+			// Divide the error by the number of locations
+			finalerror /= weighted_denom; 
+		} else { // Aggregate signal, then calculate NRMSE 
+			for(int icount =0; icount < time.length; icount ++) {
+				for(String loc:commonInfectiousLocationsA.keySet()) {
+					List<Double> dataAI = commonInfectiousLocationsA.get(loc);
+					List<Double> dataBI = commonInfectiousLocationsB.get(loc);
+													
+					double iA = dataAI.get(icount).doubleValue();
+					double iB = dataBI.get(icount).doubleValue();
+				
+					Xref[icount]+=iA;
+					Xdata[icount]+=iB;
+				}
+			}
+			
+			double maxRef = Double.MIN_VALUE;
+			double minRef = Double.MAX_VALUE;
 			for(int icount =0; icount < time.length; icount ++) {
 				if(Xref[icount]>maxRef)maxRef = Xref[icount];
 				if(Xref[icount]<minRef)minRef = Xref[icount];
-				
+			}
+			double nominator = 0.0;
+			double timesteps = 0.0;
+			for(int icount =0; icount < time.length; icount ++) {
 				// If we use the threshold and both the reference and the model is less than
 				// the THRESHOLD*MAXref(loc) we don't measure the data point
 				
-				if(USE_THRESHOLD && (Xref[icount]<=THRESHOLD*commonMaxLocationsA.get(loc) &&
-						Xdata[icount]<=THRESHOLD*commonMaxLocationsA.get(loc))) continue;
+				if(USE_THRESHOLD && (Xref[icount]<=THRESHOLD*maxRef &&
+						Xdata[icount]<=THRESHOLD*maxRef)) continue;
 				
 				nominator = nominator + Math.pow(Xref[icount]-Xdata[icount], 2);
-				list.set(icount, list.get(icount)+Math.abs(Xref[icount]-Xdata[icount]));
+				list.set(icount, Math.abs(Xref[icount]-Xdata[icount]));
 				++timesteps;
 			}
+			
 			double error = Double.MAX_VALUE;
 		    if(timesteps > 0 && maxRef-minRef > 0.0) {
 		    	error = Math.sqrt(nominator/timesteps);
-		    	error = error / (maxRef-minRef);
-		    	if(WEIGHTED_AVERAGE) finalerror += commonAvgPopulationLocationsA.get(loc) * error;
-		    	else finalerror += error;
-		    	if(WEIGHTED_AVERAGE) weighted_denom += commonAvgPopulationLocationsA.get(loc);
-		    	else weighted_denom += 1.0;
+		    	finalerror = error / (maxRef-minRef);
 		    }
-		
-		}
-		
-		// Divide the error by the number of locations
-		finalerror /= weighted_denom; 
-		
+		} // else
 		ErrorResult resultobj = aFactory.createErrorResult();
 		resultobj.setErrorByTimeStep(list);
 		resultobj.setError(finalerror);

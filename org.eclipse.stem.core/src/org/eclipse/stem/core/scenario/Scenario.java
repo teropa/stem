@@ -243,4 +243,5 @@ public interface Scenario extends Identifiable {
 	 * @model volatile="true" transient="true" changeable="false"
 	 */
 	String produceTitle();
+	
 } // Scenario

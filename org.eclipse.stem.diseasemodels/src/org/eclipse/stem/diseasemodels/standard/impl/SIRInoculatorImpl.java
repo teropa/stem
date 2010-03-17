@@ -214,7 +214,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 		// if it is not some type of SIR model then we can not inoculate
 		if(diseaseModelLabel instanceof SIRLabel ||
 				diseaseModelLabel instanceof SEIRLabel) {
-			double currentPopulation = diseaseModelLabel.getPopulationLabel().getCurrentPopulationValue().getCount();
+//			double currentPopulation = diseaseModelLabel.getPopulationLabel().getCurrentPopulationValue().getCount();
 			SIRLabelValue sirValue = null;
 			IntegrationLabel iLabel = null;
 			if(diseaseModelLabel instanceof SIRLabel) {
@@ -228,6 +228,8 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			}
 		
 			double currentSValue = sirValue.getS();
+			double currentPop = sirValue.getPopulationCount();
+			
 			double treated = getInoculatedPercentage();
 		
 			if(isInoculatePercentage() && treated > 100.0) {
@@ -237,8 +239,9 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			
 			double inoculatedNumber = 0;
 			if(isInoculatePercentage())
-				inoculatedNumber = currentSValue*(treated/100.0);
+				inoculatedNumber = currentPop*(treated/100.0);
 			else inoculatedNumber = treated;
+			if(inoculatedNumber > currentSValue) inoculatedNumber = currentSValue;
 			
 			double newSValue = currentSValue - inoculatedNumber;
 			// check for round off errors

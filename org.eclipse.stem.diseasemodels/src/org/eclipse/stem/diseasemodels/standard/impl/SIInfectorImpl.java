@@ -102,18 +102,18 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 		final IntegrationLabel siLabel = (IntegrationLabel) diseaseModelLabel;
 		final SILabelValue siValue = (SILabelValue)siLabel.getCurrentValue();
 		double newSValue = 0.0;
-		
-		if(this.isInfectPercentage())
-			newSValue = siValue.getS() - siValue.getS()*(getInfectiousCount() / 100.0);
-		else
-			newSValue = siValue.getS() - getInfectiousCount();
+		double currentPop = siValue.getPopulationCount();
+
 		
 		double additionalInfectious = 0.0;
 		if(this.isInfectPercentage())
-			additionalInfectious = siValue.getS() * (getInfectiousCount() / 100.0);
+			additionalInfectious = currentPop * (getInfectiousCount() / 100.0);
 		else
 			additionalInfectious = getInfectiousCount();
+
+		if(additionalInfectious > siValue.getS()) additionalInfectious = siValue.getS();
 		
+		newSValue = siValue.getS() - additionalInfectious;
 		
 		final double newIValue = siValue.getI() + additionalInfectious;
 		

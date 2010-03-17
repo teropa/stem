@@ -13,14 +13,19 @@ package org.eclipse.stem.core.solver.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
+import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.Solver;
@@ -153,6 +158,46 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * initialize before simulation begins. Rewind/forward any population model
+	 * values to the start time of the 
+	 * @param time
+	 */
+	public void initialize(STEMTime time) {
+		EList<Decorator> redoList = new BasicEList<Decorator>();
+		
+		boolean redo = false;
+		for(Decorator d:this.getDecorators()) {
+			if(d instanceof IntegrationDecorator) {
+				EList<DynamicLabel> labels = d.getLabelsToUpdate();
+				for(DynamicLabel l:labels) {
+					if(l instanceof IntegrationLabel) {
+						IntegrationLabel il = (IntegrationLabel)l;
+						il.reset(time);
+						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getAdditions() > 0.0 ||
+								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getSubstractions() > 0.0)
+							redo = true;
+					}
+				}
+			}
+			if(!redo)redoList.add(d);
+		}
+		// Fix decorators with unapplied deltas
+		if(redo) {
+			for(Decorator d:redoList) {
+				if(d instanceof IntegrationDecorator) {
+					EList<DynamicLabel> labels = d.getLabelsToUpdate();
+					for(DynamicLabel l:labels) {
+						if(l instanceof IntegrationLabel) {
+							IntegrationLabel il = (IntegrationLabel)l;
+							il.reset(time);
+						}
+					}
+				}
+			}
+		}
+		this.setInitialized(true);
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -103,4 +103,5 @@ public interface Solver extends Identifiable {
 	 */
 	void reset();
 
+	public void initialize(STEMTime t);
 } // Solver
