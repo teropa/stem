@@ -17,6 +17,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.stem.jobs.execution.IExecutable;
@@ -44,8 +45,7 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 
 		boolean switchPerspective = false;
 		
-		String name = executionEvent.getApplicationContext().getClass().getSimpleName();
-		System.out.println(" execution event name = "+name);
+		//String name = executionEvent.getApplicationContext().getClass().getSimpleName();
 		
 		final ISelection selection = HandlerUtil
 				.getCurrentSelectionChecked(executionEvent);
@@ -66,14 +66,19 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 				// Only switch to the Simulation Persepctive when the executable is a standard
 				// run (scenario). For other executables we may want to stay in other special
 				// perspectives
-				if( !(obj instanceof org.eclipse.stem.core.scenario.impl.ScenarioImpl )) {
-					useSimulationPerspective = false;
-				}
+				if(executable instanceof Adapter) {
+					Adapter a = (Adapter) executable;
+					Object aObj = a.getTarget();
+					if( aObj instanceof org.eclipse.stem.core.scenario.impl.ScenarioImpl ) {
+						switchPerspective = true;
+					} else {
+						switchPerspective = false;
+					}
+				} // if adapter (usually true)
 				
 				// Were we successful in adapting?
 				if (executable != null) {
 					// Yes
-					switchPerspective = true;
 					doit(executable);
 				} // if
 				else {
