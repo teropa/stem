@@ -8,6 +8,8 @@
         defaultValueLiteral="human"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="HumanPopulationModel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetISOKey" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StandardPopulationModel" eSuperTypes="#//PopulationModel #//IntegrationDecorator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="birthRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"

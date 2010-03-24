@@ -10,6 +10,7 @@ package org.eclipse.stem.populationmodels.standard;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.model.NodeDecorator;
 
 /**
@@ -22,6 +23,7 @@ import org.eclipse.stem.core.model.NodeDecorator;
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.PopulationModel#getPopulationIdentifier <em>Population Identifier</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.PopulationModel#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.PopulationModel#getTargetISOKey <em>Target ISO Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,5 +93,32 @@ public interface PopulationModel extends NodeDecorator {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Target ISO Key</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target ISO Key</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target ISO Key</em>' attribute.
+	 * @see #setTargetISOKey(String)
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getPopulationModel_TargetISOKey()
+	 * @model default=""
+	 * @generated
+	 */
+	String getTargetISOKey();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.populationmodels.standard.PopulationModel#getTargetISOKey <em>Target ISO Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target ISO Key</em>' attribute.
+	 * @see #getTargetISOKey()
+	 * @generated
+	 */
+	void setTargetISOKey(String value);
 
 } // PopulationModel

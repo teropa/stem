@@ -75,6 +75,7 @@ public class PopulationModelItemProvider
 
 			addPopulationIdentifierPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addTargetISOKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -124,6 +125,28 @@ public class PopulationModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Target ISO Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetISOKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopulationModel_targetISOKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopulationModel_targetISOKey_feature", "_UI_PopulationModel_type"),
+				 StandardPackage.Literals.POPULATION_MODEL__TARGET_ISO_KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns PopulationModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,6 +185,7 @@ public class PopulationModelItemProvider
 		switch (notification.getFeatureID(PopulationModel.class)) {
 			case StandardPackage.POPULATION_MODEL__POPULATION_IDENTIFIER:
 			case StandardPackage.POPULATION_MODEL__NAME:
+			case StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

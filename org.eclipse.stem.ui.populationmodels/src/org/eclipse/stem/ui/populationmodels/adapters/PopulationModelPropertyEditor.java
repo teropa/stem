@@ -34,6 +34,8 @@ abstract public class PopulationModelPropertyEditor extends Composite {
 		boolean retValue = false;
 		if(feature.getFeatureID() == StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS)
 			return false;
+		if(feature.getFeatureID() == StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY)
+			return false;
 		final EClass containingClass = feature.getEContainingClass();
 		// Is it a disease model property?
 		if (containingClass.equals(StandardPackage.eINSTANCE.getPopulationModel())

@@ -18,17 +18,25 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.Utility;
+import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.impl.NodeDecoratorImpl;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
+import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
+import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.core.Utility;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +47,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.PopulationModelImpl#getPopulationIdentifier <em>Population Identifier</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.PopulationModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.PopulationModelImpl#getTargetISOKey <em>Target ISO Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +93,26 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetISOKey() <em>Target ISO Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetISOKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TARGET_ISO_KEY_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getTargetISOKey() <em>Target ISO Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetISOKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetISOKey = TARGET_ISO_KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +177,27 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTargetISOKey() {
+		return targetISOKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetISOKey(String newTargetISOKey) {
+		String oldTargetISOKey = targetISOKey;
+		targetISOKey = newTargetISOKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY, oldTargetISOKey, targetISOKey));
+	}
+
+	/**
 	 * Decorate the graph for a standard population model
 	 * 
 	 */
@@ -159,6 +209,33 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 			final PopulationLabel populationLabel = populationLabelIter.next();
 
 			if(this.getPopulationIdentifier().equals(populationLabel.getPopulationIdentifier())) {
+				// Make sure the node does not already have a population model label for this population
+				// identifier. 
+				boolean found = false;
+				for(NodeLabel l:populationLabel.getNode().getLabels()) {
+					if(l instanceof PopulationModelLabel && 
+							((PopulationModelLabel)l).getPopulationIdentifier().equals(this.getPopulationIdentifier()))
+						{found = true;break;}
+				}
+				if(found)continue;
+				
+				// Okay, another population model has not yet added population model labels
+				// for the same population identifier, but it might do so in the future depending
+				// upon the order decorateGraph() is called on the decorators. Check if there
+				// is another population model with a higher iso level target node URI that the
+				// node is contained within.
+				
+				found = false;
+				for(Decorator d:this.getGraph().getDecorators()) {
+					 if(!d.equals(this) &&  
+							 d instanceof PopulationModel && 
+							 ((PopulationModel)d).getPopulationIdentifier().equals(this.getPopulationIdentifier()) &&
+							 Utility.keyLevel(((PopulationModel)d).getTargetISOKey()) > Utility.keyLevel(this.getTargetISOKey()) &&
+							 isContained(populationLabel.getNode(), (((PopulationModel)d).getTargetISOKey())))
+					 {found = true;break;}
+				}
+				if(found) continue;
+				
 				final PopulationModelLabel pl = createPopulationLabel();
 				pl.setPopulationLabel(populationLabel); // Remember the static population label
 				pl.setPopulationIdentifier(populationLabel.getPopulationIdentifier());
@@ -193,6 +270,11 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 		EList<NodeLabel> labels = graph.getNodeLabelsByTypeURI(
 				PopulationLabel.URI_TYPE_POPULATION_LABEL);
 		for (NodeLabel pl:labels) {
+			if(getTargetISOKey() != null && !getTargetISOKey().trim().equals("") && pl.getNode() != null && 
+					!isContained(pl.getNode(), getTargetISOKey()) &&
+					!pl.getNode().getURI().lastSegment().equals("ZZZ"))
+				continue;
+			
 			final PopulationLabel populationLabel = (PopulationLabel) pl;
 			// Is this label for the population we're looking for?
 			if (populationLabel.getPopulationIdentifier().equals(
@@ -215,6 +297,24 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 		return retValue;
 	} // getPopulationLabels
 	
+	protected boolean isContained(Node node, String targetISOKey) {
+		if(node.getURI().lastSegment().equals(targetISOKey)) 
+			return true;
+		// Check parents
+		EList<Edge>edges = node.getEdges();
+		
+		for(Edge e:edges) {
+			if(e.getLabel() instanceof RelativePhysicalRelationshipLabel ||
+					e.getLabel() instanceof PipeTransportEdgeLabel) 
+				if(e.getA().equals(node)) continue;
+				else if(Utility.keyLevel(e.getA().getURI().lastSegment()) 
+						> Utility.keyLevel(node.getURI().lastSegment())) continue; // skip air transport edges that goes "down"
+				else return isContained(e.getA(), targetISOKey);
+		}
+		
+		return false;
+	}
+
 	/**
 	 * Search through the graph and find all of the population model labels (i.e. dynamic ones, not static) that have
 	 * the same identifier.
@@ -277,6 +377,8 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 				return getPopulationIdentifier();
 			case StandardPackage.POPULATION_MODEL__NAME:
 				return getName();
+			case StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY:
+				return getTargetISOKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +396,9 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 				return;
 			case StandardPackage.POPULATION_MODEL__NAME:
 				setName((String)newValue);
+				return;
+			case StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY:
+				setTargetISOKey((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -313,6 +418,9 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 			case StandardPackage.POPULATION_MODEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY:
+				setTargetISOKey(TARGET_ISO_KEY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -329,6 +437,8 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
 			case StandardPackage.POPULATION_MODEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY:
+				return TARGET_ISO_KEY_EDEFAULT == null ? targetISOKey != null : !TARGET_ISO_KEY_EDEFAULT.equals(targetISOKey);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -347,6 +457,8 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 		result.append(populationIdentifier);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", targetISOKey: ");
+		result.append(targetISOKey);
 		result.append(')');
 		return result.toString();
 	}

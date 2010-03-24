@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.graph.GraphPackage;
 
 import org.eclipse.stem.core.graph.IntegrationLabel;
@@ -223,6 +224,15 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EAttribute getPopulationModel_Name() {
 		return (EAttribute)populationModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopulationModel_TargetISOKey() {
+		return (EAttribute)populationModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -526,6 +536,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		populationModelEClass = createEClass(POPULATION_MODEL);
 		createEAttribute(populationModelEClass, POPULATION_MODEL__POPULATION_IDENTIFIER);
 		createEAttribute(populationModelEClass, POPULATION_MODEL__NAME);
+		createEAttribute(populationModelEClass, POPULATION_MODEL__TARGET_ISO_KEY);
 
 		standardPopulationModelEClass = createEClass(STANDARD_POPULATION_MODEL);
 		createEAttribute(standardPopulationModelEClass, STANDARD_POPULATION_MODEL__BIRTH_RATE);
@@ -619,6 +630,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(populationModelEClass, PopulationModel.class, "PopulationModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPopulationModel_PopulationIdentifier(), theEcorePackage.getEString(), "populationIdentifier", "human", 0, 1, PopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPopulationModel_Name(), theEcorePackage.getEString(), "name", "HumanPopulationModel", 0, 1, PopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPopulationModel_TargetISOKey(), theEcorePackage.getEString(), "targetISOKey", "", 0, 1, PopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(standardPopulationModelEClass, StandardPopulationModel.class, "StandardPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStandardPopulationModel_BirthRate(), theEcorePackage.getEDouble(), "birthRate", "0.0", 0, 1, StandardPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

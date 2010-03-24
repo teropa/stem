@@ -22,12 +22,15 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.widgets.LocationPickerDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -43,6 +46,9 @@ public class PopulationModelDefinitionControl extends Composite {
 
 	private final PopulationModelPropertyComposite populationModelPropertyComposite;
 
+	private String isoKey="";
+
+	
 	/**
 	 * Create the composite
 	 * 
@@ -96,6 +102,38 @@ public class PopulationModelDefinitionControl extends Composite {
 
 		});
 		final PopulationModelDefinitionControl self = this;
+
+		// Location picker
+		// ISO Key
+		final Label isoKeyLabel = new Label(this, SWT.NONE);
+		isoKeyLabel.setText(PopulationModelWizardMessages.getString("NPopWizISOK")); //$NON-NLS-1$
+		final GridData gd_isoKeyLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		isoKeyLabel.setLayoutData(gd_isoKeyLabel);
+		
+		final Label isokeyValueLabel = new Label(this, SWT.NONE);
+		isokeyValueLabel.setText(isoKey);
+
+		final GridData gd_isoKeyLabelValue = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		isokeyValueLabel.setLayoutData(gd_isoKeyLabelValue);
+		
+		final Button locationButton = new Button(this, SWT.NONE);
+		locationButton.setText(PopulationModelWizardMessages.getString("NPopWizPickLoc"));
+		final GridData lb_isoKeyLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		locationButton.setLayoutData(lb_isoKeyLabel);
+		
+		locationButton.addSelectionListener(new SelectionListener() {
+			
+			public void widgetSelected(SelectionEvent arg0) {
+				LocationPickerDialog lpDialog = new LocationPickerDialog(PopulationModelDefinitionControl.this.getShell(), SWT.NONE, PopulationModelWizardMessages.getString("NPopWizPickLocTitle"), PopulationModelDefinitionControl.this.isoKey);
+				isoKey = lpDialog.open();
+				isokeyValueLabel.setText(isoKey);
+			}
+			
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				
+			}
+		});
+		
 
 	} // DiseaseDefinitionControl
 
@@ -156,6 +194,7 @@ public class PopulationModelDefinitionControl extends Composite {
 		final PopulationModel retValue = (PopulationModel)EcoreUtil
 				.copy(getPopulationModels()[combo.getSelectionIndex()]);
 		populationModelPropertyComposite.populatePopulationModel(retValue);
+		retValue.setTargetISOKey(this.getIsoKey());
 		return retValue;
 	} // getSelectedPopulationModel
 
@@ -184,4 +223,7 @@ public class PopulationModelDefinitionControl extends Composite {
 		return populationModelPropertyComposite.getErrorMessage();
 	}
 
+	public String getIsoKey() {
+		return isoKey;
+	}
 } // PopulationDefinitionControl

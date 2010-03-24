@@ -169,13 +169,22 @@ public interface StandardPackage extends EPackage {
 	int POPULATION_MODEL__NAME = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_MODEL__TARGET_ISO_KEY = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Population Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POPULATION_MODEL_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 2;
+	int POPULATION_MODEL_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelImpl <em>Population Model</em>}' class.
@@ -276,6 +285,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int STANDARD_POPULATION_MODEL__NAME = POPULATION_MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_MODEL__TARGET_ISO_KEY = POPULATION_MODEL__TARGET_ISO_KEY;
 
 	/**
 	 * The feature id for the '<em><b>Birth Rate</b></em>' attribute.
@@ -856,6 +874,15 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_STANDARD_POPULATION_MODEL__NAME = STANDARD_POPULATION_MODEL__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_STANDARD_POPULATION_MODEL__TARGET_ISO_KEY = STANDARD_POPULATION_MODEL__TARGET_ISO_KEY;
+
+	/**
 	 * The feature id for the '<em><b>Birth Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1002,6 +1029,15 @@ public interface StandardPackage extends EPackage {
 	int DEMOGRAPHIC_POPULATION_MODEL__NAME = STANDARD_POPULATION_MODEL__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEMOGRAPHIC_POPULATION_MODEL__TARGET_ISO_KEY = STANDARD_POPULATION_MODEL__TARGET_ISO_KEY;
+
+	/**
 	 * The feature id for the '<em><b>Birth Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1116,6 +1152,17 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPopulationModel_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.PopulationModel#getTargetISOKey <em>Target ISO Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target ISO Key</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationModel#getTargetISOKey()
+	 * @see #getPopulationModel()
+	 * @generated
+	 */
+	EAttribute getPopulationModel_TargetISOKey();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationModel <em>Population Model</em>}'.
@@ -1486,6 +1533,14 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POPULATION_MODEL__NAME = eINSTANCE.getPopulationModel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Target ISO Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_MODEL__TARGET_ISO_KEY = eINSTANCE.getPopulationModel_TargetISOKey();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationModelImpl <em>Population Model</em>}' class.

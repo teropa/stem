@@ -18,9 +18,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.Utility;
+import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
@@ -96,6 +100,41 @@ public class DemographicPopulationModelImpl extends StandardPopulationModelImpl 
 			final PopulationLabel populationLabel = populationLabelIter.next();
 
 			if(this.getPopulationIdentifier().equals(populationLabel.getPopulationIdentifier())) {
+				
+				// Make sure the node does not already have population model labels for the sub populations.
+				boolean found = false;
+				for(NodeLabel l:populationLabel.getNode().getLabels()) {
+					if(l instanceof PopulationModelLabel)
+						for(PopulationGroup group:this.getPopulationGroups())
+							if(group.getIdentifier().equals(((PopulationModelLabel)l).getPopulationIdentifier()))
+									{found = true;break;}
+					if(found)break;
+				}
+				if(found)continue;
+				
+				
+				// Okay, another demographic population model has not yet added population model labels
+				// for the same population group identifiers, but it might do so in the future depending
+				// upon the order decorateGraph() is called on the decorators. Check if there
+				// is another demographic population model with a higher iso level target node URI that the
+				// node is contained within.
+				
+				found = false;
+				for(Decorator d:this.getGraph().getDecorators()) {
+					 if(!d.equals(this) &&  
+							 d instanceof DemographicPopulationModel)
+						 for(PopulationGroup group:this.getPopulationGroups()) {
+							 for(PopulationGroup group2:((DemographicPopulationModel)d).getPopulationGroups())
+								 if(group.getIdentifier().equals(group2.getIdentifier()) &&
+								    Utility.keyLevel(((PopulationModel)d).getTargetISOKey()) > Utility.keyLevel(this.getTargetISOKey()) &&
+							 isContained(populationLabel.getNode(), (((PopulationModel)d).getTargetISOKey())))
+								 {found = true;break;}
+							 if(found)break;
+						 }
+					 if(found)break;
+				}
+				if(found) continue;
+				
 				// Iterate the groups in the demographic model and divide the numbers
 				for(PopulationGroup group:this.getPopulationGroups()) {
 					final PopulationModelLabel pl = createPopulationLabel();
