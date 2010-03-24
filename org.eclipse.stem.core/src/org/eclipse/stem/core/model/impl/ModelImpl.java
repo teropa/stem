@@ -395,13 +395,19 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 */
 	private void invokeNodeDecorators(Graph graph) {
 		ArrayList<Decorator>failed = null; 
+		
+		// Stefan fix. We add the decorators to the graph first since we need to know
+		// about what decorators are available when we determine how to decorate when
+		// there are overlapping sets of nodes (e.g. for population models)
 		for (final Iterator<NodeDecorator> nodeDecoratorIter = getNodeDecorators().iterator(); nodeDecoratorIter
-				.hasNext();) {
+		.hasNext();) {
 			final NodeDecorator nodeDecorator = (NodeDecorator) nodeDecoratorIter
-					.next();
+			.next();
 			final Decorator canonicalDecorator = (Decorator) EcoreUtil
-					.copy(nodeDecorator);
+			.copy(nodeDecorator);
 			graph.getDecorators().add(canonicalDecorator);
+		}
+		for (Decorator canonicalDecorator:graph.getDecorators()) {
 			boolean success = canonicalDecorator.decorateGraph();
 			if(!success) {
 				if(failed == null)failed = new ArrayList<Decorator>();
