@@ -34,11 +34,13 @@ import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
+import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
@@ -134,6 +136,20 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass populationGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass populationInitializerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass standardPopulationInitializerEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -510,6 +526,60 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPopulationInitializer() {
+		return populationInitializerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopulationInitializer_TargetISOKey() {
+		return (EAttribute)populationInitializerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStandardPopulationInitializer() {
+		return standardPopulationInitializerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStandardPopulationInitializer_Individuals() {
+		return (EAttribute)standardPopulationInitializerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStandardPopulationInitializer_UseDensity() {
+		return (EAttribute)standardPopulationInitializerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStandardPopulationInitializer_PopulationIdentifier() {
+		return (EAttribute)standardPopulationInitializerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StandardFactory getStandardFactory() {
 		return (StandardFactory)getEFactoryInstance();
 	}
@@ -578,6 +648,14 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		populationGroupEClass = createEClass(POPULATION_GROUP);
 		createEAttribute(populationGroupEClass, POPULATION_GROUP__IDENTIFIER);
 		createEAttribute(populationGroupEClass, POPULATION_GROUP__FRACTION);
+
+		populationInitializerEClass = createEClass(POPULATION_INITIALIZER);
+		createEAttribute(populationInitializerEClass, POPULATION_INITIALIZER__TARGET_ISO_KEY);
+
+		standardPopulationInitializerEClass = createEClass(STANDARD_POPULATION_INITIALIZER);
+		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__INDIVIDUALS);
+		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__USE_DENSITY);
+		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER);
 	}
 
 	/**
@@ -625,6 +703,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		standardPopulationModelLabelValueEClass.getESuperTypes().add(this.getIntegrationLabelValue());
 		stochasticStandardPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
 		demographicPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
+		populationInitializerEClass.getESuperTypes().add(theModelPackage.getNodeDecorator());
+		standardPopulationInitializerEClass.getESuperTypes().add(this.getPopulationInitializer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(populationModelEClass, PopulationModel.class, "PopulationModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -679,6 +759,14 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(populationGroupEClass, PopulationGroup.class, "PopulationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPopulationGroup_Identifier(), theEcorePackage.getEString(), "identifier", null, 0, 1, PopulationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPopulationGroup_Fraction(), theEcorePackage.getEDouble(), "fraction", "0.5", 0, 1, PopulationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(populationInitializerEClass, PopulationInitializer.class, "PopulationInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPopulationInitializer_TargetISOKey(), theEcorePackage.getEString(), "targetISOKey", null, 0, 1, PopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(standardPopulationInitializerEClass, StandardPopulationInitializer.class, "StandardPopulationInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStandardPopulationInitializer_Individuals(), theEcorePackage.getEDouble(), "individuals", "1", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStandardPopulationInitializer_UseDensity(), theEcorePackage.getEBoolean(), "useDensity", "false", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStandardPopulationInitializer_PopulationIdentifier(), theEcorePackage.getEString(), "populationIdentifier", "human", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

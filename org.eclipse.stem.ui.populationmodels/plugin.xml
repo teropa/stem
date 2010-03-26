@@ -30,6 +30,13 @@
           icon="icons/full/custom16/populationmodel.gif"
           id="org.eclipse.stem.populationmodels.standard.presentation.StandardModelWizardID"
           name="%_UI_New_Population_Model"/>
+    <wizard
+          category="org.eclipse.stem.ui.wizards.stemcategory"
+          class="org.eclipse.stem.ui.populationmodels.standard.wizards.NewPopulationInitializerWizard"
+          hasPages="true"
+          icon="icons/full/custom16/populationinitializer.gif"
+          id="org.eclipse.stem.populationmodels.standard.presentation.StandardModelWizardID"
+          name="%_UI_New_Population_Initializer"/>      
    </extension>
 
 	<extension
@@ -40,6 +47,12 @@
            icon="icons/full/custom16/populationmodel.gif"
            id="org.eclipse.stem.ui.views.populationmodels"
            name="%_UI_PView_Name"/>
+     <view
+           category="org.eclipse.stem.ui.views"
+           class="org.eclipse.stem.ui.views.populationmodel.PopulationInitializerView"
+           icon="icons/full/custom16/populationinitializer.gif"
+           id="org.eclipse.stem.ui.views.populationinitializer"
+           name="%_UI_PIView_Name"/>      
   </extension>
   
    <extension point="org.eclipse.ui.editors">
@@ -64,6 +77,13 @@
               style="push"
               tooltip="%_UI_PopulationModel_description">
         </command>
+         <command
+              commandId="org.eclipse.stem.ui.populationmodels.command.wiz.populationinitializer"
+              icon="icons/full/custom16/populationinitializer.gif"
+              label="%_UI_PopulationInitializerWizard_label"
+              style="push"
+              tooltip="%_UI_PopulationInitializer_description">
+        </command>
      </menuContribution>
      <menuContribution
            locationURI="toolbar:org.eclipse.stem.ui.toolbar.newwizards?after=additions">
@@ -73,6 +93,13 @@
               label="%_UI_PopulationModelWizard_label"
               style="push"
               tooltip="%_UI_PopulationModel_description">
+        </command>
+        <command
+              commandId="org.eclipse.stem.ui.populationmodels.command.wiz.populationinitializer"
+              icon="icons/full/custom16/populationinitializer.gif"
+              label="%_UI_PopulationInitializerWizard_label"
+              style="push"
+              tooltip="%_UI_PopulationInitializer_description">
         </command>
      </menuContribution>
   </extension>
@@ -84,6 +111,12 @@
            description="%_UI_PopulationModel_description"
            id="org.eclipse.stem.ui.populationmodels.command.wiz.populationmodel"
            name="%_UI_PopulationModelWizard_label">
+     </command>
+      <command
+           defaultHandler="org.eclipse.stem.ui.populationmodels.standard.wizards.NewPopulationInitializerWizard$NewPopulationInitializerWizardCommandHandler"
+           description="%_UI_PopulationInitializer_description"
+           id="org.eclipse.stem.ui.populationmodels.command.wiz.populationinitializer"
+           name="%_UI_PopulationInitializerWizard_label">
      </command>
   </extension>
   

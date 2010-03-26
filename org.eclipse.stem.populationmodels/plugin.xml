@@ -10,6 +10,7 @@
 
 <plugin>
    <extension-point id="populationmodel" name="%EP_Populationmodel" schema="schema/populationmodel.exsd"/>
+   <extension-point id="populationinitializer" name="%EP_Populationinitializer" schema="schema/populationinitializer.exsd"/>
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http:///org/eclipse/stem/populationmodels/standard"
@@ -62,5 +63,16 @@
             title="org.eclipse.stem.populationmodels.dublin_core1">
       </dublin_core>
    </extension>
-
+   <extension
+         point="org.eclipse.stem.populationmodels.populationinitializer">
+      <classdef
+            class="org.eclipse.stem.populationmodels.standard.impl.StandardPopulationInitializerImpl">
+      </classdef>
+      <dublin_core
+            category_id="/"
+            identifier="org.eclipse.stem.populationmodels.dublin_core1"
+            title="org.eclipse.stem.populationmodels.dublin_core1">
+      </dublin_core>
+   </extension>
+  
 </plugin>

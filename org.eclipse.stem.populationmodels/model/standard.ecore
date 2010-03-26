@@ -63,4 +63,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fraction" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.5"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PopulationInitializer" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetISOKey" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StandardPopulationInitializer" eSuperTypes="#//PopulationInitializer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="individuals" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useDensity" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationIdentifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral="human"/>
+  </eClassifiers>
 </ecore:EPackage>

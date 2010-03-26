@@ -1122,6 +1122,234 @@ public interface StandardPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.PopulationInitializerImpl <em>Population Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.PopulationInitializerImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getPopulationInitializer()
+	 * @generated
+	 */
+	int POPULATION_INITIALIZER = 12;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__URI = ModelPackage.NODE_DECORATOR__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__TYPE_URI = ModelPackage.NODE_DECORATOR__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__DUBLIN_CORE = ModelPackage.NODE_DECORATOR__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__LABELS_TO_UPDATE = ModelPackage.NODE_DECORATOR__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__GRAPH = ModelPackage.NODE_DECORATOR__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__ENABLED = ModelPackage.NODE_DECORATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__GRAPH_DECORATED = ModelPackage.NODE_DECORATOR__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__PROGRESS = ModelPackage.NODE_DECORATOR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__TARGET_ISO_KEY = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Population Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationInitializerImpl <em>Population Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPopulationInitializerImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getStandardPopulationInitializer()
+	 * @generated
+	 */
+	int STANDARD_POPULATION_INITIALIZER = 13;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__URI = POPULATION_INITIALIZER__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__TYPE_URI = POPULATION_INITIALIZER__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__DUBLIN_CORE = POPULATION_INITIALIZER__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__LABELS_TO_UPDATE = POPULATION_INITIALIZER__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__GRAPH = POPULATION_INITIALIZER__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__ENABLED = POPULATION_INITIALIZER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__GRAPH_DECORATED = POPULATION_INITIALIZER__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__PROGRESS = POPULATION_INITIALIZER__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__TARGET_ISO_KEY = POPULATION_INITIALIZER__TARGET_ISO_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Individuals</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__INDIVIDUALS = POPULATION_INITIALIZER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Use Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__USE_DENSITY = POPULATION_INITIALIZER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = POPULATION_INITIALIZER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Population Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER_FEATURE_COUNT = POPULATION_INITIALIZER_FEATURE_COUNT + 3;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.PopulationModel <em>Population Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1487,6 +1715,70 @@ public interface StandardPackage extends EPackage {
 	EAttribute getPopulationGroup_Fraction();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.PopulationInitializer <em>Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Population Initializer</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationInitializer
+	 * @generated
+	 */
+	EClass getPopulationInitializer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.PopulationInitializer#getTargetISOKey <em>Target ISO Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target ISO Key</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationInitializer#getTargetISOKey()
+	 * @see #getPopulationInitializer()
+	 * @generated
+	 */
+	EAttribute getPopulationInitializer_TargetISOKey();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer <em>Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Population Initializer</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer
+	 * @generated
+	 */
+	EClass getStandardPopulationInitializer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getIndividuals <em>Individuals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Individuals</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getIndividuals()
+	 * @see #getStandardPopulationInitializer()
+	 * @generated
+	 */
+	EAttribute getStandardPopulationInitializer_Individuals();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#isUseDensity <em>Use Density</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Density</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#isUseDensity()
+	 * @see #getStandardPopulationInitializer()
+	 * @generated
+	 */
+	EAttribute getStandardPopulationInitializer_UseDensity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getPopulationIdentifier <em>Population Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Population Identifier</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getPopulationIdentifier()
+	 * @see #getStandardPopulationInitializer()
+	 * @generated
+	 */
+	EAttribute getStandardPopulationInitializer_PopulationIdentifier();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1803,6 +2095,58 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POPULATION_GROUP__FRACTION = eINSTANCE.getPopulationGroup_Fraction();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.PopulationInitializerImpl <em>Population Initializer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.PopulationInitializerImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getPopulationInitializer()
+		 * @generated
+		 */
+		EClass POPULATION_INITIALIZER = eINSTANCE.getPopulationInitializer();
+
+		/**
+		 * The meta object literal for the '<em><b>Target ISO Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_INITIALIZER__TARGET_ISO_KEY = eINSTANCE.getPopulationInitializer_TargetISOKey();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationInitializerImpl <em>Population Initializer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPopulationInitializerImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getStandardPopulationInitializer()
+		 * @generated
+		 */
+		EClass STANDARD_POPULATION_INITIALIZER = eINSTANCE.getStandardPopulationInitializer();
+
+		/**
+		 * The meta object literal for the '<em><b>Individuals</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STANDARD_POPULATION_INITIALIZER__INDIVIDUALS = eINSTANCE.getStandardPopulationInitializer_Individuals();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Density</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STANDARD_POPULATION_INITIALIZER__USE_DENSITY = eINSTANCE.getStandardPopulationInitializer_UseDensity();
+
+		/**
+		 * The meta object literal for the '<em><b>Population Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = eINSTANCE.getStandardPopulationInitializer_PopulationIdentifier();
 
 	}
 

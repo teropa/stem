@@ -37,4 +37,20 @@ public interface Constants {
 	 */
 	String POPULATION_MODEL_ELEMENT = "classdef"; //$NON-NLS-1$ 
 
+	
+	/**
+	 * This is the extension point id for the "population initializer" extension point.
+	 */
+	String ID_POPULATION_INITIALIZER_EXTENSION_POINT = org.eclipse.stem.core.Constants.ID_ROOT
+	+ ".populationmodels.populationinitializer"; //$NON-NLS-1$ 
+
+	/**
+	 * This is the identifier of the element in a
+	 * <code>ConfigurationElement</code> that specifies the name and
+	 * implementing class for STEM "population initializer".
+	 * 
+	 * @see org.eclipse.stem.core.Constants#EXECUTABLE_NAME_ATTRIBUTE
+	 */
+	String POPULATION_INITIALIZER_ELEMENT = "classdef"; //$NON-NLS-1$ 
+
 } // Constants

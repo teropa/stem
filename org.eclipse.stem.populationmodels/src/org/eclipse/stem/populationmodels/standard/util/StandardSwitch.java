@@ -205,6 +205,27 @@ public class StandardSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StandardPackage.POPULATION_INITIALIZER: {
+				PopulationInitializer populationInitializer = (PopulationInitializer)theEObject;
+				T1 result = casePopulationInitializer(populationInitializer);
+				if (result == null) result = caseNodeDecorator(populationInitializer);
+				if (result == null) result = caseDecorator(populationInitializer);
+				if (result == null) result = caseIdentifiable(populationInitializer);
+				if (result == null) result = caseComparable(populationInitializer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StandardPackage.STANDARD_POPULATION_INITIALIZER: {
+				StandardPopulationInitializer standardPopulationInitializer = (StandardPopulationInitializer)theEObject;
+				T1 result = caseStandardPopulationInitializer(standardPopulationInitializer);
+				if (result == null) result = casePopulationInitializer(standardPopulationInitializer);
+				if (result == null) result = caseNodeDecorator(standardPopulationInitializer);
+				if (result == null) result = caseDecorator(standardPopulationInitializer);
+				if (result == null) result = caseIdentifiable(standardPopulationInitializer);
+				if (result == null) result = caseComparable(standardPopulationInitializer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -386,6 +407,36 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 casePopulationGroup(PopulationGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Population Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Population Initializer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePopulationInitializer(PopulationInitializer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Population Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Population Initializer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStandardPopulationInitializer(StandardPopulationInitializer object) {
 		return null;
 	}
 

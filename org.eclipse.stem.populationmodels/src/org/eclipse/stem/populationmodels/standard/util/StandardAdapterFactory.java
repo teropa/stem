@@ -140,6 +140,14 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createPopulationGroupAdapter();
 			}
 			@Override
+			public Adapter casePopulationInitializer(PopulationInitializer object) {
+				return createPopulationInitializerAdapter();
+			}
+			@Override
+			public Adapter caseStandardPopulationInitializer(StandardPopulationInitializer object) {
+				return createStandardPopulationInitializerAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -364,6 +372,34 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPopulationGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.PopulationInitializer <em>Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationInitializer
+	 * @generated
+	 */
+	public Adapter createPopulationInitializerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer <em>Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer
+	 * @generated
+	 */
+	public Adapter createStandardPopulationInitializerAdapter() {
 		return null;
 	}
 

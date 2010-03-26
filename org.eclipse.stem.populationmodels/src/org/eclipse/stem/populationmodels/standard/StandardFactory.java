@@ -104,6 +104,24 @@ public interface StandardFactory extends EFactory {
 	PopulationGroup createPopulationGroup();
 
 	/**
+	 * Returns a new object of class '<em>Population Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Population Initializer</em>'.
+	 * @generated
+	 */
+	PopulationInitializer createPopulationInitializer();
+
+	/**
+	 * Returns a new object of class '<em>Population Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Population Initializer</em>'.
+	 * @generated
+	 */
+	StandardPopulationInitializer createStandardPopulationInitializer();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

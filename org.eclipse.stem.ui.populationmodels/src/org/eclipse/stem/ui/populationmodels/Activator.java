@@ -14,7 +14,9 @@ package org.eclipse.stem.ui.populationmodels;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.stem.populationmodels.standard.presentation.StandardEditor;
+import org.eclipse.stem.ui.populationmodels.adapters.PopulationInitializerPropertyEditorAdapterFactory;
 import org.eclipse.stem.ui.populationmodels.adapters.StandardRelativeValueProviderAdapterFactory;
+import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPopulationInitializerPropertyEditorAdapterFactory;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPopulationModelPropertyEditorAdapterFactory;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.StandardPropertyStringProviderAdapterFactory;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -52,6 +54,7 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		new StandardPropertyStringProviderAdapterFactory();
 		new StandardPopulationModelPropertyEditorAdapterFactory();
+		new StandardPopulationInitializerPropertyEditorAdapterFactory();
 		new StandardEditor();
 		// Add to RelativeValueProviderAdapterFactory.INSTANCE
 		new StandardRelativeValueProviderAdapterFactory();
