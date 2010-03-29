@@ -7,10 +7,9 @@
 package org.eclipse.stem.populationmodels.standard.impl;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 
 import org.eclipse.emf.ecore.EClass;
@@ -22,6 +21,7 @@ import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Model;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
@@ -118,8 +118,8 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	}
 	
 	@Override 
-	public void prepare(Model model) {
-		super.prepare(model);
+	public void prepare(Model model, STEMTime time) {
+		super.prepare(model, time);
 				
 		ArrayList<Node>nodes = new ArrayList<Node>();
 		ArrayList<NodeLabel>labels = new ArrayList<NodeLabel>();
@@ -138,7 +138,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 			}
 			if(existingLabel != null) {				
 					// Initialize with new value
-					initializeLabel((PopulationLabel)existingLabel);
+					initializeLabel((PopulationLabel)existingLabel, time);
 			} else {
 				// Create a new label
 				PopulationLabel newLabel = LabelsFactory.eINSTANCE.createPopulationLabel();
@@ -146,7 +146,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 				newLabel.setURIOfIdentifiableToBeLabeled(n.getURI());
 				Graph g = (Graph)((EObject)n.eContainer()).eContainer();
 				g.getNodeLabels().put(n.getURI(), newLabel);
-				initializeLabel((PopulationLabel)newLabel);				
+				initializeLabel((PopulationLabel)newLabel, time);				
 			}
 		}
 	}
@@ -176,7 +176,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 		}
 	}
 
-	protected void initializeLabel(PopulationLabel lab) {
+	protected void initializeLabel(PopulationLabel lab, STEMTime time) {
 		if(this.isUseDensity()) {
 			Node n = lab.getNode();
 			double area = 0.0;
@@ -195,6 +195,11 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 			 PopulationLabelValue plv = lab.getCurrentPopulationValue();
 			 plv.setCount(this.getIndividuals());
 		}
+		// Set the valid year to the start year of the sequencer
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(time.getTime());
+		int year = cal.get(Calendar.YEAR);
+		lab.setValidYear(year);
 	}
 	
 	

@@ -40,6 +40,7 @@ import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.stem.adapters.time.TimeProvider;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
@@ -52,6 +53,7 @@ import org.eclipse.stem.definitions.adapters.population.PopulationEnumerator;
 import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapter;
 import org.eclipse.stem.definitions.adapters.population.PopulationEnumeratorAdapterFactory;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
+import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.provider.StandardItemProviderAdapterFactory;
@@ -427,6 +429,7 @@ public class NewCSVLogWriter extends LogWriter {
 					Node n = nodeIterator.next();
 					
 					nodeCount++;
+					boolean foundAndLoggedLabelValue = false;
 					
 					EList<NodeLabel> labels = n.getLabels();
 					for(int i=0;i<labels.size();++i) {
@@ -482,6 +485,7 @@ public class NewCSVLogWriter extends LogWriter {
 							skipCount++;
 							continue;
 						}
+						
 						final List<IItemPropertyDescriptor> properties = propertySource
 							.getPropertyDescriptors(null);
 						
@@ -540,13 +544,117 @@ public class NewCSVLogWriter extends LogWriter {
 								if(nodeIterator.hasNext()) sb.append(",");
 								else sb.append("\n"); // new line
 								fw.write(sb.toString());
+								foundAndLoggedLabelValue = true;
 							} // For each property in label
-						} // For each node label							
-					firstNode = false;
-					} // For each node
+						} // For each node label
+					if(foundAndLoggedLabelValue == false) {
+						// We were unable to find the label for this disease model on the node. Still, we need to log
+						// something. Take the first label on the decorators list of labels to update and use it as a
+						// template for logging 0 values (representing unknown)
+						
+						Iterator<DynamicLabel> it = ((Decorator)dm).getLabelsToUpdate().iterator();
+						IntegrationLabel label = null;
+						while(it.hasNext()) {
+							DynamicLabel l = it.next();
+							if(l instanceof IntegrationLabel) {
+								label = (IntegrationLabel)l;
+								break;
+							}
+						}
+						if(label == null) {
+							// We couldn't find any labels. PANIC!
+							Activator.logError("Cannot log, no label found for decorator!", new Exception());
+							return;
+						}
+						
 
-				
-				} //  For each node resolution
+						IItemPropertySource propertySource = null;
+						IntegrationLabelValue dmlv = null;
+						
+						if(dm instanceof DiseaseModel) {
+							StandardItemProviderAdapterFactory itemProviderFactory = null;
+							itemProviderFactory = getItemProviderFactory();
+							dmlv = (IntegrationLabelValue)label.getCurrentValue();
+							propertySource = (IItemPropertySource) itemProviderFactory.adapt(dmlv, PropertySource.class);
+						}
+						else if(dm instanceof PopulationModel) {
+							dmlv = (IntegrationLabelValue)label.getCurrentValue();
+							propertySource = (IItemPropertySource)getPopulationModelItemProviderFactory().adapt(dmlv, PropertySource.class);
+						}
+						
+						if(propertySource == null) {
+							Activator.logError("Error, property source not found for "+dmlv, new Exception());
+							continue;
+						}
+						String [] popids=null;
+						if(dm instanceof MultiPopulationSIDiseaseModel) {
+							popids = new String[((MultiPopulationSIDiseaseModel)dm).getPopulationGroups().getValues().size()];
+							int ind = 0;
+							for(StringValue sv:((MultiPopulationSIDiseaseModel)dm).getPopulationGroups().getValues())
+								popids[ind++]=sv.getValue();						
+						} else if(dm instanceof DemographicPopulationModel) {
+							popids = new String[((DemographicPopulationModel)dm).getPopulationGroups().size()+1];
+							int ind=0;
+							for(PopulationGroup g:((DemographicPopulationModel)dm).getPopulationGroups())
+								popids[ind++]=g.getIdentifier();
+							popids[ind]=((DemographicPopulationModel)dm).getPopulationIdentifier();
+						} else if(dm instanceof DiseaseModel) {
+							popids = new String[1];
+							popids[0] = ((DiseaseModel)dm).getPopulationIdentifier();
+						} else if(dm instanceof PopulationModel) {
+							popids = new String[1];
+							popids[0] = ((PopulationModel)dm).getPopulationIdentifier();
+						}
+						
+						final List<IItemPropertyDescriptor> properties = propertySource
+						.getPropertyDescriptors(null);
+						StringBuilder sb = new StringBuilder();
+						for(IItemPropertyDescriptor itemDescriptor:properties) {
+							
+							for(String pop:popids) {
+								sb.setLength(0);
+								StateLevelMap slm = new StateLevelMap(pop, itemDescriptor.getDisplayName(itemDescriptor), resolution);
+								FileWriter fw = fileWriters.get(slm);
+								if(fw == null) {
+									Activator.logError("Error, no file writer found for "+slm, null);
+									continue;
+								}
+								// Before writing the values for the first location,
+								// add iteration, time columns
+									
+								if(firstNode) {
+									sb.append(this.icount);
+									sb.append(",");
+									STEMTime time = timeProvider.getTime();
+									if(time == null) {
+										time = sim.getScenario().getSequencer().getStartTime();
+									}
+									if(!beforeStart)
+										// Add increment
+										time = time.addIncrement(sim.getScenario().getSequencer().getTimeDelta());
+									
+									String timeString;
+									timeString = dateFormat.format(time.getTime());
+									
+									sb.append(timeString);
+									sb.append(",");
+								}
+								// Write relative value for the property
+								// ItemPropertyDescriptor property = (ItemPropertyDescriptor)itemDescriptor;
+								// double value = rvp.getRelativeValue(property)*rvp.getDenominator(); // log absolute value, not relative
+								sb.append("0"); // Default unknown value
+								
+								dataColumnCount++;
+								
+								if(nodeIterator.hasNext()) sb.append(",");
+								else sb.append("\n"); // new line
+								fw.write(sb.toString());
+							} // for each pop id
+						} //For each property
+					}// else
+				firstNode = false;
+				} // For each node				
+			} //  For each node resolution
 			needsHeader = false;
 		} catch(IOException ioe) {
 			Activator.logError("Error writing log header ", ioe);

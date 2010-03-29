@@ -45,7 +45,7 @@ import org.eclipse.stem.tests.util.decorators.TestEdgeDecorator1;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter) <em>Get Canonical Graph</em>}</li>
- *   <li>{@link org.eclipse.stem.core.model.Model#prepare() <em>Prepare</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.Model#prepare(org.eclipse.stem.core.model.STEMTime) <em>Prepare</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -619,13 +619,13 @@ public class ModelTest extends IdentifiableTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.stem.core.model.Model#prepare() <em>Prepare</em>}' operation.
+	 * Tests the '{@link org.eclipse.stem.core.model.Model#prepare(org.eclipse.stem.core.model.STEMTime) <em>Prepare</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.model.Model#prepare()
+	 * @see org.eclipse.stem.core.model.Model#prepare(org.eclipse.stem.core.model.STEMTime)
 	 * @generated
 	 */
-	public void testPrepare() {
+	public void testPrepare__STEMTime() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

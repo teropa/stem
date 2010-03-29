@@ -28,7 +28,7 @@ import org.eclipse.stem.core.model.ModelFactory;
  *   <li>{@link org.eclipse.stem.core.model.Decorator#updateLabels(org.eclipse.stem.core.model.STEMTime, long, int) <em>Update Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Decorator#resetLabels() <em>Reset Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Decorator#getLabelsToUpdate(int, int) <em>Get Labels To Update</em>}</li>
- *   <li>{@link org.eclipse.stem.core.model.Decorator#prepare(org.eclipse.stem.core.model.Model) <em>Prepare</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.Decorator#prepare(org.eclipse.stem.core.model.Model, org.eclipse.stem.core.model.STEMTime) <em>Prepare</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -143,13 +143,13 @@ public class DecoratorTest extends IdentifiableTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.stem.core.model.Decorator#prepare(org.eclipse.stem.core.model.Model) <em>Prepare</em>}' operation.
+	 * Tests the '{@link org.eclipse.stem.core.model.Decorator#prepare(org.eclipse.stem.core.model.Model, org.eclipse.stem.core.model.STEMTime) <em>Prepare</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.model.Decorator#prepare(org.eclipse.stem.core.model.Model)
+	 * @see org.eclipse.stem.core.model.Decorator#prepare(org.eclipse.stem.core.model.Model, org.eclipse.stem.core.model.STEMTime)
 	 * @generated
 	 */
-	public void testPrepare__Model() {
+	public void testPrepare__Model_STEMTime() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
