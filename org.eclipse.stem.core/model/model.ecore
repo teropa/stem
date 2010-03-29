@@ -20,6 +20,7 @@
     </eOperations>
     <eOperations name="prepare">
       <eParameters name="model" eType="#//Model"/>
+      <eParameters name="time" eType="#//STEMTime"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelsToUpdate" upperBound="-1"
         eType="ecore:EClass graph.ecore#//DynamicLabel" eOpposite="graph.ecore#//DynamicLabel/decorator"/>
@@ -39,7 +40,9 @@
       <eParameters name="uri" eType="#//URI"/>
       <eParameters name="filter" eType="ecore:EClass common.ecore#//IdentifiableFilter"/>
     </eOperations>
-    <eOperations name="prepare"/>
+    <eOperations name="prepare">
+      <eParameters name="time" eType="#//STEMTime"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
         eType="#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="graphs" upperBound="-1"

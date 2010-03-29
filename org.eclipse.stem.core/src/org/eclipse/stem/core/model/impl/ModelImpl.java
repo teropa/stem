@@ -38,6 +38,7 @@ import org.eclipse.stem.core.model.GraphDecorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.scenario.impl.ScenarioImpl;
 
 /**
@@ -249,33 +250,33 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void prepare() {
+	public void prepare(STEMTime time) {
 		// Iterate submodels and call prepare
 		for (final Iterator<Model> modelIter = getModels().iterator(); modelIter
 		.hasNext();) {
 			final Model model = (Model) modelIter.next();
-			model.prepare();
+			model.prepare(time);
 		} // for models
 		
 		ArrayList<NodeDecorator>list = (ArrayList<NodeDecorator>)EcoreUtil.copyAll(getNodeDecorators());
 		for (final Iterator<NodeDecorator> nodeDecoratorIter = list.iterator(); nodeDecoratorIter
 		.hasNext();) {
 			final NodeDecorator nodeDecorator = (NodeDecorator) nodeDecoratorIter.next();
-			nodeDecorator.prepare(this);
+			nodeDecorator.prepare(this, time);
 		}
 		
 		ArrayList<EdgeDecorator>list2 = (ArrayList<EdgeDecorator>)EcoreUtil.copyAll(getEdgeDecorators());
 		for (final Iterator<EdgeDecorator> edgeDecoratorIter = list2.iterator(); edgeDecoratorIter
 		.hasNext();) {
 			final EdgeDecorator edgeDecorator = (EdgeDecorator) edgeDecoratorIter.next();
-			edgeDecorator.prepare(this);
+			edgeDecorator.prepare(this, time);
 		}
 		
 		ArrayList<GraphDecorator>list3 = (ArrayList<GraphDecorator>)EcoreUtil.copyAll(getGraphDecorators());
 		for (final Iterator<GraphDecorator> graphDecoratorIter = list3.iterator(); graphDecoratorIter
 		.hasNext();) {
 			final GraphDecorator graphDecorator = (GraphDecorator) graphDecoratorIter.next();
-			graphDecorator.prepare(this);
+			graphDecorator.prepare(this, time);
 		}
 
 	}

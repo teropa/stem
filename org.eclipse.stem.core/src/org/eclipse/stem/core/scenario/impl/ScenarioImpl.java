@@ -444,7 +444,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		// Prepare the model and perform any pre-processing steps necessary
 		// before we begin
 		
-		getModel().prepare();
+		getModel().prepare(getSequencer().getStartTime());
 		
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.

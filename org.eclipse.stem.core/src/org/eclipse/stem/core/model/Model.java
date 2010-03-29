@@ -145,7 +145,7 @@ public interface Model extends Identifiable {
 	 * @model
 	 * @generated
 	 */
-	void prepare();
+	void prepare(STEMTime time);
 
 } // Model
 

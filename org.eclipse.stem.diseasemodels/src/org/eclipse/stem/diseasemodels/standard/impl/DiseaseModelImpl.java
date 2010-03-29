@@ -671,7 +671,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * 
 	 */
 	@Override
-	public void prepare(Model model) {
+	public void prepare(Model model, STEMTime time) {
 
 		// Check whether a population model exists for the disease model. If not, create
 		// a new population model with birth/death rate 0.
@@ -703,6 +703,10 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 			// Create a new standard population model
 			StandardPopulationModel spm = StandardFactory.eINSTANCE.createStandardPopulationModel();
 			spm.setPopulationIdentifier(this.getPopulationIdentifier());
+			String title = "Auto Generated "+this.getPopulationIdentifier()+" population model";
+			String name = "auto_gen_"+this.getPopulationIdentifier()+"_population_model";
+			spm.setName(name);
+			spm.getDublinCore().setTitle(title);
 			model.getNodeDecorators().add(spm);
 		}
 	}

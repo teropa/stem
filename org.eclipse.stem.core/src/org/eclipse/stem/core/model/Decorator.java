@@ -217,6 +217,6 @@ public interface Decorator extends Identifiable {
 	 * @model
 	 * @generated
 	 */
-	void prepare(Model model);
+	void prepare(Model model, STEMTime time);
 
 } // Decorator

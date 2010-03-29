@@ -192,14 +192,11 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	}
 	
 	/**
-	 * 
 	 * Prepare the decorator. A subclass needs to override this method if
 	 * pre-processing steps are necessary before the decorator is being used
-	 * 
 	 * @generated NOT
 	 */
-	  
-	public void prepare(Model model) {
+	public void prepare(Model model, STEMTime time) {
 		// Nothing to do
 	}
 
