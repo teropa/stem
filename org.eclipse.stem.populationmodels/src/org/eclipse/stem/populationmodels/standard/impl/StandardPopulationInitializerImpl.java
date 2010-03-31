@@ -22,6 +22,7 @@ import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
@@ -128,7 +129,27 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	
 	
 	protected void getNodes(Graph g, String key, ArrayList<Node>list, ArrayList<Node>negList) {
-;		for(Node n:g.getNodes().values()) {
+
+		// First find other population initializers in the graph that has the same
+		// population identifier but a lower level key. Any node in the substree 
+		// of that lower level key should not be touched.
+		
+		ArrayList<StandardPopulationInitializer>lowerLevelInitializers = new ArrayList<StandardPopulationInitializer>();
+		
+		for(Decorator d:g.getDecorators()) {
+			if(d instanceof StandardPopulationInitializer &&
+					((StandardPopulationInitializer)d).getPopulationIdentifier().equals(this.getPopulationIdentifier()) &&
+					Utility.keyLevel(((StandardPopulationInitializer)d).getTargetISOKey()) > Utility.keyLevel(this.getTargetISOKey()))
+				lowerLevelInitializers.add((StandardPopulationInitializer)d);
+		}
+		
+		for(Node n:g.getNodes().values()) {
+			boolean foundSubInitializer = false;
+			for(StandardPopulationInitializer spi:lowerLevelInitializers) 
+				if(isSelfOrHasParent(n, spi.getTargetISOKey())) 
+					{foundSubInitializer = true;break;}
+			if(foundSubInitializer) continue;
+			
 			if(n.getURI().lastSegment().equals(key) && isLeaf(n)) list.add(n);
 			// Check if any of the parents is the key
 			else if(hasParent(n, key) && isLeaf(n)) list.add(n);
@@ -150,6 +171,11 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 			else if(Utility.keyLevel(e.getA().getURI().lastSegment()) < Utility.keyLevel(n.getURI().lastSegment()))
 				return hasParent(e.getA(), key);
 		return false;
+	}
+	
+	public boolean isSelfOrHasParent(Node n, String key) {
+		if(n.getURI().lastSegment().equals(key)) return true;
+		return hasParent(n, key);
 	}
 
 	protected void initializeLabel(PopulationLabel lab, STEMTime time, boolean zeroValue) {
