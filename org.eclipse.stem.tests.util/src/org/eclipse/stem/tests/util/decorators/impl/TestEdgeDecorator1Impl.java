@@ -275,7 +275,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	@Override
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 		final Node nodeA = getGraph().getNode(getNodeAURI());
 		final Node nodeB = getGraph().getNode(getNodeBURI());
 

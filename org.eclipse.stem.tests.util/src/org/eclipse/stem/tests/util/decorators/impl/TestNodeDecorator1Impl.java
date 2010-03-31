@@ -62,7 +62,7 @@ public class TestNodeDecorator1Impl extends NodeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	@Override
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 		final TestNodeDecorator1 tnd = DecoratorsFactory.eINSTANCE
 		.createTestNodeDecorator1();
 		getGraph().getDecorators().add(tnd);
