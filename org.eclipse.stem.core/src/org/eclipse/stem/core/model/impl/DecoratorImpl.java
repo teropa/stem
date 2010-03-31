@@ -305,17 +305,18 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 		CorePlugin.logError("decorateGraph() not implemented in \""+
 				getDublinCore().getTitle()
 				+ "\" of type \"" + this.getClass().getCanonicalName()
 				+ "\"", null);
 		throw new UnsupportedOperationException();
-	} // decorateGraph
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

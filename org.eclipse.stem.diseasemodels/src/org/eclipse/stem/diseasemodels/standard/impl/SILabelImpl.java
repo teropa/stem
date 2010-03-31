@@ -494,6 +494,8 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 		
 		for(Label l:this.getNode().getLabels()) {
 			if(l instanceof IntegrationLabel) {
+				if(!((IntegrationLabel)l).getIdentifier().equals(this.getPopulationModelLabel().getPopulationIdentifier()))
+					continue;
 				IntegrationLabel il = (IntegrationLabel)l;
 				if(l == this) continue;
 				SimpleDataExchangeLabelValue delta = (SimpleDataExchangeLabelValue)il.getDeltaValue();
@@ -507,14 +509,14 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 				double popCount = ((SILabelValue)this.getCurrentValue()).getPopulationCount();
 				if(additions > 0.0) {
 					double factor = additions / popCount;
-					if(Double.isNaN(factor) || Double.isNaN(factor)) factor = 0.0;// do nothing
+					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;// do nothing
 					SILabelValue addV = (SILabelValue)EcoreUtil.copy(this.getCurrentValue());
 					addV.scale(factor);
 					((SILabelValue)this.getCurrentValue()).add((IntegrationLabelValue)addV);
 				}
 				if(substractions > 0.0) {
 					double factor = substractions / popCount;
-					if(Double.isNaN(factor) || Double.isNaN(factor)) factor = 0.0;// do nothing
+					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;// do nothing
 					SILabelValue subV = (SILabelValue)EcoreUtil.copy(this.getCurrentValue());
 					subV.scale(factor);
 					((SILabelValue)this.getCurrentValue()).sub((IntegrationLabelValue)subV);

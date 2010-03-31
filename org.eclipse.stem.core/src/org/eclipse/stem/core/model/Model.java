@@ -124,7 +124,7 @@ public interface Model extends Identifiable {
 	EList<EdgeDecorator> getEdgeDecorators();
 
 	/**
-	 * Recursively process any models this model contains to obtain their
+	 *Recursively process any models this model contains to obtain their
 	 * canonical {@link Graph}s. Combine these with any graphs this model
 	 * contains to make one aggregate {@link Graph}. Then this
 	 * <code>model</code>'s {@link Decorator}s decorate the graph.
@@ -132,16 +132,19 @@ public interface Model extends Identifiable {
 	 * @param uri
 	 *            the {@link URI} of the newly created canonical graph
 	 * @param parentFilter
+	 * @param time
 	 * @return the canonical graph of the model
 	 * 
 	 * @model volatile="true" transient="true" changeable="false"
 	 *        resolveProxies="false"
+	 *        
+	 * @generated
 	 */
-	Graph getCanonicalGraph(URI uri, IdentifiableFilter filter);
+	Graph getCanonicalGraph(URI uri, IdentifiableFilter filter, STEMTime time);
+
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Prepare the model if needed
 	 * @model
 	 * @generated
 	 */

@@ -4,7 +4,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
     nsURI="http:///org/eclipse/stem/core/model.ecore" nsPrefix="org.eclipse.stem.core.model">
   <eClassifiers xsi:type="ecore:EClass" name="Decorator" eSuperTypes="common.ecore#//Identifiable">
-    <eOperations name="decorateGraph" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eOperations name="decorateGraph" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="time" eType="#//STEMTime"/>
+    </eOperations>
     <eOperations name="updateLabels">
       <eParameters name="time" eType="#//STEMTime"/>
       <eParameters name="timerPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -39,6 +41,7 @@
     <eOperations name="getCanonicalGraph" eType="ecore:EClass graph.ecore#//Graph">
       <eParameters name="uri" eType="#//URI"/>
       <eParameters name="filter" eType="ecore:EClass common.ecore#//IdentifiableFilter"/>
+      <eParameters name="time" eType="#//STEMTime"/>
     </eOperations>
     <eOperations name="prepare">
       <eParameters name="time" eType="#//STEMTime"/>

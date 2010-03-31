@@ -443,12 +443,12 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 
 		// Prepare the model and perform any pre-processing steps necessary
 		// before we begin
-		
-		getModel().prepare(getSequencer().getStartTime());
+		STEMTime start = getSequencer().getStartTime();
+		getModel().prepare(start);
 		
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.
-		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()));
+		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()), start);
 
 		canonicalGraph.setTime((STEMTime) EcoreUtil.copy(getSequencer()
 				.getCurrentTime()));
@@ -516,12 +516,12 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		}
 		for(Decorator decorator:intDecorators) {
 			canonicalGraph.getDecorators().add(decorator);
-			decorator.decorateGraph();
+			decorator.decorateGraph(start);
 			decorator.setGraphDecorated(true);
 		} 
 		for(Decorator decorator:otherDecorators) {
 			canonicalGraph.getDecorators().add(decorator);
-			decorator.decorateGraph();
+			decorator.decorateGraph(start);
 			decorator.setGraphDecorated(true);
 		} 
 

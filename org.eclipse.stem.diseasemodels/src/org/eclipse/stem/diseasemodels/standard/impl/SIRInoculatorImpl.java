@@ -26,6 +26,7 @@ import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
@@ -116,7 +117,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 
 		final Graph graph = getGraph();
 

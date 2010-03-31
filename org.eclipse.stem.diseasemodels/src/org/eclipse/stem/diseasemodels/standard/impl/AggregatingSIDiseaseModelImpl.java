@@ -81,7 +81,7 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#decorateGraph()
 	 */
 	@Override
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 		final Node rootNode = getRootNode(getGraph());
 		// Did we find a root node?
 		if (rootNode != null) {

@@ -187,7 +187,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 
 		final Graph graph = getGraph();
 

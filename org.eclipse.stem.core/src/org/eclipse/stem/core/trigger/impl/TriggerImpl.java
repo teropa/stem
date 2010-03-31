@@ -86,7 +86,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph()
 	 */
 	@Override
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 		// Do we have an action?
 		if (action != null) {
 			// Yes
@@ -124,7 +124,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 				// Has the action decorated the graph yet?
 				if (!actionCopy.isGraphDecorated()) {
 					// No
-					actionCopy.decorateGraph();
+					actionCopy.decorateGraph(time);
 					actionCopy.setGraphDecorated(true);
 				} // if graph not decorated yet
 

@@ -185,18 +185,17 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		return edgeDecorators;
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
+	 * 
 	 * 
 	 * This method combines all of the graph "fragments" together to make a
 	 * graph suitable for simulation.
 	 * 
-	 * <!-- end-user-doc -->
+	 * 
 	 * 
 	 * @generated NOT
 	 */
-	public Graph getCanonicalGraph(final URI uri, IdentifiableFilter parentFilter) {
+	public Graph getCanonicalGraph(final URI uri, IdentifiableFilter parentFilter, STEMTime time) {
 		IdentifiableFilterImpl _parentfilter = (IdentifiableFilterImpl)parentFilter;
 		final Graph retValue = GraphFactory.eINSTANCE.createGraph();
 		retValue.setURI(uri);
@@ -211,7 +210,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		for (final Iterator<Model> modelIter = getModels().iterator(); modelIter
 				.hasNext();) {
 			final Model model = (Model) modelIter.next();
-			retValue.addGraph(model.getCanonicalGraph(uri, myFilter), myFilter);
+			retValue.addGraph(model.getCanonicalGraph(uri, myFilter, time), myFilter);
 		} // for models
 
 		// Now do the graphs that are part of this model
@@ -233,9 +232,9 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		// identifiables".
 		resolveURIs(this, retValue);
 
-		invokeNodeDecorators(retValue);
-		invokeEdgeDecorators(retValue);
-		invokeGraphDecorators(retValue);
+		invokeNodeDecorators(retValue, time);
+		invokeEdgeDecorators(retValue, time);
+		invokeGraphDecorators(retValue, time);
 
 		// Update the Dublin Core for this graph
 		final DublinCore dc = retValue.getDublinCore();
@@ -393,8 +392,9 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * 
 	 * @param graph
 	 *            the {@link Graph} to decorate
+	 * @param time STEM time
 	 */
-	private void invokeNodeDecorators(Graph graph) {
+	private void invokeNodeDecorators(Graph graph, STEMTime time) {
 		ArrayList<Decorator>failed = null; 
 		
 		// Stefan fix. We add the decorators to the graph first since we need to know
@@ -409,7 +409,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			graph.getDecorators().add(canonicalDecorator);
 		}
 		for (Decorator canonicalDecorator:graph.getDecorators()) {
-			boolean success = canonicalDecorator.decorateGraph();
+			boolean success = canonicalDecorator.decorateGraph(time);
 			if(!success) {
 				if(failed == null)failed = new ArrayList<Decorator>();
 				failed.add(canonicalDecorator);
@@ -417,9 +417,11 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		} // for
 		
 		// Redo failed decorators. This can happen due to dependencies, for instance a population model must be allowed to decorate
-		// before a disease model
+		// before a disease model.	
+		// ASSUMING THE USER HAS BUILD THE MODEL WITH THE CORRECT HIERARCHY, THIS WILL NEVER HAPPEN
+		
 		if(failed!=null)
-			for(Decorator d:failed)d.decorateGraph();
+			for(Decorator d:failed)d.decorateGraph(time);
 	} // invokeNodeDecorators
 
 	/**
@@ -428,8 +430,9 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * 
 	 * @param graph
 	 *            the {@link Graph} to decorate
+	 * @param time
 	 */
-	private void invokeEdgeDecorators(final Graph graph) {
+	private void invokeEdgeDecorators(final Graph graph, STEMTime time) {
 		for (final Iterator<EdgeDecorator> edgeDecoratorIter = getEdgeDecorators().iterator(); edgeDecoratorIter
 				.hasNext();) {
 			final EdgeDecorator edgeDecorator = (EdgeDecorator) edgeDecoratorIter
@@ -437,7 +440,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			final Decorator canonicalDecorator = (Decorator) EcoreUtil
 					.copy(edgeDecorator);
 			graph.getDecorators().add(canonicalDecorator);
-			canonicalDecorator.decorateGraph();
+			canonicalDecorator.decorateGraph(time);
 		} // for
 	} // invokeEdgeDecorators
 
@@ -447,8 +450,9 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * 
 	 * @param graph
 	 *            the {@link Graph} to decorate
+	 * @param time
 	 */
-	private void invokeGraphDecorators(Graph graph) {
+	private void invokeGraphDecorators(Graph graph, STEMTime time) {
 		for (final Iterator<GraphDecorator> graphDecoratorIter = getGraphDecorators()
 				.iterator(); graphDecoratorIter.hasNext();) {
 			final GraphDecorator graphDecorator = (GraphDecorator) graphDecoratorIter
@@ -456,7 +460,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			final Decorator canonicalDecorator = (Decorator) EcoreUtil
 					.copy(graphDecorator);
 			graph.getDecorators().add(canonicalDecorator);
-			canonicalDecorator.decorateGraph();
+			canonicalDecorator.decorateGraph(time);
 		} // for
 
 	} // invokeGraphDecorators

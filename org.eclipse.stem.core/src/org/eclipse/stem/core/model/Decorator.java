@@ -131,6 +131,20 @@ public interface Decorator extends Identifiable {
 	 */
 	void setProgress(double value);
 
+	/**Augment the graph by adding components ({@link Edge}s,
+	 * {@link org.eclipse.stem.core.graph.Node}s,
+	 * {@link org.eclipse.stem.core.graph.Label}s). The added components,
+	 * in particular {@link DynamicLabel}s, can be modified later during a call
+	 * to {@link #updateLabels(Graph, STEMTime)}. A side effect of this call is
+	 * that it adds the decorator to the collection maintained by the
+	 * {@link Graph}.
+	 * @param tiome
+	 * @return boolean
+	 * @generated
+	 * @model volatile="true" transient="true" changeable="false"
+	 */
+	boolean decorateGraph(STEMTime time);
+
 	/**
 	 * 
 	 * @return the {@link Graph} that the <code>Decorator</code> decorates.
@@ -163,18 +177,6 @@ public interface Decorator extends Identifiable {
 	 */
 	EList<DynamicLabel> getLabelsToUpdate();
 
-	/**
-	 * Augment the graph by adding components ({@link Edge}s,
-	 * {@link org.eclipse.stem.core.graph.Node}s,
-	 * {@link org.eclipse.stem.core.graph.Label}s). The added components,
-	 * in particular {@link DynamicLabel}s, can be modified later during a call
-	 * to {@link #updateLabels(Graph, STEMTime)}. A side effect of this call is
-	 * that it adds the decorator to the collection maintained by the
-	 * {@link Graph}.
-	 * 
-	 * @model volatile="true" transient="true" changeable="false"
-	 */
-	boolean decorateGraph();
 
 	/**
 	 * Process each of the {@link DynamicLabel}s that this
