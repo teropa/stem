@@ -54,8 +54,6 @@ import org.eclipse.stem.tests.util.labels.TestIntegerLabelValue;
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getNumGraphLabels() <em>Num Graph Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getNumNodeLabels() <em>Num Node Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.graph.Graph#getNumDynamicLabels() <em>Num Dynamic Labels</em>}</li>
- *   <li>{@link org.eclipse.stem.core.graph.Graph#getNodes() <em>Nodes</em>}</li>
- *   <li>{@link org.eclipse.stem.core.graph.Graph#getEdges() <em>Edges</em>}</li>
  * </ul>
  * </p>
  * <p>
@@ -441,58 +439,6 @@ public class GraphTest extends IdentifiableTest {
 		final Graph graph = getFixture();
 		assertTrue(graph.getNumDynamicLabels() == 4);
 	} // testGetNumDynamicLabels
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#getNodes() <em>Nodes</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.graph.Graph#getNodes()
-	 * @generated
-	 */
-	public void testGetNodes() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#isSetNodes() <em>isSetNodes()</em>}' method.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.graph.Graph#isSetNodes()
-	 * @generated
-	 */
-	public void testIsSetNodes() {
-		// TODO: implement this test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#getEdges() <em>Edges</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.graph.Graph#getEdges()
-	 * @generated
-	 */
-	public void testGetEdges() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.core.graph.Graph#isSetEdges() <em>isSetEdges()</em>}' method.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.graph.Graph#isSetEdges()
-	 * @generated
-	 */
-	public void testIsSetEdges() {
-		// TODO: implement this test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
 
 	/**
 	 * Tests the '

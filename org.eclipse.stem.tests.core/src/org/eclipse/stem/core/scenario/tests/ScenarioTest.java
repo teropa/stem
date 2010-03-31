@@ -351,8 +351,9 @@ public class ScenarioTest extends IdentifiableTest {
 	 */
 	public void testSerializeDeserializeCanonicalGraph() {
 		final Scenario scenario = getFixture();
+		STEMTime now = ModelFactory.eINSTANCE.createSTEMTime();
 		final Graph canonicalGraph = scenario.getModel().getCanonicalGraph(
-				CANONICAL_GRAPH__URI, new IdentifiableFilterImpl(scenario.getModel().getDublinCore().getCoverage()));
+				CANONICAL_GRAPH__URI, new IdentifiableFilterImpl(scenario.getModel().getDublinCore().getCoverage()), now);
 		try {
 			Utility.serializeIdentifiable(canonicalGraph,
 					CANONICAL_GRAPH_SERIALZATION_TEST_URI);

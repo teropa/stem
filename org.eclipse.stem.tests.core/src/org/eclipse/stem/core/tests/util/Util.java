@@ -23,6 +23,8 @@ import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.tests.GraphTest;
 import org.eclipse.stem.core.model.Model;
+import org.eclipse.stem.core.model.ModelFactory;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.tests.ModelTest;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.tests.ScenarioTest;
@@ -96,8 +98,9 @@ public class Util {
 	private static void serializeCanonicalGraph(final String fileName) throws IOException {
 		final Scenario scenario = ScenarioTest.createFixture();
 		refreshDublinCore(scenario);
+		STEMTime now = ModelFactory.eINSTANCE.createSTEMTime();
 		final Graph canonicalGraph = scenario.getModel().getCanonicalGraph(
-				STEMURI.createURI("canonical"), new IdentifiableFilterImpl(scenario.getModel().getDublinCore().getCoverage()));
+				STEMURI.createURI("canonical"), new IdentifiableFilterImpl(scenario.getModel().getDublinCore().getCoverage()), now);
 		Utility.serializeIdentifiable(canonicalGraph, createURI(fileName));
 	} // serializeCanonicalGraph
 

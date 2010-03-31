@@ -24,7 +24,7 @@ import org.eclipse.stem.core.model.ModelFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.stem.core.model.Decorator#decorateGraph() <em>Decorate Graph</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.Decorator#decorateGraph(org.eclipse.stem.core.model.STEMTime) <em>Decorate Graph</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Decorator#updateLabels(org.eclipse.stem.core.model.STEMTime, long, int) <em>Update Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Decorator#resetLabels() <em>Reset Labels</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Decorator#getLabelsToUpdate(int, int) <em>Get Labels To Update</em>}</li>
@@ -88,15 +88,18 @@ public class DecoratorTest extends IdentifiableTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.stem.core.model.Decorator#decorateGraph() <em>Decorate Graph</em>}' operation.
+	 * Tests the '{@link org.eclipse.stem.core.model.Decorator#decorateGraph(org.eclipse.stem.core.model.STEMTime) <em>Decorate Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.model.Decorator#decorateGraph()
-	 * @generated NOT
+	 * @see org.eclipse.stem.core.model.Decorator#decorateGraph(org.eclipse.stem.core.model.STEMTime)
+	 * @generated
 	 */
-	public void testDecorateGraph() {
-		assertTrue(true);
+	public void testDecorateGraph__STEMTime() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
+
 
 	/**
 	 * Tests the '{@link org.eclipse.stem.core.model.Decorator#updateLabels(org.eclipse.stem.core.model.STEMTime, long, int) <em>Update Labels</em>}' operation.

@@ -34,6 +34,7 @@ import org.eclipse.stem.core.model.GraphDecorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.tests.util.TestUtil;
 import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
 import org.eclipse.stem.tests.util.decorators.TestEdgeDecorator1;
@@ -44,7 +45,7 @@ import org.eclipse.stem.tests.util.decorators.TestEdgeDecorator1;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter) <em>Get Canonical Graph</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter, org.eclipse.stem.core.model.STEMTime) <em>Get Canonical Graph</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.Model#prepare(org.eclipse.stem.core.model.STEMTime) <em>Prepare</em>}</li>
  * </ul>
  * </p>
@@ -606,13 +607,13 @@ public class ModelTest extends IdentifiableTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter) <em>Get Canonical Graph</em>}' operation.
+	 * Tests the '{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter, org.eclipse.stem.core.model.STEMTime) <em>Get Canonical Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter)
+	 * @see org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter, org.eclipse.stem.core.model.STEMTime)
 	 * @generated
 	 */
-	public void testGetCanonicalGraph__URI_IdentifiableFilter() {
+	public void testGetCanonicalGraph__URI_IdentifiableFilter_STEMTime() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -662,8 +663,9 @@ public class ModelTest extends IdentifiableTest {
 		final int NUM_DYNAMIC_EDGE_LABELS = NUM_DYNAMIC_EDGES;
 
 		final Model model = getFixture();
+		STEMTime time = ModelFactory.eINSTANCE.createSTEMTime();
 		final Graph canonicalGraph = model
-				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
+				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()), time);
 
 		assertTrue(canonicalGraph.sane());
 
@@ -833,8 +835,10 @@ public class ModelTest extends IdentifiableTest {
 	public void testNonDestructiveGetCanonicalGraph() {
 		final Model model = getFixture();
 
-		final Graph graph1 = model.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
-		final Graph graph2 = model.getCanonicalGraph(CANONICAL_GRAPH2_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
+		STEMTime now = ModelFactory.eINSTANCE.createSTEMTime();
+		
+		final Graph graph1 = model.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()), now);
+		final Graph graph2 = model.getCanonicalGraph(CANONICAL_GRAPH2_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()), now);
 
 		final DublinCore dc1 = graph1.getDublinCore();
 		final DublinCore dc2 = graph2.getDublinCore();
@@ -870,8 +874,9 @@ public class ModelTest extends IdentifiableTest {
 	 */
 	public void testGetUnresolvedCanonicalGraph() {
 		final Model model = getUnresolvedFixture();
+		STEMTime now = ModelFactory.eINSTANCE.createSTEMTime();
 		final Graph canonicalGraph = model
-				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
+				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()), now);
 
 		// The URI of the graph should be what we think it should be
 		assertTrue(canonicalGraph.getURI().equals(CANONICAL_GRAPH1_URI));
@@ -900,8 +905,9 @@ public class ModelTest extends IdentifiableTest {
 	 */
 	public void testGetURIs() {
 		final Model model = getFixture();
+		STEMTime now = ModelFactory.eINSTANCE.createSTEMTime();
 		final Graph canonicalGraph = model
-				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()));
+				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()), now);
 
 		assertTrue(canonicalGraph.sane());
 

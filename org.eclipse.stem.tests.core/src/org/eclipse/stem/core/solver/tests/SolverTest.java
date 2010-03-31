@@ -95,7 +95,7 @@ public class SolverTest extends IdentifiableTest {
 	public void testStep__STEMTime_long_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-//		fail();
+		fail();
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class SolverTest extends IdentifiableTest {
 	public void testReset() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-//		fail();
+		fail();
 	}
 
 } //SolverTest

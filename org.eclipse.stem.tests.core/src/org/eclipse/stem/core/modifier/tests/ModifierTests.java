@@ -56,6 +56,10 @@ public class ModifierTests extends TestSuite {
 		suite.addTestSuite(STEMTimeSequenceModifierTest.class);
 		suite.addTestSuite(StringNOPModifierTest.class);
 		suite.addTestSuite(StringSequenceModifierTest.class);
+		suite.addTestSuite(DoubleModifierTest.class);
+		suite.addTestSuite(IntegerModifierTest.class);
+		suite.addTestSuite(LongModifierTest.class);
+		suite.addTestSuite(STEMTimeModifierTest.class);
 		return suite;
 	}
 
