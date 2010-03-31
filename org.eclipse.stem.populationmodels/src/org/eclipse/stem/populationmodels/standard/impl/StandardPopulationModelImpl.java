@@ -199,8 +199,8 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * 
 	 */
 	@Override
-	public boolean decorateGraph() {
-		super.decorateGraph();
+	public boolean decorateGraph(STEMTime time) {
+		super.decorateGraph(time);
 		return true;
 	} // decorateGraph
 	

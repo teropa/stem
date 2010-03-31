@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.stem.core.Utility;
+import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
@@ -26,6 +28,8 @@ import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabelValue;
+import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
+import org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl;
 import org.eclipse.stem.populationmodels.Activator;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer;
@@ -119,18 +123,85 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	
 	@Override 
 	public void prepare(Model model, STEMTime time) {
-		super.prepare(model, time);
-				
-		ArrayList<Node>nodes = new ArrayList<Node>();
-		ArrayList<NodeLabel>labels = new ArrayList<NodeLabel>();
+		// Nothing to do
+	}
+	
+	
+	protected void getNodes(Graph g, String key, ArrayList<Node>list, ArrayList<Node>negList) {
+;		for(Node n:g.getNodes().values()) {
+			if(n.getURI().lastSegment().equals(key) && isLeaf(n)) list.add(n);
+			// Check if any of the parents is the key
+			else if(hasParent(n, key) && isLeaf(n)) list.add(n);
+			else if(isLeaf(n)) negList.add(n);
+		}
+	}
+	
+	public boolean isLeaf(Node n) {
+		for(Edge e:n.getEdges())
+			if(e.getLabel() instanceof RelativePhysicalRelationshipLabel &&
+					e.getA().equals(n)) 
+				return false;
+		return true;
+	}
+	
+	public boolean hasParent(Node n, String key) {
+		for(Edge e:n.getEdges())
+			if(e.getA().getURI().lastSegment().equals(key)) return true;
+			else if(Utility.keyLevel(e.getA().getURI().lastSegment()) < Utility.keyLevel(n.getURI().lastSegment()))
+				return hasParent(e.getA(), key);
+		return false;
+	}
+
+	protected void initializeLabel(PopulationLabel lab, STEMTime time, boolean zeroValue) {
+		if(this.isUseDensity()) {
+			Node n = lab.getNode();
+			if(n == null) {
+				Activator.logInformation("Cannot initialize population "+this.getPopulationIdentifier()+", no node found for"+lab, new Exception());
+				return;
+			}
+			double area = 0.0;
+			for(NodeLabel l:n.getLabels())
+				if(l instanceof AreaLabel)
+					area = ((AreaLabel)l).getCurrentAreaValue().getArea();
+			if(area == 0.0) {
+				Activator.logInformation("Warning, unable to find area information for node "+n+" when initializing population "+this.getPopulationIdentifier()+", density not being used!", new Exception());
+				 PopulationLabelValue plv = lab.getCurrentPopulationValue();
+				 if(!zeroValue) plv.setCount(this.getIndividuals());
+				 else plv.setCount(0.0);
+			} else {
+				 PopulationLabelValue plv = lab.getCurrentPopulationValue();
+				 if(!zeroValue) plv.setCount(this.getIndividuals()*area);
+				 else plv.setCount(0.0);
+			}
+		} else {
+			 PopulationLabelValue plv = lab.getCurrentPopulationValue();
+			 if(!zeroValue) plv.setCount(this.getIndividuals());
+			 else plv.setCount(0.0);
+		}
+		// Set the valid year to the start year of the sequencer
 		
-		this.getNodes(model, this.getTargetISOKey(), nodes);
-		this.getLabels(model, nodes, labels);
+		lab.setValidYear(getYear(time));
+	}
+	
+	protected int getYear(STEMTime time) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(time.getTime());
+		int year = cal.get(Calendar.YEAR);
+		return year;
+	}
+	
+	@Override
+	public boolean decorateGraph(STEMTime time) {
+		
+		ArrayList<Node>nodes = new ArrayList<Node>();
+		ArrayList<Node>negativeNodes = new ArrayList<Node>();
+		
+		this.getNodes(this.getGraph(), this.getTargetISOKey(), nodes, negativeNodes);
 		
 		for(Node n:nodes) {
 			// Check for existing label
 			PopulationLabel existingLabel = null;
-			for(NodeLabel lab:labels) {
+			for(NodeLabel lab:n.getLabels()) {
 				if(lab instanceof PopulationLabel 
 						&& ((PopulationLabel)lab).getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
 					existingLabel = (PopulationLabel)lab;
@@ -138,77 +209,65 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 			}
 			if(existingLabel != null) {				
 					// Initialize with new value
-					initializeLabel((PopulationLabel)existingLabel, time);
+					initializeLabel((PopulationLabel)existingLabel, time, false);
 			} else {
 				// Create a new label
 				PopulationLabel newLabel = LabelsFactory.eINSTANCE.createPopulationLabel();
 				newLabel.setPopulationIdentifier(this.getPopulationIdentifier());
 				newLabel.setURIOfIdentifiableToBeLabeled(n.getURI());
-				Graph g = (Graph)((EObject)n.eContainer()).eContainer();
-				g.getNodeLabels().put(n.getURI(), newLabel);
-				initializeLabel((PopulationLabel)newLabel, time);				
+				newLabel.setNode(n);
+				Graph g = this.getGraph();
+				URI newURI = createPopulationLabelURI(n, time);
+				g.getNodeLabels().put(newURI, newLabel);
+				initializeLabel((PopulationLabel)newLabel, time, false);				
 			}
 		}
-	}
-	
-	
-	protected void getNodes(Model m, String key, ArrayList<Node>list) {
 		
-		for(Model _m:m.getModels()) getNodes(_m, key, list);
+		// Now do the rest of the nodes in the graph
 		
-		for(Graph g:m.getGraphs()) {
-			for(URI uri:g.getNodes().keySet()) {
-				if(uri.lastSegment().equals(key))
-					list.add(g.getNodes().get(uri));
+		for(Node n:negativeNodes) {
+			// Check for existing label
+			PopulationLabel existingLabel = null;
+			for(NodeLabel lab:n.getLabels()) {
+				if(lab instanceof PopulationLabel 
+						&& ((PopulationLabel)lab).getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+					existingLabel = (PopulationLabel)lab;
+				}
+			}
+			if(existingLabel == null) {
+				// Create a new label. We don't override the existing label
+				PopulationLabel newLabel = LabelsFactory.eINSTANCE.createPopulationLabel();
+				newLabel.setPopulationIdentifier(this.getPopulationIdentifier());
+				newLabel.setURIOfIdentifiableToBeLabeled(n.getURI());
+				newLabel.setNode(n);
+				Graph g = this.getGraph();
+				URI newURI = createPopulationLabelURI(n, time);
+				g.getNodeLabels().put(newURI, newLabel);
+				initializeLabel((PopulationLabel)newLabel, time, true);				
 			}
 		}
-	}
-
-	protected void getLabels(Model m, ArrayList<Node>nodes, ArrayList<NodeLabel>list) {
-		
-		for(Model _m:m.getModels()) getLabels(_m, nodes, list);
-		
-		for(Graph g:m.getGraphs()) {
-			for(NodeLabel nl:g.getNodeLabels().values()) 
-				for(Node n:nodes)
-					if(nl.getURIOfIdentifiableToBeLabeled().equals(n.getURI())) 
-							list.add(nl);
-		}
-	}
-
-	protected void initializeLabel(PopulationLabel lab, STEMTime time) {
-		if(this.isUseDensity()) {
-			Node n = lab.getNode();
-			double area = 0.0;
-			for(NodeLabel l:n.getLabels())
-				if(l instanceof AreaLabel)
-					area = ((AreaLabel)lab).getCurrentAreaValue().getArea();
-			if(area == 0.0) {
-				Activator.logInformation("Warning, unable to find area information for node "+n+" when initializing population "+this.getPopulationIdentifier()+", density not being used!", new Exception());
-				 PopulationLabelValue plv = lab.getCurrentPopulationValue();
-				 plv.setCount(this.getIndividuals());
-			} else {
-				 PopulationLabelValue plv = lab.getCurrentPopulationValue();
-				 plv.setCount(this.getIndividuals()*area);
-			}
-		} else {
-			 PopulationLabelValue plv = lab.getCurrentPopulationValue();
-			 plv.setCount(this.getIndividuals());
-		}
-		// Set the valid year to the start year of the sequencer
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(time.getTime());
-		int year = cal.get(Calendar.YEAR);
-		lab.setValidYear(year);
-	}
-	
-	
-	@Override
-	public boolean decorateGraph() {
-		// Nothing to do here, all work is done in prepare for initializers
 		return true;
 	}
 
+	protected URI createPopulationLabelURI(Node n, STEMTime time) {
+		int adminLevel = Utility.keyLevel(n.getURI().lastSegment());
+		String countryCode = this.getCountryCode(n);
+		String population = this.getPopulationIdentifier();
+		int year = getYear(time);
+		String code = n.getURI().lastSegment();
+		
+		return PopulationLabelImpl.createPopulationLabelURI(adminLevel, countryCode, population, year+"", code);
+	}
+	
+	protected String getCountryCode(Node n) {
+		if(Utility.keyLevel(n.getURI().lastSegment()) == 0) return n.getURI().lastSegment();
+		else for(Edge e:n.getEdges()) 
+			if(Utility.keyLevel(e.getA().getURI().lastSegment()) < Utility.keyLevel(n.getURI().lastSegment()))
+			return getCountryCode(e.getA());
+		
+		return "ZZZ"; // Not found, but ZZZ is the parent of everything
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -28,6 +28,7 @@ import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.NodeDecoratorImpl;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
@@ -202,7 +203,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * 
 	 */
 	@Override
-	public boolean decorateGraph() {
+	public boolean decorateGraph(STEMTime time) {
 		for (final Iterator<PopulationLabel> populationLabelIter = getPopulationLabels(
 				getPopulationIdentifier(), getGraph()).iterator(); populationLabelIter
 				.hasNext();) {

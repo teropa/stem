@@ -467,5 +467,10 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 			(this.getDeltaValue()).setDeaths(-popdiff);
 	}
 
-	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getCurrentValue()+":"+this.getNode());
+		return sb.toString();
+	}
 } //StandardPopulationModelLabelImpl

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
@@ -90,8 +91,8 @@ public class DemographicPopulationModelImpl extends StandardPopulationModelImpl 
 	 * 
 	 */
 	@Override
-	public boolean decorateGraph() {
-		super.decorateGraph();
+	public boolean decorateGraph(STEMTime time) {
+		super.decorateGraph(time);
 		
 		
 		for (final Iterator<PopulationLabel> populationLabelIter = getPopulationLabels(
