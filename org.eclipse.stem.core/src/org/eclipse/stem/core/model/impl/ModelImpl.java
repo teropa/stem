@@ -420,8 +420,10 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		// before a disease model.	
 		// ASSUMING THE USER HAS BUILD THE MODEL WITH THE CORRECT HIERARCHY, THIS WILL NEVER HAPPEN
 		
-		if(failed!=null)
+		if(failed!=null) {
+			// We should log a warning here that we were forced to reinit. The user should check the model nesting
 			for(Decorator d:failed)d.decorateGraph(time);
+		}
 	} // invokeNodeDecorators
 
 	/**
