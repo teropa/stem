@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.Utility;
+import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
@@ -29,6 +31,8 @@ import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -229,4 +233,38 @@ public class DemographicPopulationModelImpl extends StandardPopulationModelImpl 
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * We need to override this one to correctly reset the subpopulations
+	 */
+	@Override
+	public void resetLabels() {
+		setEnabled(ENABLED_EDEFAULT);
+		setGraphDecorated(GRAPH_DECORATED_EDEFAULT);
+		for (final Iterator<DynamicLabel> labelIter = getLabelsToUpdate()
+				.iterator(); labelIter.hasNext();) {
+			StandardPopulationModelLabel plm = (StandardPopulationModelLabel)labelIter.next();
+			
+			
+			plm.getCurrentValue().reset();
+			plm.getNextValue().reset();
+			plm.getDeltaValue().reset();
+			plm.getTempValue().reset();
+			plm.getProbeValue().reset();
+			plm.getErrorScale().reset();
+			
+			if(plm.getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+				double originalCount = plm.getPopulationLabel().getCurrentPopulationValue().getCount();
+				((StandardPopulationModelLabelValue)plm.getCurrentValue()).setCount(originalCount);
+			} else {
+				// The label is from one of the subgroups. Figure out the fraction
+				for(PopulationGroup g:this.getPopulationGroups()) {
+					if(g.getIdentifier().equals(plm.getPopulationIdentifier())) {
+						double originalCount = plm.getPopulationLabel().getCurrentPopulationValue().getCount();
+						((StandardPopulationModelLabelValue)plm.getCurrentValue()).setCount(originalCount*g.getFraction());
+						break;
+					}
+				}
+			}
+		}
+	} // resetLabels
 } //DemographicPopulationModelImpl

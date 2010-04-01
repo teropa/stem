@@ -35,7 +35,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory;
 import org.eclipse.stem.populationmodels.standard.util.StandardAdapterFactory;
-import org.eclipse.stem.ui.populationmodels.Activator;
+import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.populationmodels.preferences.PreferenceConstants;
 import org.eclipse.stem.ui.populationmodels.preferences.PreferenceInitializer;
 import org.eclipse.ui.IStartup;
@@ -216,11 +216,15 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 * It is required whenever we need to switch between relative and absolute values
 		 * @return the total current population count (absolute)
 		 */
+		@SuppressWarnings("deprecation")
 		@Override
 		public double getDenominator(final EStructuralFeature feature) {
-			long popRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_POPULATION);
-			long densRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_DENSITY);
+			String _popRef = Activator.getDefault().getPluginPreferences().getString(PreferenceConstants.REFERENCE_POPULATION);
+			String _densRef = Activator.getDefault().getPluginPreferences().getString(PreferenceConstants.REFERENCE_DENSITY);
 	
+			double popRef = Double.parseDouble(_popRef);
+			double densRef = Double.parseDouble(_densRef);
+			
 			if(popRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_POPULATION;
 			if(densRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
 		
@@ -288,15 +292,19 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		/**
 		 * @see org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider#getRelativeValue(EStructuralFeature)
 		 */
+		@SuppressWarnings("deprecation")
 		@Override
 		public double getRelativeValue(final EStructuralFeature feature) {
 			final StandardPopulationModelLabelValue popv = (StandardPopulationModelLabelValue) getTarget();
 			final double count = ((Double) popv.eGet(feature))
 					.doubleValue();
 			
-			long popRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_POPULATION);
-			long densRef = Activator.getDefault().getPluginPreferences().getLong(PreferenceConstants.REFERENCE_DENSITY);
+			String _popRef = Activator.getDefault().getPluginPreferences().getString(PreferenceConstants.REFERENCE_POPULATION);
+			String _densRef = Activator.getDefault().getPluginPreferences().getString(PreferenceConstants.REFERENCE_DENSITY);
 	
+			double popRef = Double.parseDouble(_popRef);
+			double densRef = Double.parseDouble(_densRef);
+			
 			if(popRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_POPULATION;
 			if(densRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
 			

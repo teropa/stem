@@ -19,9 +19,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.impl.DynamicNodeLabelImpl;
 
+import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -217,16 +219,17 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (populationIdentifier: ");
-		result.append(populationIdentifier);
-		result.append(')');
+		StringBuffer result = new StringBuffer(
+				populationIdentifier == null ? "null" : populationIdentifier);
+		result.append(" [");
+		result.append(Math.floor(((StandardPopulationModelLabelValue)getCurrentValue()).getCount()));
+		result.append("]");
 		return result.toString();
 	}
 

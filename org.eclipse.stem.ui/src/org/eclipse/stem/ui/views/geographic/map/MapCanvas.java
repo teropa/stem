@@ -30,6 +30,7 @@ import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.data.geography.GeographicNames;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapter;
 import org.eclipse.stem.ui.adapters.color.StandardColorProvider;
 import org.eclipse.swt.SWT;
@@ -501,8 +502,11 @@ public class MapCanvas
 					
 					Region region = (Region)identifiable;
 					for (NodeLabel nextLabel : region.getLabels()) {
-						if (nextLabel instanceof PopulationLabel) {
-							sb.append("\nPopulation: " + nextLabel);
+						if (nextLabel instanceof PopulationModelLabel) {
+							sb.append("\nPopulation (now): " + nextLabel);
+						}
+						if(nextLabel instanceof PopulationLabel) {
+							sb.append("\nPopulation ("+((PopulationLabel)nextLabel).getValidYear()+"):"+nextLabel);
 						}
 						if (nextLabel instanceof AreaLabel) {
 							sb.append("\nArea: " + nextLabel);

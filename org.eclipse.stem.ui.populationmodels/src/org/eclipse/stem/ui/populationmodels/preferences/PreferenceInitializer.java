@@ -13,7 +13,7 @@ package org.eclipse.stem.ui.populationmodels.preferences;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.stem.ui.populationmodels.Activator;
+import org.eclipse.stem.ui.Activator;
 
 /**
  * Class used to initialize default preference values.
@@ -29,8 +29,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		store.setDefault(PreferenceConstants.REFERENCE_POPULATION,
-						DEFAULT_REFERENCE_POPULATION);
+						DEFAULT_REFERENCE_POPULATION+"");
 		store.setDefault(PreferenceConstants.REFERENCE_DENSITY,
-				DEFAULT_REFERENCE_DENSITY);
+				DEFAULT_REFERENCE_DENSITY+"");
 	}	
 } // PreferenceInitializer

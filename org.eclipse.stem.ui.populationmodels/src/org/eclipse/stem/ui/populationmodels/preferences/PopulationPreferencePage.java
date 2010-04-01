@@ -13,8 +13,8 @@ package org.eclipse.stem.ui.populationmodels.preferences;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.jface.preference.IntegerFieldEditor;
-import org.eclipse.stem.ui.populationmodels.Activator;
+import org.eclipse.jface.preference.StringFieldEditor;
+import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.PopulationModelWizardMessages;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
@@ -55,14 +55,14 @@ public class PopulationPreferencePage extends
 		long refPop = store.getLong(PreferenceConstants.REFERENCE_POPULATION);
 		long refDens = store.getLong(PreferenceConstants.REFERENCE_DENSITY);
 		
-		final IntegerFieldEditor referencePopulationThreadsFieldEditor = new IntegerFieldEditor(
+		final StringFieldEditor referencePopulationThreadsFieldEditor = new StringFieldEditor(
 				PreferenceConstants.REFERENCE_POPULATION,
 				PopulationModelWizardMessages.getString("ReferencePopulation"), getFieldEditorParent()); //$NON-NLS-1$
 		
 		referencePopulationThreadsFieldEditor.setStringValue(""+refPop);
 		addField(referencePopulationThreadsFieldEditor);
 		
-		final IntegerFieldEditor referenceDensityThreadsFieldEditor = new IntegerFieldEditor(
+		final StringFieldEditor referenceDensityThreadsFieldEditor = new StringFieldEditor(
 				PreferenceConstants.REFERENCE_DENSITY,
 				PopulationModelWizardMessages.getString("ReferenceDensity"), getFieldEditorParent()); //$NON-NLS-1$
 		referencePopulationThreadsFieldEditor.setStringValue(""+refDens);
