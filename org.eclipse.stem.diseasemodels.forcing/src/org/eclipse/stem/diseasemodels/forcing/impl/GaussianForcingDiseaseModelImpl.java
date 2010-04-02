@@ -283,25 +283,50 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			calendar2.setTimeInMillis(firstTime.longValue());
 			day = (calendar.getTimeInMillis() - calendar2.getTimeInMillis())/MILLIS_PER_DAY;
 		}
+		double intDay = day;
 		
-		day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-		double modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2));						
+		double modulation = 0;
+		// Smoothing
+		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
+			double avg=0;
+			double denom = 0;
+			for(double d=day-30;d<day+30;++d) {
+				double _d = ((d % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
+				double mo = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2));						
+				avg = avg+mo;
+				++denom;
+			}
+			modulation = avg/denom;
+		} else {
+			day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
+			modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2));						
+		}
 		
 		// This is beta*
 		double transmissionRate = seasonalModulationFloor + modulation * (getAdjustedTransmissionRate(timeDelta));
 
-/*		synchronized(writtedTimes) {
+/*		if(diseaseLabel.getNode().getURI().toString().hashCode() % 2 == 0 
+				&& ((int)intDay) == 3285)
+				transmissionRate *=10;
+		else 
+		if(diseaseLabel.getNode().getURI().toString().hashCode() % 2 == 1 
+			&& ((int)intDay) == 3285)	
+				transmissionRate *=0.1;
+*/		
+		
+		synchronized(writtedTimes) {
 			if(!writtedTimes.contains(time.getTime().getTime())) {
 				try {
 				if(fw == null) fw = new FileWriter("beta.csv");
-				fw.write(time.getTime().getTime()+","+transmissionRate+"\n");
+				fw.write((int)intDay+","+transmissionRate+"\n");
+				fw.flush();
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
 				writtedTimes.add(time.getTime().getTime());
 			}
 		}
-		*/
+		
 		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
 		
 		// The effective Infectious population  is a dimensionles number normalize by total

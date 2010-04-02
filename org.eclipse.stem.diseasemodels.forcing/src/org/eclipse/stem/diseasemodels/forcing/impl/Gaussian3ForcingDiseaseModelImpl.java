@@ -149,33 +149,56 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 			day = (calendar.getTimeInMillis() - calendar2.getTimeInMillis())/MILLIS_PER_DAY;
 		}
 		int year = (int)(day / modulationPeriod);
+		double iday = day;
 		
 		int gaussian = whichGaussian[year];
 		
-		day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-		double modulation = 0;
 		
-		if(gaussian == 0)
-			modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2));						
-		else if(gaussian == 1)
-			modulation = (1/Math.sqrt(2*Math.PI*sigma2_2))*Math.exp(-(Math.pow(day,2))/(2*sigma2_2));
-		else if(gaussian == 2)
-			modulation = (1/Math.sqrt(2*Math.PI*sigma2_3))*Math.exp(-(Math.pow(day,2))/(2*sigma2_3));
+		double modulation = 0;
+
+		// Smoothing
+		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
+			double avg=0;
+			double denom = 0;
+			for(double d=day-30;d<day+30;++d) {
+				int _y = (int)(d / modulationPeriod);
+				if(_y < 0) _y =0;
+				if(_y >= whichGaussian.length) _y = whichGaussian.length-1;
+				int _g = whichGaussian[_y];
+				double _d = ((d % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
+				double mo = 0;						
+				if(_g == 0)
+					mo = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2))*getTransmissionRate()* ((double) timeDelta / (double) getTimePeriod());						
+				else if(_g == 1)
+					mo = (1/Math.sqrt(2*Math.PI*sigma2_2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2_2))*getTransmissionRate2()* ((double) timeDelta / (double) getTimePeriod());
+				else if(_g == 2)
+					mo = (1/Math.sqrt(2*Math.PI*sigma2_3))*Math.exp(-(Math.pow(_d,2))/(2*sigma2_3))*getTransmissionRate3()* ((double) timeDelta / (double) getTimePeriod());
+			
+				avg = avg+mo;
+				++denom;
+			}
+			modulation = avg/denom;
+		} else {
+			day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
+			
+			if(gaussian == 0)
+				modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2))*getTransmissionRate()* ((double) timeDelta / (double) getTimePeriod());						
+			else if(gaussian == 1)
+				modulation = (1/Math.sqrt(2*Math.PI*sigma2_2))*Math.exp(-(Math.pow(day,2))/(2*sigma2_2)) * getTransmissionRate2()* ((double) timeDelta / (double) getTimePeriod());
+			else if(gaussian == 2)
+				modulation = (1/Math.sqrt(2*Math.PI*sigma2_3))*Math.exp(-(Math.pow(day,2))/(2*sigma2_3)) * getTransmissionRate3()* ((double) timeDelta / (double) getTimePeriod());
+		}
 		
 		// This is beta*
-		double transmissionRate = 0;
-		if(gaussian == 0)
-			transmissionRate = seasonalModulationFloor + modulation * getTransmissionRate()* ((double) timeDelta / (double) getTimePeriod());
-		else if(gaussian == 1)
-			transmissionRate = seasonalModulationFloor + modulation * getTransmissionRate2()* ((double) timeDelta / (double) getTimePeriod());
-		else if(gaussian == 2)
-			transmissionRate = seasonalModulationFloor + modulation * getTransmissionRate3()* ((double) timeDelta / (double) getTimePeriod());
+		double transmissionRate = seasonalModulationFloor + modulation;
+
 
 		synchronized(writtedTimes) {
 			if(!writtedTimes.contains(time.getTime().getTime())) {
 				try {
 				if(fw == null) fw = new FileWriter("beta.csv");
 				fw.write(time.getTime().getTime()+","+transmissionRate+"\n");
+				fw.flush();
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
