@@ -640,8 +640,9 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 			// values useful for the computation of the disease model
 			final DiseaseModelState diseaseModelState = createDiseaseModelState();
 
-			dml.setDiseaseModelState(initializeDiseaseState(diseaseModelState,
-					dml));
+			// Commented out 4/1/10 Not used any more 
+//			dml.setDiseaseModelState(initializeDiseaseState(diseaseModelState,
+//					dml));
 		} // for each population label
 		
 		// We've made one pass labeling the Node's with the disease model label,
@@ -650,10 +651,12 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		// Having made one pass we need to give the disease model another chance
 		// to update its state information with things it learned during the
 		// first pass (e.g., the total population or total area).  
+	
+		// Commented out 4/1/10 Not used any more
 		
-		for (Iterator diseseModelLabelIter = getLabelsToUpdate().iterator(); diseseModelLabelIter.hasNext();) {
-			initializeDiseaseState((DiseaseModelLabel) diseseModelLabelIter.next());
-		} // for each label this disease model updates
+//		for (Iterator diseseModelLabelIter = getLabelsToUpdate().iterator(); diseseModelLabelIter.hasNext();) {
+//			initializeDiseaseState((DiseaseModelLabel) diseseModelLabelIter.next());
+//		} // for each label this disease model updates
 
 		
 		// This initializes the disease model values from the population values.
