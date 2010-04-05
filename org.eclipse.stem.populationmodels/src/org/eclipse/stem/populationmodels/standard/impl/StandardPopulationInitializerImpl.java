@@ -190,7 +190,8 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 				if(l instanceof AreaLabel)
 					area = ((AreaLabel)l).getCurrentAreaValue().getArea();
 			if(area == 0.0) {
-				Activator.logInformation("Warning, unable to find area information for node "+n+" when initializing population "+this.getPopulationIdentifier()+", density not being used!", new Exception());
+				 if(!n.getURI().toString().contains("/transport/pipe")) // No area for transport system nodes is expected.
+						 Activator.logInformation("Warning, unable to find area information for node "+n+" when initializing population "+this.getPopulationIdentifier()+", density not being used!", new Exception());
 				 PopulationLabelValue plv = lab.getCurrentPopulationValue();
 				 if(!zeroValue) plv.setCount(this.getIndividuals());
 				 else plv.setCount(0.0);
