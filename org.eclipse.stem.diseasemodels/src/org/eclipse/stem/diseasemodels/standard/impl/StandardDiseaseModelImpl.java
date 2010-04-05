@@ -349,6 +349,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
 					.next();
 
+			
 			assert diseaseLabel.getPopulationLabel().getPopulationIdentifier()
 					.equals(getPopulationIdentifier());
 			
@@ -628,6 +629,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 					// Don't touch disease deaths
 					move.setDiseaseDeaths(0.0);
 			
+					currdestlabelval.reset(); // clear any existing numbers first
 					currdestlabelval.add((IntegrationLabelValue)move);
 					
 					// We've copied the disease labels. Now check to see if there is any population
