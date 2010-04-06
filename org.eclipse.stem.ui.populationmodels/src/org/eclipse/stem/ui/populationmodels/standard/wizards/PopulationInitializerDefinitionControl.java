@@ -64,11 +64,11 @@ public class PopulationInitializerDefinitionControl extends Composite {
 		gridLayout.numColumns = 2;
 		setLayout(gridLayout);
 
-		final Label populationModelLabel = new Label(this, SWT.NONE);
-		final GridData gd_populationModelLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		gd_populationModelLabel.widthHint = 100;
-		populationModelLabel.setLayoutData(gd_populationModelLabel);
-		populationModelLabel.setText(PopulationModelWizardMessages.getString("DDC.0")); //$NON-NLS-1$
+		final Label populationInitializerLabel = new Label(this, SWT.NONE);
+		final GridData gd_populationInitializerLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		gd_populationInitializerLabel.widthHint = 100;
+		populationInitializerLabel.setLayoutData(gd_populationInitializerLabel);
+		populationInitializerLabel.setText(PopulationModelWizardMessages.getString("DDC.5")); //$NON-NLS-1$
 
 		combo = new Combo(this, SWT.READ_ONLY);
 		combo.setTextLimit(30);
