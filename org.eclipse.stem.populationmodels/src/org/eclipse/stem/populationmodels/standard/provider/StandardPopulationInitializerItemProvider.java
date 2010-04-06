@@ -149,7 +149,7 @@ public class StandardPopulationInitializerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StandardPopulationInitializer"));
+		return overlayImage(object, getResourceLocator().getImage("full/custom16/populationinitializer.gif"));
 	}
 
 	/**
