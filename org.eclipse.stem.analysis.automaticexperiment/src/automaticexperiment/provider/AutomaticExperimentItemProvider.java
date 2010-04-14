@@ -299,7 +299,7 @@ public class AutomaticExperimentItemProvider
 		String label = ((AutomaticExperiment)object).getURI().lastSegment();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AutomaticExperiment_type") :
-			getString("_UI_AutomaticExperiment_type") + " " + label;
+			label;
 	}
 
 	/**
