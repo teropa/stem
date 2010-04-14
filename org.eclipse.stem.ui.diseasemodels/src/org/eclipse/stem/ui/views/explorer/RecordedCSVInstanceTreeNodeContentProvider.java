@@ -107,6 +107,8 @@ public class RecordedCSVInstanceTreeNodeContentProvider extends
 					return null;
 				}
 			}
+		} else {
+			return new Object[0];
 		}
 		return retValue;
 	} // getChildren
