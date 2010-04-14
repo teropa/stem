@@ -118,13 +118,24 @@ public class RungeKuttaItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
+		return super.getText(object);
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		URI labelValue = ((RungeKutta)object).getURI();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_RungeKutta_type") :
 			getString("_UI_RungeKutta_type") + " " + label;
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

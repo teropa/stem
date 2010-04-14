@@ -131,16 +131,30 @@ public class SIRInoculatorItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((SIRInoculator)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SIRInoculator_type") : //$NON-NLS-1$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		String label = ((SIRInoculator)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SIRInoculator_type") : //$NON-NLS-1$
 			getString("_UI_SIRInoculator_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

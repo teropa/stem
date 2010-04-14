@@ -135,16 +135,31 @@ public class TriggerItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((Trigger)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Trigger_type") : //$NON-NLS-1$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
+	}
+	
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		URI labelValue = ((Trigger)object).getURI();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Trigger_type") : //$NON-NLS-1$
 			getString("_UI_Trigger_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

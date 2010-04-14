@@ -19,6 +19,7 @@ package org.eclipse.stem.ui.views.explorer;
 public class RecordedInstanceTreeNode {
 
 	private final RecordedTreeNode parent;
+	private final RecordedInstanceTreeNode instanceParent;
 	private final String name;
 
 	/**
@@ -30,13 +31,31 @@ public class RecordedInstanceTreeNode {
 		super();
 		this.parent = parent;
 		this.name = name;
+		this.instanceParent = null;
 	}
 
+	/**
+	 * @param parent
+	 * @param name
+	 */
+	public RecordedInstanceTreeNode(final RecordedInstanceTreeNode parent,
+			final String name) {
+		super();
+		this.parent = null;
+		this.name = name;
+		this.instanceParent = parent;
+	}
 	/**
 	 * @return the parent
 	 */
 	public Object getParent() {
 		return parent;
+	}
+	/**
+	 * @return the instance parent
+	 */
+	public Object getInstanceParent() {
+		return instanceParent;
 	}
 
 	/**

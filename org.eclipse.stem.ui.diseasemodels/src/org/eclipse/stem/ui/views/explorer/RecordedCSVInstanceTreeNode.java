@@ -14,28 +14,39 @@ package org.eclipse.stem.ui.views.explorer;
 
 import java.io.File;
 
+import org.eclipse.core.resources.IResource;
+
 /**
  * This class represents simulation runs serialized using comma separated values
  * (CSV).
  */
 public class RecordedCSVInstanceTreeNode extends RecordedInstanceTreeNode {
 
-	private final File file;
+	private final IResource file;
 
 	/**
 	 * @param parent
 	 * @param file
 	 */
 	public RecordedCSVInstanceTreeNode(final RecordedTreeNode parent,
-			final File file) {
+			final IResource file) {
 		super(parent, file.getName());
 		this.file = file;
 	}
 
 	/**
+	 * @param parent
+	 * @param file
+	 */
+	public RecordedCSVInstanceTreeNode(final RecordedInstanceTreeNode parent,
+			final IResource file) {
+		super(parent, file.getName());
+		this.file = file;
+	}
+	/**
 	 * @return the file
 	 */
-	public File getFile() {
+	public IResource getFile() {
 		return file;
 	}
 

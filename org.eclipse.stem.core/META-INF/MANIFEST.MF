@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.stem.adapters.history,
+Export-Package: org.eclipse.stem.adapters.file,
+ org.eclipse.stem.adapters.history,
  org.eclipse.stem.adapters.time,
  org.eclipse.stem.core,
  org.eclipse.stem.core.common,

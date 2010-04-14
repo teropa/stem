@@ -152,10 +152,24 @@ public class ExperimentItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((Experiment)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Experiment_type") : //$NON-NLS-1$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
+	}
+	
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		URI labelValue = ((Experiment)object).getURI();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?

@@ -203,4 +203,12 @@
       </package>
    </extension>
 
+ 	<extension
+        point="org.eclipse.core.runtime.adapters">
+          <factory 
+            class="org.eclipse.stem.adapters.file.IdentifiableFileAdapterFactory" 
+            adaptableType="org.eclipse.stem.core.common.Identifiable">
+            <adapter type="org.eclipse.stem.adapters.file.File"/>
+         </factory>
+      </extension>
 </plugin>

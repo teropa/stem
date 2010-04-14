@@ -42,7 +42,7 @@
     <editor
         id = "org.eclipse.stem.diseasemodels.standard.presentation.StandardEditorID"
         name = "%_UI_StandardEditor_label"
-        icon = "icons/full/obj16/StandardModelFile.gif"
+        icon = "icons/full/custom16/Decorator.gif"
         extensions = "standard"
         class = "org.eclipse.stem.diseasemodels.standard.presentation.StandardEditor" 
         contributorClass="org.eclipse.stem.diseasemodels.standard.presentation.StandardActionBarContributor" >
@@ -144,15 +144,14 @@
   </extension>
   <extension
         point="org.eclipse.ui.navigator.viewer">
+        <viewer
+           viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+     </viewer>
      <viewerContentBinding
-           viewerId="org.eclipse.stem.ui.views.STEMProjectExplorer2">
+           viewerId="org.eclipse.ui.navigator.ProjectExplorer">
         <includes>
-           <contentExtension
-                 pattern="org.eclipse.stem.ui.views.explorer.diseasemodels">
-           </contentExtension>
-           <contentExtension
-                 pattern="org.eclipse.stem.ui.views.explorer.diseasemodelsinstances">
-           </contentExtension>
+           
+           
            <contentExtension
                  pattern="org.eclipse.stem.ui.views.explorer.recordedcsvinstances">
            </contentExtension>

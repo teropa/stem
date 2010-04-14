@@ -102,12 +102,26 @@ public class StandardStochasticDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((StandardStochasticDiseaseModel)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_StandardStochasticDiseaseModel_type") : //$NON-NLS-1$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		String label = ((StandardStochasticDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StandardStochasticDiseaseModel_type") : //$NON-NLS-1$
 			getString("_UI_StandardStochasticDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

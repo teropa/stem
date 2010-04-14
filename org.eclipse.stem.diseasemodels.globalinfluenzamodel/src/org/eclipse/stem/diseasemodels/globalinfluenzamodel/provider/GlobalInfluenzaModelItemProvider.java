@@ -208,11 +208,26 @@ public class GlobalInfluenzaModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((GlobalInfluenzaModel)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GlobalInfluenzaModel_type") :
+			getString("_UI_GlobalInfluenzaModel_type") + " " + label;
+	}
+	
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		String label = ((GlobalInfluenzaModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GlobalInfluenzaModel_type") :
 			getString("_UI_GlobalInfluenzaModel_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

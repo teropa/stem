@@ -12,6 +12,7 @@ package org.eclipse.stem.ui.views.explorer;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.stem.diseasemodels.standard.presentation.DiseasemodelsEditorPlugin;
 import org.eclipse.swt.graphics.Image;
@@ -58,6 +59,10 @@ public class RecordedCSVInstanceTreeNodeLabelProvider extends
 			final RecordedCSVInstanceTreeNode node = (RecordedCSVInstanceTreeNode) element;
 			retValue = node.getName();
 		} // if RecordedCSVInstanceTreeNode
+		else if(element instanceof IResource) {
+			retValue = ((IResource)element).getName();
+		}
+		
 		return retValue;
 	}
 

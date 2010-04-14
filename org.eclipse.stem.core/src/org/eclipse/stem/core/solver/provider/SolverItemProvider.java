@@ -118,13 +118,24 @@ public class SolverItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
+		return super.getText(object);
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		URI labelValue = ((Solver)object).getURI();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Solver_type") : //$NON-NLS-1$
 			getString("_UI_Solver_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

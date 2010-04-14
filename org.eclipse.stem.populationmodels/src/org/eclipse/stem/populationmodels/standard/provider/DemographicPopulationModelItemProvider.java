@@ -139,10 +139,24 @@ public class DemographicPopulationModelItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((DemographicPopulationModel)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DemographicPopulationModel_type") :
+			label;
+	}
+	
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		String label = ((DemographicPopulationModel)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DemographicPopulationModel_type") :

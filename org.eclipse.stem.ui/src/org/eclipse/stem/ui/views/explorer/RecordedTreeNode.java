@@ -18,7 +18,7 @@ import org.eclipse.core.resources.IProject;
  * {@link org.eclipse.stem.jobs.simulation.Simulation} runs that belong to a
  * particular STEM Project instance.
  */
-public class RecordedTreeNode {
+public class RecordedTreeNode  {
 
 	private final IProject project;
 

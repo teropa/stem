@@ -660,6 +660,38 @@
            </visibleWhen>
         </command>
      </menuContribution>
+     <menuContribution
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+        <command
+              commandId="org.eclipse.stem.ui.command.deleteidentifiable"
+              icon="icons/full/customobj16/Delete.gif"
+              label="%_UI_STEM_Command_Delete"
+              style="push"
+              tooltip="%_UI_STEM_Command_DeleteTT">
+            <visibleWhen
+                 checkEnabled="false">
+              <reference
+                    definitionId="org.eclipse.stem.ui.isDeletableIdentifiable">
+              </reference>
+           </visibleWhen>
+        </command>
+     </menuContribution>
+      <menuContribution
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+        <command
+              commandId="org.eclipse.stem.ui.command.renameidentifiable"
+              icon="icons/full/customobj16/Refactor.gif"
+              label="%_UI_STEM_Command_Refactor_Rename"
+              style="push"
+              tooltip="%_UI_STEM_Command_Refactor_RenameTT">
+            <visibleWhen
+                 checkEnabled="false">
+              <reference
+                    definitionId="org.eclipse.stem.ui.isRefactorIdentifiable">
+              </reference>
+           </visibleWhen>
+        </command>
+     </menuContribution>
   </extension>
   <extension
         point="org.eclipse.ui.commands">
@@ -726,6 +758,18 @@
            description="%_UI_ExperimentModelWizard_description"
            id="org.eclipse.stem.ui.command.wiz.experiment"
            name="%_UI_ExperimentModelWizard_label">
+     </command>
+      <command
+           defaultHandler="org.eclipse.stem.ui.handlers.DeleteHandler"
+           description="%_UI_Delete_description"
+           id="org.eclipse.stem.ui.command.deleteidentifiable"
+           name="%_UI_Delete_label">
+     </command>
+     <command
+           defaultHandler="org.eclipse.stem.ui.handlers.RefactorHandler$RenameHandler"
+           description="%_UI_Refactor_Rename_description"
+           id="org.eclipse.stem.ui.command.renameidentifiable"
+           name="%_UI_Refactor_Rename_label">
      </command>
   </extension>
   
@@ -998,6 +1042,34 @@
            </iterate>
         </with>
      </definition>
+     <definition
+           id="org.eclipse.stem.ui.isDeletableIdentifiable">
+        <with
+              variable="selection">
+           <iterate
+                 operator="and">
+              <and>
+                 <adapt
+                       type="org.eclipse.stem.adapters.file.File">
+                 </adapt>
+               </and>
+           </iterate>
+        </with>
+     </definition>
+       <definition
+           id="org.eclipse.stem.ui.isRefactorIdentifiable">
+        <with
+              variable="selection">
+           <iterate
+                 operator="and">
+              <and>
+                 <adapt
+                       type="org.eclipse.stem.adapters.file.File">
+                 </adapt>
+               </and>
+           </iterate>
+        </with>
+     </definition>
   </extension>
   <extension
         point="org.eclipse.ui.menus">
@@ -1052,6 +1124,7 @@
            restorable="true">
      </view>
   </extension>
+  
   <extension
         point="org.eclipse.ui.navigator.viewer">
      <viewer
@@ -1060,6 +1133,7 @@
      <viewerContentBinding
            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
         <includes>
+         
            <contentExtension
                  isRoot="true"
                  pattern="org.eclipse.ui.navigator.resourceContent">
@@ -1067,10 +1141,13 @@
            <contentExtension
                  pattern="org.eclipse.ui.navigator.resources.filters.*">
            </contentExtension>
-           <contentExtension
+         
+          <contentExtension
                  pattern="org.eclipse.stem.ui.views.explorer.identifiabletreenodes">
            </contentExtension>
-           <contentExtension
+      	
+      	
+      	  <contentExtension
                  pattern="org.eclipse.stem.ui.views.explorer.decorators">
            </contentExtension>
            <contentExtension
@@ -1107,7 +1184,9 @@
                  pattern="org.eclipse.stem.ui.views.explorer.delegatingwrapperitemprovider">
            </contentExtension>
         </includes>
+       
      </viewerContentBinding>
+     
      <viewerActionBinding
            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
         <includes>
@@ -1120,13 +1199,14 @@
            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
         <includes>
            <actionExtension
-                 pattern="org.eclipse.stem.ui.action.*">
+                 pattern="org.eclipse.stem.ui.action.editor.open">
            </actionExtension>
         </includes>
      </viewerActionBinding>
   </extension>
   <extension
         point="org.eclipse.ui.navigator.navigatorContent">
+                
      <navigatorContent
            contentProvider="org.eclipse.stem.ui.views.explorer.IdentifiableTreeNodeContentProvider"
            id="org.eclipse.stem.ui.views.explorer.identifiabletreenodes"
@@ -1159,6 +1239,32 @@
            </instanceof>
         </possibleChildren>
      </navigatorContent>
+     
+     <commonFilter
+            id="org.eclipse.ui.navigator.resources.filters.folders"
+            name="%filters.filter.folders"
+            description="%filters.filter.folders"
+            activeByDefault="true">
+      <filterExpression>
+       	<and>
+	          <adapt type="org.eclipse.core.resources.IFolder">
+	          <or>
+	          	<test property="org.eclipse.core.resources.name" value="models"/>
+	          	<test property="org.eclipse.core.resources.name" value="decorators"/>
+	          	<test property="org.eclipse.core.resources.name" value="experiments"/>
+	          	<test property="org.eclipse.core.resources.name" value="graphs"/>
+	          	<test property="org.eclipse.core.resources.name" value="modifiers"/>
+	          	<test property="org.eclipse.core.resources.name" value="predicates"/>
+	          	<test property="org.eclipse.core.resources.name" value="Recorded Simulations"/>
+	          	<test property="org.eclipse.core.resources.name" value="scenarios"/>
+	          	<test property="org.eclipse.core.resources.name" value="sequencers"/>
+	          	<test property="org.eclipse.core.resources.name" value="triggers"/>
+	          </or>
+           	</adapt>	            
+	      </and>
+       </filterExpression>
+      </commonFilter>
+  
   </extension>
   <extension
         point="org.eclipse.ui.navigator.navigatorContent">
@@ -1448,9 +1554,7 @@
            </possibleDropTargets>
         </dropAssistant>
      </navigatorContent>
-  </extension>
-  <extension
-        point="org.eclipse.ui.navigator.navigatorContent">
+     
      <actionProvider
            class="org.eclipse.stem.ui.handlers.EditorActionProvider"
            id="org.eclipse.stem.ui.action.editor.open">
@@ -1460,7 +1564,9 @@
            </instanceof>
         </enablement>
      </actionProvider>
+     
   </extension>
+  
   
   <extension
     point="org.eclipse.ui.intro">

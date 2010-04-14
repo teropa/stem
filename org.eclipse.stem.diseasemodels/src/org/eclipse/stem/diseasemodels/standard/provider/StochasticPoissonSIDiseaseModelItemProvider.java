@@ -80,10 +80,24 @@ public class StochasticPoissonSIDiseaseModelItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((StochasticPoissonSIDiseaseModel)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_StochasticPoissonSIDiseaseModel_type") : //$NON-NLS-1$
+			getString("_UI_StochasticPoissonSIDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+	}
+	
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		String label = ((StochasticPoissonSIDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StochasticPoissonSIDiseaseModel_type") : //$NON-NLS-1$

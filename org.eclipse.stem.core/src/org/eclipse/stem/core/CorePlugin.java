@@ -15,6 +15,7 @@ package org.eclipse.stem.core;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.stem.adapters.file.IdentifiableFileAdapterFactory;
 import org.eclipse.stem.core.graph.provider.GraphTimeProviderAdapterFactory;
 import org.osgi.framework.BundleContext;
 
@@ -47,6 +48,7 @@ public class CorePlugin extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		new GraphTimeProviderAdapterFactory();
+		new IdentifiableFileAdapterFactory();
 		// The constructor will populate the plug-in specified resources
 		// stem = new STEM();
 	} // start

@@ -17,10 +17,15 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.stem.diseasemodels.standard.presentation.DiseasemodelsEditorPlugin;
+import org.eclipse.stem.ui.wizards.NewSTEMProjectWizard;
 import org.eclipse.ui.navigator.CommonNavigator;
 
 /**
@@ -44,29 +49,65 @@ public class RecordedCSVInstanceTreeNodeContentProvider extends
 		if (parentElement instanceof RecordedTreeNode) {
 			// Yes
 			final RecordedTreeNode parent = (RecordedTreeNode) parentElement;
-			final File csvFolder = DiseasemodelsEditorPlugin.getPlugin()
-					.getStateLocation().append("csv").toFile();
+			final IWorkspaceRoot root = ResourcesPlugin.getWorkspace()
+			.getRoot();
+			
+			IPath projectPath = parent.getProject().getFullPath();
+			IFolder csvFolder = root.getFolder(projectPath.append(NewSTEMProjectWizard.RECORDED_SIMULATIONS_FOLDER_NAME));
 
 			// Is the csvFolder a readable directory?
-			if (csvFolder.isDirectory() && csvFolder.canRead()) {
-				// Yes
-				final File[] csvSubFolders = csvFolder
-						.listFiles(new FileFilter() {
-							public boolean accept(File file) {
-								return file.isDirectory();
-							}
-						});
-
-				// Create the nodes that will represent the files in the common
-				// navigator framework
-				final List<Object> temp = new ArrayList<Object>();
-				for (File file : csvSubFolders) {
-					temp.add(new RecordedCSVInstanceTreeNode(parent, file));
-				} // for each File
-				retValue = temp.toArray();
-			} // if readable directory
+			try {
+				if (csvFolder.exists()) {
+					// Yes
+					final IResource[] csvSubFolders = csvFolder.members();
+	
+					// Create the nodes that will represent the files in the common
+					// navigator framework
+					final List<Object> temp = new ArrayList<Object>();
+					for (IResource file : csvSubFolders) {
+//						if(file instanceof IContainer)
+//							temp.add(new RecordedCSVInstanceTreeNode(parent, file));
+//						else temp.add(file);
+						temp.add(file);
+					} // for each File
+					retValue = temp.toArray();
+				} // if readable directory
+			} catch(CoreException ce) {
+				ce.printStackTrace();
+				return null;
+			}
 		} // if RecordedTreeNode
-
+		else if(parentElement instanceof RecordedCSVInstanceTreeNode) {
+			// Yes
+			final RecordedCSVInstanceTreeNode parent = (RecordedCSVInstanceTreeNode) parentElement;
+			final IWorkspaceRoot root = ResourcesPlugin.getWorkspace()
+			.getRoot();
+			
+			IResource file = parent.getFile();
+			if(file instanceof IContainer) {
+				IContainer cont = (IContainer)file;
+						// Is the csvFolder a readable directory?
+				try {
+					if (cont.exists()) {
+						// Yes
+						final IResource[] csvSubFolders = cont.members();
+		
+						// Create the nodes that will represent the files in the common
+						// navigator framework
+						final List<Object> temp = new ArrayList<Object>();
+						for (IResource f2 : csvSubFolders) {
+							if(f2 instanceof IContainer)
+								temp.add(new RecordedCSVInstanceTreeNode(parent, f2));
+							else temp.add(f2);
+						} // for each File
+						retValue = temp.toArray();
+					} // if readable directory
+				} catch(CoreException ce) {
+					ce.printStackTrace();
+					return null;
+				}
+			}
+		}
 		return retValue;
 	} // getChildren
 
@@ -76,7 +117,8 @@ public class RecordedCSVInstanceTreeNodeContentProvider extends
 	 */
 	@Override
 	public boolean hasChildren(final Object element) {
-		return false;
+		Object[] children = getChildren(element);
+		return children != null && children.length > 0;
 	}
 
 } // RecordedCSVInstanceTreeNodeContentProvider

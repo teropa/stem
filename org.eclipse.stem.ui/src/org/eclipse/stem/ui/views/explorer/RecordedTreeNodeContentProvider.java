@@ -37,8 +37,12 @@ public class RecordedTreeNodeContentProvider implements ITreeContentProvider {
 			// Yes
 			retValue = new Object[] { new RecordedTreeNode(
 					(IProject) parentElement) }; // new Object
-		} // if IProject
-
+		} else if (parentElement instanceof RecordedTreeNode) {
+			// Yes
+			// final IdentifiableTreeNode ctn = (IdentifiableTreeNode)
+			// parentElement;
+			retValue = new Object[0]; // never null
+		} // if IdentifiableTreeNode
 		return retValue;
 	} // getChildren
 

@@ -84,12 +84,26 @@ public class StochasticPoissonSIRDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((StochasticPoissonSIRDiseaseModel)object).getURI().toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_StochasticPoissonSIRDiseaseModel_type") : //$NON-NLS-1$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		String label = ((StochasticPoissonSIRDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StochasticPoissonSIRDiseaseModel_type") : //$NON-NLS-1$
 			getString("_UI_StochasticPoissonSIRDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

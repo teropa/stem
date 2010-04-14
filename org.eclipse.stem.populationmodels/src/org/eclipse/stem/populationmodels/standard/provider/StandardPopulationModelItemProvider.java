@@ -157,16 +157,30 @@ public class StandardPopulationModelItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((StandardPopulationModel)object).getURI().lastSegment();
+		return label == null || label.length() == 0 ?
+			getString("_UI_StandardPopulationModel_type") :
+			label;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTextGen(Object object) {
 		String label = ((StandardPopulationModel)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StandardPopulationModel_type") :
 			getString("_UI_StandardPopulationModel_type") + " " + label;
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

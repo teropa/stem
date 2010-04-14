@@ -130,19 +130,7 @@ public class IdentifiablePredicateExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		// Use the dublin core title if it's available, otherwise use
-		// the URI
-		final Identifiable identifiable = (Identifiable)object;
-		
-		final String title = identifiable.getDublinCore().getTitle();
-		// Was a title specified?
-		if (title != null && !title.equals("")) {
-			// Yes
-			return title;
-		}
-		else {
-			return identifiable.getURI().toString();
-		}
+		return ((Identifiable)object).getURI().lastSegment();
 	}
 	
 	/**
