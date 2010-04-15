@@ -5,11 +5,11 @@
     editDirectory="/org.eclipse.stem.analysis.automaticexperiment/src" editorDirectory="/org.eclipse.stem.analysis.automaticexperiment/src"
     modelPluginID="org.eclipse.stem.analysis.automaticexperiment" modelName="Automaticexperience"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//solver">
   <foreignModel>automaticexperiment.ecore</foreignModel>
   <genPackages prefix="Automaticexperiment" disposableProviderFactory="true" generateExampleClass="false"
       multipleEditorPages="false" generateModelWizard="false" ecorePackage="automaticexperiment.ecore#/">
-    <genClasses image="false" ecoreClass="automaticexperiment.ecore#//AutomaticExperiment">
+    <genClasses ecoreClass="automaticexperiment.ecore#//AutomaticExperiment">
       <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference automaticexperiment.ecore#//AutomaticExperiment/baseScenario"/>
       <genFeatures notify="false" children="true" createChild="false" propertyCategory=""
@@ -19,6 +19,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//AutomaticExperiment/tolerance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//AutomaticExperiment/referanceDataDir"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//AutomaticExperiment/maximumNumberOfIterations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//AutomaticExperiment/reInit"/>
     </genClasses>
     <genClasses ecoreClass="automaticexperiment.ecore#//ModifiableParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//ModifiableParameter/initialValue"/>
@@ -27,6 +28,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//ModifiableParameter/featureName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//ModifiableParameter/lowerBound"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//ModifiableParameter/upperBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute automaticexperiment.ecore#//ModifiableParameter/targetURI"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

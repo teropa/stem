@@ -1,7 +1,7 @@
 package automaticexperiment.provider;
 
 /*******************************************************************************
- * Copyright (c) 2009 IBM Corporation and others.
+ * Copyright (c) 2010 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,14 +12,20 @@ package automaticexperiment.provider;
  *******************************************************************************/
 
 
+import automaticexperiment.AutomaticExperiment;
+import automaticexperiment.AutomaticexperimentPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,10 +35,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.stem.core.common.provider.IdentifiableItemProvider;
 
-import automaticexperiment.AutomaticExperiment;
-import automaticexperiment.AutomaticexperimentPackage;
+import org.eclipse.stem.core.common.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link automaticexperiment.AutomaticExperiment} object.
@@ -289,17 +293,14 @@ public class AutomaticExperimentItemProvider
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
+	 * This returns AutomaticExperiment.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object) {
-		String label = ((AutomaticExperiment)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AutomaticExperiment_type") :
-			label;
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/customobj16/AutomaticExperiment"));
 	}
 
 	/**
@@ -309,14 +310,14 @@ public class AutomaticExperimentItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getTextGen(Object object) {
+	public String getText(Object object) {
 		URI labelValue = ((AutomaticExperiment)object).getURI();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AutomaticExperiment_type") :
 			getString("_UI_AutomaticExperiment_type") + " " + label;
 	}
-	
+
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

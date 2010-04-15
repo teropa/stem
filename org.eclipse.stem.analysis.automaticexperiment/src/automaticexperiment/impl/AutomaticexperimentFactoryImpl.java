@@ -11,6 +11,7 @@ package automaticexperiment.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import automaticexperiment.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
