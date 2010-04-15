@@ -166,21 +166,22 @@ public class RelativeValueHistoryPlotter extends ReportControl implements
 							final DecoratorSelectionEvent decoratorSelectionEvent) {
 						selectedDecorator = decoratorSelectionEvent
 								.getDecorator();
-
-						selectedProperties = getPropertiesToDisplay(selectedDecorator);
-						String selectedPopId = decoratorSelectionEvent.getId();
-						List<DynamicLabel>allLabels = decoratorToLabelsMap.get(selectedDecorator);
-						if(allLabels != null) 
-							for(DynamicLabel lab:allLabels) {
-							if(lab instanceof DiseaseModelLabel &&
-									((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedPopId))
-							{selectedDynamicLabel = lab;break;}
-						}
-						if(selectedDynamicLabel != null)
-							switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
-								.adapt(selectedDynamicLabel,
-										RelativeValueHistoryProvider.class));
-						timeSeriesCanvas.setDataSourceAndRedraw(rvhp, selectedProperties);
+						if(selectedDecorator!=null) {
+							selectedProperties = getPropertiesToDisplay(selectedDecorator);
+							String selectedPopId = decoratorSelectionEvent.getId();
+							List<DynamicLabel>allLabels = decoratorToLabelsMap.get(selectedDecorator);
+							if(allLabels != null) 
+								for(DynamicLabel lab:allLabels) {
+								if(lab instanceof DiseaseModelLabel &&
+										((DiseaseModelLabel)lab).getPopulationModelLabel().getPopulationIdentifier().equals(selectedPopId))
+								{selectedDynamicLabel = lab;break;}
+							}
+							if(selectedDynamicLabel != null)
+								switchToRVHP((RelativeValueHistoryProviderAdapter) RelativeValueHistoryProviderAdapterFactory.INSTANCE
+									.adapt(selectedDynamicLabel,
+											RelativeValueHistoryProvider.class));
+							timeSeriesCanvas.setDataSourceAndRedraw(rvhp, selectedProperties);
+						}// if decorator not null
 					}
 				});
 
