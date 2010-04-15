@@ -101,7 +101,7 @@ public class ExternalDataSourceDiseaseModelItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalDataSourceDiseaseModel"));
+		return overlayImage(object, getResourceLocator().getImage("full/customobj16/ExternalDataSourceDiseaseModel"));
 	}
 
 	/**
