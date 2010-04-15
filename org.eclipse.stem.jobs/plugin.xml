@@ -91,12 +91,13 @@
              type="org.eclipse.stem.core.common.Identifiable">
        </adapter>
     </factory>
-    <factory
+<!--    <factory
           adaptableType="org.eclipse.emf.common.util.URI"
           class="org.eclipse.stem.jobs.adapters.identifiable.URIIdentifiableAdapterFactory">
        <adapter
              type="org.eclipse.stem.core.common.Identifiable">
        </adapter>
     </factory>
+-->
  </extension>
 </plugin>
