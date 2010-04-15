@@ -28,6 +28,7 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.stem.adapters.file.File;
 import org.eclipse.stem.adapters.file.FileAdapterFactory;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.jobs.execution.IExecutable;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.views.explorer.IdentifiableTreeNode;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -59,7 +60,10 @@ public class DeleteHandler extends AbstractHandler
 				// IExecutable executable = (IExecutable) ExecutableAdapterFactory.INSTANCE
 				// .adapt(obj, IExecutable.class);
 				
-				File file = (File)FileAdapterFactory.INSTANCE.adapt(obj, File.class);
+				File file = (File) Platform
+				.getAdapterManager().getAdapter(obj, File.class); 
+		
+
 				
 				// Were we successful in adapting?
 				if (file != null) {
@@ -83,15 +87,17 @@ public class DeleteHandler extends AbstractHandler
 			if(paths.length > 0) {
 				TreePath parent = paths[0].getParentPath();
 				Object parentSeg = parent.getLastSegment();
-				IProject project = null;
-				if(parentSeg instanceof IdentifiableTreeNode) { 
-					project =((IdentifiableTreeNode)parentSeg).getProject();
-				} if(parentSeg instanceof IProject) project = (IProject)parentSeg;
-				
-				try {
-					project.refreshLocal(IResource.DEPTH_INFINITE, null);
-				} catch(Exception e) {
-					Activator.logError(e.getMessage(), e);
+				if(parentSeg != null) {
+					IProject project = null;
+					if(parentSeg instanceof IdentifiableTreeNode) { 
+						project =((IdentifiableTreeNode)parentSeg).getProject();
+					} if(parentSeg instanceof IProject) project = (IProject)parentSeg;
+					
+					try {
+						project.refreshLocal(IResource.DEPTH_INFINITE, null);
+					} catch(Exception e) {
+						Activator.logError(e.getMessage(), e);
+					}
 				}
 			}
 		}

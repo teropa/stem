@@ -20,6 +20,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -66,9 +67,9 @@ public abstract class RefactorHandler extends AbstractHandler
 				// IExecutable executable = (IExecutable) ExecutableAdapterFactory.INSTANCE
 				// .adapt(obj, IExecutable.class);
 				
-				File file = (File)FileAdapterFactory.INSTANCE.adapt(obj, File.class);
-				
-				
+				File file = (File) Platform
+				.getAdapterManager().getAdapter(obj, File.class); 
+		
 				
 				// Were we successful in adapting?
 				if (file != null) {
@@ -90,15 +91,17 @@ public abstract class RefactorHandler extends AbstractHandler
 			if(paths.length > 0) {
 				TreePath parent = paths[0].getParentPath();
 				Object parentSeg = parent.getLastSegment();
-				IProject project = null;
-				if(parentSeg instanceof IdentifiableTreeNode) { 
-					project =((IdentifiableTreeNode)parentSeg).getProject();
-				} if(parentSeg instanceof IProject) project = (IProject)parentSeg;
-				
-				try {
-					project.refreshLocal(IResource.DEPTH_INFINITE, null);
-				} catch(Exception e) {
-					Activator.logError(e.getMessage(), e);
+				if(parentSeg != null) {
+					IProject project = null;
+					if(parentSeg instanceof IdentifiableTreeNode) { 
+						project =((IdentifiableTreeNode)parentSeg).getProject();
+					} if(parentSeg instanceof IProject) project = (IProject)parentSeg;
+					
+					try {
+						project.refreshLocal(IResource.DEPTH_INFINITE, null);
+					} catch(Exception e) {
+						Activator.logError(e.getMessage(), e);
+					}
 				}
 			}
 			

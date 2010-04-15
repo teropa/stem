@@ -88,6 +88,7 @@ public class RenameDialog extends Dialog {
 		gd = new GridData();
 		okayButton.setText(Messages.getString("Rename.dialog.okay"));
 		okayButton.setLayoutData(gd);
+		okayButton.setEnabled(false);
 		
 		Button cancelButton = new Button(shell, SWT.NONE);
 		gd = new GridData();
@@ -108,7 +109,7 @@ public class RenameDialog extends Dialog {
 				
 				String newpath = truncpath+text.getText();
 				File f = new File(newpath);
-				if(f.exists() || text.getText().trim().equals("")) {
+				if(f.exists() || text.getText().trim().equals("") || text.getText().equals(resource.getURI().lastSegment())) {
 					okayButton.setEnabled(false);
 				} else {
 					okayButton.setEnabled(true);
