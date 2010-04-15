@@ -692,6 +692,22 @@
            </visibleWhen>
         </command>
      </menuContribution>
+     <menuContribution
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+        <command
+              commandId="org.eclipse.stem.ui.command.copyidentifiable"
+              icon="icons/full/customobj16/Copy.gif"
+              label="%_UI_STEM_Command_Refactor_Copy "
+              style="push"
+              tooltip="%_UI_STEM_Command_Refactor_CopyTT">
+            <visibleWhen
+                 checkEnabled="false">
+              <reference
+                    definitionId="org.eclipse.stem.ui.isCopyableIdentifiable">
+              </reference>
+           </visibleWhen>
+        </command>
+     </menuContribution>
   </extension>
   <extension
         point="org.eclipse.ui.commands">
@@ -770,6 +786,12 @@
            description="%_UI_Refactor_Rename_description"
            id="org.eclipse.stem.ui.command.renameidentifiable"
            name="%_UI_Refactor_Rename_label">
+     </command>
+     <command
+           defaultHandler="org.eclipse.stem.ui.handlers.RefactorHandler$CopyHandler"
+           description="%_UI_Copy_description"
+           id="org.eclipse.stem.ui.command.copyidentifiable"
+           name="%_UI_Copy_label">
      </command>
   </extension>
   
@@ -1058,6 +1080,20 @@
      </definition>
        <definition
            id="org.eclipse.stem.ui.isRefactorIdentifiable">
+        <with
+              variable="selection">
+           <iterate
+                 operator="and">
+              <and>
+                 <adapt
+                       type="org.eclipse.stem.adapters.file.File">
+                 </adapt>
+               </and>
+           </iterate>
+        </with>
+     </definition>
+     <definition
+           id="org.eclipse.stem.ui.isCopyableIdentifiable">
         <with
               variable="selection">
            <iterate

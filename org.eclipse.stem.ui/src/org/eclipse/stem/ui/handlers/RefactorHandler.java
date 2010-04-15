@@ -131,16 +131,42 @@ public abstract class RefactorHandler extends AbstractHandler
 				URI newIDURI = URI.createURI(s_newIdURI+newname);
 				
 				try {
-					//FileOutputStream fos = new FileOutputStream(newpath);
 					ArrayList<Identifiable>newlist = new ArrayList<Identifiable>();
 					Identifiable e = (Identifiable)EcoreUtil.copy(file.getIdentifiable());
 					e.setURI(newIDURI);
 					newlist.add(e);
 					Utility.serializeIdentifiables(newlist, newURI);
-//					resource.setURI(newURI);
-//					resource.save(null);
-					// Delete old resource
 					resource.delete(null);
+				} catch(Exception e) {
+					Activator.logError(e.getMessage(), e);
+				}
+			}
+		}
+	}
+	
+	public static class CopyHandler  extends RefactorHandler {
+		protected void doit(File file) {
+			Display display = Activator.getDefault().getWorkbench().getDisplay();
+			Shell shell = new Shell(display);
+			RenameDialog rd = new RenameDialog(shell, SWT.PUSH, file.getResource(), Messages.getString("copy"));
+			String newname = rd.open();
+			if(newname != null) {
+				XMIResource resource = file.getResource();
+				URI oldURI = resource.getURI();
+				URI oldIdURI = file.getIdentifiable().getURI();
+				String s_newURI = oldURI.toString().substring(0, oldURI.toString().indexOf(oldURI.lastSegment()));
+				String s_newIdURI = oldIdURI.toString().substring(0, oldIdURI.toString().indexOf(oldIdURI.lastSegment()));
+				
+				
+				URI newURI = URI.createURI(s_newURI+newname);
+				URI newIDURI = URI.createURI(s_newIdURI+newname);
+				
+				try {
+					ArrayList<Identifiable>newlist = new ArrayList<Identifiable>();
+					Identifiable e = (Identifiable)EcoreUtil.copy(file.getIdentifiable());
+					e.setURI(newIDURI);
+					newlist.add(e);
+					Utility.serializeIdentifiables(newlist, newURI);
 				} catch(Exception e) {
 					Activator.logError(e.getMessage(), e);
 				}
