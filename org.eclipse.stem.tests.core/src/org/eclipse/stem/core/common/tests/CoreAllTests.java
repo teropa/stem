@@ -19,6 +19,7 @@ import junit.textui.TestRunner;
 import org.eclipse.stem.core.experiment.tests.ExperimentTests;
 import org.eclipse.stem.core.graph.tests.GraphTests;
 
+import org.eclipse.stem.core.graphgenerator.tests.GraphgeneratorTests;
 import org.eclipse.stem.core.model.tests.ModelTests;
 
 import org.eclipse.stem.core.modifier.tests.ModifierTests;
@@ -62,6 +63,7 @@ public class CoreAllTests extends TestSuite {
 		suite.addTest(SequencerTests.suite());
 		suite.addTest(TriggerTests.suite());
 		suite.addTest(SolverTests.suite());
+		suite.addTest(GraphgeneratorTests.suite());
 		return suite;
 	}
 

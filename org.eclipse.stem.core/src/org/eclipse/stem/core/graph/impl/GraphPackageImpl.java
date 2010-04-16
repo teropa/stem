@@ -47,6 +47,8 @@ import org.eclipse.stem.core.graph.StaticLabel;
 import org.eclipse.stem.core.graph.StaticNodeLabel;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
 
+import org.eclipse.stem.core.graphgenerator.GraphgeneratorPackage;
+import org.eclipse.stem.core.graphgenerator.impl.GraphgeneratorPackageImpl;
 import org.eclipse.stem.core.model.ModelPackage;
 
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
@@ -287,6 +289,7 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 		SequencerPackageImpl theSequencerPackage = (SequencerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) instanceof SequencerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) : SequencerPackage.eINSTANCE);
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
 		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
+		GraphgeneratorPackageImpl theGraphgeneratorPackage = (GraphgeneratorPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) instanceof GraphgeneratorPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) : GraphgeneratorPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGraphPackage.createPackageContents();
@@ -299,6 +302,7 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 		theSequencerPackage.createPackageContents();
 		theTriggerPackage.createPackageContents();
 		theSolverPackage.createPackageContents();
+		theGraphgeneratorPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGraphPackage.initializePackageContents();
@@ -311,6 +315,7 @@ public class GraphPackageImpl extends EPackageImpl implements GraphPackage {
 		theSequencerPackage.initializePackageContents();
 		theTriggerPackage.initializePackageContents();
 		theSolverPackage.initializePackageContents();
+		theGraphgeneratorPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGraphPackage.freeze();

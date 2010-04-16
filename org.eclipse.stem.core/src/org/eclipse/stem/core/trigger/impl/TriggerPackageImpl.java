@@ -30,6 +30,8 @@ import org.eclipse.stem.core.graph.GraphPackage;
 
 import org.eclipse.stem.core.graph.impl.GraphPackageImpl;
 
+import org.eclipse.stem.core.graphgenerator.GraphgeneratorPackage;
+import org.eclipse.stem.core.graphgenerator.impl.GraphgeneratorPackageImpl;
 import org.eclipse.stem.core.model.ModelPackage;
 
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
@@ -127,6 +129,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 		ScenarioPackageImpl theScenarioPackage = (ScenarioPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) instanceof ScenarioPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) : ScenarioPackage.eINSTANCE);
 		SequencerPackageImpl theSequencerPackage = (SequencerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) instanceof SequencerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) : SequencerPackage.eINSTANCE);
 		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
+		GraphgeneratorPackageImpl theGraphgeneratorPackage = (GraphgeneratorPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) instanceof GraphgeneratorPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) : GraphgeneratorPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTriggerPackage.createPackageContents();
@@ -139,6 +142,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 		theScenarioPackage.createPackageContents();
 		theSequencerPackage.createPackageContents();
 		theSolverPackage.createPackageContents();
+		theGraphgeneratorPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTriggerPackage.initializePackageContents();
@@ -151,6 +155,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 		theScenarioPackage.initializePackageContents();
 		theSequencerPackage.initializePackageContents();
 		theSolverPackage.initializePackageContents();
+		theGraphgeneratorPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTriggerPackage.freeze();

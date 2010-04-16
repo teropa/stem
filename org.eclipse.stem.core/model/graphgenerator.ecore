@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="graphgenerator"
+    nsURI="http:///org/eclipse/stem/core/graphgenerator.ecore" nsPrefix="org.eclipse.stem.core.graphgenerator">
+  <eClassifiers xsi:type="ecore:EClass" name="GraphGenerator" abstract="true" eSuperTypes="common.ecore#//Identifiable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LatticeGraphGenerator" abstract="true"
+      eSuperTypes="#//GraphGenerator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xSize" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ySize" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useNearestNeighbors" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useNextNearestNeighbors"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodicBoundaries" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SquareGraphLatticeGenerator" eSuperTypes="#//LatticeGraphGenerator"/>
+</ecore:EPackage>

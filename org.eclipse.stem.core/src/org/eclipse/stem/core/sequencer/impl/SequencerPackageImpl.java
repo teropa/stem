@@ -29,6 +29,8 @@ import org.eclipse.stem.core.graph.GraphPackage;
 
 import org.eclipse.stem.core.graph.impl.GraphPackageImpl;
 
+import org.eclipse.stem.core.graphgenerator.GraphgeneratorPackage;
+import org.eclipse.stem.core.graphgenerator.impl.GraphgeneratorPackageImpl;
 import org.eclipse.stem.core.model.ModelPackage;
 
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
@@ -138,6 +140,7 @@ public class SequencerPackageImpl extends EPackageImpl implements SequencerPacka
 		ScenarioPackageImpl theScenarioPackage = (ScenarioPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) instanceof ScenarioPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI) : ScenarioPackage.eINSTANCE);
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
 		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
+		GraphgeneratorPackageImpl theGraphgeneratorPackage = (GraphgeneratorPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) instanceof GraphgeneratorPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) : GraphgeneratorPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theSequencerPackage.createPackageContents();
@@ -150,6 +153,7 @@ public class SequencerPackageImpl extends EPackageImpl implements SequencerPacka
 		theScenarioPackage.createPackageContents();
 		theTriggerPackage.createPackageContents();
 		theSolverPackage.createPackageContents();
+		theGraphgeneratorPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSequencerPackage.initializePackageContents();
@@ -162,6 +166,7 @@ public class SequencerPackageImpl extends EPackageImpl implements SequencerPacka
 		theScenarioPackage.initializePackageContents();
 		theTriggerPackage.initializePackageContents();
 		theSolverPackage.initializePackageContents();
+		theGraphgeneratorPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSequencerPackage.freeze();

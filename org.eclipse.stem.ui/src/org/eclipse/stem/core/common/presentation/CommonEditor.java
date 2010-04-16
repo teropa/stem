@@ -158,6 +158,7 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 
 import org.eclipse.stem.core.graph.provider.GraphItemProviderAdapterFactory;
 
+import org.eclipse.stem.core.graphgenerator.provider.GraphgeneratorItemProviderAdapterFactory;
 import org.eclipse.stem.core.model.provider.ModelItemProviderAdapterFactory;
 
 import org.eclipse.stem.core.modifier.provider.ModifierItemProviderAdapterFactory;
@@ -681,6 +682,7 @@ public class CommonEditor
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TriggerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new GraphgeneratorItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
