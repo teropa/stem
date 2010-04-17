@@ -302,6 +302,12 @@ public class StandardRelativeValueProviderAdapterFactory extends
 			String _popRef = Activator.getDefault().getPluginPreferences().getString(PreferenceConstants.REFERENCE_POPULATION);
 			String _densRef = Activator.getDefault().getPluginPreferences().getString(PreferenceConstants.REFERENCE_DENSITY);
 	
+			if((_popRef==null)||(_popRef.length()<=0)) {
+				_popRef = "0";
+			}
+			if((_densRef==null)||(_densRef.length()<=0)) {
+				_densRef = "0";
+			}
 			double popRef = Double.parseDouble(_popRef);
 			double densRef = Double.parseDouble(_densRef);
 			
