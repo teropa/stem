@@ -78,7 +78,7 @@ public class Activator extends AbstractUIPlugin {
 		new LabelsNewModifierPageAdapterFactory();
 		new ExperimentFeatureModifierEditCompositeFactory();
 		new LabelsPropertyStringProviderAdapterFactory();
-		
+
 		//Get the extension color providers and add them to the composed factory
 		IConfigurationElement[] elements = 
 			Platform.getExtensionRegistry().getConfigurationElementsFor("org.eclipse.stem.ui.colorproviders");

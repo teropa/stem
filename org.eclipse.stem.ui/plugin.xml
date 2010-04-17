@@ -465,13 +465,6 @@
                   tooltip="%_UI_ModelModelWizard_description ">
             </command>
             <command
-                  commandId="org.eclipse.stem.ui.command.wiz.graph"
-                  icon="icons/full/customobj16/Graph.gif"
-                  label="%_UI_GraphModelWizard_label"
-                  style="push"
-                  tooltip="%_UI_GraphModelWizard_description">
-            </command>
-            <command
                   commandId="org.eclipse.stem.ui.command.wiz.project"
                   icon="icons/full/customobj16/StemExplorer.gif"
                   label="%_UI_New_STEM_Project_Wizard"
@@ -507,13 +500,6 @@
                   label="%_UI_ModelModelWizard_label"
                   style="push"
                   tooltip="%_UI_ModelModelWizard_description ">
-            </command>
-            <command
-                  commandId="org.eclipse.stem.ui.command.wiz.graph"
-                  icon="icons/full/customobj16/Graph.gif"
-                  label="%_UI_GraphModelWizard_label"
-                  style="push"
-                  tooltip="%_UI_GraphModelWizard_description">
             </command>
             <command
                   commandId="org.eclipse.stem.ui.command.wiz.seqsequencer"
@@ -741,13 +727,6 @@
            description="%_UI_SequencerModelWizard_description"
            id="org.eclipse.stem.ui.command.wiz.seqsequencer"
            name="%_UI_SequencerModelWizard_label">
-     </command>
-     <command
-           categoryId="org.eclipse.stem.ui.wizards"
-           defaultHandler="org.eclipse.stem.ui.wizards.NewGraphWizard$NewGraphWizardCommandHandler"
-           description="%_UI_GraphModelWizard_description"
-           id="org.eclipse.stem.ui.command.wiz.graph"
-           name="%_UI_GraphModelWizard_label">
      </command>
      <command
            categoryId="org.eclipse.stem.ui.wizards"

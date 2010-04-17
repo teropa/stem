@@ -25,8 +25,6 @@ import org.eclipse.stem.core.experiment.ExperimentPackage;
 import org.eclipse.stem.core.experiment.impl.ExperimentPackageImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.impl.GraphPackageImpl;
-import org.eclipse.stem.core.graphgenerator.GraphgeneratorPackage;
-import org.eclipse.stem.core.graphgenerator.impl.GraphgeneratorPackageImpl;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
 import org.eclipse.stem.core.modifier.DoubleModifier;
@@ -315,7 +313,6 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		SequencerPackageImpl theSequencerPackage = (SequencerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) instanceof SequencerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SequencerPackage.eNS_URI) : SequencerPackage.eINSTANCE);
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
 		SolverPackageImpl theSolverPackage = (SolverPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) instanceof SolverPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SolverPackage.eNS_URI) : SolverPackage.eINSTANCE);
-		GraphgeneratorPackageImpl theGraphgeneratorPackage = (GraphgeneratorPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) instanceof GraphgeneratorPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphgeneratorPackage.eNS_URI) : GraphgeneratorPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theModifierPackage.createPackageContents();
@@ -328,7 +325,6 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		theSequencerPackage.createPackageContents();
 		theTriggerPackage.createPackageContents();
 		theSolverPackage.createPackageContents();
-		theGraphgeneratorPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theModifierPackage.initializePackageContents();
@@ -341,7 +337,6 @@ public class ModifierPackageImpl extends EPackageImpl implements ModifierPackage
 		theSequencerPackage.initializePackageContents();
 		theTriggerPackage.initializePackageContents();
 		theSolverPackage.initializePackageContents();
-		theGraphgeneratorPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theModifierPackage.freeze();

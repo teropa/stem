@@ -629,7 +629,7 @@ public class GraphgeneratorsEditor
 			BasicDiagnostic diagnostic =
 				new BasicDiagnostic
 					(Diagnostic.OK,
-					 "org.eclipse.stem.graphgenerators.editor",
+					 "org.eclipse.stem.ui.graphgenerators",
 					 0,
 					 null,
 					 new Object [] { editingDomain.getResourceSet() });
@@ -994,7 +994,7 @@ public class GraphgeneratorsEditor
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "org.eclipse.stem.graphgenerators.editor",
+					 "org.eclipse.stem.ui.graphgenerators",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
 					 new Object [] { exception == null ? (Object)resource : exception });
@@ -1005,7 +1005,7 @@ public class GraphgeneratorsEditor
 			return
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "org.eclipse.stem.graphgenerators.editor",
+					 "org.eclipse.stem.ui.graphgenerators",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
 					 new Object[] { exception });

@@ -235,7 +235,9 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/enabled"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/graphDecorated"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/progress"/>
-      <genOperations ecoreOperation="model.ecore#//Decorator/decorateGraph"/>
+      <genOperations ecoreOperation="model.ecore#//Decorator/decorateGraph">
+        <genParameters ecoreParameter="model.ecore#//Decorator/decorateGraph/time"/>
+      </genOperations>
       <genOperations ecoreOperation="model.ecore#//Decorator/updateLabels">
         <genParameters ecoreParameter="model.ecore#//Decorator/updateLabels/time"/>
         <genParameters ecoreParameter="model.ecore#//Decorator/updateLabels/timerPeriod"/>
@@ -248,6 +250,7 @@
       </genOperations>
       <genOperations ecoreOperation="model.ecore#//Decorator/prepare">
         <genParameters ecoreParameter="model.ecore#//Decorator/prepare/model"/>
+        <genParameters ecoreParameter="model.ecore#//Decorator/prepare/time"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//EdgeDecorator"/>
@@ -261,8 +264,11 @@
       <genOperations ecoreOperation="model.ecore#//Model/getCanonicalGraph">
         <genParameters ecoreParameter="model.ecore#//Model/getCanonicalGraph/uri"/>
         <genParameters ecoreParameter="model.ecore#//Model/getCanonicalGraph/filter"/>
+        <genParameters ecoreParameter="model.ecore#//Model/getCanonicalGraph/time"/>
       </genOperations>
-      <genOperations ecoreOperation="model.ecore#//Model/prepare"/>
+      <genOperations ecoreOperation="model.ecore#//Model/prepare">
+        <genParameters ecoreParameter="model.ecore#//Model/prepare/time"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//NodeDecorator"/>
     <genClasses ecoreClass="model.ecore#//STEMTime">
@@ -489,17 +495,5 @@
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Solver/reset"/>
     </genClasses>
-  </genPackages>
-  <genPackages prefix="Graphgenerator" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
-      ecorePackage="graphgenerator.ecore#/">
-    <genClasses image="false" ecoreClass="graphgenerator.ecore#//GraphGenerator"/>
-    <genClasses image="false" ecoreClass="graphgenerator.ecore#//LatticeGraphGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerator.ecore#//LatticeGraphGenerator/xSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerator.ecore#//LatticeGraphGenerator/ySize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerator.ecore#//LatticeGraphGenerator/useNearestNeighbors"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerator.ecore#//LatticeGraphGenerator/useNextNearestNeighbors"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerator.ecore#//LatticeGraphGenerator/periodicBoundaries"/>
-    </genClasses>
-    <genClasses ecoreClass="graphgenerator.ecore#//SquareGraphLatticeGenerator"/>
   </genPackages>
 </genmodel:GenModel>

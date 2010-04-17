@@ -27,7 +27,6 @@ import org.eclipse.stem.diseasemodels.standard.provider.DiseasemodelsEditPlugin;
 
 import org.eclipse.stem.populationmodels.standard.provider.StandardEditPlugin;
 import org.eclipse.stem.ui.wizards.StandardDiseaseModelPropertyEditorAdapterFactory;
-import org.eclipse.stem.ui.wizards.StandardPropertyStringProviderAdapterFactory;
 import org.osgi.framework.BundleContext;
 
 /**

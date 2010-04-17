@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.0"?>
-
-<!--
- <copyright>
- </copyright>
-
- $Id$
--->
-
+<?eclipse version="3.4"?>
 <plugin>
-
+	  <extension-point id="graphgenerator" name="%EP_Disease_Model" schema="schema/graphgenerator.exsd"/>
+ 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <factory
-            uri="http:///org/eclipse/stem/graphgenerators.ecore"
-            class="org.eclipse.stem.graphgenerators.provider.GraphgeneratorsItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http:///org/eclipse/stem/graphgenerators.ecore"
-            class="org.eclipse.stem.graphgenerators.GraphgeneratorsPackage"
-            genModel="model/graphgenerator.genmodel"/>
-   </extension>
-
+    <factory 
+       uri = "http:///org/eclipse/stem/graphgenerators/graphgenerators.ecore" 
+       class = "org.eclipse.stem.graphgenerators.provider.GraphgeneratorsItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+ 
+ 	 <extension
+        point="org.eclipse.stem.graphgenerators.graphgenerator">
+     <classdef
+           class="org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_edlund"
+           description="%dc_desc_Lattice"
+           identifier="foo"
+           title="%dc_desc_Lattice">
+     </dublin_core>
+  </extension>
+  
 </plugin>

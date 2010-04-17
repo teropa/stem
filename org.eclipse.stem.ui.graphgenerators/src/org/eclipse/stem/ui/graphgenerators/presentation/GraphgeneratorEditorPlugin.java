@@ -87,7 +87,7 @@ public final class GraphgeneratorEditorPlugin extends EMFPlugin {
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
+		 * @generated  NOT
 		 */
 		public Implementation() {
 			super();
@@ -95,6 +95,11 @@ public final class GraphgeneratorEditorPlugin extends EMFPlugin {
 			// Remember the static instance.
 			//
 			plugin = this;
+			
+			// Register
+			new org.eclipse.stem.ui.graphgenerators.wizards.GraphGeneratorPropertyStringProviderAdapterFactory();
+			new org.eclipse.stem.ui.graphgenerators.adapters.graphgeneratorpropertyeditor.GraphGeneratorPropertyEditorAdapterFactory();
+
 		}
 	}
 

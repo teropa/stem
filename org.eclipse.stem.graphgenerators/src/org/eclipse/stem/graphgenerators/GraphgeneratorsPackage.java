@@ -42,7 +42,7 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http:///org/eclipse/stem/graphgenerators.ecore";
+	String eNS_URI = "http:///org/eclipse/stem/graphgenerators/graphgenerators.ecore";
 
 	/**
 	 * The package namespace name.

@@ -1,5 +1,5 @@
 // NewGraphWizard.java
-package org.eclipse.stem.ui.wizards;
+package org.eclipse.stem.ui.graphgenerators.wizards;
 
 /*******************************************************************************
  * Copyright (c) 2007, 2008 IBM Corporation and others.
@@ -23,8 +23,13 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.GraphPackage;
+import org.eclipse.stem.ui.wizards.DublinCorePage;
+import org.eclipse.stem.ui.wizards.NewIdentifiablePage;
+import org.eclipse.stem.ui.wizards.NewIdentifiableWizard;
+import org.eclipse.stem.ui.wizards.NewSTEMProjectWizard;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -34,6 +39,9 @@ import org.eclipse.ui.handlers.HandlerUtil;
  */
 public class NewGraphWizard extends NewIdentifiableWizard {
 
+	private NewGraphPage ngp = null;
+
+	
 	/**
 	 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard#getWizardTitle()
 	 */
@@ -47,7 +55,14 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected NewIdentifiablePage createNewIdentifiablePage() {
-		return new NewGraphPage();
+		ngp = new NewGraphPage(Messages
+				.getString("NGraphWiz.page_title")); //$NON-NLS-1$
+		ngp.setTitle(Messages.getString("NGraphWiz.page_title")); //$NON-NLS-1$
+		ngp.setDescription(Messages
+				.getString("NGraphWiz.page_description")); //$NON-NLS-1$
+
+		return ngp;
+
 	} // createNewIdentifiablePage
 
 	/**
@@ -72,7 +87,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected Identifiable createIdentifiable() {
-		final Graph retValue = GraphFactory.eINSTANCE.createGraph();
+		final Graph retValue = ngp.getGraph();
 		retValue.setDublinCore(newDublinCorePage.createDublinCore());
 		return retValue;
 	} // createIdentifiable
@@ -99,14 +114,14 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 	 */
 	protected static class NewGraphPage extends NewIdentifiablePage {
 
+		GraphGeneratorDefinitionControl ggdc = null;
+
 		/**
-		 * Default Constructor
+		 * @param pageName
 		 */
-		protected NewGraphPage() {
-			super(Messages.getString("NGraphWiz.page_title")); //$NON-NLS-1$
-			setTitle(Messages.getString("NGraphWiz.page_title")); //$NON-NLS-1$
-			setDescription(Messages.getString("NGraphWiz.page_description")); //$NON-NLS-1$
-		} // NewGraphPage
+		protected NewGraphPage(final String pageName) {
+			super(pageName);
+		}
 
 		/**
 		 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard.NewIdentifiablePage#getDCDescription()
@@ -114,12 +129,40 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 		@Override
 		protected String getDCDescription() {
 			return MessageFormat.format(Messages
-					.getString("NGraphWiz.DC_DESCRIPTION"),
+					.getString("NGGWiz.DC_DESCRIPTION"), //$NON-NLS-1$
 					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
+		@Override
+		protected Composite createSpecificComposite(final Composite parent) {
+			ggdc = new GraphGeneratorDefinitionControl(parent, SWT.NONE,
+					projectValidator);
+			return ggdc;
+		} // createSpecificComposite
+
+		@Override
+		protected boolean validatePage() {
+			boolean retValue = super.validatePage();
+			if (retValue) {
+				setErrorMessage(null);
+				retValue = ggdc.validate();
+				// Error?
+				if (!retValue) {
+					// Yes
+					setErrorMessage(ggdc.getErrorMessage());
+				} // if
+			}
+			return retValue;
+		} // validatePage
+
+		Graph getGraph() {
+			return ggdc.getGraph();
+		} // getSelectedDiseaseModel
+
 	} // NewGraphPage
 
+	
+	
 	/**
 	 * This class is a {@link IHandler} for the command that creates a
 	 * {@link NewGraphWizard}

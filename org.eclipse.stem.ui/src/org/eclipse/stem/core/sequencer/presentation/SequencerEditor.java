@@ -164,7 +164,6 @@ import org.eclipse.stem.core.common.provider.CommonItemProviderAdapterFactory;
 import org.eclipse.stem.core.experiment.provider.ExperimentItemProviderAdapterFactory;
 import org.eclipse.stem.core.graph.provider.GraphItemProviderAdapterFactory;
 
-import org.eclipse.stem.core.graphgenerator.provider.GraphgeneratorItemProviderAdapterFactory;
 import org.eclipse.stem.core.model.provider.ModelItemProviderAdapterFactory;
 
 import org.eclipse.stem.core.modifier.provider.ModifierItemProviderAdapterFactory;
@@ -684,7 +683,6 @@ public class SequencerEditor
 		adapterFactory.addAdapterFactory(new SequencerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TriggerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SolverItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new GraphgeneratorItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

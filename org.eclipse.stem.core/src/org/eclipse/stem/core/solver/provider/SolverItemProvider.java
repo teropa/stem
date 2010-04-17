@@ -118,7 +118,11 @@ public class SolverItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return super.getText(object);
+		URI labelValue = ((Solver)object).getURI();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Solver_type") : //$NON-NLS-1$
+			getString("_UI_Solver_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

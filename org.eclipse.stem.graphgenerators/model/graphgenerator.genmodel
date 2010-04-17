@@ -6,7 +6,7 @@
     modelPluginID="org.eclipse.stem.graphgenerators" modelName="Graphgenerator" editorPluginClass="org.eclipse.stem.ui.graphgenerators.presentation.GraphgeneratorEditorPlugin"
     testsDirectory="/org.eclipse.stem.test.graphgenerators/src" testSuiteClass="org.eclipse.stem.test.graphgenerators.tests.GraphgeneratorAllTests"
     importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver">
+    editorPluginID="org.eclipse.stem.ui.graphgenerators" usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver">
   <foreignModel>@model</foreignModel>
   <genPackages prefix="Graphgenerators" basePackage="org.eclipse.stem" disposableProviderFactory="true"
       ecorePackage="graphgenerators.ecore#/">

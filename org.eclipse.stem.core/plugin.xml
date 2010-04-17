@@ -10,7 +10,7 @@
    <extension-point id="predicate" name="%EP_Predicate" schema="schema/predicate.exsd"/>
    <extension-point id="experiment" name="%EP_Experiment" schema="schema/experiment.exsd"/>
    <extension-point id="solver" name="%EP_Solver" schema="schema/solver.exsd"/>
-
+ 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http:///org/eclipse/stem/core/common.ecore"
@@ -132,6 +132,7 @@
       </factory>
    </extension>
 
+ 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http:///org/eclipse/stem/core/common.ecore"
@@ -211,4 +212,6 @@
             <adapter type="org.eclipse.stem.adapters.file.File"/>
          </factory>
       </extension>
+      
+      
 </plugin>

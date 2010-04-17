@@ -31,7 +31,7 @@ public class GraphgeneratorsFactoryImpl extends EFactoryImpl implements Graphgen
 	 */
 	public static GraphgeneratorsFactory init() {
 		try {
-			GraphgeneratorsFactory theGraphgeneratorsFactory = (GraphgeneratorsFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/eclipse/stem/graphgenerators.ecore"); 
+			GraphgeneratorsFactory theGraphgeneratorsFactory = (GraphgeneratorsFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/eclipse/stem/graphgenerators/graphgenerators.ecore"); 
 			if (theGraphgeneratorsFactory != null) {
 				return theGraphgeneratorsFactory;
 			}
