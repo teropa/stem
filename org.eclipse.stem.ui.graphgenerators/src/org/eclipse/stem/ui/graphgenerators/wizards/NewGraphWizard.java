@@ -13,6 +13,8 @@ package org.eclipse.stem.ui.graphgenerators.wizards;
  *******************************************************************************/
 
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -78,6 +80,23 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 				format.setEnabled(false);
 				type.setText(STEMURI.GRAPH_TYPE_URI.toString());
 				type.setEnabled(false);
+				
+				Calendar c = Calendar.getInstance();
+		        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd"); 
+		        String dateStr = dateFormatter.format(c.getTime());
+		
+				title.setText(Messages.getString("NGGWiz.DC_SQ_TITLE"));
+				title.setEnabled(true);
+				
+				description.setText(Messages.getString("NGGWiz.DC_DESCRIPTION"));
+				description.setEnabled(true);
+				
+				// TODO the SOURCE should really return the specific generator CLASS e.g., Square for Square
+				source.setText(Messages.getString("NGGWiz.DC_SOURCE"));
+				source.setEnabled(true);
+				date.setText(dateStr);
+				date.setEnabled(true);
+				
 			}
 		};
 	} // createDublinCorePage
@@ -89,6 +108,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 	protected Identifiable createIdentifiable() {
 		final Graph retValue = ngp.getGraph();
 		retValue.setDublinCore(newDublinCorePage.createDublinCore());
+		
 		return retValue;
 	} // createIdentifiable
 
