@@ -155,7 +155,8 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 					{foundSubInitializer = true;break;}
 			if(foundSubInitializer) continue;
 			
-			if(n.getURI().lastSegment().equals(key) && isLeaf(n)) list.add(n);
+			if((key == null || key.trim().equals("")) && isLeaf(n)) list.add(n);
+			else if(n.getURI().lastSegment().equals(key) && isLeaf(n)) list.add(n);
 			// Check if any of the parents is the key
 			else if(hasParent(n, key) && isLeaf(n)) list.add(n);
 			else if(isLeaf(n)) negList.add(n);

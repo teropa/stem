@@ -106,7 +106,7 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 					regionNode.getLabels().add(areaLabel);
 					
 					// add a default population
-					final PopulationLabel pop = createPopulationLabel(POPULATION_NAME, DEFAULT_POPULATION_COUNT, regionNode );
+// SED commented out					final PopulationLabel pop = createPopulationLabel(POPULATION_NAME, DEFAULT_POPULATION_COUNT, regionNode );
 					
 					nodeHolder[x][y] = regionNode;
 					graph.putNode(regionNode);
