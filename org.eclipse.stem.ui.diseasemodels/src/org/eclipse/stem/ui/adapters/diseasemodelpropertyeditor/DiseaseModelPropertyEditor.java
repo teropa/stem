@@ -17,6 +17,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.SEIR;
 import org.eclipse.stem.diseasemodels.standard.SI;
@@ -25,19 +26,22 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 import org.eclipse.stem.diseasemodels.standard.StandardStochasticDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StochasticDiseaseModel;
+import org.eclipse.stem.ui.editors.GenericPropertyEditor;
 import org.eclipse.stem.ui.widgets.MatrixEditorWidget;
 import org.eclipse.stem.ui.wizards.DiseaseWizardMessages;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
-abstract public class DiseaseModelPropertyEditor extends Composite {
+abstract public class DiseaseModelPropertyEditor extends GenericPropertyEditor {
 
 	/**
 	 * @param feature
 	 * @return <code>true</code> if the feature is a dublin core feature that
 	 *         is specified by a user.
 	 */
-	public static boolean isUserSpecifiedDiseaseModelProperty(final EStructuralFeature feature) {
+	@Override
+	public boolean isUserSpecifiedProperty(final EStructuralFeature feature) {
 		boolean retValue = false;
 		final EClass containingClass = feature.getEContainingClass();
 		// Is it a disease model property?
@@ -53,14 +57,24 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 		return retValue;
 	} // isUserSpecifiedDiseaseModelProperty
 
-	protected final Map<EStructuralFeature, Text> map = new HashMap<EStructuralFeature, Text>();
-	protected final Map<EStructuralFeature, String[]> matrixMap = new HashMap<EStructuralFeature, String[]>();
-	protected String errorMessage;
 
 	public DiseaseModelPropertyEditor(Composite parent, int style) {
 		super(parent,style);
 	}
 
+	/**
+	 * Create the composite
+	 * 
+	 * @param parent
+	 * @param style
+	 * @param projectValidator
+	 */
+	public DiseaseModelPropertyEditor(final Composite parent, final int style,
+			final DiseaseModel diseaseModel,
+			final ModifyListener projectValidator) {
+		super(parent, style, diseaseModel, projectValidator);
+	}
+	
 	public void populate(DiseaseModel diseaseModel) {
 		for (final Map.Entry<EStructuralFeature, Text> entry : map.entrySet()) {
 			switch (entry.getKey().getFeatureID()) {
@@ -86,6 +100,7 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 		} // for each Map.entry
 	}
 
+	@Override
 	public boolean validate() {
 		boolean retValue = true;
 		// Disease name?
@@ -199,68 +214,8 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 		return retValue;
 	} // validate
 
-	/**
-	 * @param text
-	 * @param minValue
-	 * @return
-	 */
-	private boolean isValidLongValue(final String text, final int minValue) {
-		boolean retValue = true;
-		try {
-			final double value = Long.parseLong(text);
-			retValue = value >= minValue;
-		} catch (final NumberFormatException nfe) {
-			retValue = false;
-		} // catch ParseException
-		return retValue;
-	}
-
-	/**
-	 * @param text
-	 * @return
-	 */
-	protected boolean isValidPercentage(final String text) {
-		boolean retValue = true;
-		try {
-			final double value = Double.parseDouble(text);
-			retValue = value >= 0.0 && value <= 100.;
-		} catch (final NumberFormatException nfe) {
-			retValue = false;
-		} // catch ParseException
-		return retValue;
-	}
-
-	/**
-	 * @param text
-	 * @param minValue
-	 * @return
-	 */
-	protected boolean isValidValue(final String text, final double minValue) {
-		boolean retValue = true;
-		try {
-			final double value = Double.parseDouble(text);
-			retValue = value >= minValue;
-		} catch (final NumberFormatException nfe) {
-			retValue = false;
-		} // catch ParseException
-		return retValue;
-	} // isValidRate
-
-	/**
-	 * @param text
-	 * @param minValue
-	 * @return
-	 */
-	protected boolean isValidRelativeTolerance(final String text, final double maxValue) {
-		boolean retValue = true;
-		try {
-			final double value = Double.parseDouble(text);
-			retValue = value <= maxValue && value > 0.0;
-		} catch (final NumberFormatException nfe) {
-			retValue = false;
-		} // catch ParseException
-		return retValue;
-	} // isValidRate
+	
+	
 	
 	@Override
 	public void dispose() {
@@ -272,36 +227,5 @@ abstract public class DiseaseModelPropertyEditor extends Composite {
 		// Disable the check that prevents sub-classing of SWT components
 	}
 
-	/**
-	 * @param descriptor
-	 * @return the string that represents the default value of the property
-	 */
-	protected String getPropertyDefaultValueString(final IItemPropertyDescriptor descriptor) {
-		String retValue = ""; //$NON-NLS-1$
-	
-		final EStructuralFeature feature = (EStructuralFeature) descriptor
-				.getFeature(null);
-	
-		switch (feature.getFeatureID()) {
-		case StandardPackage.DISEASE_MODEL__TIME_PERIOD:
-			feature.getDefaultValue();
-			retValue = feature.getDefaultValueLiteral();
-			break;
-	
-		default:
-			retValue = feature.getDefaultValueLiteral();
-			retValue = retValue == null ? "" : retValue; //$NON-NLS-1$
-			break;
-		} // switch
-	
-		return retValue;
-	} // getPropertyDefaultValueString
-
-	/**
-	 * @return the error message that describes the problem with the contents
-	 */
-	public String getErrorMessage() {
-		return errorMessage;
-	}
 
 } // DiseaseModelPropertyEditor

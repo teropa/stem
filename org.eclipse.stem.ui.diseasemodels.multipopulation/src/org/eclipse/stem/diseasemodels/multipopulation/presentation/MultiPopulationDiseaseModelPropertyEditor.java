@@ -302,4 +302,4 @@ public class MultiPopulationDiseaseModelPropertyEditor extends
 		return validator;
 	}
 	
-} // ExampleDiseaseModelPropertyEditor
+} // MultiPopulationDiseaseModelPropertyEditor

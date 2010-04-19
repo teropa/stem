@@ -13,6 +13,7 @@ package org.eclipse.stem.ui.adapters.newmodifierpage;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
@@ -84,8 +85,19 @@ public class DiseaseNewModifierPageAdapterFactory extends
 				@Override
 				protected boolean isUserSpecifiedProperty(
 						final EStructuralFeature feature) {
-					return StandardDiseaseModelPropertyEditor
-							.isUserSpecifiedDiseaseModelProperty(feature);
+					boolean retValue = false;
+					final EClass containingClass = feature.getEContainingClass();
+					// Is it a disease model property?
+					if (containingClass.equals(StandardPackage.eINSTANCE.getDiseaseModel())
+							|| containingClass.getEAllSuperTypes().contains(
+									StandardPackage.eINSTANCE.getDiseaseModel())) {
+						// Deprecated, don't use!
+						if(feature.getName().equals("finiteDifference")
+								|| feature.getName().equals("relativeTolerance")) return false;
+						// Yes
+						retValue = true;
+					} // if a disease model property
+					return retValue;
 				} // isUserSpecifiedProperty
 
 				@Override

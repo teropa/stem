@@ -19,18 +19,21 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.ui.editors.GenericPropertyEditor;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
 @SuppressWarnings("all")
-abstract public class PopulationModelPropertyEditor extends Composite {
+abstract public class PopulationModelPropertyEditor extends GenericPropertyEditor {
 
 	/**
 	 * @param feature
 	 * @return <code>true</code> if the feature is a dublin core feature that
 	 *         is specified by a user.
 	 */
-	public static boolean isUserSpecifiedPopulationModelProperty(final EStructuralFeature feature) {
+	@Override
+	public boolean isUserSpecifiedProperty(final EStructuralFeature feature) {
 		boolean retValue = false;
 		if(feature.getFeatureID() == StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS)
 			return false;
@@ -47,13 +50,18 @@ abstract public class PopulationModelPropertyEditor extends Composite {
 		return retValue;
 	} // isUserSpecifiedDiseaseModelProperty
 
-	protected final Map<EStructuralFeature, Text> map = new HashMap<EStructuralFeature, Text>();
-	protected String errorMessage;
 
 	public PopulationModelPropertyEditor(Composite parent, int style) {
 		super(parent,style);
 	}
 
+	public PopulationModelPropertyEditor(final Composite parent, final int style,
+			final PopulationModel populationModel,
+			final ModifyListener projectValidator) {
+		super(parent, style, populationModel, projectValidator);
+
+	}
+		
 	public void populate(PopulationModel populationModel) {
 		
 	}
@@ -64,54 +72,7 @@ abstract public class PopulationModelPropertyEditor extends Composite {
 		return true;
 	} // validate
 
-	
-	/**
-	 * @param text
-	 * @return
-	 */
-	protected boolean isValidPercentage(final String text) {
-		boolean retValue = true;
-		try {
-			final double value = Double.parseDouble(text);
-			retValue = value >= 0.0 && value <= 100.;
-		} catch (final NumberFormatException nfe) {
-			retValue = false;
-		} // catch ParseException
-		return retValue;
-	}
-
-	/**
-	 * @param text
-	 * @param minValue
-	 * @return
-	 */
-	protected boolean isValidValue(final String text, final double minValue) {
-		boolean retValue = true;
-		try {
-			final double value = Double.parseDouble(text);
-			retValue = value >= minValue;
-		} catch (final NumberFormatException nfe) {
-			retValue = false;
-		} // catch ParseException
-		return retValue;
-	} // isValidRate
-
-	/**
-	 * @param text
-	 * @param minValue
-	 * @return
-	 */
-	protected boolean isValidLong(final String text, final long minValue) {
-		boolean retValue = true;
-		try {
-			final double value = Long.parseLong(text);
-			retValue = value >= minValue;
-		} catch (final NumberFormatException nfe) {
-			retValue = false;
-		} // catch ParseException
-		return retValue;
-	} // isValidLong
-	
+		
 	@Override
 	public void dispose() {
 		super.dispose();
@@ -120,29 +81,6 @@ abstract public class PopulationModelPropertyEditor extends Composite {
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents sub-classing of SWT components
-	}
-
-	/**
-	 * @param descriptor
-	 * @return the string that represents the default value of the property
-	 */
-	protected String getPropertyDefaultValueString(final IItemPropertyDescriptor descriptor) {
-		String retValue = ""; //$NON-NLS-1$
-	
-		final EStructuralFeature feature = (EStructuralFeature) descriptor
-				.getFeature(null);
-	
-		retValue = feature.getDefaultValueLiteral();
-		retValue = retValue == null ? "" : retValue; //$NON-NLS-1$
-	
-		return retValue;
-	} // getPropertyDefaultValueString
-
-	/**
-	 * @return the error message that describes the problem with the contents
-	 */
-	public String getErrorMessage() {
-		return errorMessage;
 	}
 
 } // PopulationModelPropertyEditor

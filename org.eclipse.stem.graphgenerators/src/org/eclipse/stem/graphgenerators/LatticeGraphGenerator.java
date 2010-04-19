@@ -84,6 +84,7 @@ public interface LatticeGraphGenerator extends GraphGenerator {
 
 	/**
 	 * Returns the value of the '<em><b>Use Nearest Neighbors</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Use Nearest Neighbors</em>' attribute isn't clear,
@@ -93,7 +94,7 @@ public interface LatticeGraphGenerator extends GraphGenerator {
 	 * @return the value of the '<em>Use Nearest Neighbors</em>' attribute.
 	 * @see #setUseNearestNeighbors(boolean)
 	 * @see org.eclipse.stem.graphgenerators.GraphgeneratorsPackage#getLatticeGraphGenerator_UseNearestNeighbors()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isUseNearestNeighbors();
@@ -110,6 +111,7 @@ public interface LatticeGraphGenerator extends GraphGenerator {
 
 	/**
 	 * Returns the value of the '<em><b>Use Next Nearest Neighbors</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Use Next Nearest Neighbors</em>' attribute isn't clear,
@@ -119,7 +121,7 @@ public interface LatticeGraphGenerator extends GraphGenerator {
 	 * @return the value of the '<em>Use Next Nearest Neighbors</em>' attribute.
 	 * @see #setUseNextNearestNeighbors(boolean)
 	 * @see org.eclipse.stem.graphgenerators.GraphgeneratorsPackage#getLatticeGraphGenerator_UseNextNearestNeighbors()
-	 * @model
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isUseNextNearestNeighbors();
@@ -136,6 +138,7 @@ public interface LatticeGraphGenerator extends GraphGenerator {
 
 	/**
 	 * Returns the value of the '<em><b>Periodic Boundaries</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Periodic Boundaries</em>' attribute isn't clear,
@@ -145,7 +148,7 @@ public interface LatticeGraphGenerator extends GraphGenerator {
 	 * @return the value of the '<em>Periodic Boundaries</em>' attribute.
 	 * @see #setPeriodicBoundaries(boolean)
 	 * @see org.eclipse.stem.graphgenerators.GraphgeneratorsPackage#getLatticeGraphGenerator_PeriodicBoundaries()
-	 * @model
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isPeriodicBoundaries();

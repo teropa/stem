@@ -70,85 +70,8 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 	public StandardPopulationModelPropertyEditor(final Composite parent, final int style,
 			final PopulationModel populationModel,
 			final ModifyListener projectValidator) {
-		super(parent, style);
-
-		
-		final GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 3;
-		this.setLayout(gridLayout);
-		
-		
-		// Get the adapter that will provide NLS'd names for the
-		// properties of the disease model
-		final PropertyStringProviderAdapter pspa = (PropertyStringProviderAdapter) PropertyStringProviderAdapterFactory.INSTANCE
-				.adapt(populationModel, PropertyStringProvider.class);
-
-		final ComposedAdapterFactory itemProviderFactory = new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-		final IItemPropertySource propertySource = (IItemPropertySource) itemProviderFactory
-				.adapt(populationModel, IItemPropertySource.class);
-		
-		final List<IItemPropertyDescriptor> properties = propertySource
-				.getPropertyDescriptors(populationModel);
-
-		for (final IItemPropertyDescriptor descriptor : properties) {
-			final EStructuralFeature feature = (EStructuralFeature) descriptor
-					.getFeature(null);
-			// Is this a disease model property that the user should specify?
-			if (isUserSpecifiedPopulationModelProperty(feature)) {
-				if(feature.getFeatureID() == StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS) {
-					
-				}
-				// Yes
-				final Label label = new Label(this, SWT.NONE);
-				label.setText(pspa.getPropertyName(descriptor));
-
-				final GridData labelGD = new GridData(GridData.BEGINNING);
-				labelGD.grabExcessHorizontalSpace = true;
-				labelGD.horizontalAlignment = SWT.FILL;
-				labelGD.horizontalIndent = 0;
-				label.setLayoutData(labelGD);
-
-				// Get a string value for the default value of the feature
-
-				final String defaultValueString = getPropertyDefaultValueString(descriptor);
-
-				final Text text = new Text(this, SWT.BORDER | SWT.TRAIL);
-				text.setText(defaultValueString);
-				text.setToolTipText(pspa.getPropertyToolTip(descriptor));
-				map.put(feature, text);
-
-				final GridData textGD = new GridData(GridData.END);
-				textGD.grabExcessHorizontalSpace = true;
-				textGD.horizontalAlignment = SWT.FILL;
-				text.setLayoutData(textGD);
-
-				text.addModifyListener(projectValidator);
-
-				boolean isDataPath = false;
-				if (feature.getName().equals("dataPath")) { //$NON-NLS-1$
-					isDataPath = true;
-				}
-				if (!isDataPath) {
-					final Label unitLabel = new Label(this, SWT.NONE);
-					unitLabel.setText(pspa.getPropertyUnits(descriptor));
-					final GridData unitLabelGD = new GridData(GridData.END);
-					unitLabelGD.verticalAlignment = GridData.CENTER;
-					unitLabel.setLayoutData(unitLabelGD);
-				}
-
-			} // if user specified
-		} // for each disease model property
-
-		final Label pmtpDefLabel = new Label(this, SWT.NONE);
-		pmtpDefLabel.setText(PopulationModelWizardMessages.getString("PMTP_Def")); //$NON-NLS-1$
-		final GridData pmtpDefGD = new GridData(GridData.END);
-		pmtpDefGD.grabExcessHorizontalSpace = true;
-		pmtpDefGD.horizontalSpan = 3;
-		pmtpDefLabel.setLayoutData(pmtpDefGD);
-		
-		
+		super(parent, style, populationModel, projectValidator);
+	
 		if(populationModel instanceof DemographicPopulationModel) {
 			allGroups = new Group(this, SWT.NONE);
 			GridLayout singleColGridLayout = new GridLayout();
@@ -408,7 +331,7 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			else {
 				// No
 				// Is it a valid value > 0?
-				retValue = isValidLong(text.getText(), 0L);
+				retValue = isValidLongValue(text.getText(), 0L);
 				if (!retValue) {
 					// No
 					errorMessage = PopulationModelWizardMessages

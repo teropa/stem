@@ -81,7 +81,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean USE_NEAREST_NEIGHBORS_EDEFAULT = false;
+	protected static final boolean USE_NEAREST_NEIGHBORS_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isUseNearestNeighbors() <em>Use Nearest Neighbors</em>}' attribute.
