@@ -253,6 +253,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		}
 		
 		
+		
 		// First we get the step size, either the default step size
 		// (initially 1.0) or the last step size used. 
 		
@@ -314,6 +315,8 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			return;
 		}
 
+		// When x (or time) is this we're done
+		double end = Math.floor(this.getCurrentX())+1.0;
 		
 		// Make sure we actually have labels to update
 		boolean workToDo=false;
@@ -325,12 +328,12 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			jobs[threadnum].h = h;
 			jobs[threadnum].t = x;
 			// Be nice and walk in step with others until done
-			while(x < cycle) {
+			while(x < end) {
 				try {
 					// Set to a large number to make sure it's larger than any step size reported
 					// by another thread
 					do {
-						jobs[threadnum].h = Double.MAX_VALUE;
+						jobs[threadnum].h = Double.MAX_VALUE;						
 						stepSizeBarrier.await();
 					} while(this.maximumError > 1.0);
 					updateDoneBarrier.await();
@@ -349,7 +352,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			}				
 			return; 
 		}
-		
 		// We use the Runge Kutta Kash Carp method to advance to the next
 		// step in the simulation. Two estimates of the disease deltas
 		// are calculated and compared to each other. If they differ
@@ -394,7 +396,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 			_k5[n] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
 			_k6[n++] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
 		}
-		double end = Math.floor(this.getCurrentX())+1.0;
+		
 		
 		// Keep track if whether anyone want to stop
 		// or pause updating labels
