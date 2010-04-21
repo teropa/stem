@@ -576,6 +576,29 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfectorInoculatorCollectionItemProvider infectorInoculatorCollectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfectorInoculatorCollectionAdapter() {
+		if (infectorInoculatorCollectionItemProvider == null) {
+			infectorInoculatorCollectionItemProvider = new InfectorInoculatorCollectionItemProvider(this);
+		}
+
+		return infectorInoculatorCollectionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.standard.StochasticSIDiseaseModel} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -776,6 +799,7 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory
 		if (stochasticPoissonSIDiseaseModelItemProvider != null) stochasticPoissonSIDiseaseModelItemProvider.dispose();
 		if (stochasticPoissonSIRDiseaseModelItemProvider != null) stochasticPoissonSIRDiseaseModelItemProvider.dispose();
 		if (stochasticPoissonSEIRDiseaseModelItemProvider != null) stochasticPoissonSEIRDiseaseModelItemProvider.dispose();
+		if (infectorInoculatorCollectionItemProvider != null) infectorInoculatorCollectionItemProvider.dispose();
 	}
 
 }

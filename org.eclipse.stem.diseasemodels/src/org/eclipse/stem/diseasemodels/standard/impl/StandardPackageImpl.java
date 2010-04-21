@@ -49,6 +49,7 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.Infector;
+import org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIDiseaseModelState;
@@ -367,6 +368,13 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass stochasticPoissonSEIRDiseaseModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass infectorInoculatorCollectionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1385,6 +1393,33 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInfectorInoculatorCollection() {
+		return infectorInoculatorCollectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInfectorInoculatorCollection_List() {
+		return (EReference)infectorInoculatorCollectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInfectorInoculatorCollection_ImportFolder() {
+		return (EAttribute)infectorInoculatorCollectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getURI() {
 		return uriEDataType;
 	}
@@ -1579,6 +1614,10 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		stochasticPoissonSEIRDiseaseModelEClass = createEClass(STOCHASTIC_POISSON_SEIR_DISEASE_MODEL);
 
+		infectorInoculatorCollectionEClass = createEClass(INFECTOR_INOCULATOR_COLLECTION);
+		createEReference(infectorInoculatorCollectionEClass, INFECTOR_INOCULATOR_COLLECTION__LIST);
+		createEAttribute(infectorInoculatorCollectionEClass, INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER);
+
 		// Create data types
 		uriEDataType = createEDataType(URI);
 		eListEDataType = createEDataType(ELIST);
@@ -1666,6 +1705,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		stochasticPoissonSIDiseaseModelEClass.getESuperTypes().add(this.getSI());
 		stochasticPoissonSIRDiseaseModelEClass.getESuperTypes().add(this.getSIR());
 		stochasticPoissonSEIRDiseaseModelEClass.getESuperTypes().add(this.getSEIR());
+		infectorInoculatorCollectionEClass.getESuperTypes().add(theModelPackage.getNodeDecorator());
+		infectorInoculatorCollectionEClass.getESuperTypes().add(theModifierPackage.getModifiable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(deterministicSEIRDiseaseModelEClass, DeterministicSEIRDiseaseModel.class, "DeterministicSEIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -1898,6 +1939,10 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(stochasticPoissonSIRDiseaseModelEClass, StochasticPoissonSIRDiseaseModel.class, "StochasticPoissonSIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(stochasticPoissonSEIRDiseaseModelEClass, StochasticPoissonSEIRDiseaseModel.class, "StochasticPoissonSEIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(infectorInoculatorCollectionEClass, InfectorInoculatorCollection.class, "InfectorInoculatorCollection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getInfectorInoculatorCollection_List(), this.getInfector(), null, "list", null, 0, -1, InfectorInoculatorCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getInfectorInoculatorCollection_ImportFolder(), theEcorePackage.getEString(), "importFolder", "", 0, 1, InfectorInoculatorCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		// Initialize data types
 		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

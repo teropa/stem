@@ -6924,6 +6924,115 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL_FEATURE_COUNT = SEIR_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.InfectorInoculatorCollectionImpl <em>Infector Inoculator Collection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.InfectorInoculatorCollectionImpl
+	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getInfectorInoculatorCollection()
+	 * @generated
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION = 41;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__URI = ModelPackage.NODE_DECORATOR__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__TYPE_URI = ModelPackage.NODE_DECORATOR__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__DUBLIN_CORE = ModelPackage.NODE_DECORATOR__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__LABELS_TO_UPDATE = ModelPackage.NODE_DECORATOR__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__GRAPH = ModelPackage.NODE_DECORATOR__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__ENABLED = ModelPackage.NODE_DECORATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__GRAPH_DECORATED = ModelPackage.NODE_DECORATOR__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__PROGRESS = ModelPackage.NODE_DECORATOR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>List</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__LIST = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Import Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Infector Inoculator Collection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFECTOR_INOCULATOR_COLLECTION_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '<em>URI</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6931,7 +7040,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 41;
+	int URI = 42;
 
 
 	/**
@@ -6942,7 +7051,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getEList()
 	 * @generated
 	 */
-	int ELIST = 42;
+	int ELIST = 43;
 
 
 	/**
@@ -6953,7 +7062,7 @@ public interface StandardPackage extends EPackage {
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getRandom()
 	 * @generated
 	 */
-	int RANDOM = 43;
+	int RANDOM = 44;
 
 
 	/**
@@ -8053,6 +8162,38 @@ public interface StandardPackage extends EPackage {
 	EClass getStochasticPoissonSEIRDiseaseModel();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection <em>Infector Inoculator Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Infector Inoculator Collection</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection
+	 * @generated
+	 */
+	EClass getInfectorInoculatorCollection();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection#getList <em>List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>List</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection#getList()
+	 * @see #getInfectorInoculatorCollection()
+	 * @generated
+	 */
+	EReference getInfectorInoculatorCollection_List();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection#getImportFolder <em>Import Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import Folder</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection#getImportFolder()
+	 * @see #getInfectorInoculatorCollection()
+	 * @generated
+	 */
+	EAttribute getInfectorInoculatorCollection_ImportFolder();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.URI <em>URI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9012,6 +9153,32 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STOCHASTIC_POISSON_SEIR_DISEASE_MODEL = eINSTANCE.getStochasticPoissonSEIRDiseaseModel();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.InfectorInoculatorCollectionImpl <em>Infector Inoculator Collection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.InfectorInoculatorCollectionImpl
+		 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardPackageImpl#getInfectorInoculatorCollection()
+		 * @generated
+		 */
+		EClass INFECTOR_INOCULATOR_COLLECTION = eINSTANCE.getInfectorInoculatorCollection();
+
+		/**
+		 * The meta object literal for the '<em><b>List</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFECTOR_INOCULATOR_COLLECTION__LIST = eINSTANCE.getInfectorInoculatorCollection_List();
+
+		/**
+		 * The meta object literal for the '<em><b>Import Folder</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER = eINSTANCE.getInfectorInoculatorCollection_ImportFolder();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.

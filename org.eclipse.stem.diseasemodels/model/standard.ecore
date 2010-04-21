@@ -253,4 +253,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="StochasticPoissonSIDiseaseModel" eSuperTypes="#//SI"/>
   <eClassifiers xsi:type="ecore:EClass" name="StochasticPoissonSIRDiseaseModel" eSuperTypes="#//SIR"/>
   <eClassifiers xsi:type="ecore:EClass" name="StochasticPoissonSEIRDiseaseModel" eSuperTypes="#//SEIR"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InfectorInoculatorCollection" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator ../../org.eclipse.stem.core/model/modifier.ecore#//Modifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" upperBound="-1" eType="#//Infector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importFolder" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
 </ecore:EPackage>

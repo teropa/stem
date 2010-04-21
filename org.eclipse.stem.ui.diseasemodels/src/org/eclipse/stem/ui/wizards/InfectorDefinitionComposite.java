@@ -19,15 +19,19 @@ import org.eclipse.stem.ui.Activator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 /**
@@ -56,6 +60,9 @@ public class InfectorDefinitionComposite extends Composite {
 	
 	private Label numberOfInfectionsLabel;
 
+	private Label logDirLabel;
+	private Text logDirText;
+	
 	private String errorMessage;
 	
 	/**
@@ -63,9 +70,13 @@ public class InfectorDefinitionComposite extends Composite {
 	 * or an inoculator.
 	 */
 	private Button[] infectorModeRadioButtons = new Button[2];
+	private Button[] importRadioButtons = new Button[2];
 	
 	private Button useAbsoluteNumberButton = null;
 	private Button usePercentageButton = null;
+	
+	private Button importFileButton = null;
+	private boolean importFromFile = false;
 	
 	/** 
 	 * keep track of the mode.
@@ -101,22 +112,17 @@ public class InfectorDefinitionComposite extends Composite {
 		fd_infectorMode.right = new FormAttachment(100, 0);
 		infectorModeComposite.setLayoutData(fd_infectorMode);
 
-		Composite percentModeComposite = createPercentModeRadioButtonsComposite(this);
-		final FormData fd_percentMode = new FormData();
-		fd_percentMode.top = new FormAttachment(infectorModeComposite, 5, SWT.BOTTOM);
-		fd_percentMode.left = new FormAttachment(0, 0);
-		fd_percentMode.right = new FormAttachment(100, 0);
-		percentModeComposite.setLayoutData(fd_percentMode);
-
+		
 		// Disease Name
 		final Label diseaseNameLabel = new Label(this, SWT.NONE);
 		final FormData fd_diseaseNameLabel = new FormData();
 		fd_diseaseNameLabel.left = new FormAttachment(0, 0);
 		fd_diseaseNameLabel.right = new FormAttachment(margin1, 0);
-		fd_diseaseNameLabel.top = new FormAttachment(percentModeComposite, 5, SWT.BOTTOM);
+		fd_diseaseNameLabel.top = new FormAttachment(infectorModeComposite, 5, SWT.BOTTOM);
 		diseaseNameLabel.setLayoutData(fd_diseaseNameLabel);
 		diseaseNameLabel.setText(DiseaseWizardMessages.getString("NInfWizDN")); //$NON-NLS-1$
 
+		
 		diseaseNameText = new Text(this, SWT.BORDER);
 		diseaseNameText.setToolTipText(DiseaseWizardMessages.getString("NInfWizDNTT")); //$NON-NLS-1$
 		diseaseNameText.addModifyListener(projectValidator);
@@ -124,7 +130,7 @@ public class InfectorDefinitionComposite extends Composite {
 		final FormData fd_diseaseNameText = new FormData();
 		fd_diseaseNameText.left = new FormAttachment(diseaseNameLabel, 0);
 		fd_diseaseNameText.right = new FormAttachment(100, 0);
-		fd_diseaseNameText.top = new FormAttachment(percentModeComposite, 5, SWT.BOTTOM);
+		fd_diseaseNameText.top = new FormAttachment(infectorModeComposite, 5, SWT.BOTTOM);
 		diseaseNameText.setLayoutData(fd_diseaseNameText);
 		
 
@@ -148,13 +154,58 @@ public class InfectorDefinitionComposite extends Composite {
 		fd_populationText.right = new FormAttachment(100, 0);
 		populationText.setLayoutData(fd_populationText);
 		
+		Composite percentModeComposite = createPercentModeRadioButtonsComposite(this);
+		final FormData fd_percentMode = new FormData();
+		fd_percentMode.top = new FormAttachment(populationLabel, 5, SWT.BOTTOM);
+		fd_percentMode.left = new FormAttachment(0, 0);
+		fd_percentMode.right = new FormAttachment(100, 0);
+		percentModeComposite.setLayoutData(fd_percentMode);
+		
+		// radio buttons to set the import 
+		Composite importModeComposite = createImportRadioButtonsComposite(this);
+		final FormData fd_importMode = new FormData();
+		fd_importMode.top = new FormAttachment(percentModeComposite, 5, SWT.BOTTOM);
+		fd_importMode.left = new FormAttachment(0, 0);
+		fd_importMode.right = new FormAttachment(100, 0);
+		importModeComposite.setLayoutData(fd_importMode);
+		
+		importFileButton = new Button(this, SWT.BORDER);
+		importFileButton.setText(DiseaseWizardMessages.getString("NInfWizImport"));
+		final FormData fd_importButton= new FormData();
+		fd_importButton.left = new FormAttachment(0, 0);
+		fd_importButton.right = new FormAttachment(100, 0);
+		fd_importButton.top = new FormAttachment(importModeComposite, 5, SWT.BOTTOM);
+		importFileButton.setLayoutData(fd_importButton);
+		importFileButton.setEnabled(false);
+		
+		// Log file location
+		logDirLabel = new Label(this, SWT.NONE);
+		logDirLabel.setText(DiseaseWizardMessages.getString("NInfWizLogDirLabel")); //$NON-NLS-1$
 
+		final FormData fd_logDirLabel = new FormData();
+		fd_logDirLabel.top = new FormAttachment(importFileButton,5, SWT.BOTTOM);
+		fd_logDirLabel.left = new FormAttachment(0, 0);
+		fd_logDirLabel.right = new FormAttachment(margin1, 0);
+		logDirLabel.setLayoutData(fd_logDirLabel);
+		
+		logDirText = new Text(this, SWT.BORDER);
+		logDirText.setText("");
+		logDirText.setEditable(false);
+		logDirText.setEnabled(false);
+		
+		final FormData fd_logDirText = new FormData();
+		fd_logDirText.left = new FormAttachment(logDirLabel, 0);
+		fd_logDirText.right = new FormAttachment(100, 0);
+		fd_logDirText.top = new FormAttachment(importFileButton, 5, SWT.BOTTOM);
+		logDirText.setLayoutData(fd_logDirText);
+			
+		
 		// Number of Infections
 		numberOfInfectionsLabel = new Label(this, SWT.NONE);
 		numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNI")); //$NON-NLS-1$
 
 		final FormData fd_numberOfInfectionsLabel = new FormData();
-		fd_numberOfInfectionsLabel.top = new FormAttachment(populationLabel,5, SWT.BOTTOM);
+		fd_numberOfInfectionsLabel.top = new FormAttachment(logDirLabel,5, SWT.BOTTOM);
 		fd_numberOfInfectionsLabel.left = new FormAttachment(0, 0);
 		fd_numberOfInfectionsLabel.right = new FormAttachment(margin1, 0);
 		numberOfInfectionsLabel.setLayoutData(fd_numberOfInfectionsLabel);
@@ -167,7 +218,7 @@ public class InfectorDefinitionComposite extends Composite {
 		final FormData fd_numberOfInfectionsText = new FormData();
 		fd_numberOfInfectionsText.left = new FormAttachment(numberOfInfectionsLabel, 0);
 		fd_numberOfInfectionsText.right = new FormAttachment(100, 0);
-		fd_numberOfInfectionsText.top = new FormAttachment(populationLabel, 5, SWT.BOTTOM);
+		fd_numberOfInfectionsText.top = new FormAttachment(logDirLabel, 5, SWT.BOTTOM);
 		numberOfInfectionsText.setLayoutData(fd_numberOfInfectionsText);
 		
 
@@ -297,6 +348,25 @@ public class InfectorDefinitionComposite extends Composite {
 		//fd_isoKeyPicker3.bottom = new FormAttachment(100, -5);
 		isoKeyPicker3.setLayoutData(fd_isoKeyPicker3);
 		// getShell().pack();
+		
+		
+		
+		final Shell shell = this.getShell();
+		importFileButton
+				.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							final SelectionEvent e) {
+						final DirectoryDialog dd = new DirectoryDialog(
+								shell, SWT.OPEN);
+						dd
+								.setText(DiseaseWizardMessages
+										.getString("NInfWizLogDirDesc")); //$NON-NLS-1$
+						final String selected = dd.open();
+						logDirText.setText(selected);
+					} // widgetSelected
+				} // SelectionAdapter
+				);
 	}// InfectorDefinitionControl
 
 	
@@ -331,6 +401,47 @@ public class InfectorDefinitionComposite extends Composite {
 	      
 	    return radioComposite;
 	}//getinfectorModeRadioButtonsComposite
+	
+	/**
+	 * Create radio buttons to determine whether to import from file or not
+	 * 
+	 * @param parent
+	 * @return the composite
+	 */
+	Composite createImportRadioButtonsComposite(final Composite parent) {
+		Composite radioComposite = new Composite(parent, SWT.BORDER);
+	    FillLayout fillLayout = new FillLayout();
+	    fillLayout.type = SWT.VERTICAL;
+	    radioComposite.setLayout(fillLayout);
+	    
+	    importRadioButtons[0] = new Button(radioComposite, SWT.RADIO);
+	    importRadioButtons[0].setSelection(true);
+	    importRadioButtons[0].setText(DiseaseWizardMessages.getString("NInfectorWiz.enter"));//$NON-NLS-1$
+	    
+	    importRadioButtons[1] = new Button(radioComposite, SWT.RADIO);
+	    importRadioButtons[1].setText(DiseaseWizardMessages.getString("NInfectorWiz.import"));//$NON-NLS-1$
+	    	    
+	    Listener listener = new Listener() {
+	        public void handleEvent(Event event) {
+	          if (event.widget == importRadioButtons[0]) {
+	        	importFromFile = !importRadioButtons[0].getSelection();
+	        	if(importFromFile) {
+	        		importFileButton.setEnabled(true);
+	        		numberOfInfectionsText.setEnabled(false);
+	        		logDirText.setEnabled(true);
+	        	} else {
+	        		importFileButton.setEnabled(false);
+	        		numberOfInfectionsText.setEnabled(true);
+	        		logDirText.setEnabled(false);
+	        	}
+	          }
+	        }
+	      };
+	      // these are radio buttons so we only need to add the listener to one of them.
+	      importRadioButtons[0].addListener(SWT.Selection, listener);
+	      
+	    return radioComposite;
+	}//
 	
 	/**
 	 * @param parent
@@ -397,7 +508,7 @@ public class InfectorDefinitionComposite extends Composite {
 		} // if
 
 		// Number of infections
-		if (retValue) {
+		if (this.importFromFile == false && retValue) {
 			// Yes
 			if (numberOfInfectionsText.getText() == null
 					|| numberOfInfectionsText.getText().equals("")) { //$NON-NLS-1$
@@ -470,6 +581,22 @@ public class InfectorDefinitionComposite extends Composite {
 	 */
 	public boolean isInfectorMode() {
 		return infectorMode;
+	}
+	
+	/**
+	 * Are we reading from a file
+	 */
+	
+	public boolean isFromFile() {
+		return importFromFile;
+	}
+	
+	/**
+	 * Are we reading from a file
+	 */
+	
+	public String getImportFolder() {
+		return logDirText.getText();
 	}
 	
 	/**

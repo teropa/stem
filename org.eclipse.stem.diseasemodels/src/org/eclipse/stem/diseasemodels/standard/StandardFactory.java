@@ -229,6 +229,15 @@ public interface StandardFactory extends EFactory {
 	StochasticPoissonSEIRDiseaseModel createStochasticPoissonSEIRDiseaseModel();
 
 	/**
+	 * Returns a new object of class '<em>Infector Inoculator Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infector Inoculator Collection</em>'.
+	 * @generated
+	 */
+	InfectorInoculatorCollection createInfectorInoculatorCollection();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

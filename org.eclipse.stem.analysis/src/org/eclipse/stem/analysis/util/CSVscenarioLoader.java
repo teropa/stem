@@ -48,6 +48,13 @@ public class CSVscenarioLoader {
 	
 	private String directory="";
 	
+	// These are the keys in the map
+	public static final String S_KEY = "S";
+	public static final String E_KEY = "E";
+	public static final String I_KEY = "I";
+	public static final String R_KEY = "R";
+	public static final String POP_COUNT_KEY = "Population Count";
+	
 	
 	private static final String CSV_EXTENSION = ".csv";
 	

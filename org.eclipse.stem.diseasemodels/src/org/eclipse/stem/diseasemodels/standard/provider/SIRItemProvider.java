@@ -122,7 +122,7 @@ public class SIRItemProvider extends SIItemProvider implements
 	 * @return
 	 * 
 	 * <!-- end-user-doc -->
-	 * @generated 
+	 * @generated
 	 */
 	@Override
 	public String getTextGen(Object object) {

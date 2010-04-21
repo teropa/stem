@@ -102,10 +102,10 @@ public class StandardStochasticDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StandardStochasticDiseaseModel)object).getURI().lastSegment();
+		String label = ((StandardStochasticDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StandardStochasticDiseaseModel_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
+			getString("_UI_StandardStochasticDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

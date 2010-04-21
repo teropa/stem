@@ -78,6 +78,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//Infector/targetISOKey"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference standard.ecore#//Infector/labelsToInfect"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//Infector/populationIdentifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//Infector/infectPercentage"/>
     </genClasses>
     <genClasses image="false" ecoreClass="standard.ecore#//SEIR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SEIR/incubationRate"/>
@@ -207,9 +208,14 @@
     </genClasses>
     <genClasses ecoreClass="standard.ecore#//SIRInoculator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SIRInoculator/inoculatedPercentage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SIRInoculator/inoculatePercentage"/>
     </genClasses>
     <genClasses ecoreClass="standard.ecore#//StochasticPoissonSIDiseaseModel"/>
     <genClasses ecoreClass="standard.ecore#//StochasticPoissonSIRDiseaseModel"/>
     <genClasses ecoreClass="standard.ecore#//StochasticPoissonSEIRDiseaseModel"/>
+    <genClasses ecoreClass="standard.ecore#//InfectorInoculatorCollection">
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference standard.ecore#//InfectorInoculatorCollection/list"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

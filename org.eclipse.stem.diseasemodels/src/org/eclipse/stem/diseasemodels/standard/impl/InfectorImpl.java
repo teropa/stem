@@ -32,6 +32,7 @@ import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.NodeDecoratorImpl;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabelValue;
@@ -39,6 +40,7 @@ import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.Infector;
+import org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 
@@ -189,8 +191,10 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	@Override
 	public boolean decorateGraph(STEMTime time) {
 
-		final Graph graph = getGraph();
-
+		Graph graph = getGraph();
+		if(graph == null && this.eContainer() instanceof InfectorInoculatorCollection) // Might be part of a collection
+			graph = ((NodeDecorator)eContainer()).getGraph();
+		
 		// Do we need to look up the disease model from its name?
 		if (diseaseModel == null) {
 			// Yes
@@ -217,7 +221,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		if (diseaseModel != null) {
 			// Yes
 			// Now try to find the node to be infected
-			final Node parent = getGraph().getNode(getTargetURI());
+			final Node parent = graph.getNode(getTargetURI());
 			
 			Set<Node> allNodes = null;
 			

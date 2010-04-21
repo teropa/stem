@@ -284,6 +284,10 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createStochasticPoissonSEIRDiseaseModelAdapter();
 			}
 			@Override
+			public Adapter caseInfectorInoculatorCollection(InfectorInoculatorCollection object) {
+				return createInfectorInoculatorCollectionAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -895,6 +899,20 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStochasticPoissonSEIRDiseaseModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection <em>Infector Inoculator Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection
+	 * @generated
+	 */
+	public Adapter createInfectorInoculatorCollectionAdapter() {
 		return null;
 	}
 

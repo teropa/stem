@@ -13,6 +13,7 @@ package org.eclipse.stem.ui.wizards;
  *******************************************************************************/
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -21,13 +22,23 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.stem.analysis.ReferenceScenarioDataMap;
+import org.eclipse.stem.analysis.ScenarioInitializationException;
+import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl;
+import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScenarioDataInstance;
+import org.eclipse.stem.analysis.util.CSVscenarioLoader;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.diseasemodels.standard.Infector;
+import org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection;
 import org.eclipse.stem.diseasemodels.standard.SIInfector;
+import org.eclipse.stem.diseasemodels.standard.SIRInoculator;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 import org.eclipse.stem.diseasemodels.standard.impl.SIRInoculatorImpl;
 import org.eclipse.stem.data.geography.GeographicNames;
+import org.eclipse.stem.populationmodels.Activator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -93,7 +104,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected Identifiable createIdentifiable() {
-		final Infector retValue = nip.getInfector();
+		final NodeDecorator retValue = nip.getInfector();
 		retValue.setDublinCore(newDublinCorePage.createDublinCore());
 		return retValue;
 	} // createSpecificIdentifiable
@@ -128,35 +139,89 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		/**
 		 * @return
 		 */
-		public Infector getInfector() {
-			SIInfector retValue = null;
-			if(idc.isInfectorMode()) {
-				retValue = StandardFactory.eINSTANCE.createSIInfector();
+		public NodeDecorator getInfector() {
+			if(!idc.isFromFile()) {
+				SIInfector retValue = null;
+				if(idc.isInfectorMode()) {
+					retValue = StandardFactory.eINSTANCE.createSIInfector();
+				} else {
+					retValue = StandardFactory.eINSTANCE.createSIRInoculator();
+				}
+				retValue.setDiseaseName(idc.getDiseaseName());
+				retValue.setPopulationIdentifier(idc.getPopulation());
+				retValue.setTargetISOKey(idc.getIsoKey());
+				if(idc.isInfectorMode() && idc.isPercentage()) {
+					retValue.setInfectPercentage(true);
+					retValue.setInfectiousCount(idc.getNumber());
+				} else if(idc.isInfectorMode() && !idc.isPercentage()) {
+					retValue.setInfectPercentage(false);
+					retValue.setInfectiousCount(idc.getNumber());
+				} else if( idc.isPercentage()){
+					((SIRInoculatorImpl) retValue).setInoculatedPercentage(idc.getNumber());
+					
+					((SIRInoculatorImpl) retValue).setInoculatePercentage(true);
+					// just to be sure - since this is NOT and Infector
+					retValue.setInfectiousCount(0.0);
+				} else {
+					((SIRInoculatorImpl) retValue).setInoculatedPercentage(idc.getNumber());
+					((SIRInoculatorImpl) retValue).setInoculatePercentage(false);
+					// just to be sure - since this is NOT and Infector
+					retValue.setInfectiousCount(0.0);
+				}
+				return retValue;
 			} else {
-				retValue = StandardFactory.eINSTANCE.createSIRInoculator();
-			}
-			retValue.setDiseaseName(idc.getDiseaseName());
-			retValue.setPopulationIdentifier(idc.getPopulation());
-			retValue.setTargetISOKey(idc.getIsoKey());
-			if(idc.isInfectorMode() && idc.isPercentage()) {
-				retValue.setInfectPercentage(true);
-				retValue.setInfectiousCount(idc.getNumber());
-			} else if(idc.isInfectorMode() && !idc.isPercentage()) {
-				retValue.setInfectPercentage(false);
-				retValue.setInfectiousCount(idc.getNumber());
-			} else if( idc.isPercentage()){
-				((SIRInoculatorImpl) retValue).setInoculatedPercentage(idc.getNumber());
+				// We need to create a InfectorInoculatorList object
+				// and read the data from file
 				
-				((SIRInoculatorImpl) retValue).setInoculatePercentage(true);
-				// just to be sure - since this is NOT and Infector
-				retValue.setInfectiousCount(0.0);
-			} else {
-				((SIRInoculatorImpl) retValue).setInoculatedPercentage(idc.getNumber());
-				((SIRInoculatorImpl) retValue).setInoculatePercentage(false);
-				// just to be sure - since this is NOT and Infector
-				retValue.setInfectiousCount(0.0);
+				String folder = idc.getImportFolder();
+				ReferenceScenarioDataMapImpl map = null;
+				try {
+					CSVscenarioLoader loader = new CSVscenarioLoader(folder);
+					int maxDepth = loader.getMaxResolution();
+					map = loader.parseAllFiles(maxDepth);
+				} catch(ScenarioInitializationException sie) {
+					org.eclipse.stem.diseasemodels.Activator.logError(sie.getMessage(), sie);
+					return null;
+				}
+				InfectorInoculatorCollection iic = StandardFactory.eINSTANCE.createInfectorInoculatorCollection();
+				iic.setImportFolder(folder);
+				for(String location : map.getLocations()) {
+					ReferenceScenarioDataInstance instance = map.getLocation(location);
+					List<String>counts = null;
+					List<String>denom = null;
+					if(idc.isInfectorMode()) 
+						counts = instance.getData(CSVscenarioLoader.I_KEY);
+					else
+						counts = instance.getData(CSVscenarioLoader.R_KEY);
+					if(idc.isPercentage())
+						denom = instance.getData(CSVscenarioLoader.POP_COUNT_KEY);
+					
+					// Use first row only 
+					double dcount = Double.parseDouble(counts.get(0));
+					double ddenom = 1.0;
+					if(idc.isPercentage())
+						ddenom = (Double.parseDouble(denom.get(0)) / 100.0);
+					
+					SIInfector infector = null;
+					if(idc.isInfectorMode()) {
+						infector = StandardFactory.eINSTANCE.createSIInfector();
+						infector.setInfectPercentage(idc.isPercentage());
+						infector.setInfectiousCount(dcount/ddenom);
+						infector.setURI(STEMURI.createURI("infect_"+location));
+					}
+					else {
+						infector = StandardFactory.eINSTANCE.createSIRInoculator();
+						((SIRInoculator)infector).setInoculatePercentage(idc.isPercentage());
+						((SIRInoculator)infector).setInoculatedPercentage(dcount/ddenom);
+						infector.setURI(STEMURI.createURI("inoculate_"+location));
+					}
+					infector.setDiseaseName(idc.getDiseaseName());
+					infector.setPopulationIdentifier(idc.getPopulation());
+					infector.setTargetISOKey(location);
+					iic.getList().add(infector);
+				}
+				return iic;
 			}
-			return retValue;
 		} // getInfector
 
 		/**
@@ -164,22 +229,33 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			if(idc.isInfectorMode()) {
-				return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION"), //$NON-NLS-1$
+			if(!idc.isFromFile()) {
+				if(idc.isInfectorMode()) {
+					return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION"), //$NON-NLS-1$
+							new Object[] { Double.valueOf(idc.getNumber()),
+											idc.getPopulation(), 
+											idc.getDiseaseName(),
+											GeographicNames.getReverseHierarchyName(idc.getIsoKey()), idc.getIsoKey() 
+											});
+				} 
+				// else inoculator
+				return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION2"), //$NON-NLS-1$
 						new Object[] { Double.valueOf(idc.getNumber()),
 										idc.getPopulation(), 
 										idc.getDiseaseName(),
 										GeographicNames.getReverseHierarchyName(idc.getIsoKey()), idc.getIsoKey() 
 										});
-			} 
-			// else inoculator
-			return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION2"), //$NON-NLS-1$
-					new Object[] { Double.valueOf(idc.getNumber()),
-									idc.getPopulation(), 
-									idc.getDiseaseName(),
-									GeographicNames.getReverseHierarchyName(idc.getIsoKey()), idc.getIsoKey() 
-									});
-			
+			} else {
+				if(idc.isInfectorMode()) {
+					return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION_FROM_FILE"), //$NON-NLS-1$
+							new Object[] { idc.getImportFolder() 
+											});
+				} 
+				// else inoculator
+				return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION2_FROM_FILE"), //$NON-NLS-1$
+						new Object[] { idc.getImportFolder()  
+										});
+			}
 		} // getDCDescription
 
 		@Override

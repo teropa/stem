@@ -84,10 +84,10 @@ public class StochasticPoissonSIRDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StochasticPoissonSIRDiseaseModel)object).getURI().lastSegment();
+		String label = ((StochasticPoissonSIRDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StochasticPoissonSIRDiseaseModel_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
+			getString("_UI_StochasticPoissonSIRDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

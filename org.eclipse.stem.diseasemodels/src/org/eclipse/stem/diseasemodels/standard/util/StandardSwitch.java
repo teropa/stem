@@ -648,6 +648,17 @@ public class StandardSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StandardPackage.INFECTOR_INOCULATOR_COLLECTION: {
+				InfectorInoculatorCollection infectorInoculatorCollection = (InfectorInoculatorCollection)theEObject;
+				T1 result = caseInfectorInoculatorCollection(infectorInoculatorCollection);
+				if (result == null) result = caseNodeDecorator(infectorInoculatorCollection);
+				if (result == null) result = caseModifiable(infectorInoculatorCollection);
+				if (result == null) result = caseDecorator(infectorInoculatorCollection);
+				if (result == null) result = caseIdentifiable(infectorInoculatorCollection);
+				if (result == null) result = caseComparable(infectorInoculatorCollection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1223,6 +1234,21 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseStochasticPoissonSEIRDiseaseModel(StochasticPoissonSEIRDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infector Inoculator Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infector Inoculator Collection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseInfectorInoculatorCollection(InfectorInoculatorCollection object) {
 		return null;
 	}
 

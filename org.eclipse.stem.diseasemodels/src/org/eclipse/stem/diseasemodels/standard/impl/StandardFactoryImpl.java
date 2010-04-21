@@ -107,6 +107,7 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 			case StandardPackage.STOCHASTIC_POISSON_SI_DISEASE_MODEL: return createStochasticPoissonSIDiseaseModel();
 			case StandardPackage.STOCHASTIC_POISSON_SIR_DISEASE_MODEL: return createStochasticPoissonSIRDiseaseModel();
 			case StandardPackage.STOCHASTIC_POISSON_SEIR_DISEASE_MODEL: return createStochasticPoissonSEIRDiseaseModel();
+			case StandardPackage.INFECTOR_INOCULATOR_COLLECTION: return createInfectorInoculatorCollection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -368,6 +369,16 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 	public StochasticPoissonSEIRDiseaseModel createStochasticPoissonSEIRDiseaseModel() {
 		StochasticPoissonSEIRDiseaseModelImpl stochasticPoissonSEIRDiseaseModel = new StochasticPoissonSEIRDiseaseModelImpl();
 		return stochasticPoissonSEIRDiseaseModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InfectorInoculatorCollection createInfectorInoculatorCollection() {
+		InfectorInoculatorCollectionImpl infectorInoculatorCollection = new InfectorInoculatorCollectionImpl();
+		return infectorInoculatorCollection;
 	}
 
 	/**
