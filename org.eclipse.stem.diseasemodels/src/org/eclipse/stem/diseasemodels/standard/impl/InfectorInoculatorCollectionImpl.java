@@ -103,6 +103,14 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	}
 	
 	/**
+	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#resetLabels(org.eclipse.stem.core.graph.Graph)
+	 */
+	@Override
+	public void resetLabels() {
+		if(this.getList() != null)
+			for(Infector i:this.getList()) i.resetLabels();
+	}
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
