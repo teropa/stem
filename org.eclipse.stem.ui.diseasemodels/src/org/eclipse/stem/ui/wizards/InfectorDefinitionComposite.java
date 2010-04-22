@@ -75,8 +75,16 @@ public class InfectorDefinitionComposite extends Composite {
 	private Button useAbsoluteNumberButton = null;
 	private Button usePercentageButton = null;
 	
+	private Button[] rowButtons = new Button[3];
+	Composite rowComposite = null;
+	
 	private Button importFileButton = null;
 	private boolean importFromFile = false;
+	private boolean useFirstRow = true;
+	private boolean useLastRow = false;
+	private boolean useSelectedRow = false;
+	
+	Text rowtxt = null;
 	
 	/** 
 	 * keep track of the mode.
@@ -199,13 +207,21 @@ public class InfectorDefinitionComposite extends Composite {
 		fd_logDirText.top = new FormAttachment(importFileButton, 5, SWT.BOTTOM);
 		logDirText.setLayoutData(fd_logDirText);
 			
+		// radio buttons to set the row
+		rowComposite = createRowRadioButtonsComposite(this, projectValidator);
+		final FormData fd_row = new FormData();
+		fd_row.top = new FormAttachment(logDirLabel, 5, SWT.BOTTOM);
+		fd_row.left = new FormAttachment(0, 0);
+		fd_row.right = new FormAttachment(100, 0);
+		rowComposite.setLayoutData(fd_row);
+		rowComposite.setEnabled(false);
 		
 		// Number of Infections
 		numberOfInfectionsLabel = new Label(this, SWT.NONE);
 		numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNI")); //$NON-NLS-1$
 
 		final FormData fd_numberOfInfectionsLabel = new FormData();
-		fd_numberOfInfectionsLabel.top = new FormAttachment(logDirLabel,5, SWT.BOTTOM);
+		fd_numberOfInfectionsLabel.top = new FormAttachment(rowComposite,5, SWT.BOTTOM);
 		fd_numberOfInfectionsLabel.left = new FormAttachment(0, 0);
 		fd_numberOfInfectionsLabel.right = new FormAttachment(margin1, 0);
 		numberOfInfectionsLabel.setLayoutData(fd_numberOfInfectionsLabel);
@@ -218,7 +234,7 @@ public class InfectorDefinitionComposite extends Composite {
 		final FormData fd_numberOfInfectionsText = new FormData();
 		fd_numberOfInfectionsText.left = new FormAttachment(numberOfInfectionsLabel, 0);
 		fd_numberOfInfectionsText.right = new FormAttachment(100, 0);
-		fd_numberOfInfectionsText.top = new FormAttachment(logDirLabel, 5, SWT.BOTTOM);
+		fd_numberOfInfectionsText.top = new FormAttachment(rowComposite, 5, SWT.BOTTOM);
 		numberOfInfectionsText.setLayoutData(fd_numberOfInfectionsText);
 		
 
@@ -429,10 +445,12 @@ public class InfectorDefinitionComposite extends Composite {
 	        		importFileButton.setEnabled(true);
 	        		numberOfInfectionsText.setEnabled(false);
 	        		logDirText.setEnabled(true);
+	        		rowComposite.setEnabled(true);
 	        	} else {
 	        		importFileButton.setEnabled(false);
 	        		numberOfInfectionsText.setEnabled(true);
 	        		logDirText.setEnabled(false);
+	        		rowComposite.setEnabled(false);
 	        	}
 	          }
 	        }
@@ -440,6 +458,52 @@ public class InfectorDefinitionComposite extends Composite {
 	      // these are radio buttons so we only need to add the listener to one of them.
 	      importRadioButtons[0].addListener(SWT.Selection, listener);
 	      
+	    return radioComposite;
+	}//
+	
+	/**
+	 * Create radio buttons to determine what row to use when importing
+	 * 
+	 * @param parent
+	 * @return the composite
+	 */
+	Composite createRowRadioButtonsComposite(final Composite parent, final ModifyListener projectValidator) {
+		Composite radioComposite = new Composite(parent, SWT.BORDER);
+	    FillLayout fillLayout = new FillLayout();
+	    fillLayout.type = SWT.HORIZONTAL;
+	    radioComposite.setLayout(fillLayout);
+	    
+	    rowButtons[0] = new Button(radioComposite, SWT.RADIO);
+	    rowButtons[0].setSelection(true);
+	    rowButtons[0].setText(DiseaseWizardMessages.getString("NInfectorWiz.firstrow"));//$NON-NLS-1$
+	    
+	    rowButtons[1] = new Button(radioComposite, SWT.RADIO);
+	    rowButtons[1].setText(DiseaseWizardMessages.getString("NInfectorWiz.lastrow"));//$NON-NLS-1$
+	    	
+	    rowButtons[2] = new Button(radioComposite, SWT.RADIO);
+	    rowButtons[2].setText(DiseaseWizardMessages.getString("NInfectorWiz.selectedrow"));//$NON-NLS-1$
+	    
+	    rowtxt = new Text(radioComposite, SWT.NONE);
+	    rowtxt.setText("0");
+	    rowtxt.setEditable(false);
+	    rowtxt.addModifyListener(projectValidator);
+	    
+	    Listener listener = new Listener() {
+	        public void handleEvent(Event event) {
+	        	useFirstRow = rowButtons[0].getSelection();
+	        	useLastRow = rowButtons[1].getSelection();
+	        	useSelectedRow = rowButtons[2].getSelection();
+	        	if(useFirstRow || useLastRow) {
+	        		rowtxt.setEditable(false);
+	        	} else {
+	        		rowtxt.setEditable(true);
+	        	}
+	        }
+	      };
+	      // these are radio buttons so we only need to add the listener to one of them.
+	      rowButtons[0].addListener(SWT.Selection, listener);
+	      rowButtons[1].addListener(SWT.Selection, listener);
+	      rowButtons[2].addListener(SWT.Selection, listener);
 	    return radioComposite;
 	}//
 	
@@ -647,4 +711,10 @@ public class InfectorDefinitionComposite extends Composite {
 		return percentage;
 	}
 
+	public boolean isFirstRow() {return useFirstRow;}
+	public boolean isLastRow() {return useLastRow;}
+	public boolean isSelectedRow() {return useSelectedRow;}
+	public int getSelectecRow() {return Integer.parseInt(rowtxt.getText());}
+	
+	
 } // InfectorDefinitionComposite

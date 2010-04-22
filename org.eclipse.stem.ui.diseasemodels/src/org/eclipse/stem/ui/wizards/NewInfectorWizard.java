@@ -197,23 +197,36 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 						denom = instance.getData(CSVscenarioLoader.POP_COUNT_KEY);
 					
 					// Use first row only 
-					double dcount = Double.parseDouble(counts.get(0));
+					double dcount = 0.0;
+						
+					if(idc.isFirstRow())	
+						dcount = Double.parseDouble(counts.get(0));
+					else if(idc.isLastRow())
+						dcount = Double.parseDouble(counts.get(counts.size()-1));
+					else
+						dcount = Double.parseDouble(counts.get(idc.getSelectecRow()));
+					
 					double ddenom = 1.0;
 					if(idc.isPercentage())
-						ddenom = (Double.parseDouble(denom.get(0)) / 100.0);
+						if(idc.isFirstRow())
+							ddenom = (Double.parseDouble(denom.get(0)) / 100.0);
+						else if(idc.isLastRow())
+							ddenom = (Double.parseDouble(denom.get(counts.size()-1)) / 100.0);
+						else
+							ddenom = (Double.parseDouble(denom.get(idc.getSelectecRow())) / 100.0);
 					
 					SIInfector infector = null;
 					if(idc.isInfectorMode()) {
 						infector = StandardFactory.eINSTANCE.createSIInfector();
 						infector.setInfectPercentage(idc.isPercentage());
 						infector.setInfectiousCount(dcount/ddenom);
-						infector.setURI(STEMURI.createURI("infect_"+location));
+						infector.setURI(STEMURI.createURI(STEMURI.generateUniquePart()+"/infect_"+location));
 					}
 					else {
 						infector = StandardFactory.eINSTANCE.createSIRInoculator();
 						((SIRInoculator)infector).setInoculatePercentage(idc.isPercentage());
 						((SIRInoculator)infector).setInoculatedPercentage(dcount/ddenom);
-						infector.setURI(STEMURI.createURI("inoculate_"+location));
+						infector.setURI(STEMURI.createURI(STEMURI.generateUniquePart()+"/inoculate_"+location));
 					}
 					infector.setDiseaseName(idc.getDiseaseName());
 					infector.setPopulationIdentifier(idc.getPopulation());
