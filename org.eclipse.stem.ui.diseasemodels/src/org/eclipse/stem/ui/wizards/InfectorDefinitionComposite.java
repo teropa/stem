@@ -12,19 +12,24 @@ package org.eclipse.stem.ui.wizards;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.io.File;
+
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 import org.eclipse.stem.data.geography.GeographicMapper;
 import org.eclipse.stem.data.geography.GeographicNames;
 import org.eclipse.stem.ui.Activator;
+import org.eclipse.stem.ui.widgets.LocationPickerDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
@@ -44,13 +49,7 @@ public class InfectorDefinitionComposite extends Composite {
 	// private static final URI LEVEL_0_ISO_NAME_FILE_URI = URI
 	// .createURI("platform:/plugin/org.eclipse.stem.geography/resources/data/country/ZZZ/level0ISONames.properties");
 
-	private final ISOKeyPicker isoKeyPicker2;
-	private final ISOKeyPicker isoKeyPicker1;
-	private final ISOKeyPicker isoKeyPicker0;
-	private final ISOKeyPicker isoKeyPicker3;
 	private String isoKey = ""; //$NON-NLS-1$
-
-	private String tempISOKey = null;
 
 	private final Text numberOfInfectionsText;
 
@@ -74,6 +73,7 @@ public class InfectorDefinitionComposite extends Composite {
 	
 	private Button useAbsoluteNumberButton = null;
 	private Button usePercentageButton = null;
+	private Button locationButton = null;
 	
 	private Button[] rowButtons = new Button[3];
 	Composite rowComposite = null;
@@ -85,6 +85,8 @@ public class InfectorDefinitionComposite extends Composite {
 	private boolean useSelectedRow = false;
 	
 	Text rowtxt = null;
+	
+	Label isokeyValueLabel = null;
 	
 	/** 
 	 * keep track of the mode.
@@ -112,7 +114,7 @@ public class InfectorDefinitionComposite extends Composite {
 		final int margin2 = 25;
 		
 		// radio buttons to set the mode
-		Composite infectorModeComposite = createInfectorModeRadioButtonsComposite(this);
+		Composite infectorModeComposite = createInfectorModeRadioButtonsComposite(this, projectValidator);
 		final FormData fd_infectorMode = new FormData();
 		fd_infectorMode.top = new FormAttachment(0, 0);
 		fd_infectorMode.bottom = new FormAttachment(5, 0);
@@ -162,17 +164,17 @@ public class InfectorDefinitionComposite extends Composite {
 		fd_populationText.right = new FormAttachment(100, 0);
 		populationText.setLayoutData(fd_populationText);
 		
-		Composite percentModeComposite = createPercentModeRadioButtonsComposite(this);
+		Composite percentModeComposite = createPercentModeRadioButtonsComposite(this, projectValidator);
 		final FormData fd_percentMode = new FormData();
-		fd_percentMode.top = new FormAttachment(populationLabel, 5, SWT.BOTTOM);
+		fd_percentMode.top = new FormAttachment(populationLabel, 10, SWT.BOTTOM);
 		fd_percentMode.left = new FormAttachment(0, 0);
 		fd_percentMode.right = new FormAttachment(100, 0);
 		percentModeComposite.setLayoutData(fd_percentMode);
 		
 		// radio buttons to set the import 
-		Composite importModeComposite = createImportRadioButtonsComposite(this);
+		Composite importModeComposite = createImportRadioButtonsComposite(this, projectValidator);
 		final FormData fd_importMode = new FormData();
-		fd_importMode.top = new FormAttachment(percentModeComposite, 5, SWT.BOTTOM);
+		fd_importMode.top = new FormAttachment(percentModeComposite, 10, SWT.BOTTOM);
 		fd_importMode.left = new FormAttachment(0, 0);
 		fd_importMode.right = new FormAttachment(100, 0);
 		importModeComposite.setLayoutData(fd_importMode);
@@ -198,9 +200,10 @@ public class InfectorDefinitionComposite extends Composite {
 		
 		logDirText = new Text(this, SWT.BORDER);
 		logDirText.setText("");
-		logDirText.setEditable(false);
+		logDirText.setEditable(true);
 		logDirText.setEnabled(false);
-		
+		logDirText.addModifyListener(projectValidator);
+	
 		final FormData fd_logDirText = new FormData();
 		fd_logDirText.left = new FormAttachment(logDirLabel, 0);
 		fd_logDirText.right = new FormAttachment(100, 0);
@@ -210,7 +213,7 @@ public class InfectorDefinitionComposite extends Composite {
 		// radio buttons to set the row
 		rowComposite = createRowRadioButtonsComposite(this, projectValidator);
 		final FormData fd_row = new FormData();
-		fd_row.top = new FormAttachment(logDirLabel, 5, SWT.BOTTOM);
+		fd_row.top = new FormAttachment(logDirLabel, 10, SWT.BOTTOM);
 		fd_row.left = new FormAttachment(0, 0);
 		fd_row.right = new FormAttachment(100, 0);
 		rowComposite.setLayoutData(fd_row);
@@ -238,135 +241,47 @@ public class InfectorDefinitionComposite extends Composite {
 		numberOfInfectionsText.setLayoutData(fd_numberOfInfectionsText);
 		
 
+		locationButton = new Button(this, SWT.NONE);
+		locationButton.setText(DiseaseWizardMessages.getString("NInfWizPickLoc"));
+		final FormData fd_locButton = new FormData();
+		fd_locButton.left = new FormAttachment(0,0);
+		fd_locButton.top = new FormAttachment(numberOfInfectionsLabel, 5, SWT.BOTTOM);
+		locationButton.setLayoutData(fd_locButton);
+		
+		locationButton.addSelectionListener(new SelectionListener() {
+			
+			public void widgetSelected(SelectionEvent arg0) {
+				LocationPickerDialog lpDialog = new LocationPickerDialog(InfectorDefinitionComposite.this.getShell(), SWT.NONE, DiseaseWizardMessages.getString("NInfWizPickLocTitle"), InfectorDefinitionComposite.this.isoKey);
+				isoKey = lpDialog.open();
+				isokeyValueLabel.setText(isoKey);
+				projectValidator.modifyText(null);
+			}
+			
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				
+			}
+		});
+		
 		// ISO Key
 		final Label isoKeyLabel = new Label(this, SWT.NONE);
 		isoKeyLabel.setText(DiseaseWizardMessages.getString("NInfWizISOK")); //$NON-NLS-1$
 		
 		final FormData fd_isoKeyLabel = new FormData();
-		fd_isoKeyLabel.top = new FormAttachment(numberOfInfectionsLabel, 5, SWT.BOTTOM);
+		fd_isoKeyLabel.top = new FormAttachment(locationButton, 5, SWT.BOTTOM);
 		fd_isoKeyLabel.left = new FormAttachment(0, 0);
 		fd_isoKeyLabel.right = new FormAttachment(margin2, 0);
 		isoKeyLabel.setLayoutData(fd_isoKeyLabel);
 		
 
-		final Label isokeyValueLabel = new Label(this, SWT.NONE);
+		isokeyValueLabel = new Label(this, SWT.NONE);
 		isokeyValueLabel.setText(isoKey);
 
 		final FormData fd_isokeyValueLabel = new FormData();
-		fd_isokeyValueLabel.top = new FormAttachment(numberOfInfectionsLabel, 5, SWT.BOTTOM);
+		fd_isokeyValueLabel.top = new FormAttachment(locationButton, 5, SWT.BOTTOM);
 		fd_isokeyValueLabel.left = new FormAttachment(isoKeyLabel, 0);
 		fd_isokeyValueLabel.right = new FormAttachment(100, 0);
 		isokeyValueLabel.setLayoutData(fd_isokeyValueLabel);
-		
-		// ISOKeyPicker 0
-		isoKeyPicker0 = new ISOKeyPicker(this, SWT.NONE, 0);
-		isoKeyPicker0.setISOKeyLevel(0);
-		isoKeyPicker0.setISOKeyLevelDescription(DiseaseWizardMessages.getString("NInfWizCNTRY"));
-		isoKeyPicker0.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
-			public void isoKeyPicked(final ISOKeyPickedEvent ikpe) {
-				final Object[] isoKeys = GeographicNames.getSubISOKeys(
-						GeographicNames.getAlpha2(ikpe.getIsoKey()),
-						isoKeyPicker1.getISOKeyLevel());
-				isoKeyPicker1.setISOKeys(isoKeys);
-				isoKeyPicker2.setISOKeys(new Object[] {});
-				isoKeyPicker3.setISOKeys(new Object[] {});
-				isoKey = ikpe.getIsoKey();
-				tempISOKey = isoKey;
-				isokeyValueLabel.setText(isoKey);
-			}
-		});
-		
-		// ISOKeyPicker 1
-		isoKeyPicker1 = new ISOKeyPicker(this, SWT.NONE, 1);
-		isoKeyPicker1.setISOKeyLevelDescription(DiseaseWizardMessages
-				.getString("NInfWizL1"));
-		isoKeyPicker1.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
-			public void isoKeyPicked(final ISOKeyPickedEvent ikpe) {
-				final Object[] isoKeys = GeographicNames.getSubISOKeys(ikpe
-						.getIsoKey(), isoKeyPicker2.getISOKeyLevel());
-				isoKeyPicker2.setISOKeys(isoKeys);
-				isoKey = ikpe.getIsoKey();
-				tempISOKey = tempISOKey == null ? isoKey : tempISOKey;
-				// Were there any ISO keys to set?
-				if (isoKeys.length == 0) {
-					// No
-					isoKey = tempISOKey;
-					isokeyValueLabel.setText(isoKey);
-					tempISOKey = null;
-				} // if
-			}
-		});
-		
-		// ISOKeyPicker 2
-		isoKeyPicker2 = new ISOKeyPicker(this, SWT.NONE, 2);
-		isoKeyPicker2.setISOKeyLevelDescription(DiseaseWizardMessages
-				.getString("NInfWizL2"));
-		isoKeyPicker2.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
-			public void isoKeyPicked(final ISOKeyPickedEvent ikpe) {
-				final Object[] isoKeys = GeographicNames.getSubISOKeys(ikpe
-						.getIsoKey(), isoKeyPicker3.getISOKeyLevel());
-				isoKeyPicker3.setISOKeys(isoKeys);
-				isoKey = ikpe.getIsoKey();
-				tempISOKey = tempISOKey == null ? isoKey : tempISOKey;
-				// Were there any ISO keys to set?
-				if (isoKeys.length == 0) {
-					// No
-					isoKey = tempISOKey;
-					isokeyValueLabel.setText(isoKey);
-					tempISOKey = null;
-				} // if
-			}
-		});
-		
-		// ISOKeyPicker 3
-		isoKeyPicker3 = new ISOKeyPicker(this, SWT.NONE, 3);
-		isoKeyPicker3.setISOKeyLevelDescription(DiseaseWizardMessages
-				.getString("NInfWizL3"));
-		isoKeyPicker3.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
-			public void isoKeyPicked(final ISOKeyPickedEvent ikpe) {
-				isoKey = tempISOKey == null ? ikpe.getIsoKey() : tempISOKey;
-				isokeyValueLabel.setText(isoKey);
-				tempISOKey = null;
-			}
-		});
-		
-		
-		//   FORM DATA   //
-		
-		// ISO Picker0
-		final FormData fd_isoKeyPicker0 = new FormData();
-		fd_isoKeyPicker0.top = new FormAttachment(isoKeyLabel, 5, SWT.BOTTOM);
-		fd_isoKeyPicker0.right = new FormAttachment(100, 0);
-		fd_isoKeyPicker0.left = new FormAttachment(0, 0);
-		isoKeyPicker0.setLayoutData(fd_isoKeyPicker0);
-		isoKeyPicker0.setISOKeys(GeographicNames.getSubISOKeys(
-				GeographicMapper.EARTH_ALPHA3_ISO_KEY, -1));
-
-		// ISOKeyPicker 1		
-		final FormData fd_isoKeyPicker1 = new FormData();
-		fd_isoKeyPicker1.top = new FormAttachment(isoKeyPicker0, 5, SWT.BOTTOM);
-		fd_isoKeyPicker1.left = new FormAttachment(isoKeyPicker0, 0, SWT.LEFT);
-		fd_isoKeyPicker1.right = new FormAttachment(isoKeyPicker0, 0, SWT.RIGHT);
-		isoKeyPicker1.setLayoutData(fd_isoKeyPicker1);
-		
-		// ISOKeyPicker 2
-		final FormData fd_isoKeyPicker2 = new FormData();
-		fd_isoKeyPicker2.top = new FormAttachment(isoKeyPicker1, 5, SWT.BOTTOM);
-		fd_isoKeyPicker2.left = new FormAttachment(isoKeyPicker0, 0, SWT.LEFT);
-		fd_isoKeyPicker2.right = new FormAttachment(isoKeyPicker0, 0, SWT.RIGHT);
-		isoKeyPicker2.setLayoutData(fd_isoKeyPicker2);
-	
-		// ISOKeyPicker 3
-		final FormData fd_isoKeyPicker3 = new FormData();
-		fd_isoKeyPicker3.top = new FormAttachment(isoKeyPicker2, 5, SWT.BOTTOM);
-		fd_isoKeyPicker3.left = new FormAttachment(isoKeyPicker0, 0, SWT.LEFT);
-		fd_isoKeyPicker3.right = new FormAttachment(isoKeyPicker0, 0, SWT.RIGHT);
-		//fd_isoKeyPicker3.bottom = new FormAttachment(100, -5);
-		isoKeyPicker3.setLayoutData(fd_isoKeyPicker3);
-		// getShell().pack();
-		
-		
-		
+						
 		final Shell shell = this.getShell();
 		importFileButton
 				.addSelectionListener(new SelectionAdapter() {
@@ -380,6 +295,7 @@ public class InfectorDefinitionComposite extends Composite {
 										.getString("NInfWizLogDirDesc")); //$NON-NLS-1$
 						final String selected = dd.open();
 						logDirText.setText(selected);
+						projectValidator.modifyText(null);
 					} // widgetSelected
 				} // SelectionAdapter
 				);
@@ -392,7 +308,7 @@ public class InfectorDefinitionComposite extends Composite {
 	 * @param parent
 	 * @return the composite
 	 */
-	Composite createInfectorModeRadioButtonsComposite(final Composite parent) {
+	Composite createInfectorModeRadioButtonsComposite(final Composite parent, final ModifyListener projectValidator) {
 		Composite radioComposite = new Composite(parent, SWT.BORDER);
 	    FillLayout fillLayout = new FillLayout();
 	    fillLayout.type = SWT.VERTICAL;
@@ -410,6 +326,7 @@ public class InfectorDefinitionComposite extends Composite {
 	          if (event.widget == infectorModeRadioButtons[0]) {
 	        	infectorMode = infectorModeRadioButtons[0].getSelection();
 	          }
+	          projectValidator.modifyText(null);
 	        }
 	      };
 	      // these are radio buttons so we only need to add the listener to one of them.
@@ -424,7 +341,7 @@ public class InfectorDefinitionComposite extends Composite {
 	 * @param parent
 	 * @return the composite
 	 */
-	Composite createImportRadioButtonsComposite(final Composite parent) {
+	Composite createImportRadioButtonsComposite(final Composite parent, final ModifyListener projectValidator) {
 		Composite radioComposite = new Composite(parent, SWT.BORDER);
 	    FillLayout fillLayout = new FillLayout();
 	    fillLayout.type = SWT.VERTICAL;
@@ -446,13 +363,16 @@ public class InfectorDefinitionComposite extends Composite {
 	        		numberOfInfectionsText.setEnabled(false);
 	        		logDirText.setEnabled(true);
 	        		rowComposite.setEnabled(true);
+	        		locationButton.setEnabled(false);
 	        	} else {
 	        		importFileButton.setEnabled(false);
 	        		numberOfInfectionsText.setEnabled(true);
 	        		logDirText.setEnabled(false);
 	        		rowComposite.setEnabled(false);
+	        		locationButton.setEnabled(true);
 	        	}
 	          }
+	          projectValidator.modifyText(null);
 	        }
 	      };
 	      // these are radio buttons so we only need to add the listener to one of them.
@@ -498,6 +418,7 @@ public class InfectorDefinitionComposite extends Composite {
 	        	} else {
 	        		rowtxt.setEditable(true);
 	        	}
+	        	 projectValidator.modifyText(null);
 	        }
 	      };
 	      // these are radio buttons so we only need to add the listener to one of them.
@@ -511,7 +432,7 @@ public class InfectorDefinitionComposite extends Composite {
 	 * @param parent
 	 * @return the composite
 	 */
-	Composite createPercentModeRadioButtonsComposite(final Composite parent) {
+	Composite createPercentModeRadioButtonsComposite(final Composite parent, final ModifyListener projectValidator) {
 	    Composite radio2Composite = new Composite(parent, SWT.BORDER);
 	    FillLayout fillLayout2 = new FillLayout();
 	    fillLayout2.type = SWT.VERTICAL;
@@ -538,6 +459,7 @@ public class InfectorDefinitionComposite extends Composite {
 		          // clear the text because we need to revalidate
 		          numberOfInfectionsText.setText("");
 	          }
+	          projectValidator.modifyText(null);
 	        }
 	      };
 	      // these are radio buttons so we only need to add the listener to one of them.
@@ -581,40 +503,35 @@ public class InfectorDefinitionComposite extends Composite {
 						.getString("NInfWizError.3"); //$NON-NLS-1$
 				retValue = false;
 			} // if
-			else {
-				// No
-				try {
-					final double temp = Double
-							.parseDouble(numberOfInfectionsText.getText());
-					// > 0?
-					if (temp <= 0.0) {
-						// No
-						errorMessage = DiseaseWizardMessages
-								.getString("NInfWizError.4"); //$NON-NLS-1$
-						retValue = false;
-					} // if
-					
-					// is this an innoculation wizard
-					if(!isInfectorMode()) {
-						// yes, then this must be a percentage
+		}
+		if (this.importFromFile == false && retValue) {
+			final double temp = Double
+					.parseDouble(numberOfInfectionsText.getText());
+				// > 0?
+				if (temp <= 0.0) {
+					// No
+					errorMessage = DiseaseWizardMessages
+							.getString("NInfWizError.4"); //$NON-NLS-1$
+					retValue = false;
+				} // if
+		}
+		if (this.importFromFile == false && retValue) {
+			final double temp = Double
+			.parseDouble(numberOfInfectionsText.getText());
+				if(isPercentage()) {
+					// yes, then this must be a percentage
 						if(temp > 100.0) {
 							errorMessage = DiseaseWizardMessages.getString("NInfWizError.8"); //$NON-NLS-1$
 							retValue = false;
-						}
-						
+						}					
 					}
-				} catch (final NumberFormatException e) {
-					errorMessage = DiseaseWizardMessages
-							.getString("NInfWizError.5"); //$NON-NLS-1$
-					retValue = false;
-				} // catch NumberFormatException
-			}
-		} // if numberOfInfections
+		}
+		
 
 		// ISO Key
 		if (retValue) {
 			// Yes
-			if (getIsoKey() == null || getIsoKey().equals("")) { //$NON-NLS-1$
+			if (!this.isFromFile() && (getIsoKey() == null || getIsoKey().equals(""))) { //$NON-NLS-1$
 				// Yes
 				errorMessage = DiseaseWizardMessages
 						.getString("NInfWizError.6"); //$NON-NLS-1$
@@ -622,6 +539,45 @@ public class InfectorDefinitionComposite extends Composite {
 			} // if
 		} // if
 
+		// Location
+		if (retValue) {
+			// Yes
+			if (this.isFromFile() && (getImportFolder() == null || getImportFolder().equals(""))) { //$NON-NLS-1$
+				// Yes
+				errorMessage = DiseaseWizardMessages
+						.getString("NInfWizError.9"); //$NON-NLS-1$
+				retValue = false;
+			} // if
+		} // if
+		// Location
+		if (retValue) {
+			// Yes
+			if (this.isFromFile()) { //$NON-NLS-1$
+				File f = new File(getImportFolder());
+				if(!f.exists()) {
+					// Yes
+					errorMessage = DiseaseWizardMessages
+							.getString("NInfWizError.10"); //$NON-NLS-1$
+					retValue = false;
+				}
+				
+			} // if
+		} // if
+		if(retValue && this.isFromFile() && isSelectedRow()) {
+			String val = rowtxt.getText();
+			try {
+				int v = Integer.parseInt(val);
+				if(v < 0) {
+					errorMessage = DiseaseWizardMessages
+					.getString("NInfWizError.11"); //$NON-NLS-1$
+					retValue = false;
+				}
+			} catch(Exception e) {
+				errorMessage = DiseaseWizardMessages
+				.getString("NInfWizError.11"); //$NON-NLS-1$
+				retValue = false;
+			}
+		}
 		return retValue;
 	} // validate
 
