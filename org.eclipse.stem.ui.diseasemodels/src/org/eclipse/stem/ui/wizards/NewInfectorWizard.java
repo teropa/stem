@@ -174,11 +174,13 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 				// and read the data from file
 				
 				String folder = idc.getImportFolder();
-				ReferenceScenarioDataMapImpl map = null;
+				ReferenceScenarioDataMapImpl  map = null;
+				List<Integer>resolutions = null;
 				try {
 					CSVscenarioLoader loader = new CSVscenarioLoader(folder);
-					int maxDepth = loader.getMaxResolution();
-					map = loader.parseAllFiles(maxDepth);
+					resolutions = loader.getResolutions();
+					loader.getResolutions();
+					map = loader.parseAllFiles();
 				} catch(ScenarioInitializationException sie) {
 					org.eclipse.stem.diseasemodels.Activator.logError(sie.getMessage(), sie);
 					return null;
