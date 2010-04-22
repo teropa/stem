@@ -12,6 +12,8 @@ package org.eclipse.stem.core;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
+import java.util.Random;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.core.graph.Edge;
@@ -26,6 +28,8 @@ import org.eclipse.stem.core.sequencer.Sequencer;
  */
 public class STEMURI {
 
+	private static Random rand = new Random(System.currentTimeMillis());
+	
 	/**
 	 * The type {@link URI} of a STEM {@link Scenario}. {@value}
 	 */
@@ -132,4 +136,11 @@ public class STEMURI {
 		sb.append(segments);
 		return URI.createURI(sb.toString());
 	} // create
+	
+	public static String generateUniquePart() {
+		long l = rand.nextLong();
+		long now = System.currentTimeMillis();
+		long r= l+now;
+		return Long.toHexString(r).toUpperCase();
+	}
 } // STEMURI
