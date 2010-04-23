@@ -221,7 +221,7 @@ public class InfectorDefinitionComposite extends Composite {
 		
 		// Number of Infections
 		numberOfInfectionsLabel = new Label(this, SWT.NONE);
-		numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNI")); //$NON-NLS-1$
+		numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNIINF")); //$NON-NLS-1$
 
 		final FormData fd_numberOfInfectionsLabel = new FormData();
 		fd_numberOfInfectionsLabel.top = new FormAttachment(rowComposite,5, SWT.BOTTOM);
@@ -326,6 +326,13 @@ public class InfectorDefinitionComposite extends Composite {
 	          if (event.widget == infectorModeRadioButtons[0]) {
 	        	infectorMode = infectorModeRadioButtons[0].getSelection();
 	          }
+	          if(!isPercentage()) 
+	        	  if(isInfectorMode()) numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNIINF")); //$NON-NLS-1$
+	        	  else numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNIINO")); //$NON-NLS-1$
+	          else if(isInfectorMode())
+	        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizPIINF")); //$NON-NLS-1$
+	          else numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizPIINO")); //$NON-NLS-1$
+
 	          projectValidator.modifyText(null);
 	        }
 	      };
@@ -451,13 +458,13 @@ public class InfectorDefinitionComposite extends Composite {
 	          if(event.widget == useAbsoluteNumberButton || event.widget == usePercentageButton) {
 		          // toggle the wizard
 	        	  percentage = usePercentageButton.getSelection();
-		          if(!percentage) {
-		        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNI")); //$NON-NLS-1$
-		          } else {
-		        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizPI")); //$NON-NLS-1$
-		          }
+		          if(!percentage) 
+		        	  if(isInfectorMode()) numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNIINF")); //$NON-NLS-1$
+		        	  else numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNIINO")); //$NON-NLS-1$
+		          else if(isInfectorMode())
+		        	  numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizPIINF")); //$NON-NLS-1$
+		          else numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizPIINO")); //$NON-NLS-1$
 		          // clear the text because we need to revalidate
-		          numberOfInfectionsText.setText("");
 	          }
 	          projectValidator.modifyText(null);
 	        }
