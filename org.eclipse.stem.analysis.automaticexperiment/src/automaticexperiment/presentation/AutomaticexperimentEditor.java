@@ -904,7 +904,7 @@ public class AutomaticexperimentEditor
 	 * This is the method used by the framework to install your own controls.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createPages() {
@@ -923,7 +923,8 @@ public class AutomaticexperimentEditor
 
 			selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 			selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-			selectionViewer.setInput(editingDomain.getResourceSet());
+//			selectionViewer.setInput(editingDomain.getResourceSet());
+			selectionViewer.setInput(editingDomain.getResourceSet().getResources().get(0));
 			selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 
 			new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
