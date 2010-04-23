@@ -45,17 +45,6 @@ import org.eclipse.stem.core.common.Identifiable;
 public abstract class IdentifiableImpl extends EObjectImpl implements
 		Identifiable {
 
-	/**
-	 * This counter is used to generated unique URI's. It is incremented each
-	 * time we create a new Identifiable.
-	 */
-	static int uriCounter = 0;
-
-	/**
-	 * This counter is used to generated unique URI's. It is incremented each
-	 * time we create a new Identifiable.
-	 */
-	static int typeURICounter = 0;
 
 	/**
 	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
@@ -110,8 +99,8 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	protected IdentifiableImpl() {
 		super();
 		setDublinCore(CommonFactory.eINSTANCE.createDublinCore());
-		setURI(STEMURI.createURI("identifiable" + uriCounter++));
-		setTypeURI(STEMURI.createTypeURI("identifiable" + typeURICounter++));
+		setURI(STEMURI.createURI("identifiable" + STEMURI.generateUniquePart()));
+		setTypeURI(STEMURI.createTypeURI("identifiable" + STEMURI.generateUniquePart()));
 	} // IdentifiableImpl
 
 	/**

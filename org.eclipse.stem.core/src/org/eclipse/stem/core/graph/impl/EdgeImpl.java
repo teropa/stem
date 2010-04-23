@@ -45,10 +45,6 @@ import org.eclipse.stem.core.graph.Node;
  */
 public class EdgeImpl extends IdentifiableImpl implements Edge {
 	
-	/**
-	 * This is used to generate unique URI's for each Edge generated
-	 */
-	static int edgeCounter = 0;
 	
 	/**
 	 * The cached value of the '{@link #getA() <em>A</em>}' reference. <!--
@@ -141,7 +137,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	protected EdgeImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_EDGE_SEGMENT + "/"
-				+ Integer.toString(edgeCounter++)));
+				+ STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.EDGE_TYPE_URI);
 	} // EdgeImpl
 

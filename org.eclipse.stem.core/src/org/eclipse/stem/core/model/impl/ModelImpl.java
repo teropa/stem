@@ -59,10 +59,6 @@ import org.eclipse.stem.core.scenario.impl.ScenarioImpl;
  */
 public class ModelImpl extends IdentifiableImpl implements Model {
 
-	/**
-	 * This is used to generate unique URI's for each Model generated
-	 */
-	static int modelCounter = 0;
 
 	/**
 	 * The cached value of the '{@link #getModels() <em>Models</em>}' reference list.
@@ -117,7 +113,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	protected ModelImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_MODEL_SEGMENT + "/"
-				+ Integer.toString(modelCounter++)));
+				+ STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.MODEL_TYPE_URI);
 	} // ModelImpl
 

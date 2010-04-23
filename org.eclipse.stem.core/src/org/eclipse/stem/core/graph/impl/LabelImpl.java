@@ -43,10 +43,6 @@ import org.eclipse.stem.core.graph.LabelValue;
  * @generated
  */
 public abstract class LabelImpl extends IdentifiableImpl implements Label {
-	/**
-	 * This is used to generate unique URI's for each Label generated
-	 */
-	static int labelCounter = 0;
 
 	/**
 	 * The default value of the '{@link #getURIOfIdentifiableToBeLabeled() <em>URI Of Identifiable To Be Labeled</em>}' attribute.
@@ -83,7 +79,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	protected LabelImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_LABEL_SEGMENT + "/"
-				+ Integer.toString(labelCounter++)));
+				+ STEMURI.generateUniquePart()));
 		setTypeURI(Label.URI_TYPE_LABEL);
 	} // LabelImpl
 

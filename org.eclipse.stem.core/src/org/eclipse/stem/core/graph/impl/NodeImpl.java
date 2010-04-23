@@ -44,11 +44,6 @@ import org.eclipse.stem.core.graph.NodeLabel;
 public class NodeImpl extends IdentifiableImpl implements Node {
 
 	/**
-	 * This is used to generate unique URI's for each node generated
-	 */
-	static int nodeCounter = 0;
-
-	/**
 	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEdges()
@@ -74,7 +69,7 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	protected NodeImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_NODE_SEGMENT + "/"
-				+ Integer.toString(nodeCounter++)));
+				+ STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.NODE_TYPE_URI);
 	} // NodeImpl
 

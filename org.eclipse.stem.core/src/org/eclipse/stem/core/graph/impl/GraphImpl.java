@@ -79,10 +79,6 @@ import org.eclipse.stem.core.model.STEMTime;
  */
 public class GraphImpl extends IdentifiableImpl implements Graph {
 	
-	/**
-	 * This is used to generate unique URI's for each Graph generated
-	 */
-	static int graphCounter = 0;
 	
 	/**
 	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' map. <!--
@@ -213,7 +209,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	protected GraphImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_GRAPH_SEGMENT + "/"
-				+ Integer.toString(graphCounter++)));
+				+ STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.GRAPH_TYPE_URI);
 	} // GraphImpl
 

@@ -61,11 +61,7 @@ import org.eclipse.stem.core.solver.Solver;
  */
 public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 
-	/**
-	 * This is used to generate unique {@link URI}'s for each {@link Scenario} generated
-	 */
-	private int scenarioCounter = 0;
-
+	
 	/**
 	 * This is the {@link URI} used to identify the canonical {@link Graph} used during the
 	 * simulation
@@ -170,7 +166,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	protected ScenarioImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_SCENARIO_SEGMENT + "/"
-				+ Integer.toString(scenarioCounter++)));
+				+  STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.SCENARIO_TYPE_URI);
 	} // ScenarioImpl
 

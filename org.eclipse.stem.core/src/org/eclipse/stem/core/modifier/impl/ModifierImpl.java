@@ -87,7 +87,6 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	// set to true when there's an error
 	private boolean complete = false;
 
-	private static int modifierCounter = 0;
 
 	/**
 	 * The default value of the '{@link #isComplete() <em>Complete</em>}' attribute.
@@ -106,7 +105,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	protected ModifierImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_MODIFIER_SEGMENT + "/"
-				+ Integer.toString(modifierCounter++)));
+				+  STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.MODIFIER_TYPE_URI);
 	}
 

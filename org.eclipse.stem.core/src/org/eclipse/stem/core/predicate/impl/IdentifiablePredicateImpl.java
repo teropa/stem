@@ -29,8 +29,7 @@ import org.eclipse.stem.core.predicate.PredicatePackage;
  * @generated
  */
 public abstract class IdentifiablePredicateImpl extends IdentifiableImpl implements IdentifiablePredicate {
-	private static int predicateCounter = 0;
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,7 +38,7 @@ public abstract class IdentifiablePredicateImpl extends IdentifiableImpl impleme
 	protected IdentifiablePredicateImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_PREDICATE_SEGMENT + "/"
-				+ Integer.toString(predicateCounter++)));
+				+  STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.PREDICATE_TYPE_URI);
 	}
 

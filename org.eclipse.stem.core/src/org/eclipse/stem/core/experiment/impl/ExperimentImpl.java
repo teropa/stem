@@ -74,8 +74,7 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 */
 	protected Scenario scenario;
 
-	private static int experimentCounter = 0;
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,7 +83,7 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	protected ExperimentImpl() {
 		super();
 		setURI(STEMURI.createURI(URI_TYPE_EXPERIMENT_SEGMENT + "/"
-				+ Integer.toString(experimentCounter++)));
+				+ STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.EXPERIMENT_TYPE_URI);
 	}
 
