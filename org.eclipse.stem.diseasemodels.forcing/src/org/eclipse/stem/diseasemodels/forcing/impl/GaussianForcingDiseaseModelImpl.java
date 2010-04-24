@@ -282,13 +282,13 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			calendar.setTimeInMillis(currentMillis+(long)(phase*MILLIS_PER_DAY));
 			calendar2.setTimeInMillis(firstTime.longValue());
 			day = (calendar.getTimeInMillis() - calendar2.getTimeInMillis())/MILLIS_PER_DAY;
-			day = (int)day; // don't use decimals
+		
 		}
 		double intDay = day;
 		
 		double modulation = 0;
 		// Smoothing
-/*		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
+		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
 			double avg=0;
 			double denom = 0;
 			for(double d=day-30;d<day+30;++d) {
@@ -298,10 +298,10 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				++denom;
 			}
 			modulation = avg/denom;
-		} else {*/
+		} else {
 			day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
 			modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2));						
-//		}
+		}
 		
 		// This is beta*
 		double transmissionRate = seasonalModulationFloor + modulation * (getAdjustedTransmissionRate(timeDelta));
