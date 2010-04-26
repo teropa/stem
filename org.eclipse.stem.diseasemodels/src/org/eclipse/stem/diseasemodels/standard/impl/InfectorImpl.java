@@ -489,7 +489,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR__TARGET_ISO_KEY, oldTargetISOKey, targetISOKey));
 		// This will cause the URI to be recreated with the new ISO key
-		setTargetURI(null);
 	}
 
 	/**

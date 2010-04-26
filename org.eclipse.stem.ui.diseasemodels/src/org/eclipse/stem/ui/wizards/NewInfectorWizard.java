@@ -150,6 +150,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 				retValue.setDiseaseName(idc.getDiseaseName());
 				retValue.setPopulationIdentifier(idc.getPopulation());
 				retValue.setTargetISOKey(idc.getIsoKey());
+				retValue.setTargetURI(idc.getTargetURI());
 				if(idc.isInfectorMode() && idc.isPercentage()) {
 					retValue.setInfectPercentage(true);
 					retValue.setInfectiousCount(idc.getNumber());
@@ -276,7 +277,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		@Override
 		protected Composite createSpecificComposite(final Composite parent) {
 			idc = new InfectorDefinitionComposite(parent, SWT.NONE,
-					projectValidator);
+					projectValidator, super.getSelectedProject());
 			return idc;
 		} // createSpecificComposite
 

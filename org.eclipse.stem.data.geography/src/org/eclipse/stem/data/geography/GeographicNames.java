@@ -72,7 +72,7 @@ public class GeographicNames extends GeographicMapper {
 					RB_PREFIX, NAMES_BUNDLE_TYPE, LEVEL_0_RB_NAME, level0RB, rbMap);
 			return rb.getString(isoKey2).trim();
 		} catch (final MissingResourceException e) {
-			return '!' + isoKey + '!';
+			return isoKey;
 		} catch (final NullPointerException e) {
 			return '!' + isoKey + '!';
 		} // catch NullPointerException

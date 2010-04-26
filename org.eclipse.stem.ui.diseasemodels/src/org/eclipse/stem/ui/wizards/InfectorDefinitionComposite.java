@@ -14,6 +14,8 @@ package org.eclipse.stem.ui.wizards;
 
 import java.io.File;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 import org.eclipse.stem.data.geography.GeographicMapper;
 import org.eclipse.stem.data.geography.GeographicNames;
@@ -50,7 +52,8 @@ public class InfectorDefinitionComposite extends Composite {
 	// .createURI("platform:/plugin/org.eclipse.stem.geography/resources/data/country/ZZZ/level0ISONames.properties");
 
 	private String isoKey = ""; //$NON-NLS-1$
-
+	private URI targetURI = null;
+	
 	private final Text numberOfInfectionsText;
 
 	private final Text populationText;
@@ -105,7 +108,7 @@ public class InfectorDefinitionComposite extends Composite {
 	 * @param style
 	 */
 	public InfectorDefinitionComposite(final Composite parent, final int style,
-			final ModifyListener projectValidator) {
+			final ModifyListener projectValidator, final IProject project) {
 		super(parent, style);
 		
 		setLayout(new FormLayout());
@@ -251,10 +254,14 @@ public class InfectorDefinitionComposite extends Composite {
 		locationButton.addSelectionListener(new SelectionListener() {
 			
 			public void widgetSelected(SelectionEvent arg0) {
-				LocationPickerDialog lpDialog = new LocationPickerDialog(InfectorDefinitionComposite.this.getShell(), SWT.NONE, DiseaseWizardMessages.getString("NInfWizPickLocTitle"), InfectorDefinitionComposite.this.isoKey);
-				isoKey = lpDialog.open();
-				isokeyValueLabel.setText(isoKey);
-				projectValidator.modifyText(null);
+				LocationPickerDialog lpDialog = new LocationPickerDialog(InfectorDefinitionComposite.this.getShell(), SWT.NONE, DiseaseWizardMessages.getString("NInfWizPickLocTitle"), InfectorDefinitionComposite.this.isoKey, project);
+				Object [] ret = lpDialog.open();
+				if(ret != null) {
+					isoKey = (String)ret[0];
+					targetURI = (URI)ret[1];
+					isokeyValueLabel.setText(isoKey);
+					projectValidator.modifyText(null);
+				}
 			}
 			
 			public void widgetDefaultSelected(SelectionEvent arg0) {
@@ -633,6 +640,13 @@ public class InfectorDefinitionComposite extends Composite {
 		return isoKey;
 	}
 
+	/**
+	 * @return the isoKey that specifies the location to be infected.
+	 */
+	public final URI getTargetURI() {
+		return targetURI;
+	}
+	
 	/**
 	 * @return the NLS'd name of the location selected as the point of infection
 	 */

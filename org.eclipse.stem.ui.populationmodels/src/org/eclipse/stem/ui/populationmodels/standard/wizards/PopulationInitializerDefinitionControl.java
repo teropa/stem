@@ -14,10 +14,12 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
@@ -47,7 +49,8 @@ public class PopulationInitializerDefinitionControl extends Composite {
 	private final PopulationInitializerPropertyComposite populationInitializerPropertyComposite;
 
 	private String isoKey="";
-
+	
+	private URI targetURI = null;
 	
 	/**
 	 * Create the composite
@@ -57,7 +60,7 @@ public class PopulationInitializerDefinitionControl extends Composite {
 	 * @param projectValidator
 	 */
 	public PopulationInitializerDefinitionControl(final Composite parent, final int style,
-			ModifyListener projectValidator) {
+			ModifyListener projectValidator, final IProject project) {
 		super(parent, style);
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.marginWidth = 0;
@@ -124,9 +127,12 @@ public class PopulationInitializerDefinitionControl extends Composite {
 		locationButton.addSelectionListener(new SelectionListener() {
 			
 			public void widgetSelected(SelectionEvent arg0) {
-				LocationPickerDialog lpDialog = new LocationPickerDialog(PopulationInitializerDefinitionControl.this.getShell(), SWT.NONE, PopulationModelWizardMessages.getString("NPopWizPickLocTitle"), PopulationInitializerDefinitionControl.this.isoKey);
-				isoKey = lpDialog.open();
-				isokeyValueLabel.setText(isoKey);
+				LocationPickerDialog lpDialog = new LocationPickerDialog(PopulationInitializerDefinitionControl.this.getShell(), SWT.NONE, PopulationModelWizardMessages.getString("NPopWizPickLocTitle"), PopulationInitializerDefinitionControl.this.isoKey, project);
+				Object [] ret = lpDialog.open();
+				if(ret != null) {
+					isokeyValueLabel.setText((String)ret[0]);
+					targetURI = (URI)ret[1];
+				}
 			}
 			
 			public void widgetDefaultSelected(SelectionEvent arg0) {
@@ -225,5 +231,9 @@ public class PopulationInitializerDefinitionControl extends Composite {
 
 	public String getIsoKey() {
 		return isoKey;
+	}
+	
+	public URI getTargetURI() {
+		return targetURI;
 	}
 } 

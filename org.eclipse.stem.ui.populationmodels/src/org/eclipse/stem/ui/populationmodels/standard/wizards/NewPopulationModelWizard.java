@@ -133,7 +133,7 @@ public class NewPopulationModelWizard extends NewIdentifiableWizard {
 		@Override
 		protected Composite createSpecificComposite(final Composite parent) {
 			ddc = new PopulationModelDefinitionControl(parent, SWT.NONE,
-					projectValidator);
+					projectValidator, super.getSelectedProject());
 			return ddc;
 		} // createSpecificComposite
 

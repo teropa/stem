@@ -134,7 +134,7 @@ public class NewPopulationInitializerWizard extends NewIdentifiableWizard {
 		@Override
 		protected Composite createSpecificComposite(final Composite parent) {
 			ddc = new PopulationInitializerDefinitionControl(parent, SWT.NONE,
-					projectValidator);
+					projectValidator, super.getSelectedProject());
 			return ddc;
 		} // createSpecificComposite
 

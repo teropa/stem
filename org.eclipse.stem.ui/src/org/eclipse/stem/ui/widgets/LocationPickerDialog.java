@@ -11,19 +11,25 @@ package org.eclipse.stem.ui.widgets;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.data.geography.GeographicMapper;
 import org.eclipse.stem.data.geography.GeographicNames;
-import org.eclipse.stem.ui.widgets.MatrixEditorWidget.MatrixEditorValidator;
+import org.eclipse.stem.definitions.LocationUtility;
 import org.eclipse.stem.ui.wizards.Messages;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 
 public class LocationPickerDialog extends Dialog {
@@ -35,22 +41,26 @@ public class LocationPickerDialog extends Dialog {
 	private ISOKeyPicker isoKeyPicker0;
 	private ISOKeyPicker isoKeyPicker3;
 	String isoKey = ""; //$NON-NLS-1$
+	URI targetURI = null;
 	String tempISOKey = null;
 	String prevLoc = null;
+	IProject project;
+	private boolean selectGlobal = true;
 	
 	boolean cancelPressed = false;
 	
-	public LocationPickerDialog (Shell parent, int style, String title, String prevLoc) {
+	public LocationPickerDialog (Shell parent, int style, String title, String prevLoc, IProject p) {
 		super (parent, style);
 		this.title = title;
 		this.prevLoc = prevLoc;
+		this.project = p;
 	}
 	
 	/**
 	 * open the modal window. 
 	 * @return The String[] with results, or null if cancel was pressed.
 	 */
-	public String  open () {
+	public Object []  open () {
 		Shell parent = getParent();
 		final Shell shell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		shell.setText(title);
@@ -58,7 +68,41 @@ public class LocationPickerDialog extends Dialog {
 		gl.numColumns = 2;
 		shell.setLayout(gl);
 		
-		// Location picker
+		// Radio buttons
+		Composite radioComposite = new Composite(shell, SWT.BORDER);
+	    FillLayout fillLayout = new FillLayout();
+	    fillLayout.type = SWT.HORIZONTAL;
+	    radioComposite.setLayout(fillLayout);
+	    
+	    final Button [] radioButtons = new Button[2];
+	    radioButtons[0] = new Button(radioComposite, SWT.RADIO);
+	    radioButtons[0].setSelection(true);
+	    radioButtons[0].setText(Messages.getString("NLocPickerWiz.global"));//$NON-NLS-1$
+	    
+	    radioButtons[1] = new Button(radioComposite, SWT.RADIO);
+	    radioButtons[1].setText(Messages.getString("NLocPickerWiz.inproject"));//$NON-NLS-1$
+	    	    
+	    Listener listener = new Listener() {
+	        public void handleEvent(Event event) {
+	          if (event.widget == radioButtons[0]) {
+	        	  if(radioButtons[0].getSelection()) {
+	        		  selectGlobal = true;
+	        		  reinit();
+	        	  } else {
+	        		  selectGlobal = false;
+	        		  reinit();
+	        	  }
+	          }
+	        }
+	    };
+	    radioButtons[0].addListener(SWT.Selection,listener);
+	    
+	    GridData gd_radio = new GridData(SWT.FILL, SWT.CENTER, true, false);
+	    gd_radio.horizontalSpan = 2;
+	    radioComposite.setLayoutData(gd_radio);
+		
+	    LocationUtility.reset();
+	    // Location picker
 		// ISO Key
 		final Label isoKeyLabel = new Label(shell, SWT.NONE);
 		isoKeyLabel.setText(Messages.getString("NLocWizISOK")); //$NON-NLS-1$
@@ -78,13 +122,16 @@ public class LocationPickerDialog extends Dialog {
 		isoKeyPicker0.setISOKeyLevelDescription(Messages.getString("NLocWizCNTRY"));
 		isoKeyPicker0.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
 			public void isoKeyPicked(final ISOKeyPickedEvent ikpe) {
-				final Object[] isoKeys = GeographicNames.getSubISOKeys(
+				Object[] isoKeys = null;
+					if(selectGlobal) isoKeys= GeographicNames.getSubISOKeys(
 						GeographicNames.getAlpha2(ikpe.getIsoKey()),
 						isoKeyPicker1.getISOKeyLevel());
+					else isoKeys = LocationUtility.getKeys(project, isoKeyPicker1.getISOKeyLevel(), ikpe.getIsoKey()).toArray();
 				isoKeyPicker1.setISOKeys(isoKeys);
 				isoKeyPicker2.setISOKeys(new Object[] {});
 				isoKeyPicker3.setISOKeys(new Object[] {});
 				isoKey = ikpe.getIsoKey();
+				if(!selectGlobal) targetURI = LocationUtility.getURIFromISOKey(isoKey);
 				tempISOKey = isoKey;
 				isokeyValueLabel.setText(isoKey);
 			}
@@ -96,10 +143,14 @@ public class LocationPickerDialog extends Dialog {
 				.getString("NLocWizL1"));
 		isoKeyPicker1.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
 			public void isoKeyPicked(final ISOKeyPickedEvent ikpe) {
-				final Object[] isoKeys = GeographicNames.getSubISOKeys(ikpe
+				Object[] isoKeys = null;
+				if(selectGlobal) isoKeys = GeographicNames.getSubISOKeys(ikpe
 						.getIsoKey(), isoKeyPicker2.getISOKeyLevel());
+				else isoKeys = LocationUtility.getKeys(project, isoKeyPicker2.getISOKeyLevel(), ikpe.getIsoKey()).toArray();
+				
 				isoKeyPicker2.setISOKeys(isoKeys);
 				isoKey = ikpe.getIsoKey();
+				if(!selectGlobal) targetURI = LocationUtility.getURIFromISOKey(isoKey);
 				tempISOKey = tempISOKey == null ? isoKey : tempISOKey;
 				// Were there any ISO keys to set?
 				if (isoKeys.length == 0) {
@@ -117,10 +168,13 @@ public class LocationPickerDialog extends Dialog {
 				.getString("NLocWizL2"));
 		isoKeyPicker2.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
 			public void isoKeyPicked(final ISOKeyPickedEvent ikpe) {
-				final Object[] isoKeys = GeographicNames.getSubISOKeys(ikpe
+				Object[] isoKeys = null;
+				if(selectGlobal) isoKeys = GeographicNames.getSubISOKeys(ikpe
 						.getIsoKey(), isoKeyPicker3.getISOKeyLevel());
+				else isoKeys = LocationUtility.getKeys(project, isoKeyPicker3.getISOKeyLevel(), ikpe.getIsoKey()).toArray();
 				isoKeyPicker3.setISOKeys(isoKeys);
 				isoKey = ikpe.getIsoKey();
+				if(!selectGlobal) targetURI = LocationUtility.getURIFromISOKey(isoKey);
 				tempISOKey = tempISOKey == null ? isoKey : tempISOKey;
 				// Were there any ISO keys to set?
 				if (isoKeys.length == 0) {
@@ -210,8 +264,24 @@ public class LocationPickerDialog extends Dialog {
 		while (!shell.isDisposed()) {
 		if (!display.readAndDispatch()) display.sleep();
 		}
-		if(cancelPressed) return this.prevLoc;
-		return this.isoKey;
+		if(cancelPressed) return null;
+		Object [] ret = new Object[2];
+		ret[0] = this.isoKey;
+		ret[1] = this.targetURI;
+		return ret;
+	}
+	
+	public void reinit() {
+		if(selectGlobal)
+			isoKeyPicker0.setISOKeys(GeographicNames.getSubISOKeys(
+				GeographicMapper.EARTH_ALPHA3_ISO_KEY, -1));
+		else
+			isoKeyPicker0.setISOKeys(LocationUtility.getKeys(project, 0, null).toArray());
+		
+		isoKeyPicker1.setISOKeys(new Object[] {});
+		isoKeyPicker2.setISOKeys(new Object[] {});
+		isoKeyPicker3.setISOKeys(new Object[] {});
+
 	}
 	
 	public String getISOKey() {
@@ -221,7 +291,7 @@ public class LocationPickerDialog extends Dialog {
 		Display display = new Display();
 	    Shell shell = new Shell(display);
 	    		
-		LocationPickerDialog dialog  = new LocationPickerDialog(shell, SWT.PUSH, "Pick location", "");		 
+		LocationPickerDialog dialog  = new LocationPickerDialog(shell, SWT.PUSH, "Pick location", "", null);		 
 	    dialog.open();
 	    while (!shell.isDisposed()) {
 	      if (!display.readAndDispatch()) {
