@@ -131,6 +131,7 @@ public class PopulationInitializerDefinitionControl extends Composite {
 				Object [] ret = lpDialog.open();
 				if(ret != null) {
 					isokeyValueLabel.setText((String)ret[0]);
+					isoKey = (String)ret[0];
 					targetURI = (URI)ret[1];
 				}
 			}
