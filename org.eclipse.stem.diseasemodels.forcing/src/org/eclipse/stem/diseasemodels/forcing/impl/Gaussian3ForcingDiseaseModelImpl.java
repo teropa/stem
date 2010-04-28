@@ -159,39 +159,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		
 		
 		double modulation = 0;
-		// Smoothing
-		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
-			double avg=0;
-			double denom = 0;
-			for(double d=day-30;d<day+30;++d) {
-				int _y = (int)(d / modulationPeriod);
-				if(_y < 0) _y =0;
-				if(_y >= whichGaussian.length) _y = whichGaussian.length-1;
-				int _g = whichGaussian[_y];
-				double _d = ((d % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-				double mo = 0;						
-				if(_g == 0)
-					mo = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2));						
-				else if(_g == 1)
-					mo = (1/Math.sqrt(2*Math.PI*sigma2_2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2_2));
-				else if(_g == 2)
-					mo = (1/Math.sqrt(2*Math.PI*sigma2_3))*Math.exp(-(Math.pow(_d,2))/(2*sigma2_3));
-			
-				avg = avg+mo;
-				++denom;
-			}
-			modulation = avg/denom;
-		} else {
-			day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-			
-			if(gaussian == 0)
-				modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2));						
-			else if(gaussian == 1)
-				modulation = (1/Math.sqrt(2*Math.PI*sigma2_2))*Math.exp(-(Math.pow(day,2))/(2*sigma2_2));
-			else if(gaussian == 2)
-				modulation = (1/Math.sqrt(2*Math.PI*sigma2_3))*Math.exp(-(Math.pow(day,2))/(2*sigma2_3));
-		}
-
+		
 		// Smoothing
 		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
 			double avg=0;
@@ -229,6 +197,8 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		double transmissionRate = seasonalModulationFloor + modulation;
 
 
+		if(transmissionRate < 0.0) transmissionRate = 0.0; // negative floor now possible
+		
 		synchronized(writtedTimes) {
 			if(!writtedTimes.contains(time.getTime().getTime())) {
 				try {
