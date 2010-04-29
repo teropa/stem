@@ -18,8 +18,11 @@ import org.eclipse.stem.data.geography.GeographicNames;
 import org.eclipse.stem.definitions.LocationUtility;
 import org.eclipse.stem.ui.wizards.Messages;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -62,14 +65,20 @@ public class LocationPickerDialog extends Dialog {
 	 */
 	public Object []  open () {
 		Shell parent = getParent();
-		final Shell shell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+		final Shell shell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
+		GridLayout gl1 = new GridLayout();
+		gl1.numColumns = 1;
+		shell.setLayout(gl1);
 		shell.setText(title);
+		
+		final Composite comp = new Composite(shell, SWT.MAX);
 		GridLayout gl = new GridLayout();
 		gl.numColumns = 2;
-		shell.setLayout(gl);
+		comp.setLayout(gl);
+		
 		
 		// Radio buttons
-		Composite radioComposite = new Composite(shell, SWT.BORDER);
+		Composite radioComposite = new Composite(comp, SWT.BORDER);
 	    FillLayout fillLayout = new FillLayout();
 	    fillLayout.type = SWT.HORIZONTAL;
 	    radioComposite.setLayout(fillLayout);
@@ -104,12 +113,12 @@ public class LocationPickerDialog extends Dialog {
 	    LocationUtility.reset();
 	    // Location picker
 		// ISO Key
-		final Label isoKeyLabel = new Label(shell, SWT.NONE);
+		final Label isoKeyLabel = new Label(comp, SWT.NONE);
 		isoKeyLabel.setText(Messages.getString("NLocWizISOK")); //$NON-NLS-1$
 		final GridData gd_isoKeyLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
 		isoKeyLabel.setLayoutData(gd_isoKeyLabel);
 		
-		final Label isokeyValueLabel = new Label(shell, SWT.NONE);
+		final Label isokeyValueLabel = new Label(comp, SWT.NONE);
 		isokeyValueLabel.setText(isoKey);
 
 		final GridData gd_isoKeyLabelValue = new GridData(SWT.FILL, SWT.CENTER, true, false);
@@ -117,7 +126,7 @@ public class LocationPickerDialog extends Dialog {
 		
 		
 		// ISOKeyPicker 0
-		isoKeyPicker0 = new ISOKeyPicker(shell, SWT.NONE, 0);
+		isoKeyPicker0 = new ISOKeyPicker(comp, SWT.NONE, 0);
 		isoKeyPicker0.setISOKeyLevel(0);
 		isoKeyPicker0.setISOKeyLevelDescription(Messages.getString("NLocWizCNTRY"));
 		isoKeyPicker0.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
@@ -138,7 +147,7 @@ public class LocationPickerDialog extends Dialog {
 		});
 		
 		// ISOKeyPicker 1
-		isoKeyPicker1 = new ISOKeyPicker(shell, SWT.NONE, 1);
+		isoKeyPicker1 = new ISOKeyPicker(comp, SWT.NONE, 1);
 		isoKeyPicker1.setISOKeyLevelDescription(Messages
 				.getString("NLocWizL1"));
 		isoKeyPicker1.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
@@ -163,7 +172,7 @@ public class LocationPickerDialog extends Dialog {
 		});
 		
 		// ISOKeyPicker 2
-		isoKeyPicker2 = new ISOKeyPicker(shell, SWT.NONE, 2);
+		isoKeyPicker2 = new ISOKeyPicker(comp, SWT.NONE, 2);
 		isoKeyPicker2.setISOKeyLevelDescription(Messages
 				.getString("NLocWizL2"));
 		isoKeyPicker2.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
@@ -187,7 +196,7 @@ public class LocationPickerDialog extends Dialog {
 		});
 		
 		// ISOKeyPicker 3
-		isoKeyPicker3 = new ISOKeyPicker(shell, SWT.NONE, 3);
+		isoKeyPicker3 = new ISOKeyPicker(comp, SWT.NONE, 3);
 		isoKeyPicker3.setISOKeyLevelDescription(Messages
 				.getString("NLocWizL3"));
 		isoKeyPicker3.addISOKeyPickedListener(new ISOKeyPickedEventListener() {
@@ -202,30 +211,30 @@ public class LocationPickerDialog extends Dialog {
 		//   FORM DATA   //
 		
 		// ISO Picker0
-		final GridData gd_isoKeyPicker0 = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		final GridData gd_isoKeyPicker0 = new GridData(SWT.FILL, SWT.FILL, true, true);
 		isoKeyPicker0.setLayoutData(gd_isoKeyPicker0);
 		isoKeyPicker0.setISOKeys(GeographicNames.getSubISOKeys(
 				GeographicMapper.EARTH_ALPHA3_ISO_KEY, -1));
 
 		// ISOKeyPicker 1		
-		final GridData gd_isoKeyPicker1 = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		final GridData gd_isoKeyPicker1 = new GridData(SWT.FILL, SWT.FILL, true, true);
 		isoKeyPicker1.setLayoutData(gd_isoKeyPicker1);
 		
 		// ISOKeyPicker 2
-		final GridData gd_isoKeyPicker2 = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		final GridData gd_isoKeyPicker2 = new GridData(SWT.FILL, SWT.FILL, true, true);
 		isoKeyPicker2.setLayoutData(gd_isoKeyPicker2);
 	
 		// ISOKeyPicker 3
-		final GridData gd_isoKeyPicker3 = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		final GridData gd_isoKeyPicker3 = new GridData(SWT.FILL, SWT.FILL, true, true);
 		//fd_isoKeyPicker3.bottom = new FormAttachment(100, -5);
 		isoKeyPicker3.setLayoutData(gd_isoKeyPicker3);
 		
-		final Button okayButton = new Button(shell, SWT.NONE);
+		final Button okayButton = new Button(comp, SWT.NONE);
 		GridData gd = new GridData();
 		okayButton.setText(Messages.getString("NLocWizOk"));
 		okayButton.setLayoutData(gd);
 		
-		Button cancelButton = new Button(shell, SWT.NONE);
+		Button cancelButton = new Button(comp, SWT.NONE);
 		gd = new GridData();
 		cancelButton.setText(Messages.getString("NLocWizCancel"));
 		cancelButton.setLayoutData(gd);
@@ -260,6 +269,7 @@ public class LocationPickerDialog extends Dialog {
 			}
 		});
 		
+		
 		Display display = parent.getDisplay();
 		while (!shell.isDisposed()) {
 		if (!display.readAndDispatch()) display.sleep();
@@ -291,7 +301,7 @@ public class LocationPickerDialog extends Dialog {
 		Display display = new Display();
 	    Shell shell = new Shell(display);
 	    		
-		LocationPickerDialog dialog  = new LocationPickerDialog(shell, SWT.PUSH, "Pick location", "", null);		 
+		LocationPickerDialog dialog  = new LocationPickerDialog(shell, SWT.RESIZE|SWT.PUSH, "Pick location", "", null);		 
 	    dialog.open();
 	    while (!shell.isDisposed()) {
 	      if (!display.readAndDispatch()) {
