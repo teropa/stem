@@ -40,6 +40,8 @@ import org.eclipse.stem.diseasemodels.standard.impl.SIRInoculatorImpl;
 import org.eclipse.stem.data.geography.GeographicNames;
 import org.eclipse.stem.populationmodels.Activator;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -278,6 +280,20 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		protected Composite createSpecificComposite(final Composite parent) {
 			idc = new InfectorDefinitionComposite(parent, SWT.NONE,
 					projectValidator, super.getSelectedProject());
+			
+			final NewInfectorWizard.NewInfectorPage self = this;
+			
+			this.projectNamesCombo.addSelectionListener(new SelectionListener() {
+				
+				public void widgetSelected(SelectionEvent arg0) {
+					idc.setProject(self.getSelectedProject());
+				}
+				
+				public void widgetDefaultSelected(SelectionEvent arg0) {
+					
+				}
+			});
+			
 			return idc;
 		} // createSpecificComposite
 

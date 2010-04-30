@@ -102,6 +102,12 @@ public class InfectorDefinitionComposite extends Composite {
 	 */
 	private boolean percentage = false;
 
+	/**
+	 * The project (for location picker)
+	 */
+	
+	public IProject currentProject;
+	
 
 	/**
 	 * @param parent
@@ -110,6 +116,8 @@ public class InfectorDefinitionComposite extends Composite {
 	public InfectorDefinitionComposite(final Composite parent, final int style,
 			final ModifyListener projectValidator, final IProject project) {
 		super(parent, style);
+		
+		this.currentProject = project;
 		
 		setLayout(new FormLayout());
 		
@@ -254,7 +262,7 @@ public class InfectorDefinitionComposite extends Composite {
 		locationButton.addSelectionListener(new SelectionListener() {
 			
 			public void widgetSelected(SelectionEvent arg0) {
-				LocationPickerDialog lpDialog = new LocationPickerDialog(InfectorDefinitionComposite.this.getShell(), SWT.NONE, DiseaseWizardMessages.getString("NInfWizPickLocTitle"), InfectorDefinitionComposite.this.isoKey, project);
+				LocationPickerDialog lpDialog = new LocationPickerDialog(InfectorDefinitionComposite.this.getShell(), SWT.NONE, DiseaseWizardMessages.getString("NInfWizPickLocTitle"), InfectorDefinitionComposite.this.isoKey, currentProject);
 				Object [] ret = lpDialog.open();
 				if(ret != null) {
 					isoKey = (String)ret[0];
@@ -693,5 +701,6 @@ public class InfectorDefinitionComposite extends Composite {
 	public boolean isSelectedRow() {return useSelectedRow;}
 	public int getSelectecRow() {return Integer.parseInt(rowtxt.getText());}
 	
+	public void setProject(IProject p) {this.currentProject=p;}
 	
 } // InfectorDefinitionComposite

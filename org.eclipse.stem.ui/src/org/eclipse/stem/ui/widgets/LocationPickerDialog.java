@@ -11,18 +11,21 @@ package org.eclipse.stem.ui.widgets;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableContext;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.stem.data.geography.GeographicMapper;
 import org.eclipse.stem.data.geography.GeographicNames;
 import org.eclipse.stem.definitions.LocationUtility;
+import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.wizards.Messages;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ControlAdapter;
-import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -51,6 +54,7 @@ public class LocationPickerDialog extends Dialog {
 	private boolean selectGlobal = true;
 	
 	boolean cancelPressed = false;
+	private Shell shell;
 	
 	public LocationPickerDialog (Shell parent, int style, String title, String prevLoc, IProject p) {
 		super (parent, style);
@@ -65,7 +69,7 @@ public class LocationPickerDialog extends Dialog {
 	 */
 	public Object []  open () {
 		Shell parent = getParent();
-		final Shell shell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
+		shell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 		GridLayout gl1 = new GridLayout();
 		gl1.numColumns = 1;
 		shell.setLayout(gl1);
@@ -285,9 +289,24 @@ public class LocationPickerDialog extends Dialog {
 		if(selectGlobal)
 			isoKeyPicker0.setISOKeys(GeographicNames.getSubISOKeys(
 				GeographicMapper.EARTH_ALPHA3_ISO_KEY, -1));
-		else
-			isoKeyPicker0.setISOKeys(LocationUtility.getKeys(project, 0, null).toArray());
-		
+		else {
+			IRunnableWithProgress getKeys = new IRunnableWithProgress() {
+	            public void run(IProgressMonitor progress) {
+	            	progress.beginTask(Messages.getString("NLocPickerWiz.gettingLocations"), 100);   	
+	        		isoKeyPicker0.setISOKeys(LocationUtility.getKeys(project, 0, null).toArray());
+	            	progress.worked(100);
+	            	progress.done();
+	            }
+			};
+			
+			IRunnableContext context = new ProgressMonitorDialog(shell);
+			try {
+				context.run(true, true, getKeys);
+			} catch(Exception e) {
+				Activator.logError(e.getMessage(), e);
+			}
+			
+		}
 		isoKeyPicker1.setISOKeys(new Object[] {});
 		isoKeyPicker2.setISOKeys(new Object[] {});
 		isoKeyPicker3.setISOKeys(new Object[] {});
