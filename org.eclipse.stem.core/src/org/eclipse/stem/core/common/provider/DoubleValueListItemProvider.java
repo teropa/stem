@@ -132,25 +132,25 @@ public class DoubleValueListItemProvider
 	 * This returns DoubleValueList.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DoubleValueList")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("full/customobj16/List.gif")); //$NON-NLS-1$
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DoubleValueList)object).getIdentifier();
+		String label = ((DoubleValueList)object).eContainingFeature().getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DoubleValueList_type") : //$NON-NLS-1$
-			getString("_UI_DoubleValueList_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
