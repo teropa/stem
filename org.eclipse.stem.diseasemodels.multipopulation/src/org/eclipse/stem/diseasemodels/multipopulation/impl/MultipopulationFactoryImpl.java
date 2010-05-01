@@ -65,6 +65,8 @@ public class MultipopulationFactoryImpl extends EFactoryImpl implements Multipop
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL: return createMultiPopulationSIDiseaseModel();
+			case MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL: return createMultiPopulationSIRDiseaseModel();
+			case MultipopulationPackage.MULTI_POPULATION_SEIR_DISEASE_MODEL: return createMultiPopulationSEIRDiseaseModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,6 +80,26 @@ public class MultipopulationFactoryImpl extends EFactoryImpl implements Multipop
 	public MultiPopulationSIDiseaseModel createMultiPopulationSIDiseaseModel() {
 		MultiPopulationSIDiseaseModelImpl multiPopulationSIDiseaseModel = new MultiPopulationSIDiseaseModelImpl();
 		return multiPopulationSIDiseaseModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultiPopulationSIRDiseaseModel createMultiPopulationSIRDiseaseModel() {
+		MultiPopulationSIRDiseaseModelImpl multiPopulationSIRDiseaseModel = new MultiPopulationSIRDiseaseModelImpl();
+		return multiPopulationSIRDiseaseModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultiPopulationSEIRDiseaseModel createMultiPopulationSEIRDiseaseModel() {
+		MultiPopulationSEIRDiseaseModelImpl multiPopulationSEIRDiseaseModel = new MultiPopulationSEIRDiseaseModelImpl();
+		return multiPopulationSEIRDiseaseModel;
 	}
 
 	/**

@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel;
+import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.multipopulation.MultipopulationFactory;
 import org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage;
 
@@ -38,6 +40,19 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 	 * @generated
 	 */
 	private EClass multiPopulationSIDiseaseModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multiPopulationSIRDiseaseModelEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multiPopulationSEIRDiseaseModelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -162,6 +177,42 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMultiPopulationSIRDiseaseModel() {
+		return multiPopulationSIRDiseaseModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMultiPopulationSIRDiseaseModel_ImmunityLossRate() {
+		return (EReference)multiPopulationSIRDiseaseModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMultiPopulationSEIRDiseaseModel() {
+		return multiPopulationSEIRDiseaseModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMultiPopulationSEIRDiseaseModel_IncubationRate() {
+		return (EReference)multiPopulationSEIRDiseaseModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getMultiPopulationSIDiseaseModel_PopulationGroups() {
 		return (EReference)multiPopulationSIDiseaseModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -201,6 +252,12 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 		createEReference(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE);
 		createEAttribute(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION);
 		createEAttribute(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION);
+
+		multiPopulationSIRDiseaseModelEClass = createEClass(MULTI_POPULATION_SIR_DISEASE_MODEL);
+		createEReference(multiPopulationSIRDiseaseModelEClass, MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE);
+
+		multiPopulationSEIRDiseaseModelEClass = createEClass(MULTI_POPULATION_SEIR_DISEASE_MODEL);
+		createEReference(multiPopulationSEIRDiseaseModelEClass, MULTI_POPULATION_SEIR_DISEASE_MODEL__INCUBATION_RATE);
 	}
 
 	/**
@@ -237,6 +294,8 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 
 		// Add supertypes to classes
 		multiPopulationSIDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStandardDiseaseModel());
+		multiPopulationSIRDiseaseModelEClass.getESuperTypes().add(this.getMultiPopulationSIDiseaseModel());
+		multiPopulationSEIRDiseaseModelEClass.getESuperTypes().add(this.getMultiPopulationSIRDiseaseModel());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(multiPopulationSIDiseaseModelEClass, MultiPopulationSIDiseaseModel.class, "MultiPopulationSIDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -246,6 +305,12 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 		initEReference(getMultiPopulationSIDiseaseModel_InfectiousMortalityRate(), theCommonPackage.getDoubleValueList(), null, "infectiousMortalityRate", null, 1, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultiPopulationSIDiseaseModel_PhysicallyAdjacentInfectiousProportion(), theEcorePackage.getEDouble(), "physicallyAdjacentInfectiousProportion", "0.01", 0, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultiPopulationSIDiseaseModel_RoadNetworkInfectiousProportion(), theEcorePackage.getEDouble(), "roadNetworkInfectiousProportion", "0.05", 0, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(multiPopulationSIRDiseaseModelEClass, MultiPopulationSIRDiseaseModel.class, "MultiPopulationSIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMultiPopulationSIRDiseaseModel_ImmunityLossRate(), theCommonPackage.getDoubleValueList(), null, "immunityLossRate", null, 1, 1, MultiPopulationSIRDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(multiPopulationSEIRDiseaseModelEClass, MultiPopulationSEIRDiseaseModel.class, "MultiPopulationSEIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMultiPopulationSEIRDiseaseModel_IncubationRate(), theCommonPackage.getDoubleValueList(), null, "incubationRate", null, 1, 1, MultiPopulationSEIRDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

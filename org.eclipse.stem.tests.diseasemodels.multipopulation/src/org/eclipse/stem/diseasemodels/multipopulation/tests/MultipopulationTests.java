@@ -41,6 +41,8 @@ public class MultipopulationTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new MultipopulationTests("multipopulation Tests");
 		suite.addTestSuite(MultiPopulationSIDiseaseModelTest.class);
+		suite.addTestSuite(MultiPopulationSIRDiseaseModelTest.class);
+		suite.addTestSuite(MultiPopulationSEIRDiseaseModelTest.class);
 		return suite;
 	}
 

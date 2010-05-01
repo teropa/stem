@@ -279,20 +279,10 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	public double getInfectiousMortality(String populationName) {
 		// next get it's INDEX in the model
 		// TODO we should encapsulate this code in a helper method
-		int populationIndex = -1;
-		EList<StringValue> groupList = populationGroups.getValues();
-		for(int i =0; i < groupList.size(); i ++) {
-			String nextPop = groupList.get(i).getValue();
-			if(nextPop.equalsIgnoreCase(populationName)) {
-			populationIndex = i;
-			break;
-			}	
-		}
-		if(populationIndex < 0) {
-			// should never happen
-			Activator.logError("Error, Infectious mortality rate note defined for population named "+populationName+" check spelling !!", new Exception());
-		}
-		return infectiousMortalityRate.getValues().get(populationIndex).getValue();
+		int populationIndex = this.getPopulationIndex(populationName);
+		if(infectiousMortalityRate != null)
+			return infectiousMortalityRate.getValues().get(populationIndex).getValue();
+		else return 0.0; //default if not specified
 	}
 
 	/**
@@ -619,21 +609,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		String thisPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
 				
 		// next get it's INDEX in the model
-		// TODO we should encapsulate this code in a helper method
-		int populationIndex = -1;
-		EList<StringValue> groupList = populationGroups.getValues();
-		for(int i =0; i < groupList.size(); i ++) {
-			String nextPop = groupList.get(i).getValue();
-			if(nextPop.equalsIgnoreCase(thisPopulation)) {
-			populationIndex = i;
-			break;
-			}	
-		}
-		if(populationIndex < 0) {
-			// should never happen
-			Activator.logError("MultiPopulationSIDiseaseModel.computeDiseaseDeltas() Error, Population named "+thisPopulation+" not found. check spelling !!", new Exception());
-		}
-	
+		int populationIndex = getPopulationIndex(thisPopulation);
 			
 		// now we know the index of the current population being integrated.
 		// Get the correct transmission rate list from the MATRIX
@@ -641,7 +617,8 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		
 		// ALL the other disease parameters are also DoubleValueLists. We now iterate through all populations
 		// get the specific rate parameters from EACH list based on this population index
-		double thisRecoveryRate = recoveryRate.getValues().get(populationIndex).getValue();
+		double thisRecoveryRate = 0.0;
+		if(recoveryRate != null) thisRecoveryRate = recoveryRate.getValues().get(populationIndex).getValue();
 		
 		
 		//  NOW iterate over every population (including this one) to compute new infections
@@ -650,6 +627,9 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		double numberOfSusceptibleToInfected = 0.0;
 		double numberSusceptible = currentSI.getS();
 		Node thisNode = diseaseLabel.getNode();
+		
+		EList<StringValue> groupList = populationGroups.getValues();
+		
 		for(int i = 0; i< transmissionVector.size(); i ++) {
 			// We need to get the identifier of the ith population model
 			String nextPop = groupList.get(i).getValue();
@@ -678,7 +658,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			
 							// for this population we need to get the EFFECTIVE Infectious including
 							// ALL neighboring nodes
-							double onsiteInfectious = ((SILabel) otherDiseaseLabel).getI();
+							double onsiteInfectious = ((SILabel) otherDiseaseLabel).getTempValue().getI();
 							final double effectiveInfectious = getNormalizedEffectiveInfectious(otherPopulation, thisNode, otherDiseaseLabel, onsiteInfectious);
 							
 						    // ADD up the new incidence
@@ -706,7 +686,24 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		
 	}
 	
-	
+	protected int getPopulationIndex(String thisPopulation) {
+		// next get it's INDEX in the model
+		// TODO we should encapsulate this code in a helper method
+		int populationIndex = -1;
+		EList<StringValue> groupList = populationGroups.getValues();
+		for(int i =0; i < groupList.size(); i ++) {
+			String nextPop = groupList.get(i).getValue();
+			if(nextPop.equalsIgnoreCase(thisPopulation)) {
+			populationIndex = i;
+			break;
+			}	
+		}
+		if(populationIndex < 0) {
+			// should never happen
+			Activator.logError("MultiPopulationSIDiseaseModel.computeDiseaseDeltas() Error, Population named "+thisPopulation+" not found. check spelling !!", new Exception());
+		}
+		return populationIndex;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the time interval deltaT divided by the initial time period

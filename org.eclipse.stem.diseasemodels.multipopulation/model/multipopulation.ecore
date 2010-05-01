@@ -23,4 +23,14 @@
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.05"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiPopulationSIRDiseaseModel" eSuperTypes="#//MultiPopulationSIDiseaseModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="immunityLossRate" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.stem.core/model/common.ecore#//DoubleValueList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiPopulationSEIRDiseaseModel" eSuperTypes="#//MultiPopulationSIRDiseaseModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incubationRate" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.stem.core/model/common.ecore#//DoubleValueList"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

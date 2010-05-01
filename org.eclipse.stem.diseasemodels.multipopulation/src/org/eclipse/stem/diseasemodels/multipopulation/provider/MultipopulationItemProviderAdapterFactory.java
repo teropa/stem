@@ -104,6 +104,52 @@ public class MultipopulationItemProviderAdapterFactory extends MultipopulationAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIRDiseaseModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiPopulationSIRDiseaseModelItemProvider multiPopulationSIRDiseaseModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIRDiseaseModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiPopulationSIRDiseaseModelAdapter() {
+		if (multiPopulationSIRDiseaseModelItemProvider == null) {
+			multiPopulationSIRDiseaseModelItemProvider = new MultiPopulationSIRDiseaseModelItemProvider(this);
+		}
+
+		return multiPopulationSIRDiseaseModelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSEIRDiseaseModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiPopulationSEIRDiseaseModelItemProvider multiPopulationSEIRDiseaseModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSEIRDiseaseModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiPopulationSEIRDiseaseModelAdapter() {
+		if (multiPopulationSEIRDiseaseModelItemProvider == null) {
+			multiPopulationSEIRDiseaseModelItemProvider = new MultiPopulationSEIRDiseaseModelItemProvider(this);
+		}
+
+		return multiPopulationSEIRDiseaseModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,6 +249,8 @@ public class MultipopulationItemProviderAdapterFactory extends MultipopulationAd
 	 */
 	public void dispose() {
 		if (multiPopulationSIDiseaseModelItemProvider != null) multiPopulationSIDiseaseModelItemProvider.dispose();
+		if (multiPopulationSIRDiseaseModelItemProvider != null) multiPopulationSIRDiseaseModelItemProvider.dispose();
+		if (multiPopulationSEIRDiseaseModelItemProvider != null) multiPopulationSEIRDiseaseModelItemProvider.dispose();
 	}
 
 }

@@ -35,4 +35,32 @@
       </dublin_core>
    </extension>
 
+  <extension
+         point="org.eclipse.stem.diseasemodels.diseasemodel">
+      <classdef
+            class="org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSIRDiseaseModelImpl">
+      </classdef>
+      <dublin_core
+            category_id="/"
+            creator="edlund"
+            description="A multi population SIR disease model"
+            identifier="org.eclipse.stem.diseasemodels.multipopulation.sir"
+            title="MultiPopulation SIR Disease Model">
+      </dublin_core>
+   </extension>
+
+  <extension
+         point="org.eclipse.stem.diseasemodels.diseasemodel">
+      <classdef
+            class="org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSEIRDiseaseModelImpl">
+      </classdef>
+      <dublin_core
+            category_id="/"
+            creator="edlund"
+            description="A multi population SEIR disease model"
+            identifier="org.eclipse.stem.diseasemodels.multipopulation.seir"
+            title="MultiPopulation SEIR Disease Model">
+      </dublin_core>
+   </extension>
+
 </plugin>

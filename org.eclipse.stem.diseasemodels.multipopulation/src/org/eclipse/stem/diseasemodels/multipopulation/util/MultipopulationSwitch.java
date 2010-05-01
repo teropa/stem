@@ -118,6 +118,39 @@ public class MultipopulationSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL: {
+				MultiPopulationSIRDiseaseModel multiPopulationSIRDiseaseModel = (MultiPopulationSIRDiseaseModel)theEObject;
+				T1 result = caseMultiPopulationSIRDiseaseModel(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseMultiPopulationSIDiseaseModel(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseStandardDiseaseModel(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseDiseaseModel(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseNodeDecorator(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseSanityChecker(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseModifiable(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseDecorator(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseIdentifiable(multiPopulationSIRDiseaseModel);
+				if (result == null) result = caseComparable(multiPopulationSIRDiseaseModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MultipopulationPackage.MULTI_POPULATION_SEIR_DISEASE_MODEL: {
+				MultiPopulationSEIRDiseaseModel multiPopulationSEIRDiseaseModel = (MultiPopulationSEIRDiseaseModel)theEObject;
+				T1 result = caseMultiPopulationSEIRDiseaseModel(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseMultiPopulationSIRDiseaseModel(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseMultiPopulationSIDiseaseModel(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseStandardDiseaseModel(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseDiseaseModel(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseNodeDecorator(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseSanityChecker(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseModifiable(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseDecorator(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseIdentifiable(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = caseComparable(multiPopulationSEIRDiseaseModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -134,6 +167,36 @@ public class MultipopulationSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseMultiPopulationSIDiseaseModel(MultiPopulationSIDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Population SIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Population SIR Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMultiPopulationSIRDiseaseModel(MultiPopulationSIRDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Population SEIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Population SEIR Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMultiPopulationSEIRDiseaseModel(MultiPopulationSEIRDiseaseModel object) {
 		return null;
 	}
 

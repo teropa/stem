@@ -17,5 +17,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute multipopulation.ecore#//MultiPopulationSIDiseaseModel/physicallyAdjacentInfectiousProportion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute multipopulation.ecore#//MultiPopulationSIDiseaseModel/roadNetworkInfectiousProportion"/>
     </genClasses>
+    <genClasses ecoreClass="multipopulation.ecore#//MultiPopulationSIRDiseaseModel">
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSIRDiseaseModel/immunityLossRate"/>
+    </genClasses>
+    <genClasses ecoreClass="multipopulation.ecore#//MultiPopulationSEIRDiseaseModel">
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference multipopulation.ecore#//MultiPopulationSEIRDiseaseModel/incubationRate"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

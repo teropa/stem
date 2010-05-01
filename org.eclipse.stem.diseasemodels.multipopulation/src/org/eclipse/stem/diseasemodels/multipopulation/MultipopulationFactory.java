@@ -40,6 +40,24 @@ public interface MultipopulationFactory extends EFactory {
 	MultiPopulationSIDiseaseModel createMultiPopulationSIDiseaseModel();
 
 	/**
+	 * Returns a new object of class '<em>Multi Population SIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multi Population SIR Disease Model</em>'.
+	 * @generated
+	 */
+	MultiPopulationSIRDiseaseModel createMultiPopulationSIRDiseaseModel();
+
+	/**
+	 * Returns a new object of class '<em>Multi Population SEIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multi Population SEIR Disease Model</em>'.
+	 * @generated
+	 */
+	MultiPopulationSEIRDiseaseModel createMultiPopulationSEIRDiseaseModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

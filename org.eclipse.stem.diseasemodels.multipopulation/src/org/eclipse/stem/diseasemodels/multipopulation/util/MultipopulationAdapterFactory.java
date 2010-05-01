@@ -92,6 +92,14 @@ public class MultipopulationAdapterFactory extends AdapterFactoryImpl {
 				return createMultiPopulationSIDiseaseModelAdapter();
 			}
 			@Override
+			public Adapter caseMultiPopulationSIRDiseaseModel(MultiPopulationSIRDiseaseModel object) {
+				return createMultiPopulationSIRDiseaseModelAdapter();
+			}
+			@Override
+			public Adapter caseMultiPopulationSEIRDiseaseModel(MultiPopulationSEIRDiseaseModel object) {
+				return createMultiPopulationSEIRDiseaseModelAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -158,6 +166,34 @@ public class MultipopulationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMultiPopulationSIDiseaseModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIRDiseaseModel <em>Multi Population SIR Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIRDiseaseModel
+	 * @generated
+	 */
+	public Adapter createMultiPopulationSIRDiseaseModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSEIRDiseaseModel <em>Multi Population SEIR Disease Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSEIRDiseaseModel
+	 * @generated
+	 */
+	public Adapter createMultiPopulationSEIRDiseaseModelAdapter() {
 		return null;
 	}
 

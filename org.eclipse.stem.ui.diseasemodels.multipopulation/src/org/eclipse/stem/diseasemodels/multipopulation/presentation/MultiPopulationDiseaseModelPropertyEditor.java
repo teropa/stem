@@ -24,7 +24,9 @@ import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.StringValueList;
+import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel;
+import org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -112,6 +114,26 @@ public class MultiPopulationDiseaseModelPropertyEditor extends
 						DoubleValue dval = CommonPackage.eINSTANCE.getCommonFactory().createDoubleValue();
 						dval.setValue(d);
 						((MultiPopulationSIDiseaseModel) diseaseModel).getRecoveryRate().getValues().add(dval);
+					}
+					break;
+				case MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE:
+					dvals = getDoubleArray(entry.getValue());
+					newList = CommonPackage.eINSTANCE.getCommonFactory().createDoubleValueList();
+					((MultiPopulationSIRDiseaseModel) diseaseModel).setImmunityLossRate(newList);
+					for(double d:dvals) {
+						DoubleValue dval = CommonPackage.eINSTANCE.getCommonFactory().createDoubleValue();
+						dval.setValue(d);
+						((MultiPopulationSIRDiseaseModel) diseaseModel).getImmunityLossRate().getValues().add(dval);
+					}
+					break;
+				case MultipopulationPackage.MULTI_POPULATION_SEIR_DISEASE_MODEL__INCUBATION_RATE:
+					dvals = getDoubleArray(entry.getValue());
+					newList = CommonPackage.eINSTANCE.getCommonFactory().createDoubleValueList();
+					((MultiPopulationSEIRDiseaseModel) diseaseModel).setIncubationRate(newList);
+					for(double d:dvals) {
+						DoubleValue dval = CommonPackage.eINSTANCE.getCommonFactory().createDoubleValue();
+						dval.setValue(d);
+						((MultiPopulationSEIRDiseaseModel) diseaseModel).getIncubationRate().getValues().add(dval);
 					}
 					break;
 				case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE:
