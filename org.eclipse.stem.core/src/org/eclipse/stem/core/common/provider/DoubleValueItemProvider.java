@@ -138,7 +138,7 @@ public class DoubleValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DoubleValue)object).getValue()+"";
+		String label = ((DoubleValue)object).getValue()+" ("+((DoubleValue)object).getIdentifier()+")";
 		return label == null || label.length() == 0 ?
 			getString("_UI_DoubleValue_type") : //$NON-NLS-1$
 			label; //$NON-NLS-1$ //$NON-NLS-2$

@@ -147,7 +147,11 @@ public class DoubleValueListItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DoubleValueList)object).eContainingFeature().getName();
+		String label = null;
+		if(((DoubleValueList)object).eContainingFeature().getFeatureID() == 
+			CommonPackage.DOUBLE_VALUE_MATRIX__VALUE_LISTS) label = ((DoubleValueList)object).getIdentifier();
+		else
+			label = ((DoubleValueList)object).eContainingFeature().getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DoubleValueList_type") : //$NON-NLS-1$
 			label; //$NON-NLS-1$ //$NON-NLS-2$
