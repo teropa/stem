@@ -101,6 +101,28 @@ abstract public class IdentifiableTreeNode {
 	} // toString
 
 	/**
+	 * hashCode. Override to fix navigator problem. The navigator in eclipse stores the tree nodes
+	 * in a hash table and we need to override hashCode and equals to make sure they can be
+	 * found. A combination of the folder name and the project name is unique within STEM.
+	 */
+	
+	@Override
+	public int hashCode() {
+		return folderName.hashCode()+project.getName().hashCode();
+	}
+	
+	/**
+	 * equals. Override to fix navigator problem
+	 */
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof IdentifiableTreeNode)) return false;
+		
+		return (((IdentifiableTreeNode)o).getFolderName().equals(this.folderName) &&
+				((IdentifiableTreeNode)o).getProject().getName().equals(this.getProject().getName()));
+	}
+	/**
 	 * This class is a {@link IdentifiableTreeNode} that represents
 	 * {@link org.eclipse.stem.core.model.Decorator}s.
 	 */

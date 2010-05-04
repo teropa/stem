@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -23,13 +24,21 @@ import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.Utility;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.navigator.CommonNavigator;
+import org.eclipse.ui.navigator.CommonViewer;
+import org.eclipse.ui.progress.UIJob;
 
 /**
  * This class is a {@link ITreeContentProvider} for
@@ -153,17 +162,61 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 	 *      .resources.IResourceDelta)
 	 */
 	public boolean visit(final IResourceDelta delta) throws CoreException {
-		final Display display = Display.getDefault();
-		// Is the display valid?
-		if (display != null) {
-			// Yes
-			display.asyncExec(new Runnable() {
-				public void run() {
-					viewer.refresh();
-				}
-			});
-		} // if
-
-		return true;
+		
+		final IResource source = delta.getResource(); 
+		switch ( source.getType() ) { 
+			case IResource.FOLDER: 
+				final IFolder f = (IFolder)source; 
+				new UIJob("Update Folder") { 
+					public IStatus runInUIThread(IProgressMonitor monitor) { 
+						if (viewer != null 
+								&& !viewer.getControl().isDisposed()) { 
+							((StructuredViewer)viewer).refresh(f); 
+						
+						} 
+						return Status.OK_STATUS; 
+					} 
+				}.schedule(); 
+				break;
+		case IResource.ROOT: 
+			new UIJob("Update Root") { 
+				public IStatus runInUIThread(IProgressMonitor monitor) { 
+					if (viewer != null 
+							&& !viewer.getControl().isDisposed()) { 
+						((StructuredViewer)viewer).refresh(source); 
+					} 
+					return Status.OK_STATUS; 
+				} 
+			}.schedule(); 
+			break;
+		case IResource.PROJECT: 
+			final IProject project = (IProject)source; 
+			new UIJob("Update Project") { 
+				public IStatus runInUIThread(IProgressMonitor monitor) { 
+					if (viewer != null 
+							&& !viewer.getControl().isDisposed()) { 
+						((StructuredViewer)viewer).refresh(project); 
+					} 
+					return Status.OK_STATUS; 
+				} 
+			}.schedule(); 
+			return false; 
+		case IResource.FILE: 
+			final IFile file = (IFile) source; 
+			new UIJob("Update File") { 
+				public IStatus runInUIThread(IProgressMonitor monitor) 
+				{ 
+					if (viewer != null 
+							&& !viewer.getControl().isDisposed()) { 
+						((StructuredViewer)viewer).refresh(file); 
+					} 
+					return Status.OK_STATUS; 
+				} 
+			}.schedule(); 
+			return false; 
+		default: 
+			break;
+		}
+		return true; 		
 	} // visit
 } // IdentifiableContentProvider
