@@ -79,6 +79,13 @@ abstract public class NewIdentifiablePage extends WizardPage {
 	protected List<IProject> stemProjects = null;
 
 	/**
+	 * Remember the last project used if the current selection is not referencing 
+	 * an existing project
+	 */
+	
+	protected static IProject lastProject = null;
+	
+	/**
 	 * This {@link ModifyListener} is attached to those widgets whose contents
 	 * need to be verified for correctness. Whenever one of those is modified, a
 	 * call to {@link #validatePage()} is made which then returns
@@ -291,6 +298,8 @@ abstract public class NewIdentifiablePage extends WizardPage {
 
 		IProject selectedProject = getWorkSpaceSelectedProject();
 
+		if(selectedProject == null) selectedProject = lastProject;
+		
 		// Get the Projects that are STEM projects
 		int index = 0;
 		int i = 0;
@@ -305,9 +314,9 @@ abstract public class NewIdentifiablePage extends WizardPage {
 			projectCombo.add(projectName);
 			i++;
 		} // for each STEM project
-
 		projectCombo.setFocus();
 		projectCombo.select(index);
+		NewIdentifiablePage.lastProject = this.getSelectedProject();
 	} // initializeProjectField
 
 	private IProject getWorkSpaceSelectedProject() {
