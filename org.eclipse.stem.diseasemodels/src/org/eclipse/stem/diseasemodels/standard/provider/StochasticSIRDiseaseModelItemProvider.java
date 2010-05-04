@@ -169,14 +169,14 @@ public class StochasticSIRDiseaseModelItemProvider extends SIRItemProvider
 	 * @return
 	 * 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StochasticSIRDiseaseModel)object).getDiseaseName();
+		String label = ((StochasticSIRDiseaseModel)object).getURI().lastSegment();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StochasticSIRDiseaseModel_type") : //$NON-NLS-1$
-			getString("_UI_StochasticSIRDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

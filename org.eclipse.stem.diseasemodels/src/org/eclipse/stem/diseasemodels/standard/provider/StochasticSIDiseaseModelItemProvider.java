@@ -176,7 +176,7 @@ public class StochasticSIDiseaseModelItemProvider extends SIItemProvider
 		String label = ((StochasticSIDiseaseModel)object).getURI().lastSegment();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StochasticSIDiseaseModel_type") : //$NON-NLS-1$
-			getString("_UI_StochasticSIDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+			label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
