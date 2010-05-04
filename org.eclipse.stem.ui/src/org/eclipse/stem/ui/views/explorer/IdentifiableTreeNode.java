@@ -108,7 +108,7 @@ abstract public class IdentifiableTreeNode {
 	
 	@Override
 	public int hashCode() {
-		return folderName.hashCode()+project.getName().hashCode();
+		return folderName.hashCode()^project.getName().hashCode(); // XOR
 	}
 	
 	/**
