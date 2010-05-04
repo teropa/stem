@@ -32,6 +32,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -202,7 +203,18 @@ abstract public class NewIdentifiablePage extends WizardPage {
 		// The projectValidator will look at the contents of the field and
 		// determine if it refers to a valid project.
 		projectNamesCombo.addModifyListener(projectValidator);
-
+		
+		// Remember the selection done for future 
+		projectNamesCombo.addSelectionListener(new SelectionListener() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				NewIdentifiablePage.lastProject = NewIdentifiablePage.this.getSelectedProject();
+			}
+			
+			public void widgetDefaultSelected(SelectionEvent e) {
+				
+			}
+		});
 		// Project Browse Button
 		final Button projectFieldBrowseButton = new Button(projectComposite,
 				SWT.PUSH);
