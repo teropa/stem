@@ -138,4 +138,11 @@
      <startup
            class="org.eclipse.stem.ui.populationmodels.adapters.StandardRelativeValueProviderAdapterFactory"></startup>
   </extension>
+  
+  <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.ui.populationmodels.adapters.PopulationModelNewModifierPageAdapterFactory"></startup>
+  </extension>
+  
 </plugin>

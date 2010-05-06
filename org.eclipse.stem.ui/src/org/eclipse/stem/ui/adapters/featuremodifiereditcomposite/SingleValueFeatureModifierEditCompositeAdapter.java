@@ -12,6 +12,7 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.modifier.DoubleModifier;
@@ -65,7 +66,7 @@ abstract public class SingleValueFeatureModifierEditCompositeAdapter extends
 		protected Text valueText;
 		
 		abstract protected void initializeFeatureModifier(
-				Identifiable identifiable);
+				EObject target);
 
 		abstract protected String getValueText();
 
@@ -75,10 +76,10 @@ abstract public class SingleValueFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
-				final Composite parent, final Identifiable identifiable,
+				final Composite parent, final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 
-			initializeFeatureModifier(identifiable);
+			initializeFeatureModifier(target);
 
 			final FeatureModifierEditComposite retValue = getFeatureModifierEditComposite(
 					parent, parentNewModifierPage);
@@ -129,7 +130,7 @@ abstract public class SingleValueFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		protected void initializeFeatureModifier(
-				@SuppressWarnings("unused") final Identifiable identifiable) {
+				@SuppressWarnings("unused") final EObject target) {
 			final IntegerModifier modifier = (IntegerModifier) getFeatureModifier();
 			modifier.setValue(((Integer) (getFeatureModifier()
 					.getTarget().eGet(getFeatureModifier()
@@ -216,7 +217,7 @@ abstract public class SingleValueFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		protected void initializeFeatureModifier(
-				@SuppressWarnings("unused") final Identifiable identifiable) {
+				@SuppressWarnings("unused") final EObject target) {
 			final LongModifier modifier = (LongModifier) getFeatureModifier();
 			modifier.setValue(((Long) (getFeatureModifier()
 					.getTarget().eGet(getFeatureModifier()
@@ -302,7 +303,7 @@ abstract public class SingleValueFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		protected void initializeFeatureModifier(
-				@SuppressWarnings("unused") final Identifiable identifiable) {
+				@SuppressWarnings("unused") final EObject target) {
 			final DoubleModifier modifier = (DoubleModifier) getFeatureModifier();
 			modifier.setValue(((Double) (getFeatureModifier()
 					.getTarget().eGet(getFeatureModifier()
@@ -391,7 +392,7 @@ abstract public class SingleValueFeatureModifierEditCompositeAdapter extends
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
 				final Composite parent,
-				@SuppressWarnings("unused") final Identifiable identifiable,
+				@SuppressWarnings("unused") final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 			final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 					parent, parentNewModifierPage,

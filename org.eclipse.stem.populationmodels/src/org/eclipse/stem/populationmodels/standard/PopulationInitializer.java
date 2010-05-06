@@ -12,6 +12,7 @@ package org.eclipse.stem.populationmodels.standard;
  *******************************************************************************/
 
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.modifier.Modifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +30,7 @@ import org.eclipse.stem.core.model.NodeDecorator;
  * @model
  * @generated
  */
-public interface PopulationInitializer extends NodeDecorator {
+public interface PopulationInitializer extends NodeDecorator, Modifiable {
 	/**
 	 * Returns the value of the '<em><b>Target ISO Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->

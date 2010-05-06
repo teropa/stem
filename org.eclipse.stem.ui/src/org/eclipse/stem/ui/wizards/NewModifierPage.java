@@ -16,6 +16,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -75,7 +76,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 	 * This is the {@link Identifiable} for which the page is creating a
 	 * {@link org.eclipse.stem.core.modifier.Modifier}.
 	 */
-	protected Identifiable identifiable;
+	protected EObject target;
 
 	private final List<FeatureModifierComposite> featureModifierComposites = new ArrayList<FeatureModifierComposite>();
 
@@ -86,11 +87,11 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 	 *            the {@link Identifiable} for which the page is creating a
 	 *            {@link org.eclipse.stem.core.modifier.Modifier}.
 	 */
-	protected NewModifierPage(final Identifiable identifiable) {
+	protected NewModifierPage(final EObject target) {
 		super(Messages.getString("NModifierWiz.page_title"));
 		setTitle(Messages.getString("NModifierWiz.page_title")); //$NON-NLS-1$
 		setDescription(Messages.getString("NModifierWiz.page_description")); //$NON-NLS-1$
-		this.identifiable = identifiable;
+		this.target = target;
 	} // NewModifierPage
 
 	/**
@@ -151,15 +152,15 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 		// Get the adapter that will provide NLS'd names for the
 		// properties of the Identifiable
 		final PropertyStringProviderAdapter pspa = (PropertyStringProviderAdapter) PropertyStringProviderAdapterFactory.INSTANCE
-				.adapt(identifiable, PropertyStringProvider.class);
+				.adapt(target, PropertyStringProvider.class);
 
 		final ComposedAdapterFactory itemProviderFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		final IItemPropertySource propertySource = (IItemPropertySource) itemProviderFactory
-				.adapt(identifiable, IItemPropertySource.class);
+				.adapt(target, IItemPropertySource.class);
 		final List<IItemPropertyDescriptor> properties = propertySource
-				.getPropertyDescriptors(identifiable);
+				.getPropertyDescriptors(target);
 
 		for (final IItemPropertyDescriptor descriptor : properties) {
 			final EStructuralFeature feature = (EStructuralFeature) descriptor
@@ -178,7 +179,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 
 				// Composite for the editor
 				final FeatureModifierComposite featureModifierComposite = new FeatureModifierComposite(
-						innerComposite, identifiable, feature, pspa, descriptor,
+						innerComposite, target, feature, pspa, descriptor,
 						isModifiableProperty(feature), this);
 				GridData gridData2 = new GridData(GridData.BEGINNING);
 				gridData2.grabExcessHorizontalSpace = true;
@@ -279,7 +280,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 			// Is this FeatureModifier something other than a NOP?
 			if (!(featureModifier instanceof NOPModifier)) {
 				// Yes
-				featureModifier.setTarget(identifiable);
+				featureModifier.setTarget(target);
 				retValue.add(featureModifier);
 			} // if
 		} // for each FeatureModifierComposite
@@ -340,8 +341,8 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 		/**
 		 * @param parent
 		 *            the parent {@link Composite}
-		 * @param identifiable
-		 *            the {@link Identifiable} that contains the
+		 * @param target
+		 *            the {@link EObject} that contains the
 		 *            {@link EStructuralFeature}
 		 * @param feature
 		 *            the feature to be modified
@@ -357,7 +358,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 		 *            {@link Composite}.
 		 */
 		public FeatureModifierComposite(final Composite parent,
-				final Identifiable identifiable,
+				final EObject target,
 				final EStructuralFeature feature,
 				final PropertyStringProvider psp,
 				final IItemPropertyDescriptor descriptor,
@@ -441,7 +442,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 			// value of the number
 			setFeatureModifier(EStructuralFeatureFeatureModifierAdapterFactory.INSTANCE
 					.adapt(feature, NOPModifier.class));
-			switchToFeatureModifier(identifiable, parentNewModifierPage);
+			switchToFeatureModifier(target, parentNewModifierPage);
 
 			noneButton.addSelectionListener(new SelectionAdapter() {
 				@Override
@@ -455,7 +456,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 						.adapt(feature, NOPModifier.class);
 						fm.setTarget(feature);
 						setFeatureModifier(fm);
-						switchToFeatureModifier(identifiable,
+						switchToFeatureModifier(target,
 								parentNewModifierPage);
 					} // if
 				}
@@ -471,7 +472,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 						// Yes
 						setFeatureModifier(EStructuralFeatureFeatureModifierAdapterFactory.INSTANCE
 								.adapt(feature, SingleValueModifier.class));
-						switchToFeatureModifier(identifiable,
+						switchToFeatureModifier(target,
 								parentNewModifierPage);
 						// selectRangeButton();
 					} // if
@@ -488,7 +489,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 						// Yes
 						setFeatureModifier(EStructuralFeatureFeatureModifierAdapterFactory.INSTANCE
 								.adapt(feature, RangeModifier.class));
-						switchToFeatureModifier(identifiable,
+						switchToFeatureModifier(target,
 								parentNewModifierPage);
 						// selectRangeButton();
 					} // if
@@ -504,7 +505,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 						// Yes
 						setFeatureModifier(EStructuralFeatureFeatureModifierAdapterFactory.INSTANCE
 								.adapt(feature, SequenceModifier.class));
-						switchToFeatureModifier(identifiable,
+						switchToFeatureModifier(target,
 								parentNewModifierPage);
 						// selectSequenceButton();
 					} // if
@@ -545,7 +546,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 			return retValue;
 		} // createDefaultEditComposite
 
-		void switchToFeatureModifier(final Identifiable identifiable,
+		void switchToFeatureModifier(final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 			// The target of the featureModifier needs to be adjusted here. It
 			// would typically be identifiable, but if identifiable is an
@@ -555,17 +556,17 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 			// when that happens the target of the FeatureModifier needs to be
 			// the label value and not the identifiable.
 			// A static label?
-			if (identifiable instanceof StaticLabel
-					&& (identifiable.eClass() != featureModifier
+			if (target instanceof StaticLabel
+					&& (target.eClass() != featureModifier
 							.getEStructuralFeature().getEContainingClass())) {
 				// Yes
-				final StaticLabel staticLabel = (StaticLabel) identifiable;
+				final StaticLabel staticLabel = (StaticLabel) target;
 				final LabelValue lv = (LabelValue) staticLabel
 						.eGet(GraphPackage.Literals.LABEL__CURRENT_VALUE);
 				featureModifier.setTarget(lv);
 			} // if static label
 			else {
-				featureModifier.setTarget(identifiable);
+				featureModifier.setTarget(target);
 			}
 
 			final FeatureModifierEditCompositeAdapter fmecAdapter = (FeatureModifierEditCompositeAdapter) FeatureModifierFeatureModifierEditCompositeAdapterFactory.INSTANCE
@@ -573,7 +574,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
 							FeatureModifierEditCompositeAdapter.class);
 			fmecAdapter.setTarget(featureModifier);
 			setEditComposite(fmecAdapter.createEditComposite(
-					editCompositeHolder, identifiable, parentNewModifierPage));
+					editCompositeHolder, target, parentNewModifierPage));
 			fmecAdapter.setSelectedButton(noneButton, singleButton, rangeButton,
 					sequenceButton);
 		} // switchToFeatureModifier

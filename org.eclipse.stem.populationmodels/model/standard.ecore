@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="standard"
     nsURI="http:///org/eclipse/stem/populationmodels/standard" nsPrefix="org.eclipse.stem.populationmodels.standard">
-  <eClassifiers xsi:type="ecore:EClass" name="PopulationModel" abstract="true" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator">
+  <eClassifiers xsi:type="ecore:EClass" name="PopulationModel" abstract="true" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator ../../org.eclipse.stem.core/model/modifier.ecore#//Modifiable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationIdentifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="human"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
@@ -63,7 +63,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fraction" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PopulationInitializer" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator">
+  <eClassifiers xsi:type="ecore:EClass" name="PopulationInitializer" eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//NodeDecorator ../../org.eclipse.stem.core/model/modifier.ecore#//Modifiable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetISOKey" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StandardPopulationInitializer" eSuperTypes="#//PopulationInitializer">

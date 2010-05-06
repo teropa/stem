@@ -32,6 +32,7 @@ import org.eclipse.stem.core.model.Decorator;
 
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.modifier.Modifiable;
 import org.eclipse.stem.populationmodels.standard.*;
 
 /**
@@ -162,6 +163,10 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNodeDecorator(NodeDecorator object) {
 				return createNodeDecoratorAdapter();
+			}
+			@Override
+			public Adapter caseModifiable(Modifiable object) {
+				return createModifiableAdapter();
 			}
 			@Override
 			public Adapter caseLabel(Label object) {
@@ -456,6 +461,20 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNodeDecoratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.Modifiable <em>Modifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.Modifiable
+	 * @generated
+	 */
+	public Adapter createModifiableAdapter() {
 		return null;
 	}
 

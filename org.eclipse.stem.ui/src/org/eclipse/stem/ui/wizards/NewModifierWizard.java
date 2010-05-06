@@ -17,6 +17,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -43,7 +44,7 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 	 * This is the {@link Identifiable} for which the wizard is creating a
 	 * {@link Modifier}.
 	 */
-	private Identifiable identifiable;
+	private EObject target;
 	private NewModifierPage newModifierPage;
 
 	/**
@@ -69,19 +70,19 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 		// that implements a disease model computation can be adapted by the
 		// addition of a factory that recognizes it.
 		final NewModifierPageAdapter adapter = (NewModifierPageAdapter) NewModifierPageAdapterFactory.INSTANCE
-				.adapt(identifiable, NewModifierPageAdapter.class);
+				.adapt(target, NewModifierPageAdapter.class);
 		// Were we successful in adapting?
 		if (adapter != null) {
 			// Yes
-			adapter.setTarget(identifiable);
+			adapter.setTarget(target);
 			newModifierPage = adapter.createNewModifierPage();
 		} // if
 		else {
 			// No
 			Activator.logError(
 					"Internal Error: could not create NewModifierPage for \""
-							+ identifiable.getClass().getName() + "\"", null);
-			newModifierPage = new NewModifierPage(identifiable) {
+							+ target.getClass().getName() + "\"", null);
+			newModifierPage = new NewModifierPage(target) {
 				@Override
 				protected Composite createSpecificComposite(
 						@SuppressWarnings("unused") final Composite parent) {
@@ -125,13 +126,13 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 		// be an EdgeLabel) then we'd get the URI of the Edge and not its Label.
 
 		// Is this an Edge?
-		if (identifiable instanceof Edge) {
+		if (target instanceof Edge) {
 			// Yes
-			final Edge edge = (Edge) identifiable;
+			final Edge edge = (Edge) target;
 			retValue.setTargetURI(edge.getLabel().getURI());
-		} else {
-			retValue.setTargetURI(identifiable.getURI());
-		}
+		} else if(target instanceof Identifiable){
+			retValue.setTargetURI(((Identifiable)target).getURI());
+		} else retValue.setTargetURI(null); // String value or double value
 		retValue.getFeatureModifiers().addAll(
 				newModifierPage.getFeatureModifiers());
 		return retValue;
@@ -154,12 +155,12 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 	} // getIdentifiableSerializationFileExtension
 
 	/**
-	 * @param identifiable
-	 *            the {@link Identifiable} that the {@link Modifier} will
+	 * @param target
+	 *            the target that the will
 	 *            modify.
 	 */
-	final public void setIdentifiable(final Identifiable identifiable) {
-		this.identifiable = identifiable;
+	final public void setTarget(final EObject target) {
+		this.target = target;
 	}
 
 	/**
@@ -183,20 +184,14 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 				// Yes
 				try {
 					final Object obj = ((StructuredSelection) selection).toArray()[0];
-					// We should be able to adapt this an Identifiable. The "core
-					// expressions" that define when the wizard can be created
-					// should prevent anything other an Identifiable, but we'll
-					// check to make sure.
-					final Identifiable identifiable = (Identifiable) Platform
-							.getAdapterManager()
-							.getAdapter(obj, Identifiable.class);
-					// Were we successful in adapting it?
-					if (identifiable != null) {
+					// We can only modify EObjects
+					if (obj instanceof EObject) {
+						EObject target = (EObject)obj;
 						// Yes
 						final IWorkbenchWindow window = HandlerUtil
 								.getActiveWorkbenchWindowChecked(executionEvent);
 						final NewModifierWizard wizard = new NewModifierWizard();
-						wizard.setIdentifiable(identifiable);
+						wizard.setTarget(target);
 						wizard.init(window.getWorkbench(),
 								StructuredSelection.EMPTY);
 						final WizardDialog wizardDialog = new WizardDialog(window

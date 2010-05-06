@@ -145,7 +145,7 @@ public class StandardPopulationInitializerItemProvider
 	 * This returns StandardPopulationInitializer.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {

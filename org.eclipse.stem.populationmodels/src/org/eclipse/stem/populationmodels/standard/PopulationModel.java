@@ -12,6 +12,7 @@ package org.eclipse.stem.populationmodels.standard;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.modifier.Modifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +32,7 @@ import org.eclipse.stem.core.model.NodeDecorator;
  * @model abstract="true"
  * @generated
  */
-public interface PopulationModel extends NodeDecorator {
+public interface PopulationModel extends NodeDecorator, Modifiable {
 	
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a

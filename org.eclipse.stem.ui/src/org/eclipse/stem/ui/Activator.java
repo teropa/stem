@@ -22,6 +22,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory;
 import org.eclipse.stem.ui.adapters.featuremodifiereditcomposite.ExperimentFeatureModifierEditCompositeFactory;
+import org.eclipse.stem.ui.adapters.newmodifierpage.CommonNewModifierPageAdapterFactory;
 import org.eclipse.stem.ui.adapters.newmodifierpage.GraphNewModifierPageAdapterFactory;
 import org.eclipse.stem.ui.adapters.newmodifierpage.LabelsNewModifierPageAdapterFactory;
 import org.eclipse.stem.ui.adapters.newmodifierpage.SequencerNewModifierPageAdapterFactory;
@@ -78,7 +79,8 @@ public class Activator extends AbstractUIPlugin {
 		new LabelsNewModifierPageAdapterFactory();
 		new ExperimentFeatureModifierEditCompositeFactory();
 		new LabelsPropertyStringProviderAdapterFactory();
-
+		new CommonNewModifierPageAdapterFactory();
+		
 		//Get the extension color providers and add them to the composed factory
 		IConfigurationElement[] elements = 
 			Platform.getExtensionRegistry().getConfigurationElementsFor("org.eclipse.stem.ui.colorproviders");

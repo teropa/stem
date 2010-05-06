@@ -27,6 +27,7 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
+import org.eclipse.stem.core.modifier.Modifiable;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -120,6 +121,10 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseStringValue(StringValue object) {
 				return createStringValueAdapter();
+			}
+			@Override
+			public Adapter caseModifiable(Modifiable object) {
+				return createModifiableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -264,6 +269,20 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.Modifiable <em>Modifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.Modifiable
+	 * @generated
+	 */
+	public Adapter createModifiableAdapter() {
 		return null;
 	}
 

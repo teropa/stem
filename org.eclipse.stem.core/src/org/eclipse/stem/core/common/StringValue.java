@@ -11,7 +11,7 @@ package org.eclipse.stem.core.common;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.stem.core.modifier.Modifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface StringValue extends EObject {
+public interface StringValue extends Modifiable {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

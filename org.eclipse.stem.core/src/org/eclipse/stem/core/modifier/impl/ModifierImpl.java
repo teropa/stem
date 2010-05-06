@@ -25,9 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.NodeLabel;
@@ -208,7 +206,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	 */
 	@Override
 	public void updateLabels(STEMTime time, long timerPeriod, int cycle) {
-		modifyIdentifiable(getIdentifiable(getGraph()));
+		modifyTarget(getTarget(getGraph()));
 	} // updateLabels
 
 	/**
@@ -217,11 +215,11 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	 * @generated NOT
 	 */
 	public void updateScenario(final Scenario scenario) {
-		modifyIdentifiable(getIdentifiable(scenario));
+		modifyTarget(getTarget(scenario));
 	} // updateScenario
 
-	private Identifiable getIdentifiable(final Scenario scenario) {
-		Identifiable retValue = null;
+	private EObject getTarget(final Scenario scenario) {
+		EObject retValue = null;
 		// Sequencer?
 		if (scenario.getSequencer().getURI().equals(targetURI)) {
 			// Yes
@@ -245,15 +243,15 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 				// No
 				// We've done the easy stuff, we need to get the canonical graph
 				if(scenario.getCanonicalGraph() == null) scenario.initialize();
-				retValue = getIdentifiable(scenario.getCanonicalGraph());
+				retValue = getTarget(scenario.getCanonicalGraph());
 			} // if no Scenario Decorator
 
 		} // else not a Scenario decorator
 		return retValue;
 	} // getIdentifiable
 
-	private Identifiable getIdentifiable(final Graph graph) {
-		Identifiable retValue = null;
+	private EObject getTarget(final Graph graph) {
+		EObject retValue = null;
 		for (Decorator decorator : graph.getDecorators()) {
 			// Our target?
 			if (decorator.getURI().equals(targetURI)) {
@@ -261,6 +259,14 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 				retValue = decorator;
 				break;
 			} // if
+			
+			// Look inside the children for the target using the target of the feature modifier
+			// We only look at the target for the first feature modifier, assuming the other 
+			// modifiers uses the same target.
+			
+			FeatureModifier fm = this.getFeatureModifiers().get(0);
+			retValue = deepFindChildren(decorator, fm.getTarget());
+			if(retValue != null)break;
 		} // for each Decorator
 
 		// A Node label?
@@ -289,35 +295,39 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 		return retValue;
 	} // getIdentifiable
 
-	private void modifyIdentifiable(final Identifiable identifiableToModify) {
-		// Did we find it?
-		if (identifiableToModify != null) {
-			// Yes
-			for (FeatureModifier featureModifier : getFeatureModifiers()) {
-				EObject target = identifiableToModify;
+
+	private void modifyTarget(EObject target) {
+		// Yes
+		for (FeatureModifier featureModifier : getFeatureModifiers()) {
 				
-				// If the Identifiable is a static label, then the feature we
-				// are modifying could be in the current label value. If it is
-				// we need to adjust the target of the feature modifier.
-				// Static label?
-				if (identifiableToModify instanceof StaticLabel) {
-					// Yes
-					final StaticLabel sl = (StaticLabel)identifiableToModify;
-					target = sl.getCurrentValue();
-				}
-				featureModifier.setTarget(target);
-				featureModifier.updateFeature();
-			} // for each FeatureModifier
-		} // if
-		else {
-			// No
-			CorePlugin.logError("Modifier \"" + this.getDublinCore().getTitle()
-					+ "\" could not find target \"" + getTargetURI().toString()
-					+ "\"", null);
-			complete = true;
-		} // else
+			// If the Identifiable is a static label, then the feature we
+			// are modifying could be in the current label value. If it is
+			// we need to adjust the target of the feature modifier.
+			// Static label?
+			if (target instanceof StaticLabel) {
+				// Yes
+				final StaticLabel sl = (StaticLabel)target;
+				target = sl.getCurrentValue();
+			}
+			featureModifier.setTarget(target);
+			featureModifier.updateFeature();
+		} // for each FeatureModifier
 	} // modifyIdentifiable
 
+	/**
+	 * Look inside the decorators for the target. This is to find string values and
+	 * double values. 
+	 * @param eobj
+	 * @param target
+	 * @return EObject the target if found, otherwise null
+	 */
+	public EObject deepFindChildren(EObject eobj, EObject target) {
+		if(eobj.equals(target)) return eobj;
+		for(EObject eo:eobj.eContents()) {
+			deepFindChildren(eo, target);
+		}
+		return null;
+	}
 	/**
 	 * @see org.eclipse.stem.core.modifier.Modifier#getModificationSummary()
 	 */

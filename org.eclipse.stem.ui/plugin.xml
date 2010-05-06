@@ -1023,9 +1023,11 @@
            <iterate
                  operator="and">
               <and>
+              <!-- Removed since we want to be able to create modifiers for lists of things like recovery rates for multi-populations
                  <adapt
                        type="org.eclipse.stem.core.common.Identifiable">
                  </adapt>
+              -->
                  <adapt
                        type="org.eclipse.stem.core.modifier.Modifiable">
                  </adapt>

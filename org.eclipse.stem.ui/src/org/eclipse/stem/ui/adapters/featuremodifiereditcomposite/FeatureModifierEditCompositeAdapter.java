@@ -14,7 +14,7 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
 import org.eclipse.stem.ui.wizards.NewModifierPage.FeatureModifierEditComposite;
@@ -39,7 +39,7 @@ abstract public class FeatureModifierEditCompositeAdapter extends AdapterImpl
 	 *         {@link FeatureModifier} be adapted.
 	 */
 	abstract public FeatureModifierEditComposite createEditComposite(
-			Composite parent, Identifiable identifiable,
+			Composite parent, EObject target,
 			NewModifierPage parentNewModifierPage);
 
 	/**

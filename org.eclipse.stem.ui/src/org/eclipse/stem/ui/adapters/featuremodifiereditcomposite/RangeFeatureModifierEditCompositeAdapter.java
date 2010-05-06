@@ -12,6 +12,7 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.modifier.DoubleRangeModifier;
@@ -67,7 +68,7 @@ abstract public class RangeFeatureModifierEditCompositeAdapter extends
 		protected Text incText;
 
 		abstract protected void initializeFeatureModifier(
-				Identifiable identifiable);
+				EObject target);
 
 		abstract protected String getInitialStartText();
 
@@ -81,10 +82,10 @@ abstract public class RangeFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
-				final Composite parent, final Identifiable identifiable,
+				final Composite parent, final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 
-			initializeFeatureModifier(identifiable);
+			initializeFeatureModifier(target);
 
 			final FeatureModifierEditComposite retValue = getFeatureModifierEditComposite(
 					parent, parentNewModifierPage);
@@ -177,7 +178,7 @@ abstract public class RangeFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		protected void initializeFeatureModifier(
-				@SuppressWarnings("unused") final Identifiable identifiable) {
+				@SuppressWarnings("unused") final EObject target) {
 			final IntegerRangeModifier rangeModifier = (IntegerRangeModifier) getFeatureModifier();
 			rangeModifier.setStartValue(((Integer) (getFeatureModifier()
 					.getTarget().eGet(getFeatureModifier()
@@ -336,7 +337,7 @@ abstract public class RangeFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		protected void initializeFeatureModifier(
-				@SuppressWarnings("unused") final Identifiable identifiable) {
+				@SuppressWarnings("unused") final EObject target) {
 			final LongRangeModifier rangeModifier = (LongRangeModifier) getFeatureModifier();
 			rangeModifier.setStartValue(((Long) (getFeatureModifier()
 					.getTarget().eGet(getFeatureModifier()
@@ -492,7 +493,7 @@ abstract public class RangeFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		protected void initializeFeatureModifier(
-				@SuppressWarnings("unused") final Identifiable identifiable) {
+				@SuppressWarnings("unused") final EObject target) {
 			final DoubleRangeModifier rangeModifier = (DoubleRangeModifier) getFeatureModifier();
 			rangeModifier.setStartValue(((Double) (getFeatureModifier()
 					.getTarget().eGet(getFeatureModifier()
@@ -648,7 +649,7 @@ abstract public class RangeFeatureModifierEditCompositeAdapter extends
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
 				final Composite parent,
-				@SuppressWarnings("unused") final Identifiable identifiable,
+				@SuppressWarnings("unused") final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 			final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 					parent, parentNewModifierPage,

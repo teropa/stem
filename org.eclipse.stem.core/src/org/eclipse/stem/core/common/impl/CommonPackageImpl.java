@@ -703,6 +703,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		// Obtain other dependent packages
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		ModifierPackage theModifierPackage = (ModifierPackage)EPackage.Registry.INSTANCE.getEPackage(ModifierPackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(comparableEClass, "T"); //$NON-NLS-1$
@@ -714,6 +715,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		EGenericType g2 = createEGenericType(this.getIdentifiable());
 		g1.getETypeArguments().add(g2);
 		identifiableEClass.getEGenericSuperTypes().add(g1);
+		doubleValueEClass.getESuperTypes().add(theModifierPackage.getModifiable());
+		stringValueEClass.getESuperTypes().add(theModifierPackage.getModifiable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(dublinCoreEClass, DublinCore.class, "DublinCore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

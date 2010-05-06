@@ -25,6 +25,7 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
+import org.eclipse.stem.core.modifier.Modifiable;
 //import org.eclipse.stem.core.common.*;
 
 /**
@@ -135,6 +136,7 @@ public class CommonSwitch<T1> {
 			case CommonPackage.DOUBLE_VALUE: {
 				DoubleValue doubleValue = (DoubleValue)theEObject;
 				T1 result = caseDoubleValue(doubleValue);
+				if (result == null) result = caseModifiable(doubleValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -147,6 +149,7 @@ public class CommonSwitch<T1> {
 			case CommonPackage.STRING_VALUE: {
 				StringValue stringValue = (StringValue)theEObject;
 				T1 result = caseStringValue(stringValue);
+				if (result == null) result = caseModifiable(stringValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -286,6 +289,21 @@ public class CommonSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseStringValue(StringValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Modifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Modifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseModifiable(Modifiable object) {
 		return null;
 	}
 

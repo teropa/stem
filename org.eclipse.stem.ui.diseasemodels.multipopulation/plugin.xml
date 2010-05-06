@@ -42,4 +42,10 @@
      </startup>
    </extension>
 
+   <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.stem.ui.diseasemodels.multipopulation.adapters.MultiDiseaseNewModifierPageAdapterFactory"></startup>
+  </extension>
+  
 </plugin>

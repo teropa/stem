@@ -12,6 +12,7 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.modifier.DoubleSequenceModifier;
@@ -55,7 +56,7 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 	 */
 	@Override
 	abstract public FeatureModifierEditComposite createEditComposite(
-			final Composite parent, final Identifiable identifiable,
+			final Composite parent, final EObject target,
 			final NewModifierPage parentNewModifierPage);
 
 	abstract protected static class NumericSequenceFeatureModifierEditCompositeAdapter
@@ -68,9 +69,9 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
-				Composite parent, Identifiable identifiable,
+				Composite parent, EObject target,
 				NewModifierPage parentNewModifierPage) {
-			initializeFeatureModifier(identifiable);
+			initializeFeatureModifier(target);
 
 			final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 					parent, parentNewModifierPage,
@@ -102,7 +103,7 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 		 * @param identifiable
 		 */
 		abstract protected void initializeFeatureModifier(
-				Identifiable identifiable);
+				EObject target);
 
 		/**
 		 * @return
@@ -115,10 +116,10 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 			extends NumericSequenceFeatureModifierEditCompositeAdapter {
 
 		@Override
-		protected void initializeFeatureModifier(Identifiable identifiable) {
+		protected void initializeFeatureModifier(EObject target) {
 			final IntegerSequenceModifier sequenceModifier = (IntegerSequenceModifier) getFeatureModifier();
 			sequenceModifier.getSequence().add(
-					((Integer) (identifiable.eGet(getFeatureModifier()
+					((Integer) (target.eGet(getFeatureModifier()
 							.getEStructuralFeature()))));
 		} // initializeFeatureModifier
 
@@ -143,10 +144,10 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 			extends NumericSequenceFeatureModifierEditCompositeAdapter {
 
 		@Override
-		protected void initializeFeatureModifier(Identifiable identifiable) {
+		protected void initializeFeatureModifier(EObject target) {
 			final DoubleSequenceModifier sequenceModifier = (DoubleSequenceModifier) getFeatureModifier();
 			sequenceModifier.getSequence().add(
-					((Double) (identifiable.eGet(getFeatureModifier()
+					((Double) (target.eGet(getFeatureModifier()
 							.getEStructuralFeature()))));
 		} // initializeFeatureModifier
 
@@ -171,10 +172,10 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 			extends NumericSequenceFeatureModifierEditCompositeAdapter {
 
 		@Override
-		protected void initializeFeatureModifier(Identifiable identifiable) {
+		protected void initializeFeatureModifier(EObject target) {
 			final LongSequenceModifier sequenceModifier = (LongSequenceModifier) getFeatureModifier();
 			sequenceModifier.getSequence().add(
-					((Long) (identifiable.eGet(getFeatureModifier()
+					((Long) (target.eGet(getFeatureModifier()
 							.getEStructuralFeature()))));
 		} // initializeFeatureModifier
 
@@ -205,9 +206,9 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 		 */
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
-				Composite parent, Identifiable identifiable,
+				Composite parent, EObject target,
 				NewModifierPage parentNewModifierPage) {
-			initializeFeatureModifier(identifiable);
+			initializeFeatureModifier(target);
 
 			final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 					parent, parentNewModifierPage,
@@ -235,10 +236,10 @@ abstract public class SequenceFeatureModifierEditCompositeAdapter extends
 			return retValue;
 		} // createEditComposite
 
-		protected void initializeFeatureModifier(Identifiable identifiable) {
+		protected void initializeFeatureModifier(EObject target) {
 			final LongSequenceModifier sequenceModifier = (LongSequenceModifier) getFeatureModifier();
 			sequenceModifier.getSequence().add(
-					((Long) (identifiable.eGet(getFeatureModifier()
+					((Long) (target.eGet(getFeatureModifier()
 							.getEStructuralFeature()))));
 		} // initializeFeatureModifier
 

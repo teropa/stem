@@ -10,7 +10,7 @@ package org.eclipse.stem.core.common;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.stem.core.modifier.Modifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DoubleValue extends EObject {
+public interface DoubleValue extends Modifiable {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->

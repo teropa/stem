@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.stem.core.modifier.ModifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -439,7 +440,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_VALUE__IDENTIFIER = 0;
+	int DOUBLE_VALUE__IDENTIFIER = ModifierPackage.MODIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -448,7 +449,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_VALUE__VALUE = 1;
+	int DOUBLE_VALUE__VALUE = ModifierPackage.MODIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Double Value</em>' class.
@@ -457,7 +458,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_VALUE_FEATURE_COUNT = 2;
+	int DOUBLE_VALUE_FEATURE_COUNT = ModifierPackage.MODIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.core.common.impl.StringValueListImpl <em>String Value List</em>}' class.
@@ -504,7 +505,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__VALUE = 0;
+	int STRING_VALUE__VALUE = ModifierPackage.MODIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>String Value</em>' class.
@@ -513,7 +514,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE_FEATURE_COUNT = 1;
+	int STRING_VALUE_FEATURE_COUNT = ModifierPackage.MODIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.

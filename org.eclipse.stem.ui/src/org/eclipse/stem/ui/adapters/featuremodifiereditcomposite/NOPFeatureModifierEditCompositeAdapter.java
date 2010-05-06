@@ -12,6 +12,7 @@ package org.eclipse.stem.ui.adapters.featuremodifiereditcomposite;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.ui.wizards.NewModifierPage;
@@ -37,7 +38,7 @@ public class NOPFeatureModifierEditCompositeAdapter extends
 	@Override
 	public FeatureModifierEditComposite createEditComposite(
 			final Composite parent,
-			@SuppressWarnings("unused") final Identifiable identifiable,
+			@SuppressWarnings("unused") final EObject target,
 			final NewModifierPage parentNewModifierPage) {
 		final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 				parent, parentNewModifierPage, (FeatureModifier) getTarget()) {
@@ -73,7 +74,7 @@ public class NOPFeatureModifierEditCompositeAdapter extends
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
 				final Composite parent,
-				@SuppressWarnings("unused") final Identifiable identifiable,
+				@SuppressWarnings("unused") final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 			final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 					parent, parentNewModifierPage,
@@ -116,7 +117,7 @@ public class NOPFeatureModifierEditCompositeAdapter extends
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
 				final Composite parent,
-				@SuppressWarnings("unused") final Identifiable identifiable,
+				@SuppressWarnings("unused") final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 			final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 					parent, parentNewModifierPage,
@@ -154,7 +155,7 @@ public class NOPFeatureModifierEditCompositeAdapter extends
 		@Override
 		public FeatureModifierEditComposite createEditComposite(
 				final Composite parent,
-				@SuppressWarnings("unused") final Identifiable identifiable,
+				@SuppressWarnings("unused") final EObject target,
 				final NewModifierPage parentNewModifierPage) {
 			final FeatureModifierEditComposite retValue = new FeatureModifierEditComposite(
 					parent, parentNewModifierPage,

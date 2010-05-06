@@ -29,6 +29,7 @@ import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.ModelPackage;
 
+import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.solver.SolverPackage;
 
 import org.eclipse.stem.definitions.labels.LabelsPackage;
@@ -683,6 +684,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		// Obtain other dependent packages
 		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
+		ModifierPackage theModifierPackage = (ModifierPackage)EPackage.Registry.INSTANCE.getEPackage(ModifierPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
 		LabelsPackage theLabelsPackage = (LabelsPackage)EPackage.Registry.INSTANCE.getEPackage(LabelsPackage.eNS_URI);
@@ -693,6 +695,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		// Add supertypes to classes
 		populationModelEClass.getESuperTypes().add(theModelPackage.getNodeDecorator());
+		populationModelEClass.getESuperTypes().add(theModifierPackage.getModifiable());
 		standardPopulationModelEClass.getESuperTypes().add(this.getPopulationModel());
 		standardPopulationModelEClass.getESuperTypes().add(this.getIntegrationDecorator());
 		populationModelLabelEClass.getESuperTypes().add(theGraphPackage.getDynamicNodeLabel());
@@ -704,6 +707,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		stochasticStandardPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
 		demographicPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
 		populationInitializerEClass.getESuperTypes().add(theModelPackage.getNodeDecorator());
+		populationInitializerEClass.getESuperTypes().add(theModifierPackage.getModifiable());
 		standardPopulationInitializerEClass.getESuperTypes().add(this.getPopulationInitializer());
 
 		// Initialize classes and features; add operations and parameters

@@ -30,6 +30,7 @@ import org.eclipse.stem.core.model.Decorator;
 
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.modifier.Modifiable;
 import org.eclipse.stem.populationmodels.standard.*;
 
 /**
@@ -111,6 +112,7 @@ public class StandardSwitch<T1> {
 				PopulationModel populationModel = (PopulationModel)theEObject;
 				T1 result = casePopulationModel(populationModel);
 				if (result == null) result = caseNodeDecorator(populationModel);
+				if (result == null) result = caseModifiable(populationModel);
 				if (result == null) result = caseDecorator(populationModel);
 				if (result == null) result = caseIdentifiable(populationModel);
 				if (result == null) result = caseComparable(populationModel);
@@ -123,6 +125,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = casePopulationModel(standardPopulationModel);
 				if (result == null) result = caseIntegrationDecorator(standardPopulationModel);
 				if (result == null) result = caseNodeDecorator(standardPopulationModel);
+				if (result == null) result = caseModifiable(standardPopulationModel);
 				if (result == null) result = caseDecorator(standardPopulationModel);
 				if (result == null) result = caseIdentifiable(standardPopulationModel);
 				if (result == null) result = caseComparable(standardPopulationModel);
@@ -180,6 +183,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = casePopulationModel(stochasticStandardPopulationModel);
 				if (result == null) result = caseIntegrationDecorator(stochasticStandardPopulationModel);
 				if (result == null) result = caseNodeDecorator(stochasticStandardPopulationModel);
+				if (result == null) result = caseModifiable(stochasticStandardPopulationModel);
 				if (result == null) result = caseDecorator(stochasticStandardPopulationModel);
 				if (result == null) result = caseIdentifiable(stochasticStandardPopulationModel);
 				if (result == null) result = caseComparable(stochasticStandardPopulationModel);
@@ -193,6 +197,7 @@ public class StandardSwitch<T1> {
 				if (result == null) result = casePopulationModel(demographicPopulationModel);
 				if (result == null) result = caseIntegrationDecorator(demographicPopulationModel);
 				if (result == null) result = caseNodeDecorator(demographicPopulationModel);
+				if (result == null) result = caseModifiable(demographicPopulationModel);
 				if (result == null) result = caseDecorator(demographicPopulationModel);
 				if (result == null) result = caseIdentifiable(demographicPopulationModel);
 				if (result == null) result = caseComparable(demographicPopulationModel);
@@ -209,6 +214,7 @@ public class StandardSwitch<T1> {
 				PopulationInitializer populationInitializer = (PopulationInitializer)theEObject;
 				T1 result = casePopulationInitializer(populationInitializer);
 				if (result == null) result = caseNodeDecorator(populationInitializer);
+				if (result == null) result = caseModifiable(populationInitializer);
 				if (result == null) result = caseDecorator(populationInitializer);
 				if (result == null) result = caseIdentifiable(populationInitializer);
 				if (result == null) result = caseComparable(populationInitializer);
@@ -220,6 +226,7 @@ public class StandardSwitch<T1> {
 				T1 result = caseStandardPopulationInitializer(standardPopulationInitializer);
 				if (result == null) result = casePopulationInitializer(standardPopulationInitializer);
 				if (result == null) result = caseNodeDecorator(standardPopulationInitializer);
+				if (result == null) result = caseModifiable(standardPopulationInitializer);
 				if (result == null) result = caseDecorator(standardPopulationInitializer);
 				if (result == null) result = caseIdentifiable(standardPopulationInitializer);
 				if (result == null) result = caseComparable(standardPopulationInitializer);
@@ -497,6 +504,21 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseNodeDecorator(NodeDecorator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Modifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Modifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseModifiable(Modifiable object) {
 		return null;
 	}
 

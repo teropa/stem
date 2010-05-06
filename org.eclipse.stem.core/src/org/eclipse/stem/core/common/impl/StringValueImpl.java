@@ -14,11 +14,13 @@ package org.eclipse.stem.core.common.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.stem.core.common.CommonPackage;
+import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.StringValue;
 
 /**
@@ -169,4 +171,37 @@ public class StringValueImpl extends EObjectImpl implements StringValue {
 		return result.toString();
 	}
 
+	private Identifiable findIdentifiable(EObject o) {
+		if(o instanceof Identifiable) return (Identifiable)o;
+		if(o.eContainer() != null) return findIdentifiable(o.eContainer());
+		return null;
+	}
+	/**
+	 * Need to override to make sure modifiers can find
+	 */
+	@Override
+	public int hashCode() {
+		Identifiable id = findIdentifiable(this);
+		
+		
+		if(id!=null) 
+			return id.getURI().hashCode() ^
+			this.eContainingFeature().getName().hashCode();
+			
+		return this.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof DoubleValueImpl)) return false;
+		DoubleValueImpl dvi = (DoubleValueImpl)o;
+		Identifiable id = findIdentifiable(dvi);
+		Identifiable id2 = findIdentifiable(this);
+		if(!id.getURI().equals(id2.getURI())) return false;
+		
+		// Need to make sure that the path from the identifiable
+		// to here is the same
+		//... todo
+		return (super.equals(o));
+	}
 } //StringValueImpl
