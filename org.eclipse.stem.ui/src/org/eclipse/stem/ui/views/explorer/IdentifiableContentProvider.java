@@ -83,15 +83,20 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 						IFile ifile = (IFile) identifiableFile;
 						// exclude any operating system files starting with '.'
 						if((ifile.getName().length()>0)&&( ifile.getName().charAt(0)!='.' ) && !ifile.getName().endsWith("~")) {
-							final Identifiable identifiable = Utility.getIdentifiable((IFile) identifiableFile);
-							// here we want to protect the user and allow non STEM files in each Directory
-							// Just catch any exception and continue
-							if(identifiable != null) temp.add(identifiable);
+							try {
+								final Identifiable identifiable = Utility.getIdentifiable((IFile) identifiableFile);
+								if(identifiable != null) temp.add(identifiable);
+							} catch (final Throwable t) {
+								// here we want to protect the user and allow non STEM files in each Directory
+								// Just catch any exception and continue
+								Activator.logInformation("Error loading file "+ifile.getName()+" for display", t);
+							}
+
 						}
 						
 					}
-				} catch (final CoreException e) {
-					Activator.logError("", e);
+				} catch (final CoreException ce) {
+					Activator.logError("", ce);
 				} // for each IResource folder.members()
 			} // if folder exists
 
