@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Disease Model Label</b></em>'.
@@ -50,13 +52,13 @@ public abstract class StandardDiseaseModelLabelImpl extends
 		getErrorScale().reset();
 		getProbeValue().reset();
 		// Is there a population instance associated with this instance?
-		if (getPopulationLabel() != null) {
+		if (getPopulationModelLabel() != null) {
 			// Yes
 			// Ok, set the susceptible population to the count of the number of
 			// population members
 			final StandardDiseaseModelLabelValue sValue = (StandardDiseaseModelLabelValue)getCurrentValue();
 
-			sValue.setS(getPopulationLabel().getCurrentPopulationValue()
+			sValue.setS(((StandardPopulationModelLabelValue)getPopulationModelLabel().getCurrentValue())
 					.getCount());
 		} // if
 

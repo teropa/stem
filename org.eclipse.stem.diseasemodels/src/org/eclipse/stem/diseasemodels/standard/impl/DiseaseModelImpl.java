@@ -666,21 +666,16 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		return success;
 	} // decorateGraph
 
-	
-	/**
-	 * Prepare the decorator. A subclass needs to override this method if
-	 * pre-processing steps are necessary before the decorator is being used
-	 * 
-	 * 
-	 */
-	@Override
-	public void prepare(Model model, STEMTime time) {
-
-		// Check whether a population model exists for the disease model. If not, create
-		// a new population model with birth/death rate 0.
-		
+	private boolean findPopulationModel(Model m) {
 		boolean found = false;
-		for(NodeDecorator dec: model.getNodeDecorators()) {
+		// Check sub models first
+		for(Model m2:m.getModels()) {
+			found = findPopulationModel(m2);
+			if(found)break;
+		}
+		if(found) return found;
+		
+		for(NodeDecorator dec: m.getNodeDecorators()) {
 			if(dec instanceof DemographicPopulationModel) {
 				DemographicPopulationModel dpm = (DemographicPopulationModel)dec;
 				if(dpm.getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
@@ -702,6 +697,23 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 				found = true;break;
 			}
 		}
+		return found;
+	}
+	
+	/**
+	 * Prepare the decorator. A subclass needs to override this method if
+	 * pre-processing steps are necessary before the decorator is being used
+	 * 
+	 * 
+	 */
+	@Override
+	public void prepare(Model model, STEMTime time) {
+
+		// Check whether a population model exists for the disease model. If not, create
+		// a new population model with birth/death rate 0.
+		
+		boolean found = findPopulationModel(model);
+		
 		if(!found) {
 			// Create a new standard population model
 			StandardPopulationModel spm = StandardFactory.eINSTANCE.createStandardPopulationModel();
