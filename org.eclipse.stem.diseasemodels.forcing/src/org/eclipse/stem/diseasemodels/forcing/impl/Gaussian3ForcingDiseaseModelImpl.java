@@ -121,6 +121,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 
 	private ArrayList<Long> writtedTimes = new ArrayList<Long>();
 	private FileWriter fw;
+	private FileWriter fw2;
 	
 	private int [] whichGaussian = {0, 0, 0, 1, 0, 2, 0, 0, 2, 0, 1};
 	
@@ -199,22 +200,10 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 
 		if(transmissionRate < 0.0) transmissionRate = 0.0; // negative floor now possible
 		
-		synchronized(writtedTimes) {
-			if(!writtedTimes.contains(time.getTime().getTime())) {
-				try {
-				if(fw == null) fw = new FileWriter("beta.csv");
-				fw.write(time.getTime().getTime()+","+transmissionRate+"\n");
-				fw.flush();
-				} catch(Exception e) {
-					e.printStackTrace();
-				}
-				writtedTimes.add(time.getTime().getTime());
-			}
-		}
+	
 		
 		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
 		
-		// The effective Infectious population  is a dimensionles number normalize by total
 		// population used in teh computation of bets*S*i where i = Ieffective/Pop.
 		// This includes a correction to the current
 		// infectious population (Ieffective) based on the conserved exchange of people (circulation)
@@ -222,6 +211,24 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		// a different process.
 		final double effectiveInfectious = getNormalizedEffectiveInfectious(diseaseLabel.getNode(), diseaseLabel, currentSIR.getI());
 
+		
+		synchronized(writtedTimes) {
+			if(!writtedTimes.contains(time.getTime().getTime()) && diseaseLabel.getNode().getURI().lastSegment().contains("IL-03-111")) {
+				try {
+				if(fw == null) fw = new FileWriter("beta.csv");
+//				if(fw2 == null) fw2= new FileWriter("r0.csv");
+				fw.write(time.getTime().getTime()+","+transmissionRate+"\n");
+//				fw2.write(time.getTime().getTime()+","+transmissionRate+","+((transmissionRate / getAdjustedRecoveryRate(timeDelta)) *currentSIR.getS() / effectivePopulation)+","+getAdjustedRecoveryRate(timeDelta)+","+getAdjustedImmunityLossRate(timeDelta)+","+effectiveInfectious+","+currentSIR.getPopulationCount()+"\n");
+				
+				fw.flush();
+//				fw2.flush();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+				writtedTimes.add(time.getTime().getTime());
+			}
+		}
+		
 		/*
 		 * Compute state transitions
 		 * 
@@ -261,7 +268,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		SIRLabelValueImpl ret = (SIRLabelValueImpl)returnValue;
 		ret.setS(deltaS);
 		ret.setI(deltaI);
-		ret.setIncidence(numberOfInfectedToRecovered);
+		ret.setIncidence(numberOfSusceptibleToInfected);
 		ret.setR(deltaR);
 		ret.setDiseaseDeaths(0);
 		return ret;

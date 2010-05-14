@@ -377,7 +377,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		SIRLabelValueImpl ret = (SIRLabelValueImpl)returnValue;
 		ret.setS(deltaS);
 		ret.setI(deltaI);
-		ret.setIncidence(numberOfInfectedToRecovered);
+		ret.setIncidence(numberOfSusceptibleToInfected);
 		ret.setR(deltaR);
 		ret.setDiseaseDeaths(0);
 		return ret;
