@@ -808,7 +808,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 			}
 			
 			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, diseaseLabel, onsiteInfectious, physAdjacentInfProportion);
-			borderDivisor += getPhysicallyAdjacentInfectiousProportion()*this.getLocalPopulation(this, otherNode);
+			borderDivisor += physAdjacentInfProportion*this.getLocalPopulation(this, otherNode);
 		} // for each border edge
 		
 		for (final Iterator<Edge> roadEdgeIter = RoadTransportRelationshipLabelImpl.getRoadEdgesFromNode(node).iterator(); 	roadEdgeIter.hasNext();) {
@@ -847,11 +847,12 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		if (denom > 0.0) {
 			retVal = ( onsiteInfectious + infectiousChangeFromMixing ) / denom;
 		}
-		
-		
+			
 		return retVal;
 
 	} // getNormalizedEffectiveInfectious
+
+
 	
 	/**
 	 * This method correctly computes the mixing of the infectious population (onsite) with the infectious population
