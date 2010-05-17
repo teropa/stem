@@ -265,7 +265,6 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		
 		long currentMillis = time.getTime().getTime();
-		double seasonalModulationFloor = getModulationFloor();
 		double modulationPeriod = getModulationPeriod();
 		double phase = getModulationPhaseShift();	
 		double sigma2 = getSigma2();		
@@ -286,25 +285,36 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		}
 		double intDay = day;
 		
-		double modulation = 0;
+		double modulatedTransmissionRate = 0.0;
+		
 		// Smoothing
 		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
-			double avg=0;
-			double denom = 0;
-			for(double d=day-30;d<day+30;++d) {
-				double _d = ((d % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-				double mo = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2));						
-				avg = avg+mo;
-				++denom;
-			}
-			modulation = avg/denom;
+			double pos;
+			double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
+			double f1 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+			double f2 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+			double f3 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+
+
+			if((day % modulationPeriod) > modulationPeriod - 30)
+				pos = 30 - (modulationPeriod - (day % modulationPeriod));
+			else pos = 30+(day % modulationPeriod);
+			
+			pos = Math.round(pos);
+			double smooth = 0;
+			if(pos == 30) 
+				smooth = f1;
+			else if (pos < 30)
+				smooth = ((2*30-pos)/(2*30))*f1 + (pos/(2*30))*f2;
+			else 
+				smooth = (pos/(2*30))*f1 + ((2*30-pos)/(2*30))*f3;
+
+			modulatedTransmissionRate = smooth;
 		} else {
-			day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-			modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2));						
+			double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
+			modulatedTransmissionRate = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 		}
 		
-		// This is beta*
-		double transmissionRate = seasonalModulationFloor + modulation * (getAdjustedTransmissionRate(timeDelta));
 
 /*		if(diseaseLabel.getNode().getURI().toString().hashCode() % 2 == 0 
 				&& ((int)intDay) == 3285)
@@ -315,11 +325,14 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				transmissionRate *=0.1;
 */		
 		
+		
+		if(!this.isFrequencyDependent())  modulatedTransmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
+
 		synchronized(writtedTimes) {
 			if(!writtedTimes.contains(time.getTime().getTime())) {
 				try {
 				if(fw == null) fw = new FileWriter("beta.csv");
-				fw.write((int)intDay+","+transmissionRate+"\n");
+				fw.write((int)intDay+","+modulatedTransmissionRate+"\n");
 				fw.flush();
 				} catch(Exception e) {
 					e.printStackTrace();
@@ -327,9 +340,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				writtedTimes.add(time.getTime().getTime());
 			}
 		}
-		
-		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
-		
+
 		// The effective Infectious population  is a dimensionles number normalize by total
 		// population used in teh computation of bets*S*i where i = Ieffective/Pop.
 		// This includes a correction to the current
@@ -360,10 +371,10 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		// Let's fall back on the linear method for now.
 		double numberOfSusceptibleToInfected = 0.0;
 		if(getNonLinearityCoefficient() != 1.0 && effectiveInfectious >= 0.0)
-			numberOfSusceptibleToInfected = transmissionRate
+			numberOfSusceptibleToInfected = modulatedTransmissionRate
 			* currentSIR.getS()* Math.pow(effectiveInfectious, getNonLinearityCoefficient());
 		else
-			numberOfSusceptibleToInfected = transmissionRate
+			numberOfSusceptibleToInfected = modulatedTransmissionRate
 			* currentSIR.getS()* effectiveInfectious;
 		
 		
