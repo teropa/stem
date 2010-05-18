@@ -129,7 +129,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * @param newArea
 	 * 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setArea(double newArea) {
 		double oldArea = area;
