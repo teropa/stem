@@ -66,6 +66,7 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIImpl#getPhysicallyAdjacentInfectiousProportion <em>Physically Adjacent Infectious Proportion</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIImpl#getRoadNetworkInfectiousProportion <em>Road Network Infectious Proportion</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIImpl#getInfectiousMortality <em>Infectious Mortality</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.SIImpl#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}</li>
  * </ul>
  * </p>
  *
@@ -154,15 +155,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 */
 	protected static final double PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT = 0.05;
 	
-	/**
-	 * For distances less than the REFERENCE_COMMUTE_DISTANCE = 50.0
-	 * we use the default physicallyAdjacentInfectiousProportion
-	 * This then is really the MAXIMUM physicallyAdjacentInfectiousProportion.
-	 * For distances (counties) larger than REFERENCE_COMMUTE_DISTANCE in linear extent,
-	 * we scale the physicallyAdjacentInfectiousProportion by REFERENCE_COMMUTE_DISTANCE/LINEAR EXTENT
-	 * Where Linear Extent is Sqrt(Area).
-	 */
-	public static final double REFERENCE_COMMUTE_DISTANCE = 45.0;
 
 	/**
 	 * The cached value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
@@ -213,6 +205,26 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @ordered
 	 */
 	protected double infectiousMortality = INFECTIOUS_MORTALITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristicMixingDistance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT = 2.25;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristicMixingDistance()
+	 * @generated
+	 * @ordered
+	 */
+	protected double characteristicMixingDistance = CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -659,6 +671,27 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getCharacteristicMixingDistance() {
+		return characteristicMixingDistance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCharacteristicMixingDistance(double newCharacteristicMixingDistance) {
+		double oldCharacteristicMixingDistance = characteristicMixingDistance;
+		characteristicMixingDistance = newCharacteristicMixingDistance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE, oldCharacteristicMixingDistance, characteristicMixingDistance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public double getAdjustedInfectiousMortalityRate(long timeDelta) {
@@ -780,12 +813,9 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 			// sum up the changes from each connected node.
 			// NOTE: some of these changes could be negative
 			
-			///////////////////////////////////////////////////////////////////////
-			// get the Default or MAXIMUM value for the physAdjacentInfProportion
-			double physAdjacentInfProportion = getPhysicallyAdjacentInfectiousProportion();
-			// we need to scale the default Physically Adjacent Infectious proportion by
-			// the AREA of the REGION
+			double characteristicMixingDistance = getCharacteristicMixingDistance();
 			
+			double mixingFactor = 0.0; 
 			if (otherNode instanceof Region) {
 				double otherAvgExtent = -1.0;
 				for (final Iterator<NodeLabel> labelIter = otherNode.getLabels().iterator(); labelIter.hasNext();) {
@@ -799,16 +829,14 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 					}
 				} // for
 				// IF we have a valid area 
-				// then we can re-scale the default Physically Adjacent Infectious proportion
-				if(otherAvgExtent >= 1.0) {
-					double scaleFactor = (REFERENCE_COMMUTE_DISTANCE/otherAvgExtent) ;
-					physAdjacentInfProportion *= scaleFactor;
-					if(physAdjacentInfProportion >= 1.0) physAdjacentInfProportion = 1.0;
+				if(otherAvgExtent >= 0.0) {
+					mixingFactor = (characteristicMixingDistance/otherAvgExtent) ;
+					if(mixingFactor > 1.0) mixingFactor = 1.0;
 				}
 			}
 			
-			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, diseaseLabel, onsiteInfectious, physAdjacentInfProportion);
-			borderDivisor += physAdjacentInfProportion*this.getLocalPopulation(this, otherNode);
+			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, diseaseLabel, onsiteInfectious, mixingFactor);
+			borderDivisor += mixingFactor*this.getLocalPopulation(this, otherNode);
 		} // for each border edge
 		
 		for (final Iterator<Edge> roadEdgeIter = RoadTransportRelationshipLabelImpl.getRoadEdgesFromNode(node).iterator(); 	roadEdgeIter.hasNext();) {
@@ -962,6 +990,8 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 				return getRoadNetworkInfectiousProportion();
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
 				return getInfectiousMortality();
+			case StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE:
+				return getCharacteristicMixingDistance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -999,6 +1029,9 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
 				setInfectiousMortality((Double)newValue);
 				return;
+			case StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE:
+				setCharacteristicMixingDistance((Double)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1035,6 +1068,9 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
 				setInfectiousMortality(INFECTIOUS_MORTALITY_EDEFAULT);
 				return;
+			case StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE:
+				setCharacteristicMixingDistance(CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1066,6 +1102,8 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 				return roadNetworkInfectiousProportion != ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
 				return infectiousMortality != INFECTIOUS_MORTALITY_EDEFAULT;
+			case StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE:
+				return characteristicMixingDistance != CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1097,6 +1135,8 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		result.append(roadNetworkInfectiousProportion);
 		result.append(", infectiousMortality: "); //$NON-NLS-1$
 		result.append(infectiousMortality);
+		result.append(", characteristicMixingDistance: "); //$NON-NLS-1$
+		result.append(characteristicMixingDistance);
 		result.append(')');
 		return result.toString();
 	}

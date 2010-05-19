@@ -134,6 +134,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadNetworkInfectiousProportion"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.01"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="infectiousMortality" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="characteristicMixingDistance"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="2.25"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SIDiseaseModelState" eSuperTypes="#//StandardDiseaseModelState"/>
   <eClassifiers xsi:type="ecore:EClass" name="SIInfector" eSuperTypes="#//StandardInfector">

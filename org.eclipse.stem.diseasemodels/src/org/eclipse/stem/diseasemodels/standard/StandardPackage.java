@@ -685,13 +685,22 @@ public interface StandardPackage extends EPackage {
 	int SI__INFECTIOUS_MORTALITY = STANDARD_DISEASE_MODEL_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SI__CHARACTERISTIC_MIXING_DISTANCE = STANDARD_DISEASE_MODEL_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>SI</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SI_FEATURE_COUNT = STANDARD_DISEASE_MODEL_FEATURE_COUNT + 7;
+	int SI_FEATURE_COUNT = STANDARD_DISEASE_MODEL_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SIRImpl <em>SIR</em>}' class.
@@ -945,6 +954,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SIR__INFECTIOUS_MORTALITY = SI__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIR__CHARACTERISTIC_MIXING_DISTANCE = SI__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
@@ -1216,6 +1234,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEIR__INFECTIOUS_MORTALITY = SIR__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEIR__CHARACTERISTIC_MIXING_DISTANCE = SIR__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
@@ -1498,6 +1525,15 @@ public interface StandardPackage extends EPackage {
 	int DETERMINISTIC_SEIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SEIR__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETERMINISTIC_SEIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SEIR__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1778,6 +1814,15 @@ public interface StandardPackage extends EPackage {
 	int DETERMINISTIC_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY = SI__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETERMINISTIC_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SI__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The number of structural features of the '<em>Deterministic SI Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2038,6 +2083,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int DETERMINISTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SIR__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETERMINISTIC_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SIR__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
@@ -4019,6 +4073,15 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_SEIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SEIR__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_SEIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SEIR__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4326,6 +4389,15 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY = SI__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SI__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Seed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4613,6 +4685,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCHASTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SIR__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SIR__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
@@ -4989,6 +5070,15 @@ public interface StandardPackage extends EPackage {
 	int AGGREGATING_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY = SI__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATING_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SI__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The number of structural features of the '<em>Aggregating SI Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5288,6 +5378,15 @@ public interface StandardPackage extends EPackage {
 	int AGGREGATING_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = AGGREGATING_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATING_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = AGGREGATING_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The number of structural features of the '<em>Aggregating SIR Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5548,6 +5647,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGGREGATING_SEIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = AGGREGATING_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATING_SEIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = AGGREGATING_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The number of structural features of the '<em>Aggregating SEIR Disease Model</em>' class.
@@ -6364,6 +6472,15 @@ public interface StandardPackage extends EPackage {
 	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY = SI__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SI__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The number of structural features of the '<em>Stochastic Poisson SI Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6624,6 +6741,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SIR__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SIR__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
@@ -6895,6 +7021,15 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__INFECTIOUS_MORTALITY = SEIR__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCHASTIC_POISSON_SEIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = SEIR__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
@@ -7580,6 +7715,17 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSI_InfectiousMortality();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.standard.SI#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Characteristic Mixing Distance</em>'.
+	 * @see org.eclipse.stem.diseasemodels.standard.SI#getCharacteristicMixingDistance()
+	 * @see #getSI()
+	 * @generated
+	 */
+	EAttribute getSI_CharacteristicMixingDistance();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.standard.SIDiseaseModelState <em>SI Disease Model State</em>}'.
@@ -8655,6 +8801,14 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SI__INFECTIOUS_MORTALITY = eINSTANCE.getSI_InfectiousMortality();
+
+		/**
+		 * The meta object literal for the '<em><b>Characteristic Mixing Distance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SI__CHARACTERISTIC_MIXING_DISTANCE = eINSTANCE.getSI_CharacteristicMixingDistance();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.standard.impl.SIDiseaseModelStateImpl <em>SI Disease Model State</em>}' class.

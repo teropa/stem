@@ -311,13 +311,22 @@ public interface MultipopulationPackage extends EPackage {
 	int MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = StandardPackage.STANDARD_DISEASE_MODEL_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = StandardPackage.STANDARD_DISEASE_MODEL_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Multi Population SI Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_POPULATION_SI_DISEASE_MODEL_FEATURE_COUNT = StandardPackage.STANDARD_DISEASE_MODEL_FEATURE_COUNT + 6;
+	int MULTI_POPULATION_SI_DISEASE_MODEL_FEATURE_COUNT = StandardPackage.STANDARD_DISEASE_MODEL_FEATURE_COUNT + 7;
 
 
 	/**
@@ -563,6 +572,15 @@ public interface MultipopulationPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTI_POPULATION_SIR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_POPULATION_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' containment reference.
@@ -827,6 +845,15 @@ public interface MultipopulationPackage extends EPackage {
 	int MULTI_POPULATION_SEIR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = MULTI_POPULATION_SIR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_POPULATION_SEIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = MULTI_POPULATION_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -918,6 +945,17 @@ public interface MultipopulationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMultiPopulationSIDiseaseModel_RoadNetworkInfectiousProportion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Characteristic Mixing Distance</em>'.
+	 * @see org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getCharacteristicMixingDistance()
+	 * @see #getMultiPopulationSIDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getMultiPopulationSIDiseaseModel_CharacteristicMixingDistance();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIRDiseaseModel <em>Multi Population SIR Disease Model</em>}'.
@@ -1038,6 +1076,13 @@ public interface MultipopulationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = eINSTANCE.getMultiPopulationSIDiseaseModel_RoadNetworkInfectiousProportion();
+		/**
+		 * The meta object literal for the '<em><b>Characteristic Mixing Distance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = eINSTANCE.getMultiPopulationSIDiseaseModel_CharacteristicMixingDistance();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSIRDiseaseModelImpl <em>Multi Population SIR Disease Model</em>}' class.
 		 * <!-- begin-user-doc -->

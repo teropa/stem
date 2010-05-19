@@ -898,6 +898,15 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSI_CharacteristicMixingDistance() {
+		return (EAttribute)siEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSIDiseaseModelState() {
 		return siDiseaseModelStateEClass;
 	}
@@ -1529,6 +1538,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(siEClass, SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION);
 		createEAttribute(siEClass, SI__ROAD_NETWORK_INFECTIOUS_PROPORTION);
 		createEAttribute(siEClass, SI__INFECTIOUS_MORTALITY);
+		createEAttribute(siEClass, SI__CHARACTERISTIC_MIXING_DISTANCE);
 
 		siDiseaseModelStateEClass = createEClass(SI_DISEASE_MODEL_STATE);
 
@@ -1810,6 +1820,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getSI_PhysicallyAdjacentInfectiousProportion(), ecorePackage.getEDouble(), "physicallyAdjacentInfectiousProportion", "0.05", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getSI_RoadNetworkInfectiousProportion(), ecorePackage.getEDouble(), "roadNetworkInfectiousProportion", "0.01", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getSI_InfectiousMortality(), theEcorePackage.getEDouble(), "infectiousMortality", null, 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSI_CharacteristicMixingDistance(), theEcorePackage.getEDouble(), "characteristicMixingDistance", "2.25", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		op = addEOperation(siEClass, ecorePackage.getEDouble(), "getAdjustedInfectiousMortalityRate", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, ecorePackage.getELong(), "timeDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$

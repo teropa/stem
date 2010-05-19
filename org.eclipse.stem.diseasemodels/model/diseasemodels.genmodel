@@ -101,9 +101,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/nonLinearityCoefficient"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/recoveryRate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/infectiousMortalityRate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/physicallyAdjacentInfectiousProportion"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/physicallyAdjacentInfectiousProportion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/roadNetworkInfectiousProportion"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/infectiousMortality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SI/characteristicMixingDistance"/>
       <genOperations ecoreOperation="standard.ecore#//SI/getAdjustedInfectiousMortalityRate">
         <genParameters ecoreParameter="standard.ecore#//SI/getAdjustedInfectiousMortalityRate/timeDelta"/>
       </genOperations>
@@ -216,6 +217,7 @@
     <genClasses ecoreClass="standard.ecore#//InfectorInoculatorCollection">
       <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference standard.ecore#//InfectorInoculatorCollection/list"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//InfectorInoculatorCollection/importFolder"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -72,6 +72,7 @@ import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
  *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSIDiseaseModelImpl#getInfectiousMortalityRate <em>Infectious Mortality Rate</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSIDiseaseModelImpl#getPhysicallyAdjacentInfectiousProportion <em>Physically Adjacent Infectious Proportion</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSIDiseaseModelImpl#getRoadNetworkInfectiousProportion <em>Road Network Infectious Proportion</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.impl.MultiPopulationSIDiseaseModelImpl#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}</li>
  * </ul>
  * </p>
  *
@@ -158,6 +159,26 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @ordered
 	 */
 	protected double roadNetworkInfectiousProportion = ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristicMixingDistance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT = 2.25;
+
+
+	/**
+	 * The cached value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristicMixingDistance()
+	 * @generated
+	 * @ordered
+	 */
+	protected double characteristicMixingDistance = CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +387,27 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getCharacteristicMixingDistance() {
+		return characteristicMixingDistance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCharacteristicMixingDistance(double newCharacteristicMixingDistance) {
+		double oldCharacteristicMixingDistance = characteristicMixingDistance;
+		characteristicMixingDistance = newCharacteristicMixingDistance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE, oldCharacteristicMixingDistance, characteristicMixingDistance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StringValueList getPopulationGroups() {
 		return populationGroups;
 	}
@@ -444,6 +486,8 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 				return getPhysicallyAdjacentInfectiousProportion();
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
 				return getRoadNetworkInfectiousProportion();
+			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				return getCharacteristicMixingDistance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -473,6 +517,9 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 				return;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
 				setRoadNetworkInfectiousProportion((Double)newValue);
+				return;
+			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				setCharacteristicMixingDistance((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -504,6 +551,9 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
 				setRoadNetworkInfectiousProportion(ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT);
 				return;
+			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				setCharacteristicMixingDistance(CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -528,6 +578,8 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 				return physicallyAdjacentInfectiousProportion != PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
 				return roadNetworkInfectiousProportion != ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
+			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				return characteristicMixingDistance != CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -546,6 +598,8 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		result.append(physicallyAdjacentInfectiousProportion);
 		result.append(", roadNetworkInfectiousProportion: ");
 		result.append(roadNetworkInfectiousProportion);
+		result.append(", characteristicMixingDistance: ");
+		result.append(characteristicMixingDistance);
 		result.append(')');
 		return result.toString();
 	}
@@ -785,13 +839,9 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			// updates on the node at the other end of the border edge.
 			final Node otherNode = borderEdge.getOtherNode(node);
 			
-			// sum up the changes from each connected node.
-			// NOTE: some of these changes could be negative
-			///////////////////////////////////////////////////////////////////////
-			// get the Default or MAXIMUM value for the physAdjacentInfProportion
-			double physAdjacentInfProportion = getPhysicallyAdjacentInfectiousProportion();
-			// we need to scale the default Physically Adjacent Infectious proportion by
-			// the AREA of the REGION
+			double characteristicMixingDistance = getCharacteristicMixingDistance();
+			
+			double mixingFactor = 0.0; 
 			if (otherNode instanceof Region) {
 				double otherAvgExtent = -1.0;
 				for (final Iterator<NodeLabel> labelIter = otherNode.getLabels().iterator(); labelIter.hasNext();) {
@@ -805,21 +855,18 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 					}
 				} // for
 				// IF we have a valid area 
-				// then we can re-scale the default Physically Adjacent Infectious proportion
-				if(otherAvgExtent >= 1.0) {
-					double scaleFactor = (SIImpl.REFERENCE_COMMUTE_DISTANCE/otherAvgExtent) ;
-					physAdjacentInfProportion *= scaleFactor;
-					if(physAdjacentInfProportion >= 1.0) physAdjacentInfProportion = 1.0;
+				if(otherAvgExtent >= 0.0) {
+					mixingFactor = (characteristicMixingDistance/otherAvgExtent) ;
+					if(mixingFactor > 1.0) mixingFactor = 1.0;
 				}
 			}
-			// DONE with area
 			
 			
 			// for EACH connected Node add up the infectious of the particular
 			// population GROUPD
-			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, targetPopulationName, diseaseLabel, onsiteInfectious, physAdjacentInfProportion);
+			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, targetPopulationName, diseaseLabel, onsiteInfectious, mixingFactor);
 		
-			borderDivisor += getPhysicallyAdjacentInfectiousProportion()*this.getLocalPopulation(this, otherNode, targetPopulationName);
+			borderDivisor += mixingFactor*this.getLocalPopulation(this, otherNode, targetPopulationName);
 		} // for each border edge
 		
 		for (final Iterator<Edge> roadEdgeIter = RoadTransportRelationshipLabelImpl.getRoadEdgesFromNode(node).iterator(); 	roadEdgeIter.hasNext();) {

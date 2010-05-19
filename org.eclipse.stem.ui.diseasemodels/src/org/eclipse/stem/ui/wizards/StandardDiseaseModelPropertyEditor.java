@@ -120,9 +120,15 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 				((SI) diseaseModel).setInfectiousMortalityRate(Double
 						.parseDouble(entry.getValue().getText()));
 				break;
-			case StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
+//	 Deprecated
+//			case StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
+//				((SI) diseaseModel)
+//						.setPhysicallyAdjacentInfectiousProportion(Double
+//								.parseDouble(entry.getValue().getText()));
+//				break;
+			case StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE:
 				((SI) diseaseModel)
-						.setPhysicallyAdjacentInfectiousProportion(Double
+						.setCharacteristicMixingDistance(Double
 								.parseDouble(entry.getValue().getText()));
 				break;
 			case StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION:
