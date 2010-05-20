@@ -343,6 +343,15 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGaussian3ForcingDiseaseModel_ModulationFloor_2() {
+		return (EAttribute)gaussian3ForcingDiseaseModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ForcingFactory getForcingFactory() {
 		return (ForcingFactory)getEFactoryInstance();
 	}
@@ -393,6 +402,7 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		createEAttribute(gaussian3ForcingDiseaseModelEClass, GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3);
 		createEAttribute(gaussian3ForcingDiseaseModelEClass, GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2);
 		createEAttribute(gaussian3ForcingDiseaseModelEClass, GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3);
+		createEAttribute(gaussian3ForcingDiseaseModelEClass, GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2);
 	}
 
 	/**
@@ -460,6 +470,7 @@ public class ForcingPackageImpl extends EPackageImpl implements ForcingPackage {
 		initEAttribute(getGaussian3ForcingDiseaseModel_Sigma2_3(), theEcorePackage.getEDouble(), "sigma2_3", null, 0, 1, Gaussian3ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussian3ForcingDiseaseModel_TransmissionRate2(), theEcorePackage.getEDouble(), "transmissionRate2", null, 0, 1, Gaussian3ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getGaussian3ForcingDiseaseModel_TransmissionRate3(), theEcorePackage.getEDouble(), "transmissionRate3", null, 0, 1, Gaussian3ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getGaussian3ForcingDiseaseModel_ModulationFloor_2(), theEcorePackage.getEDouble(), "modulationFloor_2", null, 0, 1, Gaussian3ForcingDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

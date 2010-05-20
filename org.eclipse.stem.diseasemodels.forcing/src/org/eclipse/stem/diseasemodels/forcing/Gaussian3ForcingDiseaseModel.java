@@ -22,6 +22,7 @@ package org.eclipse.stem.diseasemodels.forcing;
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getSigma2_3 <em>Sigma2 3</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getTransmissionRate2 <em>Transmission Rate2</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getTransmissionRate3 <em>Transmission Rate3</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getModulationFloor_2 <em>Modulation Floor 2</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,5 +108,31 @@ public interface Gaussian3ForcingDiseaseModel extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	void setTransmissionRate3(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Modulation Floor 2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Modulation Floor 2</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Modulation Floor 2</em>' attribute.
+	 * @see #setModulationFloor_2(double)
+	 * @see org.eclipse.stem.diseasemodels.forcing.ForcingPackage#getGaussian3ForcingDiseaseModel_ModulationFloor_2()
+	 * @model
+	 * @generated
+	 */
+	double getModulationFloor_2();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getModulationFloor_2 <em>Modulation Floor 2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Modulation Floor 2</em>' attribute.
+	 * @see #getModulationFloor_2()
+	 * @generated
+	 */
+	void setModulationFloor_2(double value);
 
 } // Gaussian3ForcingDiseaseModel

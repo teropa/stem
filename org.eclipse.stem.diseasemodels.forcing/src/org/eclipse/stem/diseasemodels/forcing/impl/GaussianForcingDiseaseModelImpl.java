@@ -124,6 +124,8 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	private Calendar calendar2 = Calendar.getInstance();
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	
+	private final int WINDOWSIZE = 30;
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,11 +286,13 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		
 		}
 		double intDay = day;
+		int year = (int)(day / modulationPeriod);
+		int nextDayYear = (int)((day+1) / modulationPeriod);
 		
 		double modulatedTransmissionRate = 0.0;
 		
 		// Smoothing
-		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
+		if(day % modulationPeriod < WINDOWSIZE || day % modulationPeriod > modulationPeriod-WINDOWSIZE) {
 			double pos;
 			double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
 			double f1 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
@@ -296,18 +300,20 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			double f3 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
 
 
-			if((day % modulationPeriod) > modulationPeriod - 30)
-				pos = 30 - (modulationPeriod - (day % modulationPeriod));
-			else pos = 30+(day % modulationPeriod);
+			if((day % modulationPeriod) > modulationPeriod - WINDOWSIZE)
+				pos = WINDOWSIZE - (modulationPeriod - (day % modulationPeriod));
+			else pos = WINDOWSIZE+(day % modulationPeriod);
 			
 			pos = Math.round(pos);
 			double smooth = 0;
-			if(pos == 30) 
-				smooth = f1;
-			else if (pos < 30)
-				smooth = ((2*30-pos)/(2*30))*f1 + (pos/(2*30))*f2;
+			if(pos == WINDOWSIZE && nextDayYear == year)
+				smooth = 0.5*f1 + 0.5*f3;
+			else if(pos == WINDOWSIZE && nextDayYear == year+1)
+				smooth = 0.5*f1 +0.5*f2;
+			else if (pos < WINDOWSIZE)
+				smooth = ((2*WINDOWSIZE-pos)/(2*WINDOWSIZE))*f1 + (pos/(2*WINDOWSIZE))*f2;
 			else 
-				smooth = (pos/(2*30))*f1 + ((2*30-pos)/(2*30))*f3;
+				smooth = (pos/(2*WINDOWSIZE))*f1 + ((2*WINDOWSIZE-pos)/(2*WINDOWSIZE))*f3;
 
 			modulatedTransmissionRate = smooth;
 		} else {

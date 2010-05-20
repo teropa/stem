@@ -39,6 +39,7 @@ import org.eclipse.stem.diseasemodels.standard.impl.SIRLabelValueImpl;
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl#getSigma2_3 <em>Sigma2 3</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl#getTransmissionRate2 <em>Transmission Rate2</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl#getTransmissionRate3 <em>Transmission Rate3</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.forcing.impl.Gaussian3ForcingDiseaseModelImpl#getModulationFloor_2 <em>Modulation Floor 2</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,6 +107,26 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	protected double transmissionRate3 = TRANSMISSION_RATE3_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getModulationFloor_2() <em>Modulation Floor 2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModulationFloor_2()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MODULATION_FLOOR_2_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getModulationFloor_2() <em>Modulation Floor 2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModulationFloor_2()
+	 * @generated
+	 * @ordered
+	 */
+	protected double modulationFloor_2 = MODULATION_FLOOR_2_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -123,7 +144,13 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	private FileWriter fw;
 	private FileWriter fw2;
 	
-	private int [] whichGaussian = {0, 0, 0, 1, 0, 2, 0, 0, 2, 0, 1};
+	private final int WINDOWSIZE = 30;
+	
+	enum HYP {H0, H1, H2};
+	HYP currentHypothesis = HYP.H2;
+	
+	// private int [] whichGaussian = {0, 0, 0, 1, 0, 2, 0, 0, 2, 0, 1}; // 0=A/H3N2 1=A/H1N1 2=B
+	private int [] whichGaussian = {0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0}; // 0=A 1=B
 	
 	@Override
 	public StandardDiseaseModelLabelValue computeDiseaseDeltas(
@@ -133,12 +160,10 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		
 		long currentMillis = time.getTime().getTime();
-		double seasonalModulationFloor = getModulationFloor();
 		double modulationPeriod = getModulationPeriod();
 		double phase = getModulationPhaseShift();	
 		double sigma2 = getSigma2();		
 		double sigma2_2 = getSigma2_2();
-		double sigma2_3 = getSigma2_3();
 		
 		synchronized(firstTime) {
 			if(firstTime.longValue() == Long.MAX_VALUE)
@@ -154,55 +179,105 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 			day = (calendar.getTimeInMillis() - calendar2.getTimeInMillis())/MILLIS_PER_DAY;
 		}
 		int year = (int)(day / modulationPeriod);
-		double iday = day;
+		int nextDayYear = (int)((day+1) / modulationPeriod);
+		
+		double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
 		
 		int gaussian = whichGaussian[year];
-		
-		
-		double modulation = 0;
-		
-		// Smoothing
-		if(day % modulationPeriod < 30 || day % modulationPeriod > modulationPeriod-30) {
-			double avg=0;
-			double denom = 0;
-			for(double d=day-30;d<day+30;++d) {
-				int _y = (int)(d / modulationPeriod);
-				if(_y < 0) _y =0;
-				if(_y >= whichGaussian.length) _y = whichGaussian.length-1;
-				int _g = whichGaussian[_y];
-				double _d = ((d % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-				double mo = 0;						
-				if(_g == 0)
-					mo = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2))*getTransmissionRate()* ((double) timeDelta / (double) getTimePeriod());						
-				else if(_g == 1)
-					mo = (1/Math.sqrt(2*Math.PI*sigma2_2))*Math.exp(-(Math.pow(_d,2))/(2*sigma2_2))*getTransmissionRate2()* ((double) timeDelta / (double) getTimePeriod());
-				else if(_g == 2)
-					mo = (1/Math.sqrt(2*Math.PI*sigma2_3))*Math.exp(-(Math.pow(_d,2))/(2*sigma2_3))*getTransmissionRate3()* ((double) timeDelta / (double) getTimePeriod());
-			
-				avg = avg+mo;
-				++denom;
-			}
-			modulation = avg/denom;
-		} else {
-			day = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-			
-			if(gaussian == 0)
-				modulation = (1/Math.sqrt(2*Math.PI*sigma2))*Math.exp(-(Math.pow(day,2))/(2*sigma2))*getTransmissionRate()* ((double) timeDelta / (double) getTimePeriod());						
-			else if(gaussian == 1)
-				modulation = (1/Math.sqrt(2*Math.PI*sigma2_2))*Math.exp(-(Math.pow(day,2))/(2*sigma2_2)) * getTransmissionRate2()* ((double) timeDelta / (double) getTimePeriod());
-			else if(gaussian == 2)
-				modulation = (1/Math.sqrt(2*Math.PI*sigma2_3))*Math.exp(-(Math.pow(day,2))/(2*sigma2_3)) * getTransmissionRate3()* ((double) timeDelta / (double) getTimePeriod());
+
+		double f1=0;
+		switch(currentHypothesis) {
+			case H0:
+				f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+				break;	
+			case H1:
+				if(gaussian == 0) { // A
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+				} else if(gaussian == 1) {
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+				}
+				break;	
+			case H2:
+				if(gaussian == 0) {
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+				} else if(gaussian==1) {
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor_2() + (1-getModulationFloor_2())*Math.exp(-(Math.pow(fday,2))/(2*sigma2_2)));
+				}
+				break;
+				
+			default:
+				break;
 		}
 		
-		// This is beta*
-		double transmissionRate = seasonalModulationFloor + modulation;
+		double modulatedTransmissionRate = 0;
+		// Smoothing
+		if(day % modulationPeriod < WINDOWSIZE || day % modulationPeriod > modulationPeriod-WINDOWSIZE) {
+			
+			double pos;
+			double f2=0, f3=0;
+			int nextGaussian = 0;
+			if(year == whichGaussian.length-1) nextGaussian = gaussian;
+			else nextGaussian = whichGaussian[year+1];
+			
+			int prevGaussian = 0;
+			if(year == 0) prevGaussian = gaussian;
+			else prevGaussian = whichGaussian[year-1];
+			
+			switch(currentHypothesis) {
+				
+				case H0:
+					f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+					f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+					break;	
+				case H1:
+					if(nextGaussian == 0)
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+					else if(nextGaussian == 1) 
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+					if(prevGaussian == 0)
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+					else if(prevGaussian == 1)
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));			
+									
+					break;	
+				case H2:
+					if(nextGaussian == 0) 
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+					else if(nextGaussian == 1) 
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor_2() + (1-getModulationFloor_2())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2_2)));
+					if(prevGaussian == 0)
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+					else if(prevGaussian == 1)
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor_2() + (1-getModulationFloor_2())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2_2)));			
+					break;
+				
+				default:
+					break;
+			}
+			
+			if((day % modulationPeriod) > modulationPeriod - WINDOWSIZE)
+				pos = WINDOWSIZE - (modulationPeriod - (day % modulationPeriod));
+			else pos = WINDOWSIZE+(day % modulationPeriod);
+			
+			pos = Math.floor(pos);
+			double smooth = 0;
+			if(pos == WINDOWSIZE && nextDayYear == year)
+				smooth = 0.5*f1 + 0.5*f3;
+			else if(pos == WINDOWSIZE && nextDayYear == year+1)
+				smooth = 0.5*f1 +0.5*f2;
+			else if (pos < WINDOWSIZE)
+				smooth = ((2*WINDOWSIZE-pos)/(2*WINDOWSIZE))*f1 + (pos/(2*WINDOWSIZE))*f2;
+			else 
+				smooth = (pos/(2*WINDOWSIZE))*f1 + ((2*WINDOWSIZE-pos)/(2*WINDOWSIZE))*f3;
 
-
-		if(transmissionRate < 0.0) transmissionRate = 0.0; // negative floor now possible
+			modulatedTransmissionRate = smooth;
+		}  else {
+			modulatedTransmissionRate = f1;
+		}
 		
-	
 		
-		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
+		
+//		if(!this.isFrequencyDependent())  transmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
 		
 		// population used in teh computation of bets*S*i where i = Ieffective/Pop.
 		// This includes a correction to the current
@@ -217,7 +292,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 				try {
 				if(fw == null) fw = new FileWriter("beta.csv");
 //				if(fw2 == null) fw2= new FileWriter("r0.csv");
-				fw.write(time.getTime().getTime()+","+transmissionRate+"\n");
+				fw.write(time.getTime().getTime()+","+modulatedTransmissionRate+"\n");
 //				fw2.write(time.getTime().getTime()+","+transmissionRate+","+((transmissionRate / getAdjustedRecoveryRate(timeDelta)) *currentSIR.getS() / effectivePopulation)+","+getAdjustedRecoveryRate(timeDelta)+","+getAdjustedImmunityLossRate(timeDelta)+","+effectiveInfectious+","+currentSIR.getPopulationCount()+"\n");
 				
 				fw.flush();
@@ -251,10 +326,10 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		// Let's fall back on the linear method for now.
 		double numberOfSusceptibleToInfected = 0.0;
 		if(getNonLinearityCoefficient() != 1.0 && effectiveInfectious >= 0.0)
-			numberOfSusceptibleToInfected = transmissionRate
+			numberOfSusceptibleToInfected = modulatedTransmissionRate
 			* currentSIR.getS()* Math.pow(effectiveInfectious, getNonLinearityCoefficient());
 		else
-			numberOfSusceptibleToInfected = transmissionRate
+			numberOfSusceptibleToInfected = modulatedTransmissionRate
 			* currentSIR.getS()* effectiveInfectious;
 		
 		
@@ -274,6 +349,11 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		return ret;
 	} // computeTransitions
 	
+	public double getAdjustedTransmissionRate(double tr, long timeDelta) {
+		return tr
+				* ((double) timeDelta / (double) getTimePeriod());
+	} // getAdjustedTransmissionRate
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +432,27 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getModulationFloor_2() {
+		return modulationFloor_2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModulationFloor_2(double newModulationFloor_2) {
+		double oldModulationFloor_2 = modulationFloor_2;
+		modulationFloor_2 = newModulationFloor_2;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2, oldModulationFloor_2, modulationFloor_2));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -361,6 +462,8 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 				return getTransmissionRate2();
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3:
 				return getTransmissionRate3();
+			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2:
+				return getModulationFloor_2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,6 +484,9 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 				return;
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3:
 				setTransmissionRate3((Double)newValue);
+				return;
+			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2:
+				setModulationFloor_2((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -403,6 +509,9 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3:
 				setTransmissionRate3(TRANSMISSION_RATE3_EDEFAULT);
 				return;
+			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2:
+				setModulationFloor_2(MODULATION_FLOOR_2_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -421,6 +530,8 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 				return transmissionRate2 != TRANSMISSION_RATE2_EDEFAULT;
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3:
 				return transmissionRate3 != TRANSMISSION_RATE3_EDEFAULT;
+			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2:
+				return modulationFloor_2 != MODULATION_FLOOR_2_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -441,6 +552,8 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		result.append(transmissionRate2);
 		result.append(", transmissionRate3: "); //$NON-NLS-1$
 		result.append(transmissionRate3);
+		result.append(", modulationFloor_2: "); //$NON-NLS-1$
+		result.append(modulationFloor_2);
 		result.append(')');
 		return result.toString();
 	}

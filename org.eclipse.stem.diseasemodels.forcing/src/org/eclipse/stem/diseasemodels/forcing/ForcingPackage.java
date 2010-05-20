@@ -319,6 +319,15 @@ public interface ForcingPackage extends EPackage {
 	int FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORCING_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -654,6 +663,15 @@ public interface ForcingPackage extends EPackage {
 	int GAUSSIAN_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN_FORCING_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -987,6 +1005,15 @@ public interface ForcingPackage extends EPackage {
 	 * @ordered
 	 */
 	int GAUSSIAN2_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN2_FORCING_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
@@ -1369,6 +1396,15 @@ public interface ForcingPackage extends EPackage {
 	int GAUSSIAN3_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY = GAUSSIAN2_FORCING_DISEASE_MODEL__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = GAUSSIAN2_FORCING_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1513,13 +1549,22 @@ public interface ForcingPackage extends EPackage {
 	int GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3 = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Modulation Floor 2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2 = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Gaussian3 Forcing Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAUSSIAN3_FORCING_DISEASE_MODEL_FEATURE_COUNT = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 3;
+	int GAUSSIAN3_FORCING_DISEASE_MODEL_FEATURE_COUNT = GAUSSIAN2_FORCING_DISEASE_MODEL_FEATURE_COUNT + 4;
 
 
 	/**
@@ -1783,6 +1828,17 @@ public interface ForcingPackage extends EPackage {
 	EAttribute getGaussian3ForcingDiseaseModel_TransmissionRate3();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getModulationFloor_2 <em>Modulation Floor 2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modulation Floor 2</em>'.
+	 * @see org.eclipse.stem.diseasemodels.forcing.Gaussian3ForcingDiseaseModel#getModulationFloor_2()
+	 * @see #getGaussian3ForcingDiseaseModel()
+	 * @generated
+	 */
+	EAttribute getGaussian3ForcingDiseaseModel_ModulationFloor_2();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1980,6 +2036,13 @@ public interface ForcingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3 = eINSTANCE.getGaussian3ForcingDiseaseModel_TransmissionRate3();
+		/**
+		 * The meta object literal for the '<em><b>Modulation Floor 2</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2 = eINSTANCE.getGaussian3ForcingDiseaseModel_ModulationFloor_2();
 
 	}
 

@@ -69,6 +69,7 @@ public class Gaussian3ForcingDiseaseModelItemProvider
 			addSigma2_3PropertyDescriptor(object);
 			addTransmissionRate2PropertyDescriptor(object);
 			addTransmissionRate3PropertyDescriptor(object);
+			addModulationFloor_2PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -140,6 +141,28 @@ public class Gaussian3ForcingDiseaseModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Modulation Floor 2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModulationFloor_2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Gaussian3ForcingDiseaseModel_modulationFloor_2_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Gaussian3ForcingDiseaseModel_modulationFloor_2_feature", "_UI_Gaussian3ForcingDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Gaussian3ForcingDiseaseModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -179,6 +202,7 @@ public class Gaussian3ForcingDiseaseModelItemProvider
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3:
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2:
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3:
+			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
