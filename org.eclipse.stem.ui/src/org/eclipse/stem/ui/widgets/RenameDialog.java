@@ -104,8 +104,9 @@ public class RenameDialog extends Dialog {
 			public void modifyText(ModifyEvent arg0) {
 				URI oldURI = resource.getURI();
 				String path = oldURI.path();
-				String truncpath = path.substring(0, path.lastIndexOf(File.separator));
-				truncpath+=File.separator;
+				int ind  = path.lastIndexOf("/");
+				String truncpath = "";
+				if(ind != -1) truncpath = path.substring(0, ind+1);
 				
 				String newpath = truncpath+text.getText();
 				File f = new File(newpath);
