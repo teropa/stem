@@ -212,6 +212,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getErrorResult_ValidationError() {
+		return (EAttribute)errorResultEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AnalysisFactory getAnalysisFactory() {
 		return (AnalysisFactory)getEFactoryInstance();
 	}
@@ -248,6 +257,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEAttribute(errorResultEClass, ERROR_RESULT__ERROR);
 		createEAttribute(errorResultEClass, ERROR_RESULT__REFERENCE_BY_TIME);
 		createEAttribute(errorResultEClass, ERROR_RESULT__MODEL_BY_TIME);
+		createEAttribute(errorResultEClass, ERROR_RESULT__VALIDATION_ERROR);
 	}
 
 	/**
@@ -308,6 +318,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		g2 = createEGenericType(ecorePackage.getEDoubleObject());
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getErrorResult_ModelByTime(), g1, "modelByTime", null, 0, 1, ErrorResult.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getErrorResult_ValidationError(), ecorePackage.getEDouble(), "validationError", null, 0, 1, ErrorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

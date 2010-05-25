@@ -187,13 +187,22 @@ public interface AnalysisPackage extends EPackage {
 	int ERROR_RESULT__MODEL_BY_TIME = 3;
 
 	/**
+	 * The feature id for the '<em><b>Validation Error</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERROR_RESULT__VALIDATION_ERROR = 4;
+
+	/**
 	 * The number of structural features of the '<em>Error Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_RESULT_FEATURE_COUNT = 4;
+	int ERROR_RESULT_FEATURE_COUNT = 5;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.analysis.ErrorFunction <em>Error Function</em>}'.
@@ -290,6 +299,17 @@ public interface AnalysisPackage extends EPackage {
 	EAttribute getErrorResult_ModelByTime();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.analysis.ErrorResult#getValidationError <em>Validation Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Validation Error</em>'.
+	 * @see org.eclipse.stem.analysis.ErrorResult#getValidationError()
+	 * @see #getErrorResult()
+	 * @generated
+	 */
+	EAttribute getErrorResult_ValidationError();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,6 +404,13 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ERROR_RESULT__MODEL_BY_TIME = eINSTANCE.getErrorResult_ModelByTime();
+		/**
+		 * The meta object literal for the '<em><b>Validation Error</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ERROR_RESULT__VALIDATION_ERROR = eINSTANCE.getErrorResult_ValidationError();
 
 	}
 

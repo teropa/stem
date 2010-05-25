@@ -90,6 +90,12 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 	private static boolean USE_THRESHOLD = false;
 	private static double THRESHOLD = 0.05;
 	
+	// The year to use to validate and hence exclude from the error calculation(for cross-validation methods)
+	// The first year is year 0. If no year should be excluded, set to -1
+	
+	int validationYear = -1;
+	
+	
 	/**
 	 * calculate delta for a simple error function
 	 * 
@@ -155,6 +161,8 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		double [] Xdata = new double[time.length];
 		
 		double finalerror = 0.0;
+	    double verror = 0.0;
+		
 		BasicEList<Double> list = new BasicEList<Double>();
 		for(int i=0;i<time.length;++i)list.add(0.0);
 		
@@ -249,13 +257,32 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 			
 			double maxRef = Double.MIN_VALUE;
 			double minRef = Double.MAX_VALUE;
+			double maxValidationRef = Double.MIN_VALUE;
+			double minValidationRef = Double.MAX_VALUE;
+			
 			for(int icount =0; icount < time.length; icount ++) {
+				if(icount >= validationYear*365.25 && icount <= (validationYear+1)*365.25) {
+					if(Xref[icount]>maxValidationRef)maxValidationRef = Xref[icount];
+					if(Xref[icount]<minValidationRef)minValidationRef = Xref[icount];
+					continue;
+				}
 				if(Xref[icount]>maxRef)maxRef = Xref[icount];
 				if(Xref[icount]<minRef)minRef = Xref[icount];
 			}
-			double nominator = 0.0;
-			double timesteps = 0.0;
+			double nominator = 0.0, vnominator = 0.0;
+			double timesteps = 0.0, vtimesteps = 0.0;
 			for(int icount =0; icount < time.length; icount ++) {
+				
+				// Calculate validation error then skip
+				if(icount >= validationYear*365.25 && icount <= (validationYear+1)*365.25) {
+					if(USE_THRESHOLD && (Xref[icount]<=THRESHOLD*maxValidationRef &&
+							Xdata[icount]<=THRESHOLD*maxValidationRef)) continue;
+					
+					vnominator = vnominator + Math.pow(Xref[icount]-Xdata[icount], 2);
+					list.set(icount, new Double(0)); // Set to 0 for validation data points
+					++vtimesteps;
+					continue;
+				}
 				// If we use the threshold and both the reference and the model is less than
 				// the THRESHOLD*MAXref(loc) we don't measure the data point
 				
@@ -272,10 +299,17 @@ public class SimpleErrorFunctionImpl extends ErrorFunctionImpl implements Simple
 		    	error = Math.sqrt(nominator/timesteps);
 		    	finalerror = error / (maxRef-minRef);
 		    }
+		    // Validation
+		    error = Double.MAX_VALUE;
+		    if(vtimesteps > 0 && maxValidationRef-minValidationRef > 0.0) {
+		    	error = Math.sqrt(vnominator/vtimesteps);
+		    	verror = error / (maxValidationRef-minValidationRef);
+		    }
 		} // else
 		ErrorResult resultobj = aFactory.createErrorResult();
 		resultobj.setErrorByTimeStep(list);
 		resultobj.setError(finalerror);
+		resultobj.setValidationError(verror);
 		
 		EList<Double>refByTime = new BasicEList<Double>();
 		EList<Double>dataByTime = new BasicEList<Double>();

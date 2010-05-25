@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getError <em>Error</em>}</li>
  *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getReferenceByTime <em>Reference By Time</em>}</li>
  *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getModelByTime <em>Model By Time</em>}</li>
+ *   <li>{@link org.eclipse.stem.analysis.ErrorResult#getValidationError <em>Validation Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,6 +139,32 @@ public interface ErrorResult extends EObject {
 	 * @generated
 	 */
 	void setModelByTime(EList<Double> value);
+
+	/**
+	 * Returns the value of the '<em><b>Validation Error</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Validation Error</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Validation Error</em>' attribute.
+	 * @see #setValidationError(double)
+	 * @see org.eclipse.stem.analysis.AnalysisPackage#getErrorResult_ValidationError()
+	 * @model
+	 * @generated
+	 */
+	double getValidationError();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.analysis.ErrorResult#getValidationError <em>Validation Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Validation Error</em>' attribute.
+	 * @see #getValidationError()
+	 * @generated
+	 */
+	void setValidationError(double value);
 
 	public ErrorResult copy();
 } // ErrorResult

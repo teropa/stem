@@ -34,6 +34,7 @@ import org.eclipse.stem.analysis.ErrorResult;
  *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getError <em>Error</em>}</li>
  *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getReferenceByTime <em>Reference By Time</em>}</li>
  *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getModelByTime <em>Model By Time</em>}</li>
+ *   <li>{@link org.eclipse.stem.analysis.impl.ErrorResultImpl#getValidationError <em>Validation Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +87,25 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @ordered
 	 */
 	protected EList<Double> modelByTime;
+
+	/**
+	 * The default value of the '{@link #getValidationError() <em>Validation Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double VALIDATION_ERROR_EDEFAULT = 0.0;
+	/**
+	 * The cached value of the '{@link #getValidationError() <em>Validation Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected double validationError = VALIDATION_ERROR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,6 +215,27 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getValidationError() {
+		return validationError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValidationError(double newValidationError) {
+		double oldValidationError = validationError;
+		validationError = newValidationError;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR, oldValidationError, validationError));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -206,6 +247,8 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 				return getReferenceByTime();
 			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
 				return getModelByTime();
+			case AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR:
+				return getValidationError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,6 +274,9 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
 				setModelByTime((EList<Double>)newValue);
 				return;
+			case AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR:
+				setValidationError((Double)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -255,6 +301,9 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
 				setModelByTime((EList<Double>)null);
 				return;
+			case AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR:
+				setValidationError(VALIDATION_ERROR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -275,6 +324,8 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 				return referenceByTime != null;
 			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
 				return modelByTime != null;
+			case AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR:
+				return validationError != VALIDATION_ERROR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -297,6 +348,8 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 		result.append(referenceByTime);
 		result.append(", modelByTime: ");
 		result.append(modelByTime);
+		result.append(", validationError: ");
+		result.append(validationError);
 		result.append(')');
 		return result.toString();
 	}
