@@ -82,6 +82,7 @@ public class SimplexAlgorithmExecuter
 			if(!this.repeat || AutomaticExperimentManager.QUIT_NOW) {
 				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
 				System.out.println("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
+				System.out.println("Validation error: " + simplexAlgorithm.getMinimumErrorResult().getValidationError());
 				System.out.println("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
 				minvals = simplexAlgorithm.getMinimumParametersValues();
 				break;
@@ -90,6 +91,7 @@ public class SimplexAlgorithmExecuter
 			if(newmin >= prevmin) {
 				System.out.println("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
 				System.out.println("Minimum value: " + prevmin);
+				System.out.println("Validation error: " + simplexAlgorithm.getMinimumErrorResult().getValidationError());
 				System.out.println("Parameters values: " + Arrays.toString(prevvals));
 				minvals = prevvals;
 				break; // we couldn't improve
@@ -241,6 +243,7 @@ public class SimplexAlgorithmExecuter
 				error = result.getError();
 				
 				System.out.println(" Error is: " + error);
+				System.out.println(" Error in validation data set is: " + result.getValidationError());
 				resultWriter.write(error+"");
 				resultWriter.write(LS);
 				resultWriter.flush();
