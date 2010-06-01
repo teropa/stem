@@ -54,7 +54,7 @@ public class InfectorDefinitionComposite extends Composite {
 	private String isoKey = ""; //$NON-NLS-1$
 	private URI targetURI = null;
 	
-	private final Text numberOfInfectionsText;
+	private Text numberOfInfectionsText;
 
 	private final Text populationText;
 
@@ -175,17 +175,24 @@ public class InfectorDefinitionComposite extends Composite {
 		fd_populationText.right = new FormAttachment(100, 0);
 		populationText.setLayoutData(fd_populationText);
 		
-		Composite percentModeComposite = createPercentModeRadioButtonsComposite(this, projectValidator);
+		// JK The Number to infect is now added inside the following composite 
+		Composite numberPercentInputComposite = createNumberPercentInputComposite(this, projectValidator, margin1, margin2);
 		final FormData fd_percentMode = new FormData();
 		fd_percentMode.top = new FormAttachment(populationLabel, 10, SWT.BOTTOM);
 		fd_percentMode.left = new FormAttachment(0, 0);
 		fd_percentMode.right = new FormAttachment(100, 0);
-		percentModeComposite.setLayoutData(fd_percentMode);
+		numberPercentInputComposite.setLayoutData(fd_percentMode);
+		// TODO add it here
+		
+		
+		
+		
+		
 		
 		// radio buttons to set the import 
 		Composite importModeComposite = createImportRadioButtonsComposite(this, projectValidator);
 		final FormData fd_importMode = new FormData();
-		fd_importMode.top = new FormAttachment(percentModeComposite, 10, SWT.BOTTOM);
+		fd_importMode.top = new FormAttachment(numberPercentInputComposite, 10, SWT.BOTTOM);
 		fd_importMode.left = new FormAttachment(0, 0);
 		fd_importMode.right = new FormAttachment(100, 0);
 		importModeComposite.setLayoutData(fd_importMode);
@@ -230,73 +237,7 @@ public class InfectorDefinitionComposite extends Composite {
 		rowComposite.setLayoutData(fd_row);
 		rowComposite.setEnabled(false);
 		
-		// Number of Infections
-		numberOfInfectionsLabel = new Label(this, SWT.NONE);
-		numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNIINF")); //$NON-NLS-1$
-
-		final FormData fd_numberOfInfectionsLabel = new FormData();
-		fd_numberOfInfectionsLabel.top = new FormAttachment(rowComposite,5, SWT.BOTTOM);
-		fd_numberOfInfectionsLabel.left = new FormAttachment(0, 0);
-		fd_numberOfInfectionsLabel.right = new FormAttachment(margin1, 0);
-		numberOfInfectionsLabel.setLayoutData(fd_numberOfInfectionsLabel);
-		
-		numberOfInfectionsText = new Text(this, SWT.BORDER);
-		numberOfInfectionsText.setText(StandardPackage.Literals.SI_INFECTOR__INFECTIOUS_COUNT.getDefaultValueLiteral());
-		numberOfInfectionsText.setToolTipText(DiseaseWizardMessages.getString("NInfWizNITT")); //$NON-NLS-1$
-		numberOfInfectionsText.addModifyListener(projectValidator);
-		
-		final FormData fd_numberOfInfectionsText = new FormData();
-		fd_numberOfInfectionsText.left = new FormAttachment(numberOfInfectionsLabel, 0);
-		fd_numberOfInfectionsText.right = new FormAttachment(100, 0);
-		fd_numberOfInfectionsText.top = new FormAttachment(rowComposite, 5, SWT.BOTTOM);
-		numberOfInfectionsText.setLayoutData(fd_numberOfInfectionsText);
-		
-
-		locationButton = new Button(this, SWT.NONE);
-		locationButton.setText(DiseaseWizardMessages.getString("NInfWizPickLoc"));
-		final FormData fd_locButton = new FormData();
-		fd_locButton.left = new FormAttachment(0,0);
-		fd_locButton.top = new FormAttachment(numberOfInfectionsLabel, 5, SWT.BOTTOM);
-		locationButton.setLayoutData(fd_locButton);
-		
-		locationButton.addSelectionListener(new SelectionListener() {
-			
-			public void widgetSelected(SelectionEvent arg0) {
-				LocationPickerDialog lpDialog = new LocationPickerDialog(InfectorDefinitionComposite.this.getShell(), SWT.NONE, DiseaseWizardMessages.getString("NInfWizPickLocTitle"), InfectorDefinitionComposite.this.isoKey, currentProject);
-				Object [] ret = lpDialog.open();
-				if(ret != null) {
-					isoKey = (String)ret[0];
-					targetURI = (URI)ret[1];
-					isokeyValueLabel.setText(isoKey);
-					projectValidator.modifyText(null);
-				}
-			}
-			
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
-			}
-		});
-		
-		// ISO Key
-		final Label isoKeyLabel = new Label(this, SWT.NONE);
-		isoKeyLabel.setText(DiseaseWizardMessages.getString("NInfWizISOK")); //$NON-NLS-1$
-		
-		final FormData fd_isoKeyLabel = new FormData();
-		fd_isoKeyLabel.top = new FormAttachment(locationButton, 5, SWT.BOTTOM);
-		fd_isoKeyLabel.left = new FormAttachment(0, 0);
-		fd_isoKeyLabel.right = new FormAttachment(margin2, 0);
-		isoKeyLabel.setLayoutData(fd_isoKeyLabel);
-		
-
-		isokeyValueLabel = new Label(this, SWT.NONE);
-		isokeyValueLabel.setText(isoKey);
-
-		final FormData fd_isokeyValueLabel = new FormData();
-		fd_isokeyValueLabel.top = new FormAttachment(locationButton, 5, SWT.BOTTOM);
-		fd_isokeyValueLabel.left = new FormAttachment(isoKeyLabel, 0);
-		fd_isokeyValueLabel.right = new FormAttachment(100, 0);
-		isokeyValueLabel.setLayoutData(fd_isokeyValueLabel);
-						
+								
 		final Shell shell = this.getShell();
 		importFileButton
 				.addSelectionListener(new SelectionAdapter() {
@@ -454,19 +395,116 @@ public class InfectorDefinitionComposite extends Composite {
 	 * @param parent
 	 * @return the composite
 	 */
-	Composite createPercentModeRadioButtonsComposite(final Composite parent, final ModifyListener projectValidator) {
+	Composite createNumberPercentInputComposite(final Composite parent, final ModifyListener projectValidator, final int margin1, final int margin2) {
 	    Composite radio2Composite = new Composite(parent, SWT.BORDER);
-	    FillLayout fillLayout2 = new FillLayout();
-	    fillLayout2.type = SWT.VERTICAL;
-	    radio2Composite.setLayout(fillLayout2);
+	    
+	    radio2Composite.setLayout(new FormLayout());
 	    
 	    
 	    useAbsoluteNumberButton = new Button(radio2Composite, SWT.RADIO);
 	    useAbsoluteNumberButton.setSelection(true);
 	    useAbsoluteNumberButton.setText(DiseaseWizardMessages.getString("NInfWiz.absnumber"));
+	    final FormData fd_numberButton = new FormData();
+		fd_numberButton.top = new FormAttachment(0, 0);
+		fd_numberButton.left = new FormAttachment(0, 0);
+		fd_numberButton.right = new FormAttachment(margin1, 0);
+		useAbsoluteNumberButton.setLayoutData(fd_numberButton);
 	    
 	    usePercentageButton = new Button(radio2Composite, SWT.RADIO);
 	    usePercentageButton.setText(DiseaseWizardMessages.getString("NInfWiz.percentage"));
+	    final FormData fd_percentButton = new FormData();
+		fd_percentButton.top = new FormAttachment(useAbsoluteNumberButton, 0);
+		fd_percentButton.left = new FormAttachment(0, 0);
+		fd_percentButton.right = new FormAttachment(margin1, 0);
+		usePercentageButton.setLayoutData(fd_percentButton);
+	    
+	    
+	    // START adding Number of Infections
+		numberOfInfectionsLabel = new Label(radio2Composite, SWT.NONE);
+		numberOfInfectionsLabel.setText(DiseaseWizardMessages.getString("NInfWizNIINF")); //$NON-NLS-1$
+
+		final FormData fd_numberOfInfectionsLabel = new FormData();
+		fd_numberOfInfectionsLabel.top = new FormAttachment(usePercentageButton, 0);
+		fd_numberOfInfectionsLabel.left = new FormAttachment(0, 0);
+		fd_numberOfInfectionsLabel.right = new FormAttachment(margin1, 0);
+		numberOfInfectionsLabel.setLayoutData(fd_numberOfInfectionsLabel);
+		
+		numberOfInfectionsText = new Text(radio2Composite, SWT.BORDER);
+		numberOfInfectionsText.setText(StandardPackage.Literals.SI_INFECTOR__INFECTIOUS_COUNT.getDefaultValueLiteral());
+		numberOfInfectionsText.setToolTipText(DiseaseWizardMessages.getString("NInfWizNITT")); //$NON-NLS-1$
+		numberOfInfectionsText.addModifyListener(projectValidator);
+		
+		final FormData fd_numberOfInfectionsText = new FormData();
+		fd_numberOfInfectionsText.top = new FormAttachment(usePercentageButton, 0);
+		fd_numberOfInfectionsText.left = new FormAttachment(numberOfInfectionsLabel, 0);
+		fd_numberOfInfectionsText.right = new FormAttachment(100, 0);
+		
+		numberOfInfectionsText.setLayoutData(fd_numberOfInfectionsText);
+		// End adding Number of Infections
+		
+		// Location Button
+		locationButton = new Button(radio2Composite, SWT.NONE);
+		locationButton.setText(DiseaseWizardMessages.getString("NInfWizPickLoc"));
+		final FormData fd_locButton = new FormData();
+		fd_locButton.top = new FormAttachment(numberOfInfectionsLabel, 0);
+		fd_locButton.left = new FormAttachment(0,0);
+		locationButton.setLayoutData(fd_locButton);
+		
+		// ISO Key
+		final Label isoKeyLabel = new Label(radio2Composite, SWT.NONE);
+		isoKeyLabel.setText(DiseaseWizardMessages.getString("NInfWizISOK")); //$NON-NLS-1$
+		
+		final FormData fd_isoKeyLabel = new FormData();
+		fd_isoKeyLabel.top = new FormAttachment(locationButton, 0);
+		fd_isoKeyLabel.left = new FormAttachment(0, 0);
+		fd_isoKeyLabel.right = new FormAttachment(margin2, 0);
+		isoKeyLabel.setLayoutData(fd_isoKeyLabel);
+		
+		isokeyValueLabel = new Label(radio2Composite, SWT.BORDER);
+		isokeyValueLabel.setText(isoKey);
+		final FormData fd_isokeyValueLabel = new FormData();
+		fd_isokeyValueLabel.top = new FormAttachment(locationButton, 0);
+		fd_isokeyValueLabel.left = new FormAttachment(isoKeyLabel, 0);
+		fd_isokeyValueLabel.right = new FormAttachment(100, 0);
+		isokeyValueLabel.setLayoutData(fd_isokeyValueLabel);
+		
+		// ISO Key
+		final Label spacerLabel = new Label(radio2Composite, SWT.NONE);
+		spacerLabel.setText(" "); //$NON-NLS-1$
+		
+		final FormData fd_spacerLabel = new FormData();
+		fd_spacerLabel.top = new FormAttachment(isoKeyLabel, 0);
+		fd_spacerLabel.left = new FormAttachment(0, 0);
+		fd_spacerLabel.right = new FormAttachment(margin2, 0);
+		spacerLabel.setLayoutData(fd_spacerLabel);
+
+		
+		
+		////////////////
+		//
+		// Listeners
+		//
+		//
+		locationButton.addSelectionListener(new SelectionListener() {
+			public void widgetSelected(SelectionEvent arg0) {
+				LocationPickerDialog lpDialog = new LocationPickerDialog(InfectorDefinitionComposite.this.getShell(), SWT.NONE, DiseaseWizardMessages.getString("NInfWizPickLocTitle"), InfectorDefinitionComposite.this.isoKey, currentProject);
+				Object [] ret = lpDialog.open();
+				if(ret != null) {
+					isoKey = (String)ret[0];
+					targetURI = (URI)ret[1];
+					isokeyValueLabel.setText(isoKey);
+					projectValidator.modifyText(null);
+				}
+			}
+			
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				
+			}
+		});
+		
+		
+	    
+	    
 	    
 	    Listener listener = new Listener() {
 	        public void handleEvent(Event event) {
