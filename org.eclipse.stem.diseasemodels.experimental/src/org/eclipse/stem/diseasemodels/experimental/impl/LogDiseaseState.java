@@ -14,6 +14,8 @@ package org.eclipse.stem.diseasemodels.experimental.impl;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.eclipse.stem.diseasemodels.Activator;
+
  class LogDiseaseState {
 
     private static FileWriter fw;
@@ -26,7 +28,7 @@ import java.io.IOException;
 		try {
 			fw = new FileWriter(fileName);
 	} catch (IOException e) {
-				System.out.println("Error creating file writer "+e.getMessage());
+				Activator.logInformation("Error creating file writer "+e.getMessage(),e);
 			    e.printStackTrace();
 			    System.exit(1);
 	}
