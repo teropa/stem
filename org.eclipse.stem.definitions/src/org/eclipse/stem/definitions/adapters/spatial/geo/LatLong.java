@@ -28,7 +28,7 @@ public class LatLong {
 
 	private static final int NUMBER_OF_FACTIONAL_DIGITS = 2;
 
-	static NumberFormat formatter = null;
+	//static NumberFormat formatter = null;
 
 	private final List<Segment> segments = new ArrayList<Segment>();
 
@@ -98,12 +98,25 @@ public class LatLong {
 //		return formatter;
 //	} // getFormatter
 	
+	/**
+	 * Converts double value into a fractional string with fracDigits 
+	 * number of decimal places.  Should be locale agnostic.
+	 * @param value value to convert
+	 * @param fracDigits number of digits after decimal point to hold
+	 * @return String containing new value
+	 */
 	static String formatLatLngValue(double value, double fracDigits) {
 		
 		double power = Math.pow(10, fracDigits);
 		return String.valueOf(((long)(value*power))/power);
 	}
 	
+	/**
+	 * Converts double value into a fractional string with default 
+	 * number of decimal places.  Should be locale agnostic.
+	 * @param value value to convert
+	 * @return String containing new value
+	 */
 	static String formatLatLngValue(double value) {
 		return formatLatLngValue(value, NUMBER_OF_FACTIONAL_DIGITS);
 	}
