@@ -16,6 +16,7 @@ import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.impl.EdgeImpl;
 import org.eclipse.stem.core.graph.impl.NodeImpl;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.Activator;
 import org.eclipse.stem.definitions.adapters.spatial.geo.InlineLatLongDataProvider;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong.SegmentBuilder;
@@ -259,7 +260,7 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 	public static void main(String[] args) {
 		SqrLatticeGeneratorImpl slgi = new SqrLatticeGeneratorImpl();
 		Graph g = slgi.getGraph(10, 10, true, false, true);
-		System.out.println("graph built ..now save it");
+		Activator.logInformation("graph built ..now save it");
 		
 		String graphUriString = "platform:/resource/play/graphs/sqrLatticeGraph.graph";
 		g.setURI(URI.createURI(graphUriString));
@@ -272,7 +273,7 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 		}
 		
 		
-		System.out.println("done");
+		Activator.logInformation("done");
 
 	}
 
