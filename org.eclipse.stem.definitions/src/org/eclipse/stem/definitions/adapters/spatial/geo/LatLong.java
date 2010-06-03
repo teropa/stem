@@ -12,6 +12,8 @@ package org.eclipse.stem.definitions.adapters.spatial.geo;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,16 +87,26 @@ public class LatLong {
 	/**
 	 * @return a number formatter
 	 */
-	static NumberFormat getFormatter() {
-		// Is there already a formatter?
-		if (formatter == null) {
-			// No
-			formatter = NumberFormat.getNumberInstance();
-			formatter.setMaximumFractionDigits(NUMBER_OF_FACTIONAL_DIGITS);
-			formatter.setMinimumFractionDigits(NUMBER_OF_FACTIONAL_DIGITS);
-		}
-		return formatter;
-	} // getFormatter
+//	static NumberFormat getFormatter() {
+//		// Is there already a formatter?
+//		if (formatter == null) {
+//			// No
+//			formatter = NumberFormat.getNumberInstance();
+//			formatter.setMaximumFractionDigits(NUMBER_OF_FACTIONAL_DIGITS);
+//			formatter.setMinimumFractionDigits(NUMBER_OF_FACTIONAL_DIGITS);
+//		}
+//		return formatter;
+//	} // getFormatter
+	
+	static String formatLatLngValue(double value, double fracDigits) {
+		
+		double power = Math.pow(10, fracDigits);
+		return String.valueOf(((long)(value*power))/power);
+	}
+	
+	static String formatLatLngValue(double value) {
+		return formatLatLngValue(value, NUMBER_OF_FACTIONAL_DIGITS);
+	}
 
 	/**
 	 * This class creates {@link Segment}'s
@@ -280,9 +292,9 @@ public class LatLong {
 			@Override
 			public String toString() {
 				final StringBuffer sb = new StringBuffer();
-				sb.append(getFormatter().format(latitude));
+				sb.append(formatLatLngValue(latitude));
 				sb.append(", ");
-				sb.append(getFormatter().format(longitude));
+				sb.append(formatLatLngValue(longitude));
 				return sb.toString();
 			}
 
@@ -356,9 +368,9 @@ public class LatLong {
 			final StringBuilder sb = new StringBuilder();
 
 			for (int i = 0; i < data.length; i++) {
-				sb.append(getFormatter().format(data[i][LATITUDE_INDEX]));
+				sb.append(formatLatLngValue(data[i][LATITUDE_INDEX]));
 				sb.append(",");
-				sb.append(getFormatter().format(data[i][LONGITUDE_INDEX]));
+				sb.append(formatLatLngValue(data[i][LONGITUDE_INDEX]));
 				// Any more values?
 				if (i < data.length - 1) {
 					// Yes
@@ -378,9 +390,9 @@ public class LatLong {
 			// Any latitude/longitude pairs?
 			if (data.length > 0) {
 				// Yes
-				sb.append(getFormatter().format(data[0][LATITUDE_INDEX]));
+				sb.append(formatLatLngValue(data[0][LATITUDE_INDEX]));
 				sb.append(",");
-				sb.append(getFormatter().format(data[0][LONGITUDE_INDEX]));
+				sb.append(formatLatLngValue(data[0][LONGITUDE_INDEX]));
 
 				// More than 2?
 				if (data.length > 2) {
@@ -390,10 +402,10 @@ public class LatLong {
 				// Were there at least two?
 				if (data.length > 1) {
 					// Yes
-					sb.append(getFormatter().format(
+					sb.append(formatLatLngValue(
 							data[data.length - 1][LATITUDE_INDEX]));
 					sb.append(",");
-					sb.append(getFormatter().format(
+					sb.append(formatLatLngValue(
 							data[data.length - 1][LONGITUDE_INDEX]));
 				}
 
