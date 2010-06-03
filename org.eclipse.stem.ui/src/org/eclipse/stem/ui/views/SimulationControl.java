@@ -27,6 +27,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -113,7 +116,7 @@ public class SimulationControl extends Composite implements
 
 	private static final int STANDARD_LENGTH = 100;
 
-	private static final int STANDARD_HEIGHT = 18;
+	private static final int STANDARD_HEIGHT = 22;
 
 	private static final int CONTAINER_HEIGHT = 225;
 	
@@ -192,8 +195,14 @@ public class SimulationControl extends Composite implements
         
         int width = clientBounds.width- (MARGIN * MULTIPLIER);
         int height = STANDARD_HEIGHT;
+        
+        ////////////////////////////////////////////
+        // JHK This code was removed because the controls did not display well on the MAC.
+        // Swiching from a grid layout to flow layout seems to fix the problem.
+        // the folowing is no longer needed.
+        //
 		// Compute the new displaying bounds.
-		Rectangle pbBounds = this.computeTrim(pb.getBounds().x,
+		/*Rectangle pbBounds = this.computeTrim(pb.getBounds().x,
 				pb.getBounds().y, width,height);
 		Rectangle titleBounds = this.computeTrim(
 				        simulationTitleText.getBounds().x, 
@@ -206,19 +215,19 @@ public class SimulationControl extends Composite implements
 		        simulationTimeText.getBounds().y, width, height);
 		Rectangle progressBounds = this.computeTrim(
 		        simulationProgressText.getBounds().x, 
-		        simulationProgressText.getBounds().y, width, height);
+		        simulationProgressText.getBounds().y, width, height);*/
+		
 		Rectangle mainBounds = this.computeTrim(clientBounds.x, clientBounds.y,
 				clientBounds.width - MARGIN, CONTAINER_HEIGHT);
 		Rectangle btnBounds = this.computeTrim(btnContainer.getBounds().x, 
 				btnContainer.getBounds().y,width,height+2*MARGIN);
+		
 		// Set the new boundaries.
-		pb.setBounds(pbBounds);
-		
-		simulationTitleText.setBounds(titleBounds);
-		
-		simulationStateText.setBounds(stateBounds);
-		simulationTimeText.setBounds(timeBounds);
-		simulationProgressText.setBounds(progressBounds);
+//		pb.setBounds(pbBounds);
+//		simulationTitleText.setBounds(titleBounds);
+//		simulationStateText.setBounds(stateBounds);
+//		simulationTimeText.setBounds(timeBounds);
+//		simulationProgressText.setBounds(progressBounds);
 		
 		btnContainer.setBounds(btnBounds);
 		mainContainer.setBounds(mainBounds);
@@ -389,7 +398,7 @@ public class SimulationControl extends Composite implements
 		// Set the layout manager for the top level container
 		GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
-		mainContainer.setLayout(gridLayout);
+		mainContainer.setLayout(new FormLayout());
 		
 
 		simulationTitleText = new Text(mainContainer, SWT.MULTI | SWT.WRAP);
@@ -399,7 +408,13 @@ public class SimulationControl extends Composite implements
 				.setBackground(colorRegistry.get(ISharedColors.GRAY));
 		simulationTitleText.setFont(fontRegistry.get(ISharedFonts.DEFAULT));
 		simulationTitleText.setEditable(false);
-		simulationTitleText.setLayoutData(getTextGridData());
+		//
+		FormData sttFormData = new FormData();
+		sttFormData.left = new FormAttachment(0, 0);
+		sttFormData.right = new FormAttachment(100, 0);
+		sttFormData.top = new FormAttachment(1, 0);
+		simulationTitleText.setLayoutData(sttFormData);
+		
 
 		simulationProgressText = new Text(mainContainer, SWT.SMOOTH
 				| SWT.BORDER);
@@ -407,28 +422,49 @@ public class SimulationControl extends Composite implements
 				.get(ISharedColors.GREEN));
 		simulationProgressText.setEditable(false);
 		simulationProgressText.setFont(fontRegistry.get(ISharedFonts.DEFAULT));
-		simulationProgressText.setLayoutData(getTextGridData());
+		//
+		FormData sptFormData = new FormData();
+		sptFormData.left = new FormAttachment(0, 0);
+		sptFormData.right = new FormAttachment(100, 0);
+		sptFormData.top = new FormAttachment(simulationTitleText, 0);
+		simulationProgressText.setLayoutData(sptFormData);
 
 		simulationStateText = new Text(mainContainer, SWT.SMOOTH | SWT.BORDER);
 		simulationStateText.setBackground(colorRegistry
 				.get(ISharedColors.GREEN));
 		simulationStateText.setEditable(false);
 		simulationStateText.setFont(fontRegistry.get(ISharedFonts.DEFAULT));
-		simulationStateText.setLayoutData(getTextGridData());
-
+		FormData sstFormData = new FormData();
+		sstFormData.left = new FormAttachment(0, 0);
+		sstFormData.right = new FormAttachment(100, 0);
+		sstFormData.top = new FormAttachment(simulationProgressText, 0);
+		simulationStateText.setLayoutData(sstFormData);
 
 		pb = new ProgressBar(mainContainer, SWT.SMOOTH | SWT.BORDER);
 		pb.setFont(fontRegistry.get(ISharedFonts.DEFAULT));
-		pb.setLayoutData(getProgressBarGridData());
-
+		FormData pbFormData = new FormData();
+		pbFormData.left = new FormAttachment(0, 0);
+		pbFormData.right = new FormAttachment(100, 0);
+		pbFormData.top = new FormAttachment(simulationStateText, 0);
+		pb.setLayoutData(pbFormData);
+		
 		simulationTimeText = new Text(mainContainer, SWT.SMOOTH | SWT.BORDER);
 		simulationTimeText.setBackground(colorRegistry
 				.get(ISharedColors.GREEN));
 		simulationTimeText.setEditable(false);
 		simulationTimeText.setFont(fontRegistry.get(ISharedFonts.DEFAULT));
-		simulationTimeText.setLayoutData(getTextGridData());
-
-		createControlButtons(mainContainer);
+		FormData stmtFormData = new FormData();
+		stmtFormData.left = new FormAttachment(0, 0);
+		stmtFormData.right = new FormAttachment(100, 0);
+		stmtFormData.top = new FormAttachment(pb, 0);
+		simulationTimeText.setLayoutData(stmtFormData);
+		
+		Composite controlButtons = createControlButtons(mainContainer);
+		FormData controlsFormData = new FormData();
+		controlsFormData.left = new FormAttachment(0, 0);
+		controlsFormData.right = new FormAttachment(80, 0);
+		controlsFormData.top = new FormAttachment(simulationTimeText, 0);
+		controlButtons.setLayoutData(controlsFormData);
 		
 		resetProgressBar(); // Set and display progress bar's initial value
 		updateStateLabel(simulation.getSimulationState());
@@ -527,7 +563,7 @@ public class SimulationControl extends Composite implements
 	 * a row of 5 buttons.
 	 * @param parent mainContainer
 	 */
-	protected void createControlButtons(Composite parent) {
+	protected Composite createControlButtons(Composite parent) {
 		
 		final int OFFSET = 16;
 		btnContainer = new Composite(parent,0);
@@ -634,7 +670,7 @@ public class SimulationControl extends Composite implements
 				}
 			}
 		});
-
+		return btnContainer;
 	}
 
 	/**
