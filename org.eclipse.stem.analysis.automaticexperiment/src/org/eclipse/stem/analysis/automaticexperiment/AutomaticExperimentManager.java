@@ -30,15 +30,15 @@ public class AutomaticExperimentManager {
 	
 	public static void pause() {
 		PAUSE_NOW = true;
-		System.out.println("Stefan: Please pause now");
+		// TODO  Please pause now if we want pause
 	}
 	public static void continueRun() {
 		PAUSE_NOW = false;
-		System.out.println("Stefan: Please continue now");
+		// TODO  Please continue now if we want Continue
 	}
 	
 	public void restartNow(double[] restartParamValues) {
-		System.out.println("Stefan: Restart with the valued provided");
+		// TODO   Restart with the valued provided
 		QUIT_NOW = false;
 		currentRunningAlgorithm.reinitStartParams(currentRunningExperient, restartParamValues);
 		currentRunningAlgorithm.clearListeners();
