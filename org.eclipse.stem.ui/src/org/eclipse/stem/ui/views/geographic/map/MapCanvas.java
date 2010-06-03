@@ -347,7 +347,15 @@ public class MapCanvas
 		@Override
 		public void mouseEnter(@SuppressWarnings("unused")
 		final MouseEvent e) {
-			forceFocus();
+			
+			// The Map does not NEED to steal focus at all
+			// IF in the future we need focus then the following
+			// Guard claused protects against irrelevant/unneeded stealing of focus
+			
+			// if there is NOTHING in the map, don't steal focus
+			//if (polygonsToRender != null && !polygonsToRender.isEmpty()) {
+				//forceFocus();
+			//}
 		}
 	}
 	
