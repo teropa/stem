@@ -103,21 +103,7 @@ public class Activator extends AbstractUIPlugin {
 		}
 	} // logError
 	
-	/**
-	 * Log information to the ILog for this plugin
-	 * The method is overloaded to allow for logInformation without an error 
-	 * method sets the error to null. This should be used instead of System.out.println
-	 * throughout the code.
-	 * @param message
-	 *            the localized information message text
-	 *
-	 */
-	public static void logInformation(String message) {
-		plugin.getLog().log(
-				new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
-						0, message, null));
-		
-	} // logInformation
+	
 
 	/**
 	 * Log information to the ILog for this plugin
@@ -128,10 +114,48 @@ public class Activator extends AbstractUIPlugin {
 	 *            the associated exception, or null
 	 */
 	public static void logInformation(String message, Throwable exception) {
-		plugin.getLog().log(
-				new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
-						0, message, exception));
+		// Do we have a plugin?
+		if (plugin != null) {
+			// Yes
+			plugin.getLog().log(
+					new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
+							0, message, exception));
+		}
+		else {
+			// No
+			System.out.println(message);
+			// Exception?
+			if (exception != null) {
+				// Yes
+				System.out.println(exception.getMessage());
+			} // if 
+		}
 	} // logInformation
+	
+	
+	/**
+	 * Log information to the ILog for this plugin
+	 * The method is overloaded to allow for logInformation without an error 
+	 * method sets the error to null. This should be used instead of System.out.println
+	 * throughout the code.
+	 * @param message
+	 *            the localized information message text
+	 *
+	 */
+	public static void logInformation(String message) {
+		// Do we have a plugin?
+		if (plugin != null) {
+			// Yes
+			plugin.getLog().log(
+					new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
+							0, message, null));
+		}
+		else {
+			// No
+			System.out.println(message);
+		}
+	} // logInformation
+
 	
 	
 
