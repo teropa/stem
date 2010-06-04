@@ -391,10 +391,10 @@ public class TimeSeriesCanvas extends Canvas {
 				// new property
 				DataSeries series = new DataSeries(property, seriesCount, overlayMode);
 				if(visibleMap.containsKey(property))
-						series.setVisible(visibleMap.get(property));
+						series.setVisible(visibleMap.get(property).booleanValue());
 				else {
 					series.setVisible(true);
-					visibleMap.put(property, true);
+					visibleMap.put(property,new Boolean(true));
 				}
 				seriesCount ++;
 				dataSeriesMap.put(property, series);
@@ -1042,7 +1042,7 @@ public class TimeSeriesCanvas extends Canvas {
 				series.toggleVisible();
 				dataSeriesMap.put(property,series);
 				setChecked(series.isVisible());
-				visibleMap.put(property, series.isVisible());
+				visibleMap.put(property, new Boolean(series.isVisible()));
 				draw();
 		}
 	}// DisplayableProperty
