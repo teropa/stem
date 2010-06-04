@@ -95,7 +95,7 @@ public class ScenarioComparisonControl extends AnalysisControl {
 	 * Colors for the time series chart
 	 */
 	static final ColorDefinition foreGround = ColorDefinitionImpl.WHITE();
-	static final ColorDefinition backgroundGround = ColorDefinitionImpl.create(245, 222, 179);//color is called wheat
+	static final ColorDefinition backgroundGround = ColorDefinitionImpl.create(255, 231, 186);//color is called wheat
 	static final ColorDefinition frameColor = ColorDefinitionImpl.create(220, 220, 220);
 	
 	/**
