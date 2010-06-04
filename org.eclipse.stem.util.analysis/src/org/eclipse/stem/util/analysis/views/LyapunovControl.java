@@ -18,7 +18,6 @@ import java.util.Map;
 
 import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.stem.analysis.ScenarioInitializationException;
