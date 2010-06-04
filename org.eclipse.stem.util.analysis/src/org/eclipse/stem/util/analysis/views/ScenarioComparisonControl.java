@@ -90,16 +90,13 @@ public class ScenarioComparisonControl extends AnalysisControl {
 	 */
 	Label statusLabel;
 	
-	/**
-	 * Label for line series Y axis
-	 */
 	
 	/**
 	 * Colors for the time series chart
 	 */
 	static final ColorDefinition foreGround = ColorDefinitionImpl.WHITE();
-	static final ColorDefinition backgroundGround = ColorDefinitionImpl.BLACK();
-	static final ColorDefinition frameColor = ColorDefinitionImpl.create(180, 180, 200);
+	static final ColorDefinition backgroundGround = ColorDefinitionImpl.create(245, 222, 179);//color is called wheat
+	static final ColorDefinition frameColor = ColorDefinitionImpl.create(220, 220, 220);
 	
 	/**
 	 * the chart of results
@@ -140,7 +137,7 @@ public class ScenarioComparisonControl extends AnalysisControl {
 		//propertySelector = new PropertySelector(this, SWT.NONE);
 		Display display = this.getDisplay();
 		
-		Color labelBackground = new Color(display, new RGB(180, 180, 200));
+		Color labelBackground = new Color(display, new RGB(220, 220, 220));
 		
 		statusLabel = new Label(this, SWT.BORDER);
 		statusLabel.setBackground(labelBackground);
