@@ -227,7 +227,7 @@ public class ParameterEstimatorWizard extends Wizard {
 					dd.setText(Messages.getString("EST.SELECTFOLDEDIALOGTITLE")); //$NON-NLS-1$
 					dd.setFilterPath(folderText.getText());
 					final String selected = dd.open();
-					folderText.setText(selected);
+					if(selected != null) folderText.setText(selected);
 				}
 			});
 			setPageComplete(validatePage());

@@ -464,6 +464,9 @@ public class EstimatorControl extends AnalysisControl {
 				if(parameterEstimatorWizard != null)
 					dir = parameterEstimatorWizard.selectFolderPage.getDirName();
 				else dir = recentFolder;
+				
+				if((dir==null)||(dir.length()<1)) dir = ROOT_PATH;
+				
 				parameterEstimatorWizard = new ParameterEstimatorWizard(eControl, dir);
 				
 				//parameterEstimatorWizard.init(selectEstimatorButton.);

@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.util.analysis.MonitorPreferences;
@@ -44,6 +45,11 @@ abstract public class AnalysisControl extends Composite  {
 	protected static final String CLEAR_TEXT = "clear monitors";
 
 	protected Label simulationNameLabel;
+
+	/**
+	 * 
+	 */
+	static final String ROOT_PATH =  Platform.getLocation().toOSString();
 	
 	/**
 	 * Status text

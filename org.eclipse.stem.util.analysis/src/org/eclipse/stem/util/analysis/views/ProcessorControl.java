@@ -161,9 +161,13 @@ public class ProcessorControl extends AnalysisControl {
 			public void widgetSelected(@SuppressWarnings("unused") final SelectionEvent e) {
 				final DirectoryDialog dd = new DirectoryDialog(shell, SWT.OPEN);
 				dd.setText(Messages.getString("PROCESSOR.SELECTSOURCEFOLDEDIALOGTITLE"));
-				dd.setFilterPath(sourceFolder.getText());
+
+				String dir = sourceFolder.getText();
+				if((dir==null)||(dir.length()<1)) dir = ROOT_PATH;
+				
+				dd.setFilterPath(dir);
 				final String selected = dd.open();
-				sourceFolder.setText(selected);
+				if(selected!=null) sourceFolder.setText(selected);
 				if(selected != null && selected.length() != 0) {
 					statusLabel.setText(Messages.getString("PROCESSOR.READINGDATA"));
 					populationSizeStartYear.setEnabled(false);
@@ -212,9 +216,13 @@ public class ProcessorControl extends AnalysisControl {
 			public void widgetSelected(@SuppressWarnings("unused") final SelectionEvent e) {
 				final DirectoryDialog dd = new DirectoryDialog(shell, SWT.OPEN);
 				dd.setText(Messages.getString("PROCESSOR.SELECTTARGETFOLDEDIALOGTITLE"));
-				dd.setFilterPath(targetFolder.getText());
+				
+				String dir = targetFolder.getText();
+				if((dir==null)||(dir.length()<1)) dir = ROOT_PATH;
+				
+				dd.setFilterPath(dir);
 				final String selected = dd.open();
-				targetFolder.setText(selected);
+				if(selected!=null) targetFolder.setText(selected);
 				enableProcessButton();
 			}
 		});
@@ -235,9 +243,12 @@ public class ProcessorControl extends AnalysisControl {
 			public void widgetSelected(@SuppressWarnings("unused") final SelectionEvent e) {
 				final FileDialog fd = new FileDialog(shell, SWT.OPEN);
 				fd.setText(Messages.getString("PROCESSOR.SELECTPOPULATIONDATAFILEDIALOGTITLE"));
-				fd.setFilterPath(populationDataFile.getText());
+				String beginSearch = populationDataFile.getText();
+				if((beginSearch==null)||(beginSearch.length()<1)) beginSearch = ROOT_PATH;
+				
+				fd.setFilterPath(beginSearch);
 				final String selected = fd.open();
-				populationDataFile.setText(selected);
+				if(selected!=null) populationDataFile.setText(selected);
 				enableProcessButton();
 			}
 		});

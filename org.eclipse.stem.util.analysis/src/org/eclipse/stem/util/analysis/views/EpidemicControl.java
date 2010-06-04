@@ -275,9 +275,12 @@ public class EpidemicControl extends AnalysisControl {
 				final DirectoryDialog dd = new DirectoryDialog(
 						shell, SWT.OPEN);
 					dd.setText(Messages.getString("EPIVIEW.SELECTSCENARIOFOLDER")); //$NON-NLS-1$
-					dd.setFilterPath(aggregateDirtext.getText());
+					String beginSearch = aggregateDirtext.getText();
+					if((beginSearch==null)||(beginSearch.length()<1)) beginSearch = ROOT_PATH;
+					
+					dd.setFilterPath(beginSearch);
 					final String selected = dd.open();
-					aggregateDirtext.setText(selected);
+					if(selected!=null) aggregateDirtext.setText(selected);
 			}
 		});
 	   
@@ -298,6 +301,7 @@ public class EpidemicControl extends AnalysisControl {
 					 String refFolder = prefs.getRecentFolder(REFERENCE_FOLDER_KEY);
 					    if(refFolder== null) {
 					    	refFolder = aggregateDirtext.getText();
+					    	if((refFolder==null)||(refFolder.length()<1)) refFolder = ROOT_PATH;
 					    }
 					referenceDirtext.setText(refFolder);
 					pickRefButton.setEnabled(true);
@@ -347,9 +351,11 @@ public class EpidemicControl extends AnalysisControl {
 				final DirectoryDialog dd = new DirectoryDialog(
 						shell, SWT.OPEN);
 					dd.setText(Messages.getString("EPIVIEW.SELECTREFERENCEFOLDER")); //$NON-NLS-1$
-					dd.setFilterPath(referenceDirtext.getText());
+					String beginSearch = referenceDirtext.getText();
+					if((beginSearch==null)||(beginSearch.length()<1)) beginSearch = ROOT_PATH;
+					dd.setFilterPath(beginSearch);
 					final String selected = dd.open();
-					referenceDirtext.setText(selected);
+					if(selected!=null) referenceDirtext.setText(selected);
 			}
 		});
 	  
@@ -476,9 +482,12 @@ public class EpidemicControl extends AnalysisControl {
 				final FileDialog dd = new FileDialog(
 						shell, SWT.OPEN);
 					dd.setText(Messages.getString("EPIVIEW.SELECTAGGFILE"));
-					dd.setFilterPath(filetextAggregate.getText());
+					String beginSearch = filetextAggregate.getText();
+					if((beginSearch==null)||(beginSearch.length()<1)) beginSearch = ROOT_PATH;
+					dd.setFilterPath(beginSearch);
+					
 					final String selected = dd.open();
-					filetextAggregate.setText(selected);
+					if(selected!=null) filetextAggregate.setText(selected);
 			}
 		});
 	    
@@ -500,9 +509,12 @@ public class EpidemicControl extends AnalysisControl {
 				final FileDialog dd = new FileDialog(
 						shell, SWT.OPEN);
 					dd.setText(Messages.getString("EPIVIEW.SELECTINCFILE"));
-					dd.setFilterPath(filetextIncidence.getText());
+					String beginSearch = filetextIncidence.getText();
+					if((beginSearch==null)||(beginSearch.length()<1)) beginSearch = ROOT_PATH;
+					dd.setFilterPath(beginSearch);
+					
 					final String selected = dd.open();
-					filetextIncidence.setText(selected);
+					if(selected!=null) filetextIncidence.setText(selected);
 			}
 		});
 	    

@@ -18,6 +18,7 @@ import java.util.Map;
 
 import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.stem.analysis.ScenarioInitializationException;
@@ -82,6 +83,9 @@ public class LyapunovControl extends AnalysisControl {
 	 * Second Input text field for the scenario folder of data to be compared
 	 **/
 	Text text2;
+	
+
+	
 	
 	/**
 	 * A label to report status (not yet used)
@@ -231,9 +235,12 @@ public class LyapunovControl extends AnalysisControl {
 				final DirectoryDialog dd = new DirectoryDialog(
 						shell, SWT.OPEN);
 					dd.setText(Messages.getString("LYA.SELECTFOLDERDIALOG")); //$NON-NLS-1$
-					dd.setFilterPath(text1.getText());
+					String beginSearch = text1.getText();
+					if((beginSearch==null)||(beginSearch.length()<1)) beginSearch = ROOT_PATH;
+					
+					dd.setFilterPath(beginSearch);
 					final String selected = dd.open();
-					text1.setText(selected);
+					if(selected!=null) text1.setText(selected);
 			}
 		});
         /////////////////////////////////////////////////////////////////////////
@@ -274,9 +281,12 @@ public class LyapunovControl extends AnalysisControl {
 				final DirectoryDialog dd = new DirectoryDialog(
 						shell, SWT.OPEN);
 					dd.setText(SELECT_FOLDER_DIALOG_TEXT); //$NON-NLS-1$
-					dd.setFilterPath(text2.getText());
+					String beginSearch = text2.getText();
+					if((beginSearch==null)||(beginSearch.length()<1)) beginSearch = ROOT_PATH;
+					
+					dd.setFilterPath(beginSearch);
 					final String selected = dd.open();
-					text2.setText(selected);
+					if(selected!=null) text2.setText(selected);
 			}
 		});
 		
