@@ -28,7 +28,7 @@ Running the GoogleEarth interface under STEM
    - Windows->Show View->Other->Stem->GoogleEarth 
    - Windows->Preferences->GoogleEarth
       Specify any preferences that you want to use
-   - Scenarios: select STEM->Spanish Flu
+   - Scenarios: select STEM->Pandemic Demo
    - From the toolbar STEM icons, select "Advance"
    - Select GoogleEarth View window
    - Select the Simulation then right click for popup menu
