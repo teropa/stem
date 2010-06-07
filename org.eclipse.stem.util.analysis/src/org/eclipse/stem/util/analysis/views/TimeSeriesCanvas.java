@@ -812,7 +812,7 @@ public class TimeSeriesCanvas extends Canvas {
 
 	protected void resetData() {
 		clearData();
-	
+		seriesCount = 0; // always start with the same first color
 		cycleNumbers.add(new Integer(0));
 	}
 

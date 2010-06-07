@@ -95,7 +95,7 @@ public class ScenarioComparisonControl extends AnalysisControl {
 	/**
 	 * Colors for the time series chart
 	 */
-	static final ColorDefinition foreGround = ColorDefinitionImpl.WHITE();
+	static final ColorDefinition foreGround = ColorDefinitionImpl.BLACK();
 	static final ColorDefinition backgroundGround = ColorDefinitionImpl.create(255, 231, 186);//color is called wheat
 	static final ColorDefinition frameColor = ColorDefinitionImpl.create(220, 220, 220);
 	
@@ -329,14 +329,15 @@ public class ScenarioComparisonControl extends AnalysisControl {
 			@Override
 			public void widgetSelected(@SuppressWarnings("unused")
 			final SelectionEvent e) {
-				
-				// reinitialize the status label
-				statusLabel.setText(AnalysisControl.STATUS_TEXT);
 				/*
 				 * reinitialize the graph
 				 */
-				comparisonValues.clear();
 				timeSeriesCanvas.reset();
+				comparisonValues.clear();
+				
+				// reinitialize the status label
+				statusLabel.setText(AnalysisControl.STATUS_TEXT);
+				
 				
 				String referenceDirectory  = text1.getText();
 				String comparisonDirectory = text2.getText();
