@@ -14,11 +14,16 @@ import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.stem.analysis.States;
 import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl;
 import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScenarioDataInstance;
+import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
@@ -494,9 +499,23 @@ public class ScenarioParameterEstimator {
 		for(int year=2000;year<2020;++year) {
 			composite = "stem://org.eclipse.stem/"+POPULATION_URI_PREFIX + "/" + countryCode +"/"+getLevel(id)+"/"+SPECIES+"/"+year+"/"+id;
 			
-			final URI populationGraphURI = Utility.createPopulationGraphURI(URI.createURI(composite));
-			final Graph populationGraph = (Graph) Utility.getIdentifiable(populationGraphURI);
-			if(populationGraph != null) break;
+			try {
+				final URI populationGraphURI = Utility.createPopulationGraphURI(URI.createURI(composite));
+				
+				// need to catch any exception here...we take the data for any year for this estimate
+				final ResourceSet resourceSet = new ResourceSetImpl();
+				resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+				resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap().put("platform", new XMIResourceFactoryImpl());
+				final Resource resource = resourceSet.getResource(populationGraphURI,true);
+				Identifiable ident = (Identifiable) resource.getContents().get(0);
+				final Graph populationGraph = (Graph) ident;
+				
+				// did we get the data
+				if(populationGraph != null) break;
+			} catch (Exception e) {
+				//do nothing. not an errorSystem.out.println("No Error looking for data: "+composite);
+			}
+			
 		}
 		URI uri = URI.createURI(composite);	
 		return uri;
