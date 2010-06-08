@@ -330,11 +330,12 @@ public class ScenarioAnalysisSuite {
 			// for reference and for single scenario analysis
 			CSVscenarioLoader refLoader = new CSVscenarioLoader(referenceDirectory);
 			int maxRef = refLoader.getMaxResolution();
+			if(maxRef <=-1) return null;
 			// for testing comparison functions
 			CSVscenarioLoader compLoader = new CSVscenarioLoader(comparisonDirectory);
 			int maxComp = compLoader.getMaxResolution();
-			
 			int actualRes = (maxRef > maxComp)?maxComp:maxRef;
+			if(actualRes<=-1) return null;
 			this.referenceScenarioDataMap = refLoader.parseAllFiles(actualRes);
 			this.comparisonScenarioDataMap = compLoader.parseAllFiles(actualRes);
 			

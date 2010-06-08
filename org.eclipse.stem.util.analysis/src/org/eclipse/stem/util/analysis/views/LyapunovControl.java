@@ -20,6 +20,7 @@ import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.stem.analysis.ScenarioInitializationException;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.util.analysis.CSVAnalysisWriter;
@@ -46,6 +47,7 @@ import org.eclipse.swt.widgets.Text;
  */
 public class LyapunovControl extends AnalysisControl {
 	
+		
 	/**
 	 * used to identify user preferences for this class
 	 */
@@ -71,6 +73,11 @@ public class LyapunovControl extends AnalysisControl {
 	 *  There are locations with relative value history providers attached
 	 */
 	Label secondScenarioFolderLabel;
+	
+	/**
+	 *  A Label to give feedbak on the computation action
+	 */
+	Label userFeedbackLabel;
 	
 	/**
 	 * First input text field for the scenario folder of data to use in making the estimation
@@ -137,12 +144,15 @@ public class LyapunovControl extends AnalysisControl {
 	
 	ScenarioAnalysisSuite analyzer = new ScenarioAnalysisSuite(this);
 	
+	Composite parentComposite;
+	
 	/**
 	 * 
 	 * @param parent
 	 */
 	public LyapunovControl(final Composite parent) {
 		super(parent, SWT.None);
+		parentComposite = parent;
 		createContents();
 	} // EstimatorControl
 
@@ -151,20 +161,22 @@ public class LyapunovControl extends AnalysisControl {
 	 */
 	private void createContents() {
 		setLayout(new FormLayout());
-
-		identifiableTitle = new Label(this, SWT.NONE);
-		identifiableTitle.setText(Messages.getString("LYA.TITLE"));
-		//propertySelector = new PropertySelector(this, SWT.NONE);
 		Display display = this.getDisplay();
+		Color labelBackground = new Color(display, new RGB(240, 240, 240));
+		identifiableTitle = new Label(this, SWT.BORDER);
+		identifiableTitle.setText(Messages.getString("LYA.TITLE"));
+		identifiableTitle.setBackground(labelBackground);
+		//propertySelector = new PropertySelector(this, SWT.NONE);
 		
-		Color labelBackground = new Color(display, new RGB(180, 180, 200));
+		
+		
 		
 		statusLabel = new Label(this, SWT.BORDER);
 		statusLabel.setBackground(labelBackground);
 		statusLabel.setText("");
 		
-		firstScenarioFolderLabel = new Label(this, SWT.BORDER);
-		firstScenarioFolderLabel.setBackground(labelBackground);
+		firstScenarioFolderLabel = new Label(this, SWT.NONE);
+		//firstScenarioFolderLabel.setBackground(labelBackground);
 		firstScenarioFolderLabel.setText(Messages.getString("LYA.FOLDER1LABEL"));
 		
 		text1 = new Text(this, SWT.BORDER);
@@ -172,8 +184,8 @@ public class LyapunovControl extends AnalysisControl {
 	    String primaryDir=prefs.getRecentFolder(PRIMARY_FOLDER_KEY);
 	    text1.setText(primaryDir);
 	    
-	    secondScenarioFolderLabel = new Label(this, SWT.BORDER);
-	    secondScenarioFolderLabel.setBackground(labelBackground);
+	    secondScenarioFolderLabel = new Label(this, SWT.NONE);
+	    // secondScenarioFolderLabel.setBackground(labelBackground);
 	    secondScenarioFolderLabel.setText(Messages.getString("LYA.FOLDER2LABEL"));
 		
 		text2 = new Text(this, SWT.BORDER);
@@ -185,33 +197,35 @@ public class LyapunovControl extends AnalysisControl {
 
 		resultsLabel = new Label(this, SWT.SHADOW_OUT);
 		resultsLabel.setBackground(display.getSystemColor(SWT.COLOR_WHITE));
-		resultsLabel.setText(Messages.getString("LYA.RESULTS"));
-		
-		int deltaBottom = 5;
-        int bottom = deltaBottom;
+		resultsLabel.setText("");
 		
 		final FormData titleFormData = new FormData();
 		identifiableTitle.setLayoutData(titleFormData);
 		titleFormData.top = new FormAttachment(0, 0);
-		titleFormData.bottom = new FormAttachment(bottom, 0);
 		titleFormData.left = new FormAttachment(0, 0);
-		titleFormData.right = new FormAttachment(100, 0);
+		titleFormData.right = new FormAttachment(15, 0);
+		
+		final FormData resultsFormData = new FormData();
+		resultsLabel.setLayoutData(resultsFormData);
+		resultsFormData.top = new FormAttachment(0, 0);
+		resultsFormData.left = new FormAttachment(15, 0);
+		resultsFormData.right = new FormAttachment(75, 0);
 
-		bottom += deltaBottom;
+	
         /////////////////////////////////////////////////////////////////////////
 		// TextField folder label
 		final FormData firstScenarioFolderLabelFormData = new FormData();
 		// propertySelectorFormData.top = new FormAttachment(cSVLoggerCanvas,
 		// 0);
 		firstScenarioFolderLabelFormData.top = new FormAttachment(identifiableTitle, 0);
-		firstScenarioFolderLabelFormData.bottom = new FormAttachment(bottom, 0);
+		//firstScenarioFolderLabelFormData.bottom = new FormAttachment(bottom, 0);
 		firstScenarioFolderLabelFormData.left = new FormAttachment(0, 0);
 		firstScenarioFolderLabelFormData.right = new FormAttachment(15, 0);
 		firstScenarioFolderLabel.setLayoutData(firstScenarioFolderLabelFormData);
 		// first text field for parameter Estimator
 		final FormData text1FormData = new FormData();
 		text1FormData.top = new FormAttachment(identifiableTitle, 0);
-		text1FormData.bottom = new FormAttachment(bottom, 0);
+		//text1FormData.bottom = new FormAttachment(bottom, 0);
 		text1FormData.left = new FormAttachment(firstScenarioFolderLabel, 0);
 		text1FormData.right = new FormAttachment(75, 0);
 		text1.setLayoutData(text1FormData);
@@ -220,7 +234,7 @@ public class LyapunovControl extends AnalysisControl {
 		selectFolder1Button.setText(Messages.getString("LYA.SELECTFOLDER"));
 		final FormData selectFolder1FormData = new FormData();
 		selectFolder1FormData.top = new FormAttachment(identifiableTitle, 0);
-		selectFolder1FormData.bottom = new FormAttachment(bottom, 0);
+		//selectFolder1FormData.bottom = new FormAttachment(bottom, 0);
 		selectFolder1FormData.left = new FormAttachment(text1, 0);
 		selectFolder1FormData.right = new FormAttachment(100, 0);
 		selectFolder1Button.setLayoutData(selectFolder1FormData);
@@ -244,22 +258,22 @@ public class LyapunovControl extends AnalysisControl {
 		});
         /////////////////////////////////////////////////////////////////////////
 		
-		bottom += deltaBottom;
+	//	bottom += deltaBottom;
 		
         /////////////////////////////////////////////////////////////////////////
 		// TextField folder label
 		final FormData secondScenarioFolderLabelFormData = new FormData();
 		// propertySelectorFormData.top = new FormAttachment(cSVLoggerCanvas,
 		// 0);
-		secondScenarioFolderLabelFormData.top = new FormAttachment(firstScenarioFolderLabel, 0);
-		secondScenarioFolderLabelFormData.bottom = new FormAttachment(bottom, 0);
+		secondScenarioFolderLabelFormData.top = new FormAttachment(selectFolder1Button, 0);
+	//  secondScenarioFolderLabelFormData.bottom = new FormAttachment(text2, 0);
 		secondScenarioFolderLabelFormData.left = new FormAttachment(0, 0);
 		secondScenarioFolderLabelFormData.right = new FormAttachment(15, 0);
 		secondScenarioFolderLabel.setLayoutData(secondScenarioFolderLabelFormData);
 		// first text field for parameter Estimator
 		final FormData text2FormData = new FormData();
-		text2FormData.top = new FormAttachment(text1, 0);
-		text2FormData.bottom = new FormAttachment(bottom, 0);
+		text2FormData.top = new FormAttachment(selectFolder1Button, 0);
+	//	text2FormData.bottom = new FormAttachment(bottom, 0);
 		text2FormData.left = new FormAttachment(secondScenarioFolderLabel, 0);
 		text2FormData.right = new FormAttachment(75, 0);
 		text2.setLayoutData(text2FormData);
@@ -267,8 +281,8 @@ public class LyapunovControl extends AnalysisControl {
 		Button selectFolder2Button = new Button(this, SWT.NONE);
 		selectFolder2Button.setText(Messages.getString("LYA.SELECTFOLDER"));
 		final FormData selectFolder2FormData = new FormData();
-		selectFolder2FormData.top = new FormAttachment(text1, 0);
-		selectFolder2FormData.bottom = new FormAttachment(bottom, 0);
+		selectFolder2FormData.top = new FormAttachment(selectFolder1Button, 0);
+	//	selectFolder2FormData.bottom = new FormAttachment(bottom, 0);
 		selectFolder2FormData.left = new FormAttachment(text2, 0);
 		selectFolder2FormData.right = new FormAttachment(100, 0);
 		selectFolder2Button.setLayoutData(selectFolder2FormData);
@@ -291,13 +305,13 @@ public class LyapunovControl extends AnalysisControl {
 		
 		/////////////////////////////////////////////////////////////////////////
 		
-		bottom += deltaBottom;
+	//	bottom += deltaBottom;
 		// AnalyzeButton
 		final FormData analysisButtonFormData = new FormData();
 		// propertySelectorFormDataX.top = new FormAttachment(propertySelectorY,
 		// 0);
-		analysisButtonFormData.top = new FormAttachment(text2, 0);
-		analysisButtonFormData.bottom = new FormAttachment(bottom, 0);
+		analysisButtonFormData.top = new FormAttachment(selectFolder2Button, 0);
+		//analysisButtonFormData.bottom = new FormAttachment(bottom, 0);
 		analysisButtonFormData.left = new FormAttachment(0, 0);
 		analysisButtonFormData.right = new FormAttachment(100, 0);
 		analyzeButtonComposite.setLayoutData(analysisButtonFormData);
@@ -308,7 +322,7 @@ public class LyapunovControl extends AnalysisControl {
 		lyapunovTrajectoryCanvas = new LyapunovTrajectoryCanvas(this);
 		final FormData trajectoryChartFormData = new FormData();
 		lyapunovTrajectoryCanvas.setLayoutData(trajectoryChartFormData);
-		trajectoryChartFormData.top = new FormAttachment(bottom, 0);
+		trajectoryChartFormData.top = new FormAttachment(analyzeButtonComposite, 0);
 		trajectoryChartFormData.bottom = new FormAttachment(100, 0);
 		trajectoryChartFormData.left = new FormAttachment(0, 0);
 		trajectoryChartFormData.right = new FormAttachment(50, 0);
@@ -326,7 +340,7 @@ public class LyapunovControl extends AnalysisControl {
 		
 		final FormData analysisChartFormData = new FormData();
 		timeSeriesCanvas.setLayoutData(analysisChartFormData);
-		analysisChartFormData.top = new FormAttachment(bottom, 0);
+		analysisChartFormData.top = new FormAttachment(analyzeButtonComposite, 0);
 		analysisChartFormData.bottom = new FormAttachment(100, 0);
 		analysisChartFormData.left = new FormAttachment(50, 0);
 		analysisChartFormData.right = new FormAttachment(100, 0);
@@ -341,11 +355,13 @@ public class LyapunovControl extends AnalysisControl {
 				
 				String referenceDirectory  = text1.getText();
 				String comparisonDirectory = text2.getText();
-				
+				Display display = parentComposite.getDisplay();
 				/*
 				 * reset the label text
 				 */
 			    identifiableTitle.setText(Messages.getString("LYA.TITLE"));
+			    resultsLabel.setBackground(display.getSystemColor(SWT.COLOR_WHITE));
+			    resultsLabel.setText(Messages.getString("LYA.WORKING"));
 			    /*
 				 * reinitialize the graph
 				 */
@@ -369,36 +385,49 @@ public class LyapunovControl extends AnalysisControl {
                 }
                 
 				try {
-					comparisonValues.addAll( analyzer.getLyapunovTrajectory(referenceDirectory, comparisonDirectory, progressDialog) );
-					//success... remember the users prefs
-					prefs.setRecentFolder(PRIMARY_FOLDER_KEY,referenceDirectory);
-					prefs.setRecentFolder(SECONDARY_FOLDER_KEY,comparisonDirectory);
+					
+					List<PhaseSpaceCoordinate[]> data = analyzer.getLyapunovTrajectory(referenceDirectory, comparisonDirectory, progressDialog);
+					if(data==null) {
+						resultsLabel.setBackground(display.getSystemColor(SWT.COLOR_RED));
+					    resultsLabel.setText(Messages.getString("LYA.ERROR1"));
+					    
+					} else {
+						comparisonValues.addAll(data);
+						//success... remember the users prefs
+						prefs.setRecentFolder(PRIMARY_FOLDER_KEY,referenceDirectory);
+						prefs.setRecentFolder(SECONDARY_FOLDER_KEY,comparisonDirectory);
+						
+						cumulativeDeviation.addAll(ScenarioAnalysisSuite.getCumulativePhaseSpaceDeviation(comparisonValues));
+						
+						//
+						// now udate everything
+						//
+						lyapunovTrajectoryCanvas.draw();
+						// Log the trajectory data
+						String outFileName = LYAPUNOV_FILE_PREFIX+"_"+
+						 getScenarioNameFromDirectoryName(referenceDirectory)+
+						 "_"+
+						 getScenarioNameFromDirectoryName(comparisonDirectory);
+						
+						CSVAnalysisWriter writer = new CSVAnalysisWriter(outFileName);
+						writer.logData(2,comparisonValues);
+
+						// Log the cumulative deviation data
+						outFileName = LYAPUNOV_DEVIATION_FILE_PREFIX+"_"+
+						 getScenarioNameFromDirectoryName(referenceDirectory)+
+						 "_"+
+						 getScenarioNameFromDirectoryName(comparisonDirectory);
+						 CSVAnalysisWriter writer2 = new CSVAnalysisWriter(outFileName);
+						 writer2.logData(cumulativeDeviation);
+						 timeSeriesCanvas.draw();
+						 resultsLabel.setText(Messages.getString("LYA.COMPLETE"));
+					}
+ 					
 				} catch(ScenarioInitializationException sie) {
 					Activator.logError("", sie);
 				}
 				
-				cumulativeDeviation.addAll(ScenarioAnalysisSuite.getCumulativePhaseSpaceDeviation(comparisonValues));
-				
-				statusLabel.setText(Messages.getString("LYA.COMPLETE"));
-				lyapunovTrajectoryCanvas.draw();
-				
-				// Log the trajectory data
-				String outFileName = LYAPUNOV_FILE_PREFIX+"_"+
-				 getScenarioNameFromDirectoryName(referenceDirectory)+
-				 "_"+
-				 getScenarioNameFromDirectoryName(comparisonDirectory);
-				
-				CSVAnalysisWriter writer = new CSVAnalysisWriter(outFileName);
-				writer.logData(2,comparisonValues);
-
-				// Log the cumulative deviation data
-				outFileName = LYAPUNOV_DEVIATION_FILE_PREFIX+"_"+
-				 getScenarioNameFromDirectoryName(referenceDirectory)+
-				 "_"+
-				 getScenarioNameFromDirectoryName(comparisonDirectory);
-				 CSVAnalysisWriter writer2 = new CSVAnalysisWriter(outFileName);
-				 writer2.logData(cumulativeDeviation);
-				 timeSeriesCanvas.draw();
+				// done
 			}
 		});
 		
