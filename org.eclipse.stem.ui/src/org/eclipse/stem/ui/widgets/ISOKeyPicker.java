@@ -41,7 +41,7 @@ public class ISOKeyPicker extends Composite {
 
 	private final Label isoKeyLevelDescription;
 	private final FilteredList filteredList;
-	private final Text text;
+	final Text text;
 	private int isoKeyLevel;
 
 	/**
@@ -116,7 +116,11 @@ public class ISOKeyPicker extends Composite {
 
 	public void setISOKeys(final Object[] isoKeys) {
 		filteredList.setElements(isoKeys);
-		text.setText("");
+		this.getDisplay().syncExec(new Runnable() {
+			public void run() {
+				text.setText("");
+			}
+		});
 	} // setISOKeys
 
 	public void setISOKeyLevelDescription(final String isoKeyLevelDescription) {
