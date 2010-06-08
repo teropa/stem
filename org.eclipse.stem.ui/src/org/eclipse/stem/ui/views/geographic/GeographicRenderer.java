@@ -217,8 +217,9 @@ public abstract class GeographicRenderer extends Composite implements
 		// contextMenuManager.add(connectPolygonCentersAction);
 
 		contextMenuManager.add(new Separator());
-		
-		contextMenuManager.add(createReportsSelectionMenu());
+
+// Defect 302663
+//		contextMenuManager.add(createReportsSelectionMenu());
 		
 		contextMenuManager.add(new Separator());
 
