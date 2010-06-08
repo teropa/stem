@@ -334,7 +334,7 @@ public class ScenarioComparisonControl extends AnalysisControl {
 				 */
 				timeSeriesCanvas.reset();
 				comparisonValues.clear();
-				
+				timeSeriesCanvas.draw();
 				// reinitialize the status label
 				statusLabel.setText(AnalysisControl.STATUS_TEXT);
 				
