@@ -173,31 +173,41 @@ public class MultiPopulationDiseaseModelPropertyEditor extends
 				groups[i++] = sv.getValue();
 			
 			i=0;
-			for(DoubleValue dv:((MultiPopulationSIDiseaseModel) diseaseModel).getInfectiousMortalityRate().getValues())
-				dv.setIdentifier(groups[i++]);
+			DoubleValueList dvl = ((MultiPopulationSIDiseaseModel) diseaseModel).getInfectiousMortalityRate();
+			if(dvl != null) 
+				for(DoubleValue dv:dvl.getValues())
+					dv.setIdentifier(groups[i++]);
 		
 			i=0;
-			for(DoubleValue dv:((MultiPopulationSIDiseaseModel) diseaseModel).getRecoveryRate().getValues())
-				dv.setIdentifier(groups[i++]);
+			dvl = ((MultiPopulationSIDiseaseModel) diseaseModel).getRecoveryRate();
+			if(dvl != null)
+				for(DoubleValue dv:dvl.getValues())
+					dv.setIdentifier(groups[i++]);
 			
 			i=0;
-			for(DoubleValueList dvl:((MultiPopulationSIDiseaseModel) diseaseModel).getTransmissionRate().getValueLists()) {
-				dvl.setIdentifier(groups[i++]);
+			DoubleValueMatrix dvm = ((MultiPopulationSIDiseaseModel) diseaseModel).getTransmissionRate();
+			if(dvm != null) 
+				for(DoubleValueList dvl2:dvm.getValueLists()) {
+				dvl2.setIdentifier(groups[i++]);
 				int j=0;
-				for(DoubleValue dv:dvl.getValues()) 
+				for(DoubleValue dv:dvl2.getValues()) 
 					dv.setIdentifier(groups[j++]);
 			}
 				
 			if(diseaseModel instanceof MultiPopulationSIRDiseaseModel) {
 				i=0;
-				for(DoubleValue dv:((MultiPopulationSIRDiseaseModel) diseaseModel).getImmunityLossRate().getValues())
-					dv.setIdentifier(groups[i++]);
+				dvl = ((MultiPopulationSIRDiseaseModel) diseaseModel).getImmunityLossRate();
+				if(dvl != null) 
+					for(DoubleValue dv:dvl.getValues())
+						dv.setIdentifier(groups[i++]);
 			}
 				
 			if(diseaseModel instanceof MultiPopulationSEIRDiseaseModel) {
 				i=0;
-				for(DoubleValue dv:((MultiPopulationSEIRDiseaseModel) diseaseModel).getIncubationRate().getValues())
-					dv.setIdentifier(groups[i++]);
+				dvl = ((MultiPopulationSEIRDiseaseModel) diseaseModel).getIncubationRate();
+				if(dvl != null)
+					for(DoubleValue dv:dvl.getValues())
+						dv.setIdentifier(groups[i++]);
 			}
 		} // has groups
 	}
