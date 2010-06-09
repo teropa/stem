@@ -161,6 +161,29 @@ public class Activator extends AbstractUIPlugin {
 
 		final String CUSTOM_ICON_PATH_PREFIX2 = "icons/full/customobj16/"; //$NON-NLS-1$C
 		
+		registry.put(ISharedImages.AUTOMATIC_EXPERIMENT_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "AutomaticExperiment.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.DECORATOR_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Decorator.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.DECORATOR_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "DecoratorModelFile.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.DYNAMIC_LABEL_ICON,
+				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
+						+ "DynamicLabel.gif")); //$NON-NLS-1$
+		
+		registry.put(ISharedImages.EDGE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Edge.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.EXPERIMENT_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Experiment.gif")); //$NON-NLS-1$
+		
+
+		registry.put(ISharedImages.EXPERIMENT_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "ExperimentModelFile.gif")); //$NON-NLS-1$
+		
 		registry.put(ISharedImages.GRAPH_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Graph.gif")); //$NON-NLS-1$
 
@@ -168,27 +191,34 @@ public class Activator extends AbstractUIPlugin {
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
 						+ "GraphModelFile.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.EDGE_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Edge.gif")); //$NON-NLS-1$
-
-		registry.put(ISharedImages.DYNAMIC_LABEL_ICON,
-				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
-						+ "DynamicLabel.gif")); //$NON-NLS-1$
-
-		registry.put(ISharedImages.STATIC_LABEL_ICON,
-				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
-						+ "StaticLabel.gif")); //$NON-NLS-1$
-
-		registry.put(ISharedImages.NODE_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Node.gif")); //$NON-NLS-1$
-
 		registry.put(ISharedImages.MODEL_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Model.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.MODEL_MODEL_FILE_ICON,
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
-						+ "Model.gif")); //$NON-NLS-1$
+						+ "ModelModelFile.gif")); //$NON-NLS-1$
 
+		registry.put(ISharedImages.MODIFIER_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Modifier.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.MODIFIER_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "ModifierModelFile.gif")); //$NON-NLS-1$
+		
+		registry.put(ISharedImages.NODE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Node.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.PREDICATE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Predicate.gif")); //$NON-NLS-1$
+		
+		registry.put(ISharedImages.PREDICATE_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "PredicateModelFile.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.RECORDED_SIMULATION_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "RecordedSimulations.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.RECORDED_SIMULATION_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "RecordedSimulationsModelFile.gif")); //$NON-NLS-1$
+		
 		registry.put(ISharedImages.SCENARIO_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Scenario.gif")); //$NON-NLS-1$
 
@@ -199,23 +229,18 @@ public class Activator extends AbstractUIPlugin {
 		registry.put(ISharedImages.SEQUENCER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Sequencer.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.EXPERIMENT_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Experiment.gif")); //$NON-NLS-1$
-		
-		registry.put(ISharedImages.AUTOMATIC_EXPERIMENT_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "AutomaticExperiment.gif")); //$NON-NLS-1$
-		
+		registry.put(ISharedImages.SEQUENCER_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "SequencerModelFile.gif")); //$NON-NLS-1$
+
+		registry.put(ISharedImages.STATIC_LABEL_ICON,
+				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
+						+ "StaticLabel.gif")); //$NON-NLS-1$
+
 		registry.put(ISharedImages.TRIGGER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Trigger.gif")); //$NON-NLS-1$
 		
-		registry.put(ISharedImages.PREDICATE_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Predicate.gif")); //$NON-NLS-1$
-		
-		registry.put(ISharedImages.MODIFIER_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Modifier.gif")); //$NON-NLS-1$
-		
-		registry.put(ISharedImages.DECORATOR_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Decorator.gif")); //$NON-NLS-1$
+		registry.put(ISharedImages.TRIGGER_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "TriggerModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.STEM_PROJECT_ICON,
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
@@ -261,7 +286,6 @@ public class Activator extends AbstractUIPlugin {
 		registry.put(ISharedImages.RESET_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, ICON_ACTION_PATH_PREFIX + "reset.gif")); //$NON-NLS-1$
 		
-
 		registry.put(ISharedImages.RESTART_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, ICON_ACTION_PATH_PREFIX + "restart.gif")); //$NON-NLS-1$
 
@@ -294,9 +318,6 @@ public class Activator extends AbstractUIPlugin {
 		registry.put(ISharedImages.MAP_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "map.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.RECORDED_SIMULATION_ICON, imageDescriptorFromPlugin(
-				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "RecordedSimulations.gif")); //$NON-NLS-1$
-		
 //		registry.put(ISharedImages.RECORDED_SIMULATION_ICON, imageDescriptorFromPlugin(
 //				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "RecordedSimulations.gif")); //$NON-NLS-1$
 	} // initializeImageRegistry

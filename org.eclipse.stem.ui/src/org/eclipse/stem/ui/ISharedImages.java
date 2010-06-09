@@ -19,6 +19,52 @@ package org.eclipse.stem.ui;
  * appropriate image.
  */
 public interface ISharedImages {
+
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.experiment.Experiment}.
+	 */
+	String AUTOMATIC_EXPERIMENT_ICON = "automaticexperiment.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.model.Decorator}.
+	 */
+	String DECORATOR_ICON = "decorator.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.model.Decorator}.
+	 */
+	String DECORATOR_MODEL_FILE_ICON = "decorator_model_file.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon that represents a
+	 * {@link org.eclipse.stem.core.graph.DynamicLabel} in a
+	 * {@link org.eclipse.stem.core.graph.Graph}.
+	 */
+	String DYNAMIC_LABEL_ICON = "dynamic_label.image"; //$NON-NLS-1$
+
+
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.graph.Edge} in a
+	 * {@link org.eclipse.stem.core.graph.Graph}.
+	 */
+	String EDGE_ICON = "edge.image"; //$NON-NLS-1$
+	
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.experiment.Experiment}.
+	 */
+	String EXPERIMENT_ICON = "experiment.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.experiment.Experiment}.
+	 */
+	String EXPERIMENT_MODEL_FILE_ICON = "experiment_model_file.image"; //$NON-NLS-1$
+
 	/**
 	 * This image is the icon that represents a
 	 * {@link org.eclipse.stem.core.graph.Graph}.
@@ -32,34 +78,6 @@ public interface ISharedImages {
 	String GRAPH_MODEL_FILE_ICON = "graph_model_file.image"; //$NON-NLS-1$
 
 	/**
-	 * This image is the icon that represents an
-	 * {@link org.eclipse.stem.core.graph.Edge} in a
-	 * {@link org.eclipse.stem.core.graph.Graph}.
-	 */
-	String EDGE_ICON = "edge.image"; //$NON-NLS-1$
-
-	/**
-	 * This image is the icon that represents a
-	 * {@link org.eclipse.stem.core.graph.DynamicLabel} in a
-	 * {@link org.eclipse.stem.core.graph.Graph}.
-	 */
-	String DYNAMIC_LABEL_ICON = "dynamic_label.image"; //$NON-NLS-1$
-
-	/**
-	 * This image is the icon that represents a static
-	 * {@link org.eclipse.stem.core.graph.Label} in a
-	 * {@link org.eclipse.stem.core.graph.Graph}.
-	 */
-	String STATIC_LABEL_ICON = "static_label.image"; //$NON-NLS-1$
-
-	/**
-	 * This image is the icon that represents a
-	 * {@link org.eclipse.stem.core.graph.Node} in a
-	 * {@link org.eclipse.stem.core.graph.Graph}.
-	 */
-	String NODE_ICON = "node.image"; //$NON-NLS-1$
-
-	/**
 	 * This image is the icon that represents a
 	 * {@link org.eclipse.stem.core.model.Model}.
 	 */
@@ -70,6 +88,49 @@ public interface ISharedImages {
 	 * {@link org.eclipse.stem.core.model.Model}.
 	 */
 	String MODEL_MODEL_FILE_ICON = "model_model_file.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon that represents a
+	 * {@link org.eclipse.stem.core.modifier.Modifier}.
+	 */
+	String MODIFIER_ICON = "modifier.image"; //$NON-NLS-1$
+	
+	/**
+	 * This image is the icon that represents a
+	 * {@link org.eclipse.stem.core.modifier.Modifier}.
+	 */
+	String MODIFIER_MODEL_FILE_ICON = "modifier_model_file.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon that represents a
+	 * {@link org.eclipse.stem.core.graph.Node} in a
+	 * {@link org.eclipse.stem.core.graph.Graph}.
+	 */
+	String NODE_ICON = "node.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.predicate.Predicate}.
+	 */
+	String PREDICATE_ICON = "predicate.image"; //$NON-NLS-1$
+	
+	/**
+	 * This image is the icon that represents an
+	 * {@link org.eclipse.stem.core.predicate.Predicate}.
+	 */
+	String PREDICATE_MODEL_FILE_ICON = "predicate_model_file.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon associated with recorded
+	 * {@link org.eclipse.stem.jobs.simulation.Simulation}s.
+	 */
+	String RECORDED_SIMULATION_ICON = "recorded_simulation.image"; //$NON-NLS-1$
+
+	/**
+	 * This image is the icon associated with recorded
+	 * {@link org.eclipse.stem.jobs.simulation.Simulation}s.
+	 */
+	String RECORDED_SIMULATION_MODEL_FILE_ICON = "recorded_simulation_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a
@@ -89,40 +150,29 @@ public interface ISharedImages {
 	String SEQUENCER_ICON = "sequencer.image"; //$NON-NLS-1$
 
 	/**
-	 * This image is the icon that represents an
-	 * {@link org.eclipse.stem.core.experiment.Experiment}.
+	 * This image is the icon that represents a {@link Sequencer}.
 	 */
-	String EXPERIMENT_ICON = "experiment.image"; //$NON-NLS-1$
-
-	/**
-	 * This image is the icon that represents an
-	 * {@link org.eclipse.stem.core.experiment.Experiment}.
-	 */
-	String AUTOMATIC_EXPERIMENT_ICON = "automaticexperiment.image"; //$NON-NLS-1$
+	String SEQUENCER_MODEL_FILE_ICON = "sequencer_model_file.image"; //$NON-NLS-1$
 	
+	/**
+	 * This image is the icon that represents a static
+	 * {@link org.eclipse.stem.core.graph.Label} in a
+	 * {@link org.eclipse.stem.core.graph.Graph}.
+	 */
+	String STATIC_LABEL_ICON = "static_label.image"; //$NON-NLS-1$
+
 	/**
 	 * This image is the icon that represents an
 	 * {@link org.eclipse.stem.core.trigger.Trigger}.
 	 */
 	String TRIGGER_ICON = "trigger.image"; //$NON-NLS-1$
+	
 
 	/**
 	 * This image is the icon that represents an
-	 * {@link org.eclipse.stem.core.predicate.Predicate}.
+	 * {@link org.eclipse.stem.core.trigger.Trigger}.
 	 */
-	String PREDICATE_ICON = "predicate.image"; //$NON-NLS-1$
-
-	/**
-	 * This image is the icon that represents a
-	 * {@link org.eclipse.stem.core.modifier.Modifier}.
-	 */
-	String MODIFIER_ICON = "modifier.image"; //$NON-NLS-1$
-
-	/**
-	 * This image is the icon that represents an
-	 * {@link org.eclipse.stem.core.model.Decorator}.
-	 */
-	String DECORATOR_ICON = "decorator.image"; //$NON-NLS-1$
+	String TRIGGER_MODEL_FILE_ICON = "trigger_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon used to represent a STEM project.
@@ -241,11 +291,5 @@ public interface ISharedImages {
 	// * org.eclipse.stem.jobs.simulation.Simulation}s.
 	// */
 	//	String RECORDED_SIMULATION_FILE_ICON = "recorded_simulation_File.image"; //$NON-NLS-1$
-
-	/**
-	 * This image is the icon associated with recorded
-	 * {@link org.eclipse.stem.jobs.simulation.Simulation}s.
-	 */
-	String RECORDED_SIMULATION_ICON = "recorded_simulation.image"; //$NON-NLS-1$
 
 } // ISharedImages

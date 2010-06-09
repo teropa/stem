@@ -32,7 +32,7 @@ public class RecordedTreeNodeLabelProvider implements ILabelProvider {
 		Image retValue = null;
 		if (element instanceof RecordedTreeNode) {
 			retValue = Activator.getDefault().getImageRegistry().get(
-					ISharedImages.RECORDED_SIMULATION_ICON);
+					ISharedImages.RECORDED_SIMULATION_MODEL_FILE_ICON);
 
 		} // if IdentifiableInstanceTreeNode
 		return retValue;

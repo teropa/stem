@@ -13,6 +13,7 @@ package org.eclipse.stem.ui.views.explorer;
  *******************************************************************************/
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.stem.ui.ISharedImages;
 import org.eclipse.stem.ui.wizards.NewSTEMProjectWizard;
 
 /**
@@ -136,7 +137,7 @@ abstract public class IdentifiableTreeNode {
 		public DecoratorsTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.DECORATOR_FOLDER"),
 					NewSTEMProjectWizard.DECORATORS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.DECORATOR_ICON);
+					org.eclipse.stem.ui.ISharedImages.DECORATOR_MODEL_FILE_ICON);
 		}
 	} // DecoratorsTreeNode
 
@@ -154,7 +155,7 @@ abstract public class IdentifiableTreeNode {
 		public ScenariosTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.SCENARIO_FOLDER"),
 					NewSTEMProjectWizard.SCEANARIOS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.SCENARIO_ICON);
+					org.eclipse.stem.ui.ISharedImages.SCENARIO_MODEL_FILE_ICON);
 		}
 	} // ScenariosTreeNode
 
@@ -172,7 +173,7 @@ abstract public class IdentifiableTreeNode {
 		public ExperimentsTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.EXPERIMENT_FOLDER"),
 					NewSTEMProjectWizard.EXPERIMENTS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.EXPERIMENT_ICON);
+					org.eclipse.stem.ui.ISharedImages.EXPERIMENT_MODEL_FILE_ICON);
 		}
 	} // ExperimentsTreeNode
 
@@ -190,7 +191,7 @@ abstract public class IdentifiableTreeNode {
 		public SequencersTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.SEQUENCER_FOLDER"),
 					NewSTEMProjectWizard.SEQUENCERS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.SEQUENCER_ICON);
+					org.eclipse.stem.ui.ISharedImages.SEQUENCER_MODEL_FILE_ICON);
 		}
 	} // SequencersTreeNode
 
@@ -208,7 +209,7 @@ abstract public class IdentifiableTreeNode {
 		public ModelsTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.MODEL_FOLDER"), 
 					NewSTEMProjectWizard.MODELS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.MODEL_ICON);
+					org.eclipse.stem.ui.ISharedImages.MODEL_MODEL_FILE_ICON);
 		}
 	} // ModelsTreeNode
 
@@ -226,7 +227,7 @@ abstract public class IdentifiableTreeNode {
 		public GraphsTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.GRAPH_FOLDER"), 
 					NewSTEMProjectWizard.GRAPHS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.GRAPH_ICON);
+					org.eclipse.stem.ui.ISharedImages.GRAPH_MODEL_FILE_ICON);
 		}
 	} // GraphsTreeNode
 
@@ -244,7 +245,7 @@ abstract public class IdentifiableTreeNode {
 		public TriggersTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.TRIGGER_FOLDER"), 
 					NewSTEMProjectWizard.TRIGGERS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.TRIGGER_ICON);
+					org.eclipse.stem.ui.ISharedImages.TRIGGER_MODEL_FILE_ICON);
 		}
 	} // TriggersTreeNode
 
@@ -262,7 +263,7 @@ abstract public class IdentifiableTreeNode {
 		public PredicatesTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.PREDICATE_FOLDER"), 
 					NewSTEMProjectWizard.PREDICATES_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.PREDICATE_ICON);
+					org.eclipse.stem.ui.ISharedImages.PREDICATE_MODEL_FILE_ICON);
 		}
 	} // PredicatesTreeNode
 
@@ -279,7 +280,7 @@ abstract public class IdentifiableTreeNode {
 		public ModifiersTreeNode(IProject project) {
 			super(project, Messages.getString("EXPLORER.MODIFIER_FOLDER"), 
 					NewSTEMProjectWizard.MODIFIERS_FOLDER_NAME,
-					org.eclipse.stem.ui.ISharedImages.MODIFIER_ICON);
+					org.eclipse.stem.ui.ISharedImages.MODIFIER_MODEL_FILE_ICON);
 		}
 	} // ModifiersTreeNode
 
