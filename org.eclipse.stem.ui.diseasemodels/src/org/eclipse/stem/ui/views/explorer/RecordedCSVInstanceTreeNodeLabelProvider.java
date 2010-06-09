@@ -40,8 +40,7 @@ public class RecordedCSVInstanceTreeNodeLabelProvider extends
 			retValue = DiseasemodelsEditorPlugin
 					.getPlugin()
 					.getImageRegistry()
-					.get(
-							org.eclipse.stem.ui.diseasemodels.ISharedImages.RECORDED_CSV_ICON);
+					.get(org.eclipse.stem.ui.diseasemodels.ISharedImages.RECORDED_CSV_ICON);
 
 		} // if IdentifiableInstanceTreeNode
 		return retValue;
