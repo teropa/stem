@@ -298,7 +298,10 @@ abstract public class NewIdentifiablePage extends WizardPage {
 	 * @return the project selected by the user.
 	 */
 	public IProject getSelectedProject() {
-		return stemProjects.get(projectNamesCombo.getSelectionIndex());
+		int ind = projectNamesCombo.getSelectionIndex();
+		if(ind != -1)
+			return stemProjects.get(projectNamesCombo.getSelectionIndex());
+		return null;
 	} // getSelectedProject
 
 	/**
