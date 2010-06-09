@@ -36,7 +36,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents an
 	 * {@link org.eclipse.stem.core.model.Decorator}.
 	 */
-	String DECORATOR_MODEL_FILE_ICON = "decorator_model_file.image"; //$NON-NLS-1$
+	String DECORATOR_FOLDER_ICON = "decorator_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a
@@ -63,7 +63,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents an
 	 * {@link org.eclipse.stem.core.experiment.Experiment}.
 	 */
-	String EXPERIMENT_MODEL_FILE_ICON = "experiment_model_file.image"; //$NON-NLS-1$
+	String EXPERIMENT_FOLDER_ICON = "experiment_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a
@@ -75,7 +75,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents a file that contains a
 	 * {@link org.eclipse.stem.core.graph.Graph}.
 	 */
-	String GRAPH_MODEL_FILE_ICON = "graph_model_file.image"; //$NON-NLS-1$
+	String GRAPH_FOLDER_ICON = "graph_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a
@@ -87,7 +87,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents a file that contains a
 	 * {@link org.eclipse.stem.core.model.Model}.
 	 */
-	String MODEL_MODEL_FILE_ICON = "model_model_file.image"; //$NON-NLS-1$
+	String MODEL_FOLDER_ICON = "model_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a
@@ -99,7 +99,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents a
 	 * {@link org.eclipse.stem.core.modifier.Modifier}.
 	 */
-	String MODIFIER_MODEL_FILE_ICON = "modifier_model_file.image"; //$NON-NLS-1$
+	String MODIFIER_FOLDER_ICON = "modifier_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a
@@ -118,7 +118,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents an
 	 * {@link org.eclipse.stem.core.predicate.Predicate}.
 	 */
-	String PREDICATE_MODEL_FILE_ICON = "predicate_model_file.image"; //$NON-NLS-1$
+	String PREDICATE_FOLDER_ICON = "predicate_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon associated with recorded
@@ -130,7 +130,7 @@ public interface ISharedImages {
 	 * This image is the icon associated with recorded
 	 * {@link org.eclipse.stem.jobs.simulation.Simulation}s.
 	 */
-	String RECORDED_SIMULATION_MODEL_FILE_ICON = "recorded_simulation_model_file.image"; //$NON-NLS-1$
+	String RECORDED_SIMULATION_FOLDER_ICON = "recorded_simulation_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a
@@ -142,7 +142,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents a file that contains a
 	 * {@link org.eclipse.stem.core.scenario.Scenario}.
 	 */
-	String SCENARIO_MODEL_FILE_ICON = "scenario_model_file.image"; //$NON-NLS-1$
+	String SCENARIO_FOLDER_ICON = "scenario_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon that represents a {@link Sequencer}.
@@ -152,7 +152,7 @@ public interface ISharedImages {
 	/**
 	 * This image is the icon that represents a {@link Sequencer}.
 	 */
-	String SEQUENCER_MODEL_FILE_ICON = "sequencer_model_file.image"; //$NON-NLS-1$
+	String SEQUENCER_FOLDER_ICON = "sequencer_model_file.image"; //$NON-NLS-1$
 	
 	/**
 	 * This image is the icon that represents a static
@@ -172,7 +172,7 @@ public interface ISharedImages {
 	 * This image is the icon that represents an
 	 * {@link org.eclipse.stem.core.trigger.Trigger}.
 	 */
-	String TRIGGER_MODEL_FILE_ICON = "trigger_model_file.image"; //$NON-NLS-1$
+	String TRIGGER_FOLDER_ICON = "trigger_model_file.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon used to represent a STEM project.
@@ -278,7 +278,7 @@ public interface ISharedImages {
 	 * This image is the icon associated with
 	 * {@link org.eclipse.stem.core.model.Model} files.
 	 */
-	String STEM_MODEL_FILE_ICON = "scenario_File.image"; //$NON-NLS-1$
+	String STEM_FOLDER_ICON = "scenario_File.image"; //$NON-NLS-1$
 
 	/**
 	 * This image is the icon associated with

@@ -167,7 +167,7 @@ public class Activator extends AbstractUIPlugin {
 		registry.put(ISharedImages.DECORATOR_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Decorator.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.DECORATOR_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+		registry.put(ISharedImages.DECORATOR_FOLDER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "DecoratorModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.DYNAMIC_LABEL_ICON,
@@ -181,27 +181,27 @@ public class Activator extends AbstractUIPlugin {
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Experiment.gif")); //$NON-NLS-1$
 		
 
-		registry.put(ISharedImages.EXPERIMENT_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+		registry.put(ISharedImages.EXPERIMENT_FOLDER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "ExperimentModelFile.gif")); //$NON-NLS-1$
 		
 		registry.put(ISharedImages.GRAPH_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Graph.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.GRAPH_MODEL_FILE_ICON,
+		registry.put(ISharedImages.GRAPH_FOLDER_ICON,
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
 						+ "GraphModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.MODEL_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Model.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.MODEL_MODEL_FILE_ICON,
+		registry.put(ISharedImages.MODEL_FOLDER_ICON,
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
 						+ "ModelModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.MODIFIER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Modifier.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.MODIFIER_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+		registry.put(ISharedImages.MODIFIER_FOLDER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "ModifierModelFile.gif")); //$NON-NLS-1$
 		
 		registry.put(ISharedImages.NODE_ICON, imageDescriptorFromPlugin(
@@ -210,26 +210,26 @@ public class Activator extends AbstractUIPlugin {
 		registry.put(ISharedImages.PREDICATE_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Predicate.gif")); //$NON-NLS-1$
 		
-		registry.put(ISharedImages.PREDICATE_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+		registry.put(ISharedImages.PREDICATE_FOLDER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "PredicateModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.RECORDED_SIMULATION_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "RecordedSimulations.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.RECORDED_SIMULATION_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+		registry.put(ISharedImages.RECORDED_SIMULATION_FOLDER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "RecordedSimulationsModelFile.gif")); //$NON-NLS-1$
 		
 		registry.put(ISharedImages.SCENARIO_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Scenario.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.SCENARIO_MODEL_FILE_ICON,
+		registry.put(ISharedImages.SCENARIO_FOLDER_ICON,
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
 						+ "ScenarioModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.SEQUENCER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Sequencer.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.SEQUENCER_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+		registry.put(ISharedImages.SEQUENCER_FOLDER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "SequencerModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.STATIC_LABEL_ICON,
@@ -239,7 +239,7 @@ public class Activator extends AbstractUIPlugin {
 		registry.put(ISharedImages.TRIGGER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "Trigger.gif")); //$NON-NLS-1$
 		
-		registry.put(ISharedImages.TRIGGER_MODEL_FILE_ICON, imageDescriptorFromPlugin(
+		registry.put(ISharedImages.TRIGGER_FOLDER_ICON, imageDescriptorFromPlugin(
 				PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2 + "TriggerModelFile.gif")); //$NON-NLS-1$
 
 		registry.put(ISharedImages.STEM_PROJECT_ICON,
@@ -269,7 +269,7 @@ public class Activator extends AbstractUIPlugin {
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
 						+ "genericFile.gif")); //$NON-NLS-1$
 
-		registry.put(ISharedImages.STEM_MODEL_FILE_ICON,
+		registry.put(ISharedImages.STEM_FOLDER_ICON,
 				imageDescriptorFromPlugin(PLUGIN_ID, CUSTOM_ICON_PATH_PREFIX2
 						+ "ScenarioModelFile.gif")); //$NON-NLS-1$
 
