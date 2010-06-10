@@ -208,6 +208,15 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSquareLatticeGraphGenerator_Area() {
+		return (EAttribute)squareLatticeGraphGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GraphgeneratorsFactory getGraphgeneratorsFactory() {
 		return (GraphgeneratorsFactory)getEFactoryInstance();
 	}
@@ -241,6 +250,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		createEAttribute(latticeGraphGeneratorEClass, LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES);
 
 		squareLatticeGraphGeneratorEClass = createEClass(SQUARE_LATTICE_GRAPH_GENERATOR);
+		createEAttribute(squareLatticeGraphGeneratorEClass, SQUARE_LATTICE_GRAPH_GENERATOR__AREA);
 	}
 
 	/**
@@ -293,6 +303,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		initEAttribute(getLatticeGraphGenerator_PeriodicBoundaries(), theEcorePackage.getEBoolean(), "periodicBoundaries", "false", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(squareLatticeGraphGeneratorEClass, SquareLatticeGraphGenerator.class, "SquareLatticeGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSquareLatticeGraphGenerator_Area(), theEcorePackage.getEDouble(), "area", "2025", 0, 1, SquareLatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

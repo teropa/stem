@@ -27,6 +27,7 @@ import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
+import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
@@ -88,6 +89,9 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 					break;
 				case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
 					((LatticeGraphGenerator)graphGenerator).setYSize(Integer.parseInt(entry.getValue().getText()));
+					break;
+				case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
+					((SquareLatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
 					break;
 			}
 			

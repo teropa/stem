@@ -280,13 +280,22 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int SQUARE_LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES;
 
 	/**
+	 * The feature id for the '<em><b>Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE_LATTICE_GRAPH_GENERATOR__AREA = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Square Lattice Graph Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 0;
+	int SQUARE_LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
 
 
 	/**
@@ -373,6 +382,17 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSquareLatticeGraphGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getArea <em>Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Area</em>'.
+	 * @see org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getArea()
+	 * @see #getSquareLatticeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getSquareLatticeGraphGenerator_Area();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -465,6 +485,14 @@ public interface GraphgeneratorsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SQUARE_LATTICE_GRAPH_GENERATOR = eINSTANCE.getSquareLatticeGraphGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Area</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SQUARE_LATTICE_GRAPH_GENERATOR__AREA = eINSTANCE.getSquareLatticeGraphGenerator_Area();
 
 	}
 

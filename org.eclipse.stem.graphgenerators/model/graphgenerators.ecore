@@ -20,5 +20,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodicBoundaries" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SquareLatticeGraphGenerator" eSuperTypes="#//LatticeGraphGenerator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SquareLatticeGraphGenerator" eSuperTypes="#//LatticeGraphGenerator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="2025"/>
+  </eClassifiers>
 </ecore:EPackage>
