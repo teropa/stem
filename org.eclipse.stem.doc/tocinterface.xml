@@ -88,10 +88,16 @@
   </topic>
 		<topic label="New Graph Wizard"
 			href="help/html/interface/wizards/graphwizard.html" />
-		<topic label="New Infector Wizard"
-			href="help/html/interface/wizards/infectorwizard.html" />
-		<topic label="New Model Wizard"
-			href="help/html/interface/wizards/modelwizard.html" />
+		<topic href="help/html/interface/wizards/modelwizard.html" label="New Model Wizard">
+  </topic>
+  <topic href="help/html/interface/wizards/modifierwizard.html" label="New Modifier Wizard">
+  </topic>
+  <topic href="help/html/interface/wizards/populationwizard.html" label="New Population Wizard">
+  </topic>
+  <topic href="help/html/interface/wizards/populationinitializerwizard.html" label="New Population Initializer Wizard">
+  </topic>
+  <topic href="help/html/interface/wizards/predicatewizard.html" label="New Predicate Wizard">
+  </topic>
 		<topic label="New Real-Time Sequencer Wizard"
 			href="help/html/interface/wizards/realtimesequencerwizard.html" />
 		<topic label="New Scenario Wizard"
@@ -100,19 +106,19 @@
 			href="help/html/interface/wizards/sequentialsequencerwizard.html" />
 		<topic label="New STEM Project Wizard"
 			href="help/html/interface/wizards/stemprojectwizard.html" />
-  <topic href="help/html/interface/wizards/modifierwizard.html" label="New Modifier Wizard">
-  </topic>
-  <topic href="help/html/interface/wizards/predicatewizard.html" label="New Predicate Wizard">
-  </topic>
   <topic href="help/html/interface/wizards/triggerwizard.html" label="New Trigger Wizard">
   </topic>
 	</topic>
 
 	<topic label="Preferences"
 		href="help/html/interface/preferences/preferencesoverview.html">
+  <topic href="help/html/interface/preferences/preferenceslogging.html" label="Logging">
+  </topic>
 
 		<topic label="Simulation Management"
 			href="help/html/interface/preferences/preferencessimmanagement.html" />
+  <topic href="help/html/interface/preferences/preferencessolver.html" label="Solver">
+  </topic>
 
 		<topic label="Visualization"
 			href="help/html/interface/preferences/preferencesvisualizationtoplevel.html">
@@ -121,15 +127,11 @@
 				<topic label="Advanced"
 					href="help/html/interface/preferences/preferencesgeadvanced.html" />
 			</topic>
-			<topic label="Map Data Management"
-				href="help/html/interface/preferences/preferencesmapdatamgnt.html" />
-			<topic label="Map View"
+			<topic label="Map Colors"
 				href="help/html/interface/preferences/preferencesmapview.html" />
+   <topic href="help/html/interface/preferences/populationmodeling.html" label="Population Modeling">
+   </topic>
 		</topic>
-  <topic href="help/html/interface/preferences/preferenceslogging.html" label="Logging">
-  </topic>
-  <topic href="help/html/interface/preferences/preferencessolver.html" label="Solver">
-  </topic>
 
 	</topic>
 </toc>
