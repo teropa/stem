@@ -6,7 +6,23 @@
 </head>
 <body>
 <p>The <em>New Disease Wizard</em> is used to create and define the
-properties of a new Disease.</p>
+properties of a new Disease. A file name for the new instance along with the Disease Name must be provided in order to be
+able to click "Next" or "Finish".</p>
+<p>Parameters that can be specified depends upon the particular disease model selected in the Disease Model drop-down. 
+For example, for an SI model, the parameters are:
+<ul>
+	<li>Disease Name</li>
+	<li>Population: i.e., human</li>
+	<li>Time Period (TP): In milliseconds</li>
+	<li>Frequency Dependent: Yes or No</li>
+	<li>Reference Pop Density: PM/SQ KM</li>
+	<li>Transmission Rate (&Beta;)</li> 
+	<li>Non-Linearity Coefficient: Must be greater than or equal to 0.0 </li>
+	<li>Infectious Recovery Rate (&gamma;): PM/TP*</li>
+	<li>Infectious Mortality Rate (&mu; &iota;): PM/TP*</li>
+	<li>Characteristic Mixing Distance: In kilometers</li>
+	<li>Road.Net.Inf.Proportion: Fraction per Road</li>
+</ul></p>
 
 <img src="img/diseasewizard1.jpg" />
 <img src="img/diseasewizard2.jpg" />
