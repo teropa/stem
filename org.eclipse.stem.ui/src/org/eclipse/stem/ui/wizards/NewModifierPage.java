@@ -59,6 +59,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * This class is a {@link NewIdentifiablePage} that is customized to contain a
@@ -216,6 +217,7 @@ abstract public class NewModifierPage extends NewIdentifiablePage {
         scrolledComposite.setMinSize(innerSize);
         	            
        
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newmodifier_contextid");
 
 		return outerComposite;
 	} // createSpecificComposite

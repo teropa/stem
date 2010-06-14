@@ -45,6 +45,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
@@ -183,6 +184,8 @@ public class NewScenarioWizard extends NewIdentifiableWizard {
 
 			solverPC = new SolverPropertyComposite(composite, 1, solvers, projectValidator);
 	
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newscenario_contextid");
+			
 			return composite;
 		} // createSpecificComposite
 		/**

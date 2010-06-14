@@ -25,7 +25,10 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.ModelPackage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
@@ -104,6 +107,12 @@ public class NewModelWizard extends NewIdentifiableWizard {
 			setDescription(Messages.getString("NModelWiz.page_description")); //$NON-NLS-1$
 		} // NewModelPage
 
+		@Override
+		protected Composite createSpecificComposite(final Composite parent) {
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newmodel_contextid");
+			return new Composite(parent, SWT.NONE);
+		} // createSpecificComposite
+		
 		/**
 		 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard.NewIdentifiablePage#getDCDescription()
 		 */

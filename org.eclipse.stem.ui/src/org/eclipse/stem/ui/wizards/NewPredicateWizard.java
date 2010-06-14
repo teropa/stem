@@ -24,7 +24,10 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.predicate.IdentifiablePredicateExpression;
 import org.eclipse.stem.core.predicate.PredicateFactory;
 import org.eclipse.stem.core.predicate.PredicatePackage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
@@ -104,6 +107,11 @@ public class NewPredicateWizard extends NewIdentifiableWizard {
 			setDescription(Messages.getString("NPredicateWiz.page_description")); //$NON-NLS-1$
 		} // NewPredicatePage
 
+		@Override
+		protected Composite createSpecificComposite(final Composite parent) {
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newpredicate_contextid");
+			return new Composite(parent, SWT.NONE);
+		} // createSpecificComposite
 		/**
 		 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard.NewIdentifiablePage#getDCDescription()
 		 */

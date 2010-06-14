@@ -24,7 +24,10 @@ import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.experiment.ExperimentFactory;
 import org.eclipse.stem.core.experiment.ExperimentPackage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
@@ -111,6 +114,12 @@ public class NewExperimentWizard extends NewIdentifiableWizard {
 		protected NewExperimentPage(final String pageName) {
 			super(pageName);
 		}
+		
+		@Override
+		protected Composite createSpecificComposite(final Composite parent) {
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newexperiment_contextid");
+			return new Composite(parent, SWT.NONE);
+		} // createSpecificComposite
 
 		/**
 		 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard.NewIdentifiablePage#getDCDescription()

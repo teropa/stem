@@ -42,6 +42,7 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
@@ -51,7 +52,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 
 	abstract protected static class SequentialSequencerPage extends
 			SequencerPage {
-
+		
 		/**
 		 * This is the initial value of the cycle time text field.
 		 */
@@ -82,7 +83,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 		/**
 		 * Constructor
 		 */
-		public SequentialSequencerPage() {
+		public SequentialSequencerPage() { //POSSIBLE SOLUTION LOCATION FOR CODE
 			super(Messages.getString("NSeqSequencerWiz.page_title"));
 			setTitle(Messages.getString("NSeqSequencerWiz.page_title")); //$NON-NLS-1$
 			setDescription(Messages
@@ -144,7 +145,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 			sequencerSpecificControlLayoutData.horizontalSpan = 2;
 			sequencerSpecificControl
 					.setLayoutData(sequencerSpecificControlLayoutData);
-
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newsequentialsequencer_contextid");
 			return composite;
 
 		} // createSpecificComposite
@@ -598,9 +599,16 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 			protected Composite createSequentialSequencerSpecificComposite(
 					final Composite parent) {
 				final Composite composite = new Composite(parent, SWT.NONE);
+				
 				return composite;
 			} // createSequentialSequencerSpecificComposite
 
+			@Override
+			protected Composite createSpecificComposite(final Composite parent) {
+				Composite composite = super.createSpecificComposite(parent);
+				PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newrealtimesequencer_contextid");
+				return composite;
+			}
 			/**
 			 * @see org.eclipse.stem.ui.wizards.NewSequentialSequencerWizard.SequentialSequencerPage#getDCTitle()
 			 */
@@ -628,7 +636,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 			protected String getDCValidDateRange() {
 				return "";
 			} // getValidDateRange
-
+			
 		} // RealTimeSequentialSequencerPage
 
 		/**

@@ -40,6 +40,7 @@ import org.eclipse.stem.ui.Activator;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -138,7 +139,7 @@ public class NewSTEMProjectWizard extends Wizard implements INewWizard,
 	public void addPages() {
 		super.addPages();
 		setWindowTitle(Messages.getString("NSTEMProWiz.title")); //$NON-NLS-1$
-		newProjectPage = new WizardNewProjectCreationPage(Messages
+		newProjectPage = new STEMWizardNewProjectCreationPage(Messages
 				.getString("NSTEMProWiz.title")); //$NON-NLS-1$
 		newProjectPage.setTitle(Messages.getString("NSTEMProWiz.page_title")); //$NON-NLS-1$
 		newProjectPage.setDescription(Messages

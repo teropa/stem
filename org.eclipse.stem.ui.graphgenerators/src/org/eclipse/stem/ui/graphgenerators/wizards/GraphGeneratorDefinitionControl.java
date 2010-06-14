@@ -33,6 +33,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * This class represents the SWT control for defining a disease.
@@ -98,6 +99,8 @@ public class GraphGeneratorDefinitionControl extends Composite {
 
 		});
 		final GraphGeneratorDefinitionControl self = this;
+		
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newgraph_contextid");
 
 	} // DiseaseDefinitionControl
 

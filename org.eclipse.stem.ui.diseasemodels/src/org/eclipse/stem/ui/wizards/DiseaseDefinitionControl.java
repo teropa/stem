@@ -33,6 +33,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * This class represents the SWT control for defining a disease.
@@ -98,8 +99,9 @@ public class DiseaseDefinitionControl extends Composite {
 
 		});
 		final DiseaseDefinitionControl self = this;
-
-	} // DiseaseDefinitionControl
+		
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newdisease_contextid");
+	}// DiseaseDefinitionControl
 
 	/**
 	 * @return an array of the {@link DiseaseModels}s defined in the system.

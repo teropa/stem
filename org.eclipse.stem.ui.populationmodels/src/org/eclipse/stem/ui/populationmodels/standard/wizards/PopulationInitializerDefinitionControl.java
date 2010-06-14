@@ -36,6 +36,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * This class represents the SWT control for defining a disease.
@@ -141,6 +142,7 @@ public class PopulationInitializerDefinitionControl extends Composite {
 			}
 		});
 		
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newpopulationinitializer_contextid");
 
 	} // DiseaseDefinitionControl
 

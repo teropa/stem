@@ -24,7 +24,10 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.core.trigger.TriggerFactory;
 import org.eclipse.stem.core.trigger.TriggerPackage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 
@@ -104,6 +107,12 @@ public class NewTriggerWizard extends NewIdentifiableWizard {
 			setDescription(Messages.getString("NTriggerWiz.page_description")); //$NON-NLS-1$
 		} // NewTriggerPage
 
+		@Override
+		protected Composite createSpecificComposite(final Composite parent) {
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newtrigger_contextid");
+			return new Composite(parent, SWT.NONE);
+		} // createSpecificComposite
+		
 		/**
 		 * @see org.eclipse.stem.ui.wizards.NewIdentifiableWizard.NewIdentifiablePage#getDCDescription()
 		 */

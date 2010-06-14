@@ -40,6 +40,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * This class represents the SWT composite that provides the GUI for defining an
@@ -255,6 +256,9 @@ public class InfectorDefinitionComposite extends Composite {
 					} // widgetSelected
 				} // SelectionAdapter
 				);
+		
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newinfectorinoculator_contextid");
+
 	}// InfectorDefinitionControl
 
 	
