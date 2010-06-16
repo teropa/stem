@@ -51,6 +51,9 @@ public class LocationUtility {
 				e.printStackTrace();
 			}
 			for(IResource r:models) {
+				// ignore system files
+				if(r.getName().startsWith(".")) continue;
+				
 				try {
 					URI uri = URI.createURI(r.getLocationURI().toString());
 					Identifiable id = Utility.getIdentifiable(uri);
@@ -70,6 +73,9 @@ public class LocationUtility {
 				e.printStackTrace();
 			}
 			for(IResource r:graphs) {
+				// ignore system files
+				if(r.getName().startsWith(".")) continue;
+				
 				try {
 					URI uri = URI.createURI(r.getLocationURI().toString());
 					Identifiable id = Utility.getIdentifiable(uri);
