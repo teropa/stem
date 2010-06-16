@@ -42,16 +42,18 @@ public interface GraphLatticeGeneratorInterface {
 	 */
 	public static final String TRI_LATTICE_TYPE="Triangle Lattice";
 	
-	
-	
-	
-	
 	/**
-	 * any lattice generator must provide a method to return a lattice which is a graph of nodes
+	 *
+	 * returns a square lattice of specified size as a graph
+	 *
 	 * @param xSize
 	 * @param ySize
+	 * @param area
+	 * @param addNearestNeighbors
+	 * @param addNextNearestNeighbors
+	 * @param periodicBoundaries
 	 * @return
 	 */
-	public abstract Graph getGraph(int xSize, int ySize, boolean addNearestNeighbors, boolean addNextNearestNeighbors, boolean periodicBoundaries);
+	public abstract Graph getGraph(int xSize, int ySize, double area, boolean addNearestNeighbors, boolean addNextNearestNeighbors, boolean periodicBoundaries);
 
 }

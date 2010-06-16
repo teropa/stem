@@ -54,16 +54,6 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 	 */
 	public static final String LATTICE_TYPE=SQR_LATTICE_TYPE;
 	
-	/**
-	 * The number of kilometers (or arb unit) of common border that two nodes share.
-	 * Always 1 for a Square lattice
-	 */
-	public static final int COMMON_BORDER_LENGTH = 1;
-	
-	/**
-	 * Square areas = 1.0
-	 */
-	public static final double SQUARE_AREA = 1.0;
 	
 	/**
 	 * 
@@ -81,9 +71,18 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 	public static final double DEFAULT_POPULATION_COUNT = 1.0;
 	
 	/**
-	 * return a square lattice of specified size as a graph
+	 *
+	 * returns a square lattice of specified size as a graph
+	 *
+	 * @param xSize
+	 * @param ySize
+	 * @param area
+	 * @param addNearestNeighbors
+	 * @param addNextNearestNeighbors
+	 * @param periodicBoundaries
+	 * @return
 	 */
-	public Graph getGraph(int xSize, int ySize, boolean addNearestNeighbors, boolean addNextNearestNeighbors, boolean periodicBoundaries) {
+	public Graph getGraph(int xSize, int ySize, double area, boolean addNearestNeighbors, boolean addNextNearestNeighbors, boolean periodicBoundaries) {
 		final Graph graph = GraphFactory.eINSTANCE.createGraph();
 		final DublinCore dc = graph.getDublinCore();
 		dc.populate();
@@ -103,7 +102,7 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 					
 					// on a square lattice all nodes have area=1.0
 					final AreaLabel areaLabel = LabelsFactory.eINSTANCE.createAreaLabel();
-					areaLabel.getCurrentAreaValue().setArea(SQUARE_AREA);
+					areaLabel.getCurrentAreaValue().setArea(area);
 					regionNode.getLabels().add(areaLabel);
 					
 					// add a default population
@@ -114,24 +113,33 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 				} // for each y
 			} // for each x
 
-			// If we are including Nearest Neighbors (NN)
+			
+			// the egde creation required a common border length.
+			// right now this is an int so set the minimum at 1
+			// this is NOT actually used in any calculation
+			// TODO commonBorderLength should be of type double
+			double borderLength = Math.sqrt(area);
+			if(borderLength < 1.0 ) borderLength = 1.0;
+			int commonBorderLength = (int) borderLength;
+			
+ 			// If we are including Nearest Neighbors (NN)
 			if(addNearestNeighbors) {
 				//Add the edges
 				for (int x = 0; x < xSize; x++) {
 					for (int y = 0; y < ySize; y++) {
 						if((y-1)>=0) {
-							createEdge(graph,nodeHolder[x][y - 1],nodeHolder[x][y], COMMON_BORDER_LENGTH);
+							createEdge(graph,nodeHolder[x][y - 1],nodeHolder[x][y], commonBorderLength);
 						} else {
 							if(periodicBoundaries) {
-								createEdge(graph,nodeHolder[x][ySize - 1],nodeHolder[x][y], COMMON_BORDER_LENGTH);
+								createEdge(graph,nodeHolder[x][ySize - 1],nodeHolder[x][y], commonBorderLength);
 							}
 						}
 						
 						if((x-1)>=0) {
-							createEdge(graph,nodeHolder[x - 1][y],nodeHolder[x][y], COMMON_BORDER_LENGTH);
+							createEdge(graph,nodeHolder[x - 1][y],nodeHolder[x][y], commonBorderLength);
 						}else {
 							if(periodicBoundaries) {
-								createEdge(graph,nodeHolder[xSize - 1][y],nodeHolder[x][y], COMMON_BORDER_LENGTH);
+								createEdge(graph,nodeHolder[xSize - 1][y],nodeHolder[x][y], commonBorderLength);
 							}
 						}
 						
@@ -145,27 +153,27 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 					for (int y = 0; y < ySize; y++) {
 						// uppper right?
 						if( ((x+1)<xSize) && ((y+1)<ySize) ) {
-							createEdge(graph,nodeHolder[x][y],nodeHolder[x+1][y+1], COMMON_BORDER_LENGTH);
+							createEdge(graph,nodeHolder[x][y],nodeHolder[x+1][y+1], commonBorderLength);
 						} else {
 								if(periodicBoundaries) {
 									int x2 = x+1;
 									int y2 = y+1;
 									if(x2>=xSize) x2=0;
 									if(y2>=ySize) y2=0;
-									createEdge(graph,nodeHolder[x][y],nodeHolder[x2][y2], COMMON_BORDER_LENGTH);
+									createEdge(graph,nodeHolder[x][y],nodeHolder[x2][y2], commonBorderLength);
 								}
 						}// upper right
 							
 						// lower right
 						if( ((x+1)<xSize) && ((y-1)>=0) ) {
-							createEdge(graph,nodeHolder[x][y],nodeHolder[x+1][y-1], COMMON_BORDER_LENGTH);
+							createEdge(graph,nodeHolder[x][y],nodeHolder[x+1][y-1], commonBorderLength);
 						} else {
 							if(periodicBoundaries) {
 								int x2 = x+1;
 								int y2 = y-1;
 								if(x2>=xSize) x2=0;
 								if(y2 <= -1) y2=ySize-1;
-								createEdge(graph,nodeHolder[x][y],nodeHolder[x2][y2], COMMON_BORDER_LENGTH);
+								createEdge(graph,nodeHolder[x][y],nodeHolder[x2][y2], commonBorderLength);
 							}
 						}
 						
@@ -179,7 +187,7 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 			// be a rectangular area expressed as a set of lat/long points that
 			// layout a polygon. The position of the polygon will at position that
 			// matches the position (x, y) of the node in the lattice.
-			addSpatialSpecifications(nodeHolder, xSize, ySize);
+			addSpatialSpecifications(nodeHolder, xSize, ySize, area);
 
 			assert graph.sane();
 
@@ -204,17 +212,21 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 	 * rectangular area.
 	 * 
 	 * @param nodeHolder
-	 *            the array that holds the nodes of the lattic
+	 * @param xSize
+	 * @param ySize
+	 * @param area
 	 */
-	private static void addSpatialSpecifications(final Node[][] nodeHolder, int xSize, int ySize) {
+	private static void addSpatialSpecifications(final Node[][] nodeHolder, int xSize, int ySize, double area) {
 
 		// First run through all of the nodes creating a polygon for their
 		// border and adding the data as an inline value in the spatial
 		// attribute of the node's dublin core.
+		// scale is the scale factor (and twice the step size) for the lattice
+		double scale = Math.sqrt(area);
 		for (int x = 0; x < xSize; x++) {
 			for (int y = 0; y < ySize; y++) {
 				final Node node = nodeHolder[x][y];
-				final LatLong nodeSegments = createNodePolygon(x,y);
+				final LatLong nodeSegments = createNodePolygon(x,y,scale);
 				final String spatialURIString = InlineLatLongDataProvider
 						.createSpatialInlineURIString(nodeSegments);
 				node.getDublinCore().setSpatial(spatialURIString);
@@ -229,22 +241,23 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 	
 	/**
 	 * 
-	 * @param x0
-	 * @param y0
-	 * @param x1
-	 * @param y1
+	 * @param xi a counter in x
+	 * @param yi a counter in y
+	 * @param scale is the scale factor (and twice the step size) for the lattice
 	 * @return
 	 */
-	private static LatLong createNodePolygon(final double x, double y) {
+	private static LatLong createNodePolygon(final double xi, double yi, double scale) {
 		final LatLong retValue = new LatLong();
 		
 		final SegmentBuilder sb = new SegmentBuilder();
+		double x = xi*scale;
+		double y = yi*scale;
+		double step = scale/2.0;
 		// We just make a square...
-		sb.add(x-0.5, y-0.5);
-		sb.add(x-0.5, y+0.5);
-		sb.add(x+0.5, y+0.5);
-		sb.add(x+0.5, y-0.5);
-		sb.add(x-0.5, y-0.5);
+		sb.add(x-step, y+step);
+		sb.add(x+step, y+step);
+		sb.add(x+step, y-step);
+		sb.add(x-step, y-step);
 		retValue.add(sb.toSegment());
 
 		return retValue;
@@ -259,7 +272,7 @@ public class SqrLatticeGeneratorImpl extends GraphLatticeGenerator {
 	 */
 	public static void main(String[] args) {
 		SqrLatticeGeneratorImpl slgi = new SqrLatticeGeneratorImpl();
-		Graph g = slgi.getGraph(10, 10, true, false, true);
+		Graph g = slgi.getGraph(10, 10, 1, true, false, true);
 		Activator.logInformation("graph built ..now save it");
 		
 		String graphUriString = "platform:/resource/play/graphs/sqrLatticeGraph.graph";
