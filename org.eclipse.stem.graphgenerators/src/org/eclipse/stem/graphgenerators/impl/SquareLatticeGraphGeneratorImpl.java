@@ -165,13 +165,13 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	}
 
 	/**
-	 * 
+	 * @see SqrLatticeGeneratorImpl
 	 */
 	@Override
 	public Graph getGraph() {
 		SqrLatticeGeneratorImpl slgi = new SqrLatticeGeneratorImpl();
 		// When Jamie's ready Graph g = slgi.getGraph(this.getXSize(), this.getYSize(), this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries(), this.getArea());
-		Graph g = slgi.getGraph(this.getXSize(), this.getYSize(), this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
+		Graph g = slgi.getGraph(this.getXSize(), this.getYSize(), this.area, this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
 		
 //		System.out.println("graph built ..now save it");
 		
