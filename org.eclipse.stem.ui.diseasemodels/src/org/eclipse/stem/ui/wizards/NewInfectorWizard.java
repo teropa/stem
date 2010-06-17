@@ -77,7 +77,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		nip.setTitle(DiseaseWizardMessages.getString("NInfectorWiz.page_title")); //$NON-NLS-1$
 		nip.setDescription(DiseaseWizardMessages.getString("NInfectorWiz.page_description")); //$NON-NLS-1$
 		
-		this.setHelpContextId("org.eclipse.stem.doc.newinfector_contextid");
+		this.setHelpContextId("org.eclipse.stem.doc.newinfectorinoculator_contextid");
 
 		return nip;
 	} // createNewIdentifiablePage

@@ -28,6 +28,6 @@ abstract public class NewNonIdentifiableWizard extends Wizard implements
 	}
 
 	protected void setHelpContextId(String helpContextId) {
-		this.helpContextId = "org.eclipse.stem.doc.newexperiment_contextid";
+		this.helpContextId = helpContextId;
 	}
 }
