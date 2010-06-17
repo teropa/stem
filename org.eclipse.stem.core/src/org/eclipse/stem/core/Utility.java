@@ -143,7 +143,7 @@ public class Utility {
 		// ZZZ is special, it means the world
 		if(key.equalsIgnoreCase("ZZZ")) return -1;
 		// null means unspecified and truly global for population models.
-		if(key == null) return -2;
+		if(key == null || key.trim().equals("")) return -2;
 		
 		int level = 0;
 		int start = 0;
