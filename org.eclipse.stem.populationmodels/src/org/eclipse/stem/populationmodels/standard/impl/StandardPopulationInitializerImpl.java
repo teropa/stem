@@ -32,6 +32,7 @@ import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
+import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabelValue;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
@@ -172,10 +173,15 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	}
 	
 	public boolean hasParent(Node n, String key) {
-		for(Edge e:n.getEdges())
+		for(Edge e:n.getEdges()) {
+			// Make sure it's a physical containment edge
+			boolean phys = e.getLabel() instanceof RelativePhysicalRelationshipLabel;
+			if(!phys) 
+				continue;
 			if(e.getA().getURI().lastSegment().equals(key)) return true;
 			else if(Utility.keyLevel(e.getA().getURI().lastSegment()) < Utility.keyLevel(n.getURI().lastSegment()))
 				return hasParent(e.getA(), key);
+		}
 		return false;
 	}
 	
