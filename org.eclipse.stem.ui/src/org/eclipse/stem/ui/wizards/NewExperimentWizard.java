@@ -58,6 +58,7 @@ public class NewExperimentWizard extends NewIdentifiableWizard {
 		retValue.setDescription(Messages
 				.getString("NExperimentWiz.page_description")); //$NON-NLS-1$
 
+		this.setHelpContextId("org.eclipse.stem.doc.newexperiment_contextid");
 		return retValue;
 	} // createNewIdentifiablePage
 
@@ -149,7 +150,7 @@ public class NewExperimentWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewExperimentWizard wizard = new NewExperimentWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

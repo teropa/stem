@@ -28,6 +28,7 @@ import org.eclipse.stem.ui.wizards.DublinCorePage;
 import org.eclipse.stem.ui.wizards.NewIdentifiablePage;
 import org.eclipse.stem.ui.wizards.NewIdentifiableWizard;
 import org.eclipse.stem.ui.wizards.NewSTEMProjectWizard;
+import org.eclipse.stem.ui.wizards.STEMWizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -57,8 +58,8 @@ public class NewPopulationModelWizard extends NewIdentifiableWizard {
 				.getString("NPopulationModelWiz.page_title")); //$NON-NLS-1$
 		ndp.setTitle(PopulationModelWizardMessages.getString("NPopulationModelWiz.page_title")); //$NON-NLS-1$
 		ndp.setDescription(PopulationModelWizardMessages
-				.getString("NPopulationModelWiz.page_description")); //$NON-NLS-1$
-
+				.getString("NPopulationModelWiz.page_description")); 
+		this.setHelpContextId("org.eclipse.stem.doc.newpopulation_contextid");
 		return ndp;
 	} // createNewIdentifiablePage
 
@@ -174,7 +175,7 @@ public class NewPopulationModelWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewPopulationModelWizard wizard = new NewPopulationModelWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

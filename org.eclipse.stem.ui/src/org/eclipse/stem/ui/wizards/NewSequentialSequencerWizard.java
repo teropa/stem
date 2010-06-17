@@ -83,7 +83,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 		/**
 		 * Constructor
 		 */
-		public SequentialSequencerPage() { //POSSIBLE SOLUTION LOCATION FOR CODE
+		public SequentialSequencerPage() { 
 			super(Messages.getString("NSeqSequencerWiz.page_title"));
 			setTitle(Messages.getString("NSeqSequencerWiz.page_title")); //$NON-NLS-1$
 			setDescription(Messages
@@ -246,6 +246,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 		 */
 		@Override
 		protected NewIdentifiablePage createNewIdentifiablePage() {
+			this.setHelpContextId("org.eclipse.stem.doc.newsequentialsequencer_contextid");
 			return new FixedSequentialSequencerPage();
 		} // createNewIdentifiablePage
 
@@ -541,7 +542,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 						.getActiveWorkbenchWindowChecked(executionEvent);
 				final NewFixedSequentialSequencerWizard wizard = new NewFixedSequentialSequencerWizard();
 				wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-				final WizardDialog wizardDialog = new WizardDialog(window
+				final WizardDialog wizardDialog = new STEMWizardDialog(window
 						.getShell(), wizard);
 				wizardDialog.open();
 				return null;
@@ -568,6 +569,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 		 */
 		@Override
 		protected NewIdentifiablePage createNewIdentifiablePage() {
+			this.setHelpContextId("org.eclipse.stem.doc.newrealtimesequencer_contextid");
 			return new RealTimeSequentialSequencerPage();
 		} // createNewIdentifiablePage
 
@@ -655,7 +657,7 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 						.getActiveWorkbenchWindowChecked(executionEvent);
 				final NewRealTimeSequencerWizard wizard = new NewRealTimeSequencerWizard();
 				wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-				final WizardDialog wizardDialog = new WizardDialog(window
+				final WizardDialog wizardDialog = new STEMWizardDialog(window
 						.getShell(), wizard);
 				wizardDialog.open();
 				return null;

@@ -75,6 +75,20 @@ abstract public class NewIdentifiableWizard extends Wizard implements
 	protected DublinCorePage newDublinCorePage;
 
 	/**
+	 * This is the context sensitive help context id for the wizard
+	 */
+	
+	protected String helpContextId;
+	
+	protected String getHelpContextId() {
+		return helpContextId;
+	}
+
+	protected void setHelpContextId(String helpContextId) {
+		this.helpContextId = helpContextId;
+	}
+
+	/**
 	 * @see org.eclipse.ui.IWorkbenchWizard#init(org.eclipse.ui.IWorkbench,
 	 *      org.eclipse.jface.viewers.IStructuredSelection)
 	 */
@@ -82,7 +96,9 @@ abstract public class NewIdentifiableWizard extends Wizard implements
 			@SuppressWarnings("unused") final IStructuredSelection selection) {
 		this.workbench = workbench;
 		setWindowTitle(getWizardTitle());
+		setHelpAvailable(true);
 	} // init
+
 
 	/**
 	 * Create the {@link Wizard}'s pages.

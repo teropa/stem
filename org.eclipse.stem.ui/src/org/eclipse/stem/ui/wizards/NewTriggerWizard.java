@@ -50,6 +50,7 @@ public class NewTriggerWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected NewIdentifiablePage createNewIdentifiablePage() {
+		this.setHelpContextId("org.eclipse.stem.doc.newtrigger_contextid");
 		return new NewTriggerPage();
 	}
 
@@ -141,7 +142,7 @@ public class NewTriggerWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewTriggerWizard wizard = new NewTriggerWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

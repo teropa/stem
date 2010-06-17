@@ -67,6 +67,7 @@ public class NewScenarioWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected NewIdentifiablePage createNewIdentifiablePage() {
+		this.setHelpContextId("org.eclipse.stem.doc.newscenario_contextid");
 		return new NewScenarioPage();
 	} // createNewIdentifiablePage
 
@@ -291,7 +292,7 @@ public class NewScenarioWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewScenarioWizard wizard = new NewScenarioWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

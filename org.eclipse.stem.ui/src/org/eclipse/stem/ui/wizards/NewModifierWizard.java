@@ -90,6 +90,8 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 				}
 			};
 		} // else
+		
+		this.setHelpContextId("org.eclipse.stem.doc.newmodifier_contextid"); //HERE
 
 		return newModifierPage;
 	} // createNewIdentifiablePage
@@ -194,7 +196,7 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 						wizard.setTarget(target);
 						wizard.init(window.getWorkbench(),
 								StructuredSelection.EMPTY);
-						final WizardDialog wizardDialog = new WizardDialog(window
+						final WizardDialog wizardDialog = new STEMWizardDialog(window
 								.getShell(), wizard);
 						wizardDialog.open();
 					} // if

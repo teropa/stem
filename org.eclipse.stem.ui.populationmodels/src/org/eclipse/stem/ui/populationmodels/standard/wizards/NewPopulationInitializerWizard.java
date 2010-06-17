@@ -59,7 +59,7 @@ public class NewPopulationInitializerWizard extends NewIdentifiableWizard {
 		ndp.setTitle(PopulationModelWizardMessages.getString("NPopulationInitializerWiz.page_title")); //$NON-NLS-1$
 		ndp.setDescription(PopulationModelWizardMessages
 				.getString("NPopulationInitializerWiz.page_description")); //$NON-NLS-1$
-
+		this.setHelpContextId("org.eclipse.stem.doc.newpopulationinitializer_contextid");
 		return ndp;
 	} // createNewIdentifiablePage
 

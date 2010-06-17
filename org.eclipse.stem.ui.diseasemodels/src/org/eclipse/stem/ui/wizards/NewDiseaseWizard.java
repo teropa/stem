@@ -54,6 +54,8 @@ public class NewDiseaseWizard extends NewIdentifiableWizard {
 		ndp.setTitle(DiseaseWizardMessages.getString("NDiseaseWiz.page_title")); //$NON-NLS-1$
 		ndp.setDescription(DiseaseWizardMessages
 				.getString("NDiseaseWiz.page_description")); //$NON-NLS-1$
+		
+		this.setHelpContextId("org.eclipse.stem.doc.newdisease_contextid");
 
 		return ndp;
 	} // createNewIdentifiablePage
@@ -170,7 +172,7 @@ public class NewDiseaseWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewDiseaseWizard wizard = new NewDiseaseWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

@@ -76,6 +76,8 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		nip = new NewInfectorPage(DiseaseWizardMessages.getString("NInfectorWiz.page_title")); //$NON-NLS-1$
 		nip.setTitle(DiseaseWizardMessages.getString("NInfectorWiz.page_title")); //$NON-NLS-1$
 		nip.setDescription(DiseaseWizardMessages.getString("NInfectorWiz.page_description")); //$NON-NLS-1$
+		
+		this.setHelpContextId("org.eclipse.stem.doc.newinfector_contextid");
 
 		return nip;
 	} // createNewIdentifiablePage
@@ -329,7 +331,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewInfectorWizard wizard = new NewInfectorWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

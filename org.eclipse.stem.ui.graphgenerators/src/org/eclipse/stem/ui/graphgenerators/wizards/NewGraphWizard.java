@@ -30,6 +30,7 @@ import org.eclipse.stem.ui.wizards.DublinCorePage;
 import org.eclipse.stem.ui.wizards.NewIdentifiablePage;
 import org.eclipse.stem.ui.wizards.NewIdentifiableWizard;
 import org.eclipse.stem.ui.wizards.NewSTEMProjectWizard;
+import org.eclipse.stem.ui.wizards.STEMWizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -63,6 +64,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 		ngp.setDescription(Messages
 				.getString("NGraphWiz.page_description")); //$NON-NLS-1$
 
+		this.setHelpContextId("org.eclipse.stem.doc.newgraph_contextid");
 		return ngp;
 
 	} // createNewIdentifiablePage
@@ -199,7 +201,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewGraphWizard wizard = new NewGraphWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

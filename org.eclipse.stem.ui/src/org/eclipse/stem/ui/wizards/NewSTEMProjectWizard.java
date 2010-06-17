@@ -48,7 +48,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 /**
  * This class is an Eclipse {@link Wizard} for creating new STEM projects.
  */
-public class NewSTEMProjectWizard extends Wizard implements INewWizard,
+public class NewSTEMProjectWizard extends NewNonIdentifiableWizard implements INewWizard,
 		IExecutableExtension {
 
 	/**
@@ -130,6 +130,8 @@ public class NewSTEMProjectWizard extends Wizard implements INewWizard,
 	public void init(@SuppressWarnings("unused") final IWorkbench workbench,
 			@SuppressWarnings("unused") final IStructuredSelection selection) {
 		setNeedsProgressMonitor(true);
+		setHelpAvailable(true); //Adds HELP Button to New STEM Project Wizard page
+		this.setHelpContextId("org.eclipse.stem.doc.newstemproject_contextid"); //HERE
 	} // init
 
 	/**
@@ -313,8 +315,8 @@ public class NewSTEMProjectWizard extends Wizard implements INewWizard,
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewSTEMProjectWizard wizard = new NewSTEMProjectWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
-					.getShell(), wizard);
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
+					.getShell(), wizard); 
 			wizardDialog.open();
 			return null;
 		} // execute

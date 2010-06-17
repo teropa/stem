@@ -50,6 +50,7 @@ public class NewModelWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected NewIdentifiablePage createNewIdentifiablePage() {
+		this.setHelpContextId("org.eclipse.stem.doc.newmodel_contextid");
 		return new NewModelPage();
 	} // createNewIdentifiablePage
 
@@ -141,7 +142,7 @@ public class NewModelWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewModelWizard wizard = new NewModelWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;

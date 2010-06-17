@@ -49,6 +49,7 @@ public class NewPredicateWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected NewIdentifiablePage createNewIdentifiablePage() {
+		this.setHelpContextId("org.eclipse.stem.doc.newpredicate_contextid");
 		return new NewPredicatePage();
 	}
 
@@ -140,7 +141,7 @@ public class NewPredicateWizard extends NewIdentifiableWizard {
 					.getActiveWorkbenchWindowChecked(executionEvent);
 			final NewPredicateWizard wizard = new NewPredicateWizard();
 			wizard.init(window.getWorkbench(), StructuredSelection.EMPTY);
-			final WizardDialog wizardDialog = new WizardDialog(window
+			final WizardDialog wizardDialog = new STEMWizardDialog(window
 					.getShell(), wizard);
 			wizardDialog.open();
 			return null;
