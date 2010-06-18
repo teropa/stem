@@ -12,19 +12,27 @@ package org.eclipse.stem.ui.wizards;
  *******************************************************************************/
 
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.graphics.Region;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class STEMWizardDialog extends WizardDialog {
 
 	public STEMWizardDialog(Shell parentShell, IWizard newWizard) {
 		super(parentShell, newWizard);
 	}
-	
+
 	@Override
 	protected void buttonPressed(int buttonId) {
 		super.buttonPressed(buttonId);
@@ -36,5 +44,18 @@ public class STEMWizardDialog extends WizardDialog {
 				PlatformUI.getWorkbench().getHelpSystem().displayHelp(((NewNonIdentifiableWizard)this.getWizard()).getHelpContextId());
 			}
 		}
+	}
+
+	@Override
+	protected void createButtonsForButtonBar(Composite parent) {
+		super.createButtonsForButtonBar(parent);
+		Button helpButton = super.getButton(IDialogConstants.HELP_ID);
+		ImageDescriptor helpIcon = AbstractUIPlugin.imageDescriptorFromPlugin("org.eclipse.stem.ui", "icons/full/customobj16/questionmark.gif");
+		Image image = helpIcon.createImage();
+		helpButton.setText("");
+		helpButton.setImage(image);
+		GridData helpButtonLayout = new GridData();
+		helpButtonLayout.verticalAlignment = GridData.FILL;
+		helpButton.setLayoutData(helpButtonLayout);
 	}
 }
