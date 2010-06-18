@@ -233,6 +233,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	
 	@Override
 	public boolean decorateGraph(STEMTime time) {
+		if(this.isGraphDecorated()) return true;
 		super.decorateGraph(time);
 		checkPopulationModels();
 		ArrayList<Node>nodes = new ArrayList<Node>();

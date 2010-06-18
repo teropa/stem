@@ -101,6 +101,7 @@ public class DemographicPopulationModelImpl extends StandardPopulationModelImpl 
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
+		if(this.isGraphDecorated()) return true;
 		super.decorateGraph(time);
 		
 		

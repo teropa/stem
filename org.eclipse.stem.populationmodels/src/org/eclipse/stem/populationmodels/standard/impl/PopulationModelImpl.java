@@ -204,6 +204,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
+		if(this.isGraphDecorated()) return true;
 		for (final Iterator<PopulationLabel> populationLabelIter = getPopulationLabels(
 				getPopulationIdentifier(), getGraph()).iterator(); populationLabelIter
 				.hasNext();) {
