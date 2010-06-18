@@ -24,7 +24,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * This class contains common utility methods used in STEM.
@@ -39,6 +43,8 @@ public class Utility {
 	static {
 		EMF_SAVE_OPTIONS.put(XMLResource.OPTION_ENCODING, "UTF-8");
 	}
+	
+	public final static String NESTING_WARNING = "Warning, possible scenario initialization problem detected. Check the nesting of your models";
 	
 	/**
 	 * @param identifableURI
@@ -154,4 +160,45 @@ public class Utility {
 		} // for
 		return level;
 	} // keyLevel
+	
+	public static void displayNestingWarning(final String message) {
+		try {
+			if(Display.getDefault() != null)
+				Display.getDefault().syncExec(new Runnable() {
+					public void run() {
+						try {
+							final IWorkbenchWindow window = PlatformUI
+									.getWorkbench().getActiveWorkbenchWindow();
+//							final IStatus warning = new Status(IStatus.WARNING,
+//									CorePlugin.PLUGIN_ID, 1, message, null);
+//							ErrorDialog.openError(window.getShell(), null, null,
+//									warning);
+							String [] labels = new String[2];
+							labels[1]  = "Help";
+							labels[0] = "Okay";
+							MessageDialog dialog = new MessageDialog(window.getShell(), "Warning", null, message,
+									MessageDialog.WARNING, labels, 0) {
+								@Override
+								protected void buttonPressed(int buttonId) {
+									if(buttonId == 1)
+										PlatformUI.getWorkbench().getHelpSystem().displayHelp("org.eclipse.stem.doc.invalidnesting_contextid");
+									else
+										super.buttonPressed(buttonId);
+								}
+							};
+							dialog.open();
+						} catch(Exception e) {
+							// If we get this exception, it is because we're not running in
+							// eclipse.
+						}
+					} // run
+				});
+			
+			else CorePlugin.logError(message, null);
+			
+		} catch (final Error ncdfe) {
+			// Empty
+		} // catch
+	}
+	
 } // Utility

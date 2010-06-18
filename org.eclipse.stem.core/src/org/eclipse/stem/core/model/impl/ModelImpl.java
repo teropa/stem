@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
@@ -409,7 +410,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			if(!success) {
 				if(failed == null)failed = new ArrayList<Decorator>();
 				failed.add(canonicalDecorator);
-			}
+			} else canonicalDecorator.setGraphDecorated(true);
 		} // for
 		
 		// Redo failed decorators. This can happen due to dependencies, for instance a population model must be allowed to decorate
@@ -418,7 +419,11 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		
 		if(failed!=null) {
 			// We should log a warning here that we were forced to reinit. The user should check the model nesting
-			for(Decorator d:failed)d.decorateGraph(time);
+			Utility.displayNestingWarning(Utility.NESTING_WARNING);
+			for(Decorator d:failed) {
+				d.decorateGraph(time);
+				d.setGraphDecorated(true);
+			}
 		}
 	} // invokeNodeDecorators
 
