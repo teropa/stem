@@ -18,6 +18,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.graphics.Region;
 import org.eclipse.swt.layout.GridData;
@@ -28,6 +29,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class STEMWizardDialog extends WizardDialog {
+	
+	private Button helpButton;
 
 	public STEMWizardDialog(Shell parentShell, IWizard newWizard) {
 		super(parentShell, newWizard);
@@ -49,13 +52,15 @@ public class STEMWizardDialog extends WizardDialog {
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
 		super.createButtonsForButtonBar(parent);
-		Button helpButton = super.getButton(IDialogConstants.HELP_ID);
+		helpButton = super.getButton(IDialogConstants.HELP_ID);
 		ImageDescriptor helpIcon = AbstractUIPlugin.imageDescriptorFromPlugin("org.eclipse.stem.ui", "icons/full/customobj16/questionmark.gif");
 		Image image = helpIcon.createImage();
 		helpButton.setText("");
 		helpButton.setImage(image);
 		GridData helpButtonLayout = new GridData();
 		helpButtonLayout.verticalAlignment = GridData.FILL;
+		helpButtonLayout.widthHint = 30;
+		helpButtonLayout.heightHint = 30;
 		helpButton.setLayoutData(helpButtonLayout);
 	}
 }
