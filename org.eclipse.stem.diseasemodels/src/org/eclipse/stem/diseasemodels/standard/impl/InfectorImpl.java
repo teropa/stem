@@ -190,7 +190,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
-
+		if(this.isGraphDecorated()) return true;
 		Graph graph = getGraph();
 		if(graph == null && this.eContainer() instanceof InfectorInoculatorCollection) // Might be part of a collection
 			graph = ((NodeDecorator)eContainer()).getGraph();

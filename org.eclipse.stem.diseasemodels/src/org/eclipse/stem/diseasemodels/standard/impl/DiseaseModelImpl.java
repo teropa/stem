@@ -27,6 +27,7 @@ import org.eclipse.stem.core.graph.NodeLabel;
 //import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
+import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.NodeDecoratorImpl;
@@ -621,6 +622,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
+		if(this.isGraphDecorated()) return true;
 		boolean success = false;
 				
 		for (final Iterator<PopulationModelLabel> populationModelLabelIter = getPopulationModelLabels(
@@ -722,7 +724,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 			String name = "auto_gen_"+this.getPopulationIdentifier()+"_population_model";
 			spm.setName(name);
 			spm.getDublinCore().setTitle(title);
-			model.getNodeDecorators().add(spm);
+			model.getNodeDecorators().add(0, spm);
 		}
 	}
 	

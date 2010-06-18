@@ -95,6 +95,7 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
+		if(this.isGraphDecorated()) return true;
 		boolean success = true;
 		if(this.getList() != null)
 			for(Infector i:this.getList())
