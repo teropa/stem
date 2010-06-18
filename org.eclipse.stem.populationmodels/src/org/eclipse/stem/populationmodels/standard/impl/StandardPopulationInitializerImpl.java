@@ -38,6 +38,8 @@ import org.eclipse.stem.definitions.labels.PopulationLabelValue;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
 import org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl;
 import org.eclipse.stem.populationmodels.Activator;
+import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer;
 
@@ -231,7 +233,8 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	
 	@Override
 	public boolean decorateGraph(STEMTime time) {
-		
+		super.decorateGraph(time);
+		checkPopulationModels();
 		ArrayList<Node>nodes = new ArrayList<Node>();
 		ArrayList<Node>negativeNodes = new ArrayList<Node>();
 		
@@ -307,6 +310,19 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 		return "ZZZ"; // Not found, but ZZZ is the parent of everything
 	}
 	
+	protected void checkPopulationModels() {
+		// Let's validate to make sure there is no population model
+		// at the same or lower level that already's been invoked 
+		// and that's using the same population. If so, we should bring
+		// up a warning and possibly a help link
+		
+		for(Decorator d:this.getGraph().getDecorators()) {
+			if (d instanceof PopulationModel && ((PopulationModel)d).getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+				if(((PopulationModel)d).isGraphDecorated())
+					Utility.displayNestingWarning(Utility.NESTING_WARNING);
+			}
+		}	
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

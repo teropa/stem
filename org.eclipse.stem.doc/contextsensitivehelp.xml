@@ -1,74 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <contexts>
-	<context id="newdisease_contextid" title="Context-Sensitive Help: New Disease">
-		<description>Button for New Disease Wizard Help.</description>
+	<context id="newdisease_contextid" title="About New Disease Wizard">
+		<description>This Wizard allows you to create and define properties of a new Disease.</description>
 		<topic href="help/html/interface/wizards/diseasewizard.html" label="Disease Wizard"/>
 	</context>
 	
-	<context id="newexperiment_contextid" title="Context-Sensitive Help: New Experiment">
-		<description>Button for New Experiment Wizard Help.</description>
+	<context id="newexperiment_contextid" title="About New Experiment Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Experiment.</description>
 		<topic href="help/html/interface/wizards/experimentwizard.html" label="Experiment Wizard"/>
 	</context>
 	
-	<context id="newgraph_contextid" title="Context-Sensitive Help: New Graph">
-		<description>Button for New Graph Wizard Help.</description>
+	<context id="newgraph_contextid" title="About New Graph Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Graph.</description>
 		<topic href="help/html/interface/wizards/graphwizard.html" label="Graph Wizard"/>
 	</context>
 	
-	<context id="newinfectorinoculator_contextid" title="Context-Sensitive Help: New Infection/Inoculation Point">
-		<description>Button for New Infector/Inoculator Wizard Help.</description>
+	<context id="newinfectorinoculator_contextid" title="About New Infection/Inoculation Point Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Infector or Inoculator.</description>
 		<topic href="help/html/interface/wizards/infectorwizard.html" label="Infector/Inoculator Wizard"/>
 	</context>
 	
-	<context id="newmodel_contextid" title="Context-Sensitive Help: New Model">
-		<description>Button for New Model Wizard Help.</description>
+	<context id="newmodel_contextid" title="About New Model Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Model.</description>
 		<topic href="help/html/interface/wizards/modelwizard.html" label="Model Wizard"/>
 	</context>
 	
-	<context id="newmodifier_contextid" title="Context-Sensitive Help: New Modifier">
-		<description>Button for New Modifier Wizard Help.</description>
+	<context id="newmodifier_contextid" title="About New Modifier Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Modifier.</description>
 		<topic href="help/html/interface/wizards/modifierwizard.html" label="Modifier Wizard"/>
 	</context>
 	
-	<context id="newpopulation_contextid" title="Context-Sensitive Help: New Population Model">
-		<description>Button for New Population Model Wizard Help.</description>
+	<context id="newpopulation_contextid" title="About New Population Model Wizard">
+		<description>This Wizard allows you to define the properties of a new Population Model.</description>
 		<topic href="help/html/interface/wizards/populationwizard.html" label="Population Model Wizard"/>
 	</context>
 	
-	<context id="newpopulationinitializer_contextid" title="Context-Sensitive Help: New Population Initializer">
-		<description>Button for New Population Initializer Wizard Help.</description>
+	<context id="newpopulationinitializer_contextid" title="About New Population Initializer Wizard">
+		<description>This Wizard allows you to define the initial state of a Population.</description>
 		<topic href="help/html/interface/wizards/populationinitializerwizard.html" label="Population Initializer Wizard"/>
 	</context>
 	
-	<context id="newpredicate_contextid" title="Context-Sensitive Help: New Predicate">
-		<description>Button for New Predicate Wizard Help.</description>
+	<context id="newpredicate_contextid" title="About New Predicate Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Predicate.</description>
 		<topic href="help/html/interface/wizards/predicatewizard.html" label="Predicate Wizard"/>
 	</context>
 	
-	<context id="newrealtimesequencer_contextid" title="Context-Sensitive Help: Real Time Sequencer">
-		<description>Button for New Real Time Sequencer Wizard Help.</description>
+	<context id="newrealtimesequencer_contextid" title="About New Real Time Sequencer Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Real-Time Sequencer.</description>
 		<topic href="help/html/interface/wizards/realtimesequencerwizard.html" label="Real Time Sequencer Wizard"/>
 	</context>
 	
-	<context id="newscenario_contextid" title="Context-Sensitive Help: New Scenario">
-		<description>Button for New Scenario Wizard Help.</description>
+	<context id="newscenario_contextid" title="About New Scenario Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Scenario.</description>
 		<topic href="help/html/interface/wizards/scenariowizard.html" label="Scenario Wizard"/>
 	</context>
 
-	<context id="newsequentialsequencer_contextid" title="Context-Sensitive Help: New Sequential Sequencer">
-		<description>Button for New Sequential Sequencer Wizard Help.</description>
+	<context id="newsequentialsequencer_contextid" title="About New Sequential Sequencer Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Sequential Sequencer.</description>
 		<topic href="help/html/interface/wizards/sequentialsequencerwizard.html" label="Sequential Sequencer Wizard"/>
 	</context>
 	
-	<context id="newstemproject_contextid" title="Context-Sensitive Help: New STEM Project">
-		<description>Button for New STEM Project Wizard Help.</description>
+	<context id="newstemproject_contextid" title="About New STEM Project Wizard">
+		<description>This Wizard allows you to create and define the properties of a new STEM Project.</description>
 		<topic href="help/html/interface/wizards/stemprojectwizard.html" label="STEM Project Wizard"/>
 	</context>
 
-	<context id="newtrigger_contextid" title="Context-Sensitive Help: New Trigger">
-		<description>Button for New Trigger Wizard Help.</description>
+	<context id="newtrigger_contextid" title="About New Trigger Wizard">
+		<description>This Wizard allows you to create and define the properties of a new Trigger.</description>
 		<topic href="help/html/interface/wizards/triggerwizard.html" label="Trigger Wizard"/>
+	</context>
+	
+	<context id="invalidnesting_contextid" title="Model nesting">
+		<description>Possible model nesting problem.</description>
+		<topic href="help/html/tutorials/modelnesting.html" label="Scenario initialization"/>
 	</context>
 	
 </contexts>
