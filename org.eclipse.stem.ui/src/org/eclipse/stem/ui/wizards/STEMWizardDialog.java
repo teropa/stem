@@ -15,12 +15,7 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.graphics.Region;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -29,38 +24,48 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class STEMWizardDialog extends WizardDialog {
-	
+
 	private Button helpButton;
 
-	public STEMWizardDialog(Shell parentShell, IWizard newWizard) {
+	public STEMWizardDialog(final Shell parentShell, final IWizard newWizard) {
 		super(parentShell, newWizard);
 	}
 
 	@Override
-	protected void buttonPressed(int buttonId) {
+	protected void buttonPressed(final int buttonId) {
 		super.buttonPressed(buttonId);
 		if (IDialogConstants.HELP_ID == buttonId) {
-			if (this.getWizard() instanceof NewIdentifiableWizard){
-				PlatformUI.getWorkbench().getHelpSystem().displayHelp(((NewIdentifiableWizard)this.getWizard()).getHelpContextId());
-			}
-			else{
-				PlatformUI.getWorkbench().getHelpSystem().displayHelp(((NewNonIdentifiableWizard)this.getWizard()).getHelpContextId());
+			if (this.getWizard() instanceof NewIdentifiableWizard) {
+				PlatformUI.getWorkbench().getHelpSystem().displayHelp(
+						((NewIdentifiableWizard) this.getWizard())
+								.getHelpContextId());
+			} else {
+				PlatformUI.getWorkbench().getHelpSystem().displayHelp(
+						((NewNonIdentifiableWizard) this.getWizard())
+								.getHelpContextId());
 			}
 		}
 	}
 
 	@Override
-	protected void createButtonsForButtonBar(Composite parent) {
+	protected void createButtonsForButtonBar(final Composite parent) {
 		super.createButtonsForButtonBar(parent);
 		helpButton = super.getButton(IDialogConstants.HELP_ID);
-		ImageDescriptor helpIcon = AbstractUIPlugin.imageDescriptorFromPlugin("org.eclipse.stem.ui", "icons/full/customobj16/questionmark.gif");
-		Image image = helpIcon.createImage();
+		final ImageDescriptor helpIcon = AbstractUIPlugin
+				.imageDescriptorFromPlugin("org.eclipse.stem.ui",
+						"icons/full/customobj16/HelpIcon.gif");
+		final Image image = helpIcon.createImage();
+		final ImageDescriptor helpIconMacOS = AbstractUIPlugin.imageDescriptorFromPlugin("org.eclipse.stem.ui", "icons/full/customobj16/HelpIconMacOS.gif");
 		helpButton.setText("");
-		helpButton.setImage(image);
-		GridData helpButtonLayout = new GridData();
+		if(System.getProperties().getProperty("os.name").contains("Mac")){
+			final Image imageMacOS = helpIconMacOS.createImage();
+			helpButton.setImage(imageMacOS);
+		}
+		else{
+			helpButton.setImage(image);
+		}
+		final GridData helpButtonLayout = new GridData();
 		helpButtonLayout.verticalAlignment = GridData.FILL;
-		helpButtonLayout.widthHint = 30;
-		helpButtonLayout.heightHint = 30;
 		helpButton.setLayoutData(helpButtonLayout);
 	}
 }
