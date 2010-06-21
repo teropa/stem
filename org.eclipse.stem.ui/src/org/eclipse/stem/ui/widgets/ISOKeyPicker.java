@@ -20,6 +20,8 @@ import org.eclipse.stem.data.geography.GeographicNames;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -89,6 +91,7 @@ public class ISOKeyPicker extends Composite {
 			public void widgetSelected(final SelectionEvent e) {
 				final Object[] selected = filteredList.getSelection();
 				// Anything selected?
+				
 				if (selected.length == 1) {
 					final String isoKey = (String) selected[0];
 					fireISOKeyPicked(isoKey);
@@ -158,4 +161,21 @@ public class ISOKeyPicker extends Composite {
 			listener.isoKeyPicked(isoKeyPickedEvent);
 		} // for each ISOKeyPickedEventListener
 	}
+	
+	public Point getRegionListSize() {
+		return filteredList.getSize();
+	}
+	
+	public Rectangle getRegionListBounds() {
+		return filteredList.getBounds();
+	}
+	
+	public void setRegionListSize(int width, int height) {
+		filteredList.setSize(width, height);
+	}
+	
+	public void setRegionListBounds(int x0, int y0, int width, int height) {
+		filteredList.setBounds(x0,y0,width, height);
+	}
+	
 } // ISOKeyPicker
