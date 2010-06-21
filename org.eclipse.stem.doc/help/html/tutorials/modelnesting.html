@@ -7,15 +7,15 @@
 <body>
 <h1>Controlling scenario initialization by nesting models</h1>
 <p>At the beginning of a simulation, STEM allows decorators such as population models, population initializers
-and disease models to initialize themselves. For instance, when a disease model initializes it creates the 
-disease model labels necessary to track the state of a disese in a population. A disease model depends
-on the population model labels created by a population model when creating the disease model labels. Furthermore, 
+and disease models to initialize themselves. For instance, when a disease model is initialized, it creates the 
+disease model labels necessary to track the state of the disese in a population. A disease model depends
+on the population model labels created by a population model to be able to create the disease model labels. Furthermore, 
 a population model depends on the existance of static population labels, created either by a population initializers 
 or by dragging population data into your model from the STEM library.
 </p>
 <p>
 Consequently, the order of initialization becomes important, and the order is controlled by
-nesting models inside models. Decorators that are deeper in the model tree are initializer before decorator above
+nesting models inside models. Decorators that are deeper in the model tree are initialized before decorators higher up
 in the tree. See the figure below for an example. Deepest in the tree is a population initializer that creates the
 static population labels needed by the demographic population model one level up. The demographic population model
 subdivides the population into subgroups needed by the disease model in the level above. 
