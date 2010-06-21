@@ -18,6 +18,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -186,10 +187,13 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 				// Yes
 				try {
 					final Object obj = ((StructuredSelection) selection).toArray()[0];
-					// We can only modify EObjects
-					if (obj instanceof EObject) {
-						EObject target = (EObject)obj;
-						// Yes
+					EObject target = null;
+					if(obj instanceof DelegatingWrapperItemProvider) 
+						target = (EObject)((DelegatingWrapperItemProvider)obj).getValue();
+					else if (obj instanceof EObject) 
+						target = (EObject)obj;
+					
+					if(target != null) {
 						final IWorkbenchWindow window = HandlerUtil
 								.getActiveWorkbenchWindowChecked(executionEvent);
 						final NewModifierWizard wizard = new NewModifierWizard();
@@ -199,8 +203,7 @@ public class NewModifierWizard extends NewIdentifiableWizard {
 						final WizardDialog wizardDialog = new STEMWizardDialog(window
 								.getShell(), wizard);
 						wizardDialog.open();
-					} // if
-					else {
+					} else {
 						// No
 						Activator.logError(
 								"Internal error: attempting to create Modifier Wizard for \""
