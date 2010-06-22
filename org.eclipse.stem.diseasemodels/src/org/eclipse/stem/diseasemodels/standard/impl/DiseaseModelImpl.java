@@ -668,11 +668,11 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		return success;
 	} // decorateGraph
 
-	private boolean findPopulationModel(Model m) {
+	protected boolean findPopulationModel(Model m, String population) {
 		boolean found = false;
 		// Check sub models first
 		for(Model m2:m.getModels()) {
-			found = findPopulationModel(m2);
+			found = findPopulationModel(m2, population);
 			if(found)break;
 		}
 		if(found) return found;
@@ -680,14 +680,14 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		for(NodeDecorator dec: m.getNodeDecorators()) {
 			if(dec instanceof DemographicPopulationModel) {
 				DemographicPopulationModel dpm = (DemographicPopulationModel)dec;
-				if(dpm.getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+				if(dpm.getPopulationIdentifier().equals(population)) {
 					found = true;
 					break;
 				}
 				// Any of the groups match?
 				boolean match = false;
 				for(PopulationGroup pg:dpm.getPopulationGroups()) {
-					if(pg.getIdentifier().equals(this.getPopulationIdentifier())) {match=true;break;}
+					if(pg.getIdentifier().equals(population)) {match=true;break;}
 				}
 				if(match) {
 					found = true;
@@ -695,7 +695,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 				}
 			} else
 			if(dec instanceof PopulationModel && 
-					((PopulationModel)dec).getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+					((PopulationModel)dec).getPopulationIdentifier().equals(population)) {
 				found = true;break;
 			}
 		}
@@ -714,7 +714,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		// Check whether a population model exists for the disease model. If not, create
 		// a new population model with birth/death rate 0.
 		
-		boolean found = findPopulationModel(model);
+		boolean found = findPopulationModel(model, this.getPopulationIdentifier());
 		
 		if(!found) {
 			// Create a new standard population model
