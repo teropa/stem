@@ -15,6 +15,7 @@ package org.eclipse.stem.ui.wizards;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor.DiseaseModelPropertyEditor;
@@ -44,7 +45,7 @@ public class DiseaseModelPropertyComposite extends Composite {
 	 */
 	public DiseaseModelPropertyComposite(final Composite parent,
 			final int style, final DiseaseModel[] diseaseModels,
-			ModifyListener projectValidator) {
+			ModifyListener projectValidator, IProject project) {
 		super(parent, style);
 		stackLayout = new StackLayout();
 		setLayout(stackLayout);
@@ -64,7 +65,7 @@ public class DiseaseModelPropertyComposite extends Composite {
 
 				final DiseaseModelPropertyEditor dmpe = dmpea
 						.createDiseaseModelPropertyEditor(this, SWT.NONE,
-								projectValidator);
+								projectValidator, project);
 
 				modelMap.put(diseaseModels[i], dmpe);
 				if (firstOne == null) {

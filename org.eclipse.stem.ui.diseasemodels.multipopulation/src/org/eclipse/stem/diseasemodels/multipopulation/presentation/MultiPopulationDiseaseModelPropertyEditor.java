@@ -13,6 +13,7 @@ package org.eclipse.stem.diseasemodels.multipopulation.presentation;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -65,8 +66,8 @@ public class MultiPopulationDiseaseModelPropertyEditor extends
 	 */
 	public MultiPopulationDiseaseModelPropertyEditor(Composite parent,
 			int style, DiseaseModel diseaseModel,
-			ModifyListener projectValidator) {
-		super(parent, style, diseaseModel, projectValidator);
+			ModifyListener projectValidator, IProject project) {
+		super(parent, style, diseaseModel, projectValidator, project);
 	} // MultiDiseaseModelPropertyEditor
 
 	/**

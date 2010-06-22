@@ -31,6 +31,7 @@ import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsFactory;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
+import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 
 /**
@@ -60,6 +61,13 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * @generated
 	 */
 	private EClass squareLatticeGraphGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass migrationEdgeGraphGeneratorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -217,6 +225,24 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMigrationEdgeGraphGenerator() {
+		return migrationEdgeGraphGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMigrationEdgeGraphGenerator_Location() {
+		return (EAttribute)migrationEdgeGraphGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GraphgeneratorsFactory getGraphgeneratorsFactory() {
 		return (GraphgeneratorsFactory)getEFactoryInstance();
 	}
@@ -251,6 +277,9 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 
 		squareLatticeGraphGeneratorEClass = createEClass(SQUARE_LATTICE_GRAPH_GENERATOR);
 		createEAttribute(squareLatticeGraphGeneratorEClass, SQUARE_LATTICE_GRAPH_GENERATOR__AREA);
+
+		migrationEdgeGraphGeneratorEClass = createEClass(MIGRATION_EDGE_GRAPH_GENERATOR);
+		createEAttribute(migrationEdgeGraphGeneratorEClass, MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION);
 	}
 
 	/**
@@ -289,6 +318,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		graphGeneratorEClass.getESuperTypes().add(theCommonPackage.getIdentifiable());
 		latticeGraphGeneratorEClass.getESuperTypes().add(this.getGraphGenerator());
 		squareLatticeGraphGeneratorEClass.getESuperTypes().add(this.getLatticeGraphGenerator());
+		migrationEdgeGraphGeneratorEClass.getESuperTypes().add(this.getGraphGenerator());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(graphGeneratorEClass, GraphGenerator.class, "GraphGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -304,6 +334,9 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 
 		initEClass(squareLatticeGraphGeneratorEClass, SquareLatticeGraphGenerator.class, "SquareLatticeGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSquareLatticeGraphGenerator_Area(), theEcorePackage.getEDouble(), "area", "2025", 0, 1, SquareLatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(migrationEdgeGraphGeneratorEClass, MigrationEdgeGraphGenerator.class, "MigrationEdgeGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMigrationEdgeGraphGenerator_Location(), theGraphPackage.getURI(), "location", null, 0, 1, MigrationEdgeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

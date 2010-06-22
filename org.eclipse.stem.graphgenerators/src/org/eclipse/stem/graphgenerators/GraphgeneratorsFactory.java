@@ -35,6 +35,15 @@ public interface GraphgeneratorsFactory extends EFactory {
 	SquareLatticeGraphGenerator createSquareLatticeGraphGenerator();
 
 	/**
+	 * Returns a new object of class '<em>Migration Edge Graph Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Migration Edge Graph Generator</em>'.
+	 * @generated
+	 */
+	MigrationEdgeGraphGenerator createMigrationEdgeGraphGenerator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

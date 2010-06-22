@@ -14,6 +14,7 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
 
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
@@ -38,8 +39,8 @@ public class StandardPopulationInitializerPropertyEditor extends PopulationIniti
 	 */
 	public StandardPopulationInitializerPropertyEditor(final Composite parent, final int style,
 			final PopulationInitializer populationInitializer,
-			final ModifyListener projectValidator) {
-		super(parent, style, populationInitializer, projectValidator);
+			final ModifyListener projectValidator, IProject project) {
+		super(parent, style, populationInitializer, projectValidator, project);
 		
 	} // StandardPopulationInitializerPropertyEditor
 

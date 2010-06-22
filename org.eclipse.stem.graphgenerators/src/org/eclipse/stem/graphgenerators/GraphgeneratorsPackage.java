@@ -1,15 +1,9 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.graphgenerators;
+
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.stem.core.common.CommonPackage;
 
 /**
@@ -297,6 +291,61 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 */
 	int SQUARE_LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
 
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl <em>Migration Edge Graph Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl
+	 * @see org.eclipse.stem.graphgenerators.impl.GraphgeneratorsPackageImpl#getMigrationEdgeGraphGenerator()
+	 * @generated
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR = 3;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR__URI = GRAPH_GENERATOR__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR__TYPE_URI = GRAPH_GENERATOR__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR__DUBLIN_CORE = GRAPH_GENERATOR__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION = GRAPH_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Migration Edge Graph Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 1;
+
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.GraphGenerator <em>Graph Generator</em>}'.
@@ -393,6 +442,27 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSquareLatticeGraphGenerator_Area();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator <em>Migration Edge Graph Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Migration Edge Graph Generator</em>'.
+	 * @see org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator
+	 * @generated
+	 */
+	EClass getMigrationEdgeGraphGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getLocation()
+	 * @see #getMigrationEdgeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getMigrationEdgeGraphGenerator_Location();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -493,6 +563,24 @@ public interface GraphgeneratorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SQUARE_LATTICE_GRAPH_GENERATOR__AREA = eINSTANCE.getSquareLatticeGraphGenerator_Area();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl <em>Migration Edge Graph Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl
+		 * @see org.eclipse.stem.graphgenerators.impl.GraphgeneratorsPackageImpl#getMigrationEdgeGraphGenerator()
+		 * @generated
+		 */
+		EClass MIGRATION_EDGE_GRAPH_GENERATOR = eINSTANCE.getMigrationEdgeGraphGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION = eINSTANCE.getMigrationEdgeGraphGenerator_Location();
 
 	}
 

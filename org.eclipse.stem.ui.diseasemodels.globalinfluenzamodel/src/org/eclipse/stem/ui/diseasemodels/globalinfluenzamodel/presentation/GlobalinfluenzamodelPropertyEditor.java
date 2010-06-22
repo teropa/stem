@@ -13,6 +13,7 @@ package org.eclipse.stem.ui.diseasemodels.globalinfluenzamodel.presentation;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -53,8 +54,8 @@ public class GlobalinfluenzamodelPropertyEditor extends
 	 */
 	public GlobalinfluenzamodelPropertyEditor(Composite parent,
 			int style, DiseaseModel diseaseModel,
-			ModifyListener projectValidator) {
-		super(parent, style, diseaseModel, projectValidator);
+			ModifyListener projectValidator, IProject project) {
+		super(parent, style, diseaseModel, projectValidator, project);
 
 	} // GlobalinfluenzaModelPropertyEditor
 

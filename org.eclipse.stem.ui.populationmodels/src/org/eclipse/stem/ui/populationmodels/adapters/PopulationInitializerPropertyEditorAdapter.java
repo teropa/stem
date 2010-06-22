@@ -9,6 +9,7 @@ package org.eclipse.stem.ui.populationmodels.adapters;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.PopulationInitializerPropertyComposite;
@@ -19,5 +20,5 @@ abstract public class PopulationInitializerPropertyEditorAdapter extends Adapter
 
 	abstract public PopulationInitializerPropertyEditor createPopulationInitializerPropertyEditor(
 			PopulationInitializerPropertyComposite populationInitializerPropertyComposite,
-			int style, ModifyListener projectValidator);
+			int style, ModifyListener projectValidator, IProject project);
 } // PopulationInitializerPropertyEditorAdapter

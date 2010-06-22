@@ -10,6 +10,7 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+import org.eclipse.core.resources.IProject;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditor;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditorAdapter;
@@ -21,10 +22,10 @@ public class StandardPopulationModelPropertyEditorAdapter extends
 	@Override
 	public PopulationModelPropertyEditor createPopulationModelPropertyEditor(
 			final PopulationModelPropertyComposite populationModelPropertyComposite,
-			final int style, final ModifyListener projectValidator) {
+			final int style, final ModifyListener projectValidator, IProject project) {
 		return new StandardPopulationModelPropertyEditor(
 				populationModelPropertyComposite, style,
-				(PopulationModel) getTarget(), projectValidator);
+				(PopulationModel) getTarget(), projectValidator, project);
 	} // createPopulationModelPropertyEditor
 
 } // StandardPopulationModelPropertyEditorAdapter

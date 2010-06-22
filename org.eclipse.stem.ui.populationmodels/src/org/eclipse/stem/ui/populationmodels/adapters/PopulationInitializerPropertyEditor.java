@@ -14,6 +14,7 @@ package org.eclipse.stem.ui.populationmodels.adapters;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -49,14 +50,14 @@ abstract public class PopulationInitializerPropertyEditor extends GenericPropert
 		return retValue;
 	} // isUserSpecifiedDiseaseModelProperty
 
-	public PopulationInitializerPropertyEditor(Composite parent, int style) {
-		super(parent,style);
+	public PopulationInitializerPropertyEditor(Composite parent, int style, IProject project) {
+		super(parent,style, project);
 	}
 
 	public PopulationInitializerPropertyEditor(final Composite parent, final int style,
 			final PopulationInitializer populationInitializer,
-			final ModifyListener projectValidator) {
-		super(parent, style, populationInitializer, projectValidator);
+			final ModifyListener projectValidator, IProject project) {
+		super(parent, style, populationInitializer, projectValidator, project);
 	}
 	
 	public void populate(PopulationInitializer populationInitializer) {

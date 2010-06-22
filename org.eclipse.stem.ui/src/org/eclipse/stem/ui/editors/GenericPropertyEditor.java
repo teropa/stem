@@ -15,18 +15,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
+import org.eclipse.stem.ui.widgets.LocationPickerDialog;
 import org.eclipse.stem.ui.widgets.MatrixEditorDialog;
 import org.eclipse.stem.ui.widgets.MatrixEditorWidget.MatrixEditorValidator;
 import org.eclipse.stem.ui.wizards.Messages;
@@ -63,9 +68,11 @@ public abstract class GenericPropertyEditor extends Composite {
 	protected final Map<EStructuralFeature, Boolean> booleanMap = new HashMap<EStructuralFeature, Boolean>();
 
 	protected String errorMessage;
-
-	public GenericPropertyEditor(Composite parent, int style) {
+	protected IProject project;
+	
+	public GenericPropertyEditor(Composite parent, int style, IProject project) {
 		super(parent,style);
+		this.project = project;
 	}
 
 	/**
@@ -77,9 +84,10 @@ public abstract class GenericPropertyEditor extends Composite {
 	 */
 	public GenericPropertyEditor(final Composite parent, final int style,
 			final Identifiable identifiable,
-			final ModifyListener projectValidator) {
+			final ModifyListener projectValidator, IProject project) {
 		super(parent, style);
-
+		this.project = project;
+		
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 3;
 		setLayout(gridLayout);
@@ -102,6 +110,8 @@ public abstract class GenericPropertyEditor extends Composite {
 					.getFeature(null);
 			// Is this a disease model property that the user should specify?
 			boolean isDataPath = false;
+			boolean isURI = false;
+			
 			if (isUserSpecifiedProperty(feature)) {
 				// Yes
 				final Label label = new Label(this, SWT.NONE);
@@ -149,6 +159,41 @@ public abstract class GenericPropertyEditor extends Composite {
 					  cGD.horizontalAlignment = SWT.FILL;
 					  radioComposite.setLayoutData(cGD);
 					  
+				} else if(classifier.getName().equals("URI")) {
+					// Bring up location picker for URI's
+					isURI = true;
+					
+					final Text isokeyValueText = new Text(this, SWT.NONE);
+					isokeyValueText.setText("");
+					map.put(feature, isokeyValueText);
+					
+					final GridData gd_isoKeyLabelValue = new GridData(SWT.FILL, SWT.CENTER, true, false);
+					isokeyValueText.setLayoutData(gd_isoKeyLabelValue);
+					
+					final Button locationButton = new Button(this, SWT.NONE);
+					locationButton.setText(Messages.getString("NPickLoc"));
+					final GridData lb_isoKeyLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
+					locationButton.setLayoutData(lb_isoKeyLabel);
+					
+					locationButton.addSelectionListener(new SelectionListener() {
+						
+						public void widgetSelected(SelectionEvent arg0) {
+							LocationPickerDialog lpDialog = new LocationPickerDialog(GenericPropertyEditor.this.getShell(), SWT.NONE, Messages.getString("NPickLocTitle"), isokeyValueText.getText(), GenericPropertyEditor.this.project);
+							
+							Object [] ret  = lpDialog.open();
+							if(ret != null) { 
+								if(ret[1] != null)
+									isokeyValueText.setText(((URI)ret[1]).toString());
+								else
+									isokeyValueText.setText(STEMURI.createURI("node/geo/region/"+((String)ret[0])).toString());
+							}
+						}
+						
+						public void widgetDefaultSelected(SelectionEvent arg0) {
+							
+						}
+					});
+
 				} else {
 					// Not a boolean
 					Text text = null;
@@ -251,7 +296,7 @@ public abstract class GenericPropertyEditor extends Composite {
 						buttons.setLayoutData(fileBtnGD);
 					}
 				} // is not boolean
-				if (!isDataPath) {
+				if (!isDataPath && !isURI) {
 					final Label unitLabel = new Label(this, SWT.NONE);
 					unitLabel.setText(pspa.getPropertyUnits(descriptor));
 					final GridData unitLabelGD = new GridData(GridData.END);

@@ -9,6 +9,7 @@ package org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.stem.ui.wizards.DiseaseModelPropertyComposite;
@@ -19,5 +20,5 @@ abstract public class DiseaseModelPropertyEditorAdapter extends AdapterImpl
 
 	abstract public DiseaseModelPropertyEditor createDiseaseModelPropertyEditor(
 			DiseaseModelPropertyComposite diseaseModelPropertyComposite,
-			int style, ModifyListener projectValidator);
+			int style, ModifyListener projectValidator, IProject project);
 } // DiseaseModelPropertyEditorAdapter

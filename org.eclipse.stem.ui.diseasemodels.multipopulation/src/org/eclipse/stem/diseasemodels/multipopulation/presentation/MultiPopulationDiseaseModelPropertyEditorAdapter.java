@@ -10,6 +10,7 @@ package org.eclipse.stem.diseasemodels.multipopulation.presentation;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor.DiseaseModelPropertyEditor;
 import org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor.DiseaseModelPropertyEditorAdapter;
@@ -30,10 +31,10 @@ public class MultiPopulationDiseaseModelPropertyEditorAdapter extends
 	@Override
 	public DiseaseModelPropertyEditor createDiseaseModelPropertyEditor(
 			DiseaseModelPropertyComposite diseaseModelPropertyComposite,
-			int style, ModifyListener projectValidator) {
+			int style, ModifyListener projectValidator, IProject project) {
 		return new MultiPopulationDiseaseModelPropertyEditor(
 				diseaseModelPropertyComposite, style,
-				(DiseaseModel) getTarget(), projectValidator);
+				(DiseaseModel) getTarget(), projectValidator, project);
 	} // createDiseaseModelPropertyEditor
 
 } // ExampleDiseaseModelAdapter

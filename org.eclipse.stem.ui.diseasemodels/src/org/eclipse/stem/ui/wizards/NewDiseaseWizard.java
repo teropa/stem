@@ -131,7 +131,7 @@ public class NewDiseaseWizard extends NewIdentifiableWizard {
 		@Override
 		protected Composite createSpecificComposite(final Composite parent) {
 			ddc = new DiseaseDefinitionControl(parent, SWT.NONE,
-					projectValidator);
+					projectValidator, this.getSelectedProject());
 			return ddc;
 		} // createSpecificComposite
 

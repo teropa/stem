@@ -9,6 +9,7 @@ package org.eclipse.stem.ui.populationmodels.adapters;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.stem.ui.populationmodels.standard.wizards.PopulationModelPropertyComposite;
@@ -19,5 +20,5 @@ abstract public class PopulationModelPropertyEditorAdapter extends AdapterImpl
 
 	abstract public PopulationModelPropertyEditor createPopulationModelPropertyEditor(
 			PopulationModelPropertyComposite diseaseModelPropertyComposite,
-			int style, ModifyListener projectValidator);
+			int style, ModifyListener projectValidator, IProject project);
 } // PopulationModelPropertyEditorAdapter

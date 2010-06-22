@@ -90,7 +90,7 @@ public class PopulationModelDefinitionControl extends Composite {
 
 		
 		populationModelPropertyComposite = new PopulationModelPropertyComposite(this,
-				SWT.NONE, getPopulationModels(), projectValidator);
+				SWT.NONE, getPopulationModels(), projectValidator, project);
 		final GridData gd_populationModelPropertyControl = new GridData(SWT.FILL,
 				SWT.CENTER, true, false, 2, 1);
 		populationModelPropertyComposite

@@ -15,18 +15,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
+import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
@@ -57,8 +60,8 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.GenericPropertyEditor {
 
-	public GraphGeneratorPropertyEditor(Composite parent, int style) {
-		super(parent,style);
+	public GraphGeneratorPropertyEditor(Composite parent, int style, IProject project) {
+		super(parent,style, project);
 	}
 
 	/**
@@ -70,8 +73,8 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 	 */
 	public GraphGeneratorPropertyEditor(final Composite parent, final int style,
 			final GraphGenerator graphGenerator,
-			final ModifyListener projectValidator) {
-		super(parent, style, (Identifiable)graphGenerator, projectValidator);
+			final ModifyListener projectValidator, IProject project) {
+		super(parent, style, (Identifiable)graphGenerator, projectValidator, project);
 	} // GraphGeneratorPropertyEditor
 
 
@@ -82,34 +85,40 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 	 */
 	public Graph getGraph(final GraphGenerator graphGenerator) {
 		for (final Map.Entry<EStructuralFeature, Text> entry : map.entrySet()) {
-			
-			switch (entry.getKey().getFeatureID()) {
-				case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
-					((LatticeGraphGenerator)graphGenerator).setXSize(Integer.parseInt(entry.getValue().getText()));
-					break;
-				case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
-					((LatticeGraphGenerator)graphGenerator).setYSize(Integer.parseInt(entry.getValue().getText()));
-					break;
-				case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
-					((SquareLatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
-					break;
-			}
-			
-		}
-		
-		for (final Map.Entry<EStructuralFeature, Boolean> entry : booleanMap.entrySet()) {
-				
+			if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR ) {
 				switch (entry.getKey().getFeatureID()) {
-					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
-						((LatticeGraphGenerator)graphGenerator).setUseNearestNeighbors(entry.getValue().booleanValue());
+					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
+						((LatticeGraphGenerator)graphGenerator).setXSize(Integer.parseInt(entry.getValue().getText()));
 						break;
-					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS:
-						((LatticeGraphGenerator)graphGenerator).setUseNextNearestNeighbors(entry.getValue().booleanValue());
+					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
+						((LatticeGraphGenerator)graphGenerator).setYSize(Integer.parseInt(entry.getValue().getText()));
 						break;
-					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
-						((LatticeGraphGenerator)graphGenerator).setPeriodicBoundaries(entry.getValue().booleanValue());
+					case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
+						((SquareLatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
 						break;
 				}
+			} else if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR) {
+				switch (entry.getKey().getFeatureID()) {
+					case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
+						((MigrationEdgeGraphGenerator)graphGenerator).setLocation(STEMURI.createURI(entry.getValue().getText()));
+						break;
+				} // switch
+			}
+		}
+
+		for (final Map.Entry<EStructuralFeature, Boolean> entry : booleanMap.entrySet()) {
+
+			switch (entry.getKey().getFeatureID()) {
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
+				((LatticeGraphGenerator)graphGenerator).setUseNearestNeighbors(entry.getValue().booleanValue());
+				break;
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS:
+				((LatticeGraphGenerator)graphGenerator).setUseNextNearestNeighbors(entry.getValue().booleanValue());
+				break;
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
+				((LatticeGraphGenerator)graphGenerator).setPeriodicBoundaries(entry.getValue().booleanValue());
+				break;
+			}
 		}
 			
 		// Do it!

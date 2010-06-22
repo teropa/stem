@@ -15,6 +15,7 @@ package org.eclipse.stem.ui.populationmodels.standard.wizards;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.populationmodels.adapters.PopulationModelPropertyEditor;
@@ -44,7 +45,7 @@ public class PopulationModelPropertyComposite extends Composite {
 	 */
 	public PopulationModelPropertyComposite(final Composite parent,
 			final int style, final PopulationModel[] populationModels,
-			ModifyListener projectValidator) {
+			ModifyListener projectValidator, IProject project) {
 		super(parent, style);
 		stackLayout = new StackLayout();
 		setLayout(stackLayout);
@@ -64,7 +65,7 @@ public class PopulationModelPropertyComposite extends Composite {
 
 				final PopulationModelPropertyEditor dmpe = dmpea
 						.createPopulationModelPropertyEditor(this, SWT.NONE,
-								projectValidator);
+								projectValidator, project);
 
 				modelMap.put(populationModels[i], dmpe);
 				if (firstOne == null) {

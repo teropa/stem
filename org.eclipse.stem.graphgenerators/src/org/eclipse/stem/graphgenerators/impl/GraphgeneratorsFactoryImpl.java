@@ -61,6 +61,7 @@ public class GraphgeneratorsFactoryImpl extends EFactoryImpl implements Graphgen
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR: return createSquareLatticeGraphGenerator();
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR: return createMigrationEdgeGraphGenerator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -74,6 +75,16 @@ public class GraphgeneratorsFactoryImpl extends EFactoryImpl implements Graphgen
 	public SquareLatticeGraphGenerator createSquareLatticeGraphGenerator() {
 		SquareLatticeGraphGeneratorImpl squareLatticeGraphGenerator = new SquareLatticeGraphGeneratorImpl();
 		return squareLatticeGraphGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MigrationEdgeGraphGenerator createMigrationEdgeGraphGenerator() {
+		MigrationEdgeGraphGeneratorImpl migrationEdgeGraphGenerator = new MigrationEdgeGraphGeneratorImpl();
+		return migrationEdgeGraphGenerator;
 	}
 
 	/**

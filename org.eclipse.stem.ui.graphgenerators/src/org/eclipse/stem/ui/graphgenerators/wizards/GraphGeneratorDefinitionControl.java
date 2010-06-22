@@ -15,6 +15,7 @@ package org.eclipse.stem.ui.graphgenerators.wizards;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
@@ -54,7 +55,7 @@ public class GraphGeneratorDefinitionControl extends Composite {
 	 * @param projectValidator
 	 */
 	public GraphGeneratorDefinitionControl(final Composite parent, final int style,
-			ModifyListener projectValidator) {
+			ModifyListener projectValidator, IProject project) {
 		super(parent, style);
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.marginWidth = 0;
@@ -82,7 +83,7 @@ public class GraphGeneratorDefinitionControl extends Composite {
 		
 		
 		graphGeneratorPropertyComposite = new GraphGeneratorPropertyComposite(this,
-				SWT.NONE, getGraphGenerators(), projectValidator);
+				SWT.NONE, getGraphGenerators(), projectValidator, project);
 		final GridData gd_graphGeneratorPropertyControl = new GridData(SWT.FILL,
 				SWT.CENTER, true, false, 2, 1);
 		graphGeneratorPropertyComposite

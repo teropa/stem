@@ -23,8 +23,21 @@
      <dublin_core
            creator="%dc_creator_edlund"
            description="%dc_desc_Lattice"
-           identifier="foo"
+           identifier="square"
            title="%dc_desc_Lattice">
+     </dublin_core>
+  </extension>
+  
+  <extension
+        point="org.eclipse.stem.graphgenerators.graphgenerator">
+     <classdef
+           class="org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_edlund"
+           description="%dc_desc_Migration"
+           identifier="migration"
+           title="%dc_desc_Migration">
      </dublin_core>
   </extension>
   

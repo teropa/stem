@@ -15,6 +15,7 @@ package org.eclipse.stem.ui.wizards;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -70,8 +71,8 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 	 */
 	public StandardDiseaseModelPropertyEditor(final Composite parent, final int style,
 			final DiseaseModel diseaseModel,
-			final ModifyListener projectValidator) {
-		super(parent, style, diseaseModel, projectValidator);
+			final ModifyListener projectValidator, IProject project) {
+		super(parent, style, diseaseModel, projectValidator, project);
 
 	} // StandardDiseaseModelPropertyEditor
 

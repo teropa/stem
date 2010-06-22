@@ -116,6 +116,15 @@ public class GraphgeneratorsSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR: {
+				MigrationEdgeGraphGenerator migrationEdgeGraphGenerator = (MigrationEdgeGraphGenerator)theEObject;
+				T1 result = caseMigrationEdgeGraphGenerator(migrationEdgeGraphGenerator);
+				if (result == null) result = caseGraphGenerator(migrationEdgeGraphGenerator);
+				if (result == null) result = caseIdentifiable(migrationEdgeGraphGenerator);
+				if (result == null) result = caseComparable(migrationEdgeGraphGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -162,6 +171,21 @@ public class GraphgeneratorsSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseSquareLatticeGraphGenerator(SquareLatticeGraphGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Migration Edge Graph Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Migration Edge Graph Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMigrationEdgeGraphGenerator(MigrationEdgeGraphGenerator object) {
 		return null;
 	}
 

@@ -10,6 +10,7 @@ package org.eclipse.stem.ui.wizards;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+import org.eclipse.core.resources.IProject;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor.DiseaseModelPropertyEditor;
 import org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor.DiseaseModelPropertyEditorAdapter;
@@ -22,10 +23,10 @@ public class StandardDiseaseModelPropertyEditorAdapter extends
 	@Override
 	public DiseaseModelPropertyEditor createDiseaseModelPropertyEditor(
 			final DiseaseModelPropertyComposite diseaseModelPropertyComposite,
-			final int style, final ModifyListener projectValidator) {
+			final int style, final ModifyListener projectValidator, IProject project) {
 		return new StandardDiseaseModelPropertyEditor(
 				diseaseModelPropertyComposite, style,
-				(DiseaseModel) getTarget(), projectValidator);
+				(DiseaseModel) getTarget(), projectValidator, project);
 	} // createDiseaseModelPropertyEditor
 
 } // StandardDiseaseModelPropertyEditorAdapter

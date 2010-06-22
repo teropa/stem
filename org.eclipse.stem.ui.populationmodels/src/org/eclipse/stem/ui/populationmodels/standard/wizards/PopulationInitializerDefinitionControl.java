@@ -89,7 +89,7 @@ public class PopulationInitializerDefinitionControl extends Composite {
 
 		
 		populationInitializerPropertyComposite = new PopulationInitializerPropertyComposite(this,
-				SWT.NONE, getPopulationInitializers(), projectValidator);
+				SWT.NONE, getPopulationInitializers(), projectValidator, project);
 		final GridData gd_populationInitializerPropertyControl = new GridData(SWT.FILL,
 				SWT.CENTER, true, false, 2, 1);
 		populationInitializerPropertyComposite

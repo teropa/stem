@@ -9,6 +9,7 @@ package org.eclipse.stem.ui.graphgenerators.adapters.graphgeneratorpropertyedito
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.stem.graphgenerators.GraphGenerator;
@@ -20,10 +21,10 @@ public class GraphGeneratorPropertyEditorAdapter extends AdapterImpl
 
 	public GraphGeneratorPropertyEditor createGraphGeneratorPropertyEditor(
 			final GraphGeneratorPropertyComposite graphGeneratorPropertyComposite,
-			final int style, final ModifyListener projectValidator) {
+			final int style, final ModifyListener projectValidator, IProject project) {
 		return new GraphGeneratorPropertyEditor(
 				graphGeneratorPropertyComposite, style,
-				(GraphGenerator) getTarget(), projectValidator);
+				(GraphGenerator) getTarget(), projectValidator, project);
 	} // createGraphGeneratorPropertyEditor
 	
 } // GraphGeneratorPropertyEditorAdapter

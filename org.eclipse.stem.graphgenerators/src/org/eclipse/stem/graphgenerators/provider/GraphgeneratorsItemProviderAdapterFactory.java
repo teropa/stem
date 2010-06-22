@@ -99,6 +99,29 @@ public class GraphgeneratorsItemProviderAdapterFactory extends GraphgeneratorsAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MigrationEdgeGraphGeneratorItemProvider migrationEdgeGraphGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMigrationEdgeGraphGeneratorAdapter() {
+		if (migrationEdgeGraphGeneratorItemProvider == null) {
+			migrationEdgeGraphGeneratorItemProvider = new MigrationEdgeGraphGeneratorItemProvider(this);
+		}
+
+		return migrationEdgeGraphGeneratorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,6 +221,7 @@ public class GraphgeneratorsItemProviderAdapterFactory extends GraphgeneratorsAd
 	 */
 	public void dispose() {
 		if (squareLatticeGraphGeneratorItemProvider != null) squareLatticeGraphGeneratorItemProvider.dispose();
+		if (migrationEdgeGraphGeneratorItemProvider != null) migrationEdgeGraphGeneratorItemProvider.dispose();
 	}
 
 }

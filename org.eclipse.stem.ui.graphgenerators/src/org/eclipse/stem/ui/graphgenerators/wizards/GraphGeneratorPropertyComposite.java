@@ -15,6 +15,7 @@ package org.eclipse.stem.ui.graphgenerators.wizards;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.ui.Activator;
@@ -45,7 +46,7 @@ public class GraphGeneratorPropertyComposite extends Composite {
 	 */
 	public GraphGeneratorPropertyComposite(final Composite parent,
 			final int style, final GraphGenerator[] graphGenerators,
-			ModifyListener projectValidator) {
+			ModifyListener projectValidator, IProject project) {
 		super(parent, style);
 		stackLayout = new StackLayout();
 		setLayout(stackLayout);
@@ -65,7 +66,7 @@ public class GraphGeneratorPropertyComposite extends Composite {
 
 				final GraphGeneratorPropertyEditor dmpe = dmpea
 						.createGraphGeneratorPropertyEditor(this, SWT.NONE,
-								projectValidator);
+								projectValidator, project);
 
 				modelMap.put(graphGenerators[i], dmpe);
 				if (firstOne == null) {

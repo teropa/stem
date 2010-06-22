@@ -14,6 +14,7 @@ package org.eclipse.stem.ui.adapters.diseasemodelpropertyeditor;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -58,8 +59,8 @@ abstract public class DiseaseModelPropertyEditor extends GenericPropertyEditor {
 	} // isUserSpecifiedDiseaseModelProperty
 
 
-	public DiseaseModelPropertyEditor(Composite parent, int style) {
-		super(parent,style);
+	public DiseaseModelPropertyEditor(Composite parent, int style, IProject project) {
+		super(parent,style, project);
 	}
 
 	/**
@@ -71,8 +72,8 @@ abstract public class DiseaseModelPropertyEditor extends GenericPropertyEditor {
 	 */
 	public DiseaseModelPropertyEditor(final Composite parent, final int style,
 			final DiseaseModel diseaseModel,
-			final ModifyListener projectValidator) {
-		super(parent, style, diseaseModel, projectValidator);
+			final ModifyListener projectValidator, IProject project) {
+		super(parent, style, diseaseModel, projectValidator, project);
 	}
 	
 	public void populate(DiseaseModel diseaseModel) {

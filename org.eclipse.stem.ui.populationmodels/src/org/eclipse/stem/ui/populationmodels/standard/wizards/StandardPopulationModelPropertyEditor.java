@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -69,8 +70,8 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 	 */
 	public StandardPopulationModelPropertyEditor(final Composite parent, final int style,
 			final PopulationModel populationModel,
-			final ModifyListener projectValidator) {
-		super(parent, style, populationModel, projectValidator);
+			final ModifyListener projectValidator, IProject project) {
+		super(parent, style, populationModel, projectValidator, project);
 	
 		if(populationModel instanceof DemographicPopulationModel) {
 			allGroups = new Group(this, SWT.NONE);

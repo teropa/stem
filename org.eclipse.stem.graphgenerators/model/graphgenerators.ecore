@@ -24,4 +24,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="2025"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MigrationEdgeGraphGenerator" eSuperTypes="#//GraphGenerator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType ../../org.eclipse.stem.core/model/graph.ecore#//URI"/>
+  </eClassifiers>
 </ecore:EPackage>

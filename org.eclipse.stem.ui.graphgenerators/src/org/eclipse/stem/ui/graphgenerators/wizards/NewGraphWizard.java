@@ -158,7 +158,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 		@Override
 		protected Composite createSpecificComposite(final Composite parent) {
 			ggdc = new GraphGeneratorDefinitionControl(parent, SWT.NONE,
-					projectValidator);
+					projectValidator, this.getSelectedProject());
 			return ggdc;
 		} // createSpecificComposite
 
