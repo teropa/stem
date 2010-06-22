@@ -33,6 +33,7 @@ import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
 import org.eclipse.stem.definitions.edges.impl.MigrationEdgeLabelImpl;
@@ -58,6 +59,8 @@ import org.eclipse.stem.diseasemodels.standard.impl.SIImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
+import org.eclipse.stem.populationmodels.standard.impl.StandardFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -704,7 +707,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 					if (this == ((SILabel)label).getDecorator()) {
 						StandardDiseaseModelLabel otherDiseaseLabel = (StandardDiseaseModelLabel) label;
 						// now check the popualtion type
-						String otherPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
+						String otherPopulation = otherDiseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
 						if(otherPopulation.equals(nextPop)) {
 							// Yes?
 							// then we found the label for the correct next population
@@ -1147,6 +1150,29 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		return retValue;
 	} // getPopulationLabels
 
+	/**
+	 * We need to override to check all population groups
+	 */
+	
+	@Override
+	public void prepare(Model model, STEMTime time) {
+
+		for(StringValue sv:this.getPopulationGroups().getValues()) {
+			boolean found = findPopulationModel(model, sv.getValue());
+			
+			if(!found) {
+				// Create a new standard population model
+				StandardPopulationModel spm = StandardFactoryImpl.eINSTANCE.createStandardPopulationModel();
+				spm.setPopulationIdentifier(sv.getValue());
+				String title = "Auto Generated "+sv.getValue()+" population model";
+				String name = "auto_gen_"+sv.getValue()+"_population_model";
+				spm.setName(name);
+				spm.getDublinCore().setTitle(title);
+				model.getNodeDecorators().add(0, spm);
+			}
+		}
+	}
+	
 	@Override
 	public boolean isDeterministic() {
 		return true;

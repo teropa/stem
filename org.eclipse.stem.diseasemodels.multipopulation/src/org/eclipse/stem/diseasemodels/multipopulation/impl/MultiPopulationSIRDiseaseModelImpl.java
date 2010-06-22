@@ -222,7 +222,7 @@ public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDisease
 					if (this == ((SIRLabel)label).getDecorator()) {
 						StandardDiseaseModelLabel otherDiseaseLabel = (StandardDiseaseModelLabel) label;
 						// now check the popualtion type
-						String otherPopulation = diseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
+						String otherPopulation = otherDiseaseLabel.getPopulationModelLabel().getPopulationIdentifier();
 						if(otherPopulation.equals(nextPop)) {
 							// Yes?
 							// then we found the label for the correct next population
