@@ -7,11 +7,8 @@
 package org.eclipse.stem.graphgenerators.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.definitions.lattice.impl.SqrLatticeGeneratorImpl;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;

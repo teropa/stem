@@ -26,6 +26,12 @@ import org.eclipse.emf.common.util.URI;
  * @generated
  */
 public interface MigrationEdgeGraphGenerator extends GraphGenerator {
+	
+	/** 
+	 * Migration Edge Type
+	 */
+	public static final String MIGRATION_EDGE_TYPE="Migration Edges";
+	
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->

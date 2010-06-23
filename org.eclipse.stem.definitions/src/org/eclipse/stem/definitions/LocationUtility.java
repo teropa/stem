@@ -21,6 +21,7 @@ import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.Model;
+import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabelValue;
 import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabelValue;
 
@@ -153,6 +154,88 @@ public class LocationUtility {
 				isoKeyURIMap.put(key, u);
 			}			
 		}
+	}
+	
+public static Set<Edge> getCommonBorderEdges(IProject project) {
+		Set<Edge> cbEdges = new HashSet<Edge>();
+		if(!loaded) {
+			
+			IContainer modelFolder = project.getFolder("models");
+			
+			IResource[] models = null;
+			try {
+				models = modelFolder.members();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			for(IResource r:models) {
+				// ignore system files
+				if(r.getName().startsWith(".")) continue;
+				
+				try {
+					URI uri = URI.createURI(r.getLocationURI().toString());
+					Identifiable id = Utility.getIdentifiable(uri);
+					if(id instanceof Model) cbEdges.addAll(getModelCommonBorderEdges((Model)id));
+						
+				} catch(Exception e) {
+					// Skip bad file
+				}
+		
+			}	
+		
+			IContainer graphsFolder = project.getFolder("graphs");
+			IResource[] graphs = null;
+			try {
+				graphs = graphsFolder.members();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			for(IResource r:graphs) {
+				// ignore system files
+				if(r.getName().startsWith(".")) continue;
+				
+				try {
+					URI uri = URI.createURI(r.getLocationURI().toString());
+					Identifiable id = Utility.getIdentifiable(uri);
+					if(id instanceof Graph) cbEdges.addAll(getGraphCommonBorderEdges((Graph)id));
+						
+				} catch(Exception e) {
+					// Skip bad file
+				}
+		
+			}	
+			loaded = true;
+		}
+		
+		
+		return cbEdges;
+	}
+	
+	/***
+	 * 
+	 * @param g
+	 */
+	private static Set<Edge> getGraphCommonBorderEdges(Graph g) {
+		Set<Edge> cbEdges = new HashSet<Edge>();
+		for(Edge e:g.getEdges().values()) {
+			if(e.getLabel().getCurrentValue() instanceof CommonBorderRelationshipLabelValue) {
+				cbEdges.add(e);
+			}	
+		}
+		return cbEdges;
+	}//getGraphCommonBorderEdges
+	
+	private static Set<Edge> getModelCommonBorderEdges(Model m) {
+		Set<Edge> cbEdges = new HashSet<Edge>();
+		processedModels.add(m);
+		// First get sub models
+		for(Model m2:m.getModels()) 
+			if(!processedModels.contains(m2)) processModel(m2);
+	
+		// To the graphs in the model
+		EList<Graph>graphs = m.getGraphs();
+		for(Graph g:graphs) cbEdges.addAll(getGraphCommonBorderEdges(g));
+		return cbEdges;
 	}
 	
 	public static URI getURIFromISOKey(String key) {

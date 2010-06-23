@@ -10,23 +10,14 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.stem.core.common.CommonPackage;
-
 import org.eclipse.stem.core.graph.GraphPackage;
-
 import org.eclipse.stem.core.model.ModelPackage;
-
 import org.eclipse.stem.core.modifier.ModifierPackage;
-
 import org.eclipse.stem.core.scenario.ScenarioPackage;
-
 import org.eclipse.stem.core.sequencer.SequencerPackage;
-
 import org.eclipse.stem.core.solver.SolverPackage;
-
 import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsFactory;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;

@@ -7,11 +7,8 @@
 package org.eclipse.stem.graphgenerators.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
-
 import org.eclipse.stem.core.graph.Graph;
-
 import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 

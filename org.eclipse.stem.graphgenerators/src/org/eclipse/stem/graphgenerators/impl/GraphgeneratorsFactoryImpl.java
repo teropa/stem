@@ -9,12 +9,12 @@ package org.eclipse.stem.graphgenerators.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.graphgenerators.*;
+import org.eclipse.stem.graphgenerators.GraphgeneratorsFactory;
+import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
+import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
+import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 
 /**
  * <!-- begin-user-doc -->
