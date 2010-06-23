@@ -156,87 +156,97 @@ public class LocationUtility {
 		}
 	}
 	
-public static Set<Edge> getCommonBorderEdges(IProject project) {
-		Set<Edge> cbEdges = new HashSet<Edge>();
-		if(!loaded) {
-			
-			IContainer modelFolder = project.getFolder("models");
-			
-			IResource[] models = null;
-			try {
-				models = modelFolder.members();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			for(IResource r:models) {
-				// ignore system files
-				if(r.getName().startsWith(".")) continue;
-				
-				try {
-					URI uri = URI.createURI(r.getLocationURI().toString());
-					Identifiable id = Utility.getIdentifiable(uri);
-					if(id instanceof Model) cbEdges.addAll(getModelCommonBorderEdges((Model)id));
-						
-				} catch(Exception e) {
-					// Skip bad file
-				}
-		
-			}	
-		
-			IContainer graphsFolder = project.getFolder("graphs");
-			IResource[] graphs = null;
-			try {
-				graphs = graphsFolder.members();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			for(IResource r:graphs) {
-				// ignore system files
-				if(r.getName().startsWith(".")) continue;
-				
-				try {
-					URI uri = URI.createURI(r.getLocationURI().toString());
-					Identifiable id = Utility.getIdentifiable(uri);
-					if(id instanceof Graph) cbEdges.addAll(getGraphCommonBorderEdges((Graph)id));
-						
-				} catch(Exception e) {
-					// Skip bad file
-				}
-		
-			}	
-			loaded = true;
+	
+	/**
+	 * Place the edges from the graph in a Map keyed by the URI of the edge.
+	 * This avoids duplicates in case same graph exists in multiple models 
+	 * @param project
+	 * @return
+	 */
+	public static Set<Edge> getCommonBorderEdges(IProject project) {
+	    Map<String,Edge> cbEdges = new HashMap<String,Edge>();
+	
+		IContainer modelFolder = project.getFolder("models");	
+		IResource[] models = null;
+		try {
+			models = modelFolder.members();
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
-		
-		
-		return cbEdges;
+		for(IResource r:models) {
+			// ignore system files
+			if(r.getName().startsWith(".")) continue;
+			
+			try {
+				URI uri = URI.createURI(r.getLocationURI().toString());
+				Identifiable id = Utility.getIdentifiable(uri);
+				if(id instanceof Model) cbEdges.putAll(getModelCommonBorderEdges((Model)id));
+					
+			} catch(Exception e) {
+				// Skip bad file
+			}
+	
+		}	
+	
+		IContainer graphsFolder = project.getFolder("graphs");
+		IResource[] graphs = null;
+		try {
+			graphs = graphsFolder.members();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		for(IResource r:graphs) {
+			// ignore system files
+			if(r.getName().startsWith(".")) continue;
+			
+			try {
+				URI uri = URI.createURI(r.getLocationURI().toString());
+				Identifiable id = Utility.getIdentifiable(uri);
+				if(id instanceof Graph) cbEdges.putAll(getGraphCommonBorderEdges((Graph)id));
+					
+			} catch(Exception e) {
+				// Skip bad file
+			}
+	
+		}	
+		Set<Edge> retVal = new HashSet<Edge>();
+		retVal.addAll(cbEdges.values());
+		return retVal;
 	}
 	
 	/***
-	 * 
+	 * Place the edges from the graph in a Map keyed by the URI of the edge.
+	 * This avoids duplicates in case same graph exists in multiple models
 	 * @param g
 	 */
-	private static Set<Edge> getGraphCommonBorderEdges(Graph g) {
-		Set<Edge> cbEdges = new HashSet<Edge>();
+	private static Map<String,Edge> getGraphCommonBorderEdges(Graph g) {
+		Map<String,Edge> cbEdges = new HashMap<String,Edge>();
 		for(Edge e:g.getEdges().values()) {
 			if(e.getLabel().getCurrentValue() instanceof CommonBorderRelationshipLabelValue) {
-				cbEdges.add(e);
+				String uriKey = e.getURI().lastSegment();
+				cbEdges.put(uriKey,e);
 			}	
 		}
 		return cbEdges;
 	}//getGraphCommonBorderEdges
 	
-	private static Set<Edge> getModelCommonBorderEdges(Model m) {
-		Set<Edge> cbEdges = new HashSet<Edge>();
+	/**
+	 * Place the edges from the graph in a Map keyed by the URI of the edge.
+	 * This avoids duplicates in case same graph exists in multiple models 
+	 * @param m
+	 * @return
+	 */
+	private static Map<String,Edge> getModelCommonBorderEdges(Model m) {
+		Map<String,Edge> cbEdges = new HashMap<String,Edge>();
 		processedModels.add(m);
-		// First get sub models
-		for(Model m2:m.getModels()) 
-			if(!processedModels.contains(m2)) processModel(m2);
-	
+		
 		// To the graphs in the model
 		EList<Graph>graphs = m.getGraphs();
-		for(Graph g:graphs) cbEdges.addAll(getGraphCommonBorderEdges(g));
+		for(Graph g:graphs) {
+			cbEdges.putAll(getGraphCommonBorderEdges(g));
+		}
 		return cbEdges;
-	}
+	}//getModelCommonBorderEdges
 	
 	public static URI getURIFromISOKey(String key) {
 		return isoKeyURIMap.get(key);
