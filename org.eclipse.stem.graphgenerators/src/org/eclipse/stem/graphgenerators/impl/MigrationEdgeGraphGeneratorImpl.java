@@ -6,6 +6,7 @@
  */
 package org.eclipse.stem.graphgenerators.impl;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.URI;
@@ -71,6 +72,18 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 		return null;
 		
 	}
+	
+	/**
+	 * IProject to create edges in
+	 */
+	private IProject project;
+	public IProject getProject() {
+		return project; 
+	}
+	public void setProject(IProject p) {
+		this.project = p;
+	}
+	
 	
 	/**
 	 * <!-- begin-user-doc -->

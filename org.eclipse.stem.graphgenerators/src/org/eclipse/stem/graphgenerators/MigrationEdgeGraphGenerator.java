@@ -6,6 +6,7 @@
  */
 package org.eclipse.stem.graphgenerators;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
 
 /**
@@ -51,4 +52,7 @@ public interface MigrationEdgeGraphGenerator extends GraphGenerator {
 	 */
 	void setLocation(URI value);
 
+	public IProject getProject();
+	public void setProject(IProject p);
+	
 } // MigrationEdgeGraphGenerator

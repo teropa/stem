@@ -120,7 +120,9 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 				break;
 			}
 		}
-			
+ 
+	 if(graphGenerator.eClass().getClassifierID() == GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR) 
+		 ((MigrationEdgeGraphGenerator)graphGenerator).setProject(project);
 		// Do it!
 		return graphGenerator.getGraph();
 	} // populate
