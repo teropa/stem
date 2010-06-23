@@ -94,7 +94,7 @@ public class VisualizationPreferencePage extends FieldEditorPreferencePage
 	/**
 	 * Infectious that Die of the disease
 	 */
-	public static final String FOREGROUND_ATTRIBUTE_NAME_7_STRING = "IF";
+	public static final String FOREGROUND_ATTRIBUTE_NAME_7_STRING = "Incidence";
 
 	/**
 	 * Default color 
@@ -134,9 +134,9 @@ public class VisualizationPreferencePage extends FieldEditorPreferencePage
 	
 
 	/**
-	 * IF (Infectious that Die) color = magenta
+	 * Incidence color = grey
 	 */
-	public static final String FOREGROUND_COLOR_7_RGB_STRING = "255,0,255";
+	public static final String FOREGROUND_COLOR_7_RGB_STRING = "200,200,200";
 
 	/**
 	 * define several primary foreground colors each can be associated with a different label
