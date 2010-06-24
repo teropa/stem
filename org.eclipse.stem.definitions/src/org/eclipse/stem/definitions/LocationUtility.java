@@ -15,6 +15,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Edge;
@@ -23,6 +24,7 @@ import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabelValue;
 import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
+import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabelValue;
 
 
@@ -163,7 +165,7 @@ public class LocationUtility {
 	 * @param project
 	 * @return
 	 */
-	public static Set<Edge> getCommonBorderEdges(IProject project) {
+	public static Set<Edge> getCommonBorderEdges(IProject project, URI location) {
 	    Map<String,Edge> cbEdges = new HashMap<String,Edge>();
 	
 		IContainer modelFolder = project.getFolder("models");	
@@ -180,7 +182,8 @@ public class LocationUtility {
 			try {
 				URI uri = URI.createURI(r.getLocationURI().toString());
 				Identifiable id = Utility.getIdentifiable(uri);
-				if(id instanceof Model) cbEdges.putAll(getModelCommonBorderEdges((Model)id));
+				Graph g = ((Model)id).getCanonicalGraph(STEMURI.createURI(""), null, null);
+				if(id instanceof Model) cbEdges.putAll(getGraphCommonBorderEdges(g, location));
 					
 			} catch(Exception e) {
 				// Skip bad file
@@ -188,27 +191,31 @@ public class LocationUtility {
 	
 		}	
 	
-		IContainer graphsFolder = project.getFolder("graphs");
-		IResource[] graphs = null;
-		try {
-			graphs = graphsFolder.members();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		for(IResource r:graphs) {
-			// ignore system files
-			if(r.getName().startsWith(".")) continue;
-			
+		// Only do the edges in the graphs folder if the user hasn't specified a
+		// location, since we need to resolve the URI's to support locations
+		if(location == null || location.toString().trim().equals("")) {
+			IContainer graphsFolder = project.getFolder("graphs");
+			IResource[] graphs = null;
 			try {
-				URI uri = URI.createURI(r.getLocationURI().toString());
-				Identifiable id = Utility.getIdentifiable(uri);
-				if(id instanceof Graph) cbEdges.putAll(getGraphCommonBorderEdges((Graph)id));
-					
+				graphs = graphsFolder.members();
 			} catch(Exception e) {
-				// Skip bad file
+				e.printStackTrace();
 			}
-	
-		}	
+			for(IResource r:graphs) {
+				// ignore system files
+				if(r.getName().startsWith(".")) continue;
+				
+				try {
+					URI uri = URI.createURI(r.getLocationURI().toString());
+					Identifiable id = Utility.getIdentifiable(uri);
+					if(id instanceof Graph) cbEdges.putAll(getGraphCommonBorderEdges((Graph)id, location));
+						
+				} catch(Exception e) {
+					// Skip bad file
+				}
+		
+			}	
+		}
 		Set<Edge> retVal = new HashSet<Edge>();
 		retVal.addAll(cbEdges.values());
 		return retVal;
@@ -219,36 +226,42 @@ public class LocationUtility {
 	 * This avoids duplicates in case same graph exists in multiple models
 	 * @param g
 	 */
-	private static Map<String,Edge> getGraphCommonBorderEdges(Graph g) {
+	private static Map<String,Edge> getGraphCommonBorderEdges(Graph g, URI location) {
+		
 		Map<String,Edge> cbEdges = new HashMap<String,Edge>();
 		for(Edge e:g.getEdges().values()) {
 			if(e.getLabel().getCurrentValue() instanceof CommonBorderRelationshipLabelValue) {
 				String uriKey = e.getURI().lastSegment();
-				cbEdges.put(uriKey,e);
+				if(location != null && !location.toString().trim().equals("")  
+						&& isSelfOrChild(e.getA(), location.lastSegment()) && isSelfOrChild(e.getB(), location.lastSegment()))
+					cbEdges.put(uriKey,e);
+				else if(location == null || location.toString().trim().equals(""))
+					cbEdges.put(uriKey,e);
 			}	
 		}
 		return cbEdges;
 	}//getGraphCommonBorderEdges
 	
-	/**
-	 * Place the edges from the graph in a Map keyed by the URI of the edge.
-	 * This avoids duplicates in case same graph exists in multiple models 
-	 * @param m
-	 * @return
-	 */
-	private static Map<String,Edge> getModelCommonBorderEdges(Model m) {
-		Map<String,Edge> cbEdges = new HashMap<String,Edge>();
-		processedModels.add(m);
-		
-		// To the graphs in the model
-		EList<Graph>graphs = m.getGraphs();
-		for(Graph g:graphs) {
-			cbEdges.putAll(getGraphCommonBorderEdges(g));
-		}
-		return cbEdges;
-	}//getModelCommonBorderEdges
-	
 	public static URI getURIFromISOKey(String key) {
 		return isoKeyURIMap.get(key);
 	}
+	
+	protected static boolean isSelfOrChild(Node  n, String parent) {
+		if(n.getURI().lastSegment().equals(parent)) return true;
+		return hasParent(n, parent);
+	}
+	
+	protected static boolean hasParent(Node n, String key) {
+		for(Edge e:n.getEdges()) {
+			// Make sure it's a physical containment edge
+			boolean phys = e.getLabel() instanceof RelativePhysicalRelationshipLabel;
+			if(!phys) 
+				continue;
+			if(e.getA().getURI().lastSegment().equals(key)) return true;
+			else if(Utility.keyLevel(e.getA().getURI().lastSegment()) < Utility.keyLevel(n.getURI().lastSegment()))
+				return hasParent(e.getA(), key);
+		}
+		return false;
+	}
+	
 }
