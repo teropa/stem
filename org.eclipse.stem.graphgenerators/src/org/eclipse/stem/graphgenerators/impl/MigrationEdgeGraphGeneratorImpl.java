@@ -93,7 +93,7 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
        	dc.setValid(valid);
        	// TODO for now, just for testing
        	// gets ALL common border edges
-       	Set<Edge> commonBorderEdges = LocationUtility.getCommonBorderEdges(project);
+       	Set<Edge> commonBorderEdges = LocationUtility.getCommonBorderEdges(project, this.getLocation());
 		
 		Iterator<Edge> iter = commonBorderEdges.iterator();
 		while((iter!=null)&&(iter.hasNext())){
