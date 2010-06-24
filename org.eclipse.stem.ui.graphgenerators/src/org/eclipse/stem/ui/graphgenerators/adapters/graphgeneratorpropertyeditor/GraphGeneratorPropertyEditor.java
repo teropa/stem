@@ -85,7 +85,8 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 	 */
 	public Graph getGraph(final GraphGenerator graphGenerator) {
 		for (final Map.Entry<EStructuralFeature, Text> entry : map.entrySet()) {
-			if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR ) {
+			if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR ||
+					entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR) {
 				switch (entry.getKey().getFeatureID()) {
 					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
 						((LatticeGraphGenerator)graphGenerator).setXSize(Integer.parseInt(entry.getValue().getText()));
