@@ -175,20 +175,4 @@ public interface StandardPopulationModelLabelValue extends PopulationModelLabelV
 	 * @generated
 	 */
 	boolean adjustDelta(IntegrationLabelValue value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	double getAdditions();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	double getSubstractions();
 } // StandardPopulationModelLabelValue

@@ -12,7 +12,9 @@ package org.eclipse.stem.populationmodels.standard.impl;
  *******************************************************************************/
 
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -22,12 +24,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.edges.MigrationEdge;
+import org.eclipse.stem.populationmodels.Activator;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
@@ -325,7 +330,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		
 		for(DynamicLabel label:labels) {
 			StandardPopulationModelLabelImpl slabel = (StandardPopulationModelLabelImpl)label;
-			StandardPopulationModelLabelValue delta = slabel.getDeltaValue();
+			StandardPopulationModelLabelValueImpl delta = (StandardPopulationModelLabelValueImpl)slabel.getDeltaValue();
 			StandardPopulationModelLabelValue current = slabel.getProbeValue();
 			
 			double currentPopulation = current.getCount();
@@ -335,6 +340,14 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 			delta.setCount(births-deaths);
 			delta.setBirths(births);
 			delta.setDeaths(deaths);
+			
+			if(delta.getArrivals() == null) delta.setArrivals(new HashMap<Node,Double>());
+			if(delta.getDepartures() == null) delta.setDepartures(new HashMap<Node,Double>());
+			
+			delta.getArrivals().put((Node)label.getIdentifiable(), births);
+			delta.getDepartures().put((Node)label.getIdentifiable(), deaths);
+			
+			handleMigration(slabel, delta.getArrivals(),delta.getDepartures(), this.getTimePeriod(), timeDelta, delta);
 		}
 	}
 
@@ -355,20 +368,68 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 				if(l instanceof IntegrationLabel && !l.equals(plabel) &&
 						((IntegrationLabel)l).getIdentifier().equals(plabel.getIdentifier())) {
 					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
-					double additions = sdeLabelValue.getAdditions();
-					double substractions = sdeLabelValue.getSubstractions();
+					Map<Node, Double>arrivals = sdeLabelValue.getArrivals();
+					Map<Node, Double>departures = sdeLabelValue.getDepartures();
 					
-					// Additions are births. Observe that additions should be 0 since 
+					// Arrivals are births. Observe that arrivals should be 0 since 
 					// other decorators are disease models that don't cause an "increase"
 					// in births.
-					myDelta.setCount(myDelta.getCount()+additions);
 					
-					// Substractions are deaths 
-					myDelta.setCount(myDelta.getCount() - substractions);
+					if(arrivals != null) 
+						for(Node n2:arrivals.keySet()) 
+							if(n2.equals(n)) // Only the local node makes sense for disease models
+								myDelta.setCount(myDelta.getCount()+arrivals.get(n2));
+					
+					// Departures are deaths 
+					if(departures != null) 
+						for(Node n2:departures.keySet()) 
+							if(n2.equals(n)) // Only the local node makes sense for disease models
+								myDelta.setCount(myDelta.getCount() - departures.get(n2));
 				}
 			}
 
 		}
+	}
+	
+
+	protected void handleMigration(StandardPopulationModelLabelImpl label, Map<Node, Double>arrivals,Map<Node, Double>departures, long timeperiod, long timeDelta, StandardPopulationModelLabelValueImpl delta) {
+		Node n = (Node)label.getIdentifiable();
+		for(Edge e:n.getEdges()) {
+			if(e instanceof MigrationEdge) {
+				MigrationEdge me = (MigrationEdge)e;
+				// Migration is FROM A TO B
+				Node source = me.getA();
+				Node dest = me.getB();
+				
+				boolean leaving = source.equals(n);
+				double rate = me.getLabel().getCurrentValue().getMigrationRate();				
+				if(leaving) {
+					StandardPopulationModelLabelValue val = ((StandardPopulationModelLabelValue) label.getProbeValue());
+					double count = val.getCount();
+					double goodbye = count*rate*(double)timeDelta/(double)timePeriod; // rescale and adjust
+					delta.setCount(delta.getCount()-goodbye);
+					delta.getDepartures().put(dest, goodbye);
+				} else {
+					// Find the population model label on the dest node
+					StandardPopulationModelLabelValue otherVal = null;
+					for(NodeLabel lab:source.getLabels()) {
+						if(lab instanceof StandardPopulationModelLabel && ((StandardPopulationModelLabel)lab).getPopulationIdentifier().equals(label.getPopulationIdentifier())) {
+							otherVal = ((StandardPopulationModelLabel)lab).getTempValue();
+							break;
+						}
+					}
+					if(otherVal == null) {
+						Activator.logError("Found a migration edge but was not able to find the population model label for node "+dest+" population "+label.getPopulationIdentifier(), new Exception());
+						return;
+					}
+					double count = otherVal.getCount();
+					double welcome = count*rate*(double)timeDelta/(double)timePeriod; // rescale and adjust
+					delta.setCount(delta.getCount()+welcome);
+					delta.getArrivals().put(source, welcome);
+				}
+			}
+		}
+		
 	}
 	
 	private double adjustRate(double rate, long ratePeriod, long actualPeriod) {

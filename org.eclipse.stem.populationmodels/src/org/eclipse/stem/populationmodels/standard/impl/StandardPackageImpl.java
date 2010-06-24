@@ -750,10 +750,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		EOperation op = addEOperation(standardPopulationModelLabelValueEClass, theEcorePackage.getEBoolean(), "adjustDelta", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIntegrationLabelValue(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(standardPopulationModelLabelValueEClass, theEcorePackage.getEDouble(), "getAdditions", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(standardPopulationModelLabelValueEClass, theEcorePackage.getEDouble(), "getSubstractions", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(stochasticStandardPopulationModelEClass, StochasticStandardPopulationModel.class, "StochasticStandardPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStochasticStandardPopulationModel_Gain(), theEcorePackage.getEDouble(), "gain", "0.01", 0, 1, StochasticStandardPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

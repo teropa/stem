@@ -12,10 +12,14 @@ package org.eclipse.stem.populationmodels.standard.impl;
  *******************************************************************************/
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
+import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.definitions.labels.AreaLabel;
@@ -268,24 +272,32 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		return false;
 	}
 
+	private Map<Node, Double>arrivals;
+	private Map<Node, Double>departures;
+	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Get arrivals
 	 * @generated NOT
 	 */
-	public double getAdditions() {
-		return births; // Births are additions
+	public Map<Node, Double> getArrivals() {
+		return arrivals;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Get departures
 	 * @generated NOT
 	 */
-	public double getSubstractions() {
-		return deaths; // Deaths are substractions
+	public Map<Node, Double> getDepartures() {
+		return departures;
 	}
 
+	public void setArrivals(Map<Node, Double> m) {
+		this.arrivals = m;
+	}
+	public void setDepartures(Map<Node, Double> m) {
+		this.departures = m;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -454,5 +466,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		this.setCount(COUNT_EDEFAULT);
 		this.setBirths(BIRTHS_EDEFAULT);
 		this.setDeaths(DEATHS_EDEFAULT);
+		arrivals = null;
+		departures = null;
 	}
 } //StandardPopulationModelLabelValueImpl

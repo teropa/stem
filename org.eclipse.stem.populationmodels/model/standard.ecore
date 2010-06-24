@@ -41,8 +41,6 @@
     <eOperations name="adjustDelta" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
       <eParameters name="value" eType="#//IntegrationLabelValue"/>
     </eOperations>
-    <eOperations name="getAdditions" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
-    <eOperations name="getSubstractions" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="incidence" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="births" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
