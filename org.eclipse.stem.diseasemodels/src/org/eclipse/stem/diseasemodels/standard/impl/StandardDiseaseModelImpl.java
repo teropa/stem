@@ -339,7 +339,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		// Iterate through each of the labels we need to update.		
 		// Place holders to keep delta values. 
 		
-		DiseaseModelLabelValue migrationDelta = this.createDiseaseModelLabelValue();
 		DiseaseModelLabelValue pipeDelta = this.createDiseaseModelLabelValue();
 		DiseaseModelLabelValue birthDeathsDelta = this.createDiseaseModelLabelValue();
 		DiseaseModelLabelValue diseaseDelta = this.createDiseaseModelLabelValue();
@@ -357,15 +356,12 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			final StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)diseaseLabel
 					.getProbeValue();
 
-			// 0) Get the migration in this region 
-			final StandardDiseaseModelLabelValue migrationDeltas = getMigrationDeltas(diseaseLabel,time, migrationDelta);
-	
 			// 1) Get the pipe transportation deltas
 			final StandardDiseaseModelLabelValue pipeTransportDeltas = getPipeTransportationDeltas(diseaseLabel, time, timeDelta, pipeDelta);
 
 			// 2) Compute Birth and Deaths state delta changes
 			final StandardDiseaseModelLabelValue diseaseDeathDeltas = computeDiseaseDeathsDeltas(time, diseaseLabel, currentState, timeDelta, birthDeathsDelta);
-
+				
 			StandardDiseaseModelLabelValue diseaseState = currentState;
 				
 			// 3) Compute the delta changes caused  by the Disease itself
@@ -401,16 +397,16 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			// Reset the state
 			deltaState.reset();
 			
-			// 1) Migration deltas
-			deltaState.add((IntegrationLabelValue)migrationDeltas);
 
-			// 2) Pipe transport deltas
+			// 1) Pipe transport deltas
 			deltaState.add((IntegrationLabelValue)pipeTransportDeltas);
 			
-			// 3) Add birth/death deltas
+			// 2) Add birth/death deltas and set the departures
 			deltaState.add((IntegrationLabelValue)diseaseDeathDeltas);
-			
-			// 4) Disease deltas
+			if(diseaseDeathDeltas.getDiseaseDeaths() > 0.0) 
+				deltaState.getDepartures().put(diseaseLabel.getNode(), diseaseDeathDeltas.getDiseaseDeaths());
+				
+			// 3) Disease deltas
 			deltaState.add((IntegrationLabelValue)diseaseDeltas);
 		
 			// and pass on the incidence
@@ -418,7 +414,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			// and the disease deaths
 			deltaState.setDiseaseDeaths(diseaseDeaths);
 			
-			migrationDelta.reset();
 			pipeDelta.reset();
 			birthDeathsDelta.reset();
 			diseaseDelta.reset();
@@ -442,20 +437,37 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				if(l instanceof IntegrationLabel && !l.equals(diseaseLabel)
 						&& ((IntegrationLabel)l).getIdentifier().equals(diseaseLabel.getIdentifier())) {
 					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
-					double additions = sdeLabelValue.getAdditions();
-					double substractions = sdeLabelValue.getSubstractions();
+					Map<Node, Double>arrivals = sdeLabelValue.getArrivals();
+					Map<Node, Double>departures = sdeLabelValue.getDepartures();
 					
-					// Additions are births and goes into the S state
-					myDelta.setS(myDelta.getS() + additions);
+					// Arrivals
+					for(Node n2:arrivals.keySet()) {
+						// Arrivals are births and goes into the S state if the node is the local node.
+						if(n2.equals(n))
+							myDelta.setS(myDelta.getS() + arrivals.get(n2));
+						else { // For other nodes, it's migration of population
+							double inflow = arrivals.get(n2);
+							// Find the corresponding disease label on the other node
+							for(NodeLabel nl:n2.getLabels())
+								if(nl instanceof StandardDiseaseModelLabel && ((StandardDiseaseModelLabel)nl).getDecorator().equals(this)) {
+									StandardDiseaseModelLabelValue value = (StandardDiseaseModelLabelValue)EcoreUtil.copy(((StandardDiseaseModelLabel)nl).getTempValue()); 
+									value.scale(inflow/value.getPopulationCount());
+									myDelta.add((IntegrationLabelValue)value);
+								}
+						}
+					}
 					
-					// Substractions are deaths and are removed from all states
-					StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue());
-					double populationCount = currentState.getPopulationCount();
-					double factor = substractions/populationCount;
-					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe
-			
-					currentState.scale(factor);
-					myDelta.sub((IntegrationLabelValue)currentState);
+					// Departures
+					for(Node n2:departures.keySet()) {
+						// Departures are either deaths or population moving to other nodes, hence we substract from the local node.
+						StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue());
+						double populationCount = currentState.getPopulationCount();
+						double factor = departures.get(n2)/populationCount;
+						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe					
+						currentState.scale(factor);
+						myDelta.sub((IntegrationLabelValue)currentState);
+						
+					}	
 				}
 			}
 
@@ -965,12 +977,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	abstract protected StandardDiseaseModelLabelValue computeDepartures(
 			double fractionToDepart, StandardDiseaseModelLabelValue nextState);
 
-	/**
-	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getMigrationDeltas(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel,
-	 *      org.eclipse.stem.core.model.STEMTime)
-	 */
-	protected abstract StandardDiseaseModelLabelValue getMigrationDeltas(
-			final StandardDiseaseModelLabel diseaseLabel, final STEMTime time, DiseaseModelLabelValue returnValue) ;
 	
 
 	/**

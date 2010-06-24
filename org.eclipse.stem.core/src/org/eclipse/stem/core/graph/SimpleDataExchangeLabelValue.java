@@ -12,28 +12,31 @@ package org.eclipse.stem.core.graph;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * This interface is implemented by labels that needs to exchange information with other
- * parties. 
+ * The interface is used for various models to exchange information with each other. A population model 
+ * uses this interface to report births/deaths and inflow/outflow via migration. A disease model uses
+ * it to report disease deaths.
  */
 public interface SimpleDataExchangeLabelValue  extends EObject {
 
 	/**
-	 * getAdditions
+	 * getArrivals. 
 	 * 
-	 * @return double Additions
+	 * @return Map<Node, Double> A map where the key is the source of the arrival (can be local node for births)
 	 */
 	
-	public double getAdditions();
+	public Map<Node, Double> getArrivals();
 	
 	/**
-	 * getSubstractions
+	 * getDepartures
 	 * 
-	 * @return double Substractions
+	 * @return Map<Node, Double> A map where the key is the source of the departure (can be local node for deaths)
 	 */
 	
-	public double getSubstractions();
+	public Map<Node, Double> getDepartures();
 	
 }

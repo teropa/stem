@@ -11,6 +11,8 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Label;
+import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
@@ -511,23 +514,27 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 				if(l == this) continue;
 				SimpleDataExchangeLabelValue delta = (SimpleDataExchangeLabelValue)il.getDeltaValue();
 				
-				double additions = delta.getAdditions();
-				double substractions = delta.getSubstractions();
+				Map<Node, Double> arrivals = delta.getArrivals();
+				Map<Node, Double> departures = delta.getDepartures();
 				
 				// We scale the label values back since at this point the innoculators/infectors
 				// have already been applied and we need to modify all states of the disease
 				
 				double popCount = ((SILabelValue)this.getCurrentValue()).getPopulationCount();
-				if(additions > 0.0) {
-					double factor = additions / popCount;
-					if(Double.isNaN(factor) || Double.isNaN(factor)) factor = 0.0;// do nothing
+				if(arrivals != null && arrivals.size() == 1) {
+					Node n = arrivals.keySet().iterator().next();
+					assert(n.equals(getNode()));
+					double factor = arrivals.get(n) / popCount;
+					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;// do nothing
 					SILabelValue addV = (SILabelValue)EcoreUtil.copy(this.getCurrentValue());
 					addV.scale(factor);
 					((SILabelValue)this.getCurrentValue()).add((IntegrationLabelValue)addV);
 				}
-				if(substractions > 0.0) {
-					double factor = substractions / popCount;
-					if(Double.isNaN(factor) || Double.isNaN(factor)) factor = 0.0;// do nothing
+				if(departures != null && departures.size() == 1) {
+					Node n = departures.keySet().iterator().next();
+					assert(n.equals(getNode()));
+					double factor = departures.get(n) / popCount;
+					if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;// do nothing
 					SILabelValue subV = (SILabelValue)EcoreUtil.copy(this.getCurrentValue());
 					subV.scale(factor);
 					((SILabelValue)this.getCurrentValue()).sub((IntegrationLabelValue)subV);

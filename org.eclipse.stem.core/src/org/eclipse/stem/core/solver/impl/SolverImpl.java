@@ -160,7 +160,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 
 	/**
 	 * initialize before simulation begins. Rewind/forward any population model
-	 * values to the start time of the 
+	 * values to the start time of the sequencer
 	 * @param time
 	 */
 	public void initialize(STEMTime time) {
@@ -174,8 +174,8 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 					if(l instanceof IntegrationLabel) {
 						IntegrationLabel il = (IntegrationLabel)l;
 						il.reset(time);
-						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getAdditions() > 0.0 ||
-								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getSubstractions() > 0.0)
+						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getArrivals() != null ||
+								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getDepartures() != null)
 							redo = true;
 					}
 				}

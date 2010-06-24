@@ -1780,10 +1780,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		addEOperation(diseaseModelLabelValueEClass, null, "zeroOutPopulationCount", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		addEOperation(diseaseModelLabelValueEClass, theEcorePackage.getEDouble(), "getAdditions", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		addEOperation(diseaseModelLabelValueEClass, theEcorePackage.getEDouble(), "getSubstractions", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
 		initEClass(diseaseModelStateEClass, DiseaseModelState.class, "DiseaseModelState", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDiseaseModelState_Label(), this.getDiseaseModelLabel(), this.getDiseaseModelLabel_DiseaseModelState(), "label", null, 0, 1, DiseaseModelState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 

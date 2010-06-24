@@ -141,20 +141,4 @@ public interface DiseaseModelLabelValue extends LabelValue, IntegrationLabelValu
 	 * @model volatile="true" transient="true" changeable="false"
 	 */
 	void zeroOutPopulationCount();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	double getAdditions();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	double getSubstractions();
 } // DiseaseModelLabelValue

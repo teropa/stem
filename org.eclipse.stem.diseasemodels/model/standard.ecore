@@ -61,8 +61,6 @@
       <eParameters name="scaleFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="zeroOutPopulationCount"/>
-    <eOperations name="getAdditions" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
-    <eOperations name="getSubstractions" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diseaseDeaths" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"

@@ -11,9 +11,15 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.Label;
+import org.eclipse.stem.core.graph.LabelValue;
+import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.impl.LabelValueImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -157,22 +163,24 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 */
 	abstract public void zeroOutPopulationCount();
 
+	private Map<Node, Double>arrivals;
+	private Map<Node, Double>departures;
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 * @generated NOT
 	 */
-	public double getAdditions() {
-		return 0.0; // A disease does not contribute to more pople being born
+	public Map<Node, Double> getArrivals() {
+		if(arrivals == null) arrivals = new HashMap<Node, Double>();
+		return arrivals;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 * @generated NOT
 	 */
-	public double getSubstractions() {
-		return this.diseaseDeaths; // People are removed only from death by disease
+	public Map<Node, Double> getDepartures() {
+		if(departures == null) departures = new HashMap<Node, Double>();
+		return departures;
 	}
 
 	/**
@@ -261,6 +269,8 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	public void reset() {
 		super.reset();
 		setDiseaseDeaths(DISEASE_DEATHS_EDEFAULT);
+		arrivals = null;
+		departures = null;
 	} // reset
 
 	/**

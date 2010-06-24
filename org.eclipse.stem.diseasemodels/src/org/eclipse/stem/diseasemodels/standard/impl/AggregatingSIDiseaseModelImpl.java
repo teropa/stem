@@ -422,15 +422,6 @@ public class AggregatingSIDiseaseModelImpl extends SIImpl implements
 		return StandardFactory.eINSTANCE.createAggregatingDiseaseModelState();
 	} // createDiseaseModelState
 
-	/**
-	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getArrivals(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel,
-	 *      org.eclipse.stem.core.model.STEMTime)
-	 */
-	@Override
-	protected StandardDiseaseModelLabelValue getMigrationDeltas(
-			final StandardDiseaseModelLabel diseaseLabel, final STEMTime time, DiseaseModelLabelValue returnValue) {
-		return super.getMigrationDeltas(diseaseLabel, time, returnValue);
-	}
 
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#initializeDiseaseState(org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel)
