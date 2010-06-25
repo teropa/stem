@@ -18,6 +18,8 @@ import org.eclipse.emf.common.util.URI;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getMigrationRate <em>Migration Rate</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getPopulation <em>Population</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +59,60 @@ public interface MigrationEdgeGraphGenerator extends GraphGenerator {
 	 * @generated
 	 */
 	void setLocation(URI value);
+
+	/**
+	 * Returns the value of the '<em><b>Migration Rate</b></em>' attribute.
+	 * The default value is <code>"0.1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Migration Rate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Migration Rate</em>' attribute.
+	 * @see #setMigrationRate(double)
+	 * @see org.eclipse.stem.graphgenerators.GraphgeneratorsPackage#getMigrationEdgeGraphGenerator_MigrationRate()
+	 * @model default="0.1"
+	 * @generated
+	 */
+	double getMigrationRate();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getMigrationRate <em>Migration Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Migration Rate</em>' attribute.
+	 * @see #getMigrationRate()
+	 * @generated
+	 */
+	void setMigrationRate(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Population</b></em>' attribute.
+	 * The default value is <code>"human"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Population</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Population</em>' attribute.
+	 * @see #setPopulation(String)
+	 * @see org.eclipse.stem.graphgenerators.GraphgeneratorsPackage#getMigrationEdgeGraphGenerator_Population()
+	 * @model default="human"
+	 * @generated
+	 */
+	String getPopulation();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getPopulation <em>Population</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Population</em>' attribute.
+	 * @see #getPopulation()
+	 * @generated
+	 */
+	void setPopulation(String value);
 
 	public IProject getProject();
 	public void setProject(IProject p);

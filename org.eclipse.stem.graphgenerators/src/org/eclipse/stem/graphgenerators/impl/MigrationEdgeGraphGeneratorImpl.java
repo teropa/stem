@@ -42,6 +42,8 @@ import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl#getMigrationRate <em>Migration Rate</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl#getPopulation <em>Population</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +69,46 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @ordered
 	 */
 	protected URI location = LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMigrationRate() <em>Migration Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMigrationRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MIGRATION_RATE_EDEFAULT = 0.1;
+
+	/**
+	 * The cached value of the '{@link #getMigrationRate() <em>Migration Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMigrationRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected double migrationRate = MIGRATION_RATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPopulation() <em>Population</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPopulation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String POPULATION_EDEFAULT = "human";
+
+	/**
+	 * The cached value of the '{@link #getPopulation() <em>Population</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPopulation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String population = POPULATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,17 +190,19 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 				label1.setURI(createEdgeLabelURI(sourceURI, targetURI));
 				label2.setURI(createEdgeLabelURI(targetURI, sourceURI));
 				
-				// TODO these must be set by the wizard
 				MigrationEdgeLabelValue melv1 = label1.getCurrentValue();
-				melv1.setMigrationRate(0.1);
+				melv1.setMigrationRate(this.getMigrationRate());
 				MigrationEdgeLabelValue melv2 = label2.getCurrentValue();
-				melv2.setMigrationRate(0.1);
+				melv2.setMigrationRate(this.getMigrationRate());
 				
 				final DublinCore dc1 = mEdge1.getDublinCore();
 				dc1.setTitle(createEdgeTitle(sourceURI, targetURI));
 				
 				final DublinCore dc2 = mEdge2.getDublinCore();
 				dc2.setTitle(createEdgeTitle(targetURI, sourceURI));
+				
+				mEdge1.setPopulationIdentifier(this.getPopulation());
+				mEdge2.setPopulationIdentifier(this.getPopulation());
 				
 				graph.putEdge(mEdge1);
 				graph.putEdge(mEdge2);
@@ -263,11 +307,57 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getMigrationRate() {
+		return migrationRate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMigrationRate(double newMigrationRate) {
+		double oldMigrationRate = migrationRate;
+		migrationRate = newMigrationRate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE, oldMigrationRate, migrationRate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPopulation() {
+		return population;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPopulation(String newPopulation) {
+		String oldPopulation = population;
+		population = newPopulation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION, oldPopulation, population));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
 				return getLocation();
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE:
+				return getMigrationRate();
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION:
+				return getPopulation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,6 +372,12 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 		switch (featureID) {
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
 				setLocation((URI)newValue);
+				return;
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE:
+				setMigrationRate((Double)newValue);
+				return;
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION:
+				setPopulation((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -298,6 +394,12 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE:
+				setMigrationRate(MIGRATION_RATE_EDEFAULT);
+				return;
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION:
+				setPopulation(POPULATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -312,6 +414,10 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 		switch (featureID) {
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
 				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE:
+				return migrationRate != MIGRATION_RATE_EDEFAULT;
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION:
+				return POPULATION_EDEFAULT == null ? population != null : !POPULATION_EDEFAULT.equals(population);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -328,6 +434,10 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (location: ");
 		result.append(location);
+		result.append(", migrationRate: ");
+		result.append(migrationRate);
+		result.append(", population: ");
+		result.append(population);
 		result.append(')');
 		return result.toString();
 	}

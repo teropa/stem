@@ -13,6 +13,7 @@ package org.eclipse.stem.populationmodels.standard.impl;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
@@ -226,7 +227,9 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	
 	protected int getYear(STEMTime time) {
 		Calendar cal = Calendar.getInstance();
-		cal.setTime(time.getTime());
+		if(time != null)
+			cal.setTime(time.getTime());
+		else cal.setTime(new Date());
 		int year = cal.get(Calendar.YEAR);
 		return year;
 	}
@@ -296,7 +299,8 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 		int adminLevel = Utility.keyLevel(n.getURI().lastSegment());
 		String countryCode = this.getCountryCode(n);
 		String population = this.getPopulationIdentifier();
-		int year = getYear(time);
+		int year = new Date().getYear()+1900;
+		if(time != null) year = getYear(time);
 		String code = n.getURI().lastSegment();
 		
 		return PopulationLabelImpl.createPopulationLabelURI(adminLevel, countryCode, population, year+"", code);

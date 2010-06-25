@@ -397,6 +397,8 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		for(Edge e:n.getEdges()) {
 			if(e instanceof MigrationEdge) {
 				MigrationEdge me = (MigrationEdge)e;
+				if(!me.getPopulationIdentifier().equals(label.getPopulationIdentifier())) continue;
+				
 				// Migration is FROM A TO B
 				Node source = me.getA();
 				Node dest = me.getB();

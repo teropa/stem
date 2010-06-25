@@ -338,13 +338,31 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION = GRAPH_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Migration Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE = GRAPH_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Population</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION = GRAPH_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Migration Edge Graph Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 1;
+	int MIGRATION_EDGE_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 3;
 
 
 	/**
@@ -465,6 +483,28 @@ public interface GraphgeneratorsPackage extends EPackage {
 	EAttribute getMigrationEdgeGraphGenerator_Location();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getMigrationRate <em>Migration Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Migration Rate</em>'.
+	 * @see org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getMigrationRate()
+	 * @see #getMigrationEdgeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getMigrationEdgeGraphGenerator_MigrationRate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getPopulation <em>Population</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Population</em>'.
+	 * @see org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator#getPopulation()
+	 * @see #getMigrationEdgeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getMigrationEdgeGraphGenerator_Population();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,6 +621,22 @@ public interface GraphgeneratorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION = eINSTANCE.getMigrationEdgeGraphGenerator_Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Migration Rate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE = eINSTANCE.getMigrationEdgeGraphGenerator_MigrationRate();
+
+		/**
+		 * The meta object literal for the '<em><b>Population</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION = eINSTANCE.getMigrationEdgeGraphGenerator_Population();
 
 	}
 

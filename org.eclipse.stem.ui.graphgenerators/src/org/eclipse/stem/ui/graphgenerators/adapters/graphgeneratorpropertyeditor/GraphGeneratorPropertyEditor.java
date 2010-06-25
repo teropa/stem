@@ -101,8 +101,19 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 			} else if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR) {
 				switch (entry.getKey().getFeatureID()) {
 					case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
-						((MigrationEdgeGraphGenerator)graphGenerator).setLocation(STEMURI.createURI(entry.getValue().getText()));
+						String loc = entry.getValue().getText();
+						if(loc != null && !loc.trim().equals(""))
+							((MigrationEdgeGraphGenerator)graphGenerator).setLocation(STEMURI.createURI(loc));
 						break;
+					case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE:
+							((MigrationEdgeGraphGenerator)graphGenerator).setMigrationRate(Double.parseDouble(entry.getValue().getText()));
+						break;
+					case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION:
+						String pop = entry.getValue().getText();
+						if(pop != null && !pop.trim().equals(""))
+							((MigrationEdgeGraphGenerator)graphGenerator).setPopulation(pop);
+						break;
+						
 				} // switch
 			}
 		}

@@ -64,6 +64,8 @@ public class MigrationEdgeGraphGeneratorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addLocationPropertyDescriptor(object);
+			addMigrationRatePropertyDescriptor(object);
+			addPopulationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,6 +84,50 @@ public class MigrationEdgeGraphGeneratorItemProvider
 				 getString("_UI_MigrationEdgeGraphGenerator_location_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MigrationEdgeGraphGenerator_location_feature", "_UI_MigrationEdgeGraphGenerator_type"),
 				 GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Migration Rate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMigrationRatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MigrationEdgeGraphGenerator_migrationRate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MigrationEdgeGraphGenerator_migrationRate_feature", "_UI_MigrationEdgeGraphGenerator_type"),
+				 GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Population feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPopulationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MigrationEdgeGraphGenerator_population_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MigrationEdgeGraphGenerator_population_feature", "_UI_MigrationEdgeGraphGenerator_type"),
+				 GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION,
 				 true,
 				 false,
 				 false,
@@ -129,6 +175,8 @@ public class MigrationEdgeGraphGeneratorItemProvider
 
 		switch (notification.getFeatureID(MigrationEdgeGraphGenerator.class)) {
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE:
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
