@@ -67,6 +67,115 @@ public interface EdgesPackage extends EPackage {
 	EdgesPackage eINSTANCE = org.eclipse.stem.definitions.edges.impl.EdgesPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.definitions.edges.impl.PopulationEdgeImpl <em>Population Edge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.definitions.edges.impl.PopulationEdgeImpl
+	 * @see org.eclipse.stem.definitions.edges.impl.EdgesPackageImpl#getPopulationEdge()
+	 * @generated
+	 */
+	int POPULATION_EDGE = 6;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__URI = GraphPackage.EDGE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__TYPE_URI = GraphPackage.EDGE__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__DUBLIN_CORE = GraphPackage.EDGE__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>A</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__A = GraphPackage.EDGE__A;
+
+	/**
+	 * The feature id for the '<em><b>Node AURI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__NODE_AURI = GraphPackage.EDGE__NODE_AURI;
+
+	/**
+	 * The feature id for the '<em><b>B</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__B = GraphPackage.EDGE__B;
+
+	/**
+	 * The feature id for the '<em><b>Node BURI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__NODE_BURI = GraphPackage.EDGE__NODE_BURI;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__LABEL = GraphPackage.EDGE__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Directed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__DIRECTED = GraphPackage.EDGE__DIRECTED;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE__POPULATION_IDENTIFIER = GraphPackage.EDGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Population Edge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_EDGE_FEATURE_COUNT = GraphPackage.EDGE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.stem.definitions.edges.impl.MigrationEdgeImpl <em>Migration Edge</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,7 +192,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__URI = GraphPackage.EDGE__URI;
+	int MIGRATION_EDGE__URI = POPULATION_EDGE__URI;
 
 	/**
 	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
@@ -92,7 +201,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__TYPE_URI = GraphPackage.EDGE__TYPE_URI;
+	int MIGRATION_EDGE__TYPE_URI = POPULATION_EDGE__TYPE_URI;
 
 	/**
 	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
@@ -101,7 +210,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__DUBLIN_CORE = GraphPackage.EDGE__DUBLIN_CORE;
+	int MIGRATION_EDGE__DUBLIN_CORE = POPULATION_EDGE__DUBLIN_CORE;
 
 	/**
 	 * The feature id for the '<em><b>A</b></em>' reference.
@@ -110,7 +219,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__A = GraphPackage.EDGE__A;
+	int MIGRATION_EDGE__A = POPULATION_EDGE__A;
 
 	/**
 	 * The feature id for the '<em><b>Node AURI</b></em>' attribute.
@@ -119,7 +228,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__NODE_AURI = GraphPackage.EDGE__NODE_AURI;
+	int MIGRATION_EDGE__NODE_AURI = POPULATION_EDGE__NODE_AURI;
 
 	/**
 	 * The feature id for the '<em><b>B</b></em>' reference.
@@ -128,7 +237,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__B = GraphPackage.EDGE__B;
+	int MIGRATION_EDGE__B = POPULATION_EDGE__B;
 
 	/**
 	 * The feature id for the '<em><b>Node BURI</b></em>' attribute.
@@ -137,7 +246,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__NODE_BURI = GraphPackage.EDGE__NODE_BURI;
+	int MIGRATION_EDGE__NODE_BURI = POPULATION_EDGE__NODE_BURI;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' containment reference.
@@ -146,7 +255,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__LABEL = GraphPackage.EDGE__LABEL;
+	int MIGRATION_EDGE__LABEL = POPULATION_EDGE__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Directed</b></em>' attribute.
@@ -155,7 +264,16 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE__DIRECTED = GraphPackage.EDGE__DIRECTED;
+	int MIGRATION_EDGE__DIRECTED = POPULATION_EDGE__DIRECTED;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_EDGE__POPULATION_IDENTIFIER = POPULATION_EDGE__POPULATION_IDENTIFIER;
 
 	/**
 	 * The number of structural features of the '<em>Migration Edge</em>' class.
@@ -164,7 +282,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIGRATION_EDGE_FEATURE_COUNT = GraphPackage.EDGE_FEATURE_COUNT + 0;
+	int MIGRATION_EDGE_FEATURE_COUNT = POPULATION_EDGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.definitions.edges.impl.MigrationEdgeLabelImpl <em>Migration Edge Label</em>}' class.
@@ -293,7 +411,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__URI = GraphPackage.EDGE__URI;
+	int MIXING_EDGE__URI = POPULATION_EDGE__URI;
 
 	/**
 	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
@@ -302,7 +420,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__TYPE_URI = GraphPackage.EDGE__TYPE_URI;
+	int MIXING_EDGE__TYPE_URI = POPULATION_EDGE__TYPE_URI;
 
 	/**
 	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
@@ -311,7 +429,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__DUBLIN_CORE = GraphPackage.EDGE__DUBLIN_CORE;
+	int MIXING_EDGE__DUBLIN_CORE = POPULATION_EDGE__DUBLIN_CORE;
 
 	/**
 	 * The feature id for the '<em><b>A</b></em>' reference.
@@ -320,7 +438,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__A = GraphPackage.EDGE__A;
+	int MIXING_EDGE__A = POPULATION_EDGE__A;
 
 	/**
 	 * The feature id for the '<em><b>Node AURI</b></em>' attribute.
@@ -329,7 +447,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__NODE_AURI = GraphPackage.EDGE__NODE_AURI;
+	int MIXING_EDGE__NODE_AURI = POPULATION_EDGE__NODE_AURI;
 
 	/**
 	 * The feature id for the '<em><b>B</b></em>' reference.
@@ -338,7 +456,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__B = GraphPackage.EDGE__B;
+	int MIXING_EDGE__B = POPULATION_EDGE__B;
 
 	/**
 	 * The feature id for the '<em><b>Node BURI</b></em>' attribute.
@@ -347,7 +465,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__NODE_BURI = GraphPackage.EDGE__NODE_BURI;
+	int MIXING_EDGE__NODE_BURI = POPULATION_EDGE__NODE_BURI;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' containment reference.
@@ -356,7 +474,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__LABEL = GraphPackage.EDGE__LABEL;
+	int MIXING_EDGE__LABEL = POPULATION_EDGE__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Directed</b></em>' attribute.
@@ -365,7 +483,16 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE__DIRECTED = GraphPackage.EDGE__DIRECTED;
+	int MIXING_EDGE__DIRECTED = POPULATION_EDGE__DIRECTED;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIXING_EDGE__POPULATION_IDENTIFIER = POPULATION_EDGE__POPULATION_IDENTIFIER;
 
 	/**
 	 * The number of structural features of the '<em>Mixing Edge</em>' class.
@@ -374,7 +501,7 @@ public interface EdgesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIXING_EDGE_FEATURE_COUNT = GraphPackage.EDGE_FEATURE_COUNT + 0;
+	int MIXING_EDGE_FEATURE_COUNT = POPULATION_EDGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.definitions.edges.impl.MixingEdgeLabelImpl <em>Mixing Edge Label</em>}' class.
@@ -570,6 +697,27 @@ public interface EdgesPackage extends EPackage {
 	EAttribute getMixingEdgeLabelValue_MixingRate();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.definitions.edges.PopulationEdge <em>Population Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Population Edge</em>'.
+	 * @see org.eclipse.stem.definitions.edges.PopulationEdge
+	 * @generated
+	 */
+	EClass getPopulationEdge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.definitions.edges.PopulationEdge#getPopulationIdentifier <em>Population Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Population Identifier</em>'.
+	 * @see org.eclipse.stem.definitions.edges.PopulationEdge#getPopulationIdentifier()
+	 * @see #getPopulationEdge()
+	 * @generated
+	 */
+	EAttribute getPopulationEdge_PopulationIdentifier();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,6 +814,24 @@ public interface EdgesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MIXING_EDGE_LABEL_VALUE__MIXING_RATE = eINSTANCE.getMixingEdgeLabelValue_MixingRate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.definitions.edges.impl.PopulationEdgeImpl <em>Population Edge</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.definitions.edges.impl.PopulationEdgeImpl
+		 * @see org.eclipse.stem.definitions.edges.impl.EdgesPackageImpl#getPopulationEdge()
+		 * @generated
+		 */
+		EClass POPULATION_EDGE = eINSTANCE.getPopulationEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Population Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_EDGE__POPULATION_IDENTIFIER = eINSTANCE.getPopulationEdge_PopulationIdentifier();
 
 	}
 

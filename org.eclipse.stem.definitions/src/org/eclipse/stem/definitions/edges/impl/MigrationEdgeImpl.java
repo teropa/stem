@@ -30,7 +30,7 @@ import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
  *
  * @generated
  */
-public class MigrationEdgeImpl extends EdgeImpl implements MigrationEdge {
+public class MigrationEdgeImpl extends PopulationEdgeImpl implements MigrationEdge {
 	
 	/**
 	 * This is used to generate unique URI's for each MigrationEdge generated

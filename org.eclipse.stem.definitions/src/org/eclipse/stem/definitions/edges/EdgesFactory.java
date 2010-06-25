@@ -85,6 +85,15 @@ public interface EdgesFactory extends EFactory {
 	MixingEdgeLabelValue createMixingEdgeLabelValue();
 
 	/**
+	 * Returns a new object of class '<em>Population Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Population Edge</em>'.
+	 * @generated
+	 */
+	PopulationEdge createPopulationEdge();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

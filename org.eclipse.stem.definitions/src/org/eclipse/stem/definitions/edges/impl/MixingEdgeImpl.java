@@ -30,7 +30,7 @@ import org.eclipse.stem.definitions.edges.MixingEdgeLabel;
  *
  * @generated
  */
-public class MixingEdgeImpl extends EdgeImpl implements MixingEdge {
+public class MixingEdgeImpl extends PopulationEdgeImpl implements MixingEdge {
 
 	/**
 	 * This is used to generate unique URI's for each MixingEdge generated

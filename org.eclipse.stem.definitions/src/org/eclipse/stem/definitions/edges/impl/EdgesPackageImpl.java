@@ -14,6 +14,7 @@ package org.eclipse.stem.definitions.edges.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -37,6 +38,7 @@ import org.eclipse.stem.definitions.edges.MixingEdge;
 import org.eclipse.stem.definitions.edges.MixingEdgeLabel;
 import org.eclipse.stem.definitions.edges.MixingEdgeLabelValue;
 
+import org.eclipse.stem.definitions.edges.PopulationEdge;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 
 import org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl;
@@ -95,6 +97,13 @@ public class EdgesPackageImpl extends EPackageImpl implements EdgesPackage {
 	 * @generated
 	 */
 	private EClass mixingEdgeLabelValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass populationEdgeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -254,6 +263,24 @@ public class EdgesPackageImpl extends EPackageImpl implements EdgesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPopulationEdge() {
+		return populationEdgeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopulationEdge_PopulationIdentifier() {
+		return (EAttribute)populationEdgeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EdgesFactory getEdgesFactory() {
 		return (EdgesFactory)getEFactoryInstance();
 	}
@@ -290,6 +317,9 @@ public class EdgesPackageImpl extends EPackageImpl implements EdgesPackage {
 
 		mixingEdgeLabelValueEClass = createEClass(MIXING_EDGE_LABEL_VALUE);
 		createEAttribute(mixingEdgeLabelValueEClass, MIXING_EDGE_LABEL_VALUE__MIXING_RATE);
+
+		populationEdgeEClass = createEClass(POPULATION_EDGE);
+		createEAttribute(populationEdgeEClass, POPULATION_EDGE__POPULATION_IDENTIFIER);
 	}
 
 	/**
@@ -317,18 +347,20 @@ public class EdgesPackageImpl extends EPackageImpl implements EdgesPackage {
 
 		// Obtain other dependent packages
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		migrationEdgeEClass.getESuperTypes().add(theGraphPackage.getEdge());
+		migrationEdgeEClass.getESuperTypes().add(this.getPopulationEdge());
 		migrationEdgeLabelEClass.getESuperTypes().add(theGraphPackage.getEdgeLabel());
 		migrationEdgeLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
-		mixingEdgeEClass.getESuperTypes().add(theGraphPackage.getEdge());
+		mixingEdgeEClass.getESuperTypes().add(this.getPopulationEdge());
 		mixingEdgeLabelEClass.getESuperTypes().add(theGraphPackage.getEdgeLabel());
 		mixingEdgeLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
+		populationEdgeEClass.getESuperTypes().add(theGraphPackage.getEdge());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(migrationEdgeEClass, MigrationEdge.class, "MigrationEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -344,6 +376,9 @@ public class EdgesPackageImpl extends EPackageImpl implements EdgesPackage {
 
 		initEClass(mixingEdgeLabelValueEClass, MixingEdgeLabelValue.class, "MixingEdgeLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getMixingEdgeLabelValue_MixingRate(), ecorePackage.getEDouble(), "mixingRate", null, 0, 1, MixingEdgeLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(populationEdgeEClass, PopulationEdge.class, "PopulationEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getPopulationEdge_PopulationIdentifier(), theEcorePackage.getEString(), "populationIdentifier", "human", 0, 1, PopulationEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		// Create resource
 		createResource(eNS_URI);

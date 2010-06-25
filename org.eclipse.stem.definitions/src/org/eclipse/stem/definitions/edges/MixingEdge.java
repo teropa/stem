@@ -21,7 +21,7 @@ import org.eclipse.stem.core.graph.Edge;
  *
  * @model
  */
-public interface MixingEdge extends Edge {
+public interface MixingEdge extends PopulationEdge {
 
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a

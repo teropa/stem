@@ -23,7 +23,7 @@ import org.eclipse.stem.core.graph.Edge;
  *
  * @model
  */
-public interface MigrationEdge extends Edge {
+public interface MigrationEdge extends PopulationEdge {
 
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a

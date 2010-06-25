@@ -71,6 +71,7 @@ public class EdgesFactoryImpl extends EFactoryImpl implements EdgesFactory {
 			case EdgesPackage.MIXING_EDGE: return createMixingEdge();
 			case EdgesPackage.MIXING_EDGE_LABEL: return createMixingEdgeLabel();
 			case EdgesPackage.MIXING_EDGE_LABEL_VALUE: return createMixingEdgeLabelValue();
+			case EdgesPackage.POPULATION_EDGE: return createPopulationEdge();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -134,6 +135,16 @@ public class EdgesFactoryImpl extends EFactoryImpl implements EdgesFactory {
 	public MixingEdgeLabelValue createMixingEdgeLabelValue() {
 		MixingEdgeLabelValueImpl mixingEdgeLabelValue = new MixingEdgeLabelValueImpl();
 		return mixingEdgeLabelValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PopulationEdge createPopulationEdge() {
+		PopulationEdgeImpl populationEdge = new PopulationEdgeImpl();
+		return populationEdge;
 	}
 
 	/**

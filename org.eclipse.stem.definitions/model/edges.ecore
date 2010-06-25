@@ -3,15 +3,19 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="edges"
     nsURI="http:///org/eclipse/stem/definitions/edges.ecore" nsPrefix="org.eclipse.stem.definitions.edges">
-  <eClassifiers xsi:type="ecore:EClass" name="MigrationEdge" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//Edge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MigrationEdge" eSuperTypes="#//PopulationEdge"/>
   <eClassifiers xsi:type="ecore:EClass" name="MigrationEdgeLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//EdgeLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="MigrationEdgeLabelValue" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="migrationRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MixingEdge" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//Edge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MixingEdge" eSuperTypes="#//PopulationEdge"/>
   <eClassifiers xsi:type="ecore:EClass" name="MixingEdgeLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//EdgeLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="MixingEdgeLabelValue" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixingRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PopulationEdge" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//Edge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationIdentifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral="human"/>
   </eClassifiers>
 </ecore:EPackage>

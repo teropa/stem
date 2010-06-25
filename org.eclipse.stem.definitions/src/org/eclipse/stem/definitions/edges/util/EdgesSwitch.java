@@ -104,6 +104,7 @@ public class EdgesSwitch<T1> {
 			case EdgesPackage.MIGRATION_EDGE: {
 				MigrationEdge migrationEdge = (MigrationEdge)theEObject;
 				T1 result = caseMigrationEdge(migrationEdge);
+				if (result == null) result = casePopulationEdge(migrationEdge);
 				if (result == null) result = caseEdge(migrationEdge);
 				if (result == null) result = caseIdentifiable(migrationEdge);
 				if (result == null) result = caseModifiable(migrationEdge);
@@ -132,6 +133,7 @@ public class EdgesSwitch<T1> {
 			case EdgesPackage.MIXING_EDGE: {
 				MixingEdge mixingEdge = (MixingEdge)theEObject;
 				T1 result = caseMixingEdge(mixingEdge);
+				if (result == null) result = casePopulationEdge(mixingEdge);
 				if (result == null) result = caseEdge(mixingEdge);
 				if (result == null) result = caseIdentifiable(mixingEdge);
 				if (result == null) result = caseModifiable(mixingEdge);
@@ -154,6 +156,16 @@ public class EdgesSwitch<T1> {
 				T1 result = caseMixingEdgeLabelValue(mixingEdgeLabelValue);
 				if (result == null) result = caseLabelValue(mixingEdgeLabelValue);
 				if (result == null) result = caseSanityChecker(mixingEdgeLabelValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EdgesPackage.POPULATION_EDGE: {
+				PopulationEdge populationEdge = (PopulationEdge)theEObject;
+				T1 result = casePopulationEdge(populationEdge);
+				if (result == null) result = caseEdge(populationEdge);
+				if (result == null) result = caseIdentifiable(populationEdge);
+				if (result == null) result = caseModifiable(populationEdge);
+				if (result == null) result = caseComparable(populationEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,6 +260,21 @@ public class EdgesSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseMixingEdgeLabelValue(MixingEdgeLabelValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Population Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Population Edge</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePopulationEdge(PopulationEdge object) {
 		return null;
 	}
 

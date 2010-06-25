@@ -43,7 +43,7 @@ import org.eclipse.stem.definitions.labels.LabelsFactory;
  * @generated
  */
 public class MixingEdgeItemProvider
-	extends EdgeItemProvider
+	extends PopulationEdgeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -113,47 +113,6 @@ public class MixingEdgeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.EDGE__LABEL,
-				 EdgesFactory.eINSTANCE.createMigrationEdgeLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.EDGE__LABEL,
-				 EdgesFactory.eINSTANCE.createMixingEdgeLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.EDGE__LABEL,
-				 LabelsFactory.eINSTANCE.createCommonBorderRelationshipLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.EDGE__LABEL,
-				 LabelsFactory.eINSTANCE.createRelativePhysicalRelationshipLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.EDGE__LABEL,
-				 LabelsFactory.eINSTANCE.createTransportRelationshipLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphPackage.Literals.EDGE__LABEL,
-				 LabelsFactory.eINSTANCE.createRoadTransportRelationshipLabel()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DefinitionsEditPlugin.INSTANCE;
 	}
 
 }

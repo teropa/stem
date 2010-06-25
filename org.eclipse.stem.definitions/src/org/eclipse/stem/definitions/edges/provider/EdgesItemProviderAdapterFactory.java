@@ -219,6 +219,29 @@ public class EdgesItemProviderAdapterFactory extends EdgesAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.definitions.edges.PopulationEdge} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PopulationEdgeItemProvider populationEdgeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.definitions.edges.PopulationEdge}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPopulationEdgeAdapter() {
+		if (populationEdgeItemProvider == null) {
+			populationEdgeItemProvider = new PopulationEdgeItemProvider(this);
+		}
+
+		return populationEdgeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,6 +346,7 @@ public class EdgesItemProviderAdapterFactory extends EdgesAdapterFactory impleme
 		if (mixingEdgeItemProvider != null) mixingEdgeItemProvider.dispose();
 		if (mixingEdgeLabelItemProvider != null) mixingEdgeLabelItemProvider.dispose();
 		if (mixingEdgeLabelValueItemProvider != null) mixingEdgeLabelValueItemProvider.dispose();
+		if (populationEdgeItemProvider != null) populationEdgeItemProvider.dispose();
 	}
 
 }
