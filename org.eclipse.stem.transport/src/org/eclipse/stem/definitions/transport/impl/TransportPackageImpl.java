@@ -512,7 +512,7 @@ public class TransportPackageImpl extends EPackageImpl implements TransportPacka
 		transportSystemEClass.getESuperTypes().add(theGraphPackage.getNode());
 		packetTransportLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
 		packetStyleTransportSystemDecoratorEClass.getESuperTypes().add(theModelPackage.getEdgeDecorator());
-		pipeTransportEdgeEClass.getESuperTypes().add(theGraphPackage.getEdge());
+		pipeTransportEdgeEClass.getESuperTypes().add(theEdgesPackage.getPopulationEdge());
 		pipeTransportEdgeLabelEClass.getESuperTypes().add(theGraphPackage.getEdgeLabel());
 		pipeTransportEdgeLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
 

@@ -13,6 +13,7 @@ package org.eclipse.stem.definitions.transport.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.stem.definitions.edges.impl.PopulationEdgeImpl;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.impl.EdgeImpl;
 
@@ -29,7 +30,7 @@ import org.eclipse.stem.definitions.transport.TransportPackage;
  *
  * @generated
  */
-public class PipeTransportEdgeImpl extends EdgeImpl implements PipeTransportEdge {
+public class PipeTransportEdgeImpl extends PopulationEdgeImpl implements PipeTransportEdge {
 	
 	/**
 	 * This is used to generate unique URI's for each pipe transport edge generated

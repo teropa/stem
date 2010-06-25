@@ -33,7 +33,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PacketStyleTransportSystemDecorator"
       eSuperTypes="../../org.eclipse.stem.core/model/model.ecore#//EdgeDecorator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PipeTransportEdge" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//Edge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PipeTransportEdge" eSuperTypes="../../org.eclipse.stem.definitions/model/edges.ecore#//PopulationEdge"/>
   <eClassifiers xsi:type="ecore:EClass" name="PipeTransportEdgeLabel" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//EdgeLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="PipeTransportEdgeLabelValue" eSuperTypes="../../org.eclipse.stem.core/model/graph.ecore#//LabelValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxFlow" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>

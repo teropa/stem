@@ -33,6 +33,7 @@ import org.eclipse.stem.core.modifier.Modifiable;
 import org.eclipse.stem.definitions.edges.MigrationEdge;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
 
+import org.eclipse.stem.definitions.edges.PopulationEdge;
 import org.eclipse.stem.definitions.transport.*;
 
 /**
@@ -113,6 +114,7 @@ public class TransportSwitch<T1> {
 				LoadUnloadEdge loadUnloadEdge = (LoadUnloadEdge)theEObject;
 				T1 result = caseLoadUnloadEdge(loadUnloadEdge);
 				if (result == null) result = caseMigrationEdge(loadUnloadEdge);
+				if (result == null) result = casePopulationEdge(loadUnloadEdge);
 				if (result == null) result = caseEdge(loadUnloadEdge);
 				if (result == null) result = caseIdentifiable(loadUnloadEdge);
 				if (result == null) result = caseModifiable(loadUnloadEdge);
@@ -192,6 +194,7 @@ public class TransportSwitch<T1> {
 			case TransportPackage.PIPE_TRANSPORT_EDGE: {
 				PipeTransportEdge pipeTransportEdge = (PipeTransportEdge)theEObject;
 				T1 result = casePipeTransportEdge(pipeTransportEdge);
+				if (result == null) result = casePopulationEdge(pipeTransportEdge);
 				if (result == null) result = caseEdge(pipeTransportEdge);
 				if (result == null) result = caseIdentifiable(pipeTransportEdge);
 				if (result == null) result = caseModifiable(pipeTransportEdge);
@@ -443,6 +446,21 @@ public class TransportSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseEdge(Edge object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Population Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Population Edge</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePopulationEdge(PopulationEdge object) {
 		return null;
 	}
 

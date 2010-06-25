@@ -11,6 +11,7 @@ package org.eclipse.stem.definitions.transport;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.stem.definitions.edges.PopulationEdge;
 import org.eclipse.stem.core.graph.Edge;
 
 /**
@@ -23,7 +24,7 @@ import org.eclipse.stem.core.graph.Edge;
  * @model
  * @generated
  */
-public interface PipeTransportEdge extends Edge {
+public interface PipeTransportEdge extends PopulationEdge {
 	/**
 	 * This is the segment of the type URI that prefixes all other segments in a
 	 * pipe transport edge URI.

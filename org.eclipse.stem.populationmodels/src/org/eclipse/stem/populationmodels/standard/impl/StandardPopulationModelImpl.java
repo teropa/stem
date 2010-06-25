@@ -12,26 +12,40 @@ package org.eclipse.stem.populationmodels.standard.impl;
  *******************************************************************************/
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.IntegrationLabel;
+import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.edges.MigrationEdge;
+import org.eclipse.stem.definitions.labels.TransportRelationshipLabel;
+import org.eclipse.stem.definitions.labels.impl.TransportRelationshipLabelImpl;
+import org.eclipse.stem.definitions.transport.PipeTransportEdge;
+import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
+import org.eclipse.stem.definitions.transport.impl.PipeStyleTransportSystemImpl;
 import org.eclipse.stem.populationmodels.Activator;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
@@ -116,6 +130,10 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @ordered
 	 */
 	protected long timePeriod = TIME_PERIOD_EDEFAULT;
+
+	protected Map<Integer, List<PipeTransportEdge>> pipeTransportationUpEdgesMap;
+	protected Map<Integer, List<PipeTransportEdge>> pipeTransportationDownEdgesMap;
+	protected Map<Node, List<PipeTransportEdge>> pipeTransportationNodeEdgesMap;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -348,6 +366,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 			delta.getDepartures().put((Node)label.getIdentifiable(), deaths);
 			
 			handleMigration(slabel, delta.getArrivals(),delta.getDepartures(), this.getTimePeriod(), timeDelta, delta);
+			handlePipeTransport(slabel, delta.getArrivals(),delta.getDepartures(), timeDelta, delta);
 		}
 	}
 
@@ -434,6 +453,79 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		
 	}
 	
+	protected void handlePipeTransport(StandardPopulationModelLabelImpl populationLabel, Map<Node, Double>arrivals,Map<Node, Double>departures, long timeDelta, StandardPopulationModelLabelValueImpl delta) {
+		// Get the pipe transport edges to/from the node
+		Node node = populationLabel.getNode();
+		List<PipeTransportEdge>pedges = pipeTransportationNodeEdgesMap.get(node);
+		if(pedges == null) return; // no edges
+		
+		for(PipeTransportEdge pedge:pedges) {
+			if(!pedge.getPopulationIdentifier().equals(populationLabel.getPopulationIdentifier())) continue; // wrong population
+			
+			boolean incomming = pedge.getB().equals(node);
+			if(incomming) {
+				for(NodeLabel lab: pedge.getA().getLabels()) {
+					if(lab instanceof StandardPopulationModelLabel && ((StandardPopulationModelLabel)lab).getDecorator() == this) {
+						// Make sure the target node has a population model label
+						boolean found = false;
+						for(NodeLabel otherLab:pedge.getB().getLabels()) {
+							if(otherLab instanceof StandardPopulationModelLabel &&
+									((StandardPopulationModelLabel)otherLab).getDecorator().equals(((StandardPopulationModelLabel)lab).getDecorator()))
+									{found=true;break;}
+						}
+						if(!found) continue; // skip edge
+						StandardPopulationModelLabel otherLabel = (StandardPopulationModelLabel)lab;
+						StandardPopulationModelLabelValue otherValue = (StandardPopulationModelLabelValue)otherLabel.getTempValue();
+						StandardPopulationModelLabelValue change = (StandardPopulationModelLabelValue)EcoreUtil.copy(otherValue);
+						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
+						double maxFlow = edgeLabelValue.getMaxFlow();
+						double flow = maxFlow;
+						double popCount = ((StandardPopulationModelLabelValue)otherLabel.getTempValue()).getCount();
+						if(flow > popCount) flow = popCount; // don't move more people than available.
+						long timePeriod = edgeLabelValue.getTimePeriod();
+						double factor = flow / popCount;
+						
+						factor = factor * timeDelta / timePeriod;
+						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
+						change.scale(factor);
+						
+						delta.add((IntegrationLabelValue)change);
+						delta.getArrivals().put(pedge.getA(), change.getCount());
+					}
+				}
+			} else { // outgoing edge
+				for(NodeLabel lab: pedge.getA().getLabels()) {
+					if(lab instanceof StandardPopulationModelLabel && ((StandardPopulationModelLabel)lab).getDecorator() == this) {
+						// Make sure the target node has a disease model decorator
+						boolean found = false;
+						for(NodeLabel otherLab:pedge.getB().getLabels()) {
+							if(otherLab instanceof StandardPopulationModelLabel &&
+									((StandardPopulationModelLabel)otherLab).getDecorator().equals(((StandardPopulationModelLabel)lab).getDecorator()))
+									{found=true;break;}
+						}
+						if(!found) continue; // skip edge
+						StandardPopulationModelLabel thisLabel = (StandardPopulationModelLabel)lab;
+						StandardPopulationModelLabelValue thisValue = (StandardPopulationModelLabelValue)thisLabel.getTempValue();
+						StandardPopulationModelLabelValue change = (StandardPopulationModelLabelValue)EcoreUtil.copy(thisValue);
+						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
+						double maxFlow = edgeLabelValue.getMaxFlow();
+						double popCount = ((StandardPopulationModelLabelValue)thisLabel.getTempValue()).getCount();
+						double flow = maxFlow;
+						if(flow > popCount) flow = popCount;
+						long timePeriod = edgeLabelValue.getTimePeriod();
+						double factor = flow / popCount;
+						factor = factor * timeDelta / timePeriod;
+						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
+						change.scale(factor);
+						
+						delta.sub((IntegrationLabelValue)change);
+						delta.getDepartures().put(pedge.getB(), change.getCount());
+					}
+				}
+			}
+		} // for each edge		
+	}
+	
 	private double adjustRate(double rate, long ratePeriod, long actualPeriod) {
 		return rate * ((double)actualPeriod/(double)ratePeriod);
 	}
@@ -448,4 +540,201 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		return true;
 	}
 
+	@SuppressWarnings("boxing")
+	private void populatePipeSystemNodes() {
+		Graph graph = this.getGraph();
+		
+		if(pipeTransportationUpEdgesMap == null || pipeTransportationDownEdgesMap == null) {
+			initPipeTransport(graph);
+		}
+		Map<Integer, List<PipeTransportEdge>> map = pipeTransportationUpEdgesMap;
+		
+		Integer [] levels = new Integer[map.keySet().size()];
+		levels = map.keySet().toArray(levels);
+		Arrays.sort(levels, 0, levels.length, 
+				new Comparator<Integer>() {
+					public int compare(Integer o1, Integer o2) {
+						if(o1 < o2) return 1;
+					else if(o1 > o2) return -1;
+						return 0;
+					}
+		});
+		
+		
+		for(int level : levels) {
+			List<PipeTransportEdge> edges = map.get(level);
+			
+			for(PipeTransportEdge ptedge:edges) {
+				// Move people from source to destination using the flow of the pipe
+				Node source = ptedge.getA();
+				Node dest = ptedge.getB();
+				if(source == null || dest == null) continue; // ok, the region or transport system is not part of the model
+				
+				PipeTransportEdgeLabelValue label = (PipeTransportEdgeLabelValue) ptedge.getLabel().getCurrentValue();
+				double maxflow = label.getMaxFlow();
+				
+				PopulationModelLabel srcLabel= null;
+				StandardPopulationModelLabelValue nextsrclabelval=null, nextdestlabelval=null, currsrclabelval=null, currdestlabelval=null;
+				String popIdSrc=null;
+				for(NodeLabel nlabel:source.getLabels()) {
+					if(nlabel instanceof PopulationModelLabel) {
+						currsrclabelval = (StandardPopulationModelLabelValue)((PopulationModelLabel)nlabel).getCurrentValue();
+						nextsrclabelval = (StandardPopulationModelLabelValue)((PopulationModelLabel)nlabel).getNextValue();
+						popIdSrc = ((PopulationModelLabel)nlabel).getPopulationIdentifier();
+						srcLabel = (PopulationModelLabel)nlabel;
+					} else continue;
+				
+					for(NodeLabel nlabel2:dest.getLabels()) {
+						if(nlabel2 instanceof PopulationModelLabel &&
+								((PopulationModelLabel)nlabel2).getPopulationIdentifier().equals(popIdSrc)) {
+							currdestlabelval = (StandardPopulationModelLabelValue)((PopulationModelLabel)nlabel2).getCurrentValue();
+							nextdestlabelval  =  (StandardPopulationModelLabelValue)((PopulationModelLabel)nlabel2).getNextValue();
+						}
+					}
+					
+					if(currsrclabelval == null || currdestlabelval == null) {
+						continue; // possible for transport pipes connected to regions above the lowest region part of the model
+					}
+					
+					// Check, make sure we don't move more people than available
+					
+					double flow = maxflow;	
+					if(currsrclabelval.getCount() < flow) flow = currsrclabelval.getCount(); // check
+					
+					double factor = flow / currsrclabelval.getCount();
+					if(Double.isNaN(factor)) factor = 0.0;
+					
+					StandardPopulationModelLabelValue move = null;
+					
+					move = (StandardPopulationModelLabelValue)EcoreUtil.copy(currsrclabelval);
+					
+					move.scale(factor);
+				
+					currdestlabelval.reset(); // clear any existing numbers first
+					currdestlabelval.add((IntegrationLabelValue)move);
+					
+				} // for each label on the source node
+			}
+		}
+		
+		// Check for nodes that have no initial population. Get rid of those
+		ArrayList<Node>nodesToRemove = new ArrayList<Node>();
+		for(Node n:pipeTransportationNodeEdgesMap.keySet()) {
+			boolean remove = false;
+			if( (n instanceof PipeStyleTransportSystemImpl)) {
+				PipeStyleTransportSystemImpl psts = (PipeStyleTransportSystemImpl)n;
+				for(NodeLabel l:psts.getLabels()) {
+					if(l instanceof StandardPopulationModelLabel) {
+						StandardPopulationModelLabel sl = (StandardPopulationModelLabel)l;
+						StandardPopulationModelLabelValue slv = (StandardPopulationModelLabelValue)sl.getCurrentValue();
+						if(slv.getCount() == 0.0) {
+							remove = true;break;
+						}
+					}
+					if(remove)break;
+				}
+				ArrayList<PipeTransportEdge>edgesToRemove = new ArrayList<PipeTransportEdge>();
+				if(remove) {
+					Activator.logInformation("Warning, ignoring air transportation node without population "+n, new Exception());
+					nodesToRemove.add(n);
+					// Remove all air transport edges using the node as well as the node itself
+					for(List<PipeTransportEdge>l :pipeTransportationDownEdgesMap.values()) {
+						for(PipeTransportEdge pse:l) {
+							if(pse.getA() == null || pse.getB() == null) continue;
+							if(pse.getA().equals(n) || pse.getB().equals(n)) {
+								if(!edgesToRemove.contains(pse))edgesToRemove.add(pse);
+							}
+						}
+					}
+					for(List<PipeTransportEdge>l :pipeTransportationUpEdgesMap.values()) {
+						for(PipeTransportEdge pse:l) {
+							if(pse.getA() == null || pse.getB() == null) continue;
+							if(pse.getA().equals(n) || pse.getB().equals(n)) {
+								if(!edgesToRemove.contains(pse))edgesToRemove.add(pse);
+							}
+						}
+					}
+					for(PipeTransportEdge pse:edgesToRemove) { 
+						for(List<PipeTransportEdge>l :pipeTransportationDownEdgesMap.values())
+							l.remove(pse);
+						for(List<PipeTransportEdge>l :pipeTransportationUpEdgesMap.values())
+							l.remove(pse);
+					}
+					for(PipeTransportEdge pse:edgesToRemove) { 
+						for(List<PipeTransportEdge>l :pipeTransportationNodeEdgesMap.values())
+							l.remove(pse);
+						for(List<PipeTransportEdge>l :pipeTransportationNodeEdgesMap.values())
+							l.remove(pse);
+					}
+					
+				}
+			}
+		}
+		for(Node n:nodesToRemove) pipeTransportationNodeEdgesMap.remove(n);
+	}
+	
+	/**
+	 * initialize pipe transport maps organizing pipes by direction (up/down)
+	 * and level
+	 * @param graph
+	 */
+	@SuppressWarnings("boxing")
+	private void initPipeTransport(Graph graph) {
+		pipeTransportationUpEdgesMap = new HashMap<Integer, List<PipeTransportEdge>>();
+		pipeTransportationDownEdgesMap = new HashMap<Integer, List<PipeTransportEdge>>();
+		pipeTransportationNodeEdgesMap = new HashMap<Node, List<PipeTransportEdge>>();
+		// Traverse all pipe transport edges and determine what
+		// geographic level their source (A) node is at
+		for(URI edgeURI : graph.getEdges().keySet()) {
+			Edge edge = graph.getEdges().get(edgeURI);
+			
+			if(edge instanceof PipeTransportEdge) {
+				PipeTransportEdge pedge = (PipeTransportEdge)edge;
+				int beginLevel = Utility.keyLevel(edge.getNodeAURI().lastSegment());
+				int endLevel = Utility.keyLevel(edge.getNodeBURI().lastSegment());
+				
+				Map<Integer, List<PipeTransportEdge>> map;
+				if(beginLevel > endLevel) map = pipeTransportationUpEdgesMap;
+				else map = pipeTransportationDownEdgesMap;
+				
+				if(map.containsKey(beginLevel)) {
+					map.get(beginLevel).add(pedge);
+				} else {
+					ArrayList<PipeTransportEdge> list = new ArrayList<PipeTransportEdge>();
+					list.add(pedge);
+					map.put(beginLevel, list);
+				}
+				
+				Node a = edge.getA();
+				Node b = edge.getB();
+				
+				if(a != null)
+					if(pipeTransportationNodeEdgesMap.containsKey(a))
+						pipeTransportationNodeEdgesMap.get(a).add(pedge);
+					else {
+						ArrayList<PipeTransportEdge> newList = new ArrayList<PipeTransportEdge>();
+						newList.add(pedge);
+						pipeTransportationNodeEdgesMap.put(a, newList);
+					}	
+				
+				if(b != null)
+					if(pipeTransportationNodeEdgesMap.containsKey(b))
+						pipeTransportationNodeEdgesMap.get(b).add(pedge);
+					else {
+						ArrayList<PipeTransportEdge> newList = new ArrayList<PipeTransportEdge>();
+						newList.add(pedge);
+						pipeTransportationNodeEdgesMap.put(b, newList);
+					}	
+			}
+		}
+	}
+	
+		
+	
+	@Override
+	public void resetLabels() {
+		super.resetLabels();
+		// Populate the pipe transportation systems
+		this.populatePipeSystemNodes();
+	}
 } //StandardPopulationModelImpl

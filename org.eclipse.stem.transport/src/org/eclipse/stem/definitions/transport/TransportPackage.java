@@ -161,6 +161,15 @@ public interface TransportPackage extends EPackage {
 	int LOAD_UNLOAD_EDGE__DIRECTED = EdgesPackage.MIGRATION_EDGE__DIRECTED;
 
 	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOAD_UNLOAD_EDGE__POPULATION_IDENTIFIER = EdgesPackage.MIGRATION_EDGE__POPULATION_IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Loading Edge</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -781,7 +790,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__URI = GraphPackage.EDGE__URI;
+	int PIPE_TRANSPORT_EDGE__URI = EdgesPackage.POPULATION_EDGE__URI;
 
 	/**
 	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
@@ -790,7 +799,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__TYPE_URI = GraphPackage.EDGE__TYPE_URI;
+	int PIPE_TRANSPORT_EDGE__TYPE_URI = EdgesPackage.POPULATION_EDGE__TYPE_URI;
 
 	/**
 	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
@@ -799,7 +808,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__DUBLIN_CORE = GraphPackage.EDGE__DUBLIN_CORE;
+	int PIPE_TRANSPORT_EDGE__DUBLIN_CORE = EdgesPackage.POPULATION_EDGE__DUBLIN_CORE;
 
 	/**
 	 * The feature id for the '<em><b>A</b></em>' reference.
@@ -808,7 +817,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__A = GraphPackage.EDGE__A;
+	int PIPE_TRANSPORT_EDGE__A = EdgesPackage.POPULATION_EDGE__A;
 
 	/**
 	 * The feature id for the '<em><b>Node AURI</b></em>' attribute.
@@ -817,7 +826,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__NODE_AURI = GraphPackage.EDGE__NODE_AURI;
+	int PIPE_TRANSPORT_EDGE__NODE_AURI = EdgesPackage.POPULATION_EDGE__NODE_AURI;
 
 	/**
 	 * The feature id for the '<em><b>B</b></em>' reference.
@@ -826,7 +835,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__B = GraphPackage.EDGE__B;
+	int PIPE_TRANSPORT_EDGE__B = EdgesPackage.POPULATION_EDGE__B;
 
 	/**
 	 * The feature id for the '<em><b>Node BURI</b></em>' attribute.
@@ -835,7 +844,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__NODE_BURI = GraphPackage.EDGE__NODE_BURI;
+	int PIPE_TRANSPORT_EDGE__NODE_BURI = EdgesPackage.POPULATION_EDGE__NODE_BURI;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' containment reference.
@@ -844,7 +853,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__LABEL = GraphPackage.EDGE__LABEL;
+	int PIPE_TRANSPORT_EDGE__LABEL = EdgesPackage.POPULATION_EDGE__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Directed</b></em>' attribute.
@@ -853,7 +862,16 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE__DIRECTED = GraphPackage.EDGE__DIRECTED;
+	int PIPE_TRANSPORT_EDGE__DIRECTED = EdgesPackage.POPULATION_EDGE__DIRECTED;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIPE_TRANSPORT_EDGE__POPULATION_IDENTIFIER = EdgesPackage.POPULATION_EDGE__POPULATION_IDENTIFIER;
 
 	/**
 	 * The number of structural features of the '<em>Pipe Transport Edge</em>' class.
@@ -862,7 +880,7 @@ public interface TransportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIPE_TRANSPORT_EDGE_FEATURE_COUNT = GraphPackage.EDGE_FEATURE_COUNT + 0;
+	int PIPE_TRANSPORT_EDGE_FEATURE_COUNT = EdgesPackage.POPULATION_EDGE_FEATURE_COUNT + 0;
 
 
 	/**

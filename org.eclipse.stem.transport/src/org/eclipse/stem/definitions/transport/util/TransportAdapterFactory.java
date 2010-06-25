@@ -35,6 +35,7 @@ import org.eclipse.stem.core.modifier.Modifiable;
 import org.eclipse.stem.definitions.edges.MigrationEdge;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
 
+import org.eclipse.stem.definitions.edges.PopulationEdge;
 import org.eclipse.stem.definitions.transport.*;
 
 /**
@@ -152,6 +153,10 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEdge(Edge object) {
 				return createEdgeAdapter();
+			}
+			@Override
+			public Adapter casePopulationEdge(PopulationEdge object) {
+				return createPopulationEdgeAdapter();
 			}
 			@Override
 			public Adapter caseMigrationEdge(MigrationEdge object) {
@@ -424,6 +429,20 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEdgeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.edges.PopulationEdge <em>Population Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.definitions.edges.PopulationEdge
+	 * @generated
+	 */
+	public Adapter createPopulationEdgeAdapter() {
 		return null;
 	}
 
