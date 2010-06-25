@@ -178,10 +178,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	protected double referencePopulationDensity = REFERENCE_POPULATION_DENSITY_EDEFAULT;
 
 	
-	protected Map<Integer, List<PipeTransportEdge>> pipeTransportationUpEdgesMap;
-	protected Map<Integer, List<PipeTransportEdge>> pipeTransportationDownEdgesMap;
-	protected Map<Node, List<PipeTransportEdge>> pipeTransportationNodeEdgesMap;
-	
+		
 	/**
 	 * We only need one of these.
 	 * 
@@ -356,15 +353,13 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			final StandardDiseaseModelLabelValue currentState = (StandardDiseaseModelLabelValue)diseaseLabel
 					.getProbeValue();
 
-			// 1) Get the pipe transportation deltas
-			final StandardDiseaseModelLabelValue pipeTransportDeltas = getPipeTransportationDeltas(diseaseLabel, time, timeDelta, pipeDelta);
 
-			// 2) Compute Birth and Deaths state delta changes
+			// 1) Compute Birth and Deaths state delta changes
 			final StandardDiseaseModelLabelValue diseaseDeathDeltas = computeDiseaseDeathsDeltas(time, diseaseLabel, currentState, timeDelta, birthDeathsDelta);
 				
 			StandardDiseaseModelLabelValue diseaseState = currentState;
 				
-			// 3) Compute the delta changes caused  by the Disease itself
+			// 2) Compute the delta changes caused  by the Disease itself
 			final StandardDiseaseModelLabelValue diseaseDeltas = computeDiseaseDeltas(time, diseaseState, diseaseLabel, timeDelta, diseaseDelta);
 			
 			 //  Just capture the incidence that was passed on from computeTransistions
@@ -397,16 +392,13 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			// Reset the state
 			deltaState.reset();
 			
-
-			// 1) Pipe transport deltas
-			deltaState.add((IntegrationLabelValue)pipeTransportDeltas);
 			
-			// 2) Add birth/death deltas and set the departures
+			// 1) Add birth/death deltas and set the departures
 			deltaState.add((IntegrationLabelValue)diseaseDeathDeltas);
 			if(diseaseDeathDeltas.getDiseaseDeaths() > 0.0) 
 				deltaState.getDepartures().put(diseaseLabel.getNode(), diseaseDeathDeltas.getDiseaseDeaths());
 				
-			// 3) Disease deltas
+			// 2) Disease deltas
 			deltaState.add((IntegrationLabelValue)diseaseDeltas);
 		
 			// and pass on the incidence
@@ -569,208 +561,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * Populate the pipe system nodes initially
 	 */
 	
-	@SuppressWarnings("boxing")
-	private void populatePipeSystemNodes() {
-		Graph graph = this.getGraph();
-		
-		if(pipeTransportationUpEdgesMap == null || pipeTransportationDownEdgesMap == null) {
-			initPipeTransport(graph);
-		}
-		Map<Integer, List<PipeTransportEdge>> map = pipeTransportationUpEdgesMap;
-		
-		Integer [] levels = new Integer[map.keySet().size()];
-		levels = map.keySet().toArray(levels);
-		Arrays.sort(levels, 0, levels.length, 
-				new Comparator<Integer>() {
-					public int compare(Integer o1, Integer o2) {
-						if(o1 < o2) return 1;
-					else if(o1 > o2) return -1;
-						return 0;
-					}
-		});
-		
-		
-		for(int level : levels) {
-			List<PipeTransportEdge> edges = map.get(level);
-			
-			for(PipeTransportEdge ptedge:edges) {
-				// Move people from source to destination using the flow of the pipe
-				Node source = ptedge.getA();
-				Node dest = ptedge.getB();
-				if(source == null || dest == null) continue; // ok, the region or transport system is not part of the model
-				
-				PipeTransportEdgeLabelValue label = (PipeTransportEdgeLabelValue) ptedge.getLabel().getCurrentValue();
-				double maxflow = label.getMaxFlow();
-				
-				DiseaseModelLabel srcLabel= null;
-				DiseaseModelLabelValue nextsrclabelval=null, nextdestlabelval=null, currsrclabelval=null, currdestlabelval=null;
-				String popIdSrc=null;
-				for(NodeLabel nlabel:source.getLabels()) {
-					if(nlabel instanceof DiseaseModelLabel) {
-						currsrclabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getCurrentValue();
-						nextsrclabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel).getNextValue();
-						popIdSrc = ((DiseaseModelLabel)nlabel).getPopulationModelLabel().getPopulationIdentifier();
-						srcLabel = (DiseaseModelLabel)nlabel;
-					} else continue;
-				
-					for(NodeLabel nlabel2:dest.getLabels()) {
-						if(nlabel2 instanceof DiseaseModelLabel &&
-								((DiseaseModelLabel)nlabel2).getPopulationModelLabel().getPopulationIdentifier().equals(popIdSrc)) {
-							currdestlabelval = (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel2).getCurrentValue();
-							nextdestlabelval  =  (StandardDiseaseModelLabelValue)((StandardDiseaseModelLabel)nlabel2).getNextValue();
-						}
-					}
-					
-					if(currsrclabelval == null || currdestlabelval == null) {
-						continue; // possible for transport pipes connected to regions above the lowest region part of the model
-					}
-					
-					// Check, make sure we don't move more people than available
-					
-					double flow = maxflow;	
-					if(currsrclabelval.getPopulationCount() < flow) flow = currsrclabelval.getPopulationCount(); // check
-					
-					double factor = flow / currsrclabelval.getPopulationCount();
-					if(Double.isNaN(factor)) factor = 0.0;
-					
-					DiseaseModelLabelValue move = null;
-					
-					move = (DiseaseModelLabelValue)EcoreUtil.copy(currsrclabelval);
-					
-					move.scale(factor);
-					// Don't touch disease deaths
-					move.setDiseaseDeaths(0.0);
-			
-					currdestlabelval.reset(); // clear any existing numbers first
-					currdestlabelval.add((IntegrationLabelValue)move);
-					
-					// We've copied the disease labels. Now check to see if there is any population
-					// label on the target node, if so set it to the population count of the disease label.
-					// If there is no population label, this method will be called again later after
-					// the population label has been created
-					
-					for(NodeLabel lab:dest.getLabels()) {
-						if(lab instanceof StandardPopulationModelLabel &&
-							((StandardPopulationModelLabel)lab).getPopulationIdentifier().equals(srcLabel.getPopulationModelLabel().getPopulationIdentifier())) {
-							((StandardPopulationModelLabelValue)lab.getCurrentValue()).setCount(currdestlabelval.getPopulationCount());
-						}			
-					}	
-				} // for each label on the source node
-			}
-		}
-		
-		// Check for nodes that have no initial population. Get rid of those
-		ArrayList<Node>nodesToRemove = new ArrayList<Node>();
-		for(Node n:pipeTransportationNodeEdgesMap.keySet()) {
-			boolean remove = false;
-			if( (n instanceof PipeStyleTransportSystemImpl)) {
-				PipeStyleTransportSystemImpl psts = (PipeStyleTransportSystemImpl)n;
-				for(NodeLabel l:psts.getLabels()) {
-					if(l instanceof StandardDiseaseModelLabel) {
-						StandardDiseaseModelLabel sl = (StandardDiseaseModelLabel)l;
-						StandardDiseaseModelLabelValue slv = (StandardDiseaseModelLabelValue)sl.getCurrentValue();
-						if(slv.getPopulationCount() == 0.0) {
-							remove = true;break;
-						}
-					}
-					if(remove)break;
-				}
-				ArrayList<PipeTransportEdge>edgesToRemove = new ArrayList<PipeTransportEdge>();
-				if(remove) {
-					Activator.logInformation("Warning, ignoring air transportation node without population "+n, new Exception());
-					nodesToRemove.add(n);
-					// Remove all air transport edges using the node as well as the node itself
-					for(List<PipeTransportEdge>l :pipeTransportationDownEdgesMap.values()) {
-						for(PipeTransportEdge pse:l) {
-							if(pse.getA() == null || pse.getB() == null) continue;
-							if(pse.getA().equals(n) || pse.getB().equals(n)) {
-								if(!edgesToRemove.contains(pse))edgesToRemove.add(pse);
-							}
-						}
-					}
-					for(List<PipeTransportEdge>l :pipeTransportationUpEdgesMap.values()) {
-						for(PipeTransportEdge pse:l) {
-							if(pse.getA() == null || pse.getB() == null) continue;
-							if(pse.getA().equals(n) || pse.getB().equals(n)) {
-								if(!edgesToRemove.contains(pse))edgesToRemove.add(pse);
-							}
-						}
-					}
-					for(PipeTransportEdge pse:edgesToRemove) { 
-						for(List<PipeTransportEdge>l :pipeTransportationDownEdgesMap.values())
-							l.remove(pse);
-						for(List<PipeTransportEdge>l :pipeTransportationUpEdgesMap.values())
-							l.remove(pse);
-					}
-					for(PipeTransportEdge pse:edgesToRemove) { 
-						for(List<PipeTransportEdge>l :pipeTransportationNodeEdgesMap.values())
-							l.remove(pse);
-						for(List<PipeTransportEdge>l :pipeTransportationNodeEdgesMap.values())
-							l.remove(pse);
-					}
-					
-				}
-			}
-		}
-		for(Node n:nodesToRemove) pipeTransportationNodeEdgesMap.remove(n);
-	}
-	/**
-	 * initialize pipe transport maps organizing pipes by direction (up/down)
-	 * and level
-	 * @param graph
-	 */
-	@SuppressWarnings("boxing")
-	private void initPipeTransport(Graph graph) {
-		pipeTransportationUpEdgesMap = new HashMap<Integer, List<PipeTransportEdge>>();
-		pipeTransportationDownEdgesMap = new HashMap<Integer, List<PipeTransportEdge>>();
-		pipeTransportationNodeEdgesMap = new HashMap<Node, List<PipeTransportEdge>>();
-		// Traverse all pipe transport edges and determine what
-		// geographic level their source (A) node is at
-		for(URI edgeURI : graph.getEdges().keySet()) {
-			Edge edge = graph.getEdges().get(edgeURI);
-			
-			if(edge instanceof PipeTransportEdge) {
-				PipeTransportEdge pedge = (PipeTransportEdge)edge;
-				int beginLevel = Utility.keyLevel(edge.getNodeAURI().lastSegment());
-				int endLevel = Utility.keyLevel(edge.getNodeBURI().lastSegment());
-				
-				Map<Integer, List<PipeTransportEdge>> map;
-				if(beginLevel > endLevel) map = pipeTransportationUpEdgesMap;
-				else map = pipeTransportationDownEdgesMap;
-				
-				if(map.containsKey(beginLevel)) {
-					map.get(beginLevel).add(pedge);
-				} else {
-					ArrayList<PipeTransportEdge> list = new ArrayList<PipeTransportEdge>();
-					list.add(pedge);
-					map.put(beginLevel, list);
-				}
-				
-				Node a = edge.getA();
-				Node b = edge.getB();
-				
-				if(a != null)
-					if(pipeTransportationNodeEdgesMap.containsKey(a))
-						pipeTransportationNodeEdgesMap.get(a).add(pedge);
-					else {
-						ArrayList<PipeTransportEdge> newList = new ArrayList<PipeTransportEdge>();
-						newList.add(pedge);
-						pipeTransportationNodeEdgesMap.put(a, newList);
-					}	
-				
-				if(b != null)
-					if(pipeTransportationNodeEdgesMap.containsKey(b))
-						pipeTransportationNodeEdgesMap.get(b).add(pedge);
-					else {
-						ArrayList<PipeTransportEdge> newList = new ArrayList<PipeTransportEdge>();
-						newList.add(pedge);
-						pipeTransportationNodeEdgesMap.put(b, newList);
-					}	
-			}
-		}
-	}
 	
-		
+	
 	
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#initializeDiseaseState(org.eclipse.stem.diseasemodels.standard.DiseaseModelState,
@@ -978,110 +770,13 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			double fractionToDepart, StandardDiseaseModelLabelValue nextState);
 
 	
-
-	/**
-	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getPipeTransportationDeltas(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel,
-	 *      org.eclipse.stem.core.model.STEMTime)
-	 */
-	protected StandardDiseaseModelLabelValue getPipeTransportationDeltas(final StandardDiseaseModelLabel diseaseLabel, final STEMTime time, final long timeDelta, DiseaseModelLabelValue returnValue) {
-		
-		// Get the pipe transport edges to/from the node
-		Node node = diseaseLabel.getNode();
-		List<PipeTransportEdge>pedges = pipeTransportationNodeEdgesMap.get(node);
-		if(pedges == null) return (StandardDiseaseModelLabelValue)createDiseaseModelLabelValue(); // no delta
-		
-		for(PipeTransportEdge pedge:pedges) {			
-			boolean incomming = pedge.getB().equals(node);
-			if(incomming) {
-				for(NodeLabel lab: pedge.getA().getLabels()) {
-					if(lab instanceof StandardDiseaseModelLabel && ((StandardDiseaseModelLabel)lab).getDecorator() == this) {
-						// Make sure the target node has a disease model decorator
-						boolean found = false;
-						for(NodeLabel otherLab:pedge.getB().getLabels()) {
-							if(otherLab instanceof StandardDiseaseModelLabel &&
-									((StandardDiseaseModelLabel)otherLab).getDecorator().equals(((StandardDiseaseModelLabel)lab).getDecorator()))
-									{found=true;break;}
-						}
-						if(!found) continue; // skip edge
-						StandardDiseaseModelLabel otherLabel = (StandardDiseaseModelLabel)lab;
-						StandardDiseaseModelLabelValue otherValue = (StandardDiseaseModelLabelValue)otherLabel.getTempValue();
-						StandardDiseaseModelLabelValue change = (StandardDiseaseModelLabelValue)EcoreUtil.copy(otherValue);
-						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
-						double maxFlow = edgeLabelValue.getMaxFlow();
-						double flow = maxFlow;
-						double popCount = ((StandardDiseaseModelLabelValue)otherLabel.getTempValue()).getPopulationCount();
-						if(flow > popCount) flow = popCount; // don't move more people than available.
-						long timePeriod = edgeLabelValue.getTimePeriod();
-						double factor = flow / popCount;
-						
-						factor = factor * timeDelta / timePeriod;
-						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
-						change.scale(factor);
-						
-						returnValue.add((IntegrationLabelValue)change);
-					}
-				}
-			} else { // outgoing edge
-				for(NodeLabel lab: pedge.getA().getLabels()) {
-					if(lab instanceof StandardDiseaseModelLabel && ((StandardDiseaseModelLabel)lab).getDecorator() == this) {
-						// Make sure the target node has a disease model decorator
-						boolean found = false;
-						for(NodeLabel otherLab:pedge.getB().getLabels()) {
-							if(otherLab instanceof StandardDiseaseModelLabel &&
-									((StandardDiseaseModelLabel)otherLab).getDecorator().equals(((StandardDiseaseModelLabel)lab).getDecorator()))
-									{found=true;break;}
-						}
-						if(!found) continue; // skip edge
-						StandardDiseaseModelLabel thisLabel = (StandardDiseaseModelLabel)lab;
-						StandardDiseaseModelLabelValue thisValue = (StandardDiseaseModelLabelValue)thisLabel.getTempValue();
-						StandardDiseaseModelLabelValue change = (StandardDiseaseModelLabelValue)EcoreUtil.copy(thisValue);
-						PipeTransportEdgeLabelValue edgeLabelValue =  (PipeTransportEdgeLabelValue)pedge.getLabel().getCurrentValue();
-						double maxFlow = edgeLabelValue.getMaxFlow();
-						double popCount = ((StandardDiseaseModelLabelValue)thisLabel.getTempValue()).getPopulationCount();
-						double flow = maxFlow;
-						if(flow > popCount) flow = popCount;
-						long timePeriod = edgeLabelValue.getTimePeriod();
-						double factor = flow / popCount;
-						factor = factor * timeDelta / timePeriod;
-						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0;
-						change.scale(factor);
-						
-						returnValue.sub((IntegrationLabelValue)change);
-					}
-				}
-			}
-		} // for each edge
-		return (StandardDiseaseModelLabelValue)returnValue;
-		
-	} // getPipeTransportationDeltas
-	
-	
-	
 	@Override
 	public void resetLabels() {
 		super.resetLabels();
 
-		// Reset all the labels on the transport edges to the node that each
-		// label labels
-		for (final Iterator<DynamicLabel> labelIter = getLabelsToUpdate()
-				.iterator(); labelIter.hasNext();) {
-			final DynamicLabel dynamicLabel = labelIter.next();
-			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) dynamicLabel;
-
-			final Node node = diseaseLabel.getNode();
-			for (Iterator<Edge> transportationEdgeIter = TransportRelationshipLabelImpl
-					.getTransportEdgesToNode(node, populationIdentifier)
-					.iterator(); transportationEdgeIter.hasNext();) {
-				final Edge transportEdge = transportationEdgeIter.next();
-				final TransportRelationshipLabel transportLabel = (TransportRelationshipLabel) transportEdge
-						.getLabel();
-				transportLabel.reset();
-			} // for each transport edge
-			
-		} // for each disease label
 		
-		// Populate the pipe transportation systems
-		this.populatePipeSystemNodes();
+		
+		
 	} // resetLabels
 
 	/**
