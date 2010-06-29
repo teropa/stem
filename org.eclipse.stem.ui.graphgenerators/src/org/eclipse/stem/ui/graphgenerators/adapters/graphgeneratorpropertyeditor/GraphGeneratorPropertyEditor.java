@@ -199,7 +199,57 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 			} // if text != null
 		} // if Non-Linearity Coefficient
 
-		
+		if(retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION);
+			if (text != null) {
+				// Yes
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = Messages
+						.getString("NGGWizErr5"); //$NON-NLS-1$
+				} // if
+			}
+		}
+		if(retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION);
+			if (text != null) {
+				// Yes
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = Messages
+						.getString("NGGWizErr5"); //$NON-NLS-1$
+				} // if
+			}
+		}
+		if(retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE);
+			if (text != null) {
+				// Yes
+				try {
+					double rate = Double.parseDouble(text.getText());
+					if(rate < 0.0) {
+						retValue = false;
+						errorMessage = Messages
+						.getString("NGGWizErr7");
+					}
+				} catch(Exception e) {
+					retValue = false;
+					errorMessage = Messages
+					.getString("NGGWizErr6");
+				}
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = Messages
+						.getString("NGGWizErr5"); //$NON-NLS-1$
+				} // if
+			}
+		}
 		return retValue;
 	} // validate
 
