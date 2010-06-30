@@ -443,7 +443,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 							for(NodeLabel nl:n2.getLabels())
 								if(nl instanceof StandardDiseaseModelLabel && ((StandardDiseaseModelLabel)nl).getDecorator().equals(this)) {
 									StandardDiseaseModelLabelValue value = (StandardDiseaseModelLabelValue)EcoreUtil.copy(((StandardDiseaseModelLabel)nl).getTempValue()); 
-									value.scale(inflow/value.getPopulationCount());
+									if(value.getPopulationCount() > 0.0)
+										value.scale(inflow/value.getPopulationCount());
 									myDelta.add((IntegrationLabelValue)value);
 								}
 						}
