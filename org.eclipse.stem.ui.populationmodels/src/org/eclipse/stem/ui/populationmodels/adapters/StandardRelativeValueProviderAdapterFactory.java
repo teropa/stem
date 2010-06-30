@@ -312,7 +312,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 			double densRef = Double.parseDouble(_densRef);
 			
 			if(popRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_POPULATION;
-			if(densRef == 0) popRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
+			if(densRef == 0) densRef = PreferenceInitializer.DEFAULT_REFERENCE_DENSITY;
 			
 			double retValue;
 			if(feature.getFeatureID() == StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY)
