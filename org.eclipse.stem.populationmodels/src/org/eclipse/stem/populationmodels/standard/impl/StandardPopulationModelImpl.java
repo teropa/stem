@@ -338,6 +338,13 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		return StandardFactory.eINSTANCE.createStandardPopulationModelLabelValue();
 	}
 
+	/**
+	 * Compute the changes in the population from the birth/death rate
+	 * adjusted for the time period used in the simulation
+	 * @param time
+	 * @param timeDelta
+	 * @param labels
+	 */
 	public void calculateDelta(STEMTime time, long timeDelta,
 			EList<DynamicLabel> labels) {
 		// We simply calculate the change from the birth/death rate
@@ -368,7 +375,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 			handleMigration(slabel, delta.getArrivals(),delta.getDepartures(), this.getTimePeriod(), timeDelta, delta);
 			handlePipeTransport(slabel, delta.getArrivals(),delta.getDepartures(), timeDelta, delta);
 		}
-	}
+	}// calculateDelta
 
 	public void applyExternalDeltas(STEMTime time, long timeDelta,
 			EList<DynamicLabel> labels) {
@@ -526,7 +533,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 		} // for each edge		
 	}
 	
-	private double adjustRate(double rate, long ratePeriod, long actualPeriod) {
+	protected double adjustRate(double rate, long ratePeriod, long actualPeriod) {
 		return rate * ((double)actualPeriod/(double)ratePeriod);
 	}
 	

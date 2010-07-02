@@ -6,14 +6,23 @@
  */
 package org.eclipse.stem.populationmodels.standard.impl;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +41,10 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
  * @generated
  */
 public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl implements SeasonalPopulationModel {
+	/**
+	 * constant
+	 */
+	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	/**
 	 * The default value of the '{@link #getPhase() <em>Phase</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -120,6 +133,71 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	protected SeasonalPopulationModelImpl() {
 		super();
 	}
+	
+	
+	/**
+	 * Compute the changes in the population 
+	 * The birth rate and death rates are modified in each time step by a seasonal modulation function
+	 * The birth/death rates are NOT constant
+	 * @param time
+	 * @param timeDelta
+	 * @param labels
+	 * @generated NOT
+	 */
+	@Override
+	public void calculateDelta(STEMTime time, long timeDelta,
+			EList<DynamicLabel> labels) {
+		// We simply calculate the change from the birth/death rate
+		// adjusted for the time period used in the simulation
+		
+		double adjustedBirthRate = adjustRate(this.getBirthRate(), this.getTimePeriod(), timeDelta);
+		double adjustedDeathRate = adjustRate(this.getDeathRate(), this.getTimePeriod(), timeDelta);
+		
+		for(DynamicLabel label:labels) {
+			StandardPopulationModelLabelImpl slabel = (StandardPopulationModelLabelImpl)label;
+			StandardPopulationModelLabelValueImpl delta = (StandardPopulationModelLabelValueImpl)slabel.getDeltaValue();
+			StandardPopulationModelLabelValue current = slabel.getProbeValue();
+			
+			double currentPopulation = current.getCount();
+			if(useLatitude) {
+				// TODO not yet implemented
+			} else {
+				
+				double currentMillis = time.getTime().getTime();
+				double modulationPeriod = frequency; // TODO this is names wrong. Change from frequency to period!!
+				
+				double seasonality = (-1.0 * modulationAmplitude) * Math.cos(phase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) );
+				
+				System.out.println(""+time.getTime().getMonth()+"/"+time.getTime().getDate()+"  "+seasonality);
+				
+				if(seasonality >=0.0) {
+					adjustedBirthRate+= seasonality;
+				} else {
+					adjustedDeathRate-= seasonality;
+				}
+				
+				
+			}
+			
+			double births = currentPopulation * adjustedBirthRate;
+			double deaths = currentPopulation * adjustedDeathRate;
+			
+			delta.setIncidence(births-deaths);
+			delta.setCount(births-deaths);
+			delta.setBirths(births);
+			delta.setDeaths(deaths);
+			
+			if(delta.getArrivals() == null) delta.setArrivals(new HashMap<Node,Double>());
+			if(delta.getDepartures() == null) delta.setDepartures(new HashMap<Node,Double>());
+			
+			delta.getArrivals().put((Node)label.getIdentifiable(), births);
+			delta.getDepartures().put((Node)label.getIdentifiable(), deaths);
+			
+			handleMigration(slabel, delta.getArrivals(),delta.getDepartures(), this.getTimePeriod(), timeDelta, delta);
+			handlePipeTransport(slabel, delta.getArrivals(),delta.getDepartures(), timeDelta, delta);
+		}
+	}// calculateDelta
+
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -311,6 +311,29 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SeasonalPopulationModelItemProvider seasonalPopulationModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSeasonalPopulationModelAdapter() {
+		if (seasonalPopulationModelItemProvider == null) {
+			seasonalPopulationModelItemProvider = new SeasonalPopulationModelItemProvider(this);
+		}
+
+		return seasonalPopulationModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -419,6 +442,7 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 		if (populationGroupItemProvider != null) populationGroupItemProvider.dispose();
 		if (populationInitializerItemProvider != null) populationInitializerItemProvider.dispose();
 		if (standardPopulationInitializerItemProvider != null) standardPopulationInitializerItemProvider.dispose();
+		if (seasonalPopulationModelItemProvider != null) seasonalPopulationModelItemProvider.dispose();
 	}
 
 }
