@@ -1350,6 +1350,188 @@ public interface StandardPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl <em>Seasonal Population Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getSeasonalPopulationModel()
+	 * @generated
+	 */
+	int SEASONAL_POPULATION_MODEL = 14;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__URI = STANDARD_POPULATION_MODEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__TYPE_URI = STANDARD_POPULATION_MODEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__DUBLIN_CORE = STANDARD_POPULATION_MODEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__LABELS_TO_UPDATE = STANDARD_POPULATION_MODEL__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__GRAPH = STANDARD_POPULATION_MODEL__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__ENABLED = STANDARD_POPULATION_MODEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__GRAPH_DECORATED = STANDARD_POPULATION_MODEL__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__PROGRESS = STANDARD_POPULATION_MODEL__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__POPULATION_IDENTIFIER = STANDARD_POPULATION_MODEL__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__NAME = STANDARD_POPULATION_MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__TARGET_ISO_KEY = STANDARD_POPULATION_MODEL__TARGET_ISO_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__BIRTH_RATE = STANDARD_POPULATION_MODEL__BIRTH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Death Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__DEATH_RATE = STANDARD_POPULATION_MODEL__DEATH_RATE;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__TIME_PERIOD = STANDARD_POPULATION_MODEL__TIME_PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__PHASE = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Modulation Amplitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Frequency</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__FREQUENCY = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Use Latitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL__USE_LATITUDE = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Seasonal Population Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEASONAL_POPULATION_MODEL_FEATURE_COUNT = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 4;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.PopulationModel <em>Population Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1779,6 +1961,60 @@ public interface StandardPackage extends EPackage {
 	EAttribute getStandardPopulationInitializer_PopulationIdentifier();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel <em>Seasonal Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Seasonal Population Model</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel
+	 * @generated
+	 */
+	EClass getSeasonalPopulationModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getPhase <em>Phase</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Phase</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getPhase()
+	 * @see #getSeasonalPopulationModel()
+	 * @generated
+	 */
+	EAttribute getSeasonalPopulationModel_Phase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getModulationAmplitude <em>Modulation Amplitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modulation Amplitude</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getModulationAmplitude()
+	 * @see #getSeasonalPopulationModel()
+	 * @generated
+	 */
+	EAttribute getSeasonalPopulationModel_ModulationAmplitude();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getFrequency <em>Frequency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Frequency</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getFrequency()
+	 * @see #getSeasonalPopulationModel()
+	 * @generated
+	 */
+	EAttribute getSeasonalPopulationModel_Frequency();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#isUseLatitude <em>Use Latitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Latitude</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#isUseLatitude()
+	 * @see #getSeasonalPopulationModel()
+	 * @generated
+	 */
+	EAttribute getSeasonalPopulationModel_UseLatitude();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2147,6 +2383,48 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = eINSTANCE.getStandardPopulationInitializer_PopulationIdentifier();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl <em>Seasonal Population Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getSeasonalPopulationModel()
+		 * @generated
+		 */
+		EClass SEASONAL_POPULATION_MODEL = eINSTANCE.getSeasonalPopulationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Phase</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEASONAL_POPULATION_MODEL__PHASE = eINSTANCE.getSeasonalPopulationModel_Phase();
+
+		/**
+		 * The meta object literal for the '<em><b>Modulation Amplitude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE = eINSTANCE.getSeasonalPopulationModel_ModulationAmplitude();
+
+		/**
+		 * The meta object literal for the '<em><b>Frequency</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEASONAL_POPULATION_MODEL__FREQUENCY = eINSTANCE.getSeasonalPopulationModel_Frequency();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Latitude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEASONAL_POPULATION_MODEL__USE_LATITUDE = eINSTANCE.getSeasonalPopulationModel_UseLatitude();
 
 	}
 

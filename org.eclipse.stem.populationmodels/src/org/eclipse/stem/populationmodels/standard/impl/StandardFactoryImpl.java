@@ -75,6 +75,7 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 			case StandardPackage.POPULATION_GROUP: return createPopulationGroup();
 			case StandardPackage.POPULATION_INITIALIZER: return createPopulationInitializer();
 			case StandardPackage.STANDARD_POPULATION_INITIALIZER: return createStandardPopulationInitializer();
+			case StandardPackage.SEASONAL_POPULATION_MODEL: return createSeasonalPopulationModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -178,6 +179,16 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 	public StandardPopulationInitializer createStandardPopulationInitializer() {
 		StandardPopulationInitializerImpl standardPopulationInitializer = new StandardPopulationInitializerImpl();
 		return standardPopulationInitializer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SeasonalPopulationModel createSeasonalPopulationModel() {
+		SeasonalPopulationModelImpl seasonalPopulationModel = new SeasonalPopulationModelImpl();
+		return seasonalPopulationModel;
 	}
 
 	/**

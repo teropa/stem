@@ -72,4 +72,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationIdentifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="human"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SeasonalPopulationModel" eSuperTypes="#//StandardPopulationModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phase" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulationAmplitude" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        changeable="false" defaultValueLiteral="365.25"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useLatitude" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
 </ecore:EPackage>

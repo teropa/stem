@@ -149,6 +149,10 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createStandardPopulationInitializerAdapter();
 			}
 			@Override
+			public Adapter caseSeasonalPopulationModel(SeasonalPopulationModel object) {
+				return createSeasonalPopulationModelAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -405,6 +409,20 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStandardPopulationInitializerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel <em>Seasonal Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel
+	 * @generated
+	 */
+	public Adapter createSeasonalPopulationModelAdapter() {
 		return null;
 	}
 

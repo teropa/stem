@@ -14,6 +14,7 @@
     <genClasses ecoreClass="standard.ecore#//PopulationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationModel/populationIdentifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationModel/targetISOKey"/>
     </genClasses>
     <genClasses ecoreClass="standard.ecore#//StandardPopulationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardPopulationModel/birthRate"/>
@@ -44,8 +45,6 @@
       <genOperations ecoreOperation="standard.ecore#//StandardPopulationModelLabelValue/adjustDelta">
         <genParameters ecoreParameter="standard.ecore#//StandardPopulationModelLabelValue/adjustDelta/value"/>
       </genOperations>
-      <genOperations ecoreOperation="standard.ecore#//StandardPopulationModelLabelValue/getAdditions"/>
-      <genOperations ecoreOperation="standard.ecore#//StandardPopulationModelLabelValue/getSubstractions"/>
     </genClasses>
     <genClasses ecoreClass="standard.ecore#//StochasticStandardPopulationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StochasticStandardPopulationModel/gain"/>
@@ -56,6 +55,20 @@
     <genClasses ecoreClass="standard.ecore#//PopulationGroup">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationGroup/identifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationGroup/fraction"/>
+    </genClasses>
+    <genClasses ecoreClass="standard.ecore#//PopulationInitializer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationInitializer/targetISOKey"/>
+    </genClasses>
+    <genClasses ecoreClass="standard.ecore#//StandardPopulationInitializer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardPopulationInitializer/individuals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardPopulationInitializer/useDensity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardPopulationInitializer/populationIdentifier"/>
+    </genClasses>
+    <genClasses ecoreClass="standard.ecore#//SeasonalPopulationModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/phase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/modulationAmplitude"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/frequency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/useLatitude"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

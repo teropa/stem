@@ -39,6 +39,7 @@ import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
+import org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer;
@@ -151,6 +152,13 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass standardPopulationInitializerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass seasonalPopulationModelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -581,6 +589,51 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSeasonalPopulationModel() {
+		return seasonalPopulationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSeasonalPopulationModel_Phase() {
+		return (EAttribute)seasonalPopulationModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSeasonalPopulationModel_ModulationAmplitude() {
+		return (EAttribute)seasonalPopulationModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSeasonalPopulationModel_Frequency() {
+		return (EAttribute)seasonalPopulationModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSeasonalPopulationModel_UseLatitude() {
+		return (EAttribute)seasonalPopulationModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StandardFactory getStandardFactory() {
 		return (StandardFactory)getEFactoryInstance();
 	}
@@ -657,6 +710,12 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__INDIVIDUALS);
 		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__USE_DENSITY);
 		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER);
+
+		seasonalPopulationModelEClass = createEClass(SEASONAL_POPULATION_MODEL);
+		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__PHASE);
+		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE);
+		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__FREQUENCY);
+		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__USE_LATITUDE);
 	}
 
 	/**
@@ -709,6 +768,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		populationInitializerEClass.getESuperTypes().add(theModelPackage.getNodeDecorator());
 		populationInitializerEClass.getESuperTypes().add(theModifierPackage.getModifiable());
 		standardPopulationInitializerEClass.getESuperTypes().add(this.getPopulationInitializer());
+		seasonalPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(populationModelEClass, PopulationModel.class, "PopulationModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -767,6 +827,12 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getStandardPopulationInitializer_Individuals(), theEcorePackage.getEDouble(), "individuals", "1", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStandardPopulationInitializer_UseDensity(), theEcorePackage.getEBoolean(), "useDensity", "false", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStandardPopulationInitializer_PopulationIdentifier(), theEcorePackage.getEString(), "populationIdentifier", "human", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(seasonalPopulationModelEClass, SeasonalPopulationModel.class, "SeasonalPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSeasonalPopulationModel_Phase(), theEcorePackage.getEDouble(), "phase", "0.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSeasonalPopulationModel_ModulationAmplitude(), theEcorePackage.getEDouble(), "modulationAmplitude", "0.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSeasonalPopulationModel_Frequency(), theEcorePackage.getEDouble(), "frequency", "365.25", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSeasonalPopulationModel_UseLatitude(), theEcorePackage.getEBoolean(), "useLatitude", "true", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

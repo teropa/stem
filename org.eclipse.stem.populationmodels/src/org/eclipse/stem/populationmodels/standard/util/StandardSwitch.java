@@ -233,6 +233,20 @@ public class StandardSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StandardPackage.SEASONAL_POPULATION_MODEL: {
+				SeasonalPopulationModel seasonalPopulationModel = (SeasonalPopulationModel)theEObject;
+				T1 result = caseSeasonalPopulationModel(seasonalPopulationModel);
+				if (result == null) result = caseStandardPopulationModel(seasonalPopulationModel);
+				if (result == null) result = casePopulationModel(seasonalPopulationModel);
+				if (result == null) result = caseIntegrationDecorator(seasonalPopulationModel);
+				if (result == null) result = caseNodeDecorator(seasonalPopulationModel);
+				if (result == null) result = caseModifiable(seasonalPopulationModel);
+				if (result == null) result = caseDecorator(seasonalPopulationModel);
+				if (result == null) result = caseIdentifiable(seasonalPopulationModel);
+				if (result == null) result = caseComparable(seasonalPopulationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -444,6 +458,21 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseStandardPopulationInitializer(StandardPopulationInitializer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Seasonal Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Seasonal Population Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSeasonalPopulationModel(SeasonalPopulationModel object) {
 		return null;
 	}
 

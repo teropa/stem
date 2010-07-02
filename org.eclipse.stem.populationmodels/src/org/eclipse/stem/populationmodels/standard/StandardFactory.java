@@ -122,6 +122,15 @@ public interface StandardFactory extends EFactory {
 	StandardPopulationInitializer createStandardPopulationInitializer();
 
 	/**
+	 * Returns a new object of class '<em>Seasonal Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Seasonal Population Model</em>'.
+	 * @generated
+	 */
+	SeasonalPopulationModel createSeasonalPopulationModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
