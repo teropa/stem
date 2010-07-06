@@ -307,7 +307,9 @@ public class StandardRelativeValueProviderAdapterFactory extends
 			final double stateCount = ((Double) dmlv.eGet(feature))
 					.doubleValue();
 			final double populationCount = dmlv.getPopulationCount();
-			final double retValue = populationCount == 0.0 ? 0.0
+			// SED Fix 7/6/10. Set to 0 if population is less than 1 to avoid displaying intense colors when 
+			// there's a tiny population on a node.
+			final double retValue = populationCount < 1.0 ? 0.0
 					: (stateCount / populationCount);
 			return retValue;
 		} // getRelativeValue
