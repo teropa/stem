@@ -128,9 +128,9 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected SeasonalPopulationModelImpl() {
+	public SeasonalPopulationModelImpl() {
 		super();
 	}
 	
