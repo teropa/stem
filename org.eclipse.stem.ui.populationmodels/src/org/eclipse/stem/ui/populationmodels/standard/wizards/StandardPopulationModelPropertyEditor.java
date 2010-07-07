@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
+import org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
@@ -217,6 +218,9 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			case StandardPackage.STANDARD_POPULATION_MODEL__POPULATION_IDENTIFIER:
 				((StandardPopulationModel)populationModel).setPopulationIdentifier(entry.getValue().getText());
 				break;
+			case StandardPackage.STANDARD_POPULATION_MODEL__NAME:
+				((StandardPopulationModel)populationModel).setName(entry.getValue().getText());
+				break;
 			case StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE:
 				((StandardPopulationModel)populationModel)
 						.setBirthRate(Double.parseDouble(entry.getValue().getText().trim()));
@@ -228,6 +232,14 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			case StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD:
 				((StandardPopulationModel)populationModel)
 				.setTimePeriod(Long.parseLong(entry.getValue().getText().trim()));
+				break;
+			case StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE:
+				((SeasonalPopulationModel)populationModel)
+				.setModulationAmplitude(Double.parseDouble(entry.getValue().getText().trim()));
+				break;
+			case StandardPackage.SEASONAL_POPULATION_MODEL__PHASE:
+				((SeasonalPopulationModel)populationModel)
+				.setPhase(Double.parseDouble(entry.getValue().getText().trim()));
 				break;
 			default:
 				break;
@@ -318,7 +330,7 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 		} // if Background mortality rate
 
 		// 
-		// birth rate
+		// time period
 		if (retValue) {
 			// Yes
 			final Text text = map
@@ -339,7 +351,7 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 							.getString("NDizWizErr9"); //$NON-NLS-1$
 				} // if
 			}
-		} // if Background mortality rate
+		} // if  time period
 		
 		// birth rate
 		if (retValue) {
@@ -364,7 +376,62 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 					} // if
 				}
 			}
-		} // if gain
+		} // if birth rate
+		
+		
+		// modulation amplitude
+		if (retValue) {
+			// Yes
+			final Text text = map
+					.get(StandardPackage.Literals.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr18"); //$NON-NLS-1$
+				} // if
+				else {
+					// No
+					// Is it a valid double value between 0 and 1
+					double testDouble = -1;
+					try {
+						testDouble = (new Double(text.getText())).doubleValue();
+						if((testDouble < 0.0)||(testDouble >1.0)) {
+							errorMessage = PopulationModelWizardMessages.getString("NDizWizErr18"); //$NON-NLS-1$
+						}
+					} catch(Exception e) {
+						errorMessage = PopulationModelWizardMessages.getString("NDizWizErr18"); //$NON-NLS-1$
+					}
+				}
+			}
+		} // modulation amplitude
+		
+		// phase
+		if (retValue) {
+			// Yes
+			final Text text = map
+					.get(StandardPackage.Literals.SEASONAL_POPULATION_MODEL__PHASE);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr19"); //$NON-NLS-1$
+				} // if
+				else {
+					// No
+					// Is it a valid double (any value is ok)
+					@SuppressWarnings("unused")
+					double testDouble = -1;
+					try {
+						testDouble = (new Double(text.getText())).doubleValue();
+					} catch(Exception e) {
+						errorMessage = PopulationModelWizardMessages.getString("NDizWizErr19"); //$NON-NLS-1$
+					}
+				}
+			}
+		} // phase
 		
 		// Check that the group fractions add up to < 1.0
 		
