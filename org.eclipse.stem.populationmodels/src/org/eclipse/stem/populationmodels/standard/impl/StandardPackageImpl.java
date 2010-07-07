@@ -616,7 +616,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSeasonalPopulationModel_Frequency() {
+	public EAttribute getSeasonalPopulationModel_Period() {
 		return (EAttribute)seasonalPopulationModelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -714,7 +714,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		seasonalPopulationModelEClass = createEClass(SEASONAL_POPULATION_MODEL);
 		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__PHASE);
 		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE);
-		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__FREQUENCY);
+		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__PERIOD);
 		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__USE_LATITUDE);
 	}
 
@@ -831,7 +831,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(seasonalPopulationModelEClass, SeasonalPopulationModel.class, "SeasonalPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSeasonalPopulationModel_Phase(), theEcorePackage.getEDouble(), "phase", "0.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeasonalPopulationModel_ModulationAmplitude(), theEcorePackage.getEDouble(), "modulationAmplitude", "0.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSeasonalPopulationModel_Frequency(), theEcorePackage.getEDouble(), "frequency", "365.25", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSeasonalPopulationModel_Period(), theEcorePackage.getEDouble(), "period", "365.25", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeasonalPopulationModel_UseLatitude(), theEcorePackage.getEBoolean(), "useLatitude", "true", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

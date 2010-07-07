@@ -33,7 +33,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl#getPhase <em>Phase</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl#getModulationAmplitude <em>Modulation Amplitude</em>}</li>
- *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl#getFrequency <em>Frequency</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl#isUseLatitude <em>Use Latitude</em>}</li>
  * </ul>
  * </p>
@@ -41,6 +41,9 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  * @generated
  */
 public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl implements SeasonalPopulationModel {
+	
+	
+	
 	/**
 	 * constant
 	 */
@@ -86,25 +89,23 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	protected double modulationAmplitude = MODULATION_AMPLITUDE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFrequency() <em>Frequency</em>}' attribute.
+	 * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrequency()
+	 * @see #getPeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double FREQUENCY_EDEFAULT = 365.25;
-
+	protected static final double PERIOD_EDEFAULT = 365.25;
 	/**
-	 * The cached value of the '{@link #getFrequency() <em>Frequency</em>}' attribute.
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrequency()
+	 * @see #getPeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected double frequency = FREQUENCY_EDEFAULT;
-
+	protected double period = PERIOD_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isUseLatitude() <em>Use Latitude</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -164,7 +165,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			} else {
 				
 				double currentMillis = time.getTime().getTime();
-				double modulationPeriod = frequency; // TODO this is names wrong. Change from frequency to period!!
+				double modulationPeriod = period; 
 				
 				double seasonality = (-1.0 * modulationAmplitude) * Math.cos(phase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) );
 				
@@ -256,9 +257,10 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getFrequency() {
-		return frequency;
+	public double getPeriod() {
+		return period;
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,8 +295,8 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 				return getPhase();
 			case StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE:
 				return getModulationAmplitude();
-			case StandardPackage.SEASONAL_POPULATION_MODEL__FREQUENCY:
-				return getFrequency();
+			case StandardPackage.SEASONAL_POPULATION_MODEL__PERIOD:
+				return getPeriod();
 			case StandardPackage.SEASONAL_POPULATION_MODEL__USE_LATITUDE:
 				return isUseLatitude();
 		}
@@ -355,8 +357,8 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 				return phase != PHASE_EDEFAULT;
 			case StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE:
 				return modulationAmplitude != MODULATION_AMPLITUDE_EDEFAULT;
-			case StandardPackage.SEASONAL_POPULATION_MODEL__FREQUENCY:
-				return frequency != FREQUENCY_EDEFAULT;
+			case StandardPackage.SEASONAL_POPULATION_MODEL__PERIOD:
+				return period != PERIOD_EDEFAULT;
 			case StandardPackage.SEASONAL_POPULATION_MODEL__USE_LATITUDE:
 				return useLatitude != USE_LATITUDE_EDEFAULT;
 		}
@@ -377,8 +379,8 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 		result.append(phase);
 		result.append(", modulationAmplitude: ");
 		result.append(modulationAmplitude);
-		result.append(", frequency: ");
-		result.append(frequency);
+		result.append(", period: ");
+		result.append(period);
 		result.append(", useLatitude: ");
 		result.append(useLatitude);
 		result.append(')');

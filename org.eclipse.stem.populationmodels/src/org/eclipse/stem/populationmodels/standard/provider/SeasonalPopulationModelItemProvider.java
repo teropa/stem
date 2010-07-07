@@ -63,7 +63,7 @@ public class SeasonalPopulationModelItemProvider
 
 			addPhasePropertyDescriptor(object);
 			addModulationAmplitudePropertyDescriptor(object);
-			addFrequencyPropertyDescriptor(object);
+			addPeriodPropertyDescriptor(object);
 			addUseLatitudePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -114,19 +114,19 @@ public class SeasonalPopulationModelItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Frequency feature.
+	 * This adds a property descriptor for the Period feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFrequencyPropertyDescriptor(Object object) {
+	protected void addPeriodPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SeasonalPopulationModel_frequency_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SeasonalPopulationModel_frequency_feature", "_UI_SeasonalPopulationModel_type"),
-				 StandardPackage.Literals.SEASONAL_POPULATION_MODEL__FREQUENCY,
+				 getString("_UI_SeasonalPopulationModel_period_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SeasonalPopulationModel_period_feature", "_UI_SeasonalPopulationModel_type"),
+				 StandardPackage.Literals.SEASONAL_POPULATION_MODEL__PERIOD,
 				 false,
 				 false,
 				 false,
@@ -196,7 +196,7 @@ public class SeasonalPopulationModelItemProvider
 		switch (notification.getFeatureID(SeasonalPopulationModel.class)) {
 			case StandardPackage.SEASONAL_POPULATION_MODEL__PHASE:
 			case StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE:
-			case StandardPackage.SEASONAL_POPULATION_MODEL__FREQUENCY:
+			case StandardPackage.SEASONAL_POPULATION_MODEL__PERIOD:
 			case StandardPackage.SEASONAL_POPULATION_MODEL__USE_LATITUDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

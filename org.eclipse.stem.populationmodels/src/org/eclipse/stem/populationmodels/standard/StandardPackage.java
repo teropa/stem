@@ -1504,13 +1504,13 @@ public interface StandardPackage extends EPackage {
 	int SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Frequency</b></em>' attribute.
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEASONAL_POPULATION_MODEL__FREQUENCY = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 2;
+	int SEASONAL_POPULATION_MODEL__PERIOD = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Use Latitude</b></em>' attribute.
@@ -1993,15 +1993,15 @@ public interface StandardPackage extends EPackage {
 	EAttribute getSeasonalPopulationModel_ModulationAmplitude();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getFrequency <em>Frequency</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getPeriod <em>Period</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Frequency</em>'.
-	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getFrequency()
+	 * @return the meta object for the attribute '<em>Period</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getPeriod()
 	 * @see #getSeasonalPopulationModel()
 	 * @generated
 	 */
-	EAttribute getSeasonalPopulationModel_Frequency();
+	EAttribute getSeasonalPopulationModel_Period();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#isUseLatitude <em>Use Latitude</em>}'.
@@ -2411,12 +2411,12 @@ public interface StandardPackage extends EPackage {
 		EAttribute SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE = eINSTANCE.getSeasonalPopulationModel_ModulationAmplitude();
 
 		/**
-		 * The meta object literal for the '<em><b>Frequency</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SEASONAL_POPULATION_MODEL__FREQUENCY = eINSTANCE.getSeasonalPopulationModel_Frequency();
+		EAttribute SEASONAL_POPULATION_MODEL__PERIOD = eINSTANCE.getSeasonalPopulationModel_Period();
 
 		/**
 		 * The meta object literal for the '<em><b>Use Latitude</b></em>' attribute feature.

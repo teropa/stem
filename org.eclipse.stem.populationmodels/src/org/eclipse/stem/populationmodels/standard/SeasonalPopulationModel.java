@@ -17,7 +17,7 @@ package org.eclipse.stem.populationmodels.standard;
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getPhase <em>Phase</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getModulationAmplitude <em>Modulation Amplitude</em>}</li>
- *   <li>{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getFrequency <em>Frequency</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel#isUseLatitude <em>Use Latitude</em>}</li>
  * </ul>
  * </p>
@@ -82,20 +82,20 @@ public interface SeasonalPopulationModel extends StandardPopulationModel {
 	void setModulationAmplitude(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Frequency</b></em>' attribute.
+	 * Returns the value of the '<em><b>Period</b></em>' attribute.
 	 * The default value is <code>"365.25"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Frequency</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Period</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Frequency</em>' attribute.
-	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getSeasonalPopulationModel_Frequency()
+	 * @return the value of the '<em>Period</em>' attribute.
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getSeasonalPopulationModel_Period()
 	 * @model default="365.25" changeable="false"
 	 * @generated
 	 */
-	double getFrequency();
+	double getPeriod();
 
 	/**
 	 * Returns the value of the '<em><b>Use Latitude</b></em>' attribute.
