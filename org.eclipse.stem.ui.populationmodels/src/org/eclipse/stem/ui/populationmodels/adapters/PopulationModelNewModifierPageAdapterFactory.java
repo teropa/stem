@@ -70,6 +70,12 @@ public class PopulationModelNewModifierPageAdapterFactory extends
 	}
 	
 	@Override
+	public Adapter createSeasonalPopulationModelAdapter() {
+		return new PopulationModelNewModifierPageAdapter();
+	}
+	
+	
+	@Override
 	public Adapter createPopulationInitializerAdapter() {
 		return new PopulationModelNewModifierPageAdapter();
 	}
