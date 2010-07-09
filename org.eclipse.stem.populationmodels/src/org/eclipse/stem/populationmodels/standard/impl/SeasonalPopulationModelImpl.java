@@ -158,7 +158,8 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			StandardPopulationModelLabelImpl slabel = (StandardPopulationModelLabelImpl)label;
 			StandardPopulationModelLabelValueImpl delta = (StandardPopulationModelLabelValueImpl)slabel.getDeltaValue();
 			StandardPopulationModelLabelValue current = slabel.getProbeValue();
-			
+			double seasonalBirthFactor  = 0.0;
+			double seasonalDeathFactor  = 0.0;
 			double currentPopulation = current.getCount();
 			if(useLatitude) {
 				// TODO not yet implemented
@@ -166,22 +167,35 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 				
 				double currentMillis = time.getTime().getTime();
 				double modulationPeriod = period; 
+				double oscCos = Math.cos(phase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) ); // 1==>-1 cosine
+				//  init default (phase 0)  seasonalBirthFactor  is 0.0 in winter. range is 0->1.0
+				seasonalBirthFactor =  (1.0+(-1.0*oscCos))/2.0;
+				// now scale it
+				seasonalBirthFactor  *= modulationAmplitude ;
 				
-				double seasonality = (-1.0 * modulationAmplitude) * Math.cos(phase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) );
+				// init default (phase 0) must be 1.0 in winter zero in summer
+				seasonalDeathFactor =  (1.0+oscCos)/2.0;
+				// now scale it
+				seasonalDeathFactor  *= modulationAmplitude ;
 				
-				System.out.println(""+time.getTime().getMonth()+"/"+time.getTime().getDate()+"  "+seasonality);
-				
-				if(seasonality >=0.0) {
-					adjustedBirthRate+= seasonality;
-				} else {
-					adjustedDeathRate-= seasonality;
-				}
-				
-				
+					double baseRate = (1.0-modulationAmplitude);
+					double baseBirthRate = adjustedBirthRate*baseRate; // const
+					adjustedBirthRate *= Math.abs(seasonalBirthFactor);
+					adjustedBirthRate += baseBirthRate;
+					
+					double baseDeathRate = adjustedDeathRate*baseRate; // const
+					adjustedDeathRate *= Math.abs(seasonalDeathFactor);
+					adjustedDeathRate += baseDeathRate;
+					
+					//System.out.println("sbg ="+seasonalBirthFactor+" abr="+adjustedBirthRate);
+					
 			}
 			
 			double births = currentPopulation * adjustedBirthRate;
 			double deaths = currentPopulation * adjustedDeathRate;
+			currentPopulation += births;
+			currentPopulation -= deaths;
+			//System.out.println(""+time.getTime().getMonth()+"/"+time.getTime().getDate()+" births="+births+" deaths= "+deaths+" pop= "+currentPopulation);
 			
 			delta.setIncidence(births-deaths);
 			delta.setCount(births-deaths);
