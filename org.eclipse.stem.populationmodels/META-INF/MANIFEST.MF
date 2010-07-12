@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.core;visibility:=reexport,
  org.eclipse.emf.ecore.edit;bundle-version="2.4.1",
  org.eclipse.stem.definitions,
- org.eclipse.stem.transport
+ org.eclipse.stem.transport,
+ org.eclipse.stem.data.geography;bundle-version="1.0.1"
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.populationmodels,
  org.eclipse.stem.populationmodels.standard,
