@@ -104,7 +104,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double MODULATION_AMPLITUDE_EDEFAULT = 0.0;
+	protected static final double MODULATION_AMPLITUDE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getModulationAmplitude() <em>Modulation Amplitude</em>}' attribute.

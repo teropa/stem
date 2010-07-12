@@ -830,7 +830,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		initEClass(seasonalPopulationModelEClass, SeasonalPopulationModel.class, "SeasonalPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSeasonalPopulationModel_Phase(), theEcorePackage.getEDouble(), "phase", "0.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSeasonalPopulationModel_ModulationAmplitude(), theEcorePackage.getEDouble(), "modulationAmplitude", "0.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSeasonalPopulationModel_ModulationAmplitude(), theEcorePackage.getEDouble(), "modulationAmplitude", "1.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeasonalPopulationModel_Period(), theEcorePackage.getEDouble(), "period", "365.25", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeasonalPopulationModel_UseLatitude(), theEcorePackage.getEBoolean(), "useLatitude", "true", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

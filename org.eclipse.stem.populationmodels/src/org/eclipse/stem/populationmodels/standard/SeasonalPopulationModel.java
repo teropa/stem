@@ -56,7 +56,7 @@ public interface SeasonalPopulationModel extends StandardPopulationModel {
 
 	/**
 	 * Returns the value of the '<em><b>Modulation Amplitude</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
+	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Modulation Amplitude</em>' attribute isn't clear,
@@ -66,7 +66,7 @@ public interface SeasonalPopulationModel extends StandardPopulationModel {
 	 * @return the value of the '<em>Modulation Amplitude</em>' attribute.
 	 * @see #setModulationAmplitude(double)
 	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getSeasonalPopulationModel_ModulationAmplitude()
-	 * @model default="0.0"
+	 * @model default="1.0"
 	 * @generated
 	 */
 	double getModulationAmplitude();
