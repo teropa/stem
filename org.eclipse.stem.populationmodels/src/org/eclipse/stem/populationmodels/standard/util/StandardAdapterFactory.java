@@ -13,13 +13,9 @@ package org.eclipse.stem.populationmodels.standard.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
@@ -29,11 +25,22 @@ import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Decorator;
-
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
-import org.eclipse.stem.populationmodels.standard.*;
+import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationGroup;
+import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
+import org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel;
+import org.eclipse.stem.populationmodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
+import org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel;
 
 /**
  * <!-- begin-user-doc -->

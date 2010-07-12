@@ -18,20 +18,13 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.graph.GraphPackage;
-
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.ModelPackage;
-
 import org.eclipse.stem.core.modifier.ModifierPackage;
-import org.eclipse.stem.core.solver.SolverPackage;
-
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;

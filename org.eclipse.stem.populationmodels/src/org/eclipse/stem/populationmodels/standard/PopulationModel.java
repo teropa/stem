@@ -10,7 +10,6 @@ package org.eclipse.stem.populationmodels.standard;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
 

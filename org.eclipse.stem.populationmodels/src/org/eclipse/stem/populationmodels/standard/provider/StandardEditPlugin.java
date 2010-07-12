@@ -12,11 +12,8 @@ package org.eclipse.stem.populationmodels.standard.provider;
  *******************************************************************************/
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
 
