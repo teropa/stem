@@ -6,8 +6,7 @@
  */
 package org.eclipse.stem.populationmodels.standard.impl;
 
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +19,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.data.geography.centers.GeographicCenters;
+import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProvider;
+import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapter;
+import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapterFactory;
+import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
+import org.eclipse.stem.populationmodels.Activator;
 import org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
@@ -48,6 +53,29 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * constant
 	 */
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
+	
+	/**
+	 * todo model this in emf
+	 */
+	protected double seasonalModulationExponent = 2.0;
+	
+	/**
+	 * the equator
+	 */
+	private static final double EQUATOR_LATITUDE = 0.0;
+	
+	/**
+	 * Latitude of the Tropic of Cancer in Degrees (Tropic of Capricorn is -ve of this).
+	 */
+	public static final double TROPIC_OF_CANCER_LATITUDE = 23.439444;
+
+
+	/**
+	 * TODO model this in EMF
+	 */
+	private static final double LATITUDE_SIGMOID_WIDTH = 4.5;
+	
+	
 	/**
 	 * The default value of the '{@link #getPhase() <em>Phase</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -161,35 +189,70 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			double seasonalBirthFactor  = 0.0;
 			double seasonalDeathFactor  = 0.0;
 			double currentPopulation = current.getCount();
+			// need to find the latitude of this node
+			// default
+			double latitude = EQUATOR_LATITUDE;
+			double currentMillis = time.getTime().getTime();
+			double latFactor = 1.0; // default = no dependence
 			if(useLatitude) {
-				// TODO not yet implemented
-			} else {
+				// center coords
+				double[] lat_long = null;
 				
-				double currentMillis = time.getTime().getTime();
-				double modulationPeriod = period; 
-				double oscCos = Math.cos(phase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) ); // 1==>-1 cosine
-				//  init default (phase 0)  seasonalBirthFactor  is 0.0 in winter. range is 0->1.0
-				seasonalBirthFactor =  (1.0+(-1.0*oscCos))/2.0;
-				// now scale it
-				seasonalBirthFactor  *= modulationAmplitude ;
+				// Get THIS node
+				Node node = slabel.getNode();
+				if(node instanceof RegionImpl) {
+					String nodeURI = node.getURI().lastSegment();
+					lat_long = GeographicCenters.getCenter(nodeURI);
+					// still null? Compute it
+					if(lat_long==null) {
+						// Get the lat/long of the center of the node
+						final LatLongProviderAdapter latLongProviderB = (LatLongProviderAdapter) LatLongProviderAdapterFactory.INSTANCE
+								.adapt(node, LatLongProvider.class);
+						latLongProviderB.setTarget(node);
+						lat_long = latLongProviderB.getCenter();
+					}
+					if (lat_long == null) {
+						Activator.logError("Cannot find latitude for "+ nodeURI, null);
+					}
+				} else {
+					lat_long = new double[2];
+					lat_long[0] = EQUATOR_LATITUDE;
+					lat_long[1] = EQUATOR_LATITUDE; // not used. sets it to 0,0
+				}
+
+				// get the latitude
+				if(lat_long != null) {
+					latitude = lat_long[0] ;
+				} 
+				// in a latitude dependent model, there is no modulation in the topics.
+				// As we move away from the equator, the modulation amplitude increases to it's maximal value
+				// and the constant floor decreases to it's minimum value
+				// based on a logistic (sigmoidal) function
+				latFactor  = 1.0/(1.0 + Math.exp((TROPIC_OF_CANCER_LATITUDE - Math.abs(latitude))/LATITUDE_SIGMOID_WIDTH) );
+				// seasons reverse in the southern hemisphere
+				if(latitude < 0.0) phase += Math.PI;
+			} //if useLatitude
+					
+			double modulation = modulationAmplitude*latFactor;
+			double floor = (1.0-modulation);
 				
-				// init default (phase 0) must be 1.0 in winter zero in summer
-				seasonalDeathFactor =  (1.0+oscCos)/2.0;
-				// now scale it
-				seasonalDeathFactor  *= modulationAmplitude ;
-				
-					double baseRate = (1.0-modulationAmplitude);
-					double baseBirthRate = adjustedBirthRate*baseRate; // const
-					adjustedBirthRate *= Math.abs(seasonalBirthFactor);
-					adjustedBirthRate += baseBirthRate;
-					
-					double baseDeathRate = adjustedDeathRate*baseRate; // const
-					adjustedDeathRate *= Math.abs(seasonalDeathFactor);
-					adjustedDeathRate += baseDeathRate;
-					
-					//System.out.println("sbg ="+seasonalBirthFactor+" abr="+adjustedBirthRate);
-					
-			}
+			double modulationPeriod = period; 
+			double oscCos = Math.cos(phase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) ); // 1==>-1 cosine
+			//  init default (phase 0)  seasonalBirthFactor  is 0.0 in winter. range is 0->1.0
+			seasonalBirthFactor =  (1.0+(-1.0*oscCos))/2.0;
+			// now scale it
+			seasonalBirthFactor  *= modulation ;
+			
+			// init default (phase 0) must be 1.0 in winter zero in summer
+			seasonalDeathFactor =  (1.0+oscCos)/2.0;
+			// now scale it
+			seasonalDeathFactor  *= modulation ;
+			
+			adjustedBirthRate *= Math.abs(seasonalBirthFactor);
+			adjustedDeathRate *= Math.abs(seasonalDeathFactor);
+			// add the base rates
+			adjustedBirthRate += floor*this.getBirthRate();
+			adjustedDeathRate += floor*this.getDeathRate();
 			
 			double births = currentPopulation * adjustedBirthRate;
 			double deaths = currentPopulation * adjustedDeathRate;
