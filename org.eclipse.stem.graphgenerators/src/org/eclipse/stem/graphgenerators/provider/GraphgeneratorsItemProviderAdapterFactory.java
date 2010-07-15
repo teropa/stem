@@ -122,6 +122,29 @@ public class GraphgeneratorsItemProviderAdapterFactory extends GraphgeneratorsAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlateCarreeGlobeGraphGeneratorItemProvider plateCarreeGlobeGraphGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlateCarreeGlobeGraphGeneratorAdapter() {
+		if (plateCarreeGlobeGraphGeneratorItemProvider == null) {
+			plateCarreeGlobeGraphGeneratorItemProvider = new PlateCarreeGlobeGraphGeneratorItemProvider(this);
+		}
+
+		return plateCarreeGlobeGraphGeneratorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +245,7 @@ public class GraphgeneratorsItemProviderAdapterFactory extends GraphgeneratorsAd
 	public void dispose() {
 		if (squareLatticeGraphGeneratorItemProvider != null) squareLatticeGraphGeneratorItemProvider.dispose();
 		if (migrationEdgeGraphGeneratorItemProvider != null) migrationEdgeGraphGeneratorItemProvider.dispose();
+		if (plateCarreeGlobeGraphGeneratorItemProvider != null) plateCarreeGlobeGraphGeneratorItemProvider.dispose();
 	}
 
 }

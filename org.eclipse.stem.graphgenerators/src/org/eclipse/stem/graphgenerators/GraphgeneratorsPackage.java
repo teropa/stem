@@ -138,31 +138,13 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int LATTICE_GRAPH_GENERATOR__DUBLIN_CORE = GRAPH_GENERATOR__DUBLIN_CORE;
 
 	/**
-	 * The feature id for the '<em><b>XSize</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LATTICE_GRAPH_GENERATOR__XSIZE = GRAPH_GENERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>YSize</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LATTICE_GRAPH_GENERATOR__YSIZE = GRAPH_GENERATOR_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Use Nearest Neighbors</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS = GRAPH_GENERATOR_FEATURE_COUNT + 2;
+	int LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS = GRAPH_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Use Next Nearest Neighbors</b></em>' attribute.
@@ -171,7 +153,7 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS = GRAPH_GENERATOR_FEATURE_COUNT + 3;
+	int LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS = GRAPH_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Periodic Boundaries</b></em>' attribute.
@@ -180,7 +162,16 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = GRAPH_GENERATOR_FEATURE_COUNT + 4;
+	int LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = GRAPH_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LATTICE_GRAPH_GENERATOR__AREA = GRAPH_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Lattice Graph Generator</em>' class.
@@ -189,7 +180,7 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 5;
+	int LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl <em>Square Lattice Graph Generator</em>}' class.
@@ -229,24 +220,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int SQUARE_LATTICE_GRAPH_GENERATOR__DUBLIN_CORE = LATTICE_GRAPH_GENERATOR__DUBLIN_CORE;
 
 	/**
-	 * The feature id for the '<em><b>XSize</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE = LATTICE_GRAPH_GENERATOR__XSIZE;
-
-	/**
-	 * The feature id for the '<em><b>YSize</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE = LATTICE_GRAPH_GENERATOR__YSIZE;
-
-	/**
 	 * The feature id for the '<em><b>Use Nearest Neighbors</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,7 +253,25 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_LATTICE_GRAPH_GENERATOR__AREA = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 0;
+	int SQUARE_LATTICE_GRAPH_GENERATOR__AREA = LATTICE_GRAPH_GENERATOR__AREA;
+
+	/**
+	 * The feature id for the '<em><b>XSize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>YSize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Square Lattice Graph Generator</em>' class.
@@ -289,7 +280,7 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
+	int SQUARE_LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl <em>Migration Edge Graph Generator</em>}' class.
@@ -366,6 +357,98 @@ public interface GraphgeneratorsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.graphgenerators.impl.PlateCarreeGlobeGraphGeneratorImpl <em>Plate Carree Globe Graph Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.graphgenerators.impl.PlateCarreeGlobeGraphGeneratorImpl
+	 * @see org.eclipse.stem.graphgenerators.impl.GraphgeneratorsPackageImpl#getPlateCarreeGlobeGraphGenerator()
+	 * @generated
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__URI = LATTICE_GRAPH_GENERATOR__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__TYPE_URI = LATTICE_GRAPH_GENERATOR__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__DUBLIN_CORE = LATTICE_GRAPH_GENERATOR__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Use Nearest Neighbors</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS = LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS;
+
+	/**
+	 * The feature id for the '<em><b>Use Next Nearest Neighbors</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS = LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS;
+
+	/**
+	 * The feature id for the '<em><b>Periodic Boundaries</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES;
+
+	/**
+	 * The feature id for the '<em><b>Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__AREA = LATTICE_GRAPH_GENERATOR__AREA;
+
+	/**
+	 * The feature id for the '<em><b>Angular Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Plate Carree Globe Graph Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.GraphGenerator <em>Graph Generator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,28 +467,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLatticeGraphGenerator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getXSize <em>XSize</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>XSize</em>'.
-	 * @see org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getXSize()
-	 * @see #getLatticeGraphGenerator()
-	 * @generated
-	 */
-	EAttribute getLatticeGraphGenerator_XSize();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getYSize <em>YSize</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>YSize</em>'.
-	 * @see org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getYSize()
-	 * @see #getLatticeGraphGenerator()
-	 * @generated
-	 */
-	EAttribute getLatticeGraphGenerator_YSize();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.LatticeGraphGenerator#isUseNearestNeighbors <em>Use Nearest Neighbors</em>}'.
@@ -441,6 +502,17 @@ public interface GraphgeneratorsPackage extends EPackage {
 	EAttribute getLatticeGraphGenerator_PeriodicBoundaries();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getArea <em>Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Area</em>'.
+	 * @see org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getArea()
+	 * @see #getLatticeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getLatticeGraphGenerator_Area();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator <em>Square Lattice Graph Generator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -451,15 +523,26 @@ public interface GraphgeneratorsPackage extends EPackage {
 	EClass getSquareLatticeGraphGenerator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getArea <em>Area</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getXSize <em>XSize</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Area</em>'.
-	 * @see org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getArea()
+	 * @return the meta object for the attribute '<em>XSize</em>'.
+	 * @see org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getXSize()
 	 * @see #getSquareLatticeGraphGenerator()
 	 * @generated
 	 */
-	EAttribute getSquareLatticeGraphGenerator_Area();
+	EAttribute getSquareLatticeGraphGenerator_XSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getYSize <em>YSize</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>YSize</em>'.
+	 * @see org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getYSize()
+	 * @see #getSquareLatticeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getSquareLatticeGraphGenerator_YSize();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator <em>Migration Edge Graph Generator</em>}'.
@@ -505,6 +588,27 @@ public interface GraphgeneratorsPackage extends EPackage {
 	EAttribute getMigrationEdgeGraphGenerator_Population();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator <em>Plate Carree Globe Graph Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Plate Carree Globe Graph Generator</em>'.
+	 * @see org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator
+	 * @generated
+	 */
+	EClass getPlateCarreeGlobeGraphGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator#getAngularStep <em>Angular Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Angular Step</em>'.
+	 * @see org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator#getAngularStep()
+	 * @see #getPlateCarreeGlobeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getPlateCarreeGlobeGraphGenerator_AngularStep();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -547,22 +651,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 		EClass LATTICE_GRAPH_GENERATOR = eINSTANCE.getLatticeGraphGenerator();
 
 		/**
-		 * The meta object literal for the '<em><b>XSize</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LATTICE_GRAPH_GENERATOR__XSIZE = eINSTANCE.getLatticeGraphGenerator_XSize();
-
-		/**
-		 * The meta object literal for the '<em><b>YSize</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LATTICE_GRAPH_GENERATOR__YSIZE = eINSTANCE.getLatticeGraphGenerator_YSize();
-
-		/**
 		 * The meta object literal for the '<em><b>Use Nearest Neighbors</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -587,6 +675,14 @@ public interface GraphgeneratorsPackage extends EPackage {
 		EAttribute LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = eINSTANCE.getLatticeGraphGenerator_PeriodicBoundaries();
 
 		/**
+		 * The meta object literal for the '<em><b>Area</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LATTICE_GRAPH_GENERATOR__AREA = eINSTANCE.getLatticeGraphGenerator_Area();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl <em>Square Lattice Graph Generator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -597,12 +693,20 @@ public interface GraphgeneratorsPackage extends EPackage {
 		EClass SQUARE_LATTICE_GRAPH_GENERATOR = eINSTANCE.getSquareLatticeGraphGenerator();
 
 		/**
-		 * The meta object literal for the '<em><b>Area</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>XSize</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SQUARE_LATTICE_GRAPH_GENERATOR__AREA = eINSTANCE.getSquareLatticeGraphGenerator_Area();
+		EAttribute SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE = eINSTANCE.getSquareLatticeGraphGenerator_XSize();
+
+		/**
+		 * The meta object literal for the '<em><b>YSize</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE = eINSTANCE.getSquareLatticeGraphGenerator_YSize();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl <em>Migration Edge Graph Generator</em>}' class.
@@ -637,6 +741,24 @@ public interface GraphgeneratorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION = eINSTANCE.getMigrationEdgeGraphGenerator_Population();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.graphgenerators.impl.PlateCarreeGlobeGraphGeneratorImpl <em>Plate Carree Globe Graph Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.graphgenerators.impl.PlateCarreeGlobeGraphGeneratorImpl
+		 * @see org.eclipse.stem.graphgenerators.impl.GraphgeneratorsPackageImpl#getPlateCarreeGlobeGraphGenerator()
+		 * @generated
+		 */
+		EClass PLATE_CARREE_GLOBE_GRAPH_GENERATOR = eINSTANCE.getPlateCarreeGlobeGraphGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Angular Step</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP = eINSTANCE.getPlateCarreeGlobeGraphGenerator_AngularStep();
 
 	}
 

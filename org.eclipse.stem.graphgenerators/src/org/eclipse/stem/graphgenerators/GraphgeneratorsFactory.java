@@ -44,6 +44,15 @@ public interface GraphgeneratorsFactory extends EFactory {
 	MigrationEdgeGraphGenerator createMigrationEdgeGraphGenerator();
 
 	/**
+	 * Returns a new object of class '<em>Plate Carree Globe Graph Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plate Carree Globe Graph Generator</em>'.
+	 * @generated
+	 */
+	PlateCarreeGlobeGraphGenerator createPlateCarreeGlobeGraphGenerator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

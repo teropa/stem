@@ -50,19 +50,53 @@ public abstract class GraphLatticeGenerator implements GraphLatticeGeneratorInte
 		return node;
 	} // createRegionNode
 	
+
+	/**
+	 * 
+	 * @param uriPrefix
+	 * @param lat
+	 * @param lng
+	 * @param graph
+	 * @return node
+	 */
+	public static Region createRegionNode(String uriPrefix, String lat, String lng, Graph graph) {
+		final Region node = NodesFactory.eINSTANCE.createRegion();
+		final DublinCore dc = node.getDublinCore();
+		dc.setTitle(createNodeTitle(lat, lng));
+		node.setURI(createRegionNodeURI(uriPrefix, lat, lng, graph));
+		return node;
+	} // createRegionNode
+	
+	
 	
 	/**
 	 * @param x
-	 *            the x of the node in the lattice
+	 *            the lat of the node in the lattice
 	 * @param y
-	 *            the y of the node in the lattice
+	 *            the lng of the node in the lattice
 	 * @return a title for a node
 	 */
-	public static String createNodeTitle(int x, int y) {
+	public static String createNodeTitle(double x, double y) {
 		final StringBuilder sb = new StringBuilder("Node[");
-		sb.append(Integer.toString(x));
+		sb.append(Double.toString(x));
 		sb.append(", ");
-		sb.append(Integer.toString(y));
+		sb.append(Double.toString(y));
+		sb.append("]");
+		return sb.toString();
+	} // createNodeTitle
+	
+	/**
+	 * @param x
+	 *            the lat of the node as a string. Allows N/S indicator
+	 * @param y
+	 *            the lng of the node as a string. Allows N/S indicator
+	 * @return a title for a node
+	 */
+	public static String createNodeTitle(String x, String y) {
+		final StringBuilder sb = new StringBuilder("Node[");
+		sb.append(x);
+		sb.append(", ");
+		sb.append(y);
 		sb.append("]");
 		return sb.toString();
 	} // createNodeTitle
@@ -76,6 +110,23 @@ public abstract class GraphLatticeGenerator implements GraphLatticeGeneratorInte
 	 * @return a URI for the region node
 	 */
 	public static URI createRegionNodeURI(String uriPrefix, int x, int y, Graph graph) {
+		String nodeUriSuffix = uriPrefix+x+"_"+y;
+		String nodeUriString = Node.URI_TYPE_NODE_SEGMENT + "/"
+								+ graph.getURI().lastSegment()+"/"
+								+ nodeUriSuffix;
+		
+        URI uri = STEMURI.createURI(nodeUriString);
+		return uri;
+	} // createRegionNodeURI
+	
+	/**
+	 * @param x
+	 *            the x of the region node as a string. Allows N/S indicator
+	 * @param y
+	 *            the y of the region node as a string. Allows N/S indicator
+	 * @return a URI for the region node
+	 */
+	public static URI createRegionNodeURI(String uriPrefix, String x, String y, Graph graph) {
 		String nodeUriSuffix = uriPrefix+x+"_"+y;
 		String nodeUriString = Node.URI_TYPE_NODE_SEGMENT + "/"
 								+ graph.getURI().lastSegment()+"/"
@@ -139,6 +190,7 @@ public abstract class GraphLatticeGenerator implements GraphLatticeGeneratorInte
 		CommonBorderRelationshipLabel label = (CommonBorderRelationshipLabel)edge.getLabel();
 		label.setURI(createEdgeLabelURI(nodeA, nodeB));
 		URI labelURI = label.getURI();
+		
 		final DublinCore dc = edge.getDublinCore();
 		dc.setTitle(createEdgeTitle(nodeA, nodeB));
 		

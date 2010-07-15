@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -22,19 +23,20 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
-import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
+import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator} object.
+ * This is the item provider adapter for a {@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SquareLatticeGraphGeneratorItemProvider
+public class PlateCarreeGlobeGraphGeneratorItemProvider
 	extends LatticeGraphGeneratorItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +50,7 @@ public class SquareLatticeGraphGeneratorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SquareLatticeGraphGeneratorItemProvider(AdapterFactory adapterFactory) {
+	public PlateCarreeGlobeGraphGeneratorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,26 +65,25 @@ public class SquareLatticeGraphGeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXSizePropertyDescriptor(object);
-			addYSizePropertyDescriptor(object);
+			addAngularStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the XSize feature.
+	 * This adds a property descriptor for the Angular Step feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXSizePropertyDescriptor(Object object) {
+	protected void addAngularStepPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SquareLatticeGraphGenerator_xSize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SquareLatticeGraphGenerator_xSize_feature", "_UI_SquareLatticeGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE,
+				 getString("_UI_PlateCarreeGlobeGraphGenerator_angularStep_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PlateCarreeGlobeGraphGenerator_angularStep_feature", "_UI_PlateCarreeGlobeGraphGenerator_type"),
+				 GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP,
 				 true,
 				 false,
 				 false,
@@ -92,36 +93,14 @@ public class SquareLatticeGraphGeneratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the YSize feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYSizePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SquareLatticeGraphGenerator_ySize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SquareLatticeGraphGenerator_ySize_feature", "_UI_SquareLatticeGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns SquareLatticeGraphGenerator.gif.
+	 * This returns PlateCarreeGlobeGraphGenerator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SquareLatticeGraphGenerator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PlateCarreeGlobeGraphGenerator"));
 	}
 
 	/**
@@ -132,11 +111,11 @@ public class SquareLatticeGraphGeneratorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		URI labelValue = ((SquareLatticeGraphGenerator)object).getURI();
+		URI labelValue = ((PlateCarreeGlobeGraphGenerator)object).getURI();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SquareLatticeGraphGenerator_type") :
-			getString("_UI_SquareLatticeGraphGenerator_type") + " " + label;
+			getString("_UI_PlateCarreeGlobeGraphGenerator_type") :
+			getString("_UI_PlateCarreeGlobeGraphGenerator_type") + " " + label;
 	}
 
 	/**
@@ -150,9 +129,8 @@ public class SquareLatticeGraphGeneratorItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SquareLatticeGraphGenerator.class)) {
-			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE:
-			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
+		switch (notification.getFeatureID(PlateCarreeGlobeGraphGenerator.class)) {
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

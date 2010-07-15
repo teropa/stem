@@ -37,6 +37,11 @@ public interface GraphLatticeGeneratorInterface {
 	 */
 	public static final String SQR_LATTICE_TYPE="Square Lattice";
 	
+	/** 
+	 * Lattice type
+	 */
+	public static final String GLOBE_LATTICE_TYPE="Plate Carree";
+	
 	
 	/** 
 	 * Lattice type

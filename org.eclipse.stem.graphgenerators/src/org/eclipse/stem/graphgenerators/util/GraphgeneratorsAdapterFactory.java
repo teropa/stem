@@ -90,6 +90,10 @@ public class GraphgeneratorsAdapterFactory extends AdapterFactoryImpl {
 				return createMigrationEdgeGraphGeneratorAdapter();
 			}
 			@Override
+			public Adapter casePlateCarreeGlobeGraphGenerator(PlateCarreeGlobeGraphGenerator object) {
+				return createPlateCarreeGlobeGraphGeneratorAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -170,6 +174,20 @@ public class GraphgeneratorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMigrationEdgeGraphGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator <em>Plate Carree Globe Graph Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator
+	 * @generated
+	 */
+	public Adapter createPlateCarreeGlobeGraphGeneratorAdapter() {
 		return null;
 	}
 

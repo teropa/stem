@@ -537,6 +537,22 @@ public abstract class GenericPropertyEditor extends Composite {
 		return retValue;
 	} // isValidIntRate
 	
+	/**
+	 * @param text
+	 * @param minValue
+	 * @return
+	 */
+	protected boolean isValidDoubleValue(final String text, final int minValue) {
+		boolean retValue = true;
+		try {
+			final double value = Double.parseDouble(text);
+			retValue = value >= minValue;
+		} catch (final NumberFormatException nfe) {
+			retValue = false;
+		} // catch ParseException
+		return retValue;
+	} // isValidIntRate
+	
 	@Override
 	public void dispose() {
 		super.dispose();

@@ -125,6 +125,16 @@ public class GraphgeneratorsSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR: {
+				PlateCarreeGlobeGraphGenerator plateCarreeGlobeGraphGenerator = (PlateCarreeGlobeGraphGenerator)theEObject;
+				T1 result = casePlateCarreeGlobeGraphGenerator(plateCarreeGlobeGraphGenerator);
+				if (result == null) result = caseLatticeGraphGenerator(plateCarreeGlobeGraphGenerator);
+				if (result == null) result = caseGraphGenerator(plateCarreeGlobeGraphGenerator);
+				if (result == null) result = caseIdentifiable(plateCarreeGlobeGraphGenerator);
+				if (result == null) result = caseComparable(plateCarreeGlobeGraphGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -186,6 +196,21 @@ public class GraphgeneratorsSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseMigrationEdgeGraphGenerator(MigrationEdgeGraphGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plate Carree Globe Graph Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plate Carree Globe Graph Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePlateCarreeGlobeGraphGenerator(PlateCarreeGlobeGraphGenerator object) {
 		return null;
 	}
 

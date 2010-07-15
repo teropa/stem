@@ -23,6 +23,7 @@ import org.eclipse.stem.graphgenerators.GraphgeneratorsFactory;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
 import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
+import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 
 /**
@@ -59,6 +60,13 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * @generated
 	 */
 	private EClass migrationEdgeGraphGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass plateCarreeGlobeGraphGeneratorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -153,7 +161,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLatticeGraphGenerator_XSize() {
+	public EAttribute getLatticeGraphGenerator_UseNearestNeighbors() {
 		return (EAttribute)latticeGraphGeneratorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -162,7 +170,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLatticeGraphGenerator_YSize() {
+	public EAttribute getLatticeGraphGenerator_UseNextNearestNeighbors() {
 		return (EAttribute)latticeGraphGeneratorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -171,7 +179,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLatticeGraphGenerator_UseNearestNeighbors() {
+	public EAttribute getLatticeGraphGenerator_PeriodicBoundaries() {
 		return (EAttribute)latticeGraphGeneratorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -180,17 +188,8 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLatticeGraphGenerator_UseNextNearestNeighbors() {
+	public EAttribute getLatticeGraphGenerator_Area() {
 		return (EAttribute)latticeGraphGeneratorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLatticeGraphGenerator_PeriodicBoundaries() {
-		return (EAttribute)latticeGraphGeneratorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -207,8 +206,17 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSquareLatticeGraphGenerator_Area() {
+	public EAttribute getSquareLatticeGraphGenerator_XSize() {
 		return (EAttribute)squareLatticeGraphGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSquareLatticeGraphGenerator_YSize() {
+		return (EAttribute)squareLatticeGraphGeneratorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -252,6 +260,24 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPlateCarreeGlobeGraphGenerator() {
+		return plateCarreeGlobeGraphGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlateCarreeGlobeGraphGenerator_AngularStep() {
+		return (EAttribute)plateCarreeGlobeGraphGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GraphgeneratorsFactory getGraphgeneratorsFactory() {
 		return (GraphgeneratorsFactory)getEFactoryInstance();
 	}
@@ -278,19 +304,22 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		graphGeneratorEClass = createEClass(GRAPH_GENERATOR);
 
 		latticeGraphGeneratorEClass = createEClass(LATTICE_GRAPH_GENERATOR);
-		createEAttribute(latticeGraphGeneratorEClass, LATTICE_GRAPH_GENERATOR__XSIZE);
-		createEAttribute(latticeGraphGeneratorEClass, LATTICE_GRAPH_GENERATOR__YSIZE);
 		createEAttribute(latticeGraphGeneratorEClass, LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS);
 		createEAttribute(latticeGraphGeneratorEClass, LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS);
 		createEAttribute(latticeGraphGeneratorEClass, LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES);
+		createEAttribute(latticeGraphGeneratorEClass, LATTICE_GRAPH_GENERATOR__AREA);
 
 		squareLatticeGraphGeneratorEClass = createEClass(SQUARE_LATTICE_GRAPH_GENERATOR);
-		createEAttribute(squareLatticeGraphGeneratorEClass, SQUARE_LATTICE_GRAPH_GENERATOR__AREA);
+		createEAttribute(squareLatticeGraphGeneratorEClass, SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE);
+		createEAttribute(squareLatticeGraphGeneratorEClass, SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE);
 
 		migrationEdgeGraphGeneratorEClass = createEClass(MIGRATION_EDGE_GRAPH_GENERATOR);
 		createEAttribute(migrationEdgeGraphGeneratorEClass, MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION);
 		createEAttribute(migrationEdgeGraphGeneratorEClass, MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE);
 		createEAttribute(migrationEdgeGraphGeneratorEClass, MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION);
+
+		plateCarreeGlobeGraphGeneratorEClass = createEClass(PLATE_CARREE_GLOBE_GRAPH_GENERATOR);
+		createEAttribute(plateCarreeGlobeGraphGeneratorEClass, PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP);
 	}
 
 	/**
@@ -330,6 +359,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		latticeGraphGeneratorEClass.getESuperTypes().add(this.getGraphGenerator());
 		squareLatticeGraphGeneratorEClass.getESuperTypes().add(this.getLatticeGraphGenerator());
 		migrationEdgeGraphGeneratorEClass.getESuperTypes().add(this.getGraphGenerator());
+		plateCarreeGlobeGraphGeneratorEClass.getESuperTypes().add(this.getLatticeGraphGenerator());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(graphGeneratorEClass, GraphGenerator.class, "GraphGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -337,19 +367,22 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		addEOperation(graphGeneratorEClass, theGraphPackage.getGraph(), "getGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(latticeGraphGeneratorEClass, LatticeGraphGenerator.class, "LatticeGraphGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLatticeGraphGenerator_XSize(), theEcorePackage.getEInt(), "xSize", "10", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLatticeGraphGenerator_YSize(), theEcorePackage.getEInt(), "ySize", "10", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLatticeGraphGenerator_UseNearestNeighbors(), theEcorePackage.getEBoolean(), "useNearestNeighbors", "true", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLatticeGraphGenerator_UseNextNearestNeighbors(), theEcorePackage.getEBoolean(), "useNextNearestNeighbors", "false", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLatticeGraphGenerator_PeriodicBoundaries(), theEcorePackage.getEBoolean(), "periodicBoundaries", "false", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLatticeGraphGenerator_PeriodicBoundaries(), theEcorePackage.getEBoolean(), "periodicBoundaries", "true", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLatticeGraphGenerator_Area(), theEcorePackage.getEDouble(), "area", "2025", 0, 1, LatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(squareLatticeGraphGeneratorEClass, SquareLatticeGraphGenerator.class, "SquareLatticeGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSquareLatticeGraphGenerator_Area(), theEcorePackage.getEDouble(), "area", "2025", 0, 1, SquareLatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSquareLatticeGraphGenerator_XSize(), theEcorePackage.getEInt(), "xSize", "10", 0, 1, SquareLatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSquareLatticeGraphGenerator_YSize(), theEcorePackage.getEInt(), "ySize", "10", 0, 1, SquareLatticeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(migrationEdgeGraphGeneratorEClass, MigrationEdgeGraphGenerator.class, "MigrationEdgeGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMigrationEdgeGraphGenerator_Location(), theGraphPackage.getURI(), "location", null, 0, 1, MigrationEdgeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMigrationEdgeGraphGenerator_MigrationRate(), theEcorePackage.getEDouble(), "migrationRate", "0.1", 0, 1, MigrationEdgeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMigrationEdgeGraphGenerator_Population(), theEcorePackage.getEString(), "population", "human", 0, 1, MigrationEdgeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(plateCarreeGlobeGraphGeneratorEClass, PlateCarreeGlobeGraphGenerator.class, "PlateCarreeGlobeGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPlateCarreeGlobeGraphGenerator_AngularStep(), theEcorePackage.getEInt(), "angularStep", "10", 0, 1, PlateCarreeGlobeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

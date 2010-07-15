@@ -30,6 +30,7 @@ import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
 import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
+import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
@@ -88,16 +89,25 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 			if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR ||
 					entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR) {
 				switch (entry.getKey().getFeatureID()) {
-					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
-						((LatticeGraphGenerator)graphGenerator).setXSize(Integer.parseInt(entry.getValue().getText()));
+					case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE:
+						((SquareLatticeGraphGenerator)graphGenerator).setXSize(Integer.parseInt(entry.getValue().getText()));
 						break;
-					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
-						((LatticeGraphGenerator)graphGenerator).setYSize(Integer.parseInt(entry.getValue().getText()));
+					case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
+						((SquareLatticeGraphGenerator)graphGenerator).setYSize(Integer.parseInt(entry.getValue().getText()));
 						break;
-					case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
-						((SquareLatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
+					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
+						((LatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
 						break;
 				}
+			} else if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR) {
+				switch (entry.getKey().getFeatureID()) {
+					case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
+						((PlateCarreeGlobeGraphGenerator)graphGenerator).setAngularStep(Integer.parseInt(entry.getValue().getText()));
+						break;	
+					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
+						((SquareLatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
+						break;
+				} // switch
 			} else if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR) {
 				switch (entry.getKey().getFeatureID()) {
 					case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
@@ -149,7 +159,7 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 		if (retValue) {
 			// Yes
 			final Text text = map
-					.get(GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__XSIZE);
+					.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE);
 			if (text != null) {
 				// Yes
 				retValue = !text.getText().equals(""); //$NON-NLS-1$
@@ -172,11 +182,11 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 			} // if text != null
 		} // if Transmission Rate
 
-		// Non-Linearity Coefficient
+		// size
 		if (retValue) {
 			// Yes
 			final Text text = map
-					.get(GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__YSIZE);
+					.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE);
 			if (text != null) {
 				// Yes
 				retValue = !text.getText().equals(""); //$NON-NLS-1$
@@ -212,6 +222,36 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 				} // if
 			}
 		}
+		
+		
+		if(retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP);
+			// Is it a valid value?
+			if(text!=null) {
+				retValue = isValidIntValue(text.getText(), 1);
+				if (!retValue) {
+					// No
+					errorMessage = Messages
+							.getString("NGGWizErr8"); //$NON-NLS-1$
+				} // if
+			}
+		}
+		
+		
+		if(retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__AREA);
+			if(text!=null) {
+				// Is it a valid value?
+				retValue = isValidDoubleValue(text.getText(), 1);
+				if (!retValue) {
+					// No
+					errorMessage = Messages
+							.getString("NGGWizErr9"); //$NON-NLS-1$
+				} // if
+			}
+			
+		}
+		
 		if(retValue) {
 			final Text text = map.get(GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION);
 			if (text != null) {

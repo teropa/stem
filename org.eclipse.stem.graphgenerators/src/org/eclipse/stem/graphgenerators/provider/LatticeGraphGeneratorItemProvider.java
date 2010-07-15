@@ -63,57 +63,12 @@ public class LatticeGraphGeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXSizePropertyDescriptor(object);
-			addYSizePropertyDescriptor(object);
 			addUseNearestNeighborsPropertyDescriptor(object);
 			addUseNextNearestNeighborsPropertyDescriptor(object);
 			addPeriodicBoundariesPropertyDescriptor(object);
+			addAreaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the XSize feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXSizePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LatticeGraphGenerator_xSize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LatticeGraphGenerator_xSize_feature", "_UI_LatticeGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__XSIZE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the YSize feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYSizePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LatticeGraphGenerator_ySize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LatticeGraphGenerator_ySize_feature", "_UI_LatticeGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__YSIZE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -183,6 +138,28 @@ public class LatticeGraphGeneratorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Area feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAreaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LatticeGraphGenerator_area_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LatticeGraphGenerator_area_feature", "_UI_LatticeGraphGenerator_type"),
+				 GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__AREA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,11 +186,10 @@ public class LatticeGraphGeneratorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LatticeGraphGenerator.class)) {
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS:
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

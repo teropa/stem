@@ -19,57 +19,16 @@ import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.stem.graphgenerators.impl.LatticeGraphGeneratorImpl#getXSize <em>XSize</em>}</li>
- *   <li>{@link org.eclipse.stem.graphgenerators.impl.LatticeGraphGeneratorImpl#getYSize <em>YSize</em>}</li>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.LatticeGraphGeneratorImpl#isUseNearestNeighbors <em>Use Nearest Neighbors</em>}</li>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.LatticeGraphGeneratorImpl#isUseNextNearestNeighbors <em>Use Next Nearest Neighbors</em>}</li>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.LatticeGraphGeneratorImpl#isPeriodicBoundaries <em>Periodic Boundaries</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.impl.LatticeGraphGeneratorImpl#getArea <em>Area</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl implements LatticeGraphGenerator {
-	/**
-	 * The default value of the '{@link #getXSize() <em>XSize</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getXSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int XSIZE_EDEFAULT = 10;
-
-	/**
-	 * The cached value of the '{@link #getXSize() <em>XSize</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getXSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected int xSize = XSIZE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getYSize() <em>YSize</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getYSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int YSIZE_EDEFAULT = 10;
-
-	/**
-	 * The cached value of the '{@link #getYSize() <em>YSize</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getYSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected int ySize = YSIZE_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #isUseNearestNeighbors() <em>Use Nearest Neighbors</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -118,7 +77,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PERIODIC_BOUNDARIES_EDEFAULT = false;
+	protected static final boolean PERIODIC_BOUNDARIES_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isPeriodicBoundaries() <em>Periodic Boundaries</em>}' attribute.
@@ -129,6 +88,26 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @ordered
 	 */
 	protected boolean periodicBoundaries = PERIODIC_BOUNDARIES_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getArea() <em>Area</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArea()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double AREA_EDEFAULT = 2025.0;
+
+	/**
+	 * The cached value of the '{@link #getArea() <em>Area</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArea()
+	 * @generated
+	 * @ordered
+	 */
+	protected double area = AREA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,48 +126,6 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	@Override
 	protected EClass eStaticClass() {
 		return GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getXSize() {
-		return xSize;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setXSize(int newXSize) {
-		int oldXSize = xSize;
-		xSize = newXSize;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE, oldXSize, xSize));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getYSize() {
-		return ySize;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setYSize(int newYSize) {
-		int oldYSize = ySize;
-		ySize = newYSize;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE, oldYSize, ySize));
 	}
 
 	/**
@@ -259,19 +196,38 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getArea() {
+		return area;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setArea(double newArea) {
+		double oldArea = area;
+		area = newArea;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA, oldArea, area));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
-				return getXSize();
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
-				return getYSize();
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
 				return isUseNearestNeighbors();
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS:
 				return isUseNextNearestNeighbors();
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
 				return isPeriodicBoundaries();
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
+				return getArea();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -284,12 +240,6 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
-				setXSize((Integer)newValue);
-				return;
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
-				setYSize((Integer)newValue);
-				return;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
 				setUseNearestNeighbors((Boolean)newValue);
 				return;
@@ -298,6 +248,9 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 				return;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
 				setPeriodicBoundaries((Boolean)newValue);
+				return;
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
+				setArea((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -311,12 +264,6 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
-				setXSize(XSIZE_EDEFAULT);
-				return;
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
-				setYSize(YSIZE_EDEFAULT);
-				return;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
 				setUseNearestNeighbors(USE_NEAREST_NEIGHBORS_EDEFAULT);
 				return;
@@ -325,6 +272,9 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 				return;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
 				setPeriodicBoundaries(PERIODIC_BOUNDARIES_EDEFAULT);
+				return;
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
+				setArea(AREA_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -338,16 +288,14 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__XSIZE:
-				return xSize != XSIZE_EDEFAULT;
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__YSIZE:
-				return ySize != YSIZE_EDEFAULT;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
 				return useNearestNeighbors != USE_NEAREST_NEIGHBORS_EDEFAULT;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS:
 				return useNextNearestNeighbors != USE_NEXT_NEAREST_NEIGHBORS_EDEFAULT;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
 				return periodicBoundaries != PERIODIC_BOUNDARIES_EDEFAULT;
+			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
+				return area != AREA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -362,16 +310,14 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (xSize: ");
-		result.append(xSize);
-		result.append(", ySize: ");
-		result.append(ySize);
-		result.append(", useNearestNeighbors: ");
+		result.append(" (useNearestNeighbors: ");
 		result.append(useNearestNeighbors);
 		result.append(", useNextNearestNeighbors: ");
 		result.append(useNextNearestNeighbors);
 		result.append(", periodicBoundaries: ");
 		result.append(periodicBoundaries);
+		result.append(", area: ");
+		result.append(area);
 		result.append(')');
 		return result.toString();
 	}

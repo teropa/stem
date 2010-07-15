@@ -5,21 +5,31 @@
     editDirectory="/org.eclipse.stem.graphgenerators/src" editorDirectory="/org.eclipse.stem.ui.graphgenerators/src"
     modelPluginID="org.eclipse.stem.graphgenerators" modelName="Graphgenerator" editorPluginClass="org.eclipse.stem.ui.graphgenerators.presentation.GraphgeneratorEditorPlugin"
     testsDirectory="/org.eclipse.stem.test.graphgenerators/src" testSuiteClass="org.eclipse.stem.test.graphgenerators.tests.GraphgeneratorAllTests"
-    importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
     editorPluginID="org.eclipse.stem.ui.graphgenerators" usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver">
-  <foreignModel>@model</foreignModel>
+  <foreignModel>graphgenerators.ecore</foreignModel>
   <genPackages prefix="Graphgenerators" basePackage="org.eclipse.stem" disposableProviderFactory="true"
       ecorePackage="graphgenerators.ecore#/">
     <genClasses ecoreClass="graphgenerators.ecore#//GraphGenerator">
       <genOperations ecoreOperation="graphgenerators.ecore#//GraphGenerator/getGraph"/>
     </genClasses>
     <genClasses image="false" ecoreClass="graphgenerators.ecore#//LatticeGraphGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/xSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/ySize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/useNearestNeighbors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/useNextNearestNeighbors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/periodicBoundaries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/area"/>
     </genClasses>
-    <genClasses ecoreClass="graphgenerators.ecore#//SquareLatticeGraphGenerator"/>
+    <genClasses ecoreClass="graphgenerators.ecore#//SquareLatticeGraphGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//SquareLatticeGraphGenerator/xSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//SquareLatticeGraphGenerator/ySize"/>
+    </genClasses>
+    <genClasses ecoreClass="graphgenerators.ecore#//MigrationEdgeGraphGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//MigrationEdgeGraphGenerator/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//MigrationEdgeGraphGenerator/migrationRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//MigrationEdgeGraphGenerator/population"/>
+    </genClasses>
+    <genClasses ecoreClass="graphgenerators.ecore#//PlateCarreeGlobeGraphGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//PlateCarreeGlobeGraphGenerator/angularStep"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

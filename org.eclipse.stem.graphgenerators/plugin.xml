@@ -31,6 +31,19 @@
   <extension
         point="org.eclipse.stem.graphgenerators.graphgenerator">
      <classdef
+           class="org.eclipse.stem.graphgenerators.impl.PlateCarreeGlobeGraphGeneratorImpl">
+     </classdef>
+     <dublin_core
+           creator="%dc_creator_kaufman"
+           description="%dc_desc_Globe"
+           identifier="globe"
+           title="%dc_desc_Lattice">
+     </dublin_core>
+  </extension>
+  
+  <extension
+        point="org.eclipse.stem.graphgenerators.graphgenerator">
+     <classdef
            class="org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl">
      </classdef>
      <dublin_core
