@@ -24,6 +24,7 @@ import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
  * <ul>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl#getXSize <em>XSize</em>}</li>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl#getYSize <em>YSize</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl#getArea <em>Area</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +67,25 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @ordered
 	 */
 	protected int ySize = YSIZE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getArea() <em>Area</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArea()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double AREA_EDEFAULT = 2025.0;
+	/**
+	 * The cached value of the '{@link #getArea() <em>Area</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArea()
+	 * @generated
+	 * @ordered
+	 */
+	protected double area = AREA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +153,27 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getArea() {
+		return area;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setArea(double newArea) {
+		double oldArea = area;
+		area = newArea;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA, oldArea, area));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +181,8 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 				return getXSize();
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
 				return getYSize();
+			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
+				return getArea();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,6 +200,9 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 				return;
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
 				setYSize((Integer)newValue);
+				return;
+			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
+				setArea((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +222,9 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
 				setYSize(YSIZE_EDEFAULT);
 				return;
+			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
+				setArea(AREA_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +241,8 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 				return xSize != XSIZE_EDEFAULT;
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
 				return ySize != YSIZE_EDEFAULT;
+			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
+				return area != AREA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +261,8 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 		result.append(xSize);
 		result.append(", ySize: ");
 		result.append(ySize);
+		result.append(", area: ");
+		result.append(area);
 		result.append(')');
 		return result.toString();
 	}

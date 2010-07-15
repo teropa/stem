@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator#getAngularStep <em>Angular Step</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator#getRadius <em>Radius</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +52,32 @@ public interface PlateCarreeGlobeGraphGenerator extends LatticeGraphGenerator {
 	 * @generated
 	 */
 	void setAngularStep(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Radius</b></em>' attribute.
+	 * The default value is <code>"6371.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Radius</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Radius</em>' attribute.
+	 * @see #setRadius(double)
+	 * @see org.eclipse.stem.graphgenerators.GraphgeneratorsPackage#getPlateCarreeGlobeGraphGenerator_Radius()
+	 * @model default="6371.0" required="true"
+	 * @generated
+	 */
+	double getRadius();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator#getRadius <em>Radius</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Radius</em>' attribute.
+	 * @see #getRadius()
+	 * @generated
+	 */
+	void setRadius(double value);
 
 } // PlateCarreeGlobeGraphGenerator

@@ -65,6 +65,7 @@ public class SquareLatticeGraphGeneratorItemProvider
 
 			addXSizePropertyDescriptor(object);
 			addYSizePropertyDescriptor(object);
+			addAreaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +115,28 @@ public class SquareLatticeGraphGeneratorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Area feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAreaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SquareLatticeGraphGenerator_area_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SquareLatticeGraphGenerator_area_feature", "_UI_SquareLatticeGraphGenerator_type"),
+				 GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__AREA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns SquareLatticeGraphGenerator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,6 +176,7 @@ public class SquareLatticeGraphGeneratorItemProvider
 		switch (notification.getFeatureID(SquareLatticeGraphGenerator.class)) {
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE:
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
+			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

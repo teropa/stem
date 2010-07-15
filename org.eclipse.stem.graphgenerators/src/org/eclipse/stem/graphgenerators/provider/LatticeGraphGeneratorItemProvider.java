@@ -66,7 +66,6 @@ public class LatticeGraphGeneratorItemProvider
 			addUseNearestNeighborsPropertyDescriptor(object);
 			addUseNextNearestNeighborsPropertyDescriptor(object);
 			addPeriodicBoundariesPropertyDescriptor(object);
-			addAreaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,28 +137,6 @@ public class LatticeGraphGeneratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Area feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAreaPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LatticeGraphGenerator_area_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LatticeGraphGenerator_area_feature", "_UI_LatticeGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__AREA,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,7 +166,6 @@ public class LatticeGraphGeneratorItemProvider
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS:
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
-			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

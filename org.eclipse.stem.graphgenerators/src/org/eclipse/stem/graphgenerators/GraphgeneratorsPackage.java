@@ -165,22 +165,13 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = GRAPH_GENERATOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Area</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LATTICE_GRAPH_GENERATOR__AREA = GRAPH_GENERATOR_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Lattice Graph Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 4;
+	int LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl <em>Square Lattice Graph Generator</em>}' class.
@@ -247,15 +238,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int SQUARE_LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES;
 
 	/**
-	 * The feature id for the '<em><b>Area</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SQUARE_LATTICE_GRAPH_GENERATOR__AREA = LATTICE_GRAPH_GENERATOR__AREA;
-
-	/**
 	 * The feature id for the '<em><b>XSize</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,13 +256,22 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE_LATTICE_GRAPH_GENERATOR__AREA = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Square Lattice Graph Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 2;
+	int SQUARE_LATTICE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl <em>Migration Edge Graph Generator</em>}' class.
@@ -421,15 +412,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES;
 
 	/**
-	 * The feature id for the '<em><b>Area</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__AREA = LATTICE_GRAPH_GENERATOR__AREA;
-
-	/**
 	 * The feature id for the '<em><b>Angular Step</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -439,13 +421,22 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Radius</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Plate Carree Globe Graph Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 1;
+	int PLATE_CARREE_GLOBE_GRAPH_GENERATOR_FEATURE_COUNT = LATTICE_GRAPH_GENERATOR_FEATURE_COUNT + 2;
 
 
 	/**
@@ -502,17 +493,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 	EAttribute getLatticeGraphGenerator_PeriodicBoundaries();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getArea <em>Area</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Area</em>'.
-	 * @see org.eclipse.stem.graphgenerators.LatticeGraphGenerator#getArea()
-	 * @see #getLatticeGraphGenerator()
-	 * @generated
-	 */
-	EAttribute getLatticeGraphGenerator_Area();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator <em>Square Lattice Graph Generator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,6 +523,17 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSquareLatticeGraphGenerator_YSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getArea <em>Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Area</em>'.
+	 * @see org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator#getArea()
+	 * @see #getSquareLatticeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getSquareLatticeGraphGenerator_Area();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator <em>Migration Edge Graph Generator</em>}'.
@@ -607,6 +598,17 @@ public interface GraphgeneratorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlateCarreeGlobeGraphGenerator_AngularStep();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator#getRadius <em>Radius</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radius</em>'.
+	 * @see org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator#getRadius()
+	 * @see #getPlateCarreeGlobeGraphGenerator()
+	 * @generated
+	 */
+	EAttribute getPlateCarreeGlobeGraphGenerator_Radius();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -675,14 +677,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 		EAttribute LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES = eINSTANCE.getLatticeGraphGenerator_PeriodicBoundaries();
 
 		/**
-		 * The meta object literal for the '<em><b>Area</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LATTICE_GRAPH_GENERATOR__AREA = eINSTANCE.getLatticeGraphGenerator_Area();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl <em>Square Lattice Graph Generator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -707,6 +701,14 @@ public interface GraphgeneratorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE = eINSTANCE.getSquareLatticeGraphGenerator_YSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Area</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SQUARE_LATTICE_GRAPH_GENERATOR__AREA = eINSTANCE.getSquareLatticeGraphGenerator_Area();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.graphgenerators.impl.MigrationEdgeGraphGeneratorImpl <em>Migration Edge Graph Generator</em>}' class.
@@ -759,6 +761,14 @@ public interface GraphgeneratorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP = eINSTANCE.getPlateCarreeGlobeGraphGenerator_AngularStep();
+
+		/**
+		 * The meta object literal for the '<em><b>Radius</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS = eINSTANCE.getPlateCarreeGlobeGraphGenerator_Radius();
 
 	}
 

@@ -17,11 +17,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/useNearestNeighbors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/useNextNearestNeighbors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/periodicBoundaries"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//LatticeGraphGenerator/area"/>
     </genClasses>
     <genClasses ecoreClass="graphgenerators.ecore#//SquareLatticeGraphGenerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//SquareLatticeGraphGenerator/xSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//SquareLatticeGraphGenerator/ySize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//SquareLatticeGraphGenerator/area"/>
     </genClasses>
     <genClasses ecoreClass="graphgenerators.ecore#//MigrationEdgeGraphGenerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//MigrationEdgeGraphGenerator/location"/>
@@ -30,6 +30,7 @@
     </genClasses>
     <genClasses ecoreClass="graphgenerators.ecore#//PlateCarreeGlobeGraphGenerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//PlateCarreeGlobeGraphGenerator/angularStep"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphgenerators.ecore#//PlateCarreeGlobeGraphGenerator/radius"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

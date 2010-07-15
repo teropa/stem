@@ -15,14 +15,14 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodicBoundaries" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-        defaultValueLiteral="2025"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SquareLatticeGraphGenerator" eSuperTypes="#//LatticeGraphGenerator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xSize" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
         defaultValueLiteral="10"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ySize" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
         defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="2025"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MigrationEdgeGraphGenerator" eSuperTypes="#//GraphGenerator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType ../../org.eclipse.stem.core/model/graph.ecore#//URI"/>
@@ -34,5 +34,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="PlateCarreeGlobeGraphGenerator" eSuperTypes="#//LatticeGraphGenerator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angularStep" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
         defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radius" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="6371.0"/>
   </eClassifiers>
 </ecore:EPackage>

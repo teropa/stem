@@ -27,6 +27,7 @@ import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.PlateCarreeGlobeGraphGeneratorImpl#getAngularStep <em>Angular Step</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.impl.PlateCarreeGlobeGraphGeneratorImpl#getRadius <em>Radius</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +55,26 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	protected int angularStep = ANGULAR_STEP_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getRadius() <em>Radius</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRadius()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double RADIUS_EDEFAULT = 6371.0;
+
+	/**
+	 * The cached value of the '{@link #getRadius() <em>Radius</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRadius()
+	 * @generated
+	 * @ordered
+	 */
+	protected double radius = RADIUS_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -78,7 +99,7 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	@Override
 	public Graph getGraph() {
 		LatticeGeneratorUtilityImpl slgi = new LatticeGeneratorUtilityImpl(GraphLatticeGeneratorInterface.GLOBE_LATTICE_TYPE);
-		Graph g = slgi.getPlateCareeGraph(this.getAngularStep(), this.area, this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
+		Graph g = slgi.getPlateCareeGraph(this.getAngularStep(), this.radius, this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
 		
 		return g;
 		
@@ -111,11 +132,34 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getRadius() {
+		return radius;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRadius(double newRadius) {
+		double oldRadius = radius;
+		radius = newRadius;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS, oldRadius, radius));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
 				return getAngularStep();
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS:
+				return getRadius();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -130,6 +174,9 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 		switch (featureID) {
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
 				setAngularStep((Integer)newValue);
+				return;
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS:
+				setRadius((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,6 +193,9 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
 				setAngularStep(ANGULAR_STEP_EDEFAULT);
 				return;
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS:
+				setRadius(RADIUS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,6 +210,8 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 		switch (featureID) {
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
 				return angularStep != ANGULAR_STEP_EDEFAULT;
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS:
+				return radius != RADIUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -176,6 +228,8 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (angularStep: ");
 		result.append(angularStep);
+		result.append(", radius: ");
+		result.append(radius);
 		result.append(')');
 		return result.toString();
 	}

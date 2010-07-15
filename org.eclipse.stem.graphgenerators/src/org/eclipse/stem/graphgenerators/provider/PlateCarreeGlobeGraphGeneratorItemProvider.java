@@ -66,6 +66,7 @@ public class PlateCarreeGlobeGraphGeneratorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addAngularStepPropertyDescriptor(object);
+			addRadiusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +89,28 @@ public class PlateCarreeGlobeGraphGeneratorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Radius feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRadiusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PlateCarreeGlobeGraphGenerator_radius_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PlateCarreeGlobeGraphGenerator_radius_feature", "_UI_PlateCarreeGlobeGraphGenerator_type"),
+				 GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -131,6 +154,7 @@ public class PlateCarreeGlobeGraphGeneratorItemProvider
 
 		switch (notification.getFeatureID(PlateCarreeGlobeGraphGenerator.class)) {
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
