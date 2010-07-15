@@ -95,8 +95,8 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 					case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
 						((SquareLatticeGraphGenerator)graphGenerator).setYSize(Integer.parseInt(entry.getValue().getText()));
 						break;
-					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
-						((LatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
+					case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
+						((SquareLatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
 						break;
 				}
 			} else if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR) {
@@ -104,7 +104,10 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 					case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
 						((PlateCarreeGlobeGraphGenerator)graphGenerator).setAngularStep(Integer.parseInt(entry.getValue().getText()));
 						break;	
-					case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__AREA:
+					case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS:
+						((PlateCarreeGlobeGraphGenerator)graphGenerator).setRadius(Double.parseDouble(entry.getValue().getText()));
+						break;	
+					case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
 						((SquareLatticeGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
 						break;
 				} // switch
@@ -223,6 +226,19 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 			}
 		}
 		
+		if(retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__AREA);
+			if(text!=null) {
+				// Is it a valid value?
+				retValue = isValidDoubleValue(text.getText(), 1);
+				if (!retValue) {
+					// No
+					errorMessage = Messages
+							.getString("NGGWizErr9"); //$NON-NLS-1$
+				} // if
+			}
+			
+		}
 		
 		if(retValue) {
 			final Text text = map.get(GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP);
@@ -236,12 +252,10 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 				} // if
 			}
 		}
-		
-		
 		if(retValue) {
-			final Text text = map.get(GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__AREA);
+			final Text text = map.get(GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS);
+			// Is it a valid value?
 			if(text!=null) {
-				// Is it a valid value?
 				retValue = isValidDoubleValue(text.getText(), 1);
 				if (!retValue) {
 					// No
@@ -249,7 +263,6 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 							.getString("NGGWizErr9"); //$NON-NLS-1$
 				} // if
 			}
-			
 		}
 		
 		if(retValue) {
