@@ -64,6 +64,8 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 	// testing
 	//static double[][][] ltlg;
 	
+	public static final double DEGREES_TO_RADIANS = Math.PI/180.0;
+	
 	
 	/**
 	 * 
@@ -371,13 +373,13 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 	/**
 	 * 
 	 * @param angularStep
-	 * @param area
+	 * @param earthRadius
 	 * @param useNearestNeighbors
 	 * @param useNextNearestNeighbors
 	 * @param periodicBoundaries
 	 * @return
 	 */
-	public Graph getPlateCareeGraph(int angularStep, double area,
+	public Graph getPlateCareeGraph(int angularStep, double earthRadius,
 			boolean addNearestNeighbors, boolean addNextNearestNeighbors,
 			boolean periodicBoundaries) {
 		
@@ -403,6 +405,10 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 			int offset = angularStep/2;
 			int lat = -90;
 			int lng = -180;
+			
+			// for testing
+			double totalSphereSurfaceArea = 0.0;
+			
 			for (int x = 0; x < latSize; x++) {
 				for (int y = 0; y < lngSize; y++) {
 					
@@ -427,6 +433,8 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 					
 					
 					final AreaLabel areaLabel = LabelsFactory.eINSTANCE.createAreaLabel();
+					double area = getAreaOnSphere(lat+offset,lng+offset,angularStep,earthRadius);
+					totalSphereSurfaceArea+= area;
 					areaLabel.getCurrentAreaValue().setArea(area);
 					regionNode.getLabels().add(areaLabel);
 			
@@ -440,6 +448,9 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 				lat+= angularStep;
 				lng = -180;// reset
 			} // for each lat
+			
+			// testing
+			//Activator.logInformation("Got total AREA = "+totalSphereSurfaceArea+"  earth should be 510072000 km2");
 			
 			// Add the spatial polygons to the spatial attribute of each node's
 			// dublin core instance and for each edge. The value for the nodes will
@@ -512,6 +523,35 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 			//testCommonBorderEdges(graph, 10.0);
 			
 			return graph;
+	}
+	
+	/**
+	 * area element on sphere is
+	 * dA = (R^2) sin(theta) d(theta) d(phi)
+	 * or
+	 * dA = (R^2) sin(lng)d(lng)d(phi) all in radians
+	 * integrating this the area is
+	 * A = (R^2)[cos(maxLat)-cos(minLat)][maxLng - minLng]
+	 * R is constant as is [maxLng-minLng]
+	 * @param centerLat
+	 * @param centerLng
+	 * @param angularStep
+	 * @param earthRadius
+	 * @return
+	 */
+	public double getAreaOnSphere(double centerLat, double centerLng, double angularSize, double radius){
+		double step = angularSize/2.0;
+		double minLat = (90.0+centerLat - step)*DEGREES_TO_RADIANS; // 0 to pi
+		double maxLat = (90.0+centerLat + step)*DEGREES_TO_RADIANS; // 0 to pi
+		double minLng = (centerLng - step)*DEGREES_TO_RADIANS;
+		double maxLng = (centerLng + step)*DEGREES_TO_RADIANS;
+		
+		final double dLng = Math.abs(maxLng - minLng);
+		final double r2 =  radius*radius;
+		final double latTerm = Math.cos(maxLat)-Math.cos(minLat);
+		final double area = r2*dLng*(Math.abs(latTerm));
+		
+		return area;
 	}
 	
 	/**
