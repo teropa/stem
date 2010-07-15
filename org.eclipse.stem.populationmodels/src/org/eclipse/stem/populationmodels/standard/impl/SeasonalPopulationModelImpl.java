@@ -62,6 +62,11 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	private static final double EQUATOR_LATITUDE = 0.0;
 	
 	/**
+	 * TODO model this in EMF
+	 */
+	private static final boolean TROPICAL_ONLY = true;
+	
+	/**
 	 * Latitude of the Tropic of Cancer in Degrees (Tropic of Capricorn is -ve of this).
 	 */
 	public static final double TROPIC_OF_CANCER_LATITUDE = 23.439444;
@@ -186,7 +191,6 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			StandardPopulationModelLabelValueImpl delta = (StandardPopulationModelLabelValueImpl)slabel.getDeltaValue();
 			StandardPopulationModelLabelValue current = slabel.getProbeValue();
 			double seasonalBirthFactor  = 0.0;
-			double seasonalDeathFactor  = 0.0;
 			double currentPopulation = current.getCount();
 			// need to find the latitude of this node
 			// default
@@ -242,20 +246,17 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			seasonalBirthFactor =  (1.0+(-1.0*oscCos))/2.0;
 			// now scale it
 			seasonalBirthFactor  *= modulation ;
-			
-			// init default (phase 0) must be 1.0 in winter zero in summer
-			seasonalDeathFactor =  (1.0+oscCos)/2.0;
-			// now scale it
-			seasonalDeathFactor  *= modulation ;
-			
 			double oscBirthRate = adjustedBirthRate * Math.abs(seasonalBirthFactor);
-			double oscDeathRate = adjustedDeathRate * Math.abs(seasonalDeathFactor);
 			// add the base rates
 			oscBirthRate += (floor*adjustedBirthRate);
-			oscDeathRate += (floor*adjustedDeathRate);
 			
+			if(TROPICAL_ONLY) {
+				oscBirthRate *= getTropicalEnvelope(latitude, (2*TROPIC_OF_CANCER_LATITUDE));
+			}
+			// only modulate the birth rate.
 			double births = currentPopulation * oscBirthRate;
-			double deaths = currentPopulation * oscDeathRate;
+			// we don't modulate the death rate (insect life expectancy
+			double deaths = currentPopulation * adjustedDeathRate;
 			currentPopulation += births;
 			currentPopulation -= deaths;
 			
@@ -274,6 +275,30 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			handlePipeTransport(slabel, delta.getArrivals(),delta.getDepartures(), timeDelta, delta);
 		}
 	}// calculateDelta
+	
+	/**
+	 * Envelope function that bounds mosquito population to tropical band
+	 * Function is ==1.0 at equator (centered about equator)
+	 * @param lat
+	 * @param sgima is the width
+	 * @return
+	 */
+	private double getTropicalEnvelope(double lat, double sigma) {
+		double exp = -((lat*lat)/(2.0*sigma*sigma));
+		return Math.exp(exp);
+	}
+	
+	/**
+	 * Utility function
+	 * @param x
+	 * @param mu mean
+	 * @param sigma width
+	 * @return
+	 */
+	private double getGausianUnnormalize(double x, double mu, double sigma) {
+		double exp = -(((x-mu)*(x-mu))/(2.0*sigma*sigma));
+		return Math.exp(exp);
+	}
 
 
 	/**
