@@ -11,6 +11,7 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -158,7 +159,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 				allNodes = getAllChildren(parent);	
 				allNodes.add(parent);
 			} else {
-				allNodes = (Set<Node>) new BasicEList<Node>();
+				allNodes = new HashSet<Node>();
 				allNodes.add(parent);
 			}			
 
