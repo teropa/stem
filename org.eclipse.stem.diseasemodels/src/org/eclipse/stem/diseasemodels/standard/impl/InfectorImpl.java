@@ -20,12 +20,14 @@ import java.util.Iterator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.LabelValue;
@@ -43,6 +45,7 @@ import org.eclipse.stem.diseasemodels.standard.Infector;
 import org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Infector</b></em>'.
@@ -279,6 +282,24 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	} // decorateGraph
 
 	/**
+	 * this method confirms that specific URIs defined in an infector are actually 
+	 * valid URIs within the graph. Issue a warning on startup if they are not.
+	 */
+	protected void checkInfectorURIs() {
+		
+		URI target = getTargetURI();
+		
+		System.out.println("**** looking for target "+target.toString());
+		if(target!=null) {
+			Graph g = this.getGraph();
+			EMap<URI,Node> nodeMap = g.getNodes();
+			if(!nodeMap.keySet().contains(target)) {
+				Utility.displayScenarioCompositionWarning(Utility.URI_WARNING);
+			}
+		}
+	}// validate infectors
+	
+	/**
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#resetLabels(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override
@@ -362,7 +383,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	
 	/**
 	 * finds all the child nodes of a parent (direct children and children of children etc...)
-	 * and returns them in a set.
+	 * and returns them in a set. 
 	 * Child is defined by a containment relationship
 	 * @param parent
 	 */
