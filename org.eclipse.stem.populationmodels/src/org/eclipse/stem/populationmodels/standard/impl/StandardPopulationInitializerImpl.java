@@ -318,7 +318,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 		for(Decorator d:this.getGraph().getDecorators()) {
 			if (d instanceof PopulationModel && ((PopulationModel)d).getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
 				if(((PopulationModel)d).isGraphDecorated())
-					Utility.displayNestingWarning(Utility.NESTING_WARNING);
+					Utility.displayScenarioCompositionWarning(Utility.NESTING_WARNING);
 			}
 		}	
 	}
