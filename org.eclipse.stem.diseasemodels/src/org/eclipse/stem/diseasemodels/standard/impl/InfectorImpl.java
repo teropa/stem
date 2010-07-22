@@ -289,7 +289,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		
 		URI target = getTargetURI();
 		
-		System.out.println("**** looking for target "+target.toString());
 		if(target!=null) {
 			Graph g = this.getGraph();
 			EMap<URI,Node> nodeMap = g.getNodes();
@@ -736,7 +735,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	@Override
 	public boolean sane() {
 		boolean retValue = super.sane();
-		
+		checkInfectorURIs();// issues warning if infector uri is not in the graph
 		retValue = retValue && !(targetISOKey == null && targetURI == null);
 		assert retValue;
 		
