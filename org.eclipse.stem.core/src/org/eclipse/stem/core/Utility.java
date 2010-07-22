@@ -45,6 +45,8 @@ public class Utility {
 	}
 	
 	public final static String NESTING_WARNING = "Warning, possible scenario initialization problem detected. Check the nesting of your models";
+	public final static String URI_WARNING = "Warning, URI does not exist in Graph. Check the infector/innoculator URIs your models. ";
+	
 	
 	/**
 	 * @param identifableURI
@@ -161,7 +163,13 @@ public class Utility {
 		return level;
 	} // keyLevel
 	
-	public static void displayNestingWarning(final String message) {
+	/**
+	 * Displays a warning that the scenario composition may be invalid.
+	 * For example the graph nesting within a simulation may be invalid
+	 * An infector or inoculator may point to a node that does not exist.
+	 * @param message
+	 */
+	public static void displayScenarioCompositionWarning(final String message) {
 		try {
 			if(Display.getDefault() != null)
 				Display.getDefault().syncExec(new Runnable() {
