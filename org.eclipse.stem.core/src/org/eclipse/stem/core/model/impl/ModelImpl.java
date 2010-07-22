@@ -419,7 +419,7 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 		
 		if(failed!=null) {
 			// We should log a warning here that we were forced to reinit. The user should check the model nesting
-			Utility.displayNestingWarning(Utility.NESTING_WARNING);
+			Utility.displayScenarioCompositionWarning(Utility.NESTING_WARNING);
 			for(Decorator d:failed) {
 				d.decorateGraph(time);
 				d.setGraphDecorated(true);
