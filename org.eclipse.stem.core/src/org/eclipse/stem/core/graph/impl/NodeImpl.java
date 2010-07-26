@@ -68,8 +68,8 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	 */
 	protected NodeImpl() {
 		super();
-		setURI(STEMURI.createURI(URI_TYPE_NODE_SEGMENT + "/"
-				+ STEMURI.generateUniquePart()));
+//		setURI(STEMURI.createURI(URI_TYPE_NODE_SEGMENT + "/"
+//				+ STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.NODE_TYPE_URI);
 	} // NodeImpl
 

@@ -18,12 +18,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.swt.widgets.Display;
@@ -49,6 +50,18 @@ public class Utility {
 	
 	
 	/**
+	 * Cached resource set
+	 */
+
+	public static ResourceSet resourceSet;
+	
+	static {
+		resourceSet = new ResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", STEMXMIResourceFactoryImpl.INSTANCE);
+		resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap().put("platform", STEMXMIResourceFactoryImpl.INSTANCE);
+	}
+	
+	/**
 	 * @param identifableURI
 	 *            the {@link URI} of file with a serialized {@link Identifiable}
 	 * @return the {@link Identifiable} de-serialized from the file, or
@@ -58,16 +71,26 @@ public class Utility {
 		Identifiable retValue = null;
 
 		try {
-			final ResourceSet resourceSet = new ResourceSetImpl();
-
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-					.put("*", new XMIResourceFactoryImpl());
-			resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
-					.put("platform", new XMIResourceFactoryImpl());
-
-			final Resource resource = resourceSet.getResource(identifableURI,
+			URI normalized = STEMURI.normalize(identifableURI);
+			Resource resource = resourceSet.getResource(normalized,
 					true);
-			retValue = (Identifiable) resource.getContents().get(0);
+			if(resource.isModified()) {				
+				resource.unload();
+				resource.load(null);
+				if(resource.getErrors().size() > 0) {
+					for(Resource.Diagnostic d: resource.getErrors()) 
+						CorePlugin.logError(d.getMessage(), new Exception());
+				}
+			}
+			EList<EObject>cont = resource.getContents();
+			if(cont.size() == 0) {
+				int maxretry = 10;
+				while(cont.size() == 0)
+					Thread.yield(); // allow other thread to load resource
+				if(cont.size() == 0)
+					CorePlugin.logError("Unable to load content for resource "+normalized, new Exception());
+			}
+			retValue = (Identifiable) cont.get(0);
 		} catch (final Exception e) {
 			CorePlugin.logError(
 					"The serialized instance of an Identifiable at \""

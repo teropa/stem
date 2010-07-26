@@ -35,6 +35,9 @@ import org.eclipse.stem.core.model.STEMTime;
  * @generated
  */
 public interface Solver extends Identifiable {
+	
+	public final static String URI_TYPE = "Solver";
+
 	/**
 	 * Returns the value of the '<em><b>Decorators</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -11,6 +11,11 @@ package org.eclipse.stem.core;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.BasicEObjectImpl;
@@ -42,6 +47,9 @@ public class STEMXMIResourceFactoryImpl extends XMIResourceFactoryImpl {
 
 	public static STEMXMIResourceFactoryImpl INSTANCE = new STEMXMIResourceFactoryImpl();
 
+
+	private ArrayList<Adapter> modificationAdapters = new ArrayList<Adapter>();
+	
 	/**
 	 * private so only a singleton instance is created
 	 * 
@@ -53,7 +61,10 @@ public class STEMXMIResourceFactoryImpl extends XMIResourceFactoryImpl {
 
 	@Override
 	public Resource createResource(URI uri) {
-		return new XMIResourceImpl(uri) {
+		URI normalized = STEMURI.normalize(uri);
+//		if(resourceCache.containsKey(normalized)) return resourceCache.get(normalized);
+		
+		Resource newRes = new XMIResourceImpl(uri) {
 			@Override
 			protected XMLHelper createXMLHelper() {
 				return new XMIHelperImpl() {
@@ -63,6 +74,8 @@ public class STEMXMIResourceFactoryImpl extends XMIResourceFactoryImpl {
 							// Yes
 							final Identifiable identifiable = (Identifiable) obj;
 							final URI uri = identifiable.getURI();
+							if(uri == null) return null;
+								
 							// Is it a platform URI?
 							if (uri.isPlatform()) {
 								// Yes
@@ -89,8 +102,28 @@ public class STEMXMIResourceFactoryImpl extends XMIResourceFactoryImpl {
 						else
 							return super.getHREF(obj);
 					} // getHREF
+					
 				};
 			} // createXMLHelper
+			
+			@Override
+			public void load(Map<?, ?> options) throws IOException {
+				super.load(options);
+				// Set up the listeners for resource changes
+//				 for (TreeIterator<EObject> i = getAllProperContents(getContents()); i.hasNext(); )
+//			        {
+//			          EObject eObject = i.next();
+			          
+//			          for(Adapter a:modificationAdapters)
+//			        	  if(eObject.eAdapters().contains(a)) eObject.eAdapters().add(a);
+//			        }
+			}
 		};
+		return newRes;
 	} // createResource
+	
+	
+	public void addModificationChangeAdapter(Adapter modificationAdapter) {
+		modificationAdapters.add(modificationAdapter);
+	}
 } // STEMXMIResourceFactoryImpl

@@ -410,7 +410,8 @@ public class GraphItemProvider extends IdentifiableItemProvider implements
 			final Graph graph = (Graph) target;
 			final List<Identifiable> children = new ArrayList<Identifiable>();
 			children.addAll(  (getIdentifiableMap(graph).values()));
-			Collections.sort(children);
+// SED commented out 7/23/2010. It takes a long time to sort when there's lots of labels
+//			Collections.sort(children);
 			return children;
 		} // getChildren
 

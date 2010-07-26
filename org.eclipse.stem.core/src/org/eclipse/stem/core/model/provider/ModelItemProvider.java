@@ -311,14 +311,14 @@ public class ModelItemProvider
 
 				final Command createChildCommand = super.createCommand();
 
+				final Resource parentResource = owner.eResource();
 				// Are we creating a Model or a Graph?
-				if (child instanceof Model || child instanceof Graph) {
+				if (parentResource != null && (child instanceof Model || child instanceof Graph)) {
 					// Yes
 					final EObject temp = (EObject) child;
 					// Does the child have a resource already?
 					if (temp.eResource() == null) {
 						// No
-						final Resource parentResource = owner.eResource();
 						final Command addCommand = new AddCommand(domain,
 								parentResource.getContents(), temp);
 

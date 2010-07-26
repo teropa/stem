@@ -14,6 +14,10 @@ package org.eclipse.stem.core;
 
 import java.util.Random;
 
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.core.graph.Edge;
@@ -82,6 +86,18 @@ public class STEMURI {
 	 * {@link org.eclipse.stem.core.trigger.Predicate}. {@value}
 	 */
 	public static final URI PREDICATE_TYPE_URI = createTypeURI("Predicate");
+
+	/**
+	 * The type {@link URI} of a STEM
+	 * {@link org.eclipse.stem.core.solver.Solver}. {@value}
+	 */
+	public static final URI SOLVER_TYPE_URI = createTypeURI("Solver");
+
+	/**
+	 * The type {@link URI} of a STEM
+	 * {@link org.eclipse.stem.core.common.Identifiable}. {@value}
+	 */
+	public static final URI IDENTIFIABLE_TYPE_URI = createTypeURI("Identifiable");
 	
 	/**
 	 * Create a "Stem type" {@link URI}
@@ -137,10 +153,39 @@ public class STEMURI {
 		return URI.createURI(sb.toString());
 	} // create
 	
+	/**
+	 * generateUniquePart. Used to add a unique segment to any URI
+	 * @return String Random 64 bit upper case HEX
+	 */
 	public static String generateUniquePart() {
 		long l = rand.nextLong();
 		long now = System.currentTimeMillis();
 		long r= l+now;
 		return Long.toHexString(r).toUpperCase();
+	}
+	
+	/**
+	 * Converts URI's of the form "file://..." to "platform://..."
+	 * @param in URI to convert
+	 * @return Converted URI, or the same as input if the URI is already normalized
+	 */
+	
+	public static URI normalize(URI in) {
+		if(in.scheme().equals("platform")) return in;
+		if(in.scheme().equals("file")) {
+			// Check if we can find the workspace path in the file URI.
+			IWorkspace workspace = ResourcesPlugin.getWorkspace();
+			IWorkspaceRoot root = workspace.getRoot();
+			IPath location = root.getLocation();
+			
+			int ind = in.toString().indexOf(location.toString());
+			if(ind >-1) {
+				String rest = in.toString().substring(ind+location.toOSString().length());
+				URI result = URI.createPlatformResourceURI(rest, false);
+				return result;
+			}
+		}
+		// Unable to convert file URI, this could be a URI to a STEM library object. We don't convert those
+		return in;
 	}
 } // STEMURI

@@ -136,8 +136,8 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 */
 	protected EdgeImpl() {
 		super();
-		setURI(STEMURI.createURI(URI_TYPE_EDGE_SEGMENT + "/"
-				+ STEMURI.generateUniquePart()));
+//		setURI(STEMURI.createURI(URI_TYPE_EDGE_SEGMENT + "/"
+//				+ STEMURI.generateUniquePart()));
 		setTypeURI(STEMURI.EDGE_TYPE_URI);
 	} // EdgeImpl
 
@@ -292,10 +292,12 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 		retValue.setNodeBURI(nodeBURI);
 		retValue.setDirected(directed);
 		// Edge URI specified?
-		if (edgeURI != null) {
+		if (edgeURI != null) 
 			// Yes
 			retValue.setURI(edgeURI);
-		}
+		else 
+			retValue.setURI(STEMURI.createURI(URI_TYPE_EDGE_SEGMENT + "/"
+					+ STEMURI.generateUniquePart()));
 		return retValue;
 	} // createEdge
 

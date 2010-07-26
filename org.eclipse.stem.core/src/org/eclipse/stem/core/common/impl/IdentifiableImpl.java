@@ -99,8 +99,8 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	protected IdentifiableImpl() {
 		super();
 		setDublinCore(CommonFactory.eINSTANCE.createDublinCore());
-		setURI(STEMURI.createURI("identifiable" + STEMURI.generateUniquePart()));
-		setTypeURI(STEMURI.createTypeURI("identifiable" + STEMURI.generateUniquePart()));
+//		setURI(STEMURI.createURI("identifiable" + STEMURI.generateUniquePart()));
+		setTypeURI(STEMURI.IDENTIFIABLE_TYPE_URI);
 	} // IdentifiableImpl
 
 	/**
