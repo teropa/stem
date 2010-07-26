@@ -26,5 +26,6 @@ import org.eclipse.stem.core.solver.Solver;
 @SuppressWarnings("all")
 public interface FiniteDifference extends Solver {
 	
+	public final static String URI_TYPE_SOLVER_SEGMENT = "FiniteDifferenceSolver";
 	
 } // FiniteDifference
