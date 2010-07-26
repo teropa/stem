@@ -30,6 +30,9 @@ import org.eclipse.stem.core.solver.Solver;
  * @generated
  */
 public interface RungeKutta extends Solver {
+	
+	public final static String URI_TYPE_SOLVER_SEGMENT = "RungeKuttaSolver";
+	
 	/**
 	 * Returns the value of the '<em><b>Relative Tolerance</b></em>' attribute.
 	 * The default value is <code>"1E-9"</code>.
