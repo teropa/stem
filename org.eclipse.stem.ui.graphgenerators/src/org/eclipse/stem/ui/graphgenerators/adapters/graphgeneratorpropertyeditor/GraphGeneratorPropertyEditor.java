@@ -17,49 +17,21 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.definitions.lattice.impl.SqrLatticeGeneratorImpl;
+import org.eclipse.stem.definitions.lattice.impl.LatticeGeneratorUtilityImpl;
 import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
 import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
 import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
-import org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl;
-import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
-import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
-import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
 import org.eclipse.stem.ui.graphgenerators.wizards.Messages;
-import org.eclipse.stem.ui.widgets.MatrixEditorDialog;
-import org.eclipse.stem.ui.widgets.MatrixEditorWidget.MatrixEditorValidator;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.DirectoryDialog;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.GenericPropertyEditor {
 
@@ -252,8 +224,8 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 				double area = Double.parseDouble(text.getText());
 				
 				double scale = Math.sqrt(area);
-				if(xsize * scale / SqrLatticeGeneratorImpl.KM_PER_DEG_LON > 360.0 ||
-					ysize * scale / SqrLatticeGeneratorImpl.KM_PER_DEG_LAT > 180.0) {
+				if(xsize * scale / LatticeGeneratorUtilityImpl.KM_PER_DEG_LON > 360.0 ||
+					ysize * scale / LatticeGeneratorUtilityImpl.KM_PER_DEG_LAT > 180.0) {
 					retValue = false;
 					// Yes
 					errorMessage = Messages
