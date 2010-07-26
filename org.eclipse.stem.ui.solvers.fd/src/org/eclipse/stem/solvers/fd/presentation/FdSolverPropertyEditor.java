@@ -20,9 +20,11 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.solvers.fd.FdFactory;
 import org.eclipse.stem.solvers.fd.FdPackage;
+import org.eclipse.stem.solvers.fd.FiniteDifference;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
@@ -162,6 +164,7 @@ public class FdSolverPropertyEditor extends org.eclipse.stem.core.solver.SolverP
 	@Override
 	public Solver createAndPopulateSolver() {
 		Solver retValue = FdFactory.eINSTANCE.createFiniteDifference();
+		retValue.setURI(STEMURI.createURI(FiniteDifference.URI_TYPE_SOLVER_SEGMENT+"/"+STEMURI.generateUniquePart()));
 		this.populate(retValue);
 		return retValue;
 	}
