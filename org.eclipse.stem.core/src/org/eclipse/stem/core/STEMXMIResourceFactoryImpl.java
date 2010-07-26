@@ -61,9 +61,7 @@ public class STEMXMIResourceFactoryImpl extends XMIResourceFactoryImpl {
 
 	@Override
 	public Resource createResource(URI uri) {
-		URI normalized = STEMURI.normalize(uri);
-//		if(resourceCache.containsKey(normalized)) return resourceCache.get(normalized);
-		
+			
 		Resource newRes = new XMIResourceImpl(uri) {
 			@Override
 			protected XMLHelper createXMLHelper() {
@@ -109,14 +107,6 @@ public class STEMXMIResourceFactoryImpl extends XMIResourceFactoryImpl {
 			@Override
 			public void load(Map<?, ?> options) throws IOException {
 				super.load(options);
-				// Set up the listeners for resource changes
-//				 for (TreeIterator<EObject> i = getAllProperContents(getContents()); i.hasNext(); )
-//			        {
-//			          EObject eObject = i.next();
-			          
-//			          for(Adapter a:modificationAdapters)
-//			        	  if(eObject.eAdapters().contains(a)) eObject.eAdapters().add(a);
-//			        }
 			}
 		};
 		return newRes;
