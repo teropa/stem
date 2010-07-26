@@ -18,5 +18,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.stem.core;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
- org.eclipse.stem.ui;bundle-version="1.0.1"
+ org.eclipse.stem.ui;visibility:=reexport,
+ org.eclipse.stem.definitions;visibility:=reexport
 Bundle-ActivationPolicy: lazy

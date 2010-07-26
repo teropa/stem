@@ -26,12 +26,14 @@ import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.definitions.lattice.impl.SqrLatticeGeneratorImpl;
 import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
 import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
 import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
+import org.eclipse.stem.graphgenerators.impl.SquareLatticeGraphGeneratorImpl;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProvider;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapter;
 import org.eclipse.stem.ui.adapters.propertystrings.PropertyStringProviderAdapterFactory;
@@ -185,7 +187,6 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 			} // if text != null
 		} // if Transmission Rate
 
-		// size
 		if (retValue) {
 			// Yes
 			final Text text = map
@@ -210,8 +211,56 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 					} // if
 				}
 			} // if text != null
+		} // 
+		
+		if (retValue) {
+			// Yes
+			final Text text = map
+					.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__AREA);
+			if (text != null) {
+				// Yes
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = Messages
+							.getString("NGGWizErr8"); //$NON-NLS-1$
+				} // if
+				else {
+					// No
+					// Is it a valid value?
+					retValue = isValidValue(text.getText(), 0);
+					if (!retValue) {
+						// No
+						errorMessage = Messages
+								.getString("NGGWizErr9"); //$NON-NLS-1$
+					} // if
+				}
+			} // if text != null
 		} // if Non-Linearity Coefficient
 
+
+		if (retValue) {
+			// Yes
+			Text text = map
+					.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE);
+			if(text != null) {
+				int xsize = Integer.parseInt(text.getText());
+				text = map.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE);
+				int ysize = Integer.parseInt(text.getText());
+				text = map.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__AREA);
+				double area = Double.parseDouble(text.getText());
+				
+				double scale = Math.sqrt(area);
+				if(xsize * scale / SqrLatticeGeneratorImpl.KM_PER_DEG_LON > 360.0 ||
+					ysize * scale / SqrLatticeGeneratorImpl.KM_PER_DEG_LAT > 180.0) {
+					retValue = false;
+					// Yes
+					errorMessage = Messages
+						.getString("NGGWizErr10"); //$NON-NLS-1$
+				}
+			}
+		}
 		if(retValue) {
 			final Text text = map.get(GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION);
 			if (text != null) {
@@ -226,19 +275,6 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 			}
 		}
 		
-		if(retValue) {
-			final Text text = map.get(GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__AREA);
-			if(text!=null) {
-				// Is it a valid value?
-				retValue = isValidDoubleValue(text.getText(), 1);
-				if (!retValue) {
-					// No
-					errorMessage = Messages
-							.getString("NGGWizErr9"); //$NON-NLS-1$
-				} // if
-			}
-			
-		}
 		
 		if(retValue) {
 			final Text text = map.get(GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP);
@@ -248,7 +284,7 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 				if (!retValue) {
 					// No
 					errorMessage = Messages
-							.getString("NGGWizErr8"); //$NON-NLS-1$
+							.getString("NGGWizErr11"); //$NON-NLS-1$
 				} // if
 			}
 		}
@@ -260,7 +296,7 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 				if (!retValue) {
 					// No
 					errorMessage = Messages
-							.getString("NGGWizErr9"); //$NON-NLS-1$
+							.getString("NGGWizErr12"); //$NON-NLS-1$
 				} // if
 			}
 		}
