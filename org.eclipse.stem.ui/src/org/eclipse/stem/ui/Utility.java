@@ -101,38 +101,13 @@ public class Utility {
 	 *         <code>null</code> if an error occurred.
 	 */
 	public static Identifiable getIdentifiable(final IFile file) {
-		final URI fileURI = URI.createFileURI(file.getLocation().toString());
-		return getIdentifiable(fileURI);
+		final URI fileURI = URI.createFileURI(file.getLocation().toString());;
+		return org.eclipse.stem.core.Utility.getIdentifiable(fileURI);
 	} // getIdentifiable
 
-	/**
-	 * @param identifableURI
-	 *            the {@link URI} of file with a serialized
-	 *            <code>Identifiable</code>.
-	 * @return the {@link Identifiable} de-serialized from the file, or
-	 *         <code>null</code> if an error occurred.
-	 */
-	public static Identifiable getIdentifiable(final URI identifableURI) {
-		Identifiable retValue = null;
-
-		try {
-			final ResourceSet resourceSet = new ResourceSetImpl();
-
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-					.put("*", new XMIResourceFactoryImpl());
-			resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
-					.put("platform", new XMIResourceFactoryImpl());
-
-			final Resource resource = resourceSet.getResource(identifableURI,
-					true);
-			retValue = (Identifiable) resource.getContents().get(0);
-		} catch (final Exception e) {
-			Activator.logError("The file \"" + identifableURI.toString()
-					+ "\" was not found or was of the wrong format", e);
-			retValue = null;
-		}
-		return retValue;
-	} // getIdentifiable
+	
+	
+	
 
 	/**
 	 * @param labelURI
@@ -150,13 +125,13 @@ public class Utility {
 		if (isAreaLabel(labelURI)) {
 			// Yes
 			final URI areaGraphURI = createAreaGraphURI(labelURI);
-			final Graph areaGraph = (Graph) getIdentifiable(areaGraphURI);
+			final Graph areaGraph = (Graph) org.eclipse.stem.core.Utility.getIdentifiable(areaGraphURI);
 			retValue = areaGraph.getNodeLabel(labelURI);
 		} // if area
 		// Is it a population label?
 		else if (isPopulationLabel(labelURI)) {
 			final URI populationGraphURI = createPopulationGraphURI(labelURI);
-			final Graph populationGraph = (Graph) getIdentifiable(populationGraphURI);
+			final Graph populationGraph = (Graph) org.eclipse.stem.core.Utility.getIdentifiable(populationGraphURI);
 			retValue = populationGraph.getNodeLabel(labelURI);
 		} // if population
 

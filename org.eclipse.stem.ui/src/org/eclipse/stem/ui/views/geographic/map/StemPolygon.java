@@ -104,7 +104,7 @@ public class StemPolygon {
 	 * @param pointsIndex 
 	 */
 	private void addPoint(final double longitude, final double latitude, final int pointsIndex) {
-		int x = (int)(longitude * scalingFactorForData);
+		int x = (int)(longitude * scalingFactorForData); 
 		int y = (int)(latitude * scalingFactorForData * LATITUDE_DIRECTION);
 		points[pointsIndex] = x;
 		points[pointsIndex+1] = y;
