@@ -14,6 +14,7 @@ import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.GraphFactory;
+import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.impl.EdgeImpl;
 import org.eclipse.stem.core.graph.impl.NodeImpl;
@@ -87,6 +88,19 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 	}
 	
 	/**
+	 * Kilometers per degree latitude.
+	 */
+	
+	public static final double KM_PER_DEG_LAT = 40008.629 / 360.0;
+	
+	/**
+	 * Kilometers per degree latitude.
+	 */
+	
+	public static final double KM_PER_DEG_LON = 40008.629 / 360.0;
+
+	
+	/**
 	 *
 	 * returns a square lattice of specified size as a graph
 	 *
@@ -119,7 +133,9 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 					// on a square lattice all nodes have area=1.0
 					final AreaLabel areaLabel = LabelsFactory.eINSTANCE.createAreaLabel();
 					areaLabel.getCurrentAreaValue().setArea(area);
+					areaLabel.setURI(STEMURI.createURI(Label.URI_TYPE_LABEL_SEGMENT + "/"+ STEMURI.generateUniquePart()));
 					regionNode.getLabels().add(areaLabel);
+										
 					
 					nodeHolder[x][y] = regionNode;
 					graph.putNode(regionNode);
@@ -201,13 +217,20 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 			// layout a polygon. The position of the polygon will at position that
 			// matches the position (x, y) of the node in the lattice.
 			addSpatialSpecifications(nodeHolder, xSize, ySize, area);
+
 			assert graph.sane();
+
 			return graph;
 		}
 		
 	
 	
 	
+	
+	
+	
+		
+
 	/**
 	 * Add the spatial specification to the spatial attribute of each node's
 	 * dublin core instance. The value will be a retangular area expressed as a
@@ -295,15 +318,16 @@ public class LatticeGeneratorUtilityImpl extends GraphLatticeGenerator {
 		final LatLong retValue = new LatLong();
 		
 		final SegmentBuilder sb = new SegmentBuilder();
-		double x = xi*scale;
-		double y = yi*scale;
-		double step = scale/2.0;
+		double x = xi*scale/KM_PER_DEG_LON; // convert to lon
+		double y = yi*scale/KM_PER_DEG_LAT; // convert to lat
+		double xstep = scale/(2.0*KM_PER_DEG_LON);
+		double ystep = scale/(2.0*KM_PER_DEG_LAT);
 		
 		// We just make a square...
-		sb.add(x-step, y+step);
-		sb.add(x+step, y+step);
-		sb.add(x+step, y-step);
-		sb.add(x-step, y-step);
+		sb.add(x-xstep, y+ystep);
+		sb.add(x+xstep, y+ystep);
+		sb.add(x+xstep, y-ystep);
+		sb.add(x-xstep, y-ystep);
 		retValue.add(sb.toSegment());
 
 		return retValue;
