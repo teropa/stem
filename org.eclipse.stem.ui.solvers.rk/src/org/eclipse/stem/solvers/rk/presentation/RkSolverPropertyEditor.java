@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.solvers.rk.RkFactory;
 import org.eclipse.stem.solvers.rk.RkPackage;
@@ -168,6 +169,7 @@ public class RkSolverPropertyEditor extends org.eclipse.stem.core.solver.SolverP
 	@Override
 	public Solver createAndPopulateSolver() {
 		Solver retValue = RkFactory.eINSTANCE.createRungeKutta();
+		retValue.setURI(STEMURI.createURI(RungeKutta.URI_TYPE_SOLVER_SEGMENT+"/"+STEMURI.generateUniquePart()));
 		populate(retValue);
 		return retValue;
 	}
