@@ -252,7 +252,8 @@ public class SimulationManager extends ExecutableManager implements
 
 			Scenario simulationScenario = null;
 			
-			if (useCache) {
+/*	SED Commented out 7/8/10, caching doesn't work		
+     if (useCache) {
 				if (SimulationCaching.INSTANCE.isScenarioInCache(scenario.getURI())) {
 					simulationScenario = SimulationCaching.INSTANCE.getCachedScenario(scenario.getURI());
 					boolean running = false;
@@ -276,6 +277,7 @@ public class SimulationManager extends ExecutableManager implements
 				}
 				
 			}
+*/
 			
 			final Simulation simulation = new Simulation(scenario,
 					getAndIncrementSimulationSequenceNumber());
