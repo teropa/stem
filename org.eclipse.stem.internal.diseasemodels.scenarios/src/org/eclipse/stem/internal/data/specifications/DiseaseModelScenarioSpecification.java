@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Graph;
@@ -175,6 +176,7 @@ public class DiseaseModelScenarioSpecification extends
 	private DiseaseModel extractDiseaseModel(Model diseaseModelModel) {
 		DiseaseModel retValue = null;
 
+		int pos = -1;
 		for (NodeDecorator nodeDecorator : diseaseModelModel
 				.getNodeDecorators()) {
 			if (nodeDecorator.eIsProxy()) {
@@ -183,9 +185,13 @@ public class DiseaseModelScenarioSpecification extends
 								.createURI(IdentifiableSpecification
 										.convertToProjectURI(((InternalEObject) nodeDecorator)
 												.eProxyURI().toString())));
+				++pos;
 				break;
 			}
 		} // for each nodeDecorator
+		// Replace with the actual disease model
+		if(pos >=0) diseaseModelModel.getNodeDecorators().set(pos, retValue);
+
 		return retValue;
 	} // extractDiseaseModel
 
@@ -241,6 +247,7 @@ public class DiseaseModelScenarioSpecification extends
 		retValue.setStartTime(startTime);
 
 		retValue.setCycle((int) STEMTime.Units.DAY.getMilliseconds());
+		retValue.setURI(STEMURI.createURI("sequencer/"+STEMURI.generateUniquePart()));
 		return retValue;
 	} // createSequencer
 
@@ -282,6 +289,7 @@ public class DiseaseModelScenarioSpecification extends
 					infectedRegionName = targetISOKeyString;
 
 					retValue = StandardFactory.eINSTANCE.createSIInfector();
+					retValue.setURI(STEMURI.createURI("Infector/"+STEMURI.generateUniquePart()));
 					retValue.setTargetURI(targetURI);
 					retValue.setDiseaseName(diseaseModel.getDiseaseName());
 					retValue.setPopulationIdentifier(diseaseModel
