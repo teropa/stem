@@ -265,8 +265,13 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated NOT
 	 */
 	public boolean adjustDelta(IntegrationLabelValue value) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		StandardPopulationModelLabelValue sval = (StandardPopulationModelLabelValue)value;
+		if(sval.getCount() + this.getCount() < 0.0) {
+			double newCount = -sval.getCount();
+			setCount(newCount);
+			// ToDo: We need to adjust birth/deaths/arrivals/departures to match the new delta
+			return true;
+		}
 		return false;
 	}
 
