@@ -722,6 +722,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 			spm.setPopulationIdentifier(this.getPopulationIdentifier());
 			String title = "Auto Generated "+this.getPopulationIdentifier()+" population model";
 			String name = "auto_gen_"+this.getPopulationIdentifier()+"_population_model";
+			spm.setURI(STEMURI.createURI(name+"/"+STEMURI.generateUniquePart()));
 			spm.setName(name);
 			spm.getDublinCore().setTitle(title);
 			model.getNodeDecorators().add(0, spm);

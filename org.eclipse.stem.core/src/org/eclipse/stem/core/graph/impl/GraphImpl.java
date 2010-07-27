@@ -390,7 +390,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		ECollections.sort(retValue, new Comparator<NodeLabel>() {
 
 			public int compare(NodeLabel arg0, NodeLabel arg1) {
-				return arg0.getURI().toString().compareTo(arg1.getURI().toString());
+				return arg0.getNode().getURI().toString().compareTo(arg1.getNode().getURI().toString());
 			}
 			
 		});

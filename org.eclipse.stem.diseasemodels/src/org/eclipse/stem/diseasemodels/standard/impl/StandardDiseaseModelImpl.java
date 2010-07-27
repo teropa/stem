@@ -414,7 +414,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	}
 
 	public void applyExternalDeltas(STEMTime time, long timeDelta, EList<DynamicLabel> labels) {
-		for (final Iterator<DynamicLabel> currentStateLabelIter = labels
+ 		for (final Iterator<DynamicLabel> currentStateLabelIter = labels
 				.iterator(); currentStateLabelIter.hasNext();) {
 			final StandardDiseaseModelLabel diseaseLabel = (StandardDiseaseModelLabel) currentStateLabelIter
 					.next();
@@ -431,7 +431,10 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 					SimpleDataExchangeLabelValue sdeLabelValue = (SimpleDataExchangeLabelValue)((IntegrationLabel)l).getDeltaValue();
 					Map<Node, Double>arrivals = sdeLabelValue.getArrivals();
 					Map<Node, Double>departures = sdeLabelValue.getDepartures();
-					
+					if(arrivals == null || departures == null) {
+						Activator.logError("Error, null arrivals or departures for label "+l, new Exception());
+						continue;
+					}
 					// Arrivals
 					for(Node n2:arrivals.keySet()) {
 						// Arrivals are births and goes into the S state if the node is the local node.
