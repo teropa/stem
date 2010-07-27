@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
@@ -1097,6 +1098,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 				spm.setPopulationIdentifier(sv.getValue());
 				String title = "Auto Generated "+sv.getValue()+" population model";
 				String name = "auto_gen_"+sv.getValue()+"_population_model";
+				spm.setURI(STEMURI.createURI(name+"/"+STEMURI.generateUniquePart()));
 				spm.setName(name);
 				spm.getDublinCore().setTitle(title);
 				model.getNodeDecorators().add(0, spm);
