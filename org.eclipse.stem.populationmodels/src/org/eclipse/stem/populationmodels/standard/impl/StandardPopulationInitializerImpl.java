@@ -238,6 +238,9 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 		
 		this.getNodes(this.getGraph(), this.getTargetISOKey(), nodes, negativeNodes);
 		
+		if(nodes.size() == 0)
+			Activator.logError("Error in population initializer "+this.getURI()+", unable to find node "+this.getTargetISOKey(), new Exception());
+	
 		for(Node n:nodes) {
 			// Check for existing label
 			PopulationLabel existingLabel = null;
