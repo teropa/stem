@@ -40,6 +40,7 @@ import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
@@ -302,12 +303,15 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 			if(!proj.equals(project)) continue; // wrong project
 
 			if(type.equals("models")) {
-				if(!(first instanceof Model) && !(first instanceof Scenario)) continue; // only models and scenarios contain other models				
+				if(!(first instanceof Model) && !(first instanceof Scenario)
+						&& !(first instanceof Experiment)) continue; // only models,scenarios and experiments contain other models				
 				boolean modified = false;
 				if(first instanceof Model)
 					modified = checkModel((Model)first, uri);
 				else if(first instanceof Scenario)
 					modified = checkScenario((Scenario)first, uri);			
+				else if(first instanceof Experiment)
+					modified = checkExperiment((Experiment)first, uri);	
 				if(modified) r.setModified(true);						
 			} else if(type.equals("decorators")) {
 				if(!(first instanceof Model) && !(first instanceof Scenario)) continue; // only models and scenarios contain decorators				
@@ -322,7 +326,8 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 				boolean modified = false;
 				modified = checkModelGraphs((Model)first, uri);
 				if(modified) r.setModified(true);	
-			}
+			}  
+			
 		}
 	}
 	
@@ -341,6 +346,12 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 		Model m = scenario.getModel();
 		if(m == null) return false; // no model in scenario
 		return checkModel(m, modifiedURI);
+	}
+	
+	private boolean checkExperiment(Experiment experiment, URI modifiedURI) {
+		Scenario scenario = experiment.getScenario();
+		if(scenario == null) return false;
+		return checkScenario(scenario, modifiedURI);
 	}
 	
 	private boolean checkModelDecorators(Model model, URI modifiedURI) {
