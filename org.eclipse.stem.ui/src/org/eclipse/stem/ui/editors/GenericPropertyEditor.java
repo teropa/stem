@@ -295,6 +295,36 @@ public abstract class GenericPropertyEditor extends Composite {
 						// fileChooserButton.setLayoutData(fileBtnGD);
 						buttons.setLayoutData(fileBtnGD);
 					}
+					else if (feature.getName().equals("dataFile")) { //$NON-NLS-1$
+						isDataPath = true;
+						final Composite buttons = new Composite(this, SWT.NONE);
+						final RowLayout buttonsLayout = new RowLayout();
+						buttonsLayout.marginTop = 0;
+						buttonsLayout.marginBottom = 0;
+						buttons.setLayout(buttonsLayout);
+						final Shell shell = this.getShell();
+	
+						final Button fileChooserButton = new Button(buttons, SWT.NONE);
+						fileChooserButton.setText(Messages.getString("fileChooserButtonText")); //$NON-NLS-1$
+						fileChooserButton.setToolTipText(Messages.getString("fileChooserButtonTooltipText")); //$NON-NLS-1$
+						final Text _text=text;
+						fileChooserButton.addSelectionListener(new SelectionAdapter() {
+									@Override
+									public void widgetSelected(final SelectionEvent e) {
+										final FileDialog fd = new FileDialog(shell, SWT.OPEN | SWT.SINGLE);
+										fd.setText(Messages.getString("fileChooserDialogTitle")); //$NON-NLS-1$
+										final String[] extensionsFilter = {"*" };
+										fd.setFilterExtensions(extensionsFilter);
+	
+										_text.setText(fd.open());
+									} // widgetSelected
+								} // SelectionAdapter
+								);
+	
+						final GridData fileBtnGD = new GridData(GridData.END);
+						// fileChooserButton.setLayoutData(fileBtnGD);
+						buttons.setLayoutData(fileBtnGD);
+					}
 				} // is not boolean
 				if (!isDataPath && !isURI) {
 					final Label unitLabel = new Label(this, SWT.NONE);
