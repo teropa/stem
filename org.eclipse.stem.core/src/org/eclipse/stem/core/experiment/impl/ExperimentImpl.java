@@ -214,6 +214,8 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 			
 		}
 		Scenario s =  getScenario();
+		// We need to re-initialize since decorators might have been updated
+		s.initialize();
 		s.setProgress(0.0);
 		return s;
 	} // updateScenario

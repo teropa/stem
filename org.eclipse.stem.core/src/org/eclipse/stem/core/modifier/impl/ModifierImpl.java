@@ -31,6 +31,7 @@ import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.StaticLabel;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.impl.DecoratorImpl;
 import org.eclipse.stem.core.modifier.FeatureModifier;
@@ -203,6 +204,8 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	/**
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#updateLabels(org.eclipse.stem.core.model.STEMTime,
 	 *      long)
+	 *      
+	 *  Only invoked by triggers
 	 */
 	@Override
 	public void updateLabels(STEMTime time, long timerPeriod, int cycle) {
@@ -241,15 +244,50 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 			// Did we find a Scenario decorator?
 			if (retValue == null) {
 				// No
-				// We've done the easy stuff, we need to get the canonical graph
-				if(scenario.getCanonicalGraph() == null) scenario.initialize();
-				retValue = getTarget(scenario.getCanonicalGraph());
+				// We've done the easy stuff
+				retValue = getTarget(scenario.getModel());
 			} // if no Scenario Decorator
 
 		} // else not a Scenario decorator
 		return retValue;
 	} // getIdentifiable
 
+	private EObject getTarget(final Model model) {
+		EObject retValue = null;
+		for (Decorator decorator : model.getNodeDecorators()) {
+			// Our target?
+			if (decorator.getURI().equals(targetURI)) {
+				// Yes
+				retValue = decorator;
+				break;
+			} // if
+			
+		} // for each Decorator
+
+		if(retValue == null)
+			for(Model m:model.getModels()) {
+				retValue = getTarget(m);
+				if(retValue != null) break;
+			}
+		
+		// A Node label?
+		if (retValue == null) {
+			for(Graph g:model.getGraphs()) {
+				retValue = findNodeLabel(g);
+				if(retValue != null) break;
+			}
+		} // if retValue == null
+
+		// An Edge Label?
+		if (retValue == null) {
+			for(Graph g:model.getGraphs()) {
+				retValue = findEdgeLabel(g);
+				if(retValue != null) break;
+			}
+		} // if retValue == null
+		return retValue;
+	} 
+	
 	private EObject getTarget(final Graph graph) {
 		EObject retValue = null;
 		for (Decorator decorator : graph.getDecorators()) {
@@ -260,42 +298,39 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 				break;
 			} // if
 			
-			// Look inside the children for the target using the target of the feature modifier
-			// We only look at the target for the first feature modifier, assuming the other 
-			// modifiers uses the same target.
-			
-			FeatureModifier fm = this.getFeatureModifiers().get(0);
-			retValue = deepFindChildren(decorator, fm.getTarget());
-			if(retValue != null)break;
 		} // for each Decorator
 
 		// A Node label?
-		if (retValue == null) {
-			for (NodeLabel nodeLabel : graph.getNodeLabels().values()) {
-				// Our target?
-				if (nodeLabel.getURI().equals(targetURI)) {
-					// Yes
-					retValue = nodeLabel;
-					break;
-				} // if
-			} // for each Node Label
-		} // if retValue == null
-
-		// An Edge Label?
-		if (retValue == null) {
-			for (Edge edge : graph.getEdges().values()) {
-				// Our target?
-				if (edge.getLabel().getURI().equals(targetURI)) {
-					// Yes
-					retValue = edge.getLabel();
-					break;
-				} // if
-			} // for each Edge
-		} // if retValue == null
+		if(retValue == null) retValue = findNodeLabel(graph);
+		if(retValue == null) retValue = findEdgeLabel(graph);
+		
 		return retValue;
 	} // getIdentifiable
 
 
+	private EObject findNodeLabel(Graph g) {
+		for (NodeLabel nodeLabel : g.getNodeLabels().values()) {
+			// Our target?
+			if (nodeLabel.getURI().equals(targetURI)) {
+				// Yes
+				return  nodeLabel;
+			} // if
+		} // for each Node Label
+		return null;
+		
+	}
+	
+	private EObject findEdgeLabel(Graph g) {
+		for (Edge edge : g.getEdges().values()) {
+			// Our target?
+			if (edge.getLabel().getURI().equals(targetURI)) {
+				// Yes
+				return edge.getLabel();
+			} // if
+		} // for each Edge
+		return null;
+	}
+	
 	private void modifyTarget(EObject target) {
 		// Yes
 		for (FeatureModifier featureModifier : getFeatureModifiers()) {
