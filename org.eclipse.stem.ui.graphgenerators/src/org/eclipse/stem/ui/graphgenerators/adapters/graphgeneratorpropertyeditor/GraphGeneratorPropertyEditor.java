@@ -26,6 +26,7 @@ import org.eclipse.stem.graphgenerators.GraphGenerator;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
 import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
+import org.eclipse.stem.graphgenerators.PajekNetGraphGenerator;
 import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 import org.eclipse.stem.ui.graphgenerators.wizards.Messages;
@@ -101,6 +102,30 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 							((MigrationEdgeGraphGenerator)graphGenerator).setPopulation(pop);
 						break;
 						
+				} // switch
+			} else if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR) {
+				switch (entry.getKey().getFeatureID()) {
+					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE:
+						String filename = entry.getValue().getText();
+						if (filename != null && filename.trim().length() > 0) {
+							((PajekNetGraphGenerator)graphGenerator).setDataFile(filename);
+						}
+						break;					
+					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
+						((PajekNetGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
+						break;
+					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR:
+						((PajekNetGraphGenerator)graphGenerator).setZoomFactor(Integer.parseInt(entry.getValue().getText()));
+						break;
+					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA:
+						String number = entry.getValue().getText();
+						if (number != null && number.trim().length() > 0) {
+							int col = 0;
+							try {col = Integer.parseInt(number);}
+							catch (NumberFormatException e) {}
+							((PajekNetGraphGenerator)graphGenerator).setColArea(col);
+						}
+						break;
 				} // switch
 			}
 		}
