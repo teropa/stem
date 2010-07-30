@@ -145,6 +145,29 @@ public class GraphgeneratorsItemProviderAdapterFactory extends GraphgeneratorsAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PajekNetGraphGeneratorItemProvider pajekNetGraphGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPajekNetGraphGeneratorAdapter() {
+		if (pajekNetGraphGeneratorItemProvider == null) {
+			pajekNetGraphGeneratorItemProvider = new PajekNetGraphGeneratorItemProvider(this);
+		}
+
+		return pajekNetGraphGeneratorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +269,7 @@ public class GraphgeneratorsItemProviderAdapterFactory extends GraphgeneratorsAd
 		if (squareLatticeGraphGeneratorItemProvider != null) squareLatticeGraphGeneratorItemProvider.dispose();
 		if (migrationEdgeGraphGeneratorItemProvider != null) migrationEdgeGraphGeneratorItemProvider.dispose();
 		if (plateCarreeGlobeGraphGeneratorItemProvider != null) plateCarreeGlobeGraphGeneratorItemProvider.dispose();
+		if (pajekNetGraphGeneratorItemProvider != null) pajekNetGraphGeneratorItemProvider.dispose();
 	}
 
 }

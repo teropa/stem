@@ -53,6 +53,15 @@ public interface GraphgeneratorsFactory extends EFactory {
 	PlateCarreeGlobeGraphGenerator createPlateCarreeGlobeGraphGenerator();
 
 	/**
+	 * Returns a new object of class '<em>Pajek Net Graph Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pajek Net Graph Generator</em>'.
+	 * @generated
+	 */
+	PajekNetGraphGenerator createPajekNetGraphGenerator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

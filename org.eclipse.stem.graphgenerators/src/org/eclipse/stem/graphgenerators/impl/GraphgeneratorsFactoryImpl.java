@@ -64,6 +64,7 @@ public class GraphgeneratorsFactoryImpl extends EFactoryImpl implements Graphgen
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR: return createSquareLatticeGraphGenerator();
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR: return createMigrationEdgeGraphGenerator();
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR: return createPlateCarreeGlobeGraphGenerator();
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR: return createPajekNetGraphGenerator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -97,6 +98,16 @@ public class GraphgeneratorsFactoryImpl extends EFactoryImpl implements Graphgen
 	public PlateCarreeGlobeGraphGenerator createPlateCarreeGlobeGraphGenerator() {
 		PlateCarreeGlobeGraphGeneratorImpl plateCarreeGlobeGraphGenerator = new PlateCarreeGlobeGraphGeneratorImpl();
 		return plateCarreeGlobeGraphGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PajekNetGraphGenerator createPajekNetGraphGenerator() {
+		PajekNetGraphGeneratorImpl pajekNetGraphGenerator = new PajekNetGraphGeneratorImpl();
+		return pajekNetGraphGenerator;
 	}
 
 	/**

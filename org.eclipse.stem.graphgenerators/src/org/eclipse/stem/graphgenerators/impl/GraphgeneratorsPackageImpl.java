@@ -23,6 +23,7 @@ import org.eclipse.stem.graphgenerators.GraphgeneratorsFactory;
 import org.eclipse.stem.graphgenerators.GraphgeneratorsPackage;
 import org.eclipse.stem.graphgenerators.LatticeGraphGenerator;
 import org.eclipse.stem.graphgenerators.MigrationEdgeGraphGenerator;
+import org.eclipse.stem.graphgenerators.PajekNetGraphGenerator;
 import org.eclipse.stem.graphgenerators.PlateCarreeGlobeGraphGenerator;
 import org.eclipse.stem.graphgenerators.SquareLatticeGraphGenerator;
 
@@ -67,6 +68,13 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * @generated
 	 */
 	private EClass plateCarreeGlobeGraphGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pajekNetGraphGeneratorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -287,6 +295,51 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPajekNetGraphGenerator() {
+		return pajekNetGraphGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPajekNetGraphGenerator_DataFile() {
+		return (EAttribute)pajekNetGraphGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPajekNetGraphGenerator_Area() {
+		return (EAttribute)pajekNetGraphGeneratorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPajekNetGraphGenerator_ZoomFactor() {
+		return (EAttribute)pajekNetGraphGeneratorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPajekNetGraphGenerator_ColArea() {
+		return (EAttribute)pajekNetGraphGeneratorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GraphgeneratorsFactory getGraphgeneratorsFactory() {
 		return (GraphgeneratorsFactory)getEFactoryInstance();
 	}
@@ -330,6 +383,12 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		plateCarreeGlobeGraphGeneratorEClass = createEClass(PLATE_CARREE_GLOBE_GRAPH_GENERATOR);
 		createEAttribute(plateCarreeGlobeGraphGeneratorEClass, PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP);
 		createEAttribute(plateCarreeGlobeGraphGeneratorEClass, PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS);
+
+		pajekNetGraphGeneratorEClass = createEClass(PAJEK_NET_GRAPH_GENERATOR);
+		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__DATA_FILE);
+		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__AREA);
+		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR);
+		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__COL_AREA);
 	}
 
 	/**
@@ -370,6 +429,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		squareLatticeGraphGeneratorEClass.getESuperTypes().add(this.getLatticeGraphGenerator());
 		migrationEdgeGraphGeneratorEClass.getESuperTypes().add(this.getGraphGenerator());
 		plateCarreeGlobeGraphGeneratorEClass.getESuperTypes().add(this.getLatticeGraphGenerator());
+		pajekNetGraphGeneratorEClass.getESuperTypes().add(this.getGraphGenerator());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(graphGeneratorEClass, GraphGenerator.class, "GraphGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -394,6 +454,12 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		initEClass(plateCarreeGlobeGraphGeneratorEClass, PlateCarreeGlobeGraphGenerator.class, "PlateCarreeGlobeGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlateCarreeGlobeGraphGenerator_AngularStep(), theEcorePackage.getEInt(), "angularStep", "10", 0, 1, PlateCarreeGlobeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlateCarreeGlobeGraphGenerator_Radius(), theEcorePackage.getEDouble(), "radius", "6371.0", 1, 1, PlateCarreeGlobeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pajekNetGraphGeneratorEClass, PajekNetGraphGenerator.class, "PajekNetGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPajekNetGraphGenerator_DataFile(), theEcorePackage.getEString(), "dataFile", "", 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPajekNetGraphGenerator_Area(), theEcorePackage.getEDouble(), "area", "100", 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPajekNetGraphGenerator_ZoomFactor(), theEcorePackage.getEInt(), "zoomFactor", "1000", 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPajekNetGraphGenerator_ColArea(), theEcorePackage.getEInt(), "colArea", null, 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

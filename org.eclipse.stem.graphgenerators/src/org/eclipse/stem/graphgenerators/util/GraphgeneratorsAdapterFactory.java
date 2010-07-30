@@ -94,6 +94,10 @@ public class GraphgeneratorsAdapterFactory extends AdapterFactoryImpl {
 				return createPlateCarreeGlobeGraphGeneratorAdapter();
 			}
 			@Override
+			public Adapter casePajekNetGraphGenerator(PajekNetGraphGenerator object) {
+				return createPajekNetGraphGeneratorAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -188,6 +192,20 @@ public class GraphgeneratorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlateCarreeGlobeGraphGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator <em>Pajek Net Graph Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.graphgenerators.PajekNetGraphGenerator
+	 * @generated
+	 */
+	public Adapter createPajekNetGraphGeneratorAdapter() {
 		return null;
 	}
 

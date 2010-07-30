@@ -135,6 +135,15 @@ public class GraphgeneratorsSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR: {
+				PajekNetGraphGenerator pajekNetGraphGenerator = (PajekNetGraphGenerator)theEObject;
+				T1 result = casePajekNetGraphGenerator(pajekNetGraphGenerator);
+				if (result == null) result = caseGraphGenerator(pajekNetGraphGenerator);
+				if (result == null) result = caseIdentifiable(pajekNetGraphGenerator);
+				if (result == null) result = caseComparable(pajekNetGraphGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -211,6 +220,21 @@ public class GraphgeneratorsSwitch<T1> {
 	 * @generated
 	 */
 	public T1 casePlateCarreeGlobeGraphGenerator(PlateCarreeGlobeGraphGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pajek Net Graph Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pajek Net Graph Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePajekNetGraphGenerator(PajekNetGraphGenerator object) {
 		return null;
 	}
 
