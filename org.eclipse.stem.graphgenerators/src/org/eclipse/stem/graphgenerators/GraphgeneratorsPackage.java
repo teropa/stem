@@ -477,13 +477,13 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int PAJEK_NET_GRAPH_GENERATOR__DUBLIN_CORE = GRAPH_GENERATOR__DUBLIN_CORE;
 
 	/**
-	 * The feature id for the '<em><b>Data File</b></em>' attribute.
+	 * The feature id for the '<em><b>Data File net</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAJEK_NET_GRAPH_GENERATOR__DATA_FILE = GRAPH_GENERATOR_FEATURE_COUNT + 0;
+	int PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET = GRAPH_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Area</b></em>' attribute.
@@ -704,15 +704,15 @@ public interface GraphgeneratorsPackage extends EPackage {
 	EClass getPajekNetGraphGenerator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getDataFile <em>Data File</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getDataFile_net <em>Data File net</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Data File</em>'.
-	 * @see org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getDataFile()
+	 * @return the meta object for the attribute '<em>Data File net</em>'.
+	 * @see org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getDataFile_net()
 	 * @see #getPajekNetGraphGenerator()
 	 * @generated
 	 */
-	EAttribute getPajekNetGraphGenerator_DataFile();
+	EAttribute getPajekNetGraphGenerator_DataFile_net();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getArea <em>Area</em>}'.
@@ -918,12 +918,12 @@ public interface GraphgeneratorsPackage extends EPackage {
 		EClass PAJEK_NET_GRAPH_GENERATOR = eINSTANCE.getPajekNetGraphGenerator();
 
 		/**
-		 * The meta object literal for the '<em><b>Data File</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Data File net</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PAJEK_NET_GRAPH_GENERATOR__DATA_FILE = eINSTANCE.getPajekNetGraphGenerator_DataFile();
+		EAttribute PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET = eINSTANCE.getPajekNetGraphGenerator_DataFile_net();
 
 		/**
 		 * The meta object literal for the '<em><b>Area</b></em>' attribute feature.

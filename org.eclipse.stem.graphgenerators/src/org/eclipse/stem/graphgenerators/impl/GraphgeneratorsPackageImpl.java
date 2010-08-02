@@ -304,7 +304,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPajekNetGraphGenerator_DataFile() {
+	public EAttribute getPajekNetGraphGenerator_DataFile_net() {
 		return (EAttribute)pajekNetGraphGeneratorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -385,7 +385,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		createEAttribute(plateCarreeGlobeGraphGeneratorEClass, PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS);
 
 		pajekNetGraphGeneratorEClass = createEClass(PAJEK_NET_GRAPH_GENERATOR);
-		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__DATA_FILE);
+		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET);
 		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__AREA);
 		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR);
 		createEAttribute(pajekNetGraphGeneratorEClass, PAJEK_NET_GRAPH_GENERATOR__COL_AREA);
@@ -456,7 +456,7 @@ public class GraphgeneratorsPackageImpl extends EPackageImpl implements Graphgen
 		initEAttribute(getPlateCarreeGlobeGraphGenerator_Radius(), theEcorePackage.getEDouble(), "radius", "6371.0", 1, 1, PlateCarreeGlobeGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pajekNetGraphGeneratorEClass, PajekNetGraphGenerator.class, "PajekNetGraphGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPajekNetGraphGenerator_DataFile(), theEcorePackage.getEString(), "dataFile", "", 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPajekNetGraphGenerator_DataFile_net(), theEcorePackage.getEString(), "dataFile_net", "", 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPajekNetGraphGenerator_Area(), theEcorePackage.getEDouble(), "area", "100", 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPajekNetGraphGenerator_ZoomFactor(), theEcorePackage.getEInt(), "zoomFactor", "1000", 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPajekNetGraphGenerator_ColArea(), theEcorePackage.getEInt(), "colArea", null, 0, 1, PajekNetGraphGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

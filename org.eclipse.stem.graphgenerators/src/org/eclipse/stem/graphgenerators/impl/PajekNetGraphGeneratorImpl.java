@@ -1,10 +1,15 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.graphgenerators.impl;
+
+/*******************************************************************************
+* Copyright (c) 2010 IBM Corporation and others.
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+* IBM Corporation - initial API and implementation
+*******************************************************************************/
 
 import java.io.File;
 import java.io.IOException;
@@ -47,7 +52,7 @@ import org.eclipse.stem.graphgenerators.PajekNetGraphGenerator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.stem.graphgenerators.impl.PajekNetGraphGeneratorImpl#getDataFile <em>Data File</em>}</li>
+ *   <li>{@link org.eclipse.stem.graphgenerators.impl.PajekNetGraphGeneratorImpl#getDataFile_net <em>Data File net</em>}</li>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.PajekNetGraphGeneratorImpl#getArea <em>Area</em>}</li>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.PajekNetGraphGeneratorImpl#getZoomFactor <em>Zoom Factor</em>}</li>
  *   <li>{@link org.eclipse.stem.graphgenerators.impl.PajekNetGraphGeneratorImpl#getColArea <em>Col Area</em>}</li>
@@ -58,24 +63,24 @@ import org.eclipse.stem.graphgenerators.PajekNetGraphGenerator;
  */
 public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements PajekNetGraphGenerator {
 	/**
-	 * The default value of the '{@link #getDataFile() <em>Data File</em>}' attribute.
+	 * The default value of the '{@link #getDataFile_net() <em>Data File net</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDataFile()
+	 * @see #getDataFile_net()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DATA_FILE_EDEFAULT = "";
+	protected static final String DATA_FILE_NET_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getDataFile() <em>Data File</em>}' attribute.
+	 * The cached value of the '{@link #getDataFile_net() <em>Data File net</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDataFile()
+	 * @see #getDataFile_net()
 	 * @generated
 	 * @ordered
 	 */
-	protected String dataFile = DATA_FILE_EDEFAULT;
+	protected String dataFile_net = DATA_FILE_NET_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getArea() <em>Area</em>}' attribute.
@@ -161,8 +166,8 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDataFile() {
-		return dataFile;
+	public String getDataFile_net() {
+		return dataFile_net;
 	}
 
 	/**
@@ -170,11 +175,11 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDataFile(String newDataFile) {
-		String oldDataFile = dataFile;
-		dataFile = newDataFile;
+	public void setDataFile_net(String newDataFile_net) {
+		String oldDataFile_net = dataFile_net;
+		dataFile_net = newDataFile_net;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE, oldDataFile, dataFile));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET, oldDataFile_net, dataFile_net));
 	}
 
 	/**
@@ -248,8 +253,8 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE:
-				return getDataFile();
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
+				return getDataFile_net();
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
 				return getArea();
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR:
@@ -268,8 +273,8 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE:
-				setDataFile((String)newValue);
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
+				setDataFile_net((String)newValue);
 				return;
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
 				setArea((Double)newValue);
@@ -292,8 +297,8 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE:
-				setDataFile(DATA_FILE_EDEFAULT);
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
+				setDataFile_net(DATA_FILE_NET_EDEFAULT);
 				return;
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
 				setArea(AREA_EDEFAULT);
@@ -316,8 +321,8 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE:
-				return DATA_FILE_EDEFAULT == null ? dataFile != null : !DATA_FILE_EDEFAULT.equals(dataFile);
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
+				return DATA_FILE_NET_EDEFAULT == null ? dataFile_net != null : !DATA_FILE_NET_EDEFAULT.equals(dataFile_net);
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
 				return area != AREA_EDEFAULT;
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR:
@@ -338,8 +343,8 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (dataFile: ");
-		result.append(dataFile);
+		result.append(" (dataFile_net: ");
+		result.append(dataFile_net);
 		result.append(", area: ");
 		result.append(area);
 		result.append(", zoomFactor: ");
@@ -367,8 +372,9 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	@Override		
 	public Graph getGraph() {
 		Graph g = null;
-        File file = new File(getDataFile());
-        if (file != null && !file.isDirectory() && file.exists()) g = getGraph(file);				
+        File file = new File(getDataFile_net());
+        if (file != null && !file.isDirectory() && file.exists()) g = getGraph(file);	
+        else Activator.logError("Pajek importing: File cannot be found", null);
 		return g;
 	}
 

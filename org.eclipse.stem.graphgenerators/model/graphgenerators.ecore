@@ -39,7 +39,7 @@
         defaultValueLiteral="6371.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PajekNetGraphGenerator" eSuperTypes="#//GraphGenerator">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataFile" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataFile_net" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="100"/>

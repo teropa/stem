@@ -14,6 +14,8 @@ package org.eclipse.stem.ui.editors;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
@@ -295,7 +297,7 @@ public abstract class GenericPropertyEditor extends Composite {
 						// fileChooserButton.setLayoutData(fileBtnGD);
 						buttons.setLayoutData(fileBtnGD);
 					}
-					else if (feature.getName().equals("dataFile")) { //$NON-NLS-1$
+					else if (feature.getName().startsWith("dataFile")) { //$NON-NLS-1$
 						isDataPath = true;
 						final Composite buttons = new Composite(this, SWT.NONE);
 						final RowLayout buttonsLayout = new RowLayout();
@@ -313,8 +315,15 @@ public abstract class GenericPropertyEditor extends Composite {
 									public void widgetSelected(final SelectionEvent e) {
 										final FileDialog fd = new FileDialog(shell, SWT.OPEN | SWT.SINGLE);
 										fd.setText(Messages.getString("fileChooserDialogTitle")); //$NON-NLS-1$
-										final String[] extensionsFilter = {"*" };
-										fd.setFilterExtensions(extensionsFilter);
+										StringTokenizer tok = new StringTokenizer(feature.getName(), "_");
+										Vector<String> v = new Vector<String>();
+										tok.nextToken();
+										while (tok.hasMoreTokens()) {
+											v.add("*." + tok.nextToken());
+										}
+										v.add("*");
+										final String[] extensionsFilter = new String[v.size()];
+										fd.setFilterExtensions(v.toArray(extensionsFilter));
 	
 										_text.setText(fd.open());
 									} // widgetSelected

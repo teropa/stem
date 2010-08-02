@@ -1,11 +1,15 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package org.eclipse.stem.graphgenerators.provider;
 
+/*******************************************************************************
+* Copyright (c) 2010 IBM Corporation and others.
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+* IBM Corporation - initial API and implementation
+*******************************************************************************/
 
 import java.util.Collection;
 import java.util.List;
@@ -63,7 +67,7 @@ public class PajekNetGraphGeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDataFilePropertyDescriptor(object);
+			addDataFile_netPropertyDescriptor(object);
 			addAreaPropertyDescriptor(object);
 			addZoomFactorPropertyDescriptor(object);
 			addColAreaPropertyDescriptor(object);
@@ -72,19 +76,19 @@ public class PajekNetGraphGeneratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Data File feature.
+	 * This adds a property descriptor for the Data File net feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDataFilePropertyDescriptor(Object object) {
+	protected void addDataFile_netPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PajekNetGraphGenerator_dataFile_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PajekNetGraphGenerator_dataFile_feature", "_UI_PajekNetGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE,
+				 getString("_UI_PajekNetGraphGenerator_dataFile_net_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PajekNetGraphGenerator_dataFile_net_feature", "_UI_PajekNetGraphGenerator_type"),
+				 GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET,
 				 true,
 				 false,
 				 false,
@@ -197,7 +201,7 @@ public class PajekNetGraphGeneratorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PajekNetGraphGenerator.class)) {
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE:
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR:
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA:

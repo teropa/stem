@@ -11,6 +11,7 @@ package org.eclipse.stem.ui.graphgenerators.adapters.graphgeneratorpropertyedito
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,10 +106,10 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 				} // switch
 			} else if(entry.getKey().getEContainingClass().getClassifierID() == GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR) {
 				switch (entry.getKey().getFeatureID()) {
-					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE:
+					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
 						String filename = entry.getValue().getText();
 						if (filename != null && filename.trim().length() > 0) {
-							((PajekNetGraphGenerator)graphGenerator).setDataFile(filename);
+							((PajekNetGraphGenerator)graphGenerator).setDataFile_net(filename);
 						}
 						break;					
 					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
@@ -334,6 +335,37 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 					errorMessage = Messages
 						.getString("NGGWizErr5"); //$NON-NLS-1$
 				} // if
+			}
+		}
+		if (retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET);
+			if (text != null) {
+				// Yes
+		        File file = new File(text.getText());
+		        retValue = file != null && !file.isDirectory() && file.exists();	
+		        if (!retValue) errorMessage = Messages.getString("NGGWizErr13");
+			}
+		}
+		if (retValue) {
+			final Text text = map.get(GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__AREA);
+			if (text != null) {
+				retValue = text.getText().length() > 0; //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					errorMessage = Messages.getString("NGGWizErr14"); //$NON-NLS-1$
+				} // if
+				else {
+					try {
+						double rate = Double.parseDouble(text.getText());
+						if(rate < 0.0) {
+							retValue = false;
+							errorMessage = Messages.getString("NGGWizErr9");
+						}
+					} catch(Exception e) {
+						retValue = false;
+						errorMessage = Messages.getString("NGGWizErr9");
+					}
+				}
 			}
 		}
 		return retValue;
