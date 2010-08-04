@@ -91,6 +91,8 @@ public class LabelsFactoryImpl extends EFactoryImpl implements LabelsFactory {
 			case LabelsPackage.PHYSICAL_RELATIONSHIP_LABEL_VALUE: return createPhysicalRelationshipLabelValue();
 			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL: return createRoadTransportRelationshipLabel();
 			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE: return createRoadTransportRelationshipLabelValue();
+			case LabelsPackage.EARTH_SCIENCE_LABEL: return createEarthScienceLabel();
+			case LabelsPackage.EARTH_SCIENCE_LABEL_VALUE: return createEarthScienceLabelValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -258,6 +260,26 @@ public class LabelsFactoryImpl extends EFactoryImpl implements LabelsFactory {
 	public RoadTransportRelationshipLabelValue createRoadTransportRelationshipLabelValue() {
 		RoadTransportRelationshipLabelValueImpl roadTransportRelationshipLabelValue = new RoadTransportRelationshipLabelValueImpl();
 		return roadTransportRelationshipLabelValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EarthScienceLabel createEarthScienceLabel() {
+		EarthScienceLabelImpl earthScienceLabel = new EarthScienceLabelImpl();
+		return earthScienceLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EarthScienceLabelValue createEarthScienceLabelValue() {
+		EarthScienceLabelValueImpl earthScienceLabelValue = new EarthScienceLabelValueImpl();
+		return earthScienceLabelValue;
 	}
 
 	/**

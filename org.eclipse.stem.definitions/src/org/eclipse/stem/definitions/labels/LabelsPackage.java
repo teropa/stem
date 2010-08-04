@@ -1054,6 +1054,143 @@ public interface LabelsPackage extends EPackage {
 	int ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE_FEATURE_COUNT = PHYSICAL_RELATIONSHIP_LABEL_VALUE_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.definitions.labels.impl.EarthScienceLabelImpl <em>Earth Science Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.definitions.labels.impl.EarthScienceLabelImpl
+	 * @see org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl#getEarthScienceLabel()
+	 * @generated
+	 */
+	int EARTH_SCIENCE_LABEL = 14;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__URI = GraphPackage.STATIC_NODE_LABEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__TYPE_URI = GraphPackage.STATIC_NODE_LABEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__DUBLIN_CORE = GraphPackage.STATIC_NODE_LABEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>URI Of Identifiable To Be Labeled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED = GraphPackage.STATIC_NODE_LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED;
+
+	/**
+	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__CURRENT_VALUE = GraphPackage.STATIC_NODE_LABEL__CURRENT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Identifiable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__IDENTIFIABLE = GraphPackage.STATIC_NODE_LABEL__IDENTIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__NODE = GraphPackage.STATIC_NODE_LABEL__NODE;
+
+	/**
+	 * The feature id for the '<em><b>Current Earth Science Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL__CURRENT_EARTH_SCIENCE_VALUE = GraphPackage.STATIC_NODE_LABEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Earth Science Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL_FEATURE_COUNT = GraphPackage.STATIC_NODE_LABEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.definitions.labels.impl.EarthScienceLabelValueImpl <em>Earth Science Label Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.definitions.labels.impl.EarthScienceLabelValueImpl
+	 * @see org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl#getEarthScienceLabelValue()
+	 * @generated
+	 */
+	int EARTH_SCIENCE_LABEL_VALUE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL_VALUE__DATA = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Units</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL_VALUE__UNITS = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Earth Science Label Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_LABEL_VALUE_FEATURE_COUNT = GraphPackage.LABEL_VALUE_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.stem.definitions.labels.RelativePhysicalRelationship <em>Relative Physical Relationship</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1061,7 +1198,7 @@ public interface LabelsPackage extends EPackage {
 	 * @see org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl#getRelativePhysicalRelationship()
 	 * @generated
 	 */
-	int RELATIVE_PHYSICAL_RELATIONSHIP = 14;
+	int RELATIVE_PHYSICAL_RELATIONSHIP = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.definitions.labels.TransportMode <em>Transport Mode</em>}' enum.
@@ -1071,7 +1208,7 @@ public interface LabelsPackage extends EPackage {
 	 * @see org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl#getTransportMode()
 	 * @generated
 	 */
-	int TRANSPORT_MODE = 15;
+	int TRANSPORT_MODE = 17;
 
 
 	/**
@@ -1523,6 +1660,70 @@ public interface LabelsPackage extends EPackage {
 	EAttribute getRoadTransportRelationshipLabelValue_NumberCrossings();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.definitions.labels.EarthScienceLabel <em>Earth Science Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Earth Science Label</em>'.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabel
+	 * @generated
+	 */
+	EClass getEarthScienceLabel();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.stem.definitions.labels.EarthScienceLabel#getCurrentEarthScienceValue <em>Current Earth Science Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Current Earth Science Value</em>'.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabel#getCurrentEarthScienceValue()
+	 * @see #getEarthScienceLabel()
+	 * @generated
+	 */
+	EReference getEarthScienceLabel_CurrentEarthScienceValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.definitions.labels.EarthScienceLabelValue <em>Earth Science Label Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Earth Science Label Value</em>'.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabelValue
+	 * @generated
+	 */
+	EClass getEarthScienceLabelValue();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.stem.definitions.labels.EarthScienceLabelValue#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Data</em>'.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabelValue#getData()
+	 * @see #getEarthScienceLabelValue()
+	 * @generated
+	 */
+	EAttribute getEarthScienceLabelValue_Data();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.definitions.labels.EarthScienceLabelValue#getDataType <em>Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Data Type</em>'.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabelValue#getDataType()
+	 * @see #getEarthScienceLabelValue()
+	 * @generated
+	 */
+	EAttribute getEarthScienceLabelValue_DataType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.definitions.labels.EarthScienceLabelValue#getUnits <em>Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Units</em>'.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabelValue#getUnits()
+	 * @see #getEarthScienceLabelValue()
+	 * @generated
+	 */
+	EAttribute getEarthScienceLabelValue_Units();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.stem.definitions.labels.RelativePhysicalRelationship <em>Relative Physical Relationship</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1927,6 +2128,58 @@ public interface LabelsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE__NUMBER_CROSSINGS = eINSTANCE.getRoadTransportRelationshipLabelValue_NumberCrossings();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.definitions.labels.impl.EarthScienceLabelImpl <em>Earth Science Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.definitions.labels.impl.EarthScienceLabelImpl
+		 * @see org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl#getEarthScienceLabel()
+		 * @generated
+		 */
+		EClass EARTH_SCIENCE_LABEL = eINSTANCE.getEarthScienceLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Earth Science Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EARTH_SCIENCE_LABEL__CURRENT_EARTH_SCIENCE_VALUE = eINSTANCE.getEarthScienceLabel_CurrentEarthScienceValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.definitions.labels.impl.EarthScienceLabelValueImpl <em>Earth Science Label Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.definitions.labels.impl.EarthScienceLabelValueImpl
+		 * @see org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl#getEarthScienceLabelValue()
+		 * @generated
+		 */
+		EClass EARTH_SCIENCE_LABEL_VALUE = eINSTANCE.getEarthScienceLabelValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EARTH_SCIENCE_LABEL_VALUE__DATA = eINSTANCE.getEarthScienceLabelValue_Data();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE = eINSTANCE.getEarthScienceLabelValue_DataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Units</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EARTH_SCIENCE_LABEL_VALUE__UNITS = eINSTANCE.getEarthScienceLabelValue_Units();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.definitions.labels.RelativePhysicalRelationship <em>Relative Physical Relationship</em>}' enum.

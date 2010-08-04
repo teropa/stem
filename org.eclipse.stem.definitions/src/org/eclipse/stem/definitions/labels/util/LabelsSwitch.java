@@ -266,6 +266,27 @@ public class LabelsSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case LabelsPackage.EARTH_SCIENCE_LABEL: {
+				EarthScienceLabel earthScienceLabel = (EarthScienceLabel)theEObject;
+				T1 result = caseEarthScienceLabel(earthScienceLabel);
+				if (result == null) result = caseStaticNodeLabel(earthScienceLabel);
+				if (result == null) result = caseNodeLabel(earthScienceLabel);
+				if (result == null) result = caseStaticLabel(earthScienceLabel);
+				if (result == null) result = caseLabel(earthScienceLabel);
+				if (result == null) result = caseModifiable(earthScienceLabel);
+				if (result == null) result = caseIdentifiable(earthScienceLabel);
+				if (result == null) result = caseComparable(earthScienceLabel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LabelsPackage.EARTH_SCIENCE_LABEL_VALUE: {
+				EarthScienceLabelValue earthScienceLabelValue = (EarthScienceLabelValue)theEObject;
+				T1 result = caseEarthScienceLabelValue(earthScienceLabelValue);
+				if (result == null) result = caseLabelValue(earthScienceLabelValue);
+				if (result == null) result = caseSanityChecker(earthScienceLabelValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -463,6 +484,36 @@ public class LabelsSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseRoadTransportRelationshipLabelValue(RoadTransportRelationshipLabelValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Earth Science Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Earth Science Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEarthScienceLabel(EarthScienceLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Earth Science Label Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Earth Science Label Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEarthScienceLabelValue(EarthScienceLabelValue object) {
 		return null;
 	}
 

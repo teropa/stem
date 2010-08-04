@@ -157,6 +157,14 @@ public class LabelsAdapterFactory extends AdapterFactoryImpl {
 				return createRoadTransportRelationshipLabelValueAdapter();
 			}
 			@Override
+			public Adapter caseEarthScienceLabel(EarthScienceLabel object) {
+				return createEarthScienceLabelAdapter();
+			}
+			@Override
+			public Adapter caseEarthScienceLabelValue(EarthScienceLabelValue object) {
+				return createEarthScienceLabelValueAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -412,6 +420,34 @@ public class LabelsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRoadTransportRelationshipLabelValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.labels.EarthScienceLabel <em>Earth Science Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabel
+	 * @generated
+	 */
+	public Adapter createEarthScienceLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.labels.EarthScienceLabelValue <em>Earth Science Label Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.definitions.labels.EarthScienceLabelValue
+	 * @generated
+	 */
+	public Adapter createEarthScienceLabelValueAdapter() {
 		return null;
 	}
 

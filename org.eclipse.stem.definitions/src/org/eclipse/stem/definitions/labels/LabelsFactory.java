@@ -148,6 +148,24 @@ public interface LabelsFactory extends EFactory {
 	RoadTransportRelationshipLabelValue createRoadTransportRelationshipLabelValue();
 
 	/**
+	 * Returns a new object of class '<em>Earth Science Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Earth Science Label</em>'.
+	 * @generated
+	 */
+	EarthScienceLabel createEarthScienceLabel();
+
+	/**
+	 * Returns a new object of class '<em>Earth Science Label Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Earth Science Label Value</em>'.
+	 * @generated
+	 */
+	EarthScienceLabelValue createEarthScienceLabelValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

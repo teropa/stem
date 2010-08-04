@@ -33,6 +33,8 @@ import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.AreaLabelValue;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabel;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabelValue;
+import org.eclipse.stem.definitions.labels.EarthScienceLabel;
+import org.eclipse.stem.definitions.labels.EarthScienceLabelValue;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
@@ -156,6 +158,20 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 	 * @generated
 	 */
 	private EClass roadTransportRelationshipLabelValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass earthScienceLabelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass earthScienceLabelValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -635,6 +651,60 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEarthScienceLabel() {
+		return earthScienceLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEarthScienceLabel_CurrentEarthScienceValue() {
+		return (EReference)earthScienceLabelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEarthScienceLabelValue() {
+		return earthScienceLabelValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEarthScienceLabelValue_Data() {
+		return (EAttribute)earthScienceLabelValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEarthScienceLabelValue_DataType() {
+		return (EAttribute)earthScienceLabelValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEarthScienceLabelValue_Units() {
+		return (EAttribute)earthScienceLabelValueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getRelativePhysicalRelationship() {
 		return relativePhysicalRelationshipEEnum;
 	}
@@ -732,6 +802,14 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		createEAttribute(roadTransportRelationshipLabelValueEClass, ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE__ROAD_CLASS);
 		createEAttribute(roadTransportRelationshipLabelValueEClass, ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE__NUMBER_CROSSINGS);
 
+		earthScienceLabelEClass = createEClass(EARTH_SCIENCE_LABEL);
+		createEReference(earthScienceLabelEClass, EARTH_SCIENCE_LABEL__CURRENT_EARTH_SCIENCE_VALUE);
+
+		earthScienceLabelValueEClass = createEClass(EARTH_SCIENCE_LABEL_VALUE);
+		createEAttribute(earthScienceLabelValueEClass, EARTH_SCIENCE_LABEL_VALUE__DATA);
+		createEAttribute(earthScienceLabelValueEClass, EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE);
+		createEAttribute(earthScienceLabelValueEClass, EARTH_SCIENCE_LABEL_VALUE__UNITS);
+
 		// Create enums
 		relativePhysicalRelationshipEEnum = createEEnum(RELATIVE_PHYSICAL_RELATIONSHIP);
 		transportModeEEnum = createEEnum(TRANSPORT_MODE);
@@ -762,6 +840,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 
 		// Obtain other dependent packages
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -782,6 +861,8 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		physicalRelationshipLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
 		roadTransportRelationshipLabelEClass.getESuperTypes().add(this.getPhysicalRelationshipLabel());
 		roadTransportRelationshipLabelValueEClass.getESuperTypes().add(this.getPhysicalRelationshipLabelValue());
+		earthScienceLabelEClass.getESuperTypes().add(theGraphPackage.getStaticNodeLabel());
+		earthScienceLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(areaLabelEClass, AreaLabel.class, "AreaLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -839,6 +920,14 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		initEAttribute(getRoadTransportRelationshipLabelValue_RoadName(), ecorePackage.getEString(), "roadName", "road", 0, 1, RoadTransportRelationshipLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getRoadTransportRelationshipLabelValue_RoadClass(), ecorePackage.getEString(), "roadClass", "route", 0, 1, RoadTransportRelationshipLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getRoadTransportRelationshipLabelValue_NumberCrossings(), ecorePackage.getEInt(), "numberCrossings", "1", 0, 1, RoadTransportRelationshipLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+
+		initEClass(earthScienceLabelEClass, EarthScienceLabel.class, "EarthScienceLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEarthScienceLabel_CurrentEarthScienceValue(), this.getEarthScienceLabelValue(), null, "currentEarthScienceValue", null, 0, 1, EarthScienceLabel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(earthScienceLabelValueEClass, EarthScienceLabelValue.class, "EarthScienceLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getEarthScienceLabelValue_Data(), theEcorePackage.getEDouble(), "data", null, 0, -1, EarthScienceLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEarthScienceLabelValue_DataType(), theEcorePackage.getEString(), "dataType", null, 0, 1, EarthScienceLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEarthScienceLabelValue_Units(), theEcorePackage.getEString(), "units", null, 0, 1, EarthScienceLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Initialize enums and add enum literals
 		initEEnum(relativePhysicalRelationshipEEnum, RelativePhysicalRelationship.class, "RelativePhysicalRelationship"); //$NON-NLS-1$

@@ -380,6 +380,52 @@ public class LabelsItemProviderAdapterFactory extends LabelsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.definitions.labels.EarthScienceLabel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EarthScienceLabelItemProvider earthScienceLabelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.definitions.labels.EarthScienceLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEarthScienceLabelAdapter() {
+		if (earthScienceLabelItemProvider == null) {
+			earthScienceLabelItemProvider = new EarthScienceLabelItemProvider(this);
+		}
+
+		return earthScienceLabelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.definitions.labels.EarthScienceLabelValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EarthScienceLabelValueItemProvider earthScienceLabelValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.definitions.labels.EarthScienceLabelValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEarthScienceLabelValueAdapter() {
+		if (earthScienceLabelValueItemProvider == null) {
+			earthScienceLabelValueItemProvider = new EarthScienceLabelValueItemProvider(this);
+		}
+
+		return earthScienceLabelValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory. <!--
 	 * begin-user-doc -->
 	 * 
@@ -523,6 +569,8 @@ public class LabelsItemProviderAdapterFactory extends LabelsAdapterFactory
 		if (physicalRelationshipLabelValueItemProvider != null) physicalRelationshipLabelValueItemProvider.dispose();
 		if (roadTransportRelationshipLabelItemProvider != null) roadTransportRelationshipLabelItemProvider.dispose();
 		if (roadTransportRelationshipLabelValueItemProvider != null) roadTransportRelationshipLabelValueItemProvider.dispose();
+		if (earthScienceLabelItemProvider != null) earthScienceLabelItemProvider.dispose();
+		if (earthScienceLabelValueItemProvider != null) earthScienceLabelValueItemProvider.dispose();
 	}
 
 }
