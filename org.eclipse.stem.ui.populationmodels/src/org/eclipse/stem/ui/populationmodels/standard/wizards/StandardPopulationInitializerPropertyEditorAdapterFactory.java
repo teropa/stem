@@ -31,6 +31,11 @@ public class StandardPopulationInitializerPropertyEditorAdapterFactory extends
 	}
 
 	@Override
+	public Adapter createYetiPopulationInitializerAdapter() {
+		return new StandardPopulationInitializerPropertyEditorAdapter();
+	}
+	
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return type == PopulationInitializerPropertyEditorAdapter.class
 				|| super.isFactoryForType(type);

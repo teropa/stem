@@ -54,8 +54,8 @@ public class StandardPopulationInitializerPropertyEditor extends PopulationIniti
 		
 		for (final Map.Entry<EStructuralFeature, Text> entry : map.entrySet()) {
 			switch (entry.getKey().getFeatureID()) {
-			case StandardPackage.STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER:
-				((StandardPopulationInitializer)populationInitializer).setPopulationIdentifier(entry.getValue().getText());
+			case StandardPackage.POPULATION_INITIALIZER__POPULATION_IDENTIFIER:
+				((PopulationInitializer)populationInitializer).setPopulationIdentifier(entry.getValue().getText());
 				break;
 			case StandardPackage.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS:
 				((StandardPopulationInitializer)populationInitializer)
@@ -89,7 +89,7 @@ public class StandardPopulationInitializerPropertyEditor extends PopulationIniti
 		if (retValue) {
 			// Yes
 			final Text text = map
-					.get(StandardPackage.Literals.STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER);
+					.get(StandardPackage.Literals.POPULATION_INITIALIZER__POPULATION_IDENTIFIER);
 			retValue = !text.getText().equals(""); //$NON-NLS-1$
 			// nothing?
 			if (!retValue) {
@@ -103,21 +103,23 @@ public class StandardPopulationInitializerPropertyEditor extends PopulationIniti
 			// Yes
 			final Text text = map
 					.get(StandardPackage.Literals.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS);
-			retValue = !text.getText().equals(""); //$NON-NLS-1$
-			// nothing?
-			if (!retValue) {
-				// Yes
-				errorMessage = PopulationModelWizardMessages.getString("NDizWizErr16"); //$NON-NLS-1$
-			} // if
-			else {
-				// No
-				// Is it a valid value > 0?
-				retValue = isValidValue(text.getText(), 0.0);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
 				if (!retValue) {
-					// No
-					errorMessage = PopulationModelWizardMessages
-							.getString("NDizWizErr17"); //$NON-NLS-1$
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr16"); //$NON-NLS-1$
 				} // if
+				else {
+					// No
+					// Is it a valid value > 0?
+					retValue = isValidValue(text.getText(), 0.0);
+					if (!retValue) {
+						// No
+						errorMessage = PopulationModelWizardMessages
+								.getString("NDizWizErr17"); //$NON-NLS-1$
+					} // if
+				}
 			}
 		} 
 				
