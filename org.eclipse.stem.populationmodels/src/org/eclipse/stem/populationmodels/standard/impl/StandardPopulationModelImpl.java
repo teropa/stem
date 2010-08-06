@@ -614,10 +614,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 				
 //					currdestlabelval.reset(); // clear any existing numbers first
 					currdestlabelval.add((IntegrationLabelValue)move);
-					currsrclabelval.sub((IntegrationLabelValue)move);
-					System.out.println("Moving "+move.getCount()+" people from "+source+" to "+dest);
-					if(move.getCount() == 0.0)
-						System.out.println("moving 0 people");
 				} // for each label on the source node
 			}
 		}
