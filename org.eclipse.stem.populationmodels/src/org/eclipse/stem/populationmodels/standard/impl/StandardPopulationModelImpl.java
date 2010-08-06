@@ -612,7 +612,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 					
 					move.scale(factor);
 				
-//					currdestlabelval.reset(); // clear any existing numbers first
 					currdestlabelval.add((IntegrationLabelValue)move);
 				} // for each label on the source node
 			}
