@@ -68,6 +68,7 @@ public class PopulationInitializerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTargetISOKeyPropertyDescriptor(object);
+			addPopulationIdentifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,28 @@ public class PopulationInitializerItemProvider
 				 getString("_UI_PopulationInitializer_targetISOKey_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PopulationInitializer_targetISOKey_feature", "_UI_PopulationInitializer_type"),
 				 StandardPackage.Literals.POPULATION_INITIALIZER__TARGET_ISO_KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Population Identifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPopulationIdentifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopulationInitializer_populationIdentifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopulationInitializer_populationIdentifier_feature", "_UI_PopulationInitializer_type"),
+				 StandardPackage.Literals.POPULATION_INITIALIZER__POPULATION_IDENTIFIER,
 				 true,
 				 false,
 				 false,
@@ -133,6 +156,7 @@ public class PopulationInitializerItemProvider
 
 		switch (notification.getFeatureID(PopulationInitializer.class)) {
 			case StandardPackage.POPULATION_INITIALIZER__TARGET_ISO_KEY:
+			case StandardPackage.POPULATION_INITIALIZER__POPULATION_IDENTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

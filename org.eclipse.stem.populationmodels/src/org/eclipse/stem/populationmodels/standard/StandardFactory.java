@@ -110,15 +110,6 @@ public interface StandardFactory extends EFactory {
 	 * @return a new object of class '<em>Population Initializer</em>'.
 	 * @generated
 	 */
-	PopulationInitializer createPopulationInitializer();
-
-	/**
-	 * Returns a new object of class '<em>Population Initializer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Population Initializer</em>'.
-	 * @generated
-	 */
 	StandardPopulationInitializer createStandardPopulationInitializer();
 
 	/**
@@ -129,6 +120,15 @@ public interface StandardFactory extends EFactory {
 	 * @generated
 	 */
 	SeasonalPopulationModel createSeasonalPopulationModel();
+
+	/**
+	 * Returns a new object of class '<em>Yeti Population Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Yeti Population Initializer</em>'.
+	 * @generated
+	 */
+	YetiPopulationInitializer createYetiPopulationInitializer();
 
 	/**
 	 * Returns the package supported by this factory.

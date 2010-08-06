@@ -22,7 +22,6 @@ package org.eclipse.stem.populationmodels.standard;
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getIndividuals <em>Individuals</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#isUseDensity <em>Use Density</em>}</li>
- *   <li>{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getPopulationIdentifier <em>Population Identifier</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,32 +83,5 @@ public interface StandardPopulationInitializer extends PopulationInitializer {
 	 * @generated
 	 */
 	void setUseDensity(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Population Identifier</b></em>' attribute.
-	 * The default value is <code>"human"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Population Identifier</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Population Identifier</em>' attribute.
-	 * @see #setPopulationIdentifier(String)
-	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getStandardPopulationInitializer_PopulationIdentifier()
-	 * @model default="human"
-	 * @generated
-	 */
-	String getPopulationIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getPopulationIdentifier <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Population Identifier</em>' attribute.
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 */
-	void setPopulationIdentifier(String value);
 
 } // StandardPopulationInitializer

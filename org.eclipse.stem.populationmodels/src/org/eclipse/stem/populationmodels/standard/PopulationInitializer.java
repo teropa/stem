@@ -23,11 +23,12 @@ import org.eclipse.stem.core.modifier.Modifiable;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.PopulationInitializer#getTargetISOKey <em>Target ISO Key</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.PopulationInitializer#getPopulationIdentifier <em>Population Identifier</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getPopulationInitializer()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface PopulationInitializer extends NodeDecorator, Modifiable {
@@ -56,5 +57,32 @@ public interface PopulationInitializer extends NodeDecorator, Modifiable {
 	 * @generated
 	 */
 	void setTargetISOKey(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Population Identifier</b></em>' attribute.
+	 * The default value is <code>"human"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Population Identifier</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Population Identifier</em>' attribute.
+	 * @see #setPopulationIdentifier(String)
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getPopulationInitializer_PopulationIdentifier()
+	 * @model default="human"
+	 * @generated
+	 */
+	String getPopulationIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.populationmodels.standard.PopulationInitializer#getPopulationIdentifier <em>Population Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Population Identifier</em>' attribute.
+	 * @see #getPopulationIdentifier()
+	 * @generated
+	 */
+	void setPopulationIdentifier(String value);
 
 } // PopulationInitializer

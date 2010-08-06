@@ -28,6 +28,7 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
+import org.eclipse.stem.populationmodels.standard.*;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
@@ -253,6 +254,31 @@ public class StandardSwitch<T1> {
 				if (result == null) result = caseDecorator(seasonalPopulationModel);
 				if (result == null) result = caseIdentifiable(seasonalPopulationModel);
 				if (result == null) result = caseComparable(seasonalPopulationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StandardPackage.EARTH_SCIENCE_POPULATION_INITIALIZER: {
+				EarthSciencePopulationInitializer earthSciencePopulationInitializer = (EarthSciencePopulationInitializer)theEObject;
+				T1 result = caseEarthSciencePopulationInitializer(earthSciencePopulationInitializer);
+				if (result == null) result = casePopulationInitializer(earthSciencePopulationInitializer);
+				if (result == null) result = caseNodeDecorator(earthSciencePopulationInitializer);
+				if (result == null) result = caseModifiable(earthSciencePopulationInitializer);
+				if (result == null) result = caseDecorator(earthSciencePopulationInitializer);
+				if (result == null) result = caseIdentifiable(earthSciencePopulationInitializer);
+				if (result == null) result = caseComparable(earthSciencePopulationInitializer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StandardPackage.YETI_POPULATION_INITIALIZER: {
+				YetiPopulationInitializer yetiPopulationInitializer = (YetiPopulationInitializer)theEObject;
+				T1 result = caseYetiPopulationInitializer(yetiPopulationInitializer);
+				if (result == null) result = caseEarthSciencePopulationInitializer(yetiPopulationInitializer);
+				if (result == null) result = casePopulationInitializer(yetiPopulationInitializer);
+				if (result == null) result = caseNodeDecorator(yetiPopulationInitializer);
+				if (result == null) result = caseModifiable(yetiPopulationInitializer);
+				if (result == null) result = caseDecorator(yetiPopulationInitializer);
+				if (result == null) result = caseIdentifiable(yetiPopulationInitializer);
+				if (result == null) result = caseComparable(yetiPopulationInitializer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -482,6 +508,36 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseSeasonalPopulationModel(SeasonalPopulationModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Earth Science Population Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Earth Science Population Initializer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEarthSciencePopulationInitializer(EarthSciencePopulationInitializer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Yeti Population Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Yeti Population Initializer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseYetiPopulationInitializer(YetiPopulationInitializer object) {
 		return null;
 	}
 

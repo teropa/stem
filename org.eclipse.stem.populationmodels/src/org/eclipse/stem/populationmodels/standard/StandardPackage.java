@@ -1212,13 +1212,22 @@ public interface StandardPackage extends EPackage {
 	int POPULATION_INITIALIZER__TARGET_ISO_KEY = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPULATION_INITIALIZER__POPULATION_IDENTIFIER = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Population Initializer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POPULATION_INITIALIZER_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 1;
+	int POPULATION_INITIALIZER_FEATURE_COUNT = ModelPackage.NODE_DECORATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationInitializerImpl <em>Population Initializer</em>}' class.
@@ -1312,6 +1321,15 @@ public interface StandardPackage extends EPackage {
 	int STANDARD_POPULATION_INITIALIZER__TARGET_ISO_KEY = POPULATION_INITIALIZER__TARGET_ISO_KEY;
 
 	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = POPULATION_INITIALIZER__POPULATION_IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Individuals</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1330,22 +1348,13 @@ public interface StandardPackage extends EPackage {
 	int STANDARD_POPULATION_INITIALIZER__USE_DENSITY = POPULATION_INITIALIZER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = POPULATION_INITIALIZER_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Population Initializer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STANDARD_POPULATION_INITIALIZER_FEATURE_COUNT = POPULATION_INITIALIZER_FEATURE_COUNT + 3;
+	int STANDARD_POPULATION_INITIALIZER_FEATURE_COUNT = POPULATION_INITIALIZER_FEATURE_COUNT + 2;
 
 
 	/**
@@ -1528,6 +1537,225 @@ public interface StandardPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEASONAL_POPULATION_MODEL_FEATURE_COUNT = STANDARD_POPULATION_MODEL_FEATURE_COUNT + 4;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.EarthSciencePopulationInitializerImpl <em>Earth Science Population Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.EarthSciencePopulationInitializerImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getEarthSciencePopulationInitializer()
+	 * @generated
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER = 15;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__URI = POPULATION_INITIALIZER__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__TYPE_URI = POPULATION_INITIALIZER__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__DUBLIN_CORE = POPULATION_INITIALIZER__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__LABELS_TO_UPDATE = POPULATION_INITIALIZER__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__GRAPH = POPULATION_INITIALIZER__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__ENABLED = POPULATION_INITIALIZER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__GRAPH_DECORATED = POPULATION_INITIALIZER__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__PROGRESS = POPULATION_INITIALIZER__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__TARGET_ISO_KEY = POPULATION_INITIALIZER__TARGET_ISO_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = POPULATION_INITIALIZER__POPULATION_IDENTIFIER;
+
+	/**
+	 * The number of structural features of the '<em>Earth Science Population Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EARTH_SCIENCE_POPULATION_INITIALIZER_FEATURE_COUNT = POPULATION_INITIALIZER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.YetiPopulationInitializerImpl <em>Yeti Population Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.YetiPopulationInitializerImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getYetiPopulationInitializer()
+	 * @generated
+	 */
+	int YETI_POPULATION_INITIALIZER = 16;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__URI = EARTH_SCIENCE_POPULATION_INITIALIZER__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__TYPE_URI = EARTH_SCIENCE_POPULATION_INITIALIZER__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__DUBLIN_CORE = EARTH_SCIENCE_POPULATION_INITIALIZER__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__LABELS_TO_UPDATE = EARTH_SCIENCE_POPULATION_INITIALIZER__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__GRAPH = EARTH_SCIENCE_POPULATION_INITIALIZER__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__ENABLED = EARTH_SCIENCE_POPULATION_INITIALIZER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__GRAPH_DECORATED = EARTH_SCIENCE_POPULATION_INITIALIZER__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__PROGRESS = EARTH_SCIENCE_POPULATION_INITIALIZER__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__TARGET_ISO_KEY = EARTH_SCIENCE_POPULATION_INITIALIZER__TARGET_ISO_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = EARTH_SCIENCE_POPULATION_INITIALIZER__POPULATION_IDENTIFIER;
+
+	/**
+	 * The number of structural features of the '<em>Yeti Population Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YETI_POPULATION_INITIALIZER_FEATURE_COUNT = EARTH_SCIENCE_POPULATION_INITIALIZER_FEATURE_COUNT + 0;
 
 
 	/**
@@ -1917,6 +2145,17 @@ public interface StandardPackage extends EPackage {
 	EAttribute getPopulationInitializer_TargetISOKey();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.PopulationInitializer#getPopulationIdentifier <em>Population Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Population Identifier</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.PopulationInitializer#getPopulationIdentifier()
+	 * @see #getPopulationInitializer()
+	 * @generated
+	 */
+	EAttribute getPopulationInitializer_PopulationIdentifier();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer <em>Population Initializer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1947,17 +2186,6 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStandardPopulationInitializer_UseDensity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getPopulationIdentifier <em>Population Identifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Population Identifier</em>'.
-	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer#getPopulationIdentifier()
-	 * @see #getStandardPopulationInitializer()
-	 * @generated
-	 */
-	EAttribute getStandardPopulationInitializer_PopulationIdentifier();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel <em>Seasonal Population Model</em>}'.
@@ -2012,6 +2240,26 @@ public interface StandardPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSeasonalPopulationModel_UseLatitude();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.EarthSciencePopulationInitializer <em>Earth Science Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Earth Science Population Initializer</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.EarthSciencePopulationInitializer
+	 * @generated
+	 */
+	EClass getEarthSciencePopulationInitializer();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.YetiPopulationInitializer <em>Yeti Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Yeti Population Initializer</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.YetiPopulationInitializer
+	 * @generated
+	 */
+	EClass getYetiPopulationInitializer();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2350,6 +2598,14 @@ public interface StandardPackage extends EPackage {
 		EAttribute POPULATION_INITIALIZER__TARGET_ISO_KEY = eINSTANCE.getPopulationInitializer_TargetISOKey();
 
 		/**
+		 * The meta object literal for the '<em><b>Population Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPULATION_INITIALIZER__POPULATION_IDENTIFIER = eINSTANCE.getPopulationInitializer_PopulationIdentifier();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.StandardPopulationInitializerImpl <em>Population Initializer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2374,14 +2630,6 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STANDARD_POPULATION_INITIALIZER__USE_DENSITY = eINSTANCE.getStandardPopulationInitializer_UseDensity();
-
-		/**
-		 * The meta object literal for the '<em><b>Population Identifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER = eINSTANCE.getStandardPopulationInitializer_PopulationIdentifier();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.SeasonalPopulationModelImpl <em>Seasonal Population Model</em>}' class.
@@ -2424,6 +2672,26 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SEASONAL_POPULATION_MODEL__USE_LATITUDE = eINSTANCE.getSeasonalPopulationModel_UseLatitude();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.EarthSciencePopulationInitializerImpl <em>Earth Science Population Initializer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.EarthSciencePopulationInitializerImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getEarthSciencePopulationInitializer()
+		 * @generated
+		 */
+		EClass EARTH_SCIENCE_POPULATION_INITIALIZER = eINSTANCE.getEarthSciencePopulationInitializer();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.YetiPopulationInitializerImpl <em>Yeti Population Initializer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.YetiPopulationInitializerImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getYetiPopulationInitializer()
+		 * @generated
+		 */
+		EClass YETI_POPULATION_INITIALIZER = eINSTANCE.getYetiPopulationInitializer();
 
 	}
 

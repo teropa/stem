@@ -28,6 +28,7 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
+import org.eclipse.stem.populationmodels.standard.*;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
@@ -158,6 +159,14 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSeasonalPopulationModel(SeasonalPopulationModel object) {
 				return createSeasonalPopulationModelAdapter();
+			}
+			@Override
+			public Adapter caseEarthSciencePopulationInitializer(EarthSciencePopulationInitializer object) {
+				return createEarthSciencePopulationInitializerAdapter();
+			}
+			@Override
+			public Adapter caseYetiPopulationInitializer(YetiPopulationInitializer object) {
+				return createYetiPopulationInitializerAdapter();
 			}
 			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
@@ -430,6 +439,34 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSeasonalPopulationModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.EarthSciencePopulationInitializer <em>Earth Science Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.EarthSciencePopulationInitializer
+	 * @generated
+	 */
+	public Adapter createEarthSciencePopulationInitializerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.YetiPopulationInitializer <em>Yeti Population Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.YetiPopulationInitializer
+	 * @generated
+	 */
+	public Adapter createYetiPopulationInitializerAdapter() {
 		return null;
 	}
 

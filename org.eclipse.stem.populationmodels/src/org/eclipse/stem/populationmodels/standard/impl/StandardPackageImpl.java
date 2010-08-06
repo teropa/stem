@@ -27,6 +27,7 @@ import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.EarthSciencePopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
@@ -40,6 +41,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StochasticStandardPopulationModel;
+import org.eclipse.stem.populationmodels.standard.YetiPopulationInitializer;
 
 /**
  * <!-- begin-user-doc -->
@@ -152,6 +154,20 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass seasonalPopulationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass earthSciencePopulationInitializerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yetiPopulationInitializerEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -546,6 +562,15 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPopulationInitializer_PopulationIdentifier() {
+		return (EAttribute)populationInitializerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStandardPopulationInitializer() {
 		return standardPopulationInitializerEClass;
 	}
@@ -566,15 +591,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EAttribute getStandardPopulationInitializer_UseDensity() {
 		return (EAttribute)standardPopulationInitializerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStandardPopulationInitializer_PopulationIdentifier() {
-		return (EAttribute)standardPopulationInitializerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -620,6 +636,24 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EAttribute getSeasonalPopulationModel_UseLatitude() {
 		return (EAttribute)seasonalPopulationModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEarthSciencePopulationInitializer() {
+		return earthSciencePopulationInitializerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYetiPopulationInitializer() {
+		return yetiPopulationInitializerEClass;
 	}
 
 	/**
@@ -698,17 +732,21 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		populationInitializerEClass = createEClass(POPULATION_INITIALIZER);
 		createEAttribute(populationInitializerEClass, POPULATION_INITIALIZER__TARGET_ISO_KEY);
+		createEAttribute(populationInitializerEClass, POPULATION_INITIALIZER__POPULATION_IDENTIFIER);
 
 		standardPopulationInitializerEClass = createEClass(STANDARD_POPULATION_INITIALIZER);
 		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__INDIVIDUALS);
 		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__USE_DENSITY);
-		createEAttribute(standardPopulationInitializerEClass, STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER);
 
 		seasonalPopulationModelEClass = createEClass(SEASONAL_POPULATION_MODEL);
 		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__PHASE);
 		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE);
 		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__PERIOD);
 		createEAttribute(seasonalPopulationModelEClass, SEASONAL_POPULATION_MODEL__USE_LATITUDE);
+
+		earthSciencePopulationInitializerEClass = createEClass(EARTH_SCIENCE_POPULATION_INITIALIZER);
+
+		yetiPopulationInitializerEClass = createEClass(YETI_POPULATION_INITIALIZER);
 	}
 
 	/**
@@ -762,6 +800,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		populationInitializerEClass.getESuperTypes().add(theModifierPackage.getModifiable());
 		standardPopulationInitializerEClass.getESuperTypes().add(this.getPopulationInitializer());
 		seasonalPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
+		earthSciencePopulationInitializerEClass.getESuperTypes().add(this.getPopulationInitializer());
+		yetiPopulationInitializerEClass.getESuperTypes().add(this.getEarthSciencePopulationInitializer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(populationModelEClass, PopulationModel.class, "PopulationModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -813,19 +853,23 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getPopulationGroup_Identifier(), theEcorePackage.getEString(), "identifier", null, 0, 1, PopulationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPopulationGroup_Fraction(), theEcorePackage.getEDouble(), "fraction", "0.5", 0, 1, PopulationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(populationInitializerEClass, PopulationInitializer.class, "PopulationInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(populationInitializerEClass, PopulationInitializer.class, "PopulationInitializer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPopulationInitializer_TargetISOKey(), theEcorePackage.getEString(), "targetISOKey", null, 0, 1, PopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPopulationInitializer_PopulationIdentifier(), theEcorePackage.getEString(), "populationIdentifier", "human", 0, 1, PopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(standardPopulationInitializerEClass, StandardPopulationInitializer.class, "StandardPopulationInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStandardPopulationInitializer_Individuals(), theEcorePackage.getEDouble(), "individuals", "1", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStandardPopulationInitializer_UseDensity(), theEcorePackage.getEBoolean(), "useDensity", "false", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStandardPopulationInitializer_PopulationIdentifier(), theEcorePackage.getEString(), "populationIdentifier", "human", 0, 1, StandardPopulationInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(seasonalPopulationModelEClass, SeasonalPopulationModel.class, "SeasonalPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSeasonalPopulationModel_Phase(), theEcorePackage.getEDouble(), "phase", "0.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeasonalPopulationModel_ModulationAmplitude(), theEcorePackage.getEDouble(), "modulationAmplitude", "1.0", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeasonalPopulationModel_Period(), theEcorePackage.getEDouble(), "period", "365.25", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeasonalPopulationModel_UseLatitude(), theEcorePackage.getEBoolean(), "useLatitude", "true", 0, 1, SeasonalPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(earthSciencePopulationInitializerEClass, EarthSciencePopulationInitializer.class, "EarthSciencePopulationInitializer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yetiPopulationInitializerEClass, YetiPopulationInitializer.class, "YetiPopulationInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

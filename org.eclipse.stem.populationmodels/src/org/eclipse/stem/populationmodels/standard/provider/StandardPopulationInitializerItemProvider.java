@@ -67,7 +67,6 @@ public class StandardPopulationInitializerItemProvider
 
 			addIndividualsPropertyDescriptor(object);
 			addUseDensityPropertyDescriptor(object);
-			addPopulationIdentifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,28 +111,6 @@ public class StandardPopulationInitializerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Population Identifier feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPopulationIdentifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StandardPopulationInitializer_populationIdentifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StandardPopulationInitializer_populationIdentifier_feature", "_UI_StandardPopulationInitializer_type"),
-				 StandardPackage.Literals.STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -192,7 +169,6 @@ public class StandardPopulationInitializerItemProvider
 		switch (notification.getFeatureID(StandardPopulationInitializer.class)) {
 			case StandardPackage.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS:
 			case StandardPackage.STANDARD_POPULATION_INITIALIZER__USE_DENSITY:
-			case StandardPackage.STANDARD_POPULATION_INITIALIZER__POPULATION_IDENTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

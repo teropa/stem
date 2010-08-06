@@ -263,29 +263,6 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.populationmodels.standard.PopulationInitializer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PopulationInitializerItemProvider populationInitializerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.stem.populationmodels.standard.PopulationInitializer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPopulationInitializerAdapter() {
-		if (populationInitializerItemProvider == null) {
-			populationInitializerItemProvider = new PopulationInitializerItemProvider(this);
-		}
-
-		return populationInitializerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,6 +306,29 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 		}
 
 		return seasonalPopulationModelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.stem.populationmodels.standard.YetiPopulationInitializer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected YetiPopulationInitializerItemProvider yetiPopulationInitializerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.stem.populationmodels.standard.YetiPopulationInitializer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createYetiPopulationInitializerAdapter() {
+		if (yetiPopulationInitializerItemProvider == null) {
+			yetiPopulationInitializerItemProvider = new YetiPopulationInitializerItemProvider(this);
+		}
+
+		return yetiPopulationInitializerItemProvider;
 	}
 
 	/**
@@ -438,9 +438,9 @@ public class StandardItemProviderAdapterFactory extends StandardAdapterFactory i
 		if (stochasticStandardPopulationModelItemProvider != null) stochasticStandardPopulationModelItemProvider.dispose();
 		if (demographicPopulationModelItemProvider != null) demographicPopulationModelItemProvider.dispose();
 		if (populationGroupItemProvider != null) populationGroupItemProvider.dispose();
-		if (populationInitializerItemProvider != null) populationInitializerItemProvider.dispose();
 		if (standardPopulationInitializerItemProvider != null) standardPopulationInitializerItemProvider.dispose();
 		if (seasonalPopulationModelItemProvider != null) seasonalPopulationModelItemProvider.dispose();
+		if (yetiPopulationInitializerItemProvider != null) yetiPopulationInitializerItemProvider.dispose();
 	}
 
 }

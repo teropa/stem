@@ -396,13 +396,13 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer();
 		result.append(" (count: ");
 		result.append(count);
 		result.append(", incidence: ");
