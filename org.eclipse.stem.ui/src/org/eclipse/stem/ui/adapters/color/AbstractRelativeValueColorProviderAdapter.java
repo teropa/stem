@@ -64,9 +64,15 @@ public abstract class AbstractRelativeValueColorProviderAdapter extends ColorPro
 	 */
 	protected Color zero_FillColor;
 	/**
-	 * Holds the default foreground {@link Color} (the base color for AlphaComposite)
+	 * Holds the current foreground {@link Color} (the base color for AlphaComposite)
 	 */
 	protected Color foregroundFillColor;	
+	
+	/**
+	 * Holds the current alpha value {@link Color} (for AlphaComposite)
+	 * default is 255
+	 */
+	protected int alpha=255;	
 	
 	/**
 	 * Holds the default background {@link Color} (the base color for AlphaComposite)
@@ -232,5 +238,30 @@ public abstract class AbstractRelativeValueColorProviderAdapter extends ColorPro
 			rvp.setTarget(target);
 		}
 	} // setRVPTarget
+	
+	
+	/**
+	 * 
+	 * @return the current fill color
+	 */
+	public Color getBackgroundFillColor() {
+		return backgroundFillColor;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public Color getForegroundFillColor() {
+		return foregroundFillColor;
+	}
+
+	/**
+	 * 
+	 * @return the current alpha
+	 */
+	public int getAlpha() {
+		return alpha;
+	}
 	
 } // AbstractRelativeValueColorProviderAdapter
