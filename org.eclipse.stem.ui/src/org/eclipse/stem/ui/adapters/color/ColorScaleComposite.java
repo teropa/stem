@@ -100,7 +100,6 @@ public class ColorScaleComposite extends Composite {
 		this.pack();
 		this.setVisible(true);
 		
-		System.out.println("size = "+colorScale.getSize().x+", "+colorScale.getSize().y);
 	}
 
 	/**
