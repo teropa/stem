@@ -11,20 +11,16 @@ package org.eclipse.stem.ui.adapters.color;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.awt.FlowLayout;
+import java.text.DecimalFormat;
 
-import org.eclipse.core.runtime.Preferences;
-import org.eclipse.jface.resource.StringConverter;
-import org.eclipse.stem.ui.Activator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -34,30 +30,40 @@ import org.eclipse.swt.widgets.Label;
  */
 public class ColorScaleComposite extends Composite {
 
-	Composite parent;
 	Group scaleGroup = new Group(this, SWT.NONE);
 	CLabel colorScale;
-	CLabel[] valueScale = new CLabel[5]; // 5 values;
 	
-	AbstractRelativeValueColorProviderAdapter colorProviderAdapter;
+	static final int NUM_AXIS_LABELS = 5;
+	Label[] valueScale = new Label[NUM_AXIS_LABELS]; // 5 values;
+	static final int SCALE_HEIGHT=20;
+	static final int SCALE_WIDTH=100;
+	DecimalFormat bigFormat = new DecimalFormat("#0.0");
+	DecimalFormat sciFormat = new DecimalFormat("0.#E0");
 	
-
 	boolean useLogScale = false;
-	double scaleFactor = 1.0;
 	
-
+	static final int NUM_STEPS=5;
+	
 	/**
+	 * 
 	 * @param parent
+	 * @param saturatedColor
+	 * @param axis
+	 * @param logScale
 	 * @param style
+	 * @param backGround
+	 * @param textColor
 	 */
-	public ColorScaleComposite(final Composite parent, AbstractRelativeValueColorProviderAdapter colorProviderAdapter, final int style) {
+	public ColorScaleComposite(final Composite parent, Color saturatedColor, double[] axis, boolean logScale, final int style, Color backGround, Color textColor) {
 		super(parent, style);
-		this.parent = parent;
 		scaleGroup.setText("Scale");
 		final FormLayout scaleLayout = new FormLayout();
 		scaleGroup.setLayout(scaleLayout);
 		
 		colorScale = new CLabel(scaleGroup, SWT.LEFT);
+		
+		colorScale.setBackground(backGround);
+		colorScale.setForeground(textColor);
 		colorScale.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		final FormData scaleData = new FormData();
 		scaleData.top = new FormAttachment(0, 0);
@@ -65,25 +71,27 @@ public class ColorScaleComposite extends Composite {
 		scaleData.left = new FormAttachment(0, 0);
 		scaleData.right = new FormAttachment(100, 0);
 		colorScale.setLayoutData(scaleData);
+		//Point sSize = new Point(SCALE_WIDTH, SCALE_HEIGHT);
+		//colorScale.setSize(sSize);
 		
-		updateColorScale();
 		  
 	    int leftMargin = 0;
-	   
-	    for (int i = 0; i < 5; i ++) {
-	    	valueScale[i] = new CLabel(scaleGroup, SWT.LEFT);
+	    int step = 100/NUM_AXIS_LABELS;
+	    for (int i = 0; i < NUM_AXIS_LABELS; i ++) {
+	    	valueScale[i] = new Label(scaleGroup, SWT.LEFT);
 	    	final FormData valueData = new FormData();
 			valueData.top = new FormAttachment(50, 0);
 			valueData.bottom = new FormAttachment(100, 0);
 			valueData.left = new FormAttachment(leftMargin, 0);
-			valueData.right = new FormAttachment(leftMargin+20, 0);
+			valueData.right = new FormAttachment(leftMargin+step, 0);
 			valueScale[i].setLayoutData(valueData);
-			valueScale[i].setText(""+i); // TESTING
-	    	leftMargin += 20;
+			valueScale[i].setText(" "); // TESTING
+			leftMargin += step;
+			valueScale[i].setBackground(backGround);
+			valueScale[i].setForeground(textColor);
 	    }
-		
-		
-
+	    
+	    updateColorScale(saturatedColor, axis, logScale, backGround, textColor);
 		
 		scaleGroup.setVisible(true);
 		scaleGroup.pack();
@@ -91,48 +99,76 @@ public class ColorScaleComposite extends Composite {
 		this.layout();
 		this.pack();
 		this.setVisible(true);
+		
+		System.out.println("size = "+colorScale.getSize().x+", "+colorScale.getSize().y);
 	}
 
 	/**
 	 * 
+	 * @param saturatedColor
+	 * @param axis
+	 * @param logScale
+	 * @param textBackGround
+	 * @param textForeground
 	 */
-    public void updateColorScale() {
-    	if(colorProviderAdapter==null) {
-    		System.out.println("I'm null :-(");
-    		return;
-    	}
-    	// if not log scaling
-    	double v0 = 0;
-    	double v1 = 0.25/scaleFactor;
-    	double v2 = 0.5/scaleFactor;
-    	double v3 =0.75/scaleFactor;
-    	double v4 =1.0/scaleFactor;
-    	if(useLogScale) {
-    		// code goes here for log
-    	}
+    public void updateColorScale(Color saturatedColor, double[] axis, boolean logScale, Color textBackGround, Color textForeground) {
     	
-    	Color c1 = colorProviderAdapter.getColorForRelativeValue(v0);
-    	Color c2 = colorProviderAdapter.getColorForRelativeValue(v1);
-    	Color c3 = colorProviderAdapter.getColorForRelativeValue(v2);
-    	Color c4 = colorProviderAdapter.getColorForRelativeValue(v3);
-    	Color c5 = colorProviderAdapter.getColorForRelativeValue(v4);
+    	Color[] scaleColors = new Color[5];
+    	
+    	int size = NUM_STEPS-1;
+    	
+    	double r = saturatedColor.getRed();
+		double g = saturatedColor.getGreen();
+		double b = saturatedColor.getBlue();
+				
+		// TODO this is IF LINEAR
+		for(int i = 0; i < 5; i ++) {
+			double alphaF = ((double) i)/4.0; // this is 0=>1 not 0-255
+			int ir = (int) (alphaF*r);
+			int ig = (int) (alphaF*g);
+			int ib = (int) (alphaF*b);
+			scaleColors[i] = new Color(getDisplay(), ir,ig,ib);
+		}
+    	
+    	int[] spacing = new int[size];
+    	if(size<=0) size = 1;
+    	int delta = 100/size;
+    	for(int i = 0; i < size; i ++) {
+    		spacing[i] = delta*(i+1);
+    	}
     	
     	// Set the background gradient
-	    colorScale.setBackground(new Color[] {
-		        c1,c2,c3,c4,c5}, new int[] { 25, 50, 75, 100});
-    }
+	    colorScale.setBackground(scaleColors, spacing);
+	    
+	    for (int i = 0; i < NUM_AXIS_LABELS; i ++) {
+			valueScale[i].setBackground(textBackGround);
+			valueScale[i].setForeground(textForeground);
+	    }
+	    
+	    int last = NUM_AXIS_LABELS-1;
+	    valueScale[0].setAlignment(SWT.RIGHT);
+	    valueScale[last].setAlignment(SWT.LEFT);
+	    
+	    if(axis[1]==1.0) {
+	    	valueScale[last].setText("1.0");
+	    } else {
+	    	valueScale[last].setText(""+sciFormat.format(axis[1]));
+	    }
+	    
+	    
+	    if(logScale) {
+	    	//double gain = 1.0/axis[1]; // the gain
+	    	// TODO CHECK THIS CODE
+	    	double min = (Math.exp(2) -1.0) / (axis[1]*100.0);   // this is the min
+	    	valueScale[0].setText("< "+sciFormat.format(min));
+	    } else {
+	    	valueScale[0].setText(""+axis[0]);
+	    }
+	    
+	    
+	    
+    }// updateColorScale
 	
-	public ColorProviderAdapter getColorProviderAdapter() {
-		return colorProviderAdapter;
-	}
-
-
-
-	public void setColorProviderAdapter(AbstractRelativeValueColorProviderAdapter colorProviderAdapter) {
-		this.colorProviderAdapter = colorProviderAdapter;
-	}
-
-
 
 	public boolean isUseLogScale() {
 		return useLogScale;
