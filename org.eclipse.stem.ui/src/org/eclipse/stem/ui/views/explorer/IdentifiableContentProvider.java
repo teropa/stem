@@ -371,6 +371,7 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 	
 	private boolean checkScenarioDecorators(Scenario scenario, URI modifiedURI) {
 		Model m = scenario.getModel();
+		if(m == null) return false;
 		boolean modified =  checkModelDecorators(m, modifiedURI);
 		if(modified) return true;
 		// Check scenario decorator
