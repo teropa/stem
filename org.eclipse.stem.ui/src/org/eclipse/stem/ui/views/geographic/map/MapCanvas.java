@@ -31,7 +31,9 @@ import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.data.geography.GeographicNames;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
+import org.eclipse.stem.ui.adapters.color.AbstractRelativeValueColorProviderAdapter;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapter;
+import org.eclipse.stem.ui.adapters.color.ColorScaleComposite;
 import org.eclipse.stem.ui.adapters.color.StandardColorProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
@@ -90,6 +92,7 @@ public class MapCanvas
 	boolean leftMouseButtonPressed = false;
 	int lastOffsetX;
 	int lastOffsetY;
+	ColorScaleComposite colorScale = null;
 
 	private ISelection selection;
 	/**
@@ -236,6 +239,8 @@ public class MapCanvas
 		drawBackground(gc, x, y, width, height);
 		gc.setLineWidth(0); //Zero means the fastest possible line drawing algorithm
 		
+	
+		
 		if (polygonsToRender == null || polygonsToRender.isEmpty()) {
 			return;
 		}
@@ -252,7 +257,7 @@ public class MapCanvas
 		}
 		
 		Color bordersColor = stdColorProvider.getBordersColor();
-
+		
 		for (final StemPolygon stempoly : polygonsToRender) {
 			
 			Identifiable identifiable = stempoly.getIdentifiable();
@@ -263,7 +268,7 @@ public class MapCanvas
 				//Update the G2D with the appropriate color before filling the polygon
 				colorProvider.updateGC(gc, gainFactor, useLogScaling);
 				gc.fillPolygon(stempoly.transformedPoints);
-	
+					
 				if (drawPolygonBorders) {
 					gc.setForeground(bordersColor);
 					gc.setAlpha(255);
@@ -284,9 +289,31 @@ public class MapCanvas
 						stempoly.transformedPoints[3]);
 			}
 		} // for each StemPolygon
-
+		
+//		if(colorProvider instanceof AbstractRelativeValueColorProviderAdapter) {
+//			AbstractRelativeValueColorProviderAdapter c = (AbstractRelativeValueColorProviderAdapter) colorProvider;
+//			drawColorScale(c);
+//		}
+		
 		gc.setForeground(getDisplay().getSystemColor(SWT.COLOR_BLACK));
 	} // draw
+	
+	
+	
+	/**
+	 * 
+	 * @param adapter
+	 */
+	private void drawColorScale(AbstractRelativeValueColorProviderAdapter adapter) {
+		Color saturatedColor = adapter.getForegroundFillColor(); // to transparent color over the background
+		Color textColor = saturatedColor; // text
+		Color backGround = adapter.getBackgroundFillColor(); // textBackground
+		
+		if (colorScale == null) {
+			colorScale = new ColorScaleComposite(this, saturatedColor, new double[]{0.0, 1.0/gainFactor}, useLogScaling, SWT.BORDER, backGround, textColor);
+		}
+		colorScale.updateColorScale(saturatedColor, new double[]{0.0, 1.0/gainFactor},useLogScaling, backGround, textColor);
+	}
 
 	/**
 	 * @param polygonList
@@ -640,6 +667,11 @@ public class MapCanvas
 	 */
 	public void setColorProvider(ColorProviderAdapter colorProvider) {
 		this.colorProvider = colorProvider;
+		
+//		if(colorProvider instanceof AbstractRelativeValueColorProviderAdapter) {
+//			AbstractRelativeValueColorProviderAdapter c = (AbstractRelativeValueColorProviderAdapter) colorProvider;
+//			drawColorScale(c);
+//		}
 	}
 
 	/**
