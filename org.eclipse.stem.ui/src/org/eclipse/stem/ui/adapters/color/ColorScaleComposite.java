@@ -144,8 +144,8 @@ public class ColorScaleComposite extends Composite {
 	    }
 	    
 	    int last = NUM_AXIS_LABELS-1;
-	    valueScale[0].setAlignment(SWT.RIGHT);
-	    valueScale[last].setAlignment(SWT.LEFT);
+	    //valueScale[0].setAlignment(SWT.RIGHT);
+	    valueScale[last].setAlignment(SWT.RIGHT);
 	    
 	    if(axis[1]==1.0) {
 	    	valueScale[last].setText("1.0");
@@ -157,7 +157,11 @@ public class ColorScaleComposite extends Composite {
 	    if(logScale) {
 	    	//double gain = 1.0/axis[1]; // the gain
 	    	// TODO CHECK THIS CODE
-	    	double min = (Math.exp(2) -1.0) / (axis[1]*100.0);   // this is the min
+	    	/**
+	    	 * @see org.eclipse.stem.ui.adapters.color.IntensityColorsLabelsMappingColorProviderAdapter.performLogScaling()
+	    	 */
+	    	//double min = (Math.exp(2) -1.0) / (axis[1]*99.0);   // this is the min
+	    	double min = 0.01 * axis[1];   // really the min is just 1% of max
 	    	valueScale[0].setText("< "+sciFormat.format(min));
 	    } else {
 	    	valueScale[0].setText(""+axis[0]);
