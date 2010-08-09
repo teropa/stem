@@ -16,7 +16,6 @@ import java.text.DecimalFormat;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -37,7 +36,7 @@ public class ColorScaleComposite extends Composite {
 	Label[] valueScale = new Label[NUM_AXIS_LABELS]; // 5 values;
 	static final int SCALE_HEIGHT=20;
 	static final int SCALE_WIDTH=100;
-	DecimalFormat bigFormat = new DecimalFormat("#0.0");
+	//DecimalFormat bigFormat = new DecimalFormat("#0.0");
 	DecimalFormat sciFormat = new DecimalFormat("0.#E0");
 	
 	boolean useLogScale = false;
