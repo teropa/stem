@@ -176,8 +176,8 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 					if(l instanceof IntegrationLabel) {
 						IntegrationLabel il = (IntegrationLabel)l;
 						il.reset(time);
-						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getArrivals() != null ||
-								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getDepartures() != null)
+						if(((SimpleDataExchangeLabelValue)il.getDeltaValue()).getArrivals().size() > 0 ||
+								((SimpleDataExchangeLabelValue)il.getDeltaValue()).getDepartures().size() > 0)
 							redo = true;
 					}
 				}
