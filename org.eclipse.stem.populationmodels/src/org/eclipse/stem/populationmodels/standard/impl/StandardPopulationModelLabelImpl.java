@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
@@ -461,10 +462,14 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 		// Store the additions/substractions in the delta value so that disease models can
 		// adjust their counts
 		double popdiff = newPopulation - currentPopulation;
-		if(popdiff > 0.0)
-			(this.getDeltaValue()).setBirths(popdiff);
-		else
+		if(popdiff > 0.0) {
+			((SimpleDataExchangeLabelValue)this.getDeltaValue()).getArrivals().put(this.getNode(), popdiff);
+			this.getDeltaValue().setBirths(popdiff);
+		}
+		else {
+			((SimpleDataExchangeLabelValue)this.getDeltaValue()).getDepartures().put(this.getNode(), -popdiff);
 			(this.getDeltaValue()).setDeaths(-popdiff);
+		}
 	}
 
 	/**

@@ -398,23 +398,29 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 					
 					if(arrivals != null) 
 						for(Node n2:arrivals.keySet()) 
-							if(n2.equals(n)) // Only the local node makes sense for disease models
+							if(n2.equals(n)) {
+								// Only the local node makes sense for disease models
 								myDelta.setCount(myDelta.getCount()+arrivals.get(n2));
+								myDelta.setBirths(myDelta.getBirths()+arrivals.get(n2));
+							}
 					
 					// Departures are deaths 
 					if(departures != null) 
 						for(Node n2:departures.keySet()) 
-							if(n2.equals(n)) // Only the local node makes sense for disease models
+							if(n2.equals(n)) {// Only the local node makes sense for disease models
 								myDelta.setCount(myDelta.getCount() - departures.get(n2));
+								myDelta.setDeaths(myDelta.getDeaths()+departures.get(n2));
+							}
 				}
 			}
 
 		}
 	}
 	
-
+	
 	protected void handleMigration(StandardPopulationModelLabelImpl label, Map<Node, Double>arrivals,Map<Node, Double>departures, long timeperiod, long timeDelta, StandardPopulationModelLabelValueImpl delta) {
 		Node n = (Node)label.getIdentifiable();
+		
 		for(Edge e:n.getEdges()) {
 			if(e instanceof MigrationEdge) {
 				MigrationEdge me = (MigrationEdge)e;
@@ -424,10 +430,12 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 				Node source = me.getA();
 				Node dest = me.getB();
 				
+			
+				
 				boolean leaving = source.equals(n);
 				double rate = me.getLabel().getCurrentValue().getMigrationRate();				
 				if(leaving) {
-					StandardPopulationModelLabelValue val = ((StandardPopulationModelLabelValue) label.getProbeValue());
+					StandardPopulationModelLabelValue val = ((StandardPopulationModelLabelValue) label.getTempValue()); // Should be probe value
 					double count = val.getCount();
 					double goodbye = count*rate*(double)timeDelta/(double)timePeriod; // rescale and adjust
 					delta.setCount(delta.getCount()-goodbye);
@@ -452,7 +460,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 				}
 			}
 		}
-		
 	}
 	
 	protected void handlePipeTransport(StandardPopulationModelLabelImpl populationLabel, Map<Node, Double>arrivals,Map<Node, Double>departures, long timeDelta, StandardPopulationModelLabelValueImpl delta) {
@@ -483,7 +490,8 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 						double maxFlow = edgeLabelValue.getMaxFlow();
 						double flow = maxFlow;
 						double popCount = ((StandardPopulationModelLabelValue)otherLabel.getTempValue()).getCount();
-						if(flow > popCount) flow = popCount; // don't move more people than available.
+						if(flow > popCount) 
+							flow = popCount; // don't move more people than available.
 						long timePeriod = edgeLabelValue.getTimePeriod();
 						double factor = flow / popCount;
 						
@@ -513,7 +521,8 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 						double maxFlow = edgeLabelValue.getMaxFlow();
 						double popCount = ((StandardPopulationModelLabelValue)thisLabel.getTempValue()).getCount();
 						double flow = maxFlow;
-						if(flow > popCount) flow = popCount;
+						if(flow > popCount) 
+							flow = popCount;
 						long timePeriod = edgeLabelValue.getTimePeriod();
 						double factor = flow / popCount;
 						factor = factor * timeDelta / timePeriod;

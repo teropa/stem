@@ -12,6 +12,7 @@ package org.eclipse.stem.populationmodels.standard.impl;
  *******************************************************************************/
 
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -266,13 +267,40 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 */
 	public boolean adjustDelta(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue sval = (StandardPopulationModelLabelValue)value;
-		if(sval.getCount() + this.getCount() < 0.0) {
-			double newCount = -sval.getCount();
-			setCount(newCount);
-			// ToDo: We need to adjust birth/deaths/arrivals/departures to match the new delta
-			return true;
+		boolean adjusted = false;
+		double newCount = this.getCount() + sval.getCount();
+		double newBirths = this.getBirths() + sval.getBirths();
+		double newDeaths = this.getDeaths() + sval.getDeaths();
+		
+		double factor = 1.0;
+		if(newCount < newBirths && newCount < newDeaths && newCount < 0.0) {
+			// Scale using S
+			adjusted = true;
+			factor = -sval.getCount()/this.getCount();
+		} else if(newBirths < newDeaths && newBirths < 0.0) {
+			// Scale using R
+			adjusted = true;
+			factor = -sval.getBirths()/this.getBirths();
+		} else if (newDeaths < 0) {
+			// Scale using R
+			adjusted = true;
+			factor = -sval.getDeaths()/this.getDeaths();
 		}
-		return false;
+		if(adjusted) this.scale(factor);
+		// Due to precision limitations it is still possible the number if tiny negative. Adjust if necessary
+		newCount = this.getCount() + sval.getCount();
+		newBirths = this.getBirths() + sval.getBirths();
+		newDeaths = this.getDeaths() + sval.getDeaths();
+		
+		if(newCount<0)
+			this.setCount(-sval.getCount());
+		if(newBirths<0)
+			this.setBirths(-sval.getBirths());
+		if(newDeaths<0)
+			this.setDeaths(-sval.getDeaths());
+		
+		return adjusted;
+
 	}
 
 	private Map<Node, Double>arrivals;
@@ -283,6 +311,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated NOT
 	 */
 	public Map<Node, Double> getArrivals() {
+		if(arrivals == null) arrivals = new HashMap<Node, Double>();
 		return arrivals;
 	}
 
@@ -291,6 +320,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated NOT
 	 */
 	public Map<Node, Double> getDepartures() {
+		if(departures == null) departures = new HashMap<Node, Double>();
 		return departures;
 	}
 
@@ -424,17 +454,23 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 
 	public IntegrationLabelValue add(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
+		this.births += v.getBirths();
+		this.deaths += v.getDeaths();
 		this.count += v.getCount();
 		return this;
 	}
 
 	public IntegrationLabelValue add(double addition) {
 		this.count += addition;
+		this.births += addition;
+		this.deaths += addition;
 		return this;
 	}
 
 	public IntegrationLabelValue scale(double scaleFactor) {
 		this.count *= scaleFactor;
+		this.births *= scaleFactor;
+		this.deaths *= scaleFactor;
 		return this;
 	}
 
@@ -449,18 +485,28 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 
 	public IntegrationLabelValue sub(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
+		this.births -= v.getBirths();
+		this.deaths -= v.getDeaths();
 		this.count -= v.getCount();
 		return this;
 	}
 
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
-		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)d;
-		this.count /= v.getCount();
+		
+		StandardPopulationModelLabelValue _scale = (StandardPopulationModelLabelValue)d;
+		double cScaled = Math.abs(count) / Math.abs(_scale.getCount());
+		double bScaled = Math.abs(births) / Math.abs(_scale.getBirths());
+		double dScaled = Math.abs(deaths) / Math.abs(_scale.getDeaths());
+		setCount(cScaled);
+		setBirths(bScaled);
+		setDeaths(dScaled);
 		return this;
 	}
 	
 	public double max() {
-		return count;
+		if(count > births && count > deaths) return count;
+		else if(births > deaths) return births;
+		else return deaths;
 	}
 	
 	@Override
