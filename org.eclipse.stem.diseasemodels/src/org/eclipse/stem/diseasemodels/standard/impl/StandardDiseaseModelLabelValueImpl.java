@@ -176,6 +176,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	
 		super.add((DiseaseModelLabelValue)value);
 		setS(getS() + ((StandardDiseaseModelLabelValue) value).getS());
+		setDiseaseDeaths(getDiseaseDeaths() + ((StandardDiseaseModelLabelValue) value).getDiseaseDeaths());
 		return this;
 	} // add
 
@@ -186,6 +187,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public DiseaseModelLabelValue sub(IntegrationLabelValue value) {
 		super.sub((DiseaseModelLabelValue)value);
 		setS(getS() - ((StandardDiseaseModelLabelValue) value).getS());
+		setDiseaseDeaths(getDiseaseDeaths() - ((StandardDiseaseModelLabelValue) value).getDiseaseDeaths());
 		return this;
 	} // sub
 	
@@ -193,6 +195,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public DiseaseModelLabelValue scale(double scaleFactor) {
 		super.scale(scaleFactor);
 		setS(getS() *scaleFactor);
+		setDiseaseDeaths(getDiseaseDeaths()*scaleFactor);
 		return this;
 	} // scale
 	

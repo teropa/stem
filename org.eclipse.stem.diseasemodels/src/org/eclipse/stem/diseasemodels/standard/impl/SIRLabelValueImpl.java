@@ -258,18 +258,21 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 		double sScaled = Math.abs(s) / Math.abs(_scale.getS());
 		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
 		double rScaled = Math.abs(r) / Math.abs(_scale.getR());
+		double ddScaled = Math.abs(diseaseDeaths) / Math.abs(_scale.getDiseaseDeaths());
 		setS(sScaled);
 		setI(iScaled);
 		setR(rScaled);
+		setDiseaseDeaths(ddScaled);
 		return this;
 	}
 	
 	public double max() {
 		double max;
-		if(s > i && s > r)
+		if(s > i && s > r && s > diseaseDeaths)
 			max = s;
-		else if(i > r) max = i;
-		else max = r;
+		else if(i > r && i > diseaseDeaths) max = i;
+		else if(r > diseaseDeaths) max = r;
+		else max = diseaseDeaths;
 		return max;  
 	}
 	/**
@@ -285,20 +288,25 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 		double newS = this.getS() + sirValue.getS();
 		double newI = this.getI() + sirValue.getI();
 		double newR = this.getR() + sirValue.getR();
+		double newDD = this.getDiseaseDeaths() + sirValue.getDiseaseDeaths();
 		
 		double factor = 1.0;
-		if(newS < newI && newS < newR && newS < 0.0) {
+		if(newS < newI && newS < newR && newS < newDD && newS < 0.0) {
 			// Scale using S
 			adjusted = true;
 			factor = -sirValue.getS()/this.getS();
-		} else if(newI < newR && newI < 0.0) {
+		} else if(newI < newR && newI < newDD && newI < 0.0) {
 			// Scale using I
 			adjusted = true;
 			factor = -sirValue.getI()/this.getI();
-		} else if(newR < 0.0) {
+		} else if(newR < newDD && newR < 0.0) {
 			// Scale using R
 			adjusted = true;
 			factor = -sirValue.getR()/this.getR();
+		} else if(newDD < 0.0) {
+			// Scale using DD
+			adjusted = true;
+			factor = -sirValue.getDiseaseDeaths()/this.getDiseaseDeaths();
 		}
 		if(adjusted) this.scale(factor);
 		
@@ -307,13 +315,16 @@ public class SIRLabelValueImpl extends SILabelValueImpl implements
 		newS = this.getS() + sirValue.getS();
 		newI = this.getI() + sirValue.getI();
 		newR = this.getR() + sirValue.getR();
-
+		newDD = this.getDiseaseDeaths() + sirValue.getDiseaseDeaths();
+		
 		if(newS<0)
 			this.setS(-sirValue.getS());
 		if(newI<0)
 			this.setI(-sirValue.getI());
 		if(newR<0)
 			this.setR(-sirValue.getR());
+		if(newDD < 0)
+			this.setDiseaseDeaths(-sirValue.getDiseaseDeaths());
 		return adjusted;
 	}
 	/**

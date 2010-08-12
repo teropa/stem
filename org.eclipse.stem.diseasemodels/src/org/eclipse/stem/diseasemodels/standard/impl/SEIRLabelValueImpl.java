@@ -242,20 +242,23 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
 		double rScaled = Math.abs(r) / Math.abs(_scale.getR());
 		double eScaled = Math.abs(e) / Math.abs(_scale.getE());
+		double ddScaled = Math.abs(diseaseDeaths) / Math.abs(_scale.getDiseaseDeaths());
 		setS(sScaled);
 		setI(iScaled);
 		setR(rScaled);
 		setE(eScaled);
+		setDiseaseDeaths(ddScaled);
 		return this;
 	}
 	
 	public double max() {
 		double max;
-		if(s > i && s > r && s > e)
+		if(s > i && s > r && s > e && s > diseaseDeaths)
 			max = s;
-		else if(i > r && i > e) max = i;
-		else if(r > e) max = r;
-		else max = e;
+		else if(i > r && i > e &&  i > diseaseDeaths) max = i;
+		else if(r > e && r >  diseaseDeaths) max = r;
+		else if(e  > diseaseDeaths) max = e;
+		else max = diseaseDeaths;
 		return max;  
 	}
 	
@@ -274,24 +277,29 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 		double newE = this.getE() + seirValue.getE();
 		double newI = this.getI() + seirValue.getI();
 		double newR = this.getR() + seirValue.getR();
-	
+		double newDD = this.getDiseaseDeaths() +seirValue.getDiseaseDeaths();
+		
 		double factor = 1.0;
-		if(newS < newE && newS < newI && newS < newR && newS < 0.0) {
+		if(newS < newE && newS < newI && newS < newR && newS < newDD && newS < 0.0) {
 			// Scale using S
 			adjusted = true;
 			factor = -seirValue.getS()/this.getS();
-		} else if(newE < newI && newE < newR && newE < 0.0) {
+		} else if(newE < newI && newE < newR && newE < newDD && newE < 0.0) {
 			// Scale using E
 			adjusted = true;
 			factor = -seirValue.getE()/this.getE();
-		} else if(newI < newR && newI < 0.0) {
+		} else if(newI < newR && newI < newDD && newI < 0.0) {
 			// Scale using I
 			adjusted = true;
 			factor = -seirValue.getI()/this.getI();
-		} else if(newR < 0.0) {
+		} else if(newR < newDD && newR < 0.0) {
 			// Scale using R
 			adjusted = true;
 			factor = -seirValue.getR()/this.getR();
+		} else if(newDD < 0) {
+			// Scale using R
+			adjusted = true;
+			factor = -seirValue.getDiseaseDeaths()/this.getDiseaseDeaths();			
 		}
 		if(adjusted) this.scale(factor);
 		
@@ -300,7 +308,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 		newE = this.getE() + seirValue.getE();
 		newI = this.getI() + seirValue.getI();
 		newR = this.getR() + seirValue.getR();
-
+		newDD = this.getDiseaseDeaths() + seirValue.getDiseaseDeaths();
 		if(newS<0)
 			this.setS(-seirValue.getS());
 		if(newE<0)
@@ -309,6 +317,8 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 			this.setI(-seirValue.getI());
 		if(newR<0)
 			this.setR(-seirValue.getR());
+		if(newDD < 0)
+			this.setDiseaseDeaths(-seirValue.getDiseaseDeaths());
 		return adjusted;
 	}
 

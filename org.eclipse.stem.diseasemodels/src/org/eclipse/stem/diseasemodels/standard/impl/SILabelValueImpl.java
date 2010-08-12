@@ -235,12 +235,14 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	public DiseaseModelLabelValue add(double addition) {
 		setI(getI() +addition);
 		setS(getS() +addition);
+		setDiseaseDeaths(getDiseaseDeaths() + addition);
 		return this;
 	} // scale
 
 	public DiseaseModelLabelValue abs() {
 		setI(Math.abs(getI()));
 		setS(Math.abs(getS()));
+		setDiseaseDeaths(Math.abs(getDiseaseDeaths()));
 		return this;
 	} // scale
 
@@ -248,13 +250,18 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 		SILabelValue _scale = (SILabelValue)d;
 		double sScaled = Math.abs(s) / Math.abs(_scale.getS());
 		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
+		double ddScaled = Math.abs(diseaseDeaths) / Math.abs(_scale.getDiseaseDeaths());
+
 		setS(sScaled);
 		setI(iScaled);
+		setDiseaseDeaths(ddScaled);
 		return this;
 	}
 	
 	public double max() {
-		return (s > i)? s : i;
+		if (s > i && s > diseaseDeaths) return s;
+		else if(i> diseaseDeaths) return i;
+		else return diseaseDeaths;
 	}
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelValueImpl#reset()
@@ -389,26 +396,35 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 		boolean adjusted = false;
 		double newS = this.getS() + siValue.getS();
 		double newI = this.getI() + siValue.getI();
+		double newDD = this.getDiseaseDeaths() + siValue.getDiseaseDeaths();
 		
 		double factor = 1.0;
-		if(newS < newI && newS < 0.0) {
+		if(newS < newI && newS < newDD && newS < 0.0) {
 			// Scale using S
 			adjusted = true;
 			factor = -siValue.getS()/this.getS();
-		} else if(newI < 0.0) {
+		} else if(newI < newDD && newI < 0.0) {
 			// Scale using R
 			adjusted = true;
 			factor = -siValue.getI()/this.getI();
+		} else if (newDD < 0) {
+			// Scale using R
+			adjusted = true;
+			factor = -siValue.getDiseaseDeaths()/this.getDiseaseDeaths();
 		}
 		if(adjusted) this.scale(factor);
 		// Due to precision limitations it is still possible the number if tiny negative. Adjust if necessary
 		newS = this.getS() + siValue.getS();
 		newI = this.getI() + siValue.getI();
-	
+		newDD = this.getDiseaseDeaths() + siValue.getDiseaseDeaths();
+		
 		if(newS<0)
 			this.setS(-siValue.getS());
 		if(newI<0)
 			this.setI(-siValue.getI());
+		if(newDD<0)
+			this.setDiseaseDeaths(-siValue.getDiseaseDeaths());
+		
 		return adjusted;
 	}
 
