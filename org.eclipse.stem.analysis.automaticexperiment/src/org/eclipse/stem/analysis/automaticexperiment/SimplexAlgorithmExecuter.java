@@ -121,7 +121,8 @@ public class SimplexAlgorithmExecuter
 		simplexFnToMinimize = new NedlearMeadSimplexFunction(parameters, baseScenario, errorFunction, alg);
 		try {
 			CSVscenarioLoader loader1 = new CSVscenarioLoader(referenceDataDirectory);
-			ref = loader1.parseAllFiles(2);
+			int res = loader1.getMaxResolution();
+			ref = loader1.parseAllFiles(res);
 		} catch (ScenarioInitializationException e) {
 			e.printStackTrace();
 		}
@@ -275,7 +276,8 @@ public class SimplexAlgorithmExecuter
 				}
 				
 				CSVscenarioLoader loader2 = new CSVscenarioLoader(SIMULATION_OUTPUT_DIR + File.separator + simulationUniqueId +"/"+defaultDecorator.getDiseaseName()+"/"+defaultDecorator.getPopulationIdentifier());
-				ReferenceScenarioDataMapImpl data = loader2.parseAllFiles(2);
+				int maxres = loader2.getMaxResolution();
+				ReferenceScenarioDataMapImpl data = loader2.parseAllFiles(maxres);
 	
 				result = errorFunction.calculateError(ref, data);
 			} catch (ScenarioInitializationException e) {
