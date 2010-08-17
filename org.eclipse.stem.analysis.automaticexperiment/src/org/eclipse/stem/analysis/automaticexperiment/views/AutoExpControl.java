@@ -432,7 +432,7 @@ public class AutoExpControl extends AnalysisControl {
 	static double plottableError(double error) {
 		if((error==Double.POSITIVE_INFINITY)
 											||(error==Double.NEGATIVE_INFINITY)
-											||(error==Double.NaN)
+											||Double.isNaN(error)
 											||(error==Double.MAX_VALUE)) {
 			return 100.0;
 		} else {
