@@ -121,6 +121,7 @@ public class NewCSVLogWriter extends LogWriter {
 	 */
 	public NewCSVLogWriter(final String dirName, final ISimulation simulation, IntegrationDecorator dm) {
 		logIntegers = Activator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.LOG_INTEGER_PREFERENCE);
+		fileWriters = new HashMap<StateLevelMap, FileWriter>();
 		
 		needsHeader = true;
 		done = false;
@@ -144,11 +145,13 @@ public class NewCSVLogWriter extends LogWriter {
 			diseaseName = ((PopulationModel)dm).getName();
 			populationName = ((PopulationModel)dm).getPopulationIdentifier();
 		}
-		try {
-			this.directoryName = dirName + sep+uniqueID + sep + diseaseName.trim() + sep;
-		} catch(Exception e) {
-			Activator.logError("Failed ot create directory for CSV Logger", e);
+		
+		if (diseaseName == null) {
+			Activator.logError("Failed to find a disease or population model.  Cannot create CSV Logger", null);
+			return;
 		}
+		
+		this.directoryName = dirName + sep+uniqueID + sep + diseaseName.trim() + sep;
 		
 		// remove illegal strings
 		directoryName= directoryName.replaceAll("\"", "");
@@ -167,7 +170,7 @@ public class NewCSVLogWriter extends LogWriter {
 			
 		}
 		logRunParameters(dm);
-		fileWriters = new HashMap<StateLevelMap, FileWriter>();
+		
 	} // CSVLogWriter
 
 
