@@ -699,7 +699,10 @@ public class GeographyModelGenerator extends ModelGenerator {
 		 */
 		@Override
 		public boolean equals(final Object obj) {
-			return dcValidString.equals(obj);
+			if (obj instanceof ValidDateRange) {
+				return dcValidString.equals(((ValidDateRange)obj).dcValidString);
+			}
+			return false;
 		}
 
 		/**
