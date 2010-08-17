@@ -372,7 +372,7 @@ public class EuropeDataExtractor {
 					reader.close();
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

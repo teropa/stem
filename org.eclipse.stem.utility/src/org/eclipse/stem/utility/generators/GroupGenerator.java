@@ -495,7 +495,7 @@ public class GroupGenerator {
 						}
 
 						// Run garbage collection
-						System.gc();
+						//System.gc();
 
 					} // while loop
 

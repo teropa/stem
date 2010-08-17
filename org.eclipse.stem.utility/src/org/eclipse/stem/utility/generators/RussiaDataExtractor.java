@@ -362,7 +362,7 @@ public class RussiaDataExtractor {
 					reader.close();
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

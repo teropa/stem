@@ -292,7 +292,7 @@ public class EuropeDataConverter {
 					reader.close();
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

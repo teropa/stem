@@ -375,7 +375,7 @@ public class Admin2LexSorter {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 				}
 
 			} catch (IOException e) {

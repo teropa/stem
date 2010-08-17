@@ -247,7 +247,7 @@ public class RussiaDataCleaner {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

@@ -561,7 +561,8 @@ public class PolygonAreaGenerator {
 
 						case 0:
 							container = current;
-
+							break;
+							
 						case 1:
 							container = items[ISOData.COUNTRY_NAME];
 							break;
@@ -646,7 +647,7 @@ public class PolygonAreaGenerator {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 				}
 
 			} catch (IOException e) {

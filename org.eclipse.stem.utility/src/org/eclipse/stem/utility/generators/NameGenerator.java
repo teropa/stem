@@ -614,7 +614,7 @@ public class NameGenerator {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 				}
 
 			} catch (IOException e) {

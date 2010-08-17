@@ -837,7 +837,7 @@ public class AreaGenerator {
 						fileName = null;
 					}
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

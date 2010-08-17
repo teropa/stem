@@ -311,7 +311,7 @@ public class EuropeDataFormatter {
 					reader.close();
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

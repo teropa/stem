@@ -739,7 +739,7 @@ public class SinglePassDownSampler {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 				}
 
 				// Show global stats

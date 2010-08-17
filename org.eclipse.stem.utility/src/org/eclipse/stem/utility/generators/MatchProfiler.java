@@ -184,7 +184,7 @@ public class MatchProfiler {
 			}
 
 			// Run garbage collection
-			System.gc();
+			//System.gc();
 
 		} // For loop
 

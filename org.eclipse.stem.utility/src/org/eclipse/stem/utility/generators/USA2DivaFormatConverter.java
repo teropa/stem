@@ -240,7 +240,7 @@ public class USA2DivaFormatConverter {
 					reader.close();
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

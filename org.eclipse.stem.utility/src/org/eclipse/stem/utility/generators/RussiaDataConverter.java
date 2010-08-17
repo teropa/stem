@@ -274,7 +274,7 @@ public class RussiaDataConverter {
 					reader.close();
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

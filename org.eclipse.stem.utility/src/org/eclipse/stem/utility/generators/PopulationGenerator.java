@@ -746,7 +746,7 @@ public class PopulationGenerator {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 				}
 
 			} catch (IOException e) {

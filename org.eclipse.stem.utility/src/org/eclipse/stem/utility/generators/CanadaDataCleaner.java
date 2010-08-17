@@ -196,7 +196,7 @@ public class CanadaDataCleaner {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

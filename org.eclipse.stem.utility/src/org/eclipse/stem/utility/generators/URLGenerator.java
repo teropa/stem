@@ -165,7 +165,7 @@ public class URLGenerator {
 						}
 
 						// Run garbage collection
-						System.gc();
+						//System.gc();
 
 					} // for j
 

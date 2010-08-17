@@ -636,10 +636,10 @@ public class GenUtils {
 					}
 
 					// Make sure that we mark all unknown data.
-					buffer.replace(";;", ";UNKNOWN;"); //$NON-NLS-1$ //$NON-NLS-2$
+					buffer = buffer.replace(";;", ";UNKNOWN;"); //$NON-NLS-1$ //$NON-NLS-2$
 
 					// Make it all uppercase
-					buffer.toUpperCase();
+					buffer = buffer.toUpperCase();
 
 					// Tokenize
 					StringTokenizer tokens = new StringTokenizer(buffer, ";"); //$NON-NLS-1$
@@ -834,10 +834,10 @@ public class GenUtils {
 					}
 
 					// Make sure that we mark all unknown data.
-					buffer.replace(";;", ";UNKNOWN;"); //$NON-NLS-1$ //$NON-NLS-2$
+					buffer = buffer.replace(";;", ";UNKNOWN;"); //$NON-NLS-1$ //$NON-NLS-2$
 
 					// Make it all uppercase
-					buffer.toUpperCase();
+					buffer = buffer.toUpperCase();
 
 					// Tokenize
 					StringTokenizer tokens = new StringTokenizer(buffer, ";"); //$NON-NLS-1$
@@ -904,7 +904,7 @@ public class GenUtils {
 			String country = tokens.nextToken().trim();
 			String name = tokens.nextToken().trim();
 			// String alias = tokens.nextToken().trim();
-			tokens.nextToken().trim();
+			tokens.nextToken();
 			String id = tokens.nextToken().trim();
 
 			// If current element does not match our target, then ignore
@@ -1299,8 +1299,8 @@ public class GenUtils {
 
 			// Get tokens -> order matters here!
 			String name = tokens.nextToken().trim();
-			tokens.nextToken().trim(); // the numeric code, ignore.
-			tokens.nextToken().trim(); // the alpha3 code, ignore.
+			tokens.nextToken(); // the numeric code, ignore.
+			tokens.nextToken(); // the alpha3 code, ignore.
 			String alpha2 = tokens.nextToken().trim().toUpperCase();
 
 			if (alpha2.equals(alpha2Code.toUpperCase())) {

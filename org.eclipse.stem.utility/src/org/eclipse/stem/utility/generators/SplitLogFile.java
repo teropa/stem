@@ -45,12 +45,11 @@ public class SplitLogFile {
 		
 		
 		ArrayList<String>headers = new ArrayList<String>();
-		ArrayList<ArrayList<String>>logText = new ArrayList<ArrayList<String>>();
-		ArrayList<ArrayList<Double>>logData = new ArrayList<ArrayList<Double>>();
-		
-		List<String>iterations = new ArrayList<String>();
-		List<String>timestamps = new ArrayList<String>();
-		List<List>dataVals = new ArrayList<List>();
+//		ArrayList<ArrayList<String>>logText = new ArrayList<ArrayList<String>>();
+//		ArrayList<ArrayList<Double>>logData = new ArrayList<ArrayList<Double>>();
+//		List<String>iterations = new ArrayList<String>();
+//		List<String>timestamps = new ArrayList<String>();
+//		List<List>dataVals = new ArrayList<List>();
 		
 		try {
 			 // Read infectious file

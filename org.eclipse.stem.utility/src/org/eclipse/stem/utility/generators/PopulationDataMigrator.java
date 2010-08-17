@@ -380,7 +380,7 @@ public class PopulationDataMigrator {
 					nameFile = null;
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				} catch (IOException e) {
 					e.printStackTrace();

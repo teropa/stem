@@ -795,7 +795,7 @@ public class MultiPassDownSampler {
 					pass++;
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 
 				}
 

@@ -602,7 +602,7 @@ public class GMLGenerator {
 					}
 
 					// Run garbage collection
-					System.gc();
+					//System.gc();
 				}
 
 			} catch (IOException e) {

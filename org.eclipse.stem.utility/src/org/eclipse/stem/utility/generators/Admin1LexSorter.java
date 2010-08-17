@@ -282,7 +282,7 @@ public class Admin1LexSorter {
 			}
 
 			// Run garbage collection
-			System.gc();
+			//System.gc();
 
 		} // for
 
