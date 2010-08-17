@@ -165,7 +165,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		double sigma2 = getSigma2();		
 		double sigma2_2 = getSigma2_2();
 		
-		synchronized(firstTime) {
+		synchronized(this) {
 			if(firstTime.longValue() == Long.MAX_VALUE)
 				firstTime = new Long(time.getTime().getTime());
 		}

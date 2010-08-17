@@ -463,7 +463,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		double sigma2 = getSigma2();
 		double sigma2_2 = getSigma2_2();
 		
-		synchronized(firstTime) {
+		synchronized(this) {
 			if(firstTime.longValue() == Long.MAX_VALUE)
 				firstTime = new Long(time.getTime().getTime());
 		}

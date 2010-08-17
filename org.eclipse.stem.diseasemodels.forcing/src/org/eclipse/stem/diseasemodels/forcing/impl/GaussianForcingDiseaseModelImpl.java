@@ -271,7 +271,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		double phase = getModulationPhaseShift();	
 		double sigma2 = getSigma2();		
 		
-		synchronized(firstTime) {
+		synchronized(this) {
 			if(firstTime.longValue() == Long.MAX_VALUE)
 				firstTime = new Long(time.getTime().getTime());
 		}
