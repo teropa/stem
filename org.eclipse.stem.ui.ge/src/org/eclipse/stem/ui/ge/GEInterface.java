@@ -699,8 +699,7 @@ public class GEInterface
 			stemKml.init();				
 			
 			Map<String,GEData> stemMap = buildSelectionMap(region,gse);
-            if (stemMap == null | stemMap.size() == 0) {
-            	
+            if (stemMap == null || stemMap.size() == 0) {
             	return false;
             }
 			if (stemMapNode == null) {
@@ -891,7 +890,7 @@ public class GEInterface
 		Scenario scenario = sim.getScenario();		
 		//		 We get the decorators from the scenario ...			
 		Graph g = scenario.getCanonicalGraph();
-		Decorator[] decorators = (Decorator[]) (g.getDecorators().toArray());
+		Decorator[] decorators = g.getDecorators().toArray(new Decorator[g.getDecorators().size()]);
 		int err1ctr = 0;  // no latlong data
 		int err2ctr = 0;  // no aspect data
 		for (Decorator decorator : decorators) {
@@ -1118,7 +1117,7 @@ public class GEInterface
 		final String isoKey = dcIdentifier.substring(dcIdentifier
 				.lastIndexOf("/")+1);
 		// Did we get it?
-		if (isoKey != null && isoKey != "") {
+		if (isoKey != null && !"".equals(isoKey)) {
 			// Yes
 			final String geographicName = 
 				GeographicNames.getName(isoKey);
@@ -1147,7 +1146,7 @@ public class GEInterface
 		if (spatial != null) {
 			String mapid = spatial.substring(spatial.lastIndexOf("/") + 1);
 			// Did we get it?
-			if (mapid != null && mapid != "") {
+			if (mapid != null && !"".equals(mapid)) {
 				//   XXX_0_MAP.xml#XXX
 				mapid = mapid.substring(0, mapid.indexOf("#"));
 				mapid = mapid.substring(4, 5);
@@ -1724,8 +1723,10 @@ public class GEInterface
 					
 			//		 We get the decorators from the scenario ...			
 
-			Decorator[] decorators = (Decorator[]) (scenario.getCanonicalGraph()
-					.getDecorators().toArray());
+			
+			Graph g = scenario.getCanonicalGraph();
+			
+			Decorator[] decorators = g.getDecorators().toArray(new Decorator[g.getDecorators().size()]);
 			for (Decorator decorator : decorators) {
 				GELog.debug(this,"decorator: "+decorator.toString());
 				
