@@ -145,7 +145,7 @@ abstract public class CountryGraphPropertyFileSpecification extends
 			final String dcCoverageString) {
 		final Map<ISOKey, AdminLevelSet> retValue = new HashMap<ISOKey, AdminLevelSet>();
 
-		if (dcCoverageString != null && dcCoverageString != "") { //$NON-NLS-1$
+		if (dcCoverageString != null && !"".equals(dcCoverageString)) { //$NON-NLS-1$
 
 			final StringTokenizer st = new StringTokenizer(dcCoverageString,
 					":/"); //$NON-NLS-1$
