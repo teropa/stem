@@ -170,7 +170,7 @@ public abstract class GraphLatticeGenerator implements GraphLatticeGeneratorInte
 	 */
 	public static void createEdge(final Graph graph, final Node nodeA,
 			final Node nodeB, int borderLength) {
-		final List<Edge> edgeList = new ArrayList<Edge>();
+		//final List<Edge> edgeList = new ArrayList<Edge>();
 		 
 		// create the edge
 		final Edge edge = CommonBorderRelationshipLabelImpl.createCommonBorderRelationship(nodeA, nodeB,
