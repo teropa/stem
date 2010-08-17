@@ -188,7 +188,7 @@ public class GELog {
 	public static void memory(){
 	
 		Runtime rt = Runtime.getRuntime();
-		rt.gc();
+		//rt.gc();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {			
@@ -218,7 +218,7 @@ public class GELog {
 		GELog.debug("Memory Used:  "+used/1024+"K");		
 		GELog.debug("Percent Used: "+currentPercent);
 		if (currentPercent > percent ) {
-			rt.gc();   // Check after Garbage collector runs
+			//rt.gc();   // Check after Garbage collector runs
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {			
