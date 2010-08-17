@@ -158,8 +158,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				maximumError = -Double.MAX_VALUE;
 				for(int i=0;i<num_threads;++i)  {
 					if(jobs[i].h <= smallestH) {
-						if(jobs[i].h == smallestH && maximumError < jobs[i].maxerror) maximumError = jobs[i].maxerror;
-						else if(jobs[i].h != smallestH) maximumError = jobs[i].maxerror;
+						if(maximumError < jobs[i].maxerror) maximumError = jobs[i].maxerror;
 						smallestH = jobs[i].h; 
 					}
 				}
