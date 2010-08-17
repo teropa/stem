@@ -53,7 +53,11 @@ public class EarthPropertyFileSpecification extends
 			final String dataPropertyKey, final String propertyValue) {
 		
 		if(dataPropertyKey.equals(DATATYPE)) 
-			{this.dataType = propertyValue;return null;}
+			{this.dataType = propertyValue;
+			this.labelName = EARTH_LABEL_NAME+"_"+dataType;  
+			return null;
+		}
+				
 		if(dataPropertyKey.equals(DATAUNITS)) 
 			{this.dataUnits = propertyValue;return null;}
 		
