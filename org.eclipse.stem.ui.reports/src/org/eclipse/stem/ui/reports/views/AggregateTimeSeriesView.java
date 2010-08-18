@@ -35,7 +35,7 @@ public class AggregateTimeSeriesView extends ViewPart implements ISelectionListe
 	public static final String ID_AGGREGATE_VIEW = "org.eclipse.stem.ui.reports.views.AggregateTimeSeriesView"; //$NON-NLS-1$
 	
 	@SuppressWarnings("unused")
-	private List<Identifiable> selectedIdentifiables = null;
+	//private List<Identifiable> selectedIdentifiables = null;
 
 	/**
 	 * This is the decorator that has been selected by the combo box.
