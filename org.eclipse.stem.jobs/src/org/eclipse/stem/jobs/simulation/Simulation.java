@@ -60,7 +60,7 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 	// I think this should really be a {@link CopyOnWriteArrayList} like {@link
 	// #listenersSync}
 	private final List<ISimulationListener> listeners = Collections
-			.synchronizedList(new ArrayList<ISimulationListener>());
+	.synchronizedList(new ArrayList<ISimulationListener>());
 
 	/**
 	 * The collection of {@link IBatchManagerListenerSync}'s waiting to be told
@@ -91,7 +91,7 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 	 * {@link SimulationState} information.
 	 */
 	private Scenario scenario = null;
-	
+
 	private Adapter adapter = null; 
 
 	/**
@@ -162,18 +162,18 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 	 */
 	protected void setPreferences() {
 		final Preferences preferences = Activator.getDefault()
-				.getPluginPreferences();
+		.getPluginPreferences();
 		simulationSleep = preferences
-				.getBoolean(PreferenceConstants.SIMULATION_SLEEP_BOOLEAN);
+		.getBoolean(PreferenceConstants.SIMULATION_SLEEP_BOOLEAN);
 		sleepMilliseconds = preferences
-				.getInt(PreferenceConstants.SIMULATION_SLEEP_MILLISECONDS_INTEGER);
+		.getInt(PreferenceConstants.SIMULATION_SLEEP_MILLISECONDS_INTEGER);
 		ScenarioImpl.reportEachUnresolvedIdentifiable = preferences
-				.getBoolean(PreferenceConstants.REPORT_EACH_UNRESOLVED_IDENTIFIABLE_BOOLEAN);
+		.getBoolean(PreferenceConstants.REPORT_EACH_UNRESOLVED_IDENTIFIABLE_BOOLEAN);
 		ScenarioImpl.reportDanglingAirTransportEdges = preferences
-			.getBoolean(PreferenceConstants.REPORT_DANGLING_AIR_TRANPORT_EDGES_BOOLEAN);
+		.getBoolean(PreferenceConstants.REPORT_DANGLING_AIR_TRANPORT_EDGES_BOOLEAN);
 
 		ScenarioImpl.reportNumberofUnresolvedIdentifiables = preferences
-				.getBoolean(PreferenceConstants.REPORT_NUMBER_OF_UNRESOLVED_IDENTIFIABLES_BOOLEAN);
+		.getBoolean(PreferenceConstants.REPORT_NUMBER_OF_UNRESOLVED_IDENTIFIABLES_BOOLEAN);
 
 	} // setPerferences
 
@@ -224,26 +224,26 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 			final Simulation self = this;
 			adapter = new AdapterImpl() {
 				/**
-				   * @override
-				   */
-				  @Override
+				 * @override
+				 */
+				@Override
 				public void notifyChanged(Notification msg)
-				  {
-					  Scenario scenario = (Scenario)msg.getNotifier();
-					  switch(msg.getFeatureID(Scenario.class)) {
-					  	case ScenarioPackage.SCENARIO__PROGRESS:
-					  		SimulationEvent event = new SimulationEvent(self, SimulationState.RUNNING, scenario.getProgress());
-					  		self.fireSimulationChangedEvent(event);
-					  		break;
-					  }
-				    
-				  }
+				{
+					Scenario scenario = (Scenario)msg.getNotifier();
+					switch(msg.getFeatureID(Scenario.class)) {
+					case ScenarioPackage.SCENARIO__PROGRESS:
+						SimulationEvent event = new SimulationEvent(self, SimulationState.RUNNING, scenario.getProgress());
+						self.fireSimulationChangedEvent(event);
+						break;
+					}
+
+				}
 			}; 
 			scenario.eAdapters().add(adapter);
 			//ScenarioItemProvider sip = (ScenarioItemProvider)scenarioItemProviderAdapterFactory.adapt(this, ScenarioItemProvider.class);
-			
+
 			//scenarioItemProviderAdapterFactory.addListener(this); // ugh
-			
+
 			// Does the sequencer say we've finished before we've started?
 			if (!sequencer.isTimeToStop()) {
 				// No
@@ -255,23 +255,23 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 					try {
 						if(scenario.getCanonicalGraph() == null)
 							scenario.initialize();
-						
+
 						if(scenario.getSolver() == null) {
 							Solver [] solvers = this.getSolvers();
 							// Use the default finite difference when not available
 							for(Solver s:solvers)
 								if(s.getClass().getName().equals("org.eclipse.stem.solvers.fd.impl.FiniteDifferenceImpl"))
-									{scenario.setSolver(s);break;}
-							
+								{scenario.setSolver(s);break;}
+
 						}
 						// Make sure the decorators are set on the solver
 						if(scenario.getSolver().getDecorators() == null) scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
-				
+
 						if(!scenario.getSolver().isInitialized()) {
 							scenario.getSolver().initialize(scenario.getSequencer().getNextTime());
 							setSimulationState(SimulationState.COMPLETED_CYCLE); // So that log is written with initial values
 						}
-						
+
 						boolean success = scenario.step();
 						if(!success) {keepRunning = false;retValue = Status.CANCEL_STATUS;}
 						assert scenario.sane();
@@ -418,7 +418,7 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 					public void run() {
 						try {
 							final IWorkbenchWindow window = PlatformUI
-									.getWorkbench().getActiveWorkbenchWindow();
+							.getWorkbench().getActiveWorkbenchWindow();
 							final IStatus warning = new Status(IStatus.WARNING,
 									Activator.PLUGIN_ID, 1, errorMessage, null);
 							ErrorDialog.openError(window.getShell(), null, null,
@@ -552,7 +552,7 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 		final SimulationEvent event = new SimulationEvent(this, simulationState);
 		fireSimulationChangedEvent(event);
 	} // fireSimulationManagerChanged
-	
+
 	/**
 	 * Tell the listeners about the change in the {@link Simulation}'s state
 	 * 
@@ -560,16 +560,16 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 	 *            the new {@link SimulationState} of the {@link Simulation}
 	 */
 	void fireSimulationChangedEvent(final SimulationEvent event) {
-		
+
 		for (final ISimulationListenerSync listener : listenersSync) {
 			listener.simulationChangedSync(event);
 		} // for
-		
+
 		for (final ISimulationListener listener : listeners) {
 			listener.simulationChanged(event);
 		} // for
 	} // fireSimulationManagerChanged
-	
+
 	/**
 	 * @see org.eclipse.core.runtime.Preferences.IPropertyChangeListener#propertyChange(org.eclipse.core.runtime.Preferences.PropertyChangeEvent)
 	 */
@@ -584,18 +584,18 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 	public String toString() {
 		return scenario.produceTitle();
 	}
-	
+
 	/**
 	 * interruptRequested. Return true if this listener requests 
 	 * that a decorator stops updating labels
 	 * 
 	 * @return boolean True if stop
 	 */
-	
+
 	public boolean interruptRequested() {
 		return (!this.keepRunning && stopping);
 	}
-	
+
 	public void destroy() {
 		List<ISimulationListener> tempList = new ArrayList<ISimulationListener>();
 		tempList.addAll(listeners);
@@ -611,9 +611,9 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 		listenersSync.clear();
 		tempList.clear();
 		tempListSync.clear();
-		
+
 		scenario.eAdapters().remove(adapter);
-		
+
 		Activator.getDefault().getPluginPreferences().removePropertyChangeListener(this);
 	}
 
@@ -621,28 +621,28 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 		Solver [] solvers;
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
 		final IConfigurationElement[] solverConfigElements = registry
-				.getConfigurationElementsFor(org.eclipse.stem.core.Constants.ID_SOLVER_EXTENSION_POINT);
+		.getConfigurationElementsFor(org.eclipse.stem.core.Constants.ID_SOLVER_EXTENSION_POINT);
 
 		final List<Solver> temp = new ArrayList<Solver>();
 
-		solvers = new Solver[solverConfigElements.length];
+		//solvers = new Solver[solverConfigElements.length];
 
 		for (int i = 0; i < solverConfigElements.length; i++) {
 			final IConfigurationElement element = solverConfigElements[i];
 			// Does the element specify the class of the disease model?
-				if (element.getName().equals(Constants.SOLVER_ELEMENT)) {
-					// Yes
-					try {
-						temp.add((Solver) element
-								.createExecutableExtension("class")); //$NON-NLS-1$
-					} catch (final Exception e) {
-						CorePlugin.logError(
-								"Can't create solver", e); //$NON-NLS-1$
-					}
-				} // if
-			} // for each configuration element
+			if (element.getName().equals(Constants.SOLVER_ELEMENT)) {
+				// Yes
+				try {
+					temp.add((Solver) element
+							.createExecutableExtension("class")); //$NON-NLS-1$
+				} catch (final Exception e) {
+					CorePlugin.logError(
+							"Can't create solver", e); //$NON-NLS-1$
+				}
+			} // if
+		} // for each configuration element
 
-			solvers = temp.toArray(new Solver[] {});
+		solvers = temp.toArray(new Solver[] {});
 
 		return solvers;
 	}

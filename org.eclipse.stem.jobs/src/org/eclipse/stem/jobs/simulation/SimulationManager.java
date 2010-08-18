@@ -247,8 +247,8 @@ public class SimulationManager extends ExecutableManager implements
 			final Preferences preferences = 
 				org.eclipse.stem.jobs.Activator.getDefault()
 					.getPluginPreferences();
-			boolean useCache = preferences
-					.getBoolean(PreferenceConstants.USE_SCENARIOS_CACHING_BOOLEAN);
+			//boolean useCache = preferences
+			//		.getBoolean(PreferenceConstants.USE_SCENARIOS_CACHING_BOOLEAN);
 
 			Scenario simulationScenario = null;
 			
