@@ -42,8 +42,8 @@ public class CellularDiseaseModelImpl extends SIImpl implements CellularDiseaseM
 		super();
 	}
 
-	LogDiseaseState lds = null;
-	int icount = 0;
+	//LogDiseaseState lds = null;
+	//int icount = 0;
 	
 	
 	
