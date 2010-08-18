@@ -246,7 +246,7 @@ public class EstimatorControl extends AnalysisControl {
 	protected static ScenarioAnalysisSuite analyzer;
 	
 	//PropertySelector propertySelector;
-	List<ItemPropertyDescriptor> selectedProperties;
+	//List<ItemPropertyDescriptor> selectedProperties;
 
 	/**
 	 * 
@@ -432,7 +432,9 @@ public class EstimatorControl extends AnalysisControl {
 		spinnerFormData.right = new FormAttachment(100, 0);
 		spinnerComposite.setLayoutData(spinnerFormData);
 		
-		top = bottom;
+		//top = bottom;
+		
+		
 		// Analyze button
 		bottom += 5;
 		final FormData analysisButtonFormData = new FormData();
@@ -1088,8 +1090,8 @@ public class EstimatorControl extends AnalysisControl {
 		boolean sumAllLocations = dataAverageRadioButtons[1].getSelection();
 		boolean freqDependantBetaMode = betaModeRadioButtons[0].getSelection();
 		
-		controlParametersMap.put(SUM_LOCATIONS_KEY, new Boolean(sumAllLocations));
-		controlParametersMap.put(FREQ_MODE_KEY, new Boolean(freqDependantBetaMode));
+		controlParametersMap.put(SUM_LOCATIONS_KEY, Boolean.valueOf(sumAllLocations));
+		controlParametersMap.put(FREQ_MODE_KEY, Boolean.valueOf(freqDependantBetaMode));
 		
 		
 		
