@@ -346,8 +346,9 @@ public class TransportRelationshipLabelItemProvider extends DynamicEdgeLabelItem
 				firstGeoName.startsWith("!") ? firstISOKey : firstGeoName);
 		final Edge edge = ((EdgeLabel) object).getEdge();
 		sb.append(edge.isDirected() ? " -> " : " <-> ");
-		sb
-				.append(secondGeoName.startsWith("!") ? secondGeoName
+		// Find Bugs identified an error.  secondGeoName was used 
+		// for both conditions of the ternary
+		sb.append(secondGeoName.startsWith("!") ? secondISOKey
 						: secondGeoName);
 
 		return sb.toString();
