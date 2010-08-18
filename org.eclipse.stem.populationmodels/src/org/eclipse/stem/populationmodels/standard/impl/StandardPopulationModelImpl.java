@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -405,12 +406,16 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 							}
 					
 					// Departures are deaths 
-					if(departures != null) 
-						for(Node n2:departures.keySet()) 
+					if(departures != null) {
+						//for(Node n2:departures.keySet()) {
+						for (Entry<Node,Double> entry : departures.entrySet()) {
+							Node n2 = entry.getKey();
 							if(n2.equals(n)) {// Only the local node makes sense for disease models
-								myDelta.setCount(myDelta.getCount() - departures.get(n2));
-								myDelta.setDeaths(myDelta.getDeaths()+departures.get(n2));
+								myDelta.setCount(myDelta.getCount() - entry.getValue());
+								myDelta.setDeaths(myDelta.getDeaths()+entry.getValue());
 							}
+						}
+					}
 				}
 			}
 

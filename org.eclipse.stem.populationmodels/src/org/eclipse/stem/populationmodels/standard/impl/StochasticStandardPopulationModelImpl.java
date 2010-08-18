@@ -89,7 +89,7 @@ public class StochasticStandardPopulationModelImpl extends StandardPopulationMod
 	@Override
 	public void doModelSpecificAdjustments(LabelValue label) {
 		final StandardPopulationModelLabelValue currentLabelValue = (StandardPopulationModelLabelValue) label;
-		double oldCount = currentLabelValue.getCount();
+		//double oldCount = currentLabelValue.getCount();
 		double incidence = currentLabelValue.getIncidence();
 		double newIncidence = incidence*computeNoise();
 		double diff = newIncidence - incidence;
