@@ -99,7 +99,7 @@ public class DiseaseDefinitionControl extends Composite {
 			} // widgetSelected
 
 		});
-		final DiseaseDefinitionControl self = this;
+		//final DiseaseDefinitionControl self = this;
 		
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newdisease_contextid");
 	}// DiseaseDefinitionControl

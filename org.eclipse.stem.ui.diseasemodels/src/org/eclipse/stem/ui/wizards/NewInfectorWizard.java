@@ -183,7 +183,7 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 				List<Integer>resolutions = null;
 				try {
 					CSVscenarioLoader loader = new CSVscenarioLoader(folder);
-					resolutions = loader.getResolutions();
+					//resolutions = loader.getResolutions();
 					loader.getResolutions();
 					map = loader.parseAllFiles();
 				} catch(ScenarioInitializationException sie) {
