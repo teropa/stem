@@ -189,7 +189,7 @@ public abstract class GraphLatticeGenerator implements GraphLatticeGeneratorInte
 		// now we need to set the uri for the label
 		CommonBorderRelationshipLabel label = (CommonBorderRelationshipLabel)edge.getLabel();
 		label.setURI(createEdgeLabelURI(nodeA, nodeB));
-		URI labelURI = label.getURI();
+		//URI labelURI = label.getURI();
 		
 		final DublinCore dc = edge.getDublinCore();
 		dc.setTitle(createEdgeTitle(nodeA, nodeB));
