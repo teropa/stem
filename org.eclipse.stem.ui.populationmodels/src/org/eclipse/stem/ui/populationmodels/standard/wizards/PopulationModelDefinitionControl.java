@@ -106,7 +106,7 @@ public class PopulationModelDefinitionControl extends Composite {
 			} // widgetSelected
 
 		});
-		final PopulationModelDefinitionControl self = this;
+		//final PopulationModelDefinitionControl self = this;
 
 		// Location picker
 		// ISO Key
