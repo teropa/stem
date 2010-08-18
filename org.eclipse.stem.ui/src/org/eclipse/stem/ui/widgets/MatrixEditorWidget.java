@@ -352,7 +352,7 @@ public class MatrixEditorWidget extends Composite {
 	        }
 	}
 	
-	public class MatrixEditorEvent {
+	public static class MatrixEditorEvent {
 		public STATUS status;
 		
 		public MatrixEditorEvent(STATUS s) {this.status = s;}
