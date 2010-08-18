@@ -11,80 +11,33 @@ package org.eclipse.stem.diseasemodels.standard.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
+import java.util.Map.Entry;
 
-import javax.naming.OperationNotSupportedException;
-import javax.xml.transform.SourceLocator;
-
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Preferences;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.resource.impl.DESCipherImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.graph.DynamicLabel;
-import org.eclipse.stem.core.graph.Edge;
-import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
-import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
-import org.eclipse.stem.definitions.adapters.spatial.geo.preferences.PreferenceConstants;
-import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
-import org.eclipse.stem.definitions.edges.impl.MigrationEdgeLabelImpl;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
-import org.eclipse.stem.definitions.labels.PopulationLabelValue;
-import org.eclipse.stem.definitions.labels.TransportRelationshipLabel;
-import org.eclipse.stem.definitions.labels.impl.TransportRelationshipLabelImpl;
-import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
-import org.eclipse.stem.definitions.transport.PipeTransportEdge;
-import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
-import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
-import org.eclipse.stem.definitions.transport.TransportFactory;
-import org.eclipse.stem.definitions.transport.impl.PipeStyleTransportSystemImpl;
-import org.eclipse.stem.definitions.transport.util.TransportAdapterFactory;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
-//import org.eclipse.stem.diseasemodels.standard.SILabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
-import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
-import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
-import org.eclipse.stem.diseasemodels.standard.SILabel;
-import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelState;
-//import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
-import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
-import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
-import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
-import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Disease Model</b></em>'.
@@ -443,17 +396,17 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 					}
 					
 					// Departures
-					for(Node n2:departures.keySet()) {
+					for(Entry<Node,Double> entry : departures.entrySet()) {
 						// Departures are either deaths or population moving to other nodes, hence we substract from the local node.
 						
 						StandardDiseaseModelLabelValue currentState = null;
-						if(n2.equals(n)) 
+						if(entry.getKey().equals(n)) 
 							currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getProbeValue()); // Should be safe to use probe value for deaths
 						else
 							currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()); // Need to use temp value for migration or an inbalance will occyr
 					
 						double populationCount = currentState.getPopulationCount();
-						double outflow = departures.get(n2);
+						double outflow = entry.getValue().doubleValue();
 						double factor = outflow/populationCount;
 						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe					
 						currentState.scale(factor);
