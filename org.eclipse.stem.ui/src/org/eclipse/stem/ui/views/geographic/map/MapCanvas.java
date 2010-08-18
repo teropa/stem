@@ -370,7 +370,7 @@ public class MapCanvas
 	/**
 	 *
 	 */
-	protected class MouseTrackHandler extends MouseTrackAdapter {
+	protected static class MouseTrackHandler extends MouseTrackAdapter {
 		@Override
 		public void mouseEnter(@SuppressWarnings("unused")
 		final MouseEvent e) {
