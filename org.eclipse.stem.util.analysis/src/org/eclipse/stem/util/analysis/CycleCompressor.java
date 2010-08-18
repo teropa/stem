@@ -90,13 +90,13 @@ public class CycleCompressor {
 		int istart = 0;
 		int istop = INITIAL_PHASE_SHIFT;
 		int peakPos = findPeak(smoothed,istart,istop);
-		if(peakPos!=istart) peaks.add(new Integer(peakPos));
+		if(peakPos!=istart) peaks.add(Integer.valueOf(peakPos));
 		int maxStartIndex = smoothed.size() - WINDOW/2;
 		while(peakPos < maxStartIndex ) {
 			istart = peakPos+(WINDOW/2);
 			istop = istart + WINDOW;
 			peakPos= findPeak(smoothed,istart,istop);
-			peaks.add(new Integer(peakPos));
+			peaks.add(Integer.valueOf(peakPos));
 		}
 		return peaks;
 	}
@@ -123,7 +123,7 @@ public class CycleCompressor {
 			int istop = istart + 90;
 			//int peakPos = findFirstPeak(smoothed,istart,istop);
 			int peakPos = findPeak(smoothed,istart,istop);
-			peaks.add(new Integer(peakPos));
+			peaks.add(Integer.valueOf(peakPos));
 		}
 		
 		return peaks;
