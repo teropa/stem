@@ -80,8 +80,7 @@ public class RecordedCSVInstanceTreeNodeContentProvider extends
 		else if(parentElement instanceof RecordedCSVInstanceTreeNode) {
 			// Yes
 			final RecordedCSVInstanceTreeNode parent = (RecordedCSVInstanceTreeNode) parentElement;
-			final IWorkspaceRoot root = ResourcesPlugin.getWorkspace()
-			.getRoot();
+			//final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 			
 			IResource file = parent.getFile();
 			if(file instanceof IContainer) {
