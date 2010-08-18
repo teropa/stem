@@ -465,7 +465,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		
 		synchronized(this) {
 			if(firstTime.longValue() == Long.MAX_VALUE)
-				firstTime = new Long(time.getTime().getTime());
+				firstTime = Long.valueOf(time.getTime().getTime());
 		}
 		
 		// Get the day from time and adjust for the phase	

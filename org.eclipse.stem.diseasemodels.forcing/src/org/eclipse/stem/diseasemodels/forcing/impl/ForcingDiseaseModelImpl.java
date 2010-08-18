@@ -178,11 +178,11 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		// Get the year that matches the phase shift. -pi/2 is -modulationPeriod/2, pi/2 is modulationPeriod/2
 		long adjustedMillisecsForPhaseShft = (long)(currentMillis + modulationPeriod*MILLIS_PER_DAY*phase/(2.0*Math.PI/2.0));
 		
-		int year=0;
+		//int year=0;
 		// Shared calendar object not thread safe
 		synchronized(calendar) {
 			calendar.setTimeInMillis(adjustedMillisecsForPhaseShft);
-			year = calendar.get(Calendar.YEAR);
+			//year = calendar.get(Calendar.YEAR);
 		}
 		
 		

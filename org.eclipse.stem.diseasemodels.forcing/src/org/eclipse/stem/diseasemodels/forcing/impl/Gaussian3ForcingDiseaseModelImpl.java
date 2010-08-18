@@ -142,9 +142,9 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 
 	private ArrayList<Long> writtedTimes = new ArrayList<Long>();
 	private FileWriter fw;
-	private FileWriter fw2;
+	//private FileWriter fw2;
 	
-	private final int WINDOWSIZE = 30;
+	private static final int WINDOWSIZE = 30;
 	
 	enum HYP {H0, H1, H2};
 	HYP currentHypothesis = HYP.H2;
@@ -167,7 +167,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		
 		synchronized(this) {
 			if(firstTime.longValue() == Long.MAX_VALUE)
-				firstTime = new Long(time.getTime().getTime());
+				firstTime = Long.valueOf(time.getTime().getTime());
 		}
 		
 		// Get the day from time and adjust for the phase	

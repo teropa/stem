@@ -124,7 +124,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	private Calendar calendar2 = Calendar.getInstance();
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	
-	private final int WINDOWSIZE = 30;
+	private static final int WINDOWSIZE = 30;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -273,7 +273,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		
 		synchronized(this) {
 			if(firstTime.longValue() == Long.MAX_VALUE)
-				firstTime = new Long(time.getTime().getTime());
+				firstTime = Long.valueOf(time.getTime().getTime());
 		}
 		
 		// Get the day from time and adjust for the phase	
