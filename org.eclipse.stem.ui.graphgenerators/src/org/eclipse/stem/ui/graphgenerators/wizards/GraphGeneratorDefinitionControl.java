@@ -99,7 +99,7 @@ public class GraphGeneratorDefinitionControl extends Composite {
 			} // widgetSelected
 
 		});
-		final GraphGeneratorDefinitionControl self = this;
+		//final GraphGeneratorDefinitionControl self = this;
 		
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.eclipse.stem.doc.newgraph_contextid");
 
