@@ -52,7 +52,7 @@ public class LocationPickerDialog extends Dialog {
 	String isoKey = ""; //$NON-NLS-1$
 	URI targetURI = null;
 	String tempISOKey = null;
-	String prevLoc = null;
+	//String prevLoc = null;
 	IProject project;
 	private boolean selectGlobal = true;
 	
@@ -63,7 +63,7 @@ public class LocationPickerDialog extends Dialog {
 		super (parent, style);
 		//setShellStyle(SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX | SWT.APPLICATION_MODAL);
 		this.title = title;
-		this.prevLoc = prevLoc;
+		//this.prevLoc = prevLoc;
 		this.project = p;
 		
 	}
