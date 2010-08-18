@@ -53,20 +53,21 @@ public class LocationUtility {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-			for(IResource r:models) {
-				// ignore system files
-				if(r.getName().startsWith(".")) continue;
-				
-				try {
-					URI uri = URI.createURI(r.getLocationURI().toString());
-					Identifiable id = Utility.getIdentifiable(uri);
-					if(id instanceof Model) processModel((Model)id);
-						
-				} catch(Exception e) {
-					// Skip bad file
+			if (models != null) {
+				for(IResource r:models) {
+					// ignore system files
+					if(r.getName().startsWith(".")) continue;
+					
+					try {
+						URI uri = URI.createURI(r.getLocationURI().toString());
+						Identifiable id = Utility.getIdentifiable(uri);
+						if(id instanceof Model) processModel((Model)id);
+							
+					} catch(Exception e) {
+						// Skip bad file
+					}
 				}
-		
-			}	
+			}
 		
 			IContainer graphsFolder = project.getFolder("graphs");
 			IResource[] graphs = null;
@@ -75,20 +76,22 @@ public class LocationUtility {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-			for(IResource r:graphs) {
-				// ignore system files
-				if(r.getName().startsWith(".")) continue;
-				
-				try {
-					URI uri = URI.createURI(r.getLocationURI().toString());
-					Identifiable id = Utility.getIdentifiable(uri);
-					if(id instanceof Graph) processGraph((Graph)id);
-						
-				} catch(Exception e) {
-					// Skip bad file
-				}
-		
-			}	
+			if (graphs != null) {
+				for(IResource r:graphs) {
+					// ignore system files
+					if(r.getName().startsWith(".")) continue;
+					
+					try {
+						URI uri = URI.createURI(r.getLocationURI().toString());
+						Identifiable id = Utility.getIdentifiable(uri);
+						if(id instanceof Graph) processGraph((Graph)id);
+							
+					} catch(Exception e) {
+						// Skip bad file
+					}
+			
+				}	
+			}
 			loaded = true;
 		}
 		
@@ -175,21 +178,22 @@ public class LocationUtility {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		for(IResource r:models) {
-			// ignore system files
-			if(r.getName().startsWith(".")) continue;
-			
-			try {
-				URI uri = URI.createURI(r.getLocationURI().toString());
-				Identifiable id = Utility.getIdentifiable(uri);
-				Graph g = ((Model)id).getCanonicalGraph(STEMURI.createURI(""), null, null);
-				if(id instanceof Model) cbEdges.putAll(getGraphCommonBorderEdges(g, location));
-					
-			} catch(Exception e) {
-				// Skip bad file
+		if (models != null) {
+			for(IResource r:models) {
+				// ignore system files
+				if(r.getName().startsWith(".")) continue;
+				
+				try {
+					URI uri = URI.createURI(r.getLocationURI().toString());
+					Identifiable id = Utility.getIdentifiable(uri);
+					Graph g = ((Model)id).getCanonicalGraph(STEMURI.createURI(""), null, null);
+					if(id instanceof Model) cbEdges.putAll(getGraphCommonBorderEdges(g, location));
+						
+				} catch(Exception e) {
+					// Skip bad file
+				}
 			}
-	
-		}	
+		}
 	
 		// Only do the edges in the graphs folder if the user hasn't specified a
 		// location, since we need to resolve the URI's to support locations
@@ -201,20 +205,21 @@ public class LocationUtility {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-			for(IResource r:graphs) {
-				// ignore system files
-				if(r.getName().startsWith(".")) continue;
-				
-				try {
-					URI uri = URI.createURI(r.getLocationURI().toString());
-					Identifiable id = Utility.getIdentifiable(uri);
-					if(id instanceof Graph) cbEdges.putAll(getGraphCommonBorderEdges((Graph)id, location));
-						
-				} catch(Exception e) {
-					// Skip bad file
+			if (graphs != null) {
+				for(IResource r:graphs) {
+					// ignore system files
+					if(r.getName().startsWith(".")) continue;
+					
+					try {
+						URI uri = URI.createURI(r.getLocationURI().toString());
+						Identifiable id = Utility.getIdentifiable(uri);
+						if(id instanceof Graph) cbEdges.putAll(getGraphCommonBorderEdges((Graph)id, location));
+							
+					} catch(Exception e) {
+						// Skip bad file
+					}
 				}
-		
-			}	
+			}
 		}
 		Set<Edge> retVal = new HashSet<Edge>();
 		retVal.addAll(cbEdges.values());
