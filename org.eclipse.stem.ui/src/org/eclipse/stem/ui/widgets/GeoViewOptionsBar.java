@@ -350,7 +350,7 @@ public class GeoViewOptionsBar extends Composite {
 		
 		// If we have BOTH a population decorator and a disease decorator
 		// try to initially select the disease by default
-		if ((decorators!=null)&&(decorators.size()>=2)) {
+		if (decorators.size()>=2) {
 			if(!(selectedDecorator instanceof DiseaseModel)) {
 				for(int i = 0; i < decorators.size(); i ++) {
 					if(decorators.get(i) instanceof DiseaseModel) {
