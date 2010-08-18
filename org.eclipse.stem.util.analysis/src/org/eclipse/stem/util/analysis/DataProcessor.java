@@ -485,14 +485,18 @@ public class DataProcessor {
 			}
 			
 			Arrays.sort(keys);
-			String header = "iteration,time";
+			
+			String headerText = "iteration,time";
+			StringBuilder strBldr = new StringBuilder(headerText);
 			for (int i = 0; i < keys.length; i ++) {
 				if (incidenceMap.containsKey(keys[i])) {
-					header += ","+keys[i];
+					strBldr.append(",");
+					strBldr.append(keys[i]);
 				}
 				
 			}
-			header += "\n";
+			strBldr.append("\n");
+			String header = strBldr.toString();
 			fw1.write(header);
 			fw2.write(header);
 			fw3.write(header);
@@ -671,7 +675,7 @@ public class DataProcessor {
 	/**
 	 * Class for each row in the input files
 	 */
-	public class Data {
+	public static class Data {
 		
 		/**
 		 * Reported incidence
