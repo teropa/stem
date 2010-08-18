@@ -283,7 +283,7 @@ public class GEPreferencePage
 		String a = preferences.getString(P_ASPECT); 
 		if ("".equals(a)) {
 			getVisualizationPreferences();
-			a = preferences.getString(P_ASPECT);
+			//a = preferences.getString(P_ASPECT);
 		}
 		
 		//GELog.debug(this,"Initial visualizationAspect="+a);

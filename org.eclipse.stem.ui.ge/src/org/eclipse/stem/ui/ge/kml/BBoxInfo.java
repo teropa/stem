@@ -192,7 +192,7 @@ public class BBoxInfo implements Runnable {
 			double[] latitudes = { y1, y2, y2, y2, y1 };
             // ignore if entire globe
 			if (x1 == -180 && x2 == 180) {
-				x1 = -180;
+				//x1 = -180;
 				x2 = 0;
 				GELog.debug(BBoxInfo.class,"****** modify BBOX to 180,0 ******");
 			}
