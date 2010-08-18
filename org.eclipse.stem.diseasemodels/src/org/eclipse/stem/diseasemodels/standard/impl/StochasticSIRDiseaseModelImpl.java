@@ -163,7 +163,7 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	public void doModelSpecificAdjustments(
 			final LabelValue state) {
 			final SILabelValue currentSI = (SILabelValue) state;
-			double oldI = currentSI.getI();
+			//double oldI = currentSI.getI();
 			double incidence = currentSI.getIncidence();
 			double newIncidence = incidence*computeNoise();
 			double diff = newIncidence - incidence; 
