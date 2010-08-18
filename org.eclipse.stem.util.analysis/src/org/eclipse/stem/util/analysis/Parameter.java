@@ -25,85 +25,85 @@ public class Parameter {
 	/**
 	 * beta is the disease transmission rate
 	 */
-	public static String REJECT = "rejected";
+	public static final String REJECT = "rejected";
 	
 	/**
 	 * beta is the disease transmission rate
 	 */
-	public static String BETA = "beta";
+	public static final String BETA = "beta";
 	
 	/**
 	 * beta2 is the second fitted disease transmission rate in method two
 	 */
-	public static String BETA2 = "beta2";
+	public static final String BETA2 = "beta2";
 	
 	/**
 	 * lnBeta for nonlinear fit
 	 */
-	public static String LNBETA = "lnbeta";
+	public static final String LNBETA = "lnbeta";
 	
 	/**
 	 * alpha is the immunity loss rate
 	 */
 	
-	public static String ALPHA = "alpha";
+	public static final String ALPHA = "alpha";
 	
 	/**
 	 * alpha2 is the second fitted immunity loss rate in method two
 	 */
-	public static String ALPHA2 = "alpha2";
+	public static final String ALPHA2 = "alpha2";
 
 	/**
 	 * epsilon is the incubation rate
 	 */
-	public static String EPSILON = "epsilon";
+	public static final String EPSILON = "epsilon";
 
 	/**
 	 * epsilon2 is the second fitted incubation rate found in method two
 	 */
-	public static String EPSILON2 = "epsilon2";
+	public static final String EPSILON2 = "epsilon2";
 		
 	/**
 	 *gamma is the infectious recovery rate 
 	 */
-	public static String GAMMA = "gamma";
+	public static final String GAMMA = "gamma";
 	
 	/**
 	 * gamma2 is the second fitted infectious recovery rate in method two
 	 */
-	public static String GAMMA2 = "gamma2";
+	public static final String GAMMA2 = "gamma2";
 	
 	/**
 	 * lambda is the infectious recovery rate 
 	 */
-	public static String LAMBDA = "lambda";
+	public static final String LAMBDA = "lambda";
 	
 	/**
 	 * RdR
 	 */
-	public static String RdR = "RdR";
+	public static final String RdR = "RdR";
 	
 	/**
 	 * RdS
 	 */
-	public static String RdS = "RdS";
+	public static final String RdS = "RdS";
 	
 	/**
 	 * RdI
 	 */
-	public static String RdI = "RdI";
+	public static final String RdI = "RdI";
 	
 	/**
 	 * BETAVAR
 	 */
 	
-	public static String BETAVAR = "BETAVAR";
+	public static final String BETAVAR = "BETAVAR";
 	
 	/**
 	 * GAMMAVAR
 	 */
 	
-	public static String GAMMAVAR = "GAMMAVAR";
+	public static final String GAMMAVAR = "GAMMAVAR";
 	
 	
 	/** END PARAMETER DECLARATION */
