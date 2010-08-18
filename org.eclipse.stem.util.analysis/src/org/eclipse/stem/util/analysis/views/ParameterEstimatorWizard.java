@@ -57,7 +57,7 @@ public class ParameterEstimatorWizard extends Wizard {
 	 * Selection, i.e. the selected widget that opened the wizard
 	 */
 	
-	IStructuredSelection selection;
+	//IStructuredSelection selection;
 	
 	/**
 	 * The Estimator Control. We use it to update fields indicating
@@ -105,7 +105,7 @@ public class ParameterEstimatorWizard extends Wizard {
 	
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
-		this.selection = selection;
+		//this.selection = selection;
 		setWindowTitle("Create Parameter Estimator"); //$NON-NLS-1$
 	}
 
@@ -301,7 +301,7 @@ public class ParameterEstimatorWizard extends Wizard {
 	/**
 	 * Page for selecting estimator
 	 */
-	public class ParameterEstimatorWizardSelectEstimatorPage extends WizardPage {
+	public static class ParameterEstimatorWizardSelectEstimatorPage extends WizardPage {
 
 		/**
 		 * Pass in the selection.
