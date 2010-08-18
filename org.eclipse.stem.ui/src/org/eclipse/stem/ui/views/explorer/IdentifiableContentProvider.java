@@ -286,7 +286,7 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 	
 	private void markIndirectFiles(IResourceDelta delta) {
 		URI uri = URI.createPlatformResourceURI(delta.getResource().getFullPath().toString(), false);
-		String filename = uri.lastSegment();
+		//String filename = uri.lastSegment();
 		String project = getProject(uri);
 		String type = getType(uri);
 		
