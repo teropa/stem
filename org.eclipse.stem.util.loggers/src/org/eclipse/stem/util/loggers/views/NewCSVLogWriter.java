@@ -25,9 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
-
-import javax.swing.plaf.multi.MultiPopupMenuUI;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -38,7 +36,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.stem.adapters.time.TimeProvider;
-import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.graph.DynamicLabel;
@@ -97,7 +94,7 @@ public class NewCSVLogWriter extends LogWriter {
 	 */
 	public static final String RUN_PARAMETER_FILE_NAME = "runparameters.csv";
 
-	private final int FLUSH_EACH_ITERATION = 50; // How often do we flush the files?
+	private static final int FLUSH_EACH_ITERATION = 50; // How often do we flush the files?
 
 	private int icount = 0;
 
@@ -136,14 +133,14 @@ public class NewCSVLogWriter extends LogWriter {
 		}
 		// Ugh
 		String diseaseName = null;
-		String populationName = null;
+		//String populationName = null;
 		if(dm instanceof DiseaseModel) {
 			diseaseName = ((DiseaseModel)dm).getDiseaseName();
-			populationName = ((DiseaseModel)dm).getPopulationIdentifier();
+			//populationName = ((DiseaseModel)dm).getPopulationIdentifier();
 		}
 		else if (dm instanceof PopulationModel) {
 			diseaseName = ((PopulationModel)dm).getName();
-			populationName = ((PopulationModel)dm).getPopulationIdentifier();
+			//populationName = ((PopulationModel)dm).getPopulationIdentifier();
 		}
 		
 		if (diseaseName == null) {
@@ -285,7 +282,11 @@ public class NewCSVLogWriter extends LogWriter {
 					for(String pid:populationIdentifiers) {
 						StateLevelMap slm = new StateLevelMap(pid, property.getDisplayName(property), level);
 						File pdir = new File(dirs+pid+sep);
-						if(!pdir.exists())pdir.mkdir();
+						if(!pdir.exists()) {
+							if (!pdir.mkdir()) {
+								throw new IOException("Error creating log store directories: "+ pdir.getAbsolutePath());
+							}
+						}
 						String file = dirs+pid+sep+property.getDisplayName(property)+"_"+level+CSV_EXT;
 						FileWriter fw = new FileWriter(file);
 						fileWriters.put(slm, fw);
@@ -315,7 +316,7 @@ public class NewCSVLogWriter extends LogWriter {
 			needsHeader = false;
 		} catch(IOException ioe) {
 			Activator.logError("Error writing log header ", ioe);
-		}
+		} 
 
 	}
 	
@@ -721,12 +722,13 @@ public class NewCSVLogWriter extends LogWriter {
 	@SuppressWarnings("boxing")
 	private Iterator<Node> getNodeIterator(int level, Map<Node, Integer>nodeLevels) {
 		ArrayList<Node> list = new ArrayList();
-		Set<Node>ns = nodeLevels.keySet();
-		for(Node n:ns) {
-			if(nodeLevels.get(n) == level) {
+		//Set<Node>ns = nodeLevels.keySet();
+		//for(Node n:ns) {
+		for (Entry<Node,Integer> entry : nodeLevels.entrySet()) {
+			if(entry.getValue() == level) {
 				
 				boolean write = false;
-				for (NodeLabel s:n.getLabels()) {
+				for (NodeLabel s:entry.getKey().getLabels()) {
 					if(s instanceof IntegrationLabel) {
 						
 						write = true;
@@ -737,7 +739,7 @@ public class NewCSVLogWriter extends LogWriter {
 					continue;
 				}
 				
-				list.add(n);
+				list.add(entry.getKey());
 			}
 		}
 		Collections.sort(list, new Comparator<Node>() {
@@ -771,7 +773,7 @@ public class NewCSVLogWriter extends LogWriter {
 	 * Used as key in map with FileWriters. FileWriters are key'd by
 	 * the label (i.e. disease state) and by 
 	 */
-	private class StateLevelMap {
+	private static class StateLevelMap {
 		private final String popId;
 		private final String state;
 		private final int level;
