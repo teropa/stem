@@ -16,6 +16,7 @@ import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -137,7 +138,7 @@ abstract public class GeographicMapper {
 		return retValue;
 	}
 
-	private static Properties getAlpha3toAlpha2Map() {
+	private synchronized static Properties getAlpha3toAlpha2Map() {
 		// Already created the map?
 		if (alpha3ToAlpha2Map == null) {
 			// No
@@ -146,9 +147,10 @@ abstract public class GeographicMapper {
 			if (alpha2ToAlpha3Map != null) {
 				// Yes
 				alpha3ToAlpha2Map = new Properties();
-				for (final Object iso2Key : alpha2ToAlpha3Map.keySet()) {
-					alpha3ToAlpha2Map.put(alpha2ToAlpha3Map.get(iso2Key),
-							iso2Key);
+				//for (final Object iso2Key : alpha2ToAlpha3Map.keySet()) {
+				for (Entry<Object,Object> entry : alpha2ToAlpha3Map.entrySet()) {
+					alpha3ToAlpha2Map.put(entry.getValue(),
+							entry.getKey());
 				} // for each String
 			} // if
 		} // if
