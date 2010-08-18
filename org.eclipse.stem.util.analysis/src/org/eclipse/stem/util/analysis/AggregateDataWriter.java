@@ -197,14 +197,17 @@ public class AggregateDataWriter {
 			
 			List<String> dataList = instance.get(keys[0]);
 			
-			String str = keys[0]+""; // this is the ITERATION_KEY = "iteration"; column
+			String header = keys[0]; // this is the ITERATION_KEY = "iteration"; column
+			StringBuilder strBldr = new StringBuilder(header);
 			for (int i = 1; i < keys.length; i ++) {
 				// log the header
-				str += "," + keys[i].toString().trim();
+				strBldr.append(",");
+				strBldr.append(keys[i].toString().trim());
 			}
-			str += "\n";
+			strBldr.append("\n");
+			
 			try {
-				fw1.append(str);
+				fw1.append(strBldr.toString());
 			} catch (final IOException e) {
 				Activator.logError("Error writing aggregate data file"  + aggregateDirectoryName + " "+ aggregateFileName, e);
 			}
@@ -224,22 +227,26 @@ public class AggregateDataWriter {
 				// get the first column ("iterations")
 				String key = keys[0].toString();
 				List<String> valueList = data.getInstance().get(key);
-				str = valueList.get(i) + " ";
 				
+				strBldr = new StringBuilder();
+				strBldr.append(valueList.get(i));
+				strBldr.append(" ");
+
 				for (int j = 1; j < keys.length; j++) {
 					key = keys[j].toString();
 					valueList = data.getInstance().get(key);	
-					str += ", "+valueList.get(i);
+					strBldr.append(", ");
+					strBldr.append(valueList.get(i));
 				}// for all keys
-				str += "\n";
+				strBldr.append("\n");
 				try {
-					fw1.append(str);
+					fw1.append(strBldr.toString());
 				} catch (final IOException e) {
 					Activator.logError("Error writing aggregate data file"  + aggregateDirectoryName + aggregateFileName, e);
 				}
 			}// for all points
 			
-			str = "";
+			//str = "";
 			try {
 				if (fw1 != null) {
 					fw1.flush();
