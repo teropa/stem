@@ -261,10 +261,15 @@ public abstract class GenericPropertyEditor extends Composite {
 										if (selectedFiles.length > 1) { // if
 											// multi-files
 											// selected
+											StringBuilder str = new StringBuilder(selected);
 											for (int i = 1; i < selectedFiles.length; i++) {
-												selected += " \""
-														+ selectedFiles[i] + "\"";
+												str.append(" \"");
+												str.append(selectedFiles[i]);
+												str.append("\"");
+//												selected += " \""
+//														+ selectedFiles[i] + "\"";
 											}
+											selected = str.toString();
 										}
 										_text.setText(selected);
 									} // widgetSelected
