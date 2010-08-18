@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
@@ -36,9 +37,7 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapter;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
-import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProvider;
 import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapter;
-import org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProviderAdapterFactory;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
@@ -46,12 +45,10 @@ import org.eclipse.stem.jobs.simulation.ISimulationListenerSync;
 import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.jobs.simulation.SimulationEvent;
 import org.eclipse.stem.jobs.simulation.SimulationState;
-import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.ui.reports.Activator;
 import org.eclipse.stem.ui.reports.MonitorPreferences;
 import org.eclipse.stem.ui.widgets.PropertySelector;
 import org.eclipse.stem.ui.widgets.PropertySelector.PropertySelectionEvent;
-import org.eclipse.stem.ui.widgets.PropertySelector.PropertySelectionListener;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -378,7 +375,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 		} else {
 			// No
 			// Just display a blank screen
-			initializeFromSimulation(null);
+			//initializeFromSimulation(null);
 			relativeValueProviderSet.clear();
 			allProperties.clear();
 		}
@@ -710,9 +707,12 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 	@SuppressWarnings("boxing")
 	private Iterator<Node> getNodeIterator(int level, Map<Node, Integer>nodeLevels) {
 		ArrayList<Node> list = new ArrayList();
-		Set<Node>ns = nodeLevels.keySet();
-		for(Node n:ns) {
-			if(nodeLevels.get(n) == level) list.add(n);
+		//Set<Node>ns = nodeLevels.keySet();
+		//for(Node n:ns) {
+		for (Entry<Node,Integer> entry : nodeLevels.entrySet()) {
+			if(entry.getValue() == level) {
+				list.add(entry.getKey());
+			}
 		}
 		return list.iterator();
 	}
