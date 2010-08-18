@@ -394,7 +394,7 @@ public class TimeSeriesCanvas extends Canvas {
 						series.setVisible(visibleMap.get(property).booleanValue());
 				else {
 					series.setVisible(true);
-					visibleMap.put(property,new Boolean(true));
+					visibleMap.put(property,Boolean.TRUE);
 				}
 				seriesCount ++;
 				dataSeriesMap.put(property, series);
@@ -495,7 +495,7 @@ public class TimeSeriesCanvas extends Canvas {
 							
 							// only do once for first line series
 							if (!setCycles) {
-								cycleNumbers.add(new Integer(cycleNumber));	
+								cycleNumbers.add(Integer.valueOf(cycleNumber));	
 								}
 						} // for cycleNumber
 						
@@ -813,7 +813,7 @@ public class TimeSeriesCanvas extends Canvas {
 	protected void resetData() {
 		clearData();
 		seriesCount = 0; // always start with the same first color
-		cycleNumbers.add(new Integer(0));
+		cycleNumbers.add(Integer.valueOf(0));
 	}
 
 	private void clearData() {
@@ -1042,7 +1042,7 @@ public class TimeSeriesCanvas extends Canvas {
 				series.toggleVisible();
 				dataSeriesMap.put(property,series);
 				setChecked(series.isVisible());
-				visibleMap.put(property, new Boolean(series.isVisible()));
+				visibleMap.put(property, Boolean.valueOf(series.isVisible()));
 				draw();
 		}
 	}// DisplayableProperty
