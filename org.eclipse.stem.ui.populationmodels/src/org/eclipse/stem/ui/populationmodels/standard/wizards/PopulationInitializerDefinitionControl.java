@@ -105,7 +105,7 @@ public class PopulationInitializerDefinitionControl extends Composite {
 			} // widgetSelected
 
 		});
-		final PopulationInitializerDefinitionControl self = this;
+		//final PopulationInitializerDefinitionControl self = this;
 
 		// Location picker
 		// ISO Key
