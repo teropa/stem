@@ -104,7 +104,7 @@ public class CustomCSVLogger
 		} else {
 			// No
 			// Just display a blank screen
-			initializeFromSimulation(null);
+			//initializeFromSimulation(null);
 		}
 
 		flushLoggerData();

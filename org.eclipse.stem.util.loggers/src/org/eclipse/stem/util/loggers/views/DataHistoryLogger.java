@@ -79,7 +79,7 @@ public class DataHistoryLogger extends LoggerControl implements
 	TimeProvider timeProvider = null;
 
 	PropertySelector propertySelector;
-	List<ItemPropertyDescriptor> selectedProperties;
+	//List<ItemPropertyDescriptor> selectedProperties;
 
 	/**
 	 * This interface is implemented by classes that select out the properties
