@@ -120,7 +120,7 @@ public class ExampleDiseaseModelImpl extends StochasticSIRDiseaseModelImpl imple
 	/**
 	 * a false (Hidden) time counter used for this toy example
 	 */
-	private double falseHiddenTimeExample = 0.0;
+	//private double falseHiddenTimeExample = 0.0;
 	
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	private static final double MILLIS_PER_YEAR = MILLIS_PER_DAY*365.256363051;
