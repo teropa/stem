@@ -395,7 +395,7 @@ public class TimeSeriesCanvas extends Canvas {
 						series.addValue(value);
 						
 						if (!setCycles) {
-							this.cycleNumbers.add(new Integer(
+							this.cycleNumbers.add(Integer.valueOf(
 									earliestCycleNumber + cycleNumber + 1));
 							
 							/*
@@ -774,7 +774,7 @@ public class TimeSeriesCanvas extends Canvas {
 			if(!propertiesToPlot.containsKey(property)) {
 				boolean visible = true;
 				if(defaultHideSet.contains(property.getDisplayName(property))) visible = false;
-				Boolean bObj = new Boolean(visible); //default visibility
+				Boolean bObj = Boolean.valueOf(visible); //default visibility
 				this.propertiesToPlot.put(property,bObj);
 			}
 		}
@@ -829,7 +829,7 @@ public class TimeSeriesCanvas extends Canvas {
 		} 
 		// handle null
 		
-		cycleNumbers.add(new Integer(0));
+		cycleNumbers.add(Integer.valueOf(0));
 	}
 
 	private void clearData() {
@@ -1058,7 +1058,7 @@ public class TimeSeriesCanvas extends Canvas {
 		@Override
 		public void run() {
 			    boolean state = !propertiesToPlot.get(property).booleanValue();
-			    propertiesToPlot.put(property, new Boolean(state));
+			    propertiesToPlot.put(property, Boolean.valueOf(state));
 				setChecked(state);
 				draw();
 		}
