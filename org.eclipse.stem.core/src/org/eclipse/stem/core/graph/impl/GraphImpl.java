@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 //import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.IdentifiableFilter;
+import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
@@ -390,7 +391,28 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		ECollections.sort(retValue, new Comparator<NodeLabel>() {
 
 			public int compare(NodeLabel arg0, NodeLabel arg1) {
-				return arg0.getNode().getURI().toString().compareTo(arg1.getNode().getURI().toString());
+				Node n1 = arg0.getNode();
+				Node n2 = arg1.getNode();
+				if(n1 == null) {
+					CorePlugin.logError("Label "+arg0.getClass()+" "+arg0+" node is null", new Exception());
+					return 0;
+				}
+				if(n2 == null) {
+					CorePlugin.logError("Label "+arg1.getClass()+" "+arg1+" node is null", new Exception());
+					return 0;
+				}
+				URI u1 = n1.getURI();
+				URI u2 = n2.getURI();
+				if(u1 == null) {
+					CorePlugin.logError("Node "+n1+" missing URI", new Exception());
+					return 0;
+				}
+				if(u2 == null) {
+					CorePlugin.logError("Node "+n2+" missing URI", new Exception());
+					return 0;
+				}
+				
+				return u1.toString().compareTo(u2.toString());
 			}
 			
 		});
