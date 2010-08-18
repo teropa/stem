@@ -17,16 +17,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.DiseaseType;
 import org.eclipse.stem.analysis.ReferenceScenarioDataMap;
@@ -347,12 +346,10 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 		 */
 		public void integrateData(Map<String, List<String>> data) {
 			// get the state variables SEIR... as keys
-			Iterator<String> iter = data.keySet().iterator();
-			while((iter!=null)&&(iter.hasNext())) {
+			for (Entry<String,List<String>> entry : data.entrySet()) {
 				// get the key
-				String state = iter.next();
-				
-				List<String> valueList = data.get(state);
+				String state = entry.getKey();
+				List<String> valueList = entry.getValue();
 				if(valueList.size()>=1) {
 					// get the current list
 					List<String> aggregatedList = new ArrayList<String>();
