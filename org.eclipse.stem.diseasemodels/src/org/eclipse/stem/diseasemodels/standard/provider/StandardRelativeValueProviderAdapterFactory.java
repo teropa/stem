@@ -217,7 +217,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		public double getDenominator(final EStructuralFeature feature) {
 			final DiseaseModelLabel dml = (DiseaseModelLabel) getTarget();
 			DiseaseModelLabelValue dmlv = (StandardDiseaseModelLabelValue)dml.getCurrentValue();
-			final double populationCount = dmlv.getPopulationCount();
+			//final double populationCount = dmlv.getPopulationCount();
 			return dmlv.getPopulationCount();
 		}
 		
@@ -324,7 +324,7 @@ public class StandardRelativeValueProviderAdapterFactory extends
 		 */
 		public double getDenominator(final EStructuralFeature feature) {
 			final DiseaseModelLabelValue dmlv = (DiseaseModelLabelValue) getTarget();
-			final double populationCount = dmlv.getPopulationCount();
+			//final double populationCount = dmlv.getPopulationCount();
 			return dmlv.getPopulationCount();
 		}
 		

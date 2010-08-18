@@ -66,7 +66,7 @@ public class StandardRelativeValueHistoryProviderAdapterFactory extends
 	 * The item providers are used as property sources to get the properties
 	 * that can have relative values.
 	 */
-	private static StandardItemProviderAdapterFactory itemProviderFactory;
+	//private static StandardItemProviderAdapterFactory itemProviderFactory;
 
 	private HistoryProviderAdapter historyProviderAdapter = null;
 
@@ -234,7 +234,7 @@ public class StandardRelativeValueHistoryProviderAdapterFactory extends
 		public double getDenominator(final EStructuralFeature feature) {
 			final DiseaseModelLabel dml = (DiseaseModelLabel) getTarget();
 			DiseaseModelLabelValue dmlv = (DiseaseModelLabelValue)dml.getCurrentValue();
-			final double populationCount = dmlv.getPopulationCount();
+			//final double populationCount = dmlv.getPopulationCount();
 			return dmlv.getPopulationCount();
 		}
 		
