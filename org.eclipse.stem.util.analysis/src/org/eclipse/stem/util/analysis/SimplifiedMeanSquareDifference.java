@@ -53,8 +53,8 @@ public class SimplifiedMeanSquareDifference {
 	/**
 	 * input
 	 */
-	Map<String,List<Double>> commonInfectiousLocationsA = new HashMap<String,List<Double>>();
-	Map<String,List<Double>> commonInfectiousLocationsB = new HashMap<String,List<Double>>();
+	//Map<String,List<Double>> commonInfectiousLocationsA = new HashMap<String,List<Double>>();
+	//Map<String,List<Double>> commonInfectiousLocationsB = new HashMap<String,List<Double>>();
 	
 	
 	
