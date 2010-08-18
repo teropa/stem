@@ -63,7 +63,7 @@ public abstract class StochasticDiseaseModelImpl extends DiseaseModelImpl implem
 	 * of the deterministic model (perhaps of the order of the background death rate or about 1/50).
 	 * The default value set here may be overridden by setter a setter method.
 	 **/
-	protected static double MAX_GAIN = 0.02;
+	static double MAX_GAIN = 0.02;
 
 	/**
 	 * The default value of the '{@link #getRandomGenerator() <em>Random Generator</em>}' attribute.
