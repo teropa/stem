@@ -84,7 +84,7 @@ abstract public class NewIdentifiablePage extends WizardPage {
 	 * an existing project
 	 */
 	
-	protected static IProject lastProject = null;
+	static IProject lastProject = null;
 	
 	/**
 	 * This {@link ModifyListener} is attached to those widgets whose contents
