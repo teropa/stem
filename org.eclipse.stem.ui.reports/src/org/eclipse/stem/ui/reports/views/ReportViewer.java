@@ -175,13 +175,11 @@ public class ReportViewer extends Viewer implements ISelectionChangedListener,
 				}
 			}
 			
-			if (simulationManager != null) {
-				allSimulations = simulationManager.getActiveSimulations();
-				addToDisplayedIdentifiableSet(allSimulations);
-			}
+			allSimulations = simulationManager.getActiveSimulations();
+			addToDisplayedIdentifiableSet(allSimulations);
 
 			identifiablesToDisplay.clear();
-			identifiablesToDisplay.addAll(getIdentifiablesInSimulation(simulationManager.getActiveSimulations()));
+			identifiablesToDisplay.addAll(getIdentifiablesInSimulation(allSimulations));
 		} // if
 		// calling with null means this is a new identifiable for an 
 		// active simulation but not a new simulation
