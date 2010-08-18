@@ -32,18 +32,18 @@ import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScen
 public class PhaseSynchronizer {
 	
 	ReferenceScenarioDataInstance reference;
-	ReferenceScenarioDataInstance data;
+	//ReferenceScenarioDataInstance data;
 	
 	/**
 	 * this phase shift maximizes the correlation between the two vectors
 	 */
-	int phaseShift;
+	//int phaseShift;
 	
 	/**
 	 * by default we will try to find max correlation for a shift of +/- 30 days
 	 * if the vectors are shorter than this we reduce the window
 	 */
-	int defaultShiftWindow = 30;
+	//int defaultShiftWindow = 30;
 	
 	/**
 	 * This class is designed to take a pair of ReferenceScenarioDataInstance(s) each involving multiple epidemic waves. It uses one 
@@ -78,7 +78,7 @@ public class PhaseSynchronizer {
 			if (i<(vector.size()-1)) next = vector.get(i+1).doubleValue();
 			if (i>0) last = vector.get(i-1).doubleValue();
 			if((value > next)&&(value>last)) {
-				peaks.add(new Integer(i));
+				peaks.add(Integer.valueOf(i));
 				// DEBUG
 				//System.out.println("found peak at i="+i+", value="+value);
 			}
