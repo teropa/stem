@@ -823,10 +823,10 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		double retValue = 0.0;
 
 		// the local area
-		double a0 = getArea(diseaseLabel.getPopulationLabel());
+		//double a0 = getArea(diseaseLabel.getPopulationLabel());
 		// the local population
 
-		double p0 = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount();
+		//double p0 = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount();
 		
 		// infectious from other sites mixing here at site 0
 		double mixing = 0.0;
