@@ -115,8 +115,9 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		// For unix, get the CPU's from /proc/cpuinfo
 
 		short numCPUs = 0;
+		BufferedReader fileReader = null;
 		try {
-			BufferedReader fileReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
+			fileReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
 
 			if (fileReader != null) {
 				String buffer = null;
@@ -128,6 +129,12 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 			// Ignore, unable to determine number of processors
 		} catch (IOException ioe) {
 			// Ignore, unable to determine number of processors
+		} finally {
+			try {
+				fileReader.close();
+			} catch (Exception e) {
+				// exception on close does not matter
+			}
 		}
 		return numCPUs;
 	}
