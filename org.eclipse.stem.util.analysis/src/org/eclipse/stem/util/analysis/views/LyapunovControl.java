@@ -77,7 +77,7 @@ public class LyapunovControl extends AnalysisControl {
 	/**
 	 *  A Label to give feedbak on the computation action
 	 */
-	Label userFeedbackLabel;
+	//Label userFeedbackLabel;
 	
 	/**
 	 * First input text field for the scenario folder of data to use in making the estimation
