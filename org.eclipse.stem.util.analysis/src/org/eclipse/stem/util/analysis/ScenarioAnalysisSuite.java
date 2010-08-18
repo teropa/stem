@@ -15,6 +15,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
@@ -122,7 +123,7 @@ public class ScenarioAnalysisSuite {
 	 */
 	
 	public String[] aggregateData(String folder, IRunnableContext runnableContext, double alpha) throws ScenarioInitializationException{	
-		String[] retVal = new String[2];
+		String[] retVal; //= new String[2];
 		CSVscenarioLoader loader = new CSVscenarioLoader(folder);
 		int maxResolution = loader.getMaxResolution();
         ReferenceScenarioDataMapImpl map = loader.parseAllFiles(maxResolution);
@@ -147,7 +148,7 @@ public class ScenarioAnalysisSuite {
 	 */
 	
 	public String[] aggregateByFilter(String referenceFolder, String folder, IRunnableContext runnableContext, double alpha) throws ScenarioInitializationException{	
-		String[] retVal = new String[2];
+		String[] retVal;// = new String[2];
 		
 		CSVscenarioLoader refLoader = new CSVscenarioLoader(referenceFolder);
 		int maxRes = refLoader.getMaxResolution();
@@ -237,8 +238,8 @@ public class ScenarioAnalysisSuite {
 		// Find the smallest RMS difference and return its double list
 		double smallestError = Double.MAX_VALUE;
 		ErrorResult returnError=null;
-		for(Map<String, String> entry : result.keySet()) {
-			ErrorResult res = result.get(entry);
+		for(Entry<Map<String, String>,ErrorResult> entry : result.entrySet()) {
+			ErrorResult res = entry.getValue();
 			// Compute average
 			double error = 0.0;
 			if(res !=null) {
