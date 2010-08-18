@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Vector;
 
@@ -72,43 +73,43 @@ public class EstimatorCanvas extends Canvas {
 	protected Chart cm = null;
 
 	//private EstimatorControl control = null;
-	
-	static ColorDefinition[] barColors = {ColorDefinitionImpl.RED(),
-			ColorDefinitionImpl.BLUE(),
-			ColorDefinitionImpl.ORANGE(),
-			ColorDefinitionImpl.YELLOW(),
-			ColorDefinitionImpl.GREEN(),
-			ColorDefinitionImpl.PINK(),
-			ColorDefinitionImpl.BLACK() };
 
-	
+	static ColorDefinition[] barColors = {ColorDefinitionImpl.RED(),
+		ColorDefinitionImpl.BLUE(),
+		ColorDefinitionImpl.ORANGE(),
+		ColorDefinitionImpl.YELLOW(),
+		ColorDefinitionImpl.GREEN(),
+		ColorDefinitionImpl.PINK(),
+		ColorDefinitionImpl.BLACK() };
+
+
 	/**
 	 * the chart title
 	 */
 	private static final String TITLE = "Estimated Parameters";
-	
+
 	/**
 	 * the legend
 	 */
 	private static final String VALUES = "Parameter Values";
 	private static final String VALUES_LOWER = "Value - Std.Dev.";
 	private static final String VALUES_HIGHER = "Value + Std.Dev.";
-	
+
 	private static final boolean SHOW_STD_DEV = false;
-	
-	
+
+
 	/**
 	 * Collection of values for the X-SERIES bar labels
 	 **/
 	private static Vector<String> xAxisParameterNames = new Vector<String>();
-	
+
 	/**
 	 * Collection of values for the Y-SERIES bars
 	 **/
 	private static ArrayList<Double> barValues = new ArrayList<Double>();
 	private static NumberDataSet barOrthoValues;
 
-	
+
 	/**
 	 * Collection of values for the Y-SERIES2 standard deviation lower and higher bars
 	 **/
@@ -124,7 +125,7 @@ public class EstimatorCanvas extends Canvas {
 	Generator gr;
 
 	Image imgChart = null;
-	
+
 	/**
 	 * Constructor.
 	 * 
@@ -150,7 +151,7 @@ public class EstimatorCanvas extends Canvas {
 		xAxisParameters.add("alpha");
 		xAxisParameters.add("epsilon");
 		xAxisParameters.add("gamma");
-		
+
 		//Map<String,Double> initMap = ModelParameters;
 		//cm = createBarChart(initMap); 
 
@@ -159,7 +160,7 @@ public class EstimatorCanvas extends Canvas {
 				if(cm == null) return;
 				final Composite source = (Composite) pe.getSource();
 				final org.eclipse.swt.graphics.Rectangle d = source
-						.getClientArea();
+				.getClientArea();
 
 				if(imgChart != null) imgChart.dispose();
 				imgChart = new Image(source.getDisplay(), d);
@@ -197,7 +198,7 @@ public class EstimatorCanvas extends Canvas {
 		barValues.clear();
 		barStdDevLower.clear();
 		barStdDevHigher.clear();
-		
+
 		// BAR CHARTS ARE BASED ON CHARTS THAT CONTAIN AXES
 		ChartWithAxes cwaBar = ChartWithAxesImpl.create();
 		cwaBar.getBlock().setBackground(ColorDefinitionImpl.WHITE());
@@ -229,7 +230,7 @@ public class EstimatorCanvas extends Canvas {
 		yAxisPrimary.setType(AxisType.LINEAR_LITERAL);
 		yAxisPrimary.getLabel().getCaption().getFont().setRotation(90);
 
-				
+
 		// populate from the map
 		Set<String> keySet = barDataMap.keySet();
 		String[] keys = new String[keySet.size()];
@@ -244,12 +245,12 @@ public class EstimatorCanvas extends Canvas {
 			String paramName = keys[i];
 			xAxisParameterNames.add(paramName);
 			Double dValue = new Double(barDataMap.get(paramName).value);
-			
+
 			barStdDevLower.add(dValue);
 			barValues.add(dValue);
 			barStdDevHigher.add(dValue);
 		}
-		
+
 		TextDataSet categoryValues = TextDataSetImpl.create(xAxisParameterNames);
 
 		barOrthoValues = NumberDataSetImpl.create(barValues);
@@ -259,7 +260,7 @@ public class EstimatorCanvas extends Canvas {
 		// CREATE THE CATEGORY BASE SERIES
 		Series seCategory = SeriesImpl.create();
 		seCategory.setDataSet(categoryValues);
-		
+
 		// Create the first series of dataValues the ORTHOGONAL Value-Statndard deviations LOWER SERIES
 		BarSeries bsLower = (BarSeries) BarSeriesImpl.create();
 		bsLower.setSeriesIdentifier(VALUES_LOWER);
@@ -275,7 +276,7 @@ public class EstimatorCanvas extends Canvas {
 		bsValues.setRiserOutline(null);
 		bsValues.getLabel().setVisible(true);
 		bsValues.setLabelPosition(Position.INSIDE_LITERAL);
-		
+
 		// Create the THIRD series of dataValues the ORTHOGONAL Value+StdDev HIGHER SERIES
 		BarSeries bsHigher = (BarSeries) BarSeriesImpl.create();
 		bsHigher.setSeriesIdentifier(VALUES_HIGHER);
@@ -297,14 +298,14 @@ public class EstimatorCanvas extends Canvas {
 			yAxisPrimary.getSeriesDefinitions().add(sdYlower);
 			sdYlower.getSeries().add(bsLower);
 		}
-		
-		
+
+
 		// Two THE ORTHOGONAL VALUES SERIES For the Y-AXIS SERIES DEFINITION
 		SeriesDefinition sdY1 = SeriesDefinitionImpl.create();
 		sdY1.getSeriesPalette().update(1); // SET THE COLOR IN THE PALETTE
 		yAxisPrimary.getSeriesDefinitions().add(sdY1);
 		sdY1.getSeries().add(bsValues);
-		
+
 		if (SHOW_STD_DEV) {
 			// Three THE ORTHOGONAL VALUES+STDDEV Higher SERIES For the Y-AXIS SERIES DEFINITION
 			SeriesDefinition sdYHigher = SeriesDefinitionImpl.create();
@@ -312,37 +313,38 @@ public class EstimatorCanvas extends Canvas {
 			yAxisPrimary.getSeriesDefinitions().add(sdYHigher);
 			sdYHigher.getSeries().add(bsHigher);
 		}
-		
-		
+
+
 		return cwaBar;
 
 	}// createBarChart
-	
+
 	/**
 	 * refreshes (some of) the data in the bar chart by key values
 	 * @param barDataMap All parameters
 	 */
 	public static void refresh(Map<String,Parameter> barDataMap) {
-		Iterator<String> iter = barDataMap.keySet().iterator();
-		while(iter.hasNext()) {
-			String key = iter.next();
-			int icount = xAxisParameterNames.indexOf(key);
+		//Iterator<String> iter = barDataMap.keySet().iterator();
+		//while(iter.hasNext()) {
+
+
+		for (Entry<String,Parameter> entry : barDataMap.entrySet()) {
+			int icount = xAxisParameterNames.indexOf(entry.getKey());
 			if (icount >= 0) {
-				double value = barDataMap.get(key).value;
-				
+				double value = entry.getValue().value;
 				// and the higher/lower values
-				double deviation = barDataMap.get(key).stddev;
+				double deviation = entry.getValue().stddev;
 				Double lower = new Double(value-deviation);
 				Double higher = new Double(value + deviation);
-				
+
 				barValues.set(icount,new Double(value));
 				barStdDevLower.set(icount,lower);
 				barStdDevHigher.set(icount,higher);
 			}
-			
+
 		}// while have keys
 	}// refresh
-	
+
 	/**
 	 * The method which gets the {@link EstimatorCanvas}' reports list, and
 	 * draws it on the {@link EstimatorCanvas}.
@@ -366,5 +368,5 @@ public class EstimatorCanvas extends Canvas {
 		super.dispose();
 	}
 
-	
+
 } // TimeSeriesCanvas
