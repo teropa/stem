@@ -96,7 +96,7 @@ public class RoadTransportRelationshipLabelItemProvider
 		final Edge edge = ((EdgeLabel) object).getEdge();
 		sb.append(edge.isDirected() ? " -> " : " <-> ");
 		// Find Bugs identified an error.  secondGeoName was used 
-		// for both conditions off the ternary
+		// for both conditions of the ternary
 		sb.append(secondGeoName.startsWith("!") ? secondISOKey
 						: secondGeoName);
 
