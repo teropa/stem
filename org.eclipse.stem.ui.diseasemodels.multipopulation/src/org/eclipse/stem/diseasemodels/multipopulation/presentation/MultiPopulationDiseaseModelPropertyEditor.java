@@ -349,7 +349,7 @@ public class MultiPopulationDiseaseModelPropertyEditor extends
 	 */
 	@Override
 	public MatrixEditorValidator getValidator(EStructuralFeature feature) {
-		EClassifier type = feature.getEType();
+		//EClassifier type = feature.getEType();
 		MatrixEditorValidator validator=null;
 		if(feature.getFeatureID() == MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE ||
 				feature.getFeatureID() == MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE ||
