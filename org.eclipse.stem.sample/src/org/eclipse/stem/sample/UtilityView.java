@@ -327,7 +327,7 @@ public class UtilityView extends ViewPart {
 	 * This class is the label provider for the view. It is used by the
 	 * ListViewer to convert ISimulation instances to text strings.
 	 */
-	public class UtilityViewLabelProvider implements ILabelProvider {
+	public static class UtilityViewLabelProvider implements ILabelProvider {
 
 		/**
 		 * This is called by the {@link ListViewer} for each {@link Object} in

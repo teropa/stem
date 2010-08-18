@@ -466,7 +466,7 @@ public class RelativeValueViewExample extends ViewPart {
 	/**
 	 * This class is a Label provider
 	 */
-	public class RelativeValueViewLabelProvider implements ILabelProvider,
+	public static class RelativeValueViewLabelProvider implements ILabelProvider,
 			ITableLabelProvider, ITableColorProvider {
 
 		private final List<ILabelProviderListener> listeners = new ArrayList<ILabelProviderListener>();
@@ -633,7 +633,7 @@ public class RelativeValueViewExample extends ViewPart {
 	/**
 	 * This class implements the sorting of the RelativeValue View viewer
 	 */
-	public class RelativeValueViewSorter extends ViewerSorter {
+	public static class RelativeValueViewSorter extends ViewerSorter {
 		private static final int ASCENDING = 0;
 
 		private static final int DESCENDING = 1;

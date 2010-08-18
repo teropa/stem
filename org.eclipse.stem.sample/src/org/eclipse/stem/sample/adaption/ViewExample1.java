@@ -322,7 +322,7 @@ public class ViewExample1 extends ViewPart {
 	 * This class is the label provider for the view. It is used by the
 	 * ListViewer to convert ISimulation instances to text strings.
 	 */
-	public class ViewExample1LabelProvider implements ILabelProvider {
+	public static class ViewExample1LabelProvider implements ILabelProvider {
 
 		/**
 		 * This is called by the ListViewer for each Object in its list to
