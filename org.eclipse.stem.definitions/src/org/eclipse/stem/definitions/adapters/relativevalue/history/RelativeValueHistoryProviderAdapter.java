@@ -33,7 +33,7 @@ public abstract class RelativeValueHistoryProviderAdapter extends
 	private List<RelativeValueHistoryExtendedListener> extensionListeners = new CopyOnWriteArrayList<RelativeValueHistoryExtendedListener>();
 
 	// This should be removed DAF
-	private final int earliestCycleNumber = 0;
+	private static final int earliestCycleNumber = 0;
 
 	/**
 	 * @see org.eclipse.stem.definitions.adapters.relativevalue.history.RelativeValueHistoryProvider#getRelativeValue(org.eclipse.emf.edit.provider.ItemPropertyDescriptor,
