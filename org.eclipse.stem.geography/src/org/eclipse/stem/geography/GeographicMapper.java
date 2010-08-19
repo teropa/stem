@@ -46,7 +46,7 @@ abstract public class GeographicMapper {
 			.createURI("platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ZZZ/" //$NON-NLS-1$
 					+ ALPHA2_TO_ALPHA3_NAME);
 	protected static final String RB_PREFIX = Constants.ID_ROOT + ".geography"; //$NON-NLS-1$
-	private static Properties alpha2ToAlpha3Map = null;
+	private static volatile Properties alpha2ToAlpha3Map = null;
 	private static Properties alpha3ToAlpha2Map = null;
 
 	/**
@@ -93,7 +93,11 @@ abstract public class GeographicMapper {
 		// Got the alpha2->alpha3 map?
 		if (alpha2ToAlpha3Map == null) {
 			// No
-			alpha2ToAlpha3Map = readPropertyFiles(LEVEL_0_ISO_MAPPING_FILE_URI);
+			synchronized (GeographicMapper.class) {
+				if (alpha2ToAlpha3Map == null) {
+					alpha2ToAlpha3Map = readPropertyFiles(LEVEL_0_ISO_MAPPING_FILE_URI);
+				}
+			}
 		} // if
 		// Got it now?
 		if (alpha2ToAlpha3Map == null) {
