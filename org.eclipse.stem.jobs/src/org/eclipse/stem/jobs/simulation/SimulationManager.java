@@ -60,7 +60,7 @@ public class SimulationManager extends ExecutableManager implements
 	/**
 	 * Singleton instance of the manager
 	 */
-	private static SimulationManager INSTANCE = null;
+	private static volatile SimulationManager INSTANCE = null;
 
 	/**
 	 * This is the sequence number assigned to each successive
@@ -105,7 +105,11 @@ public class SimulationManager extends ExecutableManager implements
 	 */
 	public static final SimulationManager getManager() {
 		if (INSTANCE == null) {
-			INSTANCE = new SimulationManager();
+			synchronized (SimulationManager.class) {
+				if (INSTANCE == null) {
+					INSTANCE = new SimulationManager();
+				}
+			}
 		}
 		return INSTANCE;
 	} // getModel
