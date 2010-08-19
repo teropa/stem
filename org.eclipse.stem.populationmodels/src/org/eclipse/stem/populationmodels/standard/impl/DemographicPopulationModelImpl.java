@@ -267,5 +267,8 @@ public class DemographicPopulationModelImpl extends StandardPopulationModelImpl 
 				}
 			}
 		}
+		
+		// Populate the pipe transportation systems
+		super.populatePipeSystemNodes();
 	} // resetLabels
 } //DemographicPopulationModelImpl
