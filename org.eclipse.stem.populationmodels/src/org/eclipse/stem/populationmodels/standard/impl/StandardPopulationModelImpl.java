@@ -397,14 +397,15 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 					// other decorators are disease models that don't cause an "increase"
 					// in births.
 					
-					if(arrivals != null) 
-						for(Node n2:arrivals.keySet()) 
-							if(n2.equals(n)) {
+					if(arrivals != null) {
+						for (Entry<Node,Double> entry : arrivals.entrySet()) {
+							if(entry.getKey().equals(n)) {
 								// Only the local node makes sense for disease models
-								myDelta.setCount(myDelta.getCount()+arrivals.get(n2));
-								myDelta.setBirths(myDelta.getBirths()+arrivals.get(n2));
+								myDelta.setCount(myDelta.getCount()+entry.getValue().doubleValue());
+								myDelta.setBirths(myDelta.getBirths()+entry.getValue().doubleValue());
 							}
-					
+						}
+					}
 					// Departures are deaths 
 					if(departures != null) {
 						//for(Node n2:departures.keySet()) {
