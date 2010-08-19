@@ -453,10 +453,10 @@ public class NeighborUtility {
 		final List<String[]> worldList = new ArrayList<String[]>();
 		Properties world = null;
 		File f = null;
-
+		FileInputStream is = null;
 		try {
 			f = new File(folder, "ZZZ_0_ZZZ_0.properties");
-			final FileInputStream is = new FileInputStream(f);
+			is = new FileInputStream(f);
 			world = new Properties();
 			world.load(is);
 
@@ -489,6 +489,14 @@ public class NeighborUtility {
 			e1.printStackTrace();
 		} catch (final IOException e1) {
 			e1.printStackTrace();
+		} finally {
+			try {
+				if (is != null) {
+					is.close();
+				}
+			} catch (Exception e) {
+				// Ignore exceptions on close
+			}
 		}
 	}
 
@@ -598,7 +606,9 @@ public class NeighborUtility {
 
 				final File folder = new File(NeighborUtility
 						.getPropertyFolder());
-				folder.mkdir();
+				if (!folder.mkdir()) {
+					throw new IOException("Unable to create property folder: "+ folder.getAbsolutePath());
+				}
 				final File fn = new File(folder, adminA.substring(0, 5) + "_"
 						+ adminB.substring(0, 5) + ".properties");
 				debug("Output File: " + fn);
@@ -1153,7 +1163,9 @@ public class NeighborUtility {
 		try {
 			final File tmpFile = File.createTempFile("test", ".txt");
 			tmpFolder = tmpFile.getParent();
-			tmpFile.delete();
+			if (!tmpFile.delete()) {
+				debug("Warning:  Unable to delete temporary file: "+ tmpFile.getAbsolutePath());
+			}
 
 			tmpFolder = tmpFolder + "/commonborder/";
 		} catch (final IOException e) {
