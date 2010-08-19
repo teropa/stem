@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.StringTokenizer;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -349,10 +350,10 @@ public class PolygonCenterGenerator {
 	 * @param map
 	 */
 	public static void printMap(Map<String, Point> map) {
-		Iterator<String> iter = map.keySet().iterator();
-		while((iter!=null)&&(iter.hasNext())) {
-			String id = iter.next();
-			Point p = map.get(id);
+		
+		for (Entry<String,Point> entry : map.entrySet()) {
+			String id = entry.getKey();
+			Point p = entry.getValue();
 			System.out.println("id: "+id+" "+p.x+", "+p.y);
 		}
 	}
