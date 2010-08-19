@@ -925,7 +925,7 @@ public class LabelsPackageImpl extends EPackageImpl implements LabelsPackage {
 		initEReference(getEarthScienceLabel_CurrentEarthScienceValue(), this.getEarthScienceLabelValue(), null, "currentEarthScienceValue", null, 0, 1, EarthScienceLabel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(earthScienceLabelValueEClass, EarthScienceLabelValue.class, "EarthScienceLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getEarthScienceLabelValue_Data(), theEcorePackage.getEDouble(), "data", null, 0, -1, EarthScienceLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEarthScienceLabelValue_Data(), theEcorePackage.getEDouble(), "data", null, 0, -1, EarthScienceLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getEarthScienceLabelValue_DataType(), theEcorePackage.getEString(), "dataType", null, 0, 1, EarthScienceLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getEarthScienceLabelValue_Units(), theEcorePackage.getEString(), "units", null, 0, 1, EarthScienceLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 

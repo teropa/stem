@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.eclipse.stem.core.graph.impl.LabelValueImpl;
@@ -115,7 +116,7 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	 */
 	public EList<Double> getData() {
 		if (data == null) {
-			data = new EDataTypeUniqueEList<Double>(Double.class, this, LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA);
+			data = new EDataTypeEList<Double>(Double.class, this, LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA);
 		}
 		return data;
 	}

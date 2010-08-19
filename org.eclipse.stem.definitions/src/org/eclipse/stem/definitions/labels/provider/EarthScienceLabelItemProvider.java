@@ -85,9 +85,9 @@ public class EarthScienceLabelItemProvider
 				 getString("_UI_EarthScienceLabel_currentEarthScienceValue_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_EarthScienceLabel_currentEarthScienceValue_feature", "_UI_EarthScienceLabel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 LabelsPackage.Literals.EARTH_SCIENCE_LABEL__CURRENT_EARTH_SCIENCE_VALUE,
-				 true,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

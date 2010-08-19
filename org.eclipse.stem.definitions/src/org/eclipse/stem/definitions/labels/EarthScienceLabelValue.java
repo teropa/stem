@@ -40,7 +40,7 @@ public interface EarthScienceLabelValue extends LabelValue {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data</em>' attribute list.
 	 * @see org.eclipse.stem.definitions.labels.LabelsPackage#getEarthScienceLabelValue_Data()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	EList<Double> getData();
