@@ -31,13 +31,13 @@ public class SimulationManagerEvent extends EventObject {
 	/**
 	 * This is a collection of the Simulations added to the manager.
 	 */
-	transient  private final ISimulation[] simulationsAdded;
+	transient private final ISimulation[] simulationsAdded;
 
 	/**
 	 * This is a collection of the Simulations removed from the
 	 * SimulationManager.
 	 */
-	 private final ISimulation[] simulationsRemoved;
+	transient private final ISimulation[] simulationsRemoved;
 
 	/**
 	 * @param source
