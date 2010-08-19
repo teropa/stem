@@ -384,8 +384,8 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 */
 	public double getTransmissionRateScaleFactor(
 			StandardDiseaseModelLabel diseaseLabel) {
-		final StandardDiseaseModelState sdms = (StandardDiseaseModelState) diseaseLabel
-				.getDiseaseModelState();
+		//final StandardDiseaseModelState sdms = (StandardDiseaseModelState) diseaseLabel
+		//		.getDiseaseModelState();
 		
 		double referenceDensity = getReferencePopulationDensity();
 		// assert(referenceDensity > 0);
