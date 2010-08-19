@@ -730,7 +730,7 @@ public class NeighborUtility {
 		 */
 		final List<String[]> outlist = new ArrayList<String[]>(4000);
 		int counter = 0;
-		String[] entry = new String[2];
+		String[] entry; // = new String[2];
 
 		final Set<String> set = map.keySet();
 		final int n = set.size();
