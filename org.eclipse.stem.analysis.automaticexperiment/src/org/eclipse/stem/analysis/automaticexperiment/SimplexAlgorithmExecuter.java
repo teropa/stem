@@ -275,11 +275,13 @@ public class SimplexAlgorithmExecuter
 					}
 				}
 				
-				CSVscenarioLoader loader2 = new CSVscenarioLoader(SIMULATION_OUTPUT_DIR + File.separator + simulationUniqueId +"/"+defaultDecorator.getDiseaseName()+"/"+defaultDecorator.getPopulationIdentifier());
-				int maxres = loader2.getMaxResolution();
-				ReferenceScenarioDataMapImpl data = loader2.parseAllFiles(maxres);
-	
-				result = errorFunction.calculateError(ref, data);
+				if (defaultDecorator != null) {
+					CSVscenarioLoader loader2 = new CSVscenarioLoader(SIMULATION_OUTPUT_DIR + File.separator + simulationUniqueId +"/"+defaultDecorator.getDiseaseName()+"/"+defaultDecorator.getPopulationIdentifier());
+					int maxres = loader2.getMaxResolution();
+					ReferenceScenarioDataMapImpl data = loader2.parseAllFiles(maxres);
+		
+					result = errorFunction.calculateError(ref, data);
+				}
 			} catch (ScenarioInitializationException e) {
 				e.printStackTrace();
 			}
