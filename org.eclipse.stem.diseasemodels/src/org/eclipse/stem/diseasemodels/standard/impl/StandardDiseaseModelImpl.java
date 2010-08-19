@@ -376,14 +376,15 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 						continue;
 					}
 					// Arrivals
-					for(Node n2:arrivals.keySet()) {
+					for (Entry<Node,Double> entry : arrivals.entrySet()) {
+					//for(Node n2:arrivals.keySet()) {
 						// Arrivals are births and goes into the S state if the node is the local node.
-						if(n2.equals(n))
-							myDelta.setS(myDelta.getS() + arrivals.get(n2));
+						if(entry.getKey().equals(n))
+							myDelta.setS(myDelta.getS() + entry.getValue().doubleValue());
 						else { // For other nodes, it's migration of population
-							double inflow = arrivals.get(n2);
+							double inflow = entry.getValue().doubleValue();
 							// Find the corresponding disease label on the other node
-							for(NodeLabel nl:n2.getLabels())
+							for(NodeLabel nl:entry.getKey().getLabels())
 								if(nl instanceof StandardDiseaseModelLabel && ((StandardDiseaseModelLabel)nl).getDecorator().equals(this)) {
 									StandardDiseaseModelLabelValue value = (StandardDiseaseModelLabelValue)EcoreUtil.copy(((StandardDiseaseModelLabel)nl).getTempValue()); 
 									
