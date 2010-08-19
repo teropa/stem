@@ -557,7 +557,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	}
 
 	@SuppressWarnings("boxing")
-	private void populatePipeSystemNodes() {
+	protected void populatePipeSystemNodes() {
 		Graph graph = this.getGraph();
 		
 		if(pipeTransportationUpEdgesMap == null || pipeTransportationDownEdgesMap == null) {
