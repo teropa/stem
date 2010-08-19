@@ -488,7 +488,7 @@ public class AggregateTimeSeriesCanvas extends Canvas {
 							
 							// only do once for first line series
 							if (!setCycles) {
-								cycleNumbers.add(new Integer(cycleNumber));	
+								cycleNumbers.add(Integer.valueOf(cycleNumber));	
 								}
 						} // for cycleNumber
 						
@@ -803,7 +803,7 @@ public class AggregateTimeSeriesCanvas extends Canvas {
 	protected void resetData() {
 		clearData();
 	
-		cycleNumbers.add(new Integer(0));
+		cycleNumbers.add(Integer.valueOf(0));
 	}
 
 	protected void clearData() {

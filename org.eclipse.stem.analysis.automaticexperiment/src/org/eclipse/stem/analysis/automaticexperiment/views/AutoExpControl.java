@@ -77,7 +77,7 @@ public class AutoExpControl extends AnalysisControl {
 	/**
 	 * A label to report status (not yet used)
 	 */
-	static Label statusLabel;
+	//static Label statusLabel;
 	
 	/**
 	 * stop button
@@ -159,10 +159,10 @@ public class AutoExpControl extends AnalysisControl {
 	/**
 	 * The dialog for the wizard
 	 */
-	static WizardDialog wizardDialog;	
+	//static WizardDialog wizardDialog;	
 	
 	//PropertySelector propertySelector;
-	List<ItemPropertyDescriptor> selectedProperties;
+	//List<ItemPropertyDescriptor> selectedProperties;
 
 	/**
 	 * 
