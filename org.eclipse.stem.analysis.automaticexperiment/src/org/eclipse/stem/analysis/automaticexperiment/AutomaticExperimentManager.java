@@ -11,7 +11,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import automaticexperiment.AutomaticExperiment;
 
 public class AutomaticExperimentManager {
-	private static AutomaticExperimentManager instance = null;
+	private static AutomaticExperimentManager instance = new AutomaticExperimentManager();
 	protected static boolean QUIT_NOW = false;
 	protected static boolean PAUSE_NOW = false;
 	protected static CountDownLatch stopLatch = null;
@@ -60,8 +60,8 @@ public class AutomaticExperimentManager {
 	
 	private AutomaticExperimentManager() {
 	}
-	public static AutomaticExperimentManager getInstance() {
-		if(instance == null)instance = new AutomaticExperimentManager();
+	public static AutomaticExperimentManager getInstance() 
+	{
 		return instance;
 	}
 	
