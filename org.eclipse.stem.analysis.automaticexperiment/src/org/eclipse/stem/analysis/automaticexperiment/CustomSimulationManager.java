@@ -54,7 +54,7 @@ public class CustomSimulationManager extends ExecutableManager {
 	/**
 	 * Singleton instance of the manager
 	 */
-	private static CustomSimulationManager INSTANCE = null;
+	private volatile static CustomSimulationManager INSTANCE = null;
 
 	/**
 	 * This is the sequence number assigned to each successive
@@ -87,7 +87,11 @@ public class CustomSimulationManager extends ExecutableManager {
 	 */
 	public static final CustomSimulationManager getManager() {
 		if (INSTANCE == null) {
-			INSTANCE = new CustomSimulationManager();
+			synchronized (CustomSimulationManager.class) {
+				if (INSTANCE == null) {
+					INSTANCE = new CustomSimulationManager();
+				}
+			}
 		}
 		return INSTANCE;
 	} // getModel
