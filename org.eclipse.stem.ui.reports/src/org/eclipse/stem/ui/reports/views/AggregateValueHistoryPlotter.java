@@ -183,7 +183,7 @@ public class AggregateValueHistoryPlotter extends ReportControl implements ISimu
 						AggregateReferenceFileLoader refLoader = new AggregateReferenceFileLoader(selected);
 						aggregateReference = refLoader.getAggregateData();
 						dataMap.put(REFERENCE_PROPERTY, aggregateReference);
-						referenceIDs = refLoader.getIdSet();
+						//referenceIDs = refLoader.getIdSet();
 						
 					} catch (Exception ex) {
 						System.out.println("error "+ex);

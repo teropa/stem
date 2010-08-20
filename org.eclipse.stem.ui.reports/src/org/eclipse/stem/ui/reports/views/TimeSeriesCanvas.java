@@ -337,7 +337,7 @@ public class TimeSeriesCanvas extends Canvas {
 			int maxPoints = 0;
 			STEMTime[] time = rvhp.getAllHistoricTimeValues();
 			cycleNumbers.clear();
-			cycleNumbers.add(new Integer(0));
+			cycleNumbers.add(Integer.valueOf(0));
 			
 			for (int i = 0; i < displayedPropertyList.size(); i++) {
 				ItemPropertyDescriptor property = displayedPropertyList.get(i);
