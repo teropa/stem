@@ -290,6 +290,7 @@ public class MapCanvas
 			}
 		} // for each StemPolygon
 		
+		
 //		if(colorProvider instanceof AbstractRelativeValueColorProviderAdapter) {
 //			AbstractRelativeValueColorProviderAdapter c = (AbstractRelativeValueColorProviderAdapter) colorProvider;
 //			drawColorScale(c);
@@ -304,16 +305,16 @@ public class MapCanvas
 	 * 
 	 * @param adapter
 	 */
-	private void drawColorScale(AbstractRelativeValueColorProviderAdapter adapter) {
-		Color saturatedColor = adapter.getForegroundFillColor(); // to transparent color over the background
-		Color textColor = saturatedColor; // text
-		Color backGround = adapter.getBackgroundFillColor(); // textBackground
-		
-		if (colorScale == null) {
-			colorScale = new ColorScaleComposite(this, saturatedColor, new double[]{0.0, 1.0/gainFactor}, useLogScaling, SWT.BORDER, backGround, textColor);
-		}
-		colorScale.updateColorScale(saturatedColor, new double[]{0.0, 1.0/gainFactor},useLogScaling, backGround, textColor);
-	}
+//	private void drawColorScale(AbstractRelativeValueColorProviderAdapter adapter) {
+//		Color saturatedColor = adapter.getForegroundFillColor(); // to transparent color over the background
+//		Color textColor = saturatedColor; // text
+//		Color backGround = adapter.getBackgroundFillColor(); // textBackground
+//		
+//		if (colorScale == null) {
+//			colorScale = new ColorScaleComposite(this, saturatedColor, new double[]{0.0, 1.0/gainFactor}, useLogScaling, SWT.BORDER, backGround, textColor);
+//		}
+//		colorScale.updateColorScale(saturatedColor, new double[]{0.0, 1.0/gainFactor},useLogScaling, backGround, textColor);
+//	}
 
 	/**
 	 * @param polygonList
@@ -672,6 +673,7 @@ public class MapCanvas
 //			AbstractRelativeValueColorProviderAdapter c = (AbstractRelativeValueColorProviderAdapter) colorProvider;
 //			drawColorScale(c);
 //		}
+		
 	}
 
 	/**
