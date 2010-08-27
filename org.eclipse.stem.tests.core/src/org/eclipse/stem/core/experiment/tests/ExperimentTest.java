@@ -188,8 +188,8 @@ public class ExperimentTest extends IdentifiableTest {
 	public static Experiment createFixture() {
 		final Experiment retValue = ExperimentFactory.eINSTANCE
 				.createExperiment();
-		retValue.setScenario(baseScenario);
-		retValue.getModifiers().add(createRangeModifier(baseScenario));
+		retValue.setScenario(createBaseScenario());
+		retValue.getModifiers().add(createRangeModifier(retValue.getScenario()));
 		// retValue.getModifiers().add(createSequenceModifier(baseScenario));
 		retValue.getDublinCore().populate();
 

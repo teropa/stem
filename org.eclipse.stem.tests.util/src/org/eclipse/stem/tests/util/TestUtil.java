@@ -450,6 +450,8 @@ public class TestUtil {
 	public static Node createStaticallyLabeledNode() {
 		final Node retValue = GraphFactory.eINSTANCE.createNode();
 
+		retValue.setURI(createNextNodeURI());
+		
 		final StaticNodeLabel staticNodeLabel = TestUtil.createStaticNodeLabel(
 				TestUtil.createNextLabelURI(), retValue.getURI());
 		// staticNodeLabel.setNode(retValue);

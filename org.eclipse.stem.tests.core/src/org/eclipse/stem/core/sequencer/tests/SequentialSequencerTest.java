@@ -15,7 +15,9 @@ import java.util.Calendar;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.sequencer.Sequencer;
@@ -30,6 +32,10 @@ import org.eclipse.stem.core.sequencer.SequentialSequencer;
 @SuppressWarnings("all")
 public class SequentialSequencerTest extends SequencerTest {
 
+	public static URI SEQUENCER_WITH_END_URI = STEMURI.createURI("sequencer/sequentialSequencerWithEndTest.sequencer");
+	public static URI SEQUENCER_WITH_NO_END_URI = STEMURI.createURI("sequencer/sequentialSequencerWithNoEndTest.sequencer");
+	
+	
 	private static final int START_DAY = 20;
 	private static final int END_DAY = 29;
 	private static final int NUMBER_OF_DAYS =  END_DAY - START_DAY + 1;
@@ -44,6 +50,9 @@ public class SequentialSequencerTest extends SequencerTest {
 	public static final long TIME_INCREMENT = STEMTime.Units.DAY.getMilliseconds();
 	
 
+	
+	
+	
 	protected SequentialSequencer sequencerWithNoEndTime = null;
 
 	/**
@@ -100,6 +109,8 @@ public class SequentialSequencerTest extends SequencerTest {
 		sequencerWithNoEndTime.setCurrentTime((STEMTime) EcoreUtil
 				.copy(START_TIME));
 		sequencerWithNoEndTime.setTimeIncrement(TIME_INCREMENT);
+		
+		sequencerWithNoEndTime.setURI(SEQUENCER_WITH_NO_END_URI);
 	} // setUp
 
 	/**
@@ -112,6 +123,8 @@ public class SequentialSequencerTest extends SequencerTest {
 		sequencerWithEnd.setCurrentTime((STEMTime) EcoreUtil.copy(START_TIME));
 		sequencerWithEnd.setEndTime((STEMTime) EcoreUtil.copy(END_TIME));
 		sequencerWithEnd.setTimeIncrement(TIME_INCREMENT);
+		sequencerWithEnd.setURI(SEQUENCER_WITH_END_URI);
+		
 		return sequencerWithEnd;
 	} // createFixture
 

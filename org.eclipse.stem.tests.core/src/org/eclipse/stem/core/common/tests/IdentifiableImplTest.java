@@ -12,6 +12,8 @@ package org.eclipse.stem.core.common.tests;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 
@@ -21,6 +23,9 @@ import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 @SuppressWarnings("all")
 public class IdentifiableImplTest extends IdentifiableTest {
 
+	public static URI IDENTIFIABLE_URI = STEMURI.createURI("identifiable/identifiableImplTest");
+	
+	
 	/**
 	 * @param name
 	 */
@@ -35,6 +40,7 @@ public class IdentifiableImplTest extends IdentifiableTest {
 	protected void setUp() throws Exception {
 		final Identifiable id = new IdentifiableImpl() {/* nothing */
 		};
+		id.setURI(IDENTIFIABLE_URI);
 		setFixture(id);
 	} // setUp
 

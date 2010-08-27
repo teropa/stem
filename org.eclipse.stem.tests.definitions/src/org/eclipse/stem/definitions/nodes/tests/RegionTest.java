@@ -13,6 +13,8 @@ package org.eclipse.stem.definitions.nodes.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.tests.PopulationLabelTest;
 import org.eclipse.stem.definitions.nodes.NodesFactory;
@@ -25,6 +27,12 @@ import org.eclipse.stem.definitions.nodes.Region;
  */
 @SuppressWarnings("all")
 public class RegionTest extends GeographicFeatureTest {
+	
+	/**
+	 * Node URI
+	 */
+	public static URI NODE_URI = STEMURI.createURI("NODE/testNode");
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -72,6 +80,7 @@ public class RegionTest extends GeographicFeatureTest {
 		final PopulationLabel populationLabel = PopulationLabelTest
 				.createFixture();
 		retValue.getLabels().add(populationLabel);
+		retValue.setURI(NODE_URI);
 		return retValue;
 	} // createFixture
 

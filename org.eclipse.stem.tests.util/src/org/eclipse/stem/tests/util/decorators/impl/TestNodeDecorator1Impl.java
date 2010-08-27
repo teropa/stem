@@ -65,7 +65,7 @@ public class TestNodeDecorator1Impl extends NodeDecoratorImpl implements
 	public boolean decorateGraph(STEMTime time) {
 		final TestNodeDecorator1 tnd = DecoratorsFactory.eINSTANCE
 		.createTestNodeDecorator1();
-		getGraph().getDecorators().add(tnd);
+		//getGraph().getDecorators().add(tnd);
 		for (final Iterator nodeIter = getGraph().getNodes().values().iterator(); nodeIter
 				.hasNext();) {
 			final Node node = (Node) nodeIter.next();

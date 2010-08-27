@@ -11,6 +11,8 @@ Require-Bundle: org.eclipse.stem.transport;visibility:=reexport,
  org.eclipse.stem.tests.util,
  org.eclipse.stem.tests.definitions,
  org.eclipse.stem.tests.diseasemodels,
- org.eclipse.stem.tests.core
+ org.eclipse.stem.tests.core,
+ org.eclipse.stem.solvers.fd,
+ org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

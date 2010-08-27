@@ -15,16 +15,9 @@ import java.util.Calendar;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.stem.definitions.labels.LabelsFactory;
-import org.eclipse.stem.definitions.labels.PopulationLabel;
-import org.eclipse.stem.definitions.nodes.Region;
-import org.eclipse.stem.definitions.transport.LoadUnloadEdge;
-import org.eclipse.stem.definitions.transport.LoadUnloadEdgeLabel;
-import org.eclipse.stem.definitions.transport.PacketStyleTransportSystem;
-import org.eclipse.stem.definitions.transport.PacketStyleTransportSystemDecorator;
-import org.eclipse.stem.definitions.transport.PacketTransportLabel;
-import org.eclipse.stem.definitions.transport.TransportFactory;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.GraphFactory;
@@ -36,7 +29,18 @@ import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.sequencer.SequencerFactory;
 import org.eclipse.stem.core.sequencer.SequentialSequencer;
+import org.eclipse.stem.core.solver.Solver;
+import org.eclipse.stem.definitions.labels.LabelsFactory;
+import org.eclipse.stem.definitions.labels.PopulationLabel;
+import org.eclipse.stem.definitions.nodes.Region;
+import org.eclipse.stem.definitions.transport.LoadUnloadEdge;
+import org.eclipse.stem.definitions.transport.LoadUnloadEdgeLabel;
+import org.eclipse.stem.definitions.transport.PacketStyleTransportSystem;
+import org.eclipse.stem.definitions.transport.PacketStyleTransportSystemDecorator;
+import org.eclipse.stem.definitions.transport.PacketTransportLabel;
+import org.eclipse.stem.definitions.transport.TransportFactory;
 import org.eclipse.stem.diseasemodels.standard.tests.DiseaseModelTestUtil;
+import org.eclipse.stem.solvers.fd.FdFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,6 +49,9 @@ import org.eclipse.stem.diseasemodels.standard.tests.DiseaseModelTestUtil;
  * @generated NOT
  */
 public class PacketStyleTransportSystemDecoratorTest extends EdgeDecoratorTest {
+	
+	public static final URI FIXTURE_URI = STEMURI.createURI("decorators/transportDecoratorTest");
+	
 	
 	/*Constants for use in the tests*/
 	public static final double TRANSPORT_CAPACITY = 100.0;
@@ -191,6 +198,11 @@ public class PacketStyleTransportSystemDecoratorTest extends EdgeDecoratorTest {
 		PacketStyleTransportSystemDecorator decorator = this.getFixture();
 		retValue.getScenarioDecorators().add(decorator);
 		
+		Solver solver = FdFactory.eINSTANCE.createFiniteDifference();
+		solver.setDecorators(retValue.getScenarioDecorators());
+		retValue.setSolver(solver);
+		
+		
 		//make sure everything we are returning is sane
 		assert luEdge.sane();
 		assert region.sane();
@@ -293,7 +305,9 @@ public class PacketStyleTransportSystemDecoratorTest extends EdgeDecoratorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TransportFactory.eINSTANCE.createPacketStyleTransportSystemDecorator());
+		PacketStyleTransportSystemDecorator d = TransportFactory.eINSTANCE.createPacketStyleTransportSystemDecorator();
+		d.setURI(FIXTURE_URI);
+		setFixture(d);
 	}
 
 	/**

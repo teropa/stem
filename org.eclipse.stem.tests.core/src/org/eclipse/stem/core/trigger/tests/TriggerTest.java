@@ -13,6 +13,8 @@ package org.eclipse.stem.core.trigger.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.model.tests.DecoratorTest;
 
 import org.eclipse.stem.core.trigger.Trigger;
@@ -27,6 +29,8 @@ import org.eclipse.stem.core.trigger.TriggerFactory;
 @SuppressWarnings("all")
 public class TriggerTest extends DecoratorTest {
 
+	public static URI TRIGGER_URI = STEMURI.createURI("trigger/triggerTest.decorator");
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +69,9 @@ public class TriggerTest extends DecoratorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TriggerFactory.eINSTANCE.createTrigger());
+		Trigger t = TriggerFactory.eINSTANCE.createTrigger();
+		t.setURI(TRIGGER_URI);
+		setFixture(t);
 	}
 
 	/**

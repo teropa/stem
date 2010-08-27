@@ -12,6 +12,7 @@ package org.eclipse.stem.core.scenario.tests;
  *******************************************************************************/
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 
@@ -28,6 +29,7 @@ import org.eclipse.stem.core.common.tests.IdentifiableTest;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Label;
+import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.tests.ModelTest;
@@ -35,7 +37,8 @@ import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.impl.SequencerImpl;
-import org.eclipse.stem.solvers.fd.impl.FiniteDifferenceImpl;
+import org.eclipse.stem.core.solver.Solver;
+import org.eclipse.stem.solvers.fd.FdFactory;
 import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
 import org.eclipse.stem.tests.util.decorators.TestScenarioGraphDecorator1;
 import org.eclipse.stem.tests.util.labels.TestIntegerLabelValue;
@@ -77,7 +80,18 @@ public class ScenarioTest extends IdentifiableTest {
 	private static final URI SCENARIO_URI = URI.createURI("platform:/plugin/"
 			+ org.eclipse.stem.core.tests.Activator.PLUGIN_ID
 			+ "/data/scenarios/basic/testscenario1.scenario");
+	
+	/**
+	 * URI for the Sequencer in the Scenario
+	 */
+	private static final URI SEQUENCER_URI = URI.createURI("SEQUENCER/sequencer1.sequencer");
 
+	/**
+	 * URI for the Decorator in the test scenario
+	 */
+	private static final URI DECOARTOR_URI = URI.createURI("decorator/decorator1.decorator");
+		
+	
 	private static final URI CANONICAL_GRAPH__URI = STEMURI
 			.createURI("GRAPH/testcanonicalgraph");
 
@@ -129,13 +143,23 @@ public class ScenarioTest extends IdentifiableTest {
 		scenario.setModel(ModelTest.createFixture());
 		scenario.setSequencer(getTestSequencer());
 		scenario.setURI(SCENARIO_URI);
-		scenario.getScenarioDecorators()
-				.add(
-						DecoratorsFactory.eINSTANCE
-								.createTestScenarioGraphDecorator1());
+		final Decorator decorator = DecoratorsFactory.eINSTANCE.createTestScenarioGraphDecorator1();
+		decorator.setURI(DECOARTOR_URI);
+		scenario.getScenarioDecorators().add(decorator);
 		scenario.getDublinCore().populate();
 		scenario.getDublinCore().setTitle(TEST_SCENARIO_TITLE);
-		scenario.setSolver(new FiniteDifferenceImpl());
+		
+		//scenario.initialize();
+		
+		Solver solver = FdFactory.eINSTANCE.createFiniteDifference();
+		solver.setDecorators(scenario.getScenarioDecorators());
+		scenario.setSolver(solver);
+		
+		
+		
+		
+		
+		
 		return scenario;
 	} // createFixture
 
@@ -172,7 +196,7 @@ public class ScenarioTest extends IdentifiableTest {
 		final Scenario scenario = getFixture();
 
 		scenario.initialize();
-
+		
 		// Here we should test that the initial values of the dynamic labels are
 		// correct
 		Graph canonicalGraph = scenario.getCanonicalGraph();
@@ -381,6 +405,7 @@ public class ScenarioTest extends IdentifiableTest {
 			fail(e.getMessage());
 		} // catch
 		catch (NullPointerException npe) {
+			npe.printStackTrace();
 			fail(npe.getMessage());
 		} // null pointer exception
 		catch (Exception e) {
@@ -511,6 +536,7 @@ public class ScenarioTest extends IdentifiableTest {
 		retValue.setStartTime(createSTEMTime(2000, 01, 01));
 		retValue.getCurrentTime();
 		retValue.setEndTime(createSTEMTime(2000, 01, 10));
+		retValue.setURI(SEQUENCER_URI);
 		return retValue;
 	} // getTestSequencer
 	

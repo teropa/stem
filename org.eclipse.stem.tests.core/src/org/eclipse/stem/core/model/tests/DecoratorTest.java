@@ -12,8 +12,11 @@ package org.eclipse.stem.core.model.tests;
  *******************************************************************************/
 
 //import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.ModelFactory;
@@ -35,6 +38,9 @@ import org.eclipse.stem.core.model.ModelFactory;
  */
 @SuppressWarnings("all")
 public class DecoratorTest extends IdentifiableTest {
+	
+	public static URI DECORATOR_URI = STEMURI.createURI("decorator/decoratorTest.decorator");
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,7 +79,9 @@ public class DecoratorTest extends IdentifiableTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModelFactory.eINSTANCE.createDecorator());
+		final Decorator d = ModelFactory.eINSTANCE.createDecorator();
+		d.setURI(DECORATOR_URI);
+		setFixture(d);
 	}
 
 	/**

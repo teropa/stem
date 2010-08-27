@@ -13,6 +13,8 @@ package org.eclipse.stem.core.model.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.model.GraphDecorator;
 import org.eclipse.stem.core.model.ModelFactory;
 
@@ -23,6 +25,9 @@ import org.eclipse.stem.core.model.ModelFactory;
  */
 @SuppressWarnings("all")
 public class GraphDecoratorTest extends DecoratorTest {
+	
+	public static URI DECORATOR_URI = STEMURI.createURI("decorator/graphDecoratorTest.decorator");
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -59,7 +64,10 @@ public class GraphDecoratorTest extends DecoratorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModelFactory.eINSTANCE.createGraphDecorator());
+		
+		GraphDecorator d = ModelFactory.eINSTANCE.createGraphDecorator();
+		d.setURI(DECORATOR_URI);
+		setFixture(d);
 	}
 
 	/**

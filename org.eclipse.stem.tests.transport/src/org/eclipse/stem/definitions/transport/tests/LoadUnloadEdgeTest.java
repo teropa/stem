@@ -13,10 +13,11 @@ package org.eclipse.stem.definitions.transport.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
-
 import org.eclipse.stem.definitions.edges.tests.MigrationEdgeTest;
 import org.eclipse.stem.definitions.transport.LoadUnloadEdge;
 import org.eclipse.stem.definitions.transport.LoadUnloadEdgeLabel;
@@ -34,6 +35,8 @@ public class LoadUnloadEdgeTest extends MigrationEdgeTest {
 	/**Label to help with some test cases*/
 	LoadUnloadEdgeLabel TEST_LABEL = TransportFactory.eINSTANCE.createLoadUnloadEdgeLabel();
 
+	URI NODE_A_URI = STEMURI.createURI("nodes/nodeA");
+	
 	/**
 	 * The fixture for this Load Unload Edge test case.
 	 * <!-- begin-user-doc -->
@@ -89,6 +92,7 @@ public class LoadUnloadEdgeTest extends MigrationEdgeTest {
 		
 		//This will be a unload edge
 		final Node nodeA = TransportFactory.eINSTANCE.createPacketStyleTransportSystem();
+		nodeA.setURI(NODE_A_URI);
 		final Node nodeB = TestUtil.createStaticallyLabeledNode();
 		LoadUnloadEdge luEdge = TransportFactory.eINSTANCE.createLoadUnloadEdge();
 		luEdge.setLabel(TransportFactory.eINSTANCE.createLoadUnloadEdgeLabel());

@@ -13,6 +13,8 @@ package org.eclipse.stem.definitions.transport.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.transport.PipeStyleTransportSystem;
 import org.eclipse.stem.definitions.transport.TransportFactory;
@@ -25,6 +27,9 @@ import org.eclipse.stem.definitions.transport.TransportFactory;
  */
 public class PipeStyleTransportSystemTest extends TransportSystemTest {
 
+	public static final URI TRANSPORT_SYSTEM_URI = STEMURI.createURI("PipeStyleTransportSystem");
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,6 +74,7 @@ public class PipeStyleTransportSystemTest extends TransportSystemTest {
 	/**create the fixture*/
 	private static PipeStyleTransportSystem createFixture() {
 		PipeStyleTransportSystem rc = TransportFactory.eINSTANCE.createPipeStyleTransportSystem();
+		rc.setURI(TRANSPORT_SYSTEM_URI);
 		rc.getLabels().add(LabelsFactory.eINSTANCE.createPopulationLabel());
 		return rc;
 	}

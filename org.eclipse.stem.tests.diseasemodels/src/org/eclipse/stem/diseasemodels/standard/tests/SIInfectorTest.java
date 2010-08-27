@@ -13,6 +13,8 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.diseasemodels.standard.SIInfector;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 
@@ -23,6 +25,10 @@ import org.eclipse.stem.diseasemodels.standard.StandardFactory;
  */
 @SuppressWarnings("all")
 public class SIInfectorTest extends StandardInfectorTest {
+	
+	public static final URI INFECTOR_URI = STEMURI.createURI("infector/testInfector.decorator");
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * 
@@ -68,6 +74,7 @@ public class SIInfectorTest extends StandardInfectorTest {
 	protected void setUp() throws Exception {
 		SIInfector temp = StandardFactory.eINSTANCE.createSIInfector();
 		temp.setTargetISOKey("US");
+		temp.setURI(INFECTOR_URI);
 		setFixture(temp);
 	}
 

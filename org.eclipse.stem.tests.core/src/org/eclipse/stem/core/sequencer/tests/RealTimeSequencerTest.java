@@ -13,6 +13,7 @@ package org.eclipse.stem.core.sequencer.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.sequencer.RealTimeSequencer;
 import org.eclipse.stem.core.sequencer.SequencerFactory;
@@ -27,6 +28,11 @@ public class RealTimeSequencerTest extends SequentialSequencerTest {
 	
 	private static final long REAL_TIME_TIME_INCREMENT = STEMTime.Units.SECOND.getMilliseconds();
 
+	// Sequencer URI
+	private static final URI SEQUENCER_URI = URI.createURI("platform:/plugin/"
+			+ org.eclipse.stem.core.tests.Activator.PLUGIN_ID
+			+ "/data/sequencers/basic/testRealTimeSequencer1.sequencer");
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -140,6 +146,7 @@ public class RealTimeSequencerTest extends SequentialSequencerTest {
 		final RealTimeSequencer retValue = SequencerFactory.eINSTANCE.createRealTimeSequencer();
 		
 		retValue.setTimeIncrement(REAL_TIME_TIME_INCREMENT);
+		retValue.setURI(SEQUENCER_URI);
 		
 		return retValue;
 	} // createFixture

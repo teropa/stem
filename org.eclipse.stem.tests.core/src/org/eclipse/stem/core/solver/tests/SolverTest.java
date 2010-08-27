@@ -13,6 +13,8 @@ package org.eclipse.stem.core.solver.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
 
 import org.eclipse.stem.core.solver.Solver;
@@ -33,6 +35,8 @@ import org.eclipse.stem.core.solver.SolverFactory;
  */
 public class SolverTest extends IdentifiableTest {
 
+	public static URI SOLVER_URI = STEMURI.createURI("solver/solverTest.solver");
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,7 +75,9 @@ public class SolverTest extends IdentifiableTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(SolverFactory.eINSTANCE.createSolver());
+		Solver s = SolverFactory.eINSTANCE.createSolver();
+		s.setURI(SOLVER_URI);
+		setFixture(s);
 	}
 
 	/**

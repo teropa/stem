@@ -13,6 +13,8 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.diseasemodels.standard.SIRInoculator;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 
@@ -25,6 +27,8 @@ import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 @SuppressWarnings("all")
 public class SIRInoculatorTest extends SIInfectorTest {
 
+	public static final URI INOCULATOR_URI = STEMURI.createURI("innoculator/testInoculator.decorator");
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +69,7 @@ public class SIRInoculatorTest extends SIInfectorTest {
 	protected void setUp() throws Exception {
 		SIRInoculator temp = StandardFactory.eINSTANCE.createSIRInoculator();
 		temp.setTargetISOKey("US");
+		temp.setURI(INOCULATOR_URI);
 		setFixture(temp);
 	}
 

@@ -13,6 +13,9 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel;
 
@@ -24,6 +27,8 @@ import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel;
  */
 public class StochasticPoissonSIDiseaseModelTest extends SITest {
 
+	public static final URI DISEASEMODEL_URI = STEMURI.createURI("diseaseModels/testStochasticPoissonSIDiseaseModel.decorator");
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +67,10 @@ public class StochasticPoissonSIDiseaseModelTest extends SITest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(StandardFactory.eINSTANCE.createStochasticPoissonSIDiseaseModel());
+		DiseaseModel d = StandardFactory.eINSTANCE.createStochasticPoissonSIDiseaseModel();
+		d.setDiseaseName("test");
+		d.setURI(DISEASEMODEL_URI);
+		setFixture(d);
 	}
 
 	/**
