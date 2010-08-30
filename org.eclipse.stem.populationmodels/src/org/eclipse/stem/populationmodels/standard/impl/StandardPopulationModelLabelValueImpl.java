@@ -518,4 +518,12 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 		arrivals = null;
 		departures = null;
 	}
+	
+	/**
+	 * Prepare for a new simulation cycle. Clear out the incidence
+	 */
+	public void prepareCycle() {
+		setIncidence(0);
+	}
+	
 } //StandardPopulationModelLabelValueImpl

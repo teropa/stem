@@ -186,6 +186,8 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					final IntegrationLabel iLabel = (IntegrationLabel) currentStateLabelIter.next();
 					((IntegrationLabelValue)iLabel.getProbeValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
 					((IntegrationLabelValue)iLabel.getTempValue()).set((IntegrationLabelValue)iLabel.getCurrentValue());
+					((IntegrationLabelValue)iLabel.getTempValue()).prepareCycle();
+					((IntegrationLabelValue)iLabel.getProbeValue()).prepareCycle();
 				} else currentStateLabelIter.next();
 			}
 		}

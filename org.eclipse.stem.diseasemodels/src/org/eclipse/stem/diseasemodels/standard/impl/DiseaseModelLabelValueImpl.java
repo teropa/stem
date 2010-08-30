@@ -269,10 +269,18 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	public void reset() {
 		super.reset();
 		setDiseaseDeaths(DISEASE_DEATHS_EDEFAULT);
+		setIncidence(INCIDENCE_EDEFAULT);
 		arrivals = null;
 		departures = null;
 	} // reset
 
+	/**
+	 * Prepare for a new simulation cycle. Clear out the incidence
+	 */
+	public void prepareCycle() {
+		setIncidence(0);
+	}
+	
 	/**
 	 * @see org.eclipse.stem.core.common.SanityChecker#sane()
 	 */

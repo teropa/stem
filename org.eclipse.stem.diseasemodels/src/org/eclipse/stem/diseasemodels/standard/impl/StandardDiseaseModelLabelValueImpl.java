@@ -177,6 +177,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 		super.add((DiseaseModelLabelValue)value);
 		setS(getS() + ((StandardDiseaseModelLabelValue) value).getS());
 		setDiseaseDeaths(getDiseaseDeaths() + ((StandardDiseaseModelLabelValue) value).getDiseaseDeaths());
+		setIncidence(getIncidence()+((StandardDiseaseModelLabelValue) value).getIncidence());
 		return this;
 	} // add
 
@@ -188,6 +189,8 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 		super.sub((DiseaseModelLabelValue)value);
 		setS(getS() - ((StandardDiseaseModelLabelValue) value).getS());
 		setDiseaseDeaths(getDiseaseDeaths() - ((StandardDiseaseModelLabelValue) value).getDiseaseDeaths());
+		setIncidence(getIncidence()-((StandardDiseaseModelLabelValue) value).getIncidence());
+
 		return this;
 	} // sub
 	
@@ -196,6 +199,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 		super.scale(scaleFactor);
 		setS(getS() *scaleFactor);
 		setDiseaseDeaths(getDiseaseDeaths()*scaleFactor);
+		setIncidence(getIncidence()*scaleFactor);
 		return this;
 	} // scale
 	

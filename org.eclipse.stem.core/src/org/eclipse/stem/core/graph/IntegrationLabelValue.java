@@ -95,4 +95,11 @@ public interface IntegrationLabelValue extends SimpleDataExchangeLabelValue {
 	public double max();
 	
 
+	/**
+	 * prepareCycle. Preparae the label value before the start of a new cycle. For instance, 
+	 * a disease model label value sets the incidence to 0 here.
+	 * 
+	 * @return double The maximum value
+	*/
+	public void prepareCycle();
 }
