@@ -384,7 +384,7 @@ public class Activator extends AbstractUIPlugin {
 		final IWorkbench workbench = PlatformUI.getWorkbench();
 		try {
 			workbench.showPerspective(
-					Simulation.ID_STEM_SIMULATION_PERSPECTIVE, workbench
+					perspectiveId, workbench
 							.getActiveWorkbenchWindow());
 		} catch (WorkbenchException e) {
 			Activator.logError("Problem switching to Perspective with ID=\""

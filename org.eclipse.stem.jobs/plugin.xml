@@ -16,11 +16,6 @@
    </extension>
  <extension
         point="org.eclipse.core.runtime.adapters">
-         <factory 
-            class="org.eclipse.stem.jobs.adapters.executable.FileExecutableAdapterFactory" 
-            adaptableType="org.eclipse.core.resources.IFile">
-            <adapter type="org.eclipse.stem.jobs.execution.IExecutable"/>
-         </factory>
           <factory 
             class="org.eclipse.stem.jobs.adapters.executable.ConfigurationElementExecutableAdapterFactory" 
             adaptableType="org.eclipse.core.runtime.IConfigurationElement">

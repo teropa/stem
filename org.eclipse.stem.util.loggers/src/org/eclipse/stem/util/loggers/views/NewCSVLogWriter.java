@@ -148,6 +148,10 @@ public class NewCSVLogWriter extends LogWriter {
 			return;
 		}
 		
+		File d = new File(dirName);
+		if(!d.exists())
+			d.mkdirs();
+		
 		this.directoryName = dirName + sep+uniqueID + sep + diseaseName.trim() + sep;
 		
 		// remove illegal strings
