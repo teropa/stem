@@ -80,20 +80,20 @@ public class SimplexAlgorithmExecuter
 			if(AutomaticExperimentManager.QUIT_NOW)
 				AutomaticExperimentManager.stopLatch.countDown();
 			if(!this.repeat || AutomaticExperimentManager.QUIT_NOW) {
-				Activator.logInformation("splunge");
-				Activator.logInformation("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
-				Activator.logInformation("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
-				Activator.logInformation("Validation error: " + simplexAlgorithm.getMinimumErrorResult().getValidationError());
-				Activator.logInformation("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
+//				Activator.logInformation("splunge");
+//				Activator.logInformation("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
+//				Activator.logInformation("Minimum value: " + simplexAlgorithm.getMinimumFunctionValue());
+//				Activator.logInformation("Validation error: " + simplexAlgorithm.getMinimumErrorResult().getValidationError());
+//				Activator.logInformation("Parameters values: " + Arrays.toString(simplexAlgorithm.getMinimumParametersValues()));
 				minvals = simplexAlgorithm.getMinimumParametersValues();
 				break;
 			}
 			double newmin = simplexAlgorithm.getMinimumFunctionValue();
 			if(newmin >= prevmin) {
-				Activator.logInformation("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
-				Activator.logInformation("Minimum value: " + prevmin);
-				Activator.logInformation("Validation error: " + simplexAlgorithm.getMinimumErrorResult().getValidationError());
-				Activator.logInformation("Parameters values: " + Arrays.toString(prevvals));
+//				Activator.logInformation("\n\nTime to execute the Nedler-Mead Algorithm: " + (after-before)/1000 + " seconds");
+//				Activator.logInformation("Minimum value: " + prevmin);
+//				Activator.logInformation("Validation error: " + simplexAlgorithm.getMinimumErrorResult().getValidationError());
+//				Activator.logInformation("Parameters values: " + Arrays.toString(prevvals));
 				minvals = prevvals;
 				break; // we couldn't improve
 			}
@@ -159,6 +159,8 @@ public class SimplexAlgorithmExecuter
 				final ErrorAnalysisAlgorithm algorithm) {
 			
 			try {
+				File d= new File(SIMULATION_OUTPUT_DIR);
+				if(!d.exists())d.mkdirs();
 				resultWriter = new FileWriter(LOG_FILE_NAME);
 				baseScenario = pBaseScenario;
 				this.errorFunction = errorFunction;
@@ -219,9 +221,9 @@ public class SimplexAlgorithmExecuter
 
 
 			//Run the simulation with the new parameters and return the error value
-			Activator.logInformation("Running the simulation with the following parameters: ");
-			Activator.logInformation("\tParameters Names: " + Arrays.toString(parameterNames));
-			Activator.logInformation("\tParameters Values: " + Arrays.toString(parameters));
+//			Activator.logInformation("Running the simulation with the following parameters: ");
+//			Activator.logInformation("\tParameters Names: " + Arrays.toString(parameterNames));
+//			Activator.logInformation("\tParameters Values: " + Arrays.toString(parameters));
 			double error = 0.0;
 			ErrorResult result = null;
 			try {
@@ -244,8 +246,8 @@ public class SimplexAlgorithmExecuter
 				
 				error = result.getError();
 				
-				Activator.logInformation(" Error is: " + error);
-				Activator.logInformation(" Error in validation data set is: " + result.getValidationError());
+//				Activator.logInformation(" Error is: " + error);
+//				Activator.logInformation(" Error in validation data set is: " + result.getValidationError());
 				resultWriter.write(error+"");
 				resultWriter.write(LS);
 				resultWriter.flush();
@@ -299,7 +301,7 @@ public class SimplexAlgorithmExecuter
 			simulationToRun.stop();			
 			
 			long after = System.currentTimeMillis();
-			Activator.logInformation("It took " + (after-before)/1000 + " seconds to run the simulation");
+//			Activator.logInformation("It took " + (after-before)/1000 + " seconds to run the simulation");
 		}
 		
 		private void cleanup() {

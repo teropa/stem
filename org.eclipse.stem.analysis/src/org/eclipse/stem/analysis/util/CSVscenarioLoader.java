@@ -21,6 +21,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,6 +32,9 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.analysis.Activator;
 import org.eclipse.stem.analysis.AnalysisFactory;
 import org.eclipse.stem.analysis.DiseaseType;
@@ -98,7 +103,18 @@ public class CSVscenarioLoader {
 	private List<File> getDataFiles() throws ScenarioInitializationException {
 		List<File> dataFiles = new ArrayList<File>();
 		File[] files;
-		File dir = new File(directory);
+		URL fURL=null;
+		File dir = null;
+		if(directory.startsWith("platform:") || directory.startsWith("file:")) {
+			try {
+				URL inURL = new URL(directory);
+				fURL = FileLocator.toFileURL(inURL);
+			} catch(Exception mue) {
+				mue.printStackTrace();
+			}
+			dir = new File(fURL.getFile());
+		} else dir = new File(directory);
+		
 		if(dir.exists()&&dir.isDirectory()) {
 			files = dir.listFiles();
 		} else throw new ScenarioInitializationException("Cannot find file: "+dir);
@@ -108,7 +124,7 @@ public class CSVscenarioLoader {
 			if (this.isDataFile(f)) dataFiles.add(f);
 			if (this.isRunParameterFile(f)) readRunParameters(f);
 		}
-		if(dataFiles.size() == 0) throw new ScenarioInitializationException("No data files found!");
+		if(dataFiles.size() == 0) throw new ScenarioInitializationException("No data files found in directory :"+directory);
 
 		return dataFiles;
 	}// getDataFiles

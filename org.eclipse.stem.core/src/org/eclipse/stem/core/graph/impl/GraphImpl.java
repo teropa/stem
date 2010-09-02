@@ -394,11 +394,11 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 				Node n1 = arg0.getNode();
 				Node n2 = arg1.getNode();
 				if(n1 == null) {
-					CorePlugin.logError("Label "+arg0.getClass()+" "+arg0+" node is null", new Exception());
+					CorePlugin.logError("Label "+arg0.getClass()+" "+arg0+" uri:"+arg0.getURI()+" node is null", new Exception());
 					return 0;
 				}
 				if(n2 == null) {
-					CorePlugin.logError("Label "+arg1.getClass()+" "+arg1+" node is null", new Exception());
+					CorePlugin.logError("Label "+arg1.getClass()+" "+arg1+" uri:"+arg1.getURI()+" node is null", new Exception());
 					return 0;
 				}
 				URI u1 = n1.getURI();

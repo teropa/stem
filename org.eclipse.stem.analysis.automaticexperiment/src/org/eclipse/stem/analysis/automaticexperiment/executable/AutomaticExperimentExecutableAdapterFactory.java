@@ -12,6 +12,7 @@ package org.eclipse.stem.analysis.automaticexperiment.executable;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.stem.analysis.automaticexperiment.Activator;
 import org.eclipse.stem.analysis.automaticexperiment.AutomaticExperimentManager;
 import org.eclipse.stem.analysis.automaticexperiment.ErrorAnalysisAlgorithm;
 import org.eclipse.stem.jobs.adapters.executable.emf.ExecutableAdapter;
@@ -65,6 +66,7 @@ public class AutomaticExperimentExecutableAdapterFactory
 		 */
 		@Override
 		public void run() {
+			org.eclipse.stem.ui.Activator.switchToPerspective(org.eclipse.stem.analysis.automaticexperiment.perspectives.AutomaticExperiment.ID_STEM_AUTOMATIC_EXPERIMENT_PERSPECTIVE);
 			AutomaticExperimentManager manager = AutomaticExperimentManager.getInstance();
 			AutomaticExperiment exp = (AutomaticExperiment)getTarget();
 			ErrorAnalysisAlgorithm algorithm = manager.createAlgorithm(exp.getErrorAnalysisAlgorithm());

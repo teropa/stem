@@ -36,6 +36,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -994,6 +996,19 @@ public class AutoExpControl extends AnalysisControl {
 			    textGridData.grabExcessHorizontalSpace=true;
 			    textGridData.minimumWidth=width;
 			    textGridData.horizontalAlignment = GridData.FILL;
+			    
+			    final int ind = j;
+			    restartValues[j].addModifyListener(new ModifyListener() {
+					
+					public void modifyText(ModifyEvent e) {
+						try {
+							String text = ((Text)e.getSource()).getText();
+							restartParamValues[ind] = Double.parseDouble(text);
+						} catch(Exception ex) {
+							// The user entered an invalid double value. Ignore
+						}
+					}
+				});
 			}	
 		 
 		controlsValuesComposite.layout();
