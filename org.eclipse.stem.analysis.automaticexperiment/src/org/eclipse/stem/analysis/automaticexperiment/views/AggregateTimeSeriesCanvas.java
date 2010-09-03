@@ -1116,6 +1116,7 @@ public class AggregateTimeSeriesCanvas extends Canvas {
 			} // if lineSeries==null
 			lineSeries.setDataSet(orthoValues);
 			((LineSeries) lineSeries).getLineAttributes().setVisible(true);
+			((LineSeries) lineSeries).getLineAttributes().setThickness(3);
 			((LineSeries) lineSeries).getMarkers().clear();
 			
 			// Assign the line color
