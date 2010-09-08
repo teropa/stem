@@ -54,16 +54,5 @@
      </dublin_core>
   </extension>
   
-    <extension
-        point="org.eclipse.stem.graphgenerators.graphgenerator">
-        <classdef
-            class="org.eclipse.stem.graphgenerators.impl.PajekNetGraphGeneratorImpl">
-        </classdef>
-        <dublin_core
-            description="%dc_desc_Pajek"
-            identifier="pajek"
-            title="%dc_desc_Pajek">
-        </dublin_core>
-    </extension>
 
 </plugin>
