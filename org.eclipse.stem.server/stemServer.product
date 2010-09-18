@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="STEM Server" uid="org.eclipse.stem.server.product" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" version="1.0.1.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="STEM Server" uid="org.eclipse.stem.server.product" id="org.eclipse.stem.server.product" application="org.eclipse.stem.server.ServerApplication" version="1.0.1.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="branding/ohf64_64_32.gif"/>
@@ -26,167 +26,16 @@
       startupMessageRect="10,380,431,20"
       startupForegroundColor="FFFFFF" />
    <plugins>
-      <plugin id="com.ibm.icu"/>
-      <plugin id="javax.servlet"/>
-      <plugin id="javax.servlet.jsp"/>
-      <plugin id="org.apache.commons.codec"/>
-      <plugin id="org.apache.commons.el"/>
-      <plugin id="org.apache.commons.logging"/>
-      <plugin id="org.apache.jasper"/>
-      <plugin id="org.apache.lucene"/>
-      <plugin id="org.apache.lucene.analysis"/>
-      <plugin id="org.eclipse.ant.core"/>
-      <plugin id="org.eclipse.birt.chart.device.swt"/>
-      <plugin id="org.eclipse.birt.chart.engine"/>
-      <plugin id="org.eclipse.birt.chart.engine.extension"/>
-      <plugin id="org.eclipse.birt.core"/>
-      <plugin id="org.eclipse.birt.core.ui"/>
-      <plugin id="org.eclipse.compare"/>
-      <plugin id="org.eclipse.compare.core"/>
-      <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
-      <plugin id="org.eclipse.core.databinding"/>
-      <plugin id="org.eclipse.core.databinding.observable"/>
-      <plugin id="org.eclipse.core.databinding.property"/>
-      <plugin id="org.eclipse.core.expressions"/>
-      <plugin id="org.eclipse.core.filebuffers"/>
-      <plugin id="org.eclipse.core.filesystem"/>
-      <plugin id="org.eclipse.core.filesystem.linux.x86" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
-      <plugin id="org.eclipse.core.net"/>
-      <plugin id="org.eclipse.core.net.linux.x86" fragment="true"/>
-      <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.runtime"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
-      <plugin id="org.eclipse.core.variables"/>
-      <plugin id="org.eclipse.ecf"/>
-      <plugin id="org.eclipse.ecf.filetransfer"/>
-      <plugin id="org.eclipse.ecf.identity"/>
-      <plugin id="org.eclipse.ecf.provider.filetransfer"/>
-      <plugin id="org.eclipse.ecf.provider.filetransfer.ssl" fragment="true"/>
-      <plugin id="org.eclipse.ecf.ssl" fragment="true"/>
-      <plugin id="org.eclipse.emf.common"/>
-      <plugin id="org.eclipse.emf.common.ui"/>
-      <plugin id="org.eclipse.emf.ecore"/>
-      <plugin id="org.eclipse.emf.ecore.edit"/>
-      <plugin id="org.eclipse.emf.ecore.xmi"/>
-      <plugin id="org.eclipse.emf.edit"/>
-      <plugin id="org.eclipse.emf.edit.ui"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.common"/>
-      <plugin id="org.eclipse.equinox.http.jetty"/>
-      <plugin id="org.eclipse.equinox.http.registry"/>
-      <plugin id="org.eclipse.equinox.http.servlet"/>
-      <plugin id="org.eclipse.equinox.jsp.jasper"/>
-      <plugin id="org.eclipse.equinox.jsp.jasper.registry"/>
-      <plugin id="org.eclipse.equinox.p2.artifact.repository"/>
-      <plugin id="org.eclipse.equinox.p2.core"/>
-      <plugin id="org.eclipse.equinox.p2.engine"/>
-      <plugin id="org.eclipse.equinox.p2.jarprocessor"/>
-      <plugin id="org.eclipse.equinox.p2.metadata"/>
-      <plugin id="org.eclipse.equinox.p2.metadata.repository"/>
-      <plugin id="org.eclipse.equinox.p2.repository"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
-      <plugin id="org.eclipse.equinox.security"/>
-      <plugin id="org.eclipse.help"/>
-      <plugin id="org.eclipse.help.appserver"/>
-      <plugin id="org.eclipse.help.base"/>
-      <plugin id="org.eclipse.help.ui"/>
-      <plugin id="org.eclipse.help.webapp"/>
-      <plugin id="org.eclipse.jface"/>
-      <plugin id="org.eclipse.jface.databinding"/>
-      <plugin id="org.eclipse.jface.text"/>
-      <plugin id="org.eclipse.ltk.core.refactoring"/>
-      <plugin id="org.eclipse.ltk.ui.refactoring"/>
       <plugin id="org.eclipse.osgi"/>
-      <plugin id="org.eclipse.osgi.services"/>
-      <plugin id="org.eclipse.stem.analysis"/>
-      <plugin id="org.eclipse.stem.analysis.automaticexperiment"/>
-      <plugin id="org.eclipse.stem.core"/>
-      <plugin id="org.eclipse.stem.data.diseasemodels.models"/>
-      <plugin id="org.eclipse.stem.data.diseasemodels.scenarios"/>
-      <plugin id="org.eclipse.stem.data.geography"/>
-      <plugin id="org.eclipse.stem.data.geography.infrastructure.transportation"/>
-      <plugin id="org.eclipse.stem.data.geography.models"/>
-      <plugin id="org.eclipse.stem.data.geography.population.human"/>
-      <plugin id="org.eclipse.stem.data.geography.population.human.models"/>
-      <plugin id="org.eclipse.stem.data.population.human"/>
-      <plugin id="org.eclipse.stem.definitions"/>
-      <plugin id="org.eclipse.stem.diseasemodels"/>
-      <plugin id="org.eclipse.stem.diseasemodels.example"/>
-      <plugin id="org.eclipse.stem.diseasemodels.experimental"/>
-      <plugin id="org.eclipse.stem.diseasemodels.externaldatasource"/>
-      <plugin id="org.eclipse.stem.diseasemodels.forcing"/>
-      <plugin id="org.eclipse.stem.diseasemodels.multipopulation"/>
-      <plugin id="org.eclipse.stem.diseases"/>
-      <plugin id="org.eclipse.stem.doc"/>
-      <plugin id="org.eclipse.stem.geography"/>
-      <plugin id="org.eclipse.stem.graphgenerators"/>
-      <plugin id="org.eclipse.stem.internal.data"/>
-      <plugin id="org.eclipse.stem.internal.data.geography"/>
-      <plugin id="org.eclipse.stem.internal.data.geography.infrastructure.transportation"/>
-      <plugin id="org.eclipse.stem.internal.data.geography.models"/>
-      <plugin id="org.eclipse.stem.internal.data.geography.population"/>
-      <plugin id="org.eclipse.stem.internal.data.geography.population.human"/>
-      <plugin id="org.eclipse.stem.internal.data.geography.population.human.models"/>
-      <plugin id="org.eclipse.stem.internal.diseasemodels.models"/>
-      <plugin id="org.eclipse.stem.internal.diseasemodels.scenarios"/>
-      <plugin id="org.eclipse.stem.jobs"/>
-      <plugin id="org.eclipse.stem.jobs.nl1" fragment="true"/>
-      <plugin id="org.eclipse.stem.populationmodels"/>
-      <plugin id="org.eclipse.stem.sequencers"/>
-      <plugin id="org.eclipse.stem.solvers.fd"/>
-      <plugin id="org.eclipse.stem.solvers.rk"/>
-      <plugin id="org.eclipse.stem.transport"/>
-      <plugin id="org.eclipse.stem.ui"/>
-      <plugin id="org.eclipse.stem.ui.diseasemodels"/>
-      <plugin id="org.eclipse.stem.ui.diseasemodels.example"/>
-      <plugin id="org.eclipse.stem.ui.diseasemodels.externaldatasource"/>
-      <plugin id="org.eclipse.stem.ui.diseasemodels.forcing.editor"/>
-      <plugin id="org.eclipse.stem.ui.diseasemodels.multipopulation"/>
-      <plugin id="org.eclipse.stem.ui.ge"/>
-      <plugin id="org.eclipse.stem.ui.graphgenerators"/>
-      <plugin id="org.eclipse.stem.ui.nl1" fragment="true"/>
-      <plugin id="org.eclipse.stem.ui.populationmodels"/>
-      <plugin id="org.eclipse.stem.ui.reports"/>
-      <plugin id="org.eclipse.stem.ui.solvers.fd"/>
-      <plugin id="org.eclipse.stem.ui.solvers.rk"/>
-      <plugin id="org.eclipse.stem.util.analysis"/>
-      <plugin id="org.eclipse.stem.util.loggers"/>
-      <plugin id="org.eclipse.swt"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
-      <plugin id="org.eclipse.team.core"/>
-      <plugin id="org.eclipse.team.ui"/>
-      <plugin id="org.eclipse.text"/>
-      <plugin id="org.eclipse.ui"/>
-      <plugin id="org.eclipse.ui.editors"/>
-      <plugin id="org.eclipse.ui.forms"/>
-      <plugin id="org.eclipse.ui.ide"/>
-      <plugin id="org.eclipse.ui.intro"/>
-      <plugin id="org.eclipse.ui.intro.universal"/>
-      <plugin id="org.eclipse.ui.navigator"/>
-      <plugin id="org.eclipse.ui.navigator.resources"/>
-      <plugin id="org.eclipse.ui.views"/>
-      <plugin id="org.eclipse.ui.views.log"/>
-      <plugin id="org.eclipse.ui.views.properties.tabbed"/>
-      <plugin id="org.eclipse.ui.workbench"/>
-      <plugin id="org.eclipse.ui.workbench.texteditor"/>
-      <plugin id="org.eclipse.update.configurator"/>
-      <plugin id="org.eclipse.update.core"/>
-      <plugin id="org.eclipse.update.core.linux" fragment="true"/>
-      <plugin id="org.hamcrest.core"/>
-      <plugin id="org.junit"/>
-      <plugin id="org.mortbay.jetty.server"/>
-      <plugin id="org.mortbay.jetty.util"/>
-      <plugin id="org.mozilla.rhino"/>
    </plugins>
 
-   <configurations>
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
-      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
-   </configurations>
 
 </product>

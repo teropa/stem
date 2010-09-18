@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="ServerApplication">
+         
+         <application>
+         	<run class="org.eclipse.stem.server.ServerApplication"/>
+         </application>
+
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.stem.server.ServerApplication"
+            name="STEM Server">
+         <property
+               name="windowImages"
+               value="branding/ohf16_16_32.gif,branding/ohf32_32_32.gif,branding/ohf48_48_32.gif,branding/ohf64_64_32.gif,branding/ohf128_128_32.gif">
+         </property>
+         <property
+               name="aboutText"
+               value="Spatio-Temporal Epidemological/Event Modeler (STEM)">
+         </property>
+         <property
+               name="aboutImage"
+               value="branding/ohf64_64_32.gif">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="FFFFFF">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,413,431,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="10,380,431,20">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
