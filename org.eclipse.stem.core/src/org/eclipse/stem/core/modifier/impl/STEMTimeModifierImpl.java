@@ -11,11 +11,7 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.STEMTimeModifier;
@@ -35,26 +31,6 @@ import org.eclipse.stem.core.modifier.STEMTimeModifier;
  * @generated
  */
 public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STEMTimeModifier {
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime value;
-
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime originalValue;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,15 +56,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @generated
 	 */
 	public STEMTime getValue() {
-		if (value != null && value.eIsProxy()) {
-			InternalEObject oldValue = (InternalEObject)value;
-			value = (STEMTime)eResolveProxy(oldValue);
-			if (value != oldValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModifierPackage.STEM_TIME_MODIFIER__VALUE, oldValue, value));
-			}
-		}
-		return value;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_MODIFIER__VALUE, ModifierPackage.Literals.STEM_TIME_MODIFIER__VALUE, true, true);
 	}
 
 	/**
@@ -97,7 +65,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @generated
 	 */
 	public STEMTime basicGetValue() {
-		return value;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_MODIFIER__VALUE, ModifierPackage.Literals.STEM_TIME_MODIFIER__VALUE, false, true);
 	}
 
 	/**
@@ -106,10 +74,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @generated
 	 */
 	public void setValue(STEMTime newValue) {
-		STEMTime oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.STEM_TIME_MODIFIER__VALUE, oldValue, value));
+		eDynamicSet(ModifierPackage.STEM_TIME_MODIFIER__VALUE, ModifierPackage.Literals.STEM_TIME_MODIFIER__VALUE, newValue);
 	}
 
 	/**
@@ -118,15 +83,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @generated
 	 */
 	public STEMTime getOriginalValue() {
-		if (originalValue != null && originalValue.eIsProxy()) {
-			InternalEObject oldOriginalValue = (InternalEObject)originalValue;
-			originalValue = (STEMTime)eResolveProxy(oldOriginalValue);
-			if (originalValue != oldOriginalValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModifierPackage.STEM_TIME_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
-			}
-		}
-		return originalValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.STEM_TIME_MODIFIER__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -135,7 +92,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @generated
 	 */
 	public STEMTime basicGetOriginalValue() {
-		return originalValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.STEM_TIME_MODIFIER__ORIGINAL_VALUE, false, true);
 	}
 
 	/**
@@ -144,10 +101,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @generated
 	 */
 	public void setOriginalValue(STEMTime newOriginalValue) {
-		STEMTime oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.STEM_TIME_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(ModifierPackage.STEM_TIME_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.STEM_TIME_MODIFIER__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -210,9 +164,9 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((STEMTime)target.eGet(getEStructuralFeature()));
+			setOriginalValue((STEMTime)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getValue());
+		getTarget().eSet(getEStructuralFeature(), getValue());
 		complete = true;
 	} // updateFeature
 
@@ -223,7 +177,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	@Override
 	public void reset() {
 		complete = false;
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	private boolean complete = false;
@@ -244,9 +198,9 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.STEM_TIME_MODIFIER__VALUE:
-				return value != null;
+				return basicGetValue() != null;
 			case ModifierPackage.STEM_TIME_MODIFIER__ORIGINAL_VALUE:
-				return originalValue != null;
+				return basicGetOriginalValue() != null;
 		}
 		return super.eIsSet(featureID);
 	}

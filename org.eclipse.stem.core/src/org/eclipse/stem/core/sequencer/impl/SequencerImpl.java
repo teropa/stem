@@ -13,20 +13,13 @@ package org.eclipse.stem.core.sequencer.impl;
 
 import java.text.SimpleDateFormat;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
-
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
-
 import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 
@@ -65,24 +58,6 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	protected STEMTime startTime = ModelFactory.eINSTANCE.createSTEMTime();
 
 	/**
-	 * The cached value of the '{@link #getEndTime() <em>End Time</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getEndTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime endTime;
-
-	/**
-	 * The cached value of the '{@link #getCurrentTime() <em>Current Time</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getCurrentTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime currentTime;
-
-	/**
 	 * The default value of the '{@link #getTimeDelta() <em>Time Delta</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTimeDelta()
@@ -92,15 +67,6 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	protected static final long TIME_DELTA_EDEFAULT = 0L;
 
 	/**
-	 * The cached value of the '{@link #getTimeDelta() <em>Time Delta</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTimeDelta()
-	 * @generated
-	 * @ordered
-	 */
-	protected long timeDelta = TIME_DELTA_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDuration()
@@ -108,15 +74,6 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @ordered
 	 */
 	protected static final long DURATION_EDEFAULT = -1L;
-
-	/**
-	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDuration()
-	 * @generated
-	 * @ordered
-	 */
-	protected long duration = DURATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isTimeToStop() <em>Time To Stop</em>}' attribute.
@@ -137,15 +94,6 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	protected static final double WORK_COMPLETE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getWorkComplete() <em>Work Complete</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getWorkComplete()
-	 * @generated
-	 * @ordered
-	 */
-	protected double workComplete = WORK_COMPLETE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getWorkIncrement() <em>Work Increment</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getWorkIncrement()
@@ -162,15 +110,6 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @ordered
 	 */
 	protected static final int CYCLE_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getCycle() <em>Cycle</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getCycle()
-	 * @generated
-	 * @ordered
-	 */
-	protected int cycle = CYCLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -204,12 +143,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 */
 	public NotificationChain basicSetStartTime(STEMTime newStartTime,
 			NotificationChain msgs) {
-		STEMTime oldStartTime = startTime;
-		startTime = newStartTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__START_TIME, oldStartTime, newStartTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newStartTime, SequencerPackage.SEQUENCER__START_TIME, msgs);
 		return msgs;
 	}
 
@@ -218,17 +152,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public void setStartTime(STEMTime newStartTime) {
-		if (newStartTime != startTime) {
-			NotificationChain msgs = null;
-			if (startTime != null)
-				msgs = ((InternalEObject)startTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SequencerPackage.SEQUENCER__START_TIME, null, msgs);
-			if (newStartTime != null)
-				msgs = ((InternalEObject)newStartTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SequencerPackage.SEQUENCER__START_TIME, null, msgs);
-			msgs = basicSetStartTime(newStartTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__START_TIME, newStartTime, newStartTime));
+		eDynamicSet(SequencerPackage.SEQUENCER__START_TIME, SequencerPackage.Literals.SEQUENCER__START_TIME, newStartTime);
 	}
 
 	/**
@@ -236,7 +160,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public STEMTime getEndTime() {
-		return endTime;
+		return (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__END_TIME, SequencerPackage.Literals.SEQUENCER__END_TIME, true, true);
 	}
 
 	/**
@@ -245,12 +169,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 */
 	public NotificationChain basicSetEndTime(STEMTime newEndTime,
 			NotificationChain msgs) {
-		STEMTime oldEndTime = endTime;
-		endTime = newEndTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__END_TIME, oldEndTime, newEndTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newEndTime, SequencerPackage.SEQUENCER__END_TIME, msgs);
 		return msgs;
 	}
 
@@ -259,17 +178,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public void setEndTime(STEMTime newEndTime) {
-		if (newEndTime != endTime) {
-			NotificationChain msgs = null;
-			if (endTime != null)
-				msgs = ((InternalEObject)endTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SequencerPackage.SEQUENCER__END_TIME, null, msgs);
-			if (newEndTime != null)
-				msgs = ((InternalEObject)newEndTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SequencerPackage.SEQUENCER__END_TIME, null, msgs);
-			msgs = basicSetEndTime(newEndTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__END_TIME, newEndTime, newEndTime));
+		eDynamicSet(SequencerPackage.SEQUENCER__END_TIME, SequencerPackage.Literals.SEQUENCER__END_TIME, newEndTime);
 	}
 
 	/**
@@ -278,11 +187,13 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public STEMTime getCurrentTime() {
+		STEMTime currentTime = (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__CURRENT_TIME, SequencerPackage.Literals.SEQUENCER__CURRENT_TIME, true, true);
 		// Is the current time set yet?
 		if (currentTime == null) {
 			// No
 			// Then the current time is the start time.
-			setCurrentTime((STEMTime) EcoreUtil.copy(getStartTime()));
+			currentTime = (STEMTime) EcoreUtil.copy(getStartTime());
+			setCurrentTime(currentTime);
 		}
 		return (STEMTime) EcoreUtil.copy(currentTime);
 	}
@@ -293,12 +204,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 */
 	public NotificationChain basicSetCurrentTime(STEMTime newCurrentTime,
 			NotificationChain msgs) {
-		STEMTime oldCurrentTime = currentTime;
-		currentTime = newCurrentTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__CURRENT_TIME, oldCurrentTime, newCurrentTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newCurrentTime, SequencerPackage.SEQUENCER__CURRENT_TIME, msgs);
 		return msgs;
 	}
 
@@ -307,17 +213,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public void setCurrentTime(STEMTime newCurrentTime) {
-		if (newCurrentTime != currentTime) {
-			NotificationChain msgs = null;
-			if (currentTime != null)
-				msgs = ((InternalEObject)currentTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SequencerPackage.SEQUENCER__CURRENT_TIME, null, msgs);
-			if (newCurrentTime != null)
-				msgs = ((InternalEObject)newCurrentTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SequencerPackage.SEQUENCER__CURRENT_TIME, null, msgs);
-			msgs = basicSetCurrentTime(newCurrentTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__CURRENT_TIME, newCurrentTime, newCurrentTime));
+		eDynamicSet(SequencerPackage.SEQUENCER__CURRENT_TIME, SequencerPackage.Literals.SEQUENCER__CURRENT_TIME, newCurrentTime);
 	}
 
 	/**
@@ -326,7 +222,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public STEMTime getNextTime() {
-		cycle++; // count this as a completed cycle
+		setCycle(getCycle() + 1); // count this as a completed cycle
 		return null;
 	}
 
@@ -335,7 +231,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public long getTimeDelta() {
-		return timeDelta;
+		return (Long)eDynamicGet(SequencerPackage.SEQUENCER__TIME_DELTA, SequencerPackage.Literals.SEQUENCER__TIME_DELTA, true, true);
 	}
 
 	/**
@@ -344,12 +240,14 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public long getDuration() {
+		long duration = (Long)eDynamicGet(SequencerPackage.SEQUENCER__DURATION, SequencerPackage.Literals.SEQUENCER__DURATION, true, true);
 		// Can we compute a duration?
 		if (duration == UNKNOWN_DURATION && getStartTime() != null
 				&& getEndTime() != null) {
 			// Yes
 			duration = getEndTime().getTime().getTime()
 					- getStartTime().getTime().getTime();
+			setDuration(duration);
 		}
 		return duration;
 	}
@@ -359,10 +257,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public void setDuration(long newDuration) {
-		long oldDuration = duration;
-		duration = newDuration;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__DURATION, oldDuration, duration));
+		eDynamicSet(SequencerPackage.SEQUENCER__DURATION, SequencerPackage.Literals.SEQUENCER__DURATION, newDuration);
 	}
 
 	/**
@@ -370,9 +265,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public boolean isTimeToStop() {
-		// TODO: implement this method to return the 'Time To Stop' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return (Boolean)eDynamicGet(SequencerPackage.SEQUENCER__TIME_TO_STOP, SequencerPackage.Literals.SEQUENCER__TIME_TO_STOP, true, true);
 	}
 
 	/**
@@ -380,7 +273,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public double getWorkComplete() {
-		return workComplete;
+		return (Double)eDynamicGet(SequencerPackage.SEQUENCER__WORK_COMPLETE, SequencerPackage.Literals.SEQUENCER__WORK_COMPLETE, true, true);
 	}
 
 	/**
@@ -388,10 +281,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public void setWorkComplete(double newWorkComplete) {
-		double oldWorkComplete = workComplete;
-		workComplete = newWorkComplete;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__WORK_COMPLETE, oldWorkComplete, workComplete));
+		eDynamicSet(SequencerPackage.SEQUENCER__WORK_COMPLETE, SequencerPackage.Literals.SEQUENCER__WORK_COMPLETE, newWorkComplete);
 	}
 
 	/**
@@ -399,9 +289,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public int getWorkIncrement() {
-		// TODO: implement this method to return the 'Work Increment' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return (Integer)eDynamicGet(SequencerPackage.SEQUENCER__WORK_INCREMENT, SequencerPackage.Literals.SEQUENCER__WORK_INCREMENT, true, true);
 	}
 
 	/**
@@ -409,7 +297,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public int getCycle() {
-		return cycle;
+		return (Integer)eDynamicGet(SequencerPackage.SEQUENCER__CYCLE, SequencerPackage.Literals.SEQUENCER__CYCLE, true, true);
 	}
 
 	/**
@@ -417,10 +305,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated
 	 */
 	public void setCycle(int newCycle) {
-		int oldCycle = cycle;
-		cycle = newCycle;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencerPackage.SEQUENCER__CYCLE, oldCycle, cycle));
+		eDynamicSet(SequencerPackage.SEQUENCER__CYCLE, SequencerPackage.Literals.SEQUENCER__CYCLE, newCycle);
 	}
 
 	/**
@@ -549,25 +434,25 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SequencerPackage.SEQUENCER__START_TIME:
-				return startTime != null;
+				return getStartTime() != null;
 			case SequencerPackage.SEQUENCER__END_TIME:
-				return endTime != null;
+				return getEndTime() != null;
 			case SequencerPackage.SEQUENCER__CURRENT_TIME:
-				return currentTime != null;
+				return getCurrentTime() != null;
 			case SequencerPackage.SEQUENCER__NEXT_TIME:
 				return getNextTime() != null;
 			case SequencerPackage.SEQUENCER__TIME_DELTA:
-				return timeDelta != TIME_DELTA_EDEFAULT;
+				return getTimeDelta() != TIME_DELTA_EDEFAULT;
 			case SequencerPackage.SEQUENCER__DURATION:
-				return duration != DURATION_EDEFAULT;
+				return getDuration() != DURATION_EDEFAULT;
 			case SequencerPackage.SEQUENCER__TIME_TO_STOP:
 				return isTimeToStop() != TIME_TO_STOP_EDEFAULT;
 			case SequencerPackage.SEQUENCER__WORK_COMPLETE:
-				return workComplete != WORK_COMPLETE_EDEFAULT;
+				return getWorkComplete() != WORK_COMPLETE_EDEFAULT;
 			case SequencerPackage.SEQUENCER__WORK_INCREMENT:
 				return getWorkIncrement() != WORK_INCREMENT_EDEFAULT;
 			case SequencerPackage.SEQUENCER__CYCLE:
-				return cycle != CYCLE_EDEFAULT;
+				return getCycle() != CYCLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -586,26 +471,26 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 		final StringBuffer result = new StringBuffer();
 		result.append(dateFormat.format(startTime.getTime()));
 
-		if (endTime != null) {
+		if (getEndTime() != null) {
 			result.append(" to ");
-			result.append(dateFormat.format(endTime.getTime()));
+			result.append(dateFormat.format(getEndTime().getTime()));
 		}
 
-		if (currentTime != null) {
+		if (getCurrentTime() != null) {
 			result.append(", current=");
-			result.append(dateFormat.format(currentTime.getTime()));
+			result.append(dateFormat.format(getCurrentTime().getTime()));
 		}
 
 		result.append(" (timeDelta: "); //$NON-NLS-1$
-		result.append(timeDelta);
+		result.append(getTimeDelta());
 		result.append(" (");
-		final long days = timeDelta / STEMTime.Units.DAY.getMilliseconds();
+		final long days = getTimeDelta() / STEMTime.Units.DAY.getMilliseconds();
 		result.append(days);
 		result.append(days == 1 ? " day)" : " days)");
 		result.append(", duration: "); //$NON-NLS-1$
-		result.append(duration);
+		result.append(getDuration());
 		result.append(", workComplete: "); //$NON-NLS-1$
-		result.append(workComplete);
+		result.append(getWorkComplete());
 		result.append(')');
 		return result.toString();
 	}

@@ -11,9 +11,7 @@ package org.eclipse.stem.core.sequencer.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
@@ -44,15 +42,6 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	protected static final long TIME_INCREMENT_EDEFAULT = STEMTime.Units.DAY.getMilliseconds();
 
 	/**
-	 * The cached value of the '{@link #getTimeIncrement() <em>Time Increment</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTimeIncrement()
-	 * @generated
-	 * @ordered
-	 */
-	protected long timeIncrement = TIME_INCREMENT_EDEFAULT;
-
-	/**
 	 * This is an accumulator of the work increment that keeps account of the
 	 * fraction of the work increments until they exceed 1.0
 	 */
@@ -79,7 +68,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	protected SequentialSequencerImpl() {
 		super();
 		// The time delta is always the same with a sequential sequencer
-		timeDelta = getTimeIncrement();
+		eDynamicSet(SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_DELTA, SequencerPackage.Literals.SEQUENCER__TIME_DELTA, getTimeIncrement());
 	} // SequentialSequencerImpl
 
 	/**
@@ -96,7 +85,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	 * @generated
 	 */
 	public long getTimeIncrement() {
-		return timeIncrement;
+		return (Long)eDynamicGet(SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT, SequencerPackage.Literals.SEQUENTIAL_SEQUENCER__TIME_INCREMENT, true, true);
 	}
 
 	/**
@@ -113,13 +102,8 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	 * @generated NOT
 	 */
 	public void setTimeIncrement(long newTimeIncrement) {
-		long oldTimeIncrement = timeIncrement;
-		timeIncrement = newTimeIncrement;
-		timeDelta = timeIncrement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT,
-					oldTimeIncrement, timeIncrement));
+		eDynamicSet(SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT, SequencerPackage.Literals.SEQUENTIAL_SEQUENCER__TIME_INCREMENT, newTimeIncrement);
+		eDynamicSet(SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_DELTA, SequencerPackage.Literals.SEQUENCER__TIME_DELTA, newTimeIncrement);
 	}
 
 	/**
@@ -272,24 +256,9 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT:
-				return timeIncrement != TIME_INCREMENT_EDEFAULT;
+				return getTimeIncrement() != TIME_INCREMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (timeIncrement: "); //$NON-NLS-1$
-		result.append(timeIncrement);
-		result.append(')');
-		return result.toString();
 	}
 
 } // SequentialSequencerImpl

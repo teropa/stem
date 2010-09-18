@@ -15,7 +15,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.STEMTimeSequenceModifier;
@@ -34,16 +33,6 @@ import org.eclipse.stem.core.modifier.STEMTimeSequenceModifier;
  * @generated
  */
 public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implements STEMTimeSequenceModifier {
-	/**
-	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<STEMTime> sequence;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,11 +57,9 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<STEMTime> getSequence() {
-		if (sequence == null) {
-			sequence = new EObjectResolvingEList<STEMTime>(STEMTime.class, this, ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER__SEQUENCE);
-		}
-		return sequence;
+		return (EList<STEMTime>)eDynamicGet(ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER__SEQUENCE, ModifierPackage.Literals.STEM_TIME_SEQUENCE_MODIFIER__SEQUENCE, true, true);
 	}
 
 	/**
@@ -82,8 +69,8 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	public Object getNextValue() {
 		int index = getCurrentSequenceIndex();
 		final Object retValue = getSequence().get(index++);
-		setCurrentSequenceIndex(index);		
-		currentValueText = retValue.toString();
+		setCurrentSequenceIndex(index);
+		eDynamicSet(ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
 		return retValue;
 	} // getNextValue
 	
@@ -103,7 +90,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 	/**
@@ -112,7 +99,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -170,7 +157,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER__SEQUENCE:
-				return sequence != null && !sequence.isEmpty();
+				return !getSequence().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

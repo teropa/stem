@@ -11,14 +11,9 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Node;
@@ -38,16 +33,6 @@ import org.eclipse.stem.core.graph.NodeLabel;
  * @generated
  */
 public abstract class NodeLabelImpl extends LabelImpl implements NodeLabel {
-	/**
-	 * The cached value of the '{@link #getNode() <em>Node</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNode()
-	 * @generated
-	 * @ordered
-	 */
-	protected Node node;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,15 +68,7 @@ public abstract class NodeLabelImpl extends LabelImpl implements NodeLabel {
 	 * @generated
 	 */
 	public Node getNode() {
-		if (node != null && node.eIsProxy()) {
-			InternalEObject oldNode = (InternalEObject)node;
-			node = (Node)eResolveProxy(oldNode);
-			if (node != oldNode) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.NODE_LABEL__NODE, oldNode, node));
-			}
-		}
-		return node;
+		return (Node)eDynamicGet(GraphPackage.NODE_LABEL__NODE, GraphPackage.Literals.NODE_LABEL__NODE, true, true);
 	}
 
 	/**
@@ -100,7 +77,7 @@ public abstract class NodeLabelImpl extends LabelImpl implements NodeLabel {
 	 * @generated
 	 */
 	public Node basicGetNode() {
-		return node;
+		return (Node)eDynamicGet(GraphPackage.NODE_LABEL__NODE, GraphPackage.Literals.NODE_LABEL__NODE, false, true);
 	}
 
 	/**
@@ -109,12 +86,7 @@ public abstract class NodeLabelImpl extends LabelImpl implements NodeLabel {
 	 * @generated
 	 */
 	public NotificationChain basicSetNode(Node newNode, NotificationChain msgs) {
-		Node oldNode = node;
-		node = newNode;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.NODE_LABEL__NODE, oldNode, newNode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newNode, GraphPackage.NODE_LABEL__NODE, msgs);
 		return msgs;
 	}
 
@@ -124,17 +96,7 @@ public abstract class NodeLabelImpl extends LabelImpl implements NodeLabel {
 	 * @generated
 	 */
 	public void setNode(Node newNode) {
-		if (newNode != node) {
-			NotificationChain msgs = null;
-			if (node != null)
-				msgs = ((InternalEObject)node).eInverseRemove(this, GraphPackage.NODE__LABELS, Node.class, msgs);
-			if (newNode != null)
-				msgs = ((InternalEObject)newNode).eInverseAdd(this, GraphPackage.NODE__LABELS, Node.class, msgs);
-			msgs = basicSetNode(newNode, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.NODE_LABEL__NODE, newNode, newNode));
+		eDynamicSet(GraphPackage.NODE_LABEL__NODE, GraphPackage.Literals.NODE_LABEL__NODE, newNode);
 	}
 
 	/**
@@ -146,6 +108,7 @@ public abstract class NodeLabelImpl extends LabelImpl implements NodeLabel {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GraphPackage.NODE_LABEL__NODE:
+				Node node = basicGetNode();
 				if (node != null)
 					msgs = ((InternalEObject)node).eInverseRemove(this, GraphPackage.NODE__LABELS, Node.class, msgs);
 				return basicSetNode((Node)otherEnd, msgs);
@@ -221,7 +184,7 @@ public abstract class NodeLabelImpl extends LabelImpl implements NodeLabel {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.NODE_LABEL__NODE:
-				return node != null;
+				return basicGetNode() != null;
 		}
 		return super.eIsSet(featureID);
 	}

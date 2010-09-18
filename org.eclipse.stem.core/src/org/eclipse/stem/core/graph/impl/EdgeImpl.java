@@ -11,19 +11,16 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
  
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.GraphPackage;
-//import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 
 /**
@@ -47,16 +44,6 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	
 	
 	/**
-	 * The cached value of the '{@link #getA() <em>A</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getA()
-	 * @generated
-	 * @ordered
-	 */
-	protected Node a;
-
-	/**
 	 * The default value of the '{@link #getNodeAURI() <em>Node AURI</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNodeAURI()
@@ -64,25 +51,6 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @ordered
 	 */
 	protected static final URI NODE_AURI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNodeAURI() <em>Node AURI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNodeAURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI nodeAURI = NODE_AURI_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getB() <em>B</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getB()
-	 * @generated
-	 * @ordered
-	 */
-	protected Node b;
 
 	/**
 	 * The default value of the '{@link #getNodeBURI() <em>Node BURI</em>}' attribute.
@@ -94,24 +62,6 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	protected static final URI NODE_BURI_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNodeBURI() <em>Node BURI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNodeBURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI nodeBURI = NODE_BURI_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected EdgeLabel label;
-
-	/**
 	 * The default value of the '{@link #isDirected() <em>Directed</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isDirected()
@@ -119,15 +69,6 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @ordered
 	 */
 	protected static final boolean DIRECTED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isDirected() <em>Directed</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isDirected()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean directed = DIRECTED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -315,15 +256,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public Node getA() {
-		if (a != null && a.eIsProxy()) {
-			InternalEObject oldA = (InternalEObject)a;
-			a = (Node)eResolveProxy(oldA);
-			if (a != oldA) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.EDGE__A, oldA, a));
-			}
-		}
-		return a;
+		return (Node)eDynamicGet(GraphPackage.EDGE__A, GraphPackage.Literals.EDGE__A, true, true);
 	}
 
 	/**
@@ -331,7 +264,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public Node basicGetA() {
-		return a;
+		return (Node)eDynamicGet(GraphPackage.EDGE__A, GraphPackage.Literals.EDGE__A, false, true);
 	}
 
 	/**
@@ -339,10 +272,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public void setA(Node newA) {
-		Node oldA = a;
-		a = newA;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE__A, oldA, a));
+		eDynamicSet(GraphPackage.EDGE__A, GraphPackage.Literals.EDGE__A, newA);
 	}
 
 	/**
@@ -350,7 +280,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public URI getNodeAURI() {
-		return nodeAURI;
+		return (URI)eDynamicGet(GraphPackage.EDGE__NODE_AURI, GraphPackage.Literals.EDGE__NODE_AURI, true, true);
 	}
 
 	/**
@@ -358,10 +288,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public void setNodeAURI(URI newNodeAURI) {
-		URI oldNodeAURI = nodeAURI;
-		nodeAURI = newNodeAURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE__NODE_AURI, oldNodeAURI, nodeAURI));
+		eDynamicSet(GraphPackage.EDGE__NODE_AURI, GraphPackage.Literals.EDGE__NODE_AURI, newNodeAURI);
 	}
 
 	/**
@@ -369,15 +296,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public Node getB() {
-		if (b != null && b.eIsProxy()) {
-			InternalEObject oldB = (InternalEObject)b;
-			b = (Node)eResolveProxy(oldB);
-			if (b != oldB) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.EDGE__B, oldB, b));
-			}
-		}
-		return b;
+		return (Node)eDynamicGet(GraphPackage.EDGE__B, GraphPackage.Literals.EDGE__B, true, true);
 	}
 
 	/**
@@ -385,7 +304,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public Node basicGetB() {
-		return b;
+		return (Node)eDynamicGet(GraphPackage.EDGE__B, GraphPackage.Literals.EDGE__B, false, true);
 	}
 
 	/**
@@ -393,10 +312,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public void setB(Node newB) {
-		Node oldB = b;
-		b = newB;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE__B, oldB, b));
+		eDynamicSet(GraphPackage.EDGE__B, GraphPackage.Literals.EDGE__B, newB);
 	}
 
 	/**
@@ -404,7 +320,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public URI getNodeBURI() {
-		return nodeBURI;
+		return (URI)eDynamicGet(GraphPackage.EDGE__NODE_BURI, GraphPackage.Literals.EDGE__NODE_BURI, true, true);
 	}
 
 	/**
@@ -412,10 +328,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public void setNodeBURI(URI newNodeBURI) {
-		URI oldNodeBURI = nodeBURI;
-		nodeBURI = newNodeBURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE__NODE_BURI, oldNodeBURI, nodeBURI));
+		eDynamicSet(GraphPackage.EDGE__NODE_BURI, GraphPackage.Literals.EDGE__NODE_BURI, newNodeBURI);
 	}
 
 	/**
@@ -423,7 +336,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public EdgeLabel getLabel() {
-		return label;
+		return (EdgeLabel)eDynamicGet(GraphPackage.EDGE__LABEL, GraphPackage.Literals.EDGE__LABEL, true, true);
 	}
 
 	/**
@@ -432,12 +345,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public NotificationChain basicSetLabel(EdgeLabel newLabel, NotificationChain msgs) {
-		EdgeLabel oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE__LABEL, oldLabel, newLabel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newLabel, GraphPackage.EDGE__LABEL, msgs);
 		return msgs;
 	}
 
@@ -447,17 +355,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public void setLabel(EdgeLabel newLabel) {
-		if (newLabel != label) {
-			NotificationChain msgs = null;
-			if (label != null)
-				msgs = ((InternalEObject)label).eInverseRemove(this, GraphPackage.EDGE_LABEL__EDGE, EdgeLabel.class, msgs);
-			if (newLabel != null)
-				msgs = ((InternalEObject)newLabel).eInverseAdd(this, GraphPackage.EDGE_LABEL__EDGE, EdgeLabel.class, msgs);
-			msgs = basicSetLabel(newLabel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE__LABEL, newLabel, newLabel));
+		eDynamicSet(GraphPackage.EDGE__LABEL, GraphPackage.Literals.EDGE__LABEL, newLabel);
 	}
 
 	/**
@@ -465,7 +363,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public boolean isDirected() {
-		return directed;
+		return (Boolean)eDynamicGet(GraphPackage.EDGE__DIRECTED, GraphPackage.Literals.EDGE__DIRECTED, true, true);
 	}
 
 	/**
@@ -473,10 +371,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated
 	 */
 	public void setDirected(boolean newDirected) {
-		boolean oldDirected = directed;
-		directed = newDirected;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE__DIRECTED, oldDirected, directed));
+		eDynamicSet(GraphPackage.EDGE__DIRECTED, GraphPackage.Literals.EDGE__DIRECTED, newDirected);
 	}
 
 	/**
@@ -503,8 +398,8 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated NOT
 	 */
 	public boolean isDirectedAt(Node node) {
-		return isDirected() && ( b != null && b.equals(node) 
-				|| b== null && nodeBURI.equals(node.getURI()));
+		return isDirected() && ( getB() != null && getB().equals(node) 
+				|| getB()== null && getNodeBURI().equals(node.getURI()));
 	} // isDirectedAt
 
 	/**
@@ -516,6 +411,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GraphPackage.EDGE__LABEL:
+				EdgeLabel label = getLabel();
 				if (label != null)
 					msgs = ((InternalEObject)label).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphPackage.EDGE__LABEL, null, msgs);
 				return basicSetLabel((EdgeLabel)otherEnd, msgs);
@@ -627,17 +523,17 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.EDGE__A:
-				return a != null;
+				return basicGetA() != null;
 			case GraphPackage.EDGE__NODE_AURI:
-				return NODE_AURI_EDEFAULT == null ? nodeAURI != null : !NODE_AURI_EDEFAULT.equals(nodeAURI);
+				return NODE_AURI_EDEFAULT == null ? getNodeAURI() != null : !NODE_AURI_EDEFAULT.equals(getNodeAURI());
 			case GraphPackage.EDGE__B:
-				return b != null;
+				return basicGetB() != null;
 			case GraphPackage.EDGE__NODE_BURI:
-				return NODE_BURI_EDEFAULT == null ? nodeBURI != null : !NODE_BURI_EDEFAULT.equals(nodeBURI);
+				return NODE_BURI_EDEFAULT == null ? getNodeBURI() != null : !NODE_BURI_EDEFAULT.equals(getNodeBURI());
 			case GraphPackage.EDGE__LABEL:
-				return label != null;
+				return getLabel() != null;
 			case GraphPackage.EDGE__DIRECTED:
-				return directed != DIRECTED_EDEFAULT;
+				return isDirected() != DIRECTED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -654,11 +550,11 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 		StringBuffer result = new StringBuffer("");
 
-		result.append(a != null ? a :  ( nodeAURI != null ? nodeAURI.toString() : "null"));
+		result.append(getA() != null ? getA() :  ( getNodeAURI() != null ? getNodeAURI().toString() : "null"));
 
-		result.append(directed ? " -> " : " -- ");
+		result.append(isDirected() ? " -> " : " -- ");
 
-		result.append(b != null ? b : ( nodeBURI != null ? nodeBURI.toString() : "null"));
+		result.append(getB() != null ? getB() : ( getNodeBURI() != null ? getNodeBURI().toString() : "null"));
 		return result.toString();
 	} // toString
 
@@ -671,55 +567,55 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 		
 		boolean retValue = super.sane();
 
-		retValue = retValue && nodeAURI != null;
+		retValue = retValue && getNodeAURI() != null;
 		assert retValue;
 
-		retValue = retValue && nodeBURI != null;
+		retValue = retValue && getNodeBURI() != null;
 		assert retValue;
 
-		retValue = retValue && label != null;
+		retValue = retValue && getLabel() != null;
 		assert retValue;
 
 		// A node?
-		if (a != null) {
+		if (getA() != null) {
 			// Yes
 			// If this edge links to a node, then the node should have this edge
 			// as one of its edges
-			retValue = retValue && a.getEdges().contains(this);
+			retValue = retValue && getA().getEdges().contains(this);
 			assert retValue;
 
 			// This edge should be hooked up to the correct node too.
-			retValue = retValue && nodeAURI.equals(a.getURI());
+			retValue = retValue && getNodeAURI().equals(getA().getURI());
 			assert retValue;
 		} // if A Node
 
 		// B node?
-		if (b != null) {
+		if (getB() != null) {
 			// Yes
 			// If this edge links to a node, then the node should have this edge
 			// as one of its edges
-			retValue = retValue && b.getEdges().contains(this);
+			retValue = retValue && getB().getEdges().contains(this);
 			assert retValue;
 
 			// This edge should be hooked up to the correct node too.
-			retValue = retValue && nodeBURI.equals(b.getURI());
+			retValue = retValue && getNodeBURI().equals(getB().getURI());
 			assert retValue;
 		}
 
 		// Of course if one node is set, so should the other
 		retValue = retValue
-				&& ((a == null && b == null) || (a != null && b != null));
+				&& ((getA() == null && getB() == null) || (getA() != null && getB() != null));
 		assert retValue;
 
 		// The label should reference this edge with its URI
-		retValue = retValue && label.getURIOfIdentifiableToBeLabeled() != null;
+		retValue = retValue && getLabel().getURIOfIdentifiableToBeLabeled() != null;
 		assert retValue;
 		retValue = retValue
-				&& label.getURIOfIdentifiableToBeLabeled().equals(getURI());
+				&& getLabel().getURIOfIdentifiableToBeLabeled().equals(getURI());
 		assert retValue;
 
 		// And the label should be sane
-		retValue = retValue && label.sane();
+		retValue = retValue && getLabel().sane();
 		assert retValue;
 
 		return retValue;

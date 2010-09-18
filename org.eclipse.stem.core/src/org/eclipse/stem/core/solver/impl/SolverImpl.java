@@ -11,23 +11,16 @@ package org.eclipse.stem.core.solver.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
-
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.core.solver.SolverPackage;
@@ -48,16 +41,6 @@ import org.eclipse.stem.core.solver.SolverPackage;
  */
 public class SolverImpl extends IdentifiableImpl implements Solver {
 	/**
-	 * The cached value of the '{@link #getDecorators() <em>Decorators</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDecorators()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Decorator> decorators;
-
-	/**
 	 * The default value of the '{@link #isInitialized() <em>Initialized</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,16 +49,6 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @ordered
 	 */
 	protected static final boolean INITIALIZED_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isInitialized() <em>Initialized</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInitialized()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean initialized = INITIALIZED_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,7 +75,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @generated
 	 */
 	public EList<Decorator> getDecorators() {
-		return decorators;
+		return (EList<Decorator>)eDynamicGet(SolverPackage.SOLVER__DECORATORS, SolverPackage.Literals.SOLVER__DECORATORS, true, true);
 	}
 
 	/**
@@ -111,10 +84,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @generated
 	 */
 	public void setDecorators(EList<Decorator> newDecorators) {
-		EList<Decorator> oldDecorators = decorators;
-		decorators = newDecorators;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__DECORATORS, oldDecorators, decorators));
+		eDynamicSet(SolverPackage.SOLVER__DECORATORS, SolverPackage.Literals.SOLVER__DECORATORS, newDecorators);
 	}
 
 	/**
@@ -123,7 +93,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @generated
 	 */
 	public boolean isInitialized() {
-		return initialized;
+		return (Boolean)eDynamicGet(SolverPackage.SOLVER__INITIALIZED, SolverPackage.Literals.SOLVER__INITIALIZED, true, true);
 	}
 
 	/**
@@ -132,10 +102,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @generated
 	 */
 	public void setInitialized(boolean newInitialized) {
-		boolean oldInitialized = initialized;
-		initialized = newInitialized;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIALIZED, oldInitialized, initialized));
+		eDynamicSet(SolverPackage.SOLVER__INITIALIZED, SolverPackage.Literals.SOLVER__INITIALIZED, newInitialized);
 	}
 
 	/**
@@ -262,29 +229,11 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SolverPackage.SOLVER__DECORATORS:
-				return decorators != null;
+				return getDecorators() != null;
 			case SolverPackage.SOLVER__INITIALIZED:
-				return initialized != INITIALIZED_EDEFAULT;
+				return isInitialized() != INITIALIZED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (decorators: "); //$NON-NLS-1$
-		result.append(decorators);
-		result.append(", initialized: "); //$NON-NLS-1$
-		result.append(initialized);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SolverImpl

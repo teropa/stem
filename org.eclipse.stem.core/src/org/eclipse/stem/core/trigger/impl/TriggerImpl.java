@@ -11,10 +11,7 @@ package org.eclipse.stem.core.trigger.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.model.Decorator;
@@ -40,26 +37,6 @@ import org.eclipse.stem.core.trigger.TriggerPackage;
  * @generated
  */
 public class TriggerImpl extends DecoratorImpl implements Trigger {
-	/**
-	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPredicate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Predicate predicate;
-
-	/**
-	 * The cached value of the '{@link #getAction() <em>Action</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAction()
-	 * @generated
-	 * @ordered
-	 */
-	protected Decorator action;
-
 	protected Decorator actionCopy;
 	
 	/**
@@ -88,12 +65,12 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	@Override
 	public boolean decorateGraph(STEMTime time) {
 		// Do we have an action?
-		if (action != null) {
+		if (getAction() != null) {
 			// Yes
 			// Have we already made a copy of the action?
 			if (actionCopy == null ) {
 				// No
-				actionCopy = (Decorator) EcoreUtil.copy(action);
+				actionCopy = (Decorator) EcoreUtil.copy(getAction());
 				getGraph().getDecorators().add(actionCopy);
 			} // if
 			actionCopy.setEnabled(false);
@@ -192,15 +169,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @generated
 	 */
 	public Predicate getPredicate() {
-		if (predicate != null && predicate.eIsProxy()) {
-			InternalEObject oldPredicate = (InternalEObject)predicate;
-			predicate = (Predicate)eResolveProxy(oldPredicate);
-			if (predicate != oldPredicate) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TriggerPackage.TRIGGER__PREDICATE, oldPredicate, predicate));
-			}
-		}
-		return predicate;
+		return (Predicate)eDynamicGet(TriggerPackage.TRIGGER__PREDICATE, TriggerPackage.Literals.TRIGGER__PREDICATE, true, true);
 	}
 
 	/**
@@ -209,7 +178,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @generated
 	 */
 	public Predicate basicGetPredicate() {
-		return predicate;
+		return (Predicate)eDynamicGet(TriggerPackage.TRIGGER__PREDICATE, TriggerPackage.Literals.TRIGGER__PREDICATE, false, true);
 	}
 
 	/**
@@ -218,10 +187,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @generated
 	 */
 	public void setPredicate(Predicate newPredicate) {
-		Predicate oldPredicate = predicate;
-		predicate = newPredicate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TriggerPackage.TRIGGER__PREDICATE, oldPredicate, predicate));
+		eDynamicSet(TriggerPackage.TRIGGER__PREDICATE, TriggerPackage.Literals.TRIGGER__PREDICATE, newPredicate);
 	}
 
 	/**
@@ -230,15 +196,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @generated
 	 */
 	public Decorator getAction() {
-		if (action != null && action.eIsProxy()) {
-			InternalEObject oldAction = (InternalEObject)action;
-			action = (Decorator)eResolveProxy(oldAction);
-			if (action != oldAction) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TriggerPackage.TRIGGER__ACTION, oldAction, action));
-			}
-		}
-		return action;
+		return (Decorator)eDynamicGet(TriggerPackage.TRIGGER__ACTION, TriggerPackage.Literals.TRIGGER__ACTION, true, true);
 	}
 
 	/**
@@ -247,7 +205,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @generated
 	 */
 	public Decorator basicGetAction() {
-		return action;
+		return (Decorator)eDynamicGet(TriggerPackage.TRIGGER__ACTION, TriggerPackage.Literals.TRIGGER__ACTION, false, true);
 	}
 
 	/**
@@ -256,10 +214,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @generated
 	 */
 	public void setAction(Decorator newAction) {
-		Decorator oldAction = action;
-		action = newAction;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TriggerPackage.TRIGGER__ACTION, oldAction, action));
+		eDynamicSet(TriggerPackage.TRIGGER__ACTION, TriggerPackage.Literals.TRIGGER__ACTION, newAction);
 	}
 
 	/**
@@ -325,9 +280,9 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TriggerPackage.TRIGGER__PREDICATE:
-				return predicate != null;
+				return basicGetPredicate() != null;
 			case TriggerPackage.TRIGGER__ACTION:
-				return action != null;
+				return basicGetAction() != null;
 		}
 		return super.eIsSet(featureID);
 	}

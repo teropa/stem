@@ -11,12 +11,9 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
@@ -41,26 +38,6 @@ import org.eclipse.stem.core.modifier.ModifierPackage;
  */
 public abstract class FeatureModifierImpl extends EObjectImpl implements FeatureModifier {
 	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTarget()
-	 * @generated
-	 * @ordered
-	 */
-	protected EObject target;
-
-	/**
-	 * The cached value of the '{@link #getEStructuralFeature() <em>EStructural Feature</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEStructuralFeature()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature eStructuralFeature;
-
-	/**
 	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,16 +46,6 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @ordered
 	 */
 	protected static final String FEATURE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeatureName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String featureName = FEATURE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFeatureId() <em>Feature Id</em>}' attribute.
@@ -91,16 +58,6 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	protected static final int FEATURE_ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getFeatureId() <em>Feature Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeatureId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int featureId = FEATURE_ID_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getCurrentValueText() <em>Current Value Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,16 +66,6 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @ordered
 	 */
 	protected static final String CURRENT_VALUE_TEXT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCurrentValueText() <em>Current Value Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentValueText()
-	 * @generated
-	 * @ordered
-	 */
-	protected String currentValueText = CURRENT_VALUE_TEXT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isComplete() <em>Complete</em>}' attribute.
@@ -152,11 +99,21 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getModificationSummary() {
 		try {
-			final StringBuilder sb = new StringBuilder(eStructuralFeature.getName());
+			final StringBuilder sb = new StringBuilder(getEStructuralFeature().getName());
 			sb.append(" = ");
 			sb.append(getCurrentValueText());
 			return sb.toString();
@@ -180,11 +137,11 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	public EStructuralFeature getEStructuralFeature() {
 		// Is it set yet?
 		if (!eIsSet(ModifierPackage.eINSTANCE.getFeatureModifier_EStructuralFeature())) {
-			// No
-			eStructuralFeature = target.eClass().getEStructuralFeature(getFeatureId());
+			// No			
+			eDynamicSet(ModifierPackage.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, ModifierPackage.Literals.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, getTarget().eClass().getEStructuralFeature(getFeatureId()));
 		} // if 
 		
-		return eStructuralFeature;
+		return (EStructuralFeature)eDynamicGet(ModifierPackage.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, ModifierPackage.Literals.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, true, true);
 	} // getEStructuralFeature
 
 	/**
@@ -193,10 +150,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated NOT
 	 */
 	public void setEStructuralFeature(EStructuralFeature newEStructuralFeature) {
-		EStructuralFeature oldEStructuralFeature = eStructuralFeature;
-		eStructuralFeature = newEStructuralFeature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, oldEStructuralFeature, eStructuralFeature));
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, ModifierPackage.Literals.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, newEStructuralFeature);
 		// Is it null?
 		if (newEStructuralFeature != null) {
 			// Yes
@@ -215,7 +169,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public int getFeatureId() {
-		return featureId;
+		return (Integer)eDynamicGet(ModifierPackage.FEATURE_MODIFIER__FEATURE_ID, ModifierPackage.Literals.FEATURE_MODIFIER__FEATURE_ID, true, true);
 	}
 
 	/**
@@ -224,10 +178,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public void setFeatureId(int newFeatureId) {
-		int oldFeatureId = featureId;
-		featureId = newFeatureId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.FEATURE_MODIFIER__FEATURE_ID, oldFeatureId, featureId));
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__FEATURE_ID, ModifierPackage.Literals.FEATURE_MODIFIER__FEATURE_ID, newFeatureId);
 	}
 
 	/**
@@ -236,15 +187,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public EObject getTarget() {
-		if (target != null && target.eIsProxy()) {
-			InternalEObject oldTarget = (InternalEObject)target;
-			target = eResolveProxy(oldTarget);
-			if (target != oldTarget) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModifierPackage.FEATURE_MODIFIER__TARGET, oldTarget, target));
-			}
-		}
-		return target;
+		return (EObject)eDynamicGet(ModifierPackage.FEATURE_MODIFIER__TARGET, ModifierPackage.Literals.FEATURE_MODIFIER__TARGET, true, true);
 	}
 
 	/**
@@ -253,7 +196,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public EObject basicGetTarget() {
-		return target;
+		return (EObject)eDynamicGet(ModifierPackage.FEATURE_MODIFIER__TARGET, ModifierPackage.Literals.FEATURE_MODIFIER__TARGET, false, true);
 	}
 
 	/**
@@ -262,10 +205,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public void setTarget(EObject newTarget) {
-		EObject oldTarget = target;
-		target = newTarget;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.FEATURE_MODIFIER__TARGET, oldTarget, target));
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__TARGET, ModifierPackage.Literals.FEATURE_MODIFIER__TARGET, newTarget);
 	}
 
 	/**
@@ -274,7 +214,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public String getFeatureName() {
-		return featureName;
+		return (String)eDynamicGet(ModifierPackage.FEATURE_MODIFIER__FEATURE_NAME, ModifierPackage.Literals.FEATURE_MODIFIER__FEATURE_NAME, true, true);
 	}
 
 	/**
@@ -283,10 +223,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public void setFeatureName(String newFeatureName) {
-		String oldFeatureName = featureName;
-		featureName = newFeatureName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.FEATURE_MODIFIER__FEATURE_NAME, oldFeatureName, featureName));
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__FEATURE_NAME, ModifierPackage.Literals.FEATURE_MODIFIER__FEATURE_NAME, newFeatureName);
 	}
 
 	/**
@@ -295,7 +232,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated
 	 */
 	public String getCurrentValueText() {
-		return currentValueText;
+		return (String)eDynamicGet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, true, true);
 	}
 
 	/**
@@ -402,39 +339,19 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.FEATURE_MODIFIER__TARGET:
-				return target != null;
+				return basicGetTarget() != null;
 			case ModifierPackage.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE:
-				return eStructuralFeature != null;
+				return getEStructuralFeature() != null;
 			case ModifierPackage.FEATURE_MODIFIER__FEATURE_NAME:
-				return FEATURE_NAME_EDEFAULT == null ? featureName != null : !FEATURE_NAME_EDEFAULT.equals(featureName);
+				return FEATURE_NAME_EDEFAULT == null ? getFeatureName() != null : !FEATURE_NAME_EDEFAULT.equals(getFeatureName());
 			case ModifierPackage.FEATURE_MODIFIER__FEATURE_ID:
-				return featureId != FEATURE_ID_EDEFAULT;
+				return getFeatureId() != FEATURE_ID_EDEFAULT;
 			case ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT:
-				return CURRENT_VALUE_TEXT_EDEFAULT == null ? currentValueText != null : !CURRENT_VALUE_TEXT_EDEFAULT.equals(currentValueText);
+				return CURRENT_VALUE_TEXT_EDEFAULT == null ? getCurrentValueText() != null : !CURRENT_VALUE_TEXT_EDEFAULT.equals(getCurrentValueText());
 			case ModifierPackage.FEATURE_MODIFIER__COMPLETE:
 				return isComplete() != COMPLETE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (featureName: "); //$NON-NLS-1$
-		result.append(featureName);
-		result.append(", featureId: "); //$NON-NLS-1$
-		result.append(featureId);
-		result.append(", currentValueText: "); //$NON-NLS-1$
-		result.append(currentValueText);
-		result.append(')');
-		return result.toString();
 	}
 
 } //FeatureModifierImpl

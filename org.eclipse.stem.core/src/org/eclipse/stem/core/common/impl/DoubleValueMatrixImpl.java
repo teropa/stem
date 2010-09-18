@@ -13,17 +13,11 @@ package org.eclipse.stem.core.common.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
@@ -42,16 +36,6 @@ import org.eclipse.stem.core.common.DoubleValueMatrix;
  * @generated
  */
 public class DoubleValueMatrixImpl extends EObjectImpl implements DoubleValueMatrix {
-	/**
-	 * The cached value of the '{@link #getValueLists() <em>Value Lists</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueLists()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DoubleValueList> valueLists;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,11 +60,19 @@ public class DoubleValueMatrixImpl extends EObjectImpl implements DoubleValueMat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<DoubleValueList> getValueLists() {
-		if (valueLists == null) {
-			valueLists = new EObjectContainmentEList<DoubleValueList>(DoubleValueList.class, this, CommonPackage.DOUBLE_VALUE_MATRIX__VALUE_LISTS);
-		}
-		return valueLists;
+		return (EList<DoubleValueList>)eDynamicGet(CommonPackage.DOUBLE_VALUE_MATRIX__VALUE_LISTS, CommonPackage.Literals.DOUBLE_VALUE_MATRIX__VALUE_LISTS, true, true);
 	}
 
 	/**
@@ -152,7 +144,7 @@ public class DoubleValueMatrixImpl extends EObjectImpl implements DoubleValueMat
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CommonPackage.DOUBLE_VALUE_MATRIX__VALUE_LISTS:
-				return valueLists != null && !valueLists.isEmpty();
+				return !getValueLists().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -11,19 +11,13 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
  
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-//import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
-//import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;
@@ -54,24 +48,6 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	protected static final URI URI_OF_IDENTIFIABLE_TO_BE_LABELED_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getURIOfIdentifiableToBeLabeled() <em>URI Of Identifiable To Be Labeled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getURIOfIdentifiableToBeLabeled()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI uRIOfIdentifiableToBeLabeled = URI_OF_IDENTIFIABLE_TO_BE_LABELED_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getCurrentValue() <em>Current Value</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getCurrentValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected LabelValue currentValue;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -97,7 +73,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	 * @generated
 	 */
 	public LabelValue getCurrentValue() {
-		return currentValue;
+		return (LabelValue)eDynamicGet(GraphPackage.LABEL__CURRENT_VALUE, GraphPackage.Literals.LABEL__CURRENT_VALUE, true, true);
 	}
 
 	/**
@@ -105,12 +81,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	 * @generated
 	 */
 	public NotificationChain basicSetCurrentValue(LabelValue newCurrentValue, NotificationChain msgs) {
-		LabelValue oldCurrentValue = currentValue;
-		currentValue = newCurrentValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.LABEL__CURRENT_VALUE, oldCurrentValue, newCurrentValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newCurrentValue, GraphPackage.LABEL__CURRENT_VALUE, msgs);
 		return msgs;
 	}
 
@@ -119,17 +90,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	 * @generated
 	 */
 	public void setCurrentValue(LabelValue newCurrentValue) {
-		if (newCurrentValue != currentValue) {
-			NotificationChain msgs = null;
-			if (currentValue != null)
-				msgs = ((InternalEObject)currentValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphPackage.LABEL__CURRENT_VALUE, null, msgs);
-			if (newCurrentValue != null)
-				msgs = ((InternalEObject)newCurrentValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphPackage.LABEL__CURRENT_VALUE, null, msgs);
-			msgs = basicSetCurrentValue(newCurrentValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.LABEL__CURRENT_VALUE, newCurrentValue, newCurrentValue));
+		eDynamicSet(GraphPackage.LABEL__CURRENT_VALUE, GraphPackage.Literals.LABEL__CURRENT_VALUE, newCurrentValue);
 	}
 
 	/**
@@ -161,7 +122,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	 */
 	public URI getURIOfIdentifiableToBeLabeled() {
 		// Is it set?
-		if (uRIOfIdentifiableToBeLabeled == null) {
+		if (getURIOfIdentifiableToBeLabeled() == null) {
 			// No
 			final Identifiable identifiable = getIdentifiable();
 			// Do we have an Identifiable?
@@ -170,7 +131,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 				return identifiable.getURI();
 			}
 		}
-		return uRIOfIdentifiableToBeLabeled;
+		return getURIOfIdentifiableToBeLabeled();
 	} // getURIOfIdentifiableToBeLabeled
 
 	/**
@@ -178,10 +139,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	 * @generated
 	 */
 	public void setURIOfIdentifiableToBeLabeled(URI newURIOfIdentifiableToBeLabeled) {
-		URI oldURIOfIdentifiableToBeLabeled = uRIOfIdentifiableToBeLabeled;
-		uRIOfIdentifiableToBeLabeled = newURIOfIdentifiableToBeLabeled;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED, oldURIOfIdentifiableToBeLabeled, uRIOfIdentifiableToBeLabeled));
+		eDynamicSet(GraphPackage.LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED, GraphPackage.Literals.LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED, newURIOfIdentifiableToBeLabeled);
 	}
 
 	/**
@@ -263,9 +221,9 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED:
-				return URI_OF_IDENTIFIABLE_TO_BE_LABELED_EDEFAULT == null ? uRIOfIdentifiableToBeLabeled != null : !URI_OF_IDENTIFIABLE_TO_BE_LABELED_EDEFAULT.equals(uRIOfIdentifiableToBeLabeled);
+				return URI_OF_IDENTIFIABLE_TO_BE_LABELED_EDEFAULT == null ? getURIOfIdentifiableToBeLabeled() != null : !URI_OF_IDENTIFIABLE_TO_BE_LABELED_EDEFAULT.equals(getURIOfIdentifiableToBeLabeled());
 			case GraphPackage.LABEL__CURRENT_VALUE:
-				return currentValue != null;
+				return getCurrentValue() != null;
 			case GraphPackage.LABEL__IDENTIFIABLE:
 				return basicGetIdentifiable() != null;
 		}
@@ -291,10 +249,10 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	@Override
 	public boolean sane() {
 		boolean retValue = super.sane();
-		retValue = retValue && currentValue != null;
+		retValue = retValue && getCurrentValue() != null;
 		assert retValue;
 
-		retValue = retValue && currentValue.sane();
+		retValue = retValue && getCurrentValue().sane();
 		assert retValue : getURIOfIdentifiableToBeLabeled().toString();
 
 		return retValue;

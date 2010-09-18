@@ -11,24 +11,14 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.DynamicEdgeLabel;
-//import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.GraphPackage;
-//import org.eclipse.stem.core.graph.LabelValue;
-//import org.eclipse.stem.core.graph.Node;
 
 //import org.eclipse.stem.core.model.Decorator;
 //import org.eclipse.stem.core.model.ModelPackage;
@@ -89,8 +79,7 @@ public abstract class DynamicEdgeLabelImpl extends DynamicLabelImpl implements D
 	 * @generated
 	 */
 	public Edge getEdge() {
-		if (eContainerFeatureID() != GraphPackage.DYNAMIC_EDGE_LABEL__EDGE) return null;
-		return (Edge)eContainer();
+		return (Edge)eDynamicGet(GraphPackage.DYNAMIC_EDGE_LABEL__EDGE, GraphPackage.Literals.EDGE_LABEL__EDGE, true, true);
 	}
 
 	/**
@@ -109,19 +98,7 @@ public abstract class DynamicEdgeLabelImpl extends DynamicLabelImpl implements D
 	 * @generated
 	 */
 	public void setEdge(Edge newEdge) {
-		if (newEdge != eInternalContainer() || (eContainerFeatureID() != GraphPackage.DYNAMIC_EDGE_LABEL__EDGE && newEdge != null)) {
-			if (EcoreUtil.isAncestor(this, newEdge))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newEdge != null)
-				msgs = ((InternalEObject)newEdge).eInverseAdd(this, GraphPackage.EDGE__LABEL, Edge.class, msgs);
-			msgs = basicSetEdge(newEdge, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_EDGE_LABEL__EDGE, newEdge, newEdge));
+		eDynamicSet(GraphPackage.DYNAMIC_EDGE_LABEL__EDGE, GraphPackage.Literals.EDGE_LABEL__EDGE, newEdge);
 	}
 
 	/**

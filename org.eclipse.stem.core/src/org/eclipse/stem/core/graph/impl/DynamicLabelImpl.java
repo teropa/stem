@@ -12,16 +12,13 @@ package org.eclipse.stem.core.graph.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.ResettableAdapter;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.ModelPackage;
 
@@ -50,34 +47,6 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	protected static final boolean NEXT_VALUE_VALID_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isNextValueValid() <em>Next Value Valid</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isNextValueValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean nextValueValid = NEXT_VALUE_VALID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getNextValue() <em>Next Value</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNextValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected LabelValue nextValue;
-
-	/**
-	 * The cached value of the '{@link #getDecorator() <em>Decorator</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDecorator()
-	 * @generated
-	 * @ordered
-	 */
-	protected Decorator decorator;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -101,7 +70,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public LabelValue getNextValue() {
-		return nextValue;
+		return (LabelValue)eDynamicGet(GraphPackage.DYNAMIC_LABEL__NEXT_VALUE, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE, true, true);
 	}
 
 	/**
@@ -109,12 +78,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public NotificationChain basicSetNextValue(LabelValue newNextValue, NotificationChain msgs) {
-		LabelValue oldNextValue = nextValue;
-		nextValue = newNextValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_LABEL__NEXT_VALUE, oldNextValue, newNextValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newNextValue, GraphPackage.DYNAMIC_LABEL__NEXT_VALUE, msgs);
 		return msgs;
 	}
 
@@ -123,17 +87,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public void setNextValue(LabelValue newNextValue) {
-		if (newNextValue != nextValue) {
-			NotificationChain msgs = null;
-			if (nextValue != null)
-				msgs = ((InternalEObject)nextValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphPackage.DYNAMIC_LABEL__NEXT_VALUE, null, msgs);
-			if (newNextValue != null)
-				msgs = ((InternalEObject)newNextValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphPackage.DYNAMIC_LABEL__NEXT_VALUE, null, msgs);
-			msgs = basicSetNextValue(newNextValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_LABEL__NEXT_VALUE, newNextValue, newNextValue));
+		eDynamicSet(GraphPackage.DYNAMIC_LABEL__NEXT_VALUE, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE, newNextValue);
 	}
 
 	/**
@@ -142,15 +96,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public Decorator getDecorator() {
-		if (decorator != null && decorator.eIsProxy()) {
-			InternalEObject oldDecorator = (InternalEObject)decorator;
-			decorator = (Decorator)eResolveProxy(oldDecorator);
-			if (decorator != oldDecorator) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.DYNAMIC_LABEL__DECORATOR, oldDecorator, decorator));
-			}
-		}
-		return decorator;
+		return (Decorator)eDynamicGet(GraphPackage.DYNAMIC_LABEL__DECORATOR, GraphPackage.Literals.DYNAMIC_LABEL__DECORATOR, true, true);
 	}
 
 	/**
@@ -159,7 +105,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public Decorator basicGetDecorator() {
-		return decorator;
+		return (Decorator)eDynamicGet(GraphPackage.DYNAMIC_LABEL__DECORATOR, GraphPackage.Literals.DYNAMIC_LABEL__DECORATOR, false, true);
 	}
 
 	/**
@@ -168,12 +114,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public NotificationChain basicSetDecorator(Decorator newDecorator, NotificationChain msgs) {
-		Decorator oldDecorator = decorator;
-		decorator = newDecorator;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_LABEL__DECORATOR, oldDecorator, newDecorator);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newDecorator, GraphPackage.DYNAMIC_LABEL__DECORATOR, msgs);
 		return msgs;
 	}
 
@@ -183,17 +124,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public void setDecorator(Decorator newDecorator) {
-		if (newDecorator != decorator) {
-			NotificationChain msgs = null;
-			if (decorator != null)
-				msgs = ((InternalEObject)decorator).eInverseRemove(this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, Decorator.class, msgs);
-			if (newDecorator != null)
-				msgs = ((InternalEObject)newDecorator).eInverseAdd(this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, Decorator.class, msgs);
-			msgs = basicSetDecorator(newDecorator, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_LABEL__DECORATOR, newDecorator, newDecorator));
+		eDynamicSet(GraphPackage.DYNAMIC_LABEL__DECORATOR, GraphPackage.Literals.DYNAMIC_LABEL__DECORATOR, newDecorator);
 	}
 
 	/**
@@ -201,7 +132,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public boolean isNextValueValid() {
-		return nextValueValid;
+		return (Boolean)eDynamicGet(GraphPackage.DYNAMIC_LABEL__NEXT_VALUE_VALID, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE_VALID, true, true);
 	}
 
 	/**
@@ -209,10 +140,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	 * @generated
 	 */
 	public void setNextValueValid(boolean newNextValueValid) {
-		boolean oldNextValueValid = nextValueValid;
-		nextValueValid = newNextValueValid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_LABEL__NEXT_VALUE_VALID, oldNextValueValid, nextValueValid));
+		eDynamicSet(GraphPackage.DYNAMIC_LABEL__NEXT_VALUE_VALID, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE_VALID, newNextValueValid);
 	}
 
 	/**
@@ -263,6 +191,7 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GraphPackage.DYNAMIC_LABEL__DECORATOR:
+				Decorator decorator = basicGetDecorator();
 				if (decorator != null)
 					msgs = ((InternalEObject)decorator).eInverseRemove(this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, Decorator.class, msgs);
 				return basicSetDecorator((Decorator)otherEnd, msgs);
@@ -351,11 +280,11 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.DYNAMIC_LABEL__NEXT_VALUE_VALID:
-				return nextValueValid != NEXT_VALUE_VALID_EDEFAULT;
+				return isNextValueValid() != NEXT_VALUE_VALID_EDEFAULT;
 			case GraphPackage.DYNAMIC_LABEL__NEXT_VALUE:
-				return nextValue != null;
+				return getNextValue() != null;
 			case GraphPackage.DYNAMIC_LABEL__DECORATOR:
-				return decorator != null;
+				return basicGetDecorator() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -373,9 +302,9 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 		StringBuffer result = new StringBuffer(super.toString());
 
 		result.append(" [");
-		result.append(nextValue.toString());
+		result.append(getNextValue().toString());
 		result.append(" (");
-		result.append(nextValueValid ? "valid" : "invalid");
+		result.append(isNextValueValid() ? "valid" : "invalid");
 		result.append(")");
 		result.append("]");
 
@@ -389,10 +318,10 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 	@Override
 	public boolean sane() {
 		boolean retValue = super.sane();
-		retValue = retValue && nextValue != null;
+		retValue = retValue && getNextValue() != null;
 		assert retValue;
 
-		retValue = retValue && (isNextValueValid() ? nextValue.sane() : true);
+		retValue = retValue && (isNextValueValid() ? getNextValue().sane() : true);
 		assert retValue;
 
 		retValue = retValue && getDecorator() != null;

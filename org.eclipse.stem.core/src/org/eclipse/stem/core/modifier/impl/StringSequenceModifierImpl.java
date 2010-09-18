@@ -15,7 +15,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.StringSequenceModifier;
 
@@ -33,16 +32,6 @@ import org.eclipse.stem.core.modifier.StringSequenceModifier;
  * @generated
  */
 public class StringSequenceModifierImpl extends SequenceModifierImpl implements StringSequenceModifier {
-	/**
-	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> sequence;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,11 +56,9 @@ public class StringSequenceModifierImpl extends SequenceModifierImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<String> getSequence() {
-		if (sequence == null) {
-			sequence = new EDataTypeUniqueEList<String>(String.class, this, ModifierPackage.STRING_SEQUENCE_MODIFIER__SEQUENCE);
-		}
-		return sequence;
+		return (EList<String>)eDynamicGet(ModifierPackage.STRING_SEQUENCE_MODIFIER__SEQUENCE, ModifierPackage.Literals.STRING_SEQUENCE_MODIFIER__SEQUENCE, true, true);
 	}
 
 	/**
@@ -82,7 +69,7 @@ public class StringSequenceModifierImpl extends SequenceModifierImpl implements 
 		int index = getCurrentSequenceIndex();
 		final Object retValue = getSequence().get(index++);
 		setCurrentSequenceIndex(index);	
-		currentValueText = retValue.toString();
+		eDynamicSet(ModifierPackage.STRING_SEQUENCE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
 		return retValue;
 	} // getNextValue
 	
@@ -102,7 +89,7 @@ public class StringSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 	/**
@@ -111,7 +98,7 @@ public class StringSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -169,25 +156,9 @@ public class StringSequenceModifierImpl extends SequenceModifierImpl implements 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.STRING_SEQUENCE_MODIFIER__SEQUENCE:
-				return sequence != null && !sequence.isEmpty();
+				return !getSequence().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sequence: "); //$NON-NLS-1$
-		result.append(sequence);
-		result.append(')');
-		return result.toString();
 	}
 
 } //StringSequenceModifierImpl

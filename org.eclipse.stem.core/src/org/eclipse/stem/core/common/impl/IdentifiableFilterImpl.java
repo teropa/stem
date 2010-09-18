@@ -55,6 +55,16 @@ public class IdentifiableFilterImpl extends EObjectImpl implements IdentifiableF
 		return CommonPackage.Literals.IDENTIFIABLE_FILTER;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
 	private String []patterns;
 	public IdentifiableFilterImpl(String filter) {
 		if(filter == null)return;

@@ -11,14 +11,9 @@ package org.eclipse.stem.core.predicate.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.predicate.Predicate;
 import org.eclipse.stem.core.predicate.PredicatePackage;
 import org.eclipse.stem.core.predicate.UnaryBooleanOperator;
@@ -37,16 +32,6 @@ import org.eclipse.stem.core.predicate.UnaryBooleanOperator;
  * @generated
  */
 public abstract class UnaryBooleanOperatorImpl extends BooleanOperatorImpl implements UnaryBooleanOperator {
-	/**
-	 * The cached value of the '{@link #getOperand() <em>Operand</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperand()
-	 * @generated
-	 * @ordered
-	 */
-	protected Predicate operand;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,7 +57,7 @@ public abstract class UnaryBooleanOperatorImpl extends BooleanOperatorImpl imple
 	 * @generated
 	 */
 	public Predicate getOperand() {
-		return operand;
+		return (Predicate)eDynamicGet(PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND, PredicatePackage.Literals.UNARY_BOOLEAN_OPERATOR__OPERAND, true, true);
 	}
 
 	/**
@@ -81,12 +66,7 @@ public abstract class UnaryBooleanOperatorImpl extends BooleanOperatorImpl imple
 	 * @generated
 	 */
 	public NotificationChain basicSetOperand(Predicate newOperand, NotificationChain msgs) {
-		Predicate oldOperand = operand;
-		operand = newOperand;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND, oldOperand, newOperand);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newOperand, PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND, msgs);
 		return msgs;
 	}
 
@@ -96,17 +76,7 @@ public abstract class UnaryBooleanOperatorImpl extends BooleanOperatorImpl imple
 	 * @generated
 	 */
 	public void setOperand(Predicate newOperand) {
-		if (newOperand != operand) {
-			NotificationChain msgs = null;
-			if (operand != null)
-				msgs = ((InternalEObject)operand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND, null, msgs);
-			if (newOperand != null)
-				msgs = ((InternalEObject)newOperand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND, null, msgs);
-			msgs = basicSetOperand(newOperand, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND, newOperand, newOperand));
+		eDynamicSet(PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND, PredicatePackage.Literals.UNARY_BOOLEAN_OPERATOR__OPERAND, newOperand);
 	}
 
 	/**
@@ -176,7 +146,7 @@ public abstract class UnaryBooleanOperatorImpl extends BooleanOperatorImpl imple
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PredicatePackage.UNARY_BOOLEAN_OPERATOR__OPERAND:
-				return operand != null;
+				return getOperand() != null;
 		}
 		return super.eIsSet(featureID);
 	}

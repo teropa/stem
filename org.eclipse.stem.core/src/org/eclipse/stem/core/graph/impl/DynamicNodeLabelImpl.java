@@ -11,11 +11,9 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
  
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
 import org.eclipse.stem.core.graph.GraphPackage;
@@ -36,15 +34,6 @@ import org.eclipse.stem.core.graph.NodeLabel;
  */
 public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 		DynamicNodeLabel {
-	/**
-	 * The cached value of the '{@link #getNode() <em>Node</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNode()
-	 * @generated
-	 * @ordered
-	 */
-	protected Node node;
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -84,15 +73,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 	 * @generated
 	 */
 	public Node getNode() {
-		if (node != null && node.eIsProxy()) {
-			InternalEObject oldNode = (InternalEObject)node;
-			node = (Node)eResolveProxy(oldNode);
-			if (node != oldNode) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.DYNAMIC_NODE_LABEL__NODE, oldNode, node));
-			}
-		}
-		return node;
+		return (Node)eDynamicGet(GraphPackage.DYNAMIC_NODE_LABEL__NODE, GraphPackage.Literals.NODE_LABEL__NODE, true, true);
 	}
 
 	/**
@@ -100,7 +81,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 	 * @generated
 	 */
 	public Node basicGetNode() {
-		return node;
+		return (Node)eDynamicGet(GraphPackage.DYNAMIC_NODE_LABEL__NODE, GraphPackage.Literals.NODE_LABEL__NODE, false, true);
 	}
 
 	/**
@@ -109,12 +90,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 	 * @generated
 	 */
 	public NotificationChain basicSetNode(Node newNode, NotificationChain msgs) {
-		Node oldNode = node;
-		node = newNode;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_NODE_LABEL__NODE, oldNode, newNode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newNode, GraphPackage.DYNAMIC_NODE_LABEL__NODE, msgs);
 		return msgs;
 	}
 
@@ -123,17 +99,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 	 * @generated
 	 */
 	public void setNode(Node newNode) {
-		if (newNode != node) {
-			NotificationChain msgs = null;
-			if (node != null)
-				msgs = ((InternalEObject)node).eInverseRemove(this, GraphPackage.NODE__LABELS, Node.class, msgs);
-			if (newNode != null)
-				msgs = ((InternalEObject)newNode).eInverseAdd(this, GraphPackage.NODE__LABELS, Node.class, msgs);
-			msgs = basicSetNode(newNode, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.DYNAMIC_NODE_LABEL__NODE, newNode, newNode));
+		eDynamicSet(GraphPackage.DYNAMIC_NODE_LABEL__NODE, GraphPackage.Literals.NODE_LABEL__NODE, newNode);
 	}
 
 	/**
@@ -145,6 +111,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GraphPackage.DYNAMIC_NODE_LABEL__NODE:
+				Node node = basicGetNode();
 				if (node != null)
 					msgs = ((InternalEObject)node).eInverseRemove(this, GraphPackage.NODE__LABELS, Node.class, msgs);
 				return basicSetNode((Node)otherEnd, msgs);
@@ -174,7 +141,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 		final StringBuilder sb = new StringBuilder(super.toString());
 
 		sb.append(" Node:");
-		sb.append(node == null ? "null" : node.toString());
+		sb.append(getNode() == null ? "null" : getNode().toString());
 		return sb.toString();
 	} // toString
 
@@ -246,7 +213,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.DYNAMIC_NODE_LABEL__NODE:
-				return node != null;
+				return basicGetNode() != null;
 		}
 		return super.eIsSet(featureID);
 	}

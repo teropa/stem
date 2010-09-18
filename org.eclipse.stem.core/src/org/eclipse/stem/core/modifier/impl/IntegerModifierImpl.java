@@ -11,10 +11,7 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.IntegerModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -43,15 +40,6 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	 */
 	protected static final int VALUE_EDEFAULT = 0;
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected int value = VALUE_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,15 +48,6 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	 * @ordered
 	 */
 	protected static final int ORIGINAL_VALUE_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected int originalValue = ORIGINAL_VALUE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,7 +73,7 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+		return (Integer)eDynamicGet(ModifierPackage.INTEGER_MODIFIER__VALUE, ModifierPackage.Literals.INTEGER_MODIFIER__VALUE, true, true);
 	}
 
 	/**
@@ -103,10 +82,7 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	 * @generated
 	 */
 	public void setValue(int newValue) {
-		int oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.INTEGER_MODIFIER__VALUE, oldValue, value));
+		eDynamicSet(ModifierPackage.INTEGER_MODIFIER__VALUE, ModifierPackage.Literals.INTEGER_MODIFIER__VALUE, newValue);
 	}
 
 	/**
@@ -115,7 +91,7 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	 * @generated
 	 */
 	public int getOriginalValue() {
-		return originalValue;
+		return (Integer)eDynamicGet(ModifierPackage.INTEGER_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.INTEGER_MODIFIER__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -124,10 +100,7 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	 * @generated
 	 */
 	public void setOriginalValue(int newOriginalValue) {
-		int oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.INTEGER_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(ModifierPackage.INTEGER_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.INTEGER_MODIFIER__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -191,9 +164,9 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.INTEGER_MODIFIER__VALUE:
-				return value != VALUE_EDEFAULT;
+				return getValue() != VALUE_EDEFAULT;
 			case ModifierPackage.INTEGER_MODIFIER__ORIGINAL_VALUE:
-				return originalValue != ORIGINAL_VALUE_EDEFAULT;
+				return getOriginalValue() != ORIGINAL_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -208,9 +181,9 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((Integer)target.eGet(getEStructuralFeature()));
+			setOriginalValue((Integer)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getValue());
+		getTarget().eSet(getEStructuralFeature(), getValue());
 		complete = true;
 	} // updateFeature
 
@@ -221,7 +194,7 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	@Override
 	public void reset() {
 		complete = false;
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	
@@ -232,23 +205,6 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	@Override
 	public boolean isComplete() {
 		return complete;
-	}
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: "); //$NON-NLS-1$
-		result.append(value);
-		result.append(", originalValue: "); //$NON-NLS-1$
-		result.append(originalValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //IntegerModifierImpl

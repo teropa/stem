@@ -11,20 +11,14 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.NodeLabel;
 
@@ -54,26 +48,6 @@ public class URIToNodeLabelMapEntryImpl extends EObjectImpl implements BasicEMap
 	protected static final URI KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypedKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI key = KEY_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypedValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected NodeLabel value;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -97,8 +71,18 @@ public class URIToNodeLabelMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getTypedKey() {
-		return key;
+		return (URI)eDynamicGet(GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__KEY, GraphPackage.Literals.URI_TO_NODE_LABEL_MAP_ENTRY__KEY, true, true);
 	}
 
 	/**
@@ -107,10 +91,7 @@ public class URIToNodeLabelMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * @generated
 	 */
 	public void setTypedKey(URI newKey) {
-		URI oldKey = key;
-		key = newKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__KEY, oldKey, key));
+		eDynamicSet(GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__KEY, GraphPackage.Literals.URI_TO_NODE_LABEL_MAP_ENTRY__KEY, newKey);
 	}
 
 	/**
@@ -119,7 +100,7 @@ public class URIToNodeLabelMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * @generated
 	 */
 	public NodeLabel getTypedValue() {
-		return value;
+		return (NodeLabel)eDynamicGet(GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, GraphPackage.Literals.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, true, true);
 	}
 
 	/**
@@ -128,12 +109,7 @@ public class URIToNodeLabelMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * @generated
 	 */
 	public NotificationChain basicSetTypedValue(NodeLabel newValue, NotificationChain msgs) {
-		NodeLabel oldValue = value;
-		value = newValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, oldValue, newValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newValue, GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, msgs);
 		return msgs;
 	}
 
@@ -143,17 +119,7 @@ public class URIToNodeLabelMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * @generated
 	 */
 	public void setTypedValue(NodeLabel newValue) {
-		if (newValue != value) {
-			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, null, msgs);
-			msgs = basicSetTypedValue(newValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, newValue, newValue));
+		eDynamicSet(GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, GraphPackage.Literals.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE, newValue);
 	}
 
 	/**
@@ -231,27 +197,11 @@ public class URIToNodeLabelMapEntryImpl extends EObjectImpl implements BasicEMap
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__KEY:
-				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+				return KEY_EDEFAULT == null ? getTypedKey() != null : !KEY_EDEFAULT.equals(getTypedKey());
 			case GraphPackage.URI_TO_NODE_LABEL_MAP_ENTRY__VALUE:
-				return value != null;
+				return getTypedValue() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (key: "); //$NON-NLS-1$
-		result.append(key);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

@@ -12,7 +12,6 @@ package org.eclipse.stem.core.graph.impl;
  *******************************************************************************/
  
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EMap;
@@ -20,10 +19,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.graph.GraphPackage;
 
 /**
@@ -52,26 +49,6 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	protected static final URI KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypedKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI key = KEY_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypedValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifiable value;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -95,8 +72,18 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getTypedKey() {
-		return key;
+		return (URI)eDynamicGet(GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__KEY, GraphPackage.Literals.URI_TO_IDENTIFIABLE_MAP_ENTRY__KEY, true, true);
 	}
 
 	/**
@@ -105,10 +92,7 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	 * @generated
 	 */
 	public void setTypedKey(URI newKey) {
-		URI oldKey = key;
-		key = newKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__KEY, oldKey, key));
+		eDynamicSet(GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__KEY, GraphPackage.Literals.URI_TO_IDENTIFIABLE_MAP_ENTRY__KEY, newKey);
 	}
 
 	/**
@@ -117,7 +101,7 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	 * @generated
 	 */
 	public Identifiable getTypedValue() {
-		return value;
+		return (Identifiable)eDynamicGet(GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, GraphPackage.Literals.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, true, true);
 	}
 
 	/**
@@ -126,12 +110,7 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	 * @generated
 	 */
 	public NotificationChain basicSetTypedValue(Identifiable newValue, NotificationChain msgs) {
-		Identifiable oldValue = value;
-		value = newValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, oldValue, newValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newValue, GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, msgs);
 		return msgs;
 	}
 
@@ -141,17 +120,7 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	 * @generated
 	 */
 	public void setTypedValue(Identifiable newValue) {
-		if (newValue != value) {
-			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, null, msgs);
-			msgs = basicSetTypedValue(newValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, newValue, newValue));
+		eDynamicSet(GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, GraphPackage.Literals.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE, newValue);
 	}
 
 	/**
@@ -229,27 +198,11 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__KEY:
-				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+				return KEY_EDEFAULT == null ? getTypedKey() != null : !KEY_EDEFAULT.equals(getTypedKey());
 			case GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY__VALUE:
-				return value != null;
+				return getTypedValue() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (key: "); //$NON-NLS-1$
-		result.append(key);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

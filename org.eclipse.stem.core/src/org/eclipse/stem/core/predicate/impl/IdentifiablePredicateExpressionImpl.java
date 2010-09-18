@@ -11,11 +11,9 @@ package org.eclipse.stem.core.predicate.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.stem.core.common.Identifiable;
@@ -42,15 +40,6 @@ import org.eclipse.stem.core.predicate.PredicatePackage;
  */
 public class IdentifiablePredicateExpressionImpl extends IdentifiablePredicateImpl implements IdentifiablePredicateExpression {
 	/**
-	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPredicate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Predicate predicate;
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -75,7 +64,7 @@ public class IdentifiablePredicateExpressionImpl extends IdentifiablePredicateIm
 	 * @generated
 	 */
 	public Predicate getPredicate() {
-		return predicate;
+		return (Predicate)eDynamicGet(PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE, PredicatePackage.Literals.PREDICATE_EXPRESSION__PREDICATE, true, true);
 	}
 
 	/**
@@ -84,12 +73,7 @@ public class IdentifiablePredicateExpressionImpl extends IdentifiablePredicateIm
 	 * @generated
 	 */
 	public NotificationChain basicSetPredicate(Predicate newPredicate, NotificationChain msgs) {
-		Predicate oldPredicate = predicate;
-		predicate = newPredicate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE, oldPredicate, newPredicate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newPredicate, PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE, msgs);
 		return msgs;
 	}
 
@@ -99,17 +83,7 @@ public class IdentifiablePredicateExpressionImpl extends IdentifiablePredicateIm
 	 * @generated
 	 */
 	public void setPredicate(Predicate newPredicate) {
-		if (newPredicate != predicate) {
-			NotificationChain msgs = null;
-			if (predicate != null)
-				msgs = ((InternalEObject)predicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE, null, msgs);
-			if (newPredicate != null)
-				msgs = ((InternalEObject)newPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE, null, msgs);
-			msgs = basicSetPredicate(newPredicate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE, newPredicate, newPredicate));
+		eDynamicSet(PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE, PredicatePackage.Literals.PREDICATE_EXPRESSION__PREDICATE, newPredicate);
 	}
 
 	/**
@@ -179,7 +153,7 @@ public class IdentifiablePredicateExpressionImpl extends IdentifiablePredicateIm
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION__PREDICATE:
-				return predicate != null;
+				return getPredicate() != null;
 		}
 		return super.eIsSet(featureID);
 	}

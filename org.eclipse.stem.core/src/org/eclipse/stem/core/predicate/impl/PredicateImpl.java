@@ -53,6 +53,16 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	abstract public boolean evaluate(STEMTime time, long timerPeriod, Decorator action);

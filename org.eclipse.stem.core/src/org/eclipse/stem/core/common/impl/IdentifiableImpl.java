@@ -11,12 +11,10 @@ package org.eclipse.stem.core.common.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -56,15 +54,6 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	protected static final URI URI_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getURI() <em>URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI uRI = URI_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTypeURI() <em>Type URI</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTypeURI()
@@ -72,24 +61,6 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @ordered
 	 */
 	protected static final URI TYPE_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTypeURI() <em>Type URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTypeURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI typeURI = TYPE_URI_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDublinCore() <em>Dublin Core</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDublinCore()
-	 * @generated
-	 * @ordered
-	 */
-	protected DublinCore dublinCore;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -113,11 +84,21 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public DublinCore getDublinCore() {
-		return dublinCore;
+		return (DublinCore)eDynamicGet(CommonPackage.IDENTIFIABLE__DUBLIN_CORE, CommonPackage.Literals.IDENTIFIABLE__DUBLIN_CORE, true, true);
 	}
 
 	/**
@@ -125,44 +106,36 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetDublinCore(DublinCore newDublinCore, NotificationChain msgs) {
-		DublinCore oldDublinCore = dublinCore;
-		dublinCore = newDublinCore;
-		
+		msgs = eDynamicInverseAdd((InternalEObject)newDublinCore, CommonPackage.IDENTIFIABLE__DUBLIN_CORE, msgs);
 		// A new DublinCore instance?
-		if (dublinCore != null) {
+		if (newDublinCore != null) {
 			// Yes
-			// Make sure the identifier and format URI's match the Identifiable's
-			// Are they valid yet?
-			if (getURI() != null && getTypeURI() != null) {
-				// Yes
-				dublinCore.setIdentifier(getURI().toString());
-				dublinCore.setType(getTypeURI().toString());
-			} // if 
-			
+			adoptDublinCore(newDublinCore);			
 		} // if 
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.IDENTIFIABLE__DUBLIN_CORE, oldDublinCore, newDublinCore);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setDublinCore(DublinCore newDublinCore) {
-		if (newDublinCore != dublinCore) {
-			NotificationChain msgs = null;
-			if (dublinCore != null)
-				msgs = ((InternalEObject)dublinCore).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.IDENTIFIABLE__DUBLIN_CORE, null, msgs);
-			if (newDublinCore != null)
-				msgs = ((InternalEObject)newDublinCore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommonPackage.IDENTIFIABLE__DUBLIN_CORE, null, msgs);
-			msgs = basicSetDublinCore(newDublinCore, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.IDENTIFIABLE__DUBLIN_CORE, newDublinCore, newDublinCore));
+		eDynamicSet(CommonPackage.IDENTIFIABLE__DUBLIN_CORE, CommonPackage.Literals.IDENTIFIABLE__DUBLIN_CORE, newDublinCore);
+		// A new DublinCore instance?
+		if (newDublinCore != null) {
+			// Yes
+			adoptDublinCore(newDublinCore);
+		} // if
+	}
+
+	private void adoptDublinCore(DublinCore newDublinCore) {
+		// Make sure the identifier and format URI's match the Identifiable's
+		// Are they valid yet?
+		if (getURI() != null && getTypeURI() != null) {
+			// Yes
+			newDublinCore.setIdentifier(getURI().toString());
+			newDublinCore.setType(getTypeURI().toString());
+		} // if 
 	}
 
 	/**
@@ -170,7 +143,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public URI getTypeURI() {
-		return typeURI;
+		return (URI)eDynamicGet(CommonPackage.IDENTIFIABLE__TYPE_URI, CommonPackage.Literals.IDENTIFIABLE__TYPE_URI, true, true);
 	}
 
 	/**
@@ -183,15 +156,11 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated NOT
 	 */
 	public void setTypeURI(URI newTypeURI) {
-		URI oldTypeURI = typeURI;
-		typeURI = newTypeURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					CommonPackage.IDENTIFIABLE__TYPE_URI, oldTypeURI, typeURI));
+		eDynamicSet(CommonPackage.IDENTIFIABLE__TYPE_URI, CommonPackage.Literals.IDENTIFIABLE__TYPE_URI, newTypeURI);
 		// Update DublinCore?
-		if (dublinCore != null) {
+		if (getDublinCore() != null) {
 			// Yes
-			dublinCore.setType(newTypeURI.toString());
+			getDublinCore().setType(newTypeURI.toString());
 		}
 	} // setTypeURI
 
@@ -211,7 +180,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 		
 		// If there is dublin core then the URI's of the Identifiable and the
 		// Dublin Core instance should agree.
-		if (dublinCore != null) {
+		if (getDublinCore() != null) {
 			final DublinCore dc = getDublinCore();
 			retValue = retValue && getURI().toString().equals(dc.getIdentifier());
 			assert(retValue);
@@ -241,7 +210,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public URI getURI() {
-		return uRI;
+		return (URI)eDynamicGet(CommonPackage.IDENTIFIABLE__URI, CommonPackage.Literals.IDENTIFIABLE__URI, true, true);
 	}
 
 	/**
@@ -254,15 +223,11 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated NOT
 	 */
 	public void setURI(URI newURI) {
-		URI oldURI = uRI;
-		uRI = newURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					CommonPackage.IDENTIFIABLE__URI, oldURI, uRI));
+		eDynamicSet(CommonPackage.IDENTIFIABLE__URI, CommonPackage.Literals.IDENTIFIABLE__URI, newURI);
 		// Update DublinCore?
-		if (dublinCore != null) {
+		if (getDublinCore() != null) {
 			// Yes
-			dublinCore.setIdentifier(newURI.toString());
+			getDublinCore().setIdentifier(newURI.toString());
 		}
 	} // setURI
 
@@ -344,11 +309,11 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CommonPackage.IDENTIFIABLE__URI:
-				return URI_EDEFAULT == null ? uRI != null : !URI_EDEFAULT.equals(uRI);
+				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
 			case CommonPackage.IDENTIFIABLE__TYPE_URI:
-				return TYPE_URI_EDEFAULT == null ? typeURI != null : !TYPE_URI_EDEFAULT.equals(typeURI);
+				return TYPE_URI_EDEFAULT == null ? getTypeURI() != null : !TYPE_URI_EDEFAULT.equals(getTypeURI());
 			case CommonPackage.IDENTIFIABLE__DUBLIN_CORE:
-				return dublinCore != null;
+				return getDublinCore() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -365,9 +330,9 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 
 		StringBuffer result = new StringBuffer();
 		result.append("(uRI: ");
-		result.append(uRI);
+		result.append(getURI());
 		result.append(", typeURI: ");
-		result.append(typeURI);
+		result.append(getTypeURI());
 		result.append(')');
 		return result.toString();
 	}

@@ -13,20 +13,12 @@ package org.eclipse.stem.core.common.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.DoubleValueList;
@@ -47,16 +39,6 @@ import org.eclipse.stem.core.common.DoubleValueList;
  */
 public class DoubleValueListImpl extends EObjectImpl implements DoubleValueList {
 	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValues()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DoubleValue> values;
-
-	/**
 	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,16 +47,6 @@ public class DoubleValueListImpl extends EObjectImpl implements DoubleValueList 
 	 * @ordered
 	 */
 	protected static final String IDENTIFIER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String identifier = IDENTIFIER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,11 +72,19 @@ public class DoubleValueListImpl extends EObjectImpl implements DoubleValueList 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<DoubleValue> getValues() {
-		if (values == null) {
-			values = new EObjectContainmentEList<DoubleValue>(DoubleValue.class, this, CommonPackage.DOUBLE_VALUE_LIST__VALUES);
-		}
-		return values;
+		return (EList<DoubleValue>)eDynamicGet(CommonPackage.DOUBLE_VALUE_LIST__VALUES, CommonPackage.Literals.DOUBLE_VALUE_LIST__VALUES, true, true);
 	}
 
 	/**
@@ -113,7 +93,7 @@ public class DoubleValueListImpl extends EObjectImpl implements DoubleValueList 
 	 * @generated
 	 */
 	public String getIdentifier() {
-		return identifier;
+		return (String)eDynamicGet(CommonPackage.DOUBLE_VALUE_LIST__IDENTIFIER, CommonPackage.Literals.DOUBLE_VALUE_LIST__IDENTIFIER, true, true);
 	}
 
 	/**
@@ -122,10 +102,7 @@ public class DoubleValueListImpl extends EObjectImpl implements DoubleValueList 
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
-		String oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.DOUBLE_VALUE_LIST__IDENTIFIER, oldIdentifier, identifier));
+		eDynamicSet(CommonPackage.DOUBLE_VALUE_LIST__IDENTIFIER, CommonPackage.Literals.DOUBLE_VALUE_LIST__IDENTIFIER, newIdentifier);
 	}
 
 	/**
@@ -205,27 +182,11 @@ public class DoubleValueListImpl extends EObjectImpl implements DoubleValueList 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CommonPackage.DOUBLE_VALUE_LIST__VALUES:
-				return values != null && !values.isEmpty();
+				return !getValues().isEmpty();
 			case CommonPackage.DOUBLE_VALUE_LIST__IDENTIFIER:
-				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
+				return IDENTIFIER_EDEFAULT == null ? getIdentifier() != null : !IDENTIFIER_EDEFAULT.equals(getIdentifier());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (identifier: "); //$NON-NLS-1$
-		result.append(identifier);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DoubleValueListImpl

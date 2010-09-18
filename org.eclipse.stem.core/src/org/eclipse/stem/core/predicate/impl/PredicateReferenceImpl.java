@@ -11,13 +11,7 @@ package org.eclipse.stem.core.predicate.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.predicate.Predicate;
@@ -38,16 +32,6 @@ import org.eclipse.stem.core.predicate.PredicateReference;
  * @generated
  */
 public class PredicateReferenceImpl extends PredicateImpl implements PredicateReference {
-	/**
-	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPredicate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Predicate predicate;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,15 +57,7 @@ public class PredicateReferenceImpl extends PredicateImpl implements PredicateRe
 	 * @generated
 	 */
 	public Predicate getPredicate() {
-		if (predicate != null && predicate.eIsProxy()) {
-			InternalEObject oldPredicate = (InternalEObject)predicate;
-			predicate = (Predicate)eResolveProxy(oldPredicate);
-			if (predicate != oldPredicate) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PredicatePackage.PREDICATE_REFERENCE__PREDICATE, oldPredicate, predicate));
-			}
-		}
-		return predicate;
+		return (Predicate)eDynamicGet(PredicatePackage.PREDICATE_REFERENCE__PREDICATE, PredicatePackage.Literals.PREDICATE_REFERENCE__PREDICATE, true, true);
 	}
 
 	/**
@@ -90,7 +66,7 @@ public class PredicateReferenceImpl extends PredicateImpl implements PredicateRe
 	 * @generated
 	 */
 	public Predicate basicGetPredicate() {
-		return predicate;
+		return (Predicate)eDynamicGet(PredicatePackage.PREDICATE_REFERENCE__PREDICATE, PredicatePackage.Literals.PREDICATE_REFERENCE__PREDICATE, false, true);
 	}
 
 	/**
@@ -99,10 +75,7 @@ public class PredicateReferenceImpl extends PredicateImpl implements PredicateRe
 	 * @generated
 	 */
 	public void setPredicate(Predicate newPredicate) {
-		Predicate oldPredicate = predicate;
-		predicate = newPredicate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.PREDICATE_REFERENCE__PREDICATE, oldPredicate, predicate));
+		eDynamicSet(PredicatePackage.PREDICATE_REFERENCE__PREDICATE, PredicatePackage.Literals.PREDICATE_REFERENCE__PREDICATE, newPredicate);
 	}
 
 	
@@ -170,7 +143,7 @@ public class PredicateReferenceImpl extends PredicateImpl implements PredicateRe
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PredicatePackage.PREDICATE_REFERENCE__PREDICATE:
-				return predicate != null;
+				return basicGetPredicate() != null;
 		}
 		return super.eIsSet(featureID);
 	}

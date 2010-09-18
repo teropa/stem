@@ -11,14 +11,9 @@ package org.eclipse.stem.core.predicate.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.predicate.Predicate;
@@ -39,16 +34,6 @@ import org.eclipse.stem.core.predicate.PredicatePackage;
  * @generated
  */
 public class PredicateExpressionImpl extends BooleanExpressionImpl implements PredicateExpression {
-	/**
-	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPredicate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Predicate predicate;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,7 +59,7 @@ public class PredicateExpressionImpl extends BooleanExpressionImpl implements Pr
 	 * @generated
 	 */
 	public Predicate getPredicate() {
-		return predicate;
+		return (Predicate)eDynamicGet(PredicatePackage.PREDICATE_EXPRESSION__PREDICATE, PredicatePackage.Literals.PREDICATE_EXPRESSION__PREDICATE, true, true);
 	}
 
 	/**
@@ -83,12 +68,7 @@ public class PredicateExpressionImpl extends BooleanExpressionImpl implements Pr
 	 * @generated
 	 */
 	public NotificationChain basicSetPredicate(Predicate newPredicate, NotificationChain msgs) {
-		Predicate oldPredicate = predicate;
-		predicate = newPredicate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PredicatePackage.PREDICATE_EXPRESSION__PREDICATE, oldPredicate, newPredicate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newPredicate, PredicatePackage.PREDICATE_EXPRESSION__PREDICATE, msgs);
 		return msgs;
 	}
 
@@ -98,17 +78,7 @@ public class PredicateExpressionImpl extends BooleanExpressionImpl implements Pr
 	 * @generated
 	 */
 	public void setPredicate(Predicate newPredicate) {
-		if (newPredicate != predicate) {
-			NotificationChain msgs = null;
-			if (predicate != null)
-				msgs = ((InternalEObject)predicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.PREDICATE_EXPRESSION__PREDICATE, null, msgs);
-			if (newPredicate != null)
-				msgs = ((InternalEObject)newPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.PREDICATE_EXPRESSION__PREDICATE, null, msgs);
-			msgs = basicSetPredicate(newPredicate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.PREDICATE_EXPRESSION__PREDICATE, newPredicate, newPredicate));
+		eDynamicSet(PredicatePackage.PREDICATE_EXPRESSION__PREDICATE, PredicatePackage.Literals.PREDICATE_EXPRESSION__PREDICATE, newPredicate);
 	}
 
 	/**
@@ -178,7 +148,7 @@ public class PredicateExpressionImpl extends BooleanExpressionImpl implements Pr
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PredicatePackage.PREDICATE_EXPRESSION__PREDICATE:
-				return predicate != null;
+				return getPredicate() != null;
 		}
 		return super.eIsSet(featureID);
 	}

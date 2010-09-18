@@ -11,9 +11,7 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.SequenceModifier;
 
@@ -54,16 +52,6 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 */
 	protected static final int CURRENT_SEQUENCE_INDEX_EDEFAULT = 0;
 	/**
-	 * The cached value of the '{@link #getCurrentSequenceIndex() <em>Current Sequence Index</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentSequenceIndex()
-	 * @generated
-	 * @ordered
-	 */
-	protected int currentSequenceIndex = CURRENT_SEQUENCE_INDEX_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getNextValue() <em>Next Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,16 +70,6 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * @ordered
 	 */
 	protected static final Object ORIGINAL_VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object originalValue = ORIGINAL_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,9 +96,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * @generated
 	 */
 	public int getSequenceSize() {
-		// TODO: implement this method to return the 'Sequence Size' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return (Integer)eDynamicGet(ModifierPackage.SEQUENCE_MODIFIER__SEQUENCE_SIZE, ModifierPackage.Literals.SEQUENCE_MODIFIER__SEQUENCE_SIZE, true, true);
 	}
 
 	/**
@@ -129,7 +105,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * @generated
 	 */
 	public int getCurrentSequenceIndex() {
-		return currentSequenceIndex;
+		return (Integer)eDynamicGet(ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX, ModifierPackage.Literals.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX, true, true);
 	}
 
 	/**
@@ -138,10 +114,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * @generated
 	 */
 	public void setCurrentSequenceIndex(int newCurrentSequenceIndex) {
-		int oldCurrentSequenceIndex = currentSequenceIndex;
-		currentSequenceIndex = newCurrentSequenceIndex;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX, oldCurrentSequenceIndex, currentSequenceIndex));
+		eDynamicSet(ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX, ModifierPackage.Literals.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX, newCurrentSequenceIndex);
 	}
 
 	/**
@@ -157,9 +130,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * @generated
 	 */
 	public boolean isSetNextValue() {
-		// TODO: implement this method to return whether the 'Next Value' attribute is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return eDynamicIsSet(ModifierPackage.SEQUENCE_MODIFIER__NEXT_VALUE, ModifierPackage.Literals.SEQUENCE_MODIFIER__NEXT_VALUE);
 	}
 
 	/**
@@ -168,7 +139,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * @generated
 	 */
 	public Object getOriginalValue() {
-		return originalValue;
+		return (Object)eDynamicGet(ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.SEQUENCE_MODIFIER__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -177,10 +148,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 	 * @generated
 	 */
 	public void setOriginalValue(Object newOriginalValue) {
-		Object oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.SEQUENCE_MODIFIER__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -208,7 +176,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 		// Capture the original value?
 		if (getCurrentSequenceIndex() == CURRENT_SEQUENCE_INDEX_EDEFAULT) {
 			// Yes
-			setOriginalValue(target.eGet(getEStructuralFeature()));
+			setOriginalValue(getTarget().eGet(getEStructuralFeature()));
 		} // if
 	} // updateFeature
 
@@ -279,31 +247,13 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 			case ModifierPackage.SEQUENCE_MODIFIER__SEQUENCE_SIZE:
 				return getSequenceSize() != SEQUENCE_SIZE_EDEFAULT;
 			case ModifierPackage.SEQUENCE_MODIFIER__CURRENT_SEQUENCE_INDEX:
-				return currentSequenceIndex != CURRENT_SEQUENCE_INDEX_EDEFAULT;
+				return getCurrentSequenceIndex() != CURRENT_SEQUENCE_INDEX_EDEFAULT;
 			case ModifierPackage.SEQUENCE_MODIFIER__NEXT_VALUE:
 				return isSetNextValue();
 			case ModifierPackage.SEQUENCE_MODIFIER__ORIGINAL_VALUE:
-				return ORIGINAL_VALUE_EDEFAULT == null ? originalValue != null : !ORIGINAL_VALUE_EDEFAULT.equals(originalValue);
+				return ORIGINAL_VALUE_EDEFAULT == null ? getOriginalValue() != null : !ORIGINAL_VALUE_EDEFAULT.equals(getOriginalValue());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (currentSequenceIndex: "); //$NON-NLS-1$
-		result.append(currentSequenceIndex);
-		result.append(", originalValue: "); //$NON-NLS-1$
-		result.append(originalValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SequenceModifierImpl

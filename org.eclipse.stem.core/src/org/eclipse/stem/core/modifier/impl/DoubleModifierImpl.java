@@ -11,10 +11,7 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.DoubleModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -43,16 +40,6 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 */
 	protected static final double VALUE_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double value = VALUE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,16 +48,6 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 * @ordered
 	 */
 	protected static final double ORIGINAL_VALUE_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double originalValue = ORIGINAL_VALUE_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,7 +73,7 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 * @generated
 	 */
 	public double getValue() {
-		return value;
+		return (Double)eDynamicGet(ModifierPackage.DOUBLE_MODIFIER__VALUE, ModifierPackage.Literals.DOUBLE_MODIFIER__VALUE, true, true);
 	}
 
 	/**
@@ -105,10 +82,7 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 * @generated
 	 */
 	public void setValue(double newValue) {
-		double oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.DOUBLE_MODIFIER__VALUE, oldValue, value));
+		eDynamicSet(ModifierPackage.DOUBLE_MODIFIER__VALUE, ModifierPackage.Literals.DOUBLE_MODIFIER__VALUE, newValue);
 	}
 
 	/**
@@ -117,7 +91,7 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 * @generated
 	 */
 	public double getOriginalValue() {
-		return originalValue;
+		return (Double)eDynamicGet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.DOUBLE_MODIFIER__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -126,10 +100,7 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 * @generated
 	 */
 	public void setOriginalValue(double newOriginalValue) {
-		double oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.DOUBLE_MODIFIER__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -193,9 +164,9 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.DOUBLE_MODIFIER__VALUE:
-				return value != VALUE_EDEFAULT;
+				return getValue() != VALUE_EDEFAULT;
 			case ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE:
-				return originalValue != ORIGINAL_VALUE_EDEFAULT;
+				return getOriginalValue() != ORIGINAL_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,9 +181,9 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((Double)target.eGet(getEStructuralFeature()));
+			setOriginalValue((Double)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getValue());
+		getTarget().eSet(getEStructuralFeature(), getValue());
 		complete = true;
 	} // updateFeature
 
@@ -223,7 +194,7 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	@Override
 	public void reset() {
 		complete = false;
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	private boolean complete = false;
@@ -233,24 +204,6 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	@Override
 	public boolean isComplete() {
 		return complete;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: "); //$NON-NLS-1$
-		result.append(value);
-		result.append(", originalValue: "); //$NON-NLS-1$
-		result.append(originalValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DoubleModifierImpl

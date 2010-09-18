@@ -13,30 +13,21 @@ package org.eclipse.stem.core.model.impl;
  
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import java.util.Iterator;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-//import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.GraphPackage;
-
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
@@ -61,15 +52,6 @@ import org.eclipse.stem.core.model.STEMTime;
  */
 public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	/**
-	 * The cached value of the '{@link #getLabelsToUpdate() <em>Labels To Update</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getLabelsToUpdate()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DynamicLabel> labelsToUpdate;
-
-	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,15 +60,6 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @ordered
 	 */
 	protected static final boolean ENABLED_EDEFAULT = true;
-	/**
-	 * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isEnabled()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean enabled = ENABLED_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isGraphDecorated() <em>Graph Decorated</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -97,17 +70,6 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 */
 	protected static final boolean GRAPH_DECORATED_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isGraphDecorated() <em>Graph Decorated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isGraphDecorated()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean graphDecorated = GRAPH_DECORATED_EDEFAULT;
-
-	
-	/**
 	 * The default value of the '{@link #getProgress() <em>Progress</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,17 +79,6 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 */
 	protected static final double PROGRESS_EDEFAULT = 0.0;
 
-	/**
-	 * The cached value of the '{@link #getProgress() <em>Progress</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProgress()
-	 * @generated
-	 * @ordered
-	 */
-	protected double progress = PROGRESS_EDEFAULT;
-
-	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -149,11 +100,9 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<DynamicLabel> getLabelsToUpdate() {
-		if (labelsToUpdate == null) {
-			labelsToUpdate = new EObjectWithInverseResolvingEList<DynamicLabel>(DynamicLabel.class, this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, GraphPackage.DYNAMIC_LABEL__DECORATOR);
-		}
-		return labelsToUpdate;
+		return (EList<DynamicLabel>)eDynamicGet(ModelPackage.DECORATOR__LABELS_TO_UPDATE, ModelPackage.Literals.DECORATOR__LABELS_TO_UPDATE, true, true);
 	}
 
 	protected Map<Integer, EList<DynamicLabel>> labelPartitionMap;
@@ -168,8 +117,9 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 */
 	@SuppressWarnings("boxing")
 	public synchronized EList<DynamicLabel>  getLabelsToUpdate(int partition, int max) {
-		if (labelsToUpdate == null) {
-			labelsToUpdate = new EObjectWithInverseResolvingEList<DynamicLabel>(DynamicLabel.class, this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, GraphPackage.DYNAMIC_LABEL__DECORATOR);
+		if (getLabelsToUpdate() == null) {
+			eDynamicSet(ModelPackage.DECORATOR__LABELS_TO_UPDATE, ModelPackage.Literals.DECORATOR__LABELS_TO_UPDATE, 
+					new EObjectWithInverseResolvingEList<DynamicLabel>(DynamicLabel.class, this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, GraphPackage.DYNAMIC_LABEL__DECORATOR));
 		}
 		if(max != numThreads) labelPartitionMap = null; // clear when the number of threads changes
 		numThreads = max;
@@ -178,13 +128,13 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 		
 		EList<DynamicLabel> temp = new BasicEList<DynamicLabel>(); 
 			
-		int size = labelsToUpdate.size();
+		int size = getLabelsToUpdate().size();
 		int labelsPerPartition = size / max;
 		int start =  partition*labelsPerPartition;
 		int end;
 		if(partition == max -1) end = size; // The last threads grabs all nodes until the last one
 		else end = start + labelsPerPartition;
-		for(int i=start;i<end;++i) temp.add(labelsToUpdate.get(i));
+		for(int i=start;i<end;++i) temp.add(getLabelsToUpdate().get(i));
 		
 		if(labelPartitionMap == null) labelPartitionMap = new HashMap<Integer, EList<DynamicLabel>>();
 		labelPartitionMap.put(partition, temp);
@@ -206,8 +156,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public Graph getGraph() {
-		if (eContainerFeatureID() != ModelPackage.DECORATOR__GRAPH) return null;
-		return (Graph)eContainer();
+		return (Graph)eDynamicGet(ModelPackage.DECORATOR__GRAPH, ModelPackage.Literals.DECORATOR__GRAPH, true, true);
 	}
 
 	/**
@@ -226,19 +175,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public void setGraph(Graph newGraph) {
-		if (newGraph != eInternalContainer() || (eContainerFeatureID() != ModelPackage.DECORATOR__GRAPH && newGraph != null)) {
-			if (EcoreUtil.isAncestor(this, newGraph))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newGraph != null)
-				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphPackage.GRAPH__DECORATORS, Graph.class, msgs);
-			msgs = basicSetGraph(newGraph, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DECORATOR__GRAPH, newGraph, newGraph));
+		eDynamicSet(ModelPackage.DECORATOR__GRAPH, ModelPackage.Literals.DECORATOR__GRAPH, newGraph);
 	}
 
 	/**
@@ -247,7 +184,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public boolean isEnabled() {
-		return enabled;
+		return (Boolean)eDynamicGet(ModelPackage.DECORATOR__ENABLED, ModelPackage.Literals.DECORATOR__ENABLED, true, true);
 	}
 
 	/**
@@ -256,10 +193,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
-		boolean oldEnabled = enabled;
-		enabled = newEnabled;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DECORATOR__ENABLED, oldEnabled, enabled));
+		eDynamicSet(ModelPackage.DECORATOR__ENABLED, ModelPackage.Literals.DECORATOR__ENABLED, newEnabled);
 	}
 
 	/**
@@ -268,7 +202,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public boolean isGraphDecorated() {
-		return graphDecorated;
+		return (Boolean)eDynamicGet(ModelPackage.DECORATOR__GRAPH_DECORATED, ModelPackage.Literals.DECORATOR__GRAPH_DECORATED, true, true);
 	}
 
 	/**
@@ -277,10 +211,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public void setGraphDecorated(boolean newGraphDecorated) {
-		boolean oldGraphDecorated = graphDecorated;
-		graphDecorated = newGraphDecorated;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DECORATOR__GRAPH_DECORATED, oldGraphDecorated, graphDecorated));
+		eDynamicSet(ModelPackage.DECORATOR__GRAPH_DECORATED, ModelPackage.Literals.DECORATOR__GRAPH_DECORATED, newGraphDecorated);
 	}
 
 	/**
@@ -289,7 +220,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public double getProgress() {
-		return progress;
+		return (Double)eDynamicGet(ModelPackage.DECORATOR__PROGRESS, ModelPackage.Literals.DECORATOR__PROGRESS, true, true);
 	}
 
 	/**
@@ -298,10 +229,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @generated
 	 */
 	public void setProgress(double newProgress) {
-		double oldProgress = progress;
-		progress = newProgress;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DECORATOR__PROGRESS, oldProgress, progress));
+		eDynamicSet(ModelPackage.DECORATOR__PROGRESS, ModelPackage.Literals.DECORATOR__PROGRESS, newProgress);
 	}
 
 	/**
@@ -476,37 +404,17 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.DECORATOR__LABELS_TO_UPDATE:
-				return labelsToUpdate != null && !labelsToUpdate.isEmpty();
+				return !getLabelsToUpdate().isEmpty();
 			case ModelPackage.DECORATOR__GRAPH:
 				return getGraph() != null;
 			case ModelPackage.DECORATOR__ENABLED:
-				return enabled != ENABLED_EDEFAULT;
+				return isEnabled() != ENABLED_EDEFAULT;
 			case ModelPackage.DECORATOR__GRAPH_DECORATED:
-				return graphDecorated != GRAPH_DECORATED_EDEFAULT;
+				return isGraphDecorated() != GRAPH_DECORATED_EDEFAULT;
 			case ModelPackage.DECORATOR__PROGRESS:
-				return progress != PROGRESS_EDEFAULT;
+				return getProgress() != PROGRESS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (enabled: "); //$NON-NLS-1$
-		result.append(enabled);
-		result.append(", graphDecorated: "); //$NON-NLS-1$
-		result.append(graphDecorated);
-		result.append(", progress: "); //$NON-NLS-1$
-		result.append(progress);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

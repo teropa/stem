@@ -11,14 +11,9 @@ package org.eclipse.stem.core.common.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.StringValue;
@@ -48,16 +43,6 @@ public class StringValueImpl extends EObjectImpl implements StringValue {
 	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String value = VALUE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -81,8 +66,18 @@ public class StringValueImpl extends EObjectImpl implements StringValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getValue() {
-		return value;
+		return (String)eDynamicGet(CommonPackage.STRING_VALUE__VALUE, CommonPackage.Literals.STRING_VALUE__VALUE, true, true);
 	}
 
 	/**
@@ -91,10 +86,7 @@ public class StringValueImpl extends EObjectImpl implements StringValue {
 	 * @generated
 	 */
 	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.STRING_VALUE__VALUE, oldValue, value));
+		eDynamicSet(CommonPackage.STRING_VALUE__VALUE, CommonPackage.Literals.STRING_VALUE__VALUE, newValue);
 	}
 
 	/**
@@ -150,25 +142,9 @@ public class StringValueImpl extends EObjectImpl implements StringValue {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CommonPackage.STRING_VALUE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+				return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: "); //$NON-NLS-1$
-		result.append(value);
-		result.append(')');
-		return result.toString();
 	}
 
 	private Identifiable findIdentifiable(EObject o) {

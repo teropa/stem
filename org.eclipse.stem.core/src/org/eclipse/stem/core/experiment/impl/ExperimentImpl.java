@@ -15,12 +15,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.experiment.Experiment;
@@ -45,16 +41,6 @@ import org.eclipse.stem.core.scenario.Scenario;
  */
 public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	/**
-	 * The cached value of the '{@link #getModifiers() <em>Modifiers</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModifiers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Modifier> modifiers;
-
-	/**
 	 * The default value of the '{@link #isComplete() <em>Complete</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,17 +50,6 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 */
 	protected static final boolean COMPLETE_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #getScenario() <em>Scenario</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScenario()
-	 * @generated
-	 * @ordered
-	 */
-	protected Scenario scenario;
-
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,11 +77,9 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Modifier> getModifiers() {
-		if (modifiers == null) {
-			modifiers = new EObjectResolvingEList<Modifier>(Modifier.class, this, ExperimentPackage.EXPERIMENT__MODIFIERS);
-		}
-		return modifiers;
+		return (EList<Modifier>)eDynamicGet(ExperimentPackage.EXPERIMENT__MODIFIERS, ExperimentPackage.Literals.EXPERIMENT__MODIFIERS, true, true);
 	}
 
 	/**
@@ -144,15 +117,7 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 * @generated
 	 */
 	public Scenario getScenario() {
-		if (scenario != null && scenario.eIsProxy()) {
-			InternalEObject oldScenario = (InternalEObject)scenario;
-			scenario = (Scenario)eResolveProxy(oldScenario);
-			if (scenario != oldScenario) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentPackage.EXPERIMENT__SCENARIO, oldScenario, scenario));
-			}
-		}
-		return scenario;
+		return (Scenario)eDynamicGet(ExperimentPackage.EXPERIMENT__SCENARIO, ExperimentPackage.Literals.EXPERIMENT__SCENARIO, true, true);
 	}
 
 	/**
@@ -161,7 +126,7 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 * @generated
 	 */
 	public Scenario basicGetScenario() {
-		return scenario;
+		return (Scenario)eDynamicGet(ExperimentPackage.EXPERIMENT__SCENARIO, ExperimentPackage.Literals.EXPERIMENT__SCENARIO, false, true);
 	}
 
 	/**
@@ -170,10 +135,7 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 * @generated
 	 */
 	public void setScenario(Scenario newScenario) {
-		Scenario oldScenario = scenario;
-		scenario = newScenario;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentPackage.EXPERIMENT__SCENARIO, oldScenario, scenario));
+		eDynamicSet(ExperimentPackage.EXPERIMENT__SCENARIO, ExperimentPackage.Literals.EXPERIMENT__SCENARIO, newScenario);
 	}
 
 	/**
@@ -318,11 +280,11 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ExperimentPackage.EXPERIMENT__MODIFIERS:
-				return modifiers != null && !modifiers.isEmpty();
+				return !getModifiers().isEmpty();
 			case ExperimentPackage.EXPERIMENT__COMPLETE:
 				return isComplete() != COMPLETE_EDEFAULT;
 			case ExperimentPackage.EXPERIMENT__SCENARIO:
-				return scenario != null;
+				return basicGetScenario() != null;
 		}
 		return super.eIsSet(featureID);
 	}

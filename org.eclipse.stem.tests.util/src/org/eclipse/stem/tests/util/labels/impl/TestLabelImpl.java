@@ -34,7 +34,7 @@ public class TestLabelImpl extends LabelImpl implements TestLabel {
 	 */
 	protected TestLabelImpl() {
 		super();
-		currentValue = LabelsFactory.eINSTANCE.createTestIntegerLabelValue();
+		setCurrentValue(LabelsFactory.eINSTANCE.createTestIntegerLabelValue());
 	} // TestLabelImpl
 
 	@Override

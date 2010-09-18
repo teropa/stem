@@ -13,8 +13,6 @@ package org.eclipse.stem.core.graph.impl;
  
 import java.util.Collection;
 import java.util.Comparator;
-
-import org.eclipse.emf.common.notify.Notification;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,17 +24,11 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-//import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
@@ -48,10 +40,7 @@ import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
-
 import org.eclipse.stem.core.model.Decorator;
-
-import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.STEMTime;
 
 /**
@@ -81,53 +70,6 @@ import org.eclipse.stem.core.model.STEMTime;
 public class GraphImpl extends IdentifiableImpl implements Graph {
 	
 	
-	/**
-	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' map. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<URI, Edge> edges;
-
-	/**
-	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' map. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getNodes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<URI, Node> nodes;
-
-	/**
-	 * The cached value of the '{@link #getGraphLabels() <em>Graph Labels</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getGraphLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<URI, Label> graphLabels;
-
-	/**
-	 * The cached value of the '{@link #getNodeLabels() <em>Node Labels</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNodeLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<URI, NodeLabel> nodeLabels;
-
-	/**
-	 * The cached value of the '{@link #getDynamicLabels() <em>Dynamic Labels</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDynamicLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DynamicLabel> dynamicLabels;
-
 	/**
 	 * The default value of the '{@link #getNumEdges() <em>Num Edges</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -174,35 +116,6 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	protected static final int NUM_DYNAMIC_LABELS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getUnresolvedIdentifiables() <em>Unresolved Identifiables</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getUnresolvedIdentifiables()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<UnresolvedIdentifiable> unresolvedIdentifiables;
-
-	/**
-	 * The cached value of the '{@link #getDecorators() <em>Decorators</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDecorators()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Decorator> decorators;
-
-	/**
-	 * The cached value of the '{@link #getTime() <em>Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime time;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -243,55 +156,45 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, Edge> getEdges() {
-		if (edges == null) {
-			edges = new EcoreEMap<URI,Edge>(GraphPackage.Literals.URI_TO_EDGE_MAP_ENTRY, URIToEdgeMapEntryImpl.class, this, GraphPackage.GRAPH__EDGES);
-		}
-		return edges;
+		return (EMap<URI, Edge>)eDynamicGet(GraphPackage.GRAPH__EDGES, GraphPackage.Literals.GRAPH__EDGES, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, Node> getNodes() {
-		if (nodes == null) {
-			nodes = new EcoreEMap<URI,Node>(GraphPackage.Literals.URI_TO_NODE_MAP_ENTRY, URIToNodeMapEntryImpl.class, this, GraphPackage.GRAPH__NODES);
-		}
-		return nodes;
+		return (EMap<URI, Node>)eDynamicGet(GraphPackage.GRAPH__NODES, GraphPackage.Literals.GRAPH__NODES, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<DynamicLabel> getDynamicLabels() {
-		if (dynamicLabels == null) {
-			dynamicLabels = new EObjectResolvingEList<DynamicLabel>(DynamicLabel.class, this, GraphPackage.GRAPH__DYNAMIC_LABELS);
-		}
-		return dynamicLabels;
+		return (EList<DynamicLabel>)eDynamicGet(GraphPackage.GRAPH__DYNAMIC_LABELS, GraphPackage.Literals.GRAPH__DYNAMIC_LABELS, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, Label> getGraphLabels() {
-		if (graphLabels == null) {
-			graphLabels = new EcoreEMap<URI,Label>(GraphPackage.Literals.URI_TO_LABEL_MAP_ENTRY, URIToLabelMapEntryImpl.class, this, GraphPackage.GRAPH__GRAPH_LABELS);
-		}
-		return graphLabels;
+		return (EMap<URI, Label>)eDynamicGet(GraphPackage.GRAPH__GRAPH_LABELS, GraphPackage.Literals.GRAPH__GRAPH_LABELS, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<UnresolvedIdentifiable> getUnresolvedIdentifiables() {
-		if (unresolvedIdentifiables == null) {
-			unresolvedIdentifiables = new EObjectContainmentEList<UnresolvedIdentifiable>(UnresolvedIdentifiable.class, this, GraphPackage.GRAPH__UNRESOLVED_IDENTIFIABLES);
-		}
-		return unresolvedIdentifiables;
+		return (EList<UnresolvedIdentifiable>)eDynamicGet(GraphPackage.GRAPH__UNRESOLVED_IDENTIFIABLES, GraphPackage.Literals.GRAPH__UNRESOLVED_IDENTIFIABLES, true, true);
 	}
 
 	/**
@@ -299,11 +202,9 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Decorator> getDecorators() {
-		if (decorators == null) {
-			decorators = new EObjectContainmentWithInverseEList<Decorator>(Decorator.class, this, GraphPackage.GRAPH__DECORATORS, ModelPackage.DECORATOR__GRAPH);
-		}
-		return decorators;
+		return (EList<Decorator>)eDynamicGet(GraphPackage.GRAPH__DECORATORS, GraphPackage.Literals.GRAPH__DECORATORS, true, true);
 	}
 
 	/**
@@ -312,7 +213,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated
 	 */
 	public STEMTime getTime() {
-		return time;
+		return (STEMTime)eDynamicGet(GraphPackage.GRAPH__TIME, GraphPackage.Literals.GRAPH__TIME, true, true);
 	}
 
 	/**
@@ -321,12 +222,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated
 	 */
 	public NotificationChain basicSetTime(STEMTime newTime, NotificationChain msgs) {
-		STEMTime oldTime = time;
-		time = newTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphPackage.GRAPH__TIME, oldTime, newTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newTime, GraphPackage.GRAPH__TIME, msgs);
 		return msgs;
 	}
 
@@ -336,17 +232,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated
 	 */
 	public void setTime(STEMTime newTime) {
-		if (newTime != time) {
-			NotificationChain msgs = null;
-			if (time != null)
-				msgs = ((InternalEObject)time).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphPackage.GRAPH__TIME, null, msgs);
-			if (newTime != null)
-				msgs = ((InternalEObject)newTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphPackage.GRAPH__TIME, null, msgs);
-			msgs = basicSetTime(newTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.GRAPH__TIME, newTime, newTime));
+		eDynamicSet(GraphPackage.GRAPH__TIME, GraphPackage.Literals.GRAPH__TIME, newTime);
 	}
 
 	/**
@@ -425,11 +311,9 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, NodeLabel> getNodeLabels() {
-		if (nodeLabels == null) {
-			nodeLabels = new EcoreEMap<URI,NodeLabel>(GraphPackage.Literals.URI_TO_NODE_LABEL_MAP_ENTRY, URIToNodeLabelMapEntryImpl.class, this, GraphPackage.GRAPH__NODE_LABELS);
-		}
-		return nodeLabels;
+		return (EMap<URI, NodeLabel>)eDynamicGet(GraphPackage.GRAPH__NODE_LABELS, GraphPackage.Literals.GRAPH__NODE_LABELS, true, true);
 	}
 
 	/**
@@ -438,7 +322,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumEdges() {
-		return edges == null ? 0 : getEdges().size();
+		return getEdges() == null ? 0 : getEdges().size();
 	} // getNumEdges
 
 	/**
@@ -447,7 +331,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumNodes() {
-		return nodes == null ? 0 : getNodes().size();
+		return getNodes() == null ? 0 : getNodes().size();
 	} // getNumNodes
 
 	/**
@@ -456,7 +340,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumGraphLabels() {
-		return graphLabels == null ? 0 : getGraphLabels().size();
+		return getGraphLabels() == null ? 0 : getGraphLabels().size();
 	} // getNumGraphLabels
 
 	/**
@@ -465,7 +349,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumNodeLabels() {
-		return nodeLabels == null ? 0 : getNodeLabels().size();
+		return getNodeLabels() == null ? 0 : getNodeLabels().size();
 	} // getNumNodeLabels
 
 	/**
@@ -474,7 +358,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumDynamicLabels() {
-		return dynamicLabels == null ? 0 : getDynamicLabels().size();
+		return getDynamicLabels() == null ? 0 : getDynamicLabels().size();
 	} // getNumDynamicLabels
 
 	/**
@@ -655,7 +539,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 */
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("\"" + dublinCore.getTitle()
+		final StringBuilder sb = new StringBuilder("\"" + getDublinCore().getTitle()
 				+ "\",\n");
 
 		// How many nodes?
@@ -685,7 +569,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		int dynamicLabelCount = 0;
 
 		// Nodes
-		if (nodes != null) {
+		if (getNodes() != null) {
 			// Yes
 			for (final Iterator<Node> nodeIter = getNodes().values().iterator(); nodeIter
 					.hasNext()
@@ -726,7 +610,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if
 
 		// Edges?
-		if (edges != null) {
+		if (getEdges() != null) {
 			// Yes
 			for (final Iterator<Edge> edgeIter = getEdges().values().iterator(); edgeIter
 					.hasNext()
@@ -744,7 +628,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if
 
 		// Node Labels?
-		if (nodeLabels != null) {
+		if (getNodeLabels() != null) {
 			// Yes
 			// The number of node labels should match the number we counted
 			// above...not true for graph fragments that might have labels for
@@ -761,7 +645,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			} // for each node label
 		} // if
 
-		if (graphLabels != null) {
+		if (getGraphLabels() != null) {
 			// Yes
 			for (final Iterator<Label> graphLabelIter = getGraphLabels().values()
 					.iterator(); graphLabelIter.hasNext();) {
@@ -776,7 +660,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if graphLabels
 
 		// Dynamic Labels?
-		if (dynamicLabels != null) {
+		if (getDynamicLabels() != null) {
 			// Yes
 			// The number of dynamic labels should equal the count
 			retValue = dynamicLabelCount == getNumDynamicLabels();
@@ -941,15 +825,15 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.GRAPH__EDGES:
-				return edges != null && !edges.isEmpty();
+				return !getEdges().isEmpty();
 			case GraphPackage.GRAPH__NODES:
-				return nodes != null && !nodes.isEmpty();
+				return !getNodes().isEmpty();
 			case GraphPackage.GRAPH__GRAPH_LABELS:
-				return graphLabels != null && !graphLabels.isEmpty();
+				return !getGraphLabels().isEmpty();
 			case GraphPackage.GRAPH__NODE_LABELS:
-				return nodeLabels != null && !nodeLabels.isEmpty();
+				return !getNodeLabels().isEmpty();
 			case GraphPackage.GRAPH__DYNAMIC_LABELS:
-				return dynamicLabels != null && !dynamicLabels.isEmpty();
+				return !getDynamicLabels().isEmpty();
 			case GraphPackage.GRAPH__NUM_EDGES:
 				return getNumEdges() != NUM_EDGES_EDEFAULT;
 			case GraphPackage.GRAPH__NUM_NODES:
@@ -961,11 +845,11 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			case GraphPackage.GRAPH__NUM_DYNAMIC_LABELS:
 				return getNumDynamicLabels() != NUM_DYNAMIC_LABELS_EDEFAULT;
 			case GraphPackage.GRAPH__UNRESOLVED_IDENTIFIABLES:
-				return unresolvedIdentifiables != null && !unresolvedIdentifiables.isEmpty();
+				return !getUnresolvedIdentifiables().isEmpty();
 			case GraphPackage.GRAPH__DECORATORS:
-				return decorators != null && !decorators.isEmpty();
+				return !getDecorators().isEmpty();
 			case GraphPackage.GRAPH__TIME:
-				return time != null;
+				return getTime() != null;
 		}
 		return super.eIsSet(featureID);
 	}

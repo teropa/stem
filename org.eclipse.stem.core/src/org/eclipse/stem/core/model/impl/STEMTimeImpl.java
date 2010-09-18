@@ -14,9 +14,7 @@ package org.eclipse.stem.core.model.impl;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.ModelPackage;
@@ -45,15 +43,6 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	protected static final Date TIME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date time = TIME_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -74,10 +63,21 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Date getTime() {
+		Date time = (Date)eDynamicGet(ModelPackage.STEM_TIME__TIME, ModelPackage.Literals.STEM_TIME__TIME, true, true);
 		return (Date)time.clone();
 	}
 
@@ -86,10 +86,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * @generated NOT
 	 */
 	public void setTime(Date newTime) {
-		Date oldTime = time;
-		time = (Date)newTime.clone();
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.STEM_TIME__TIME, oldTime, time));
+		eDynamicSet(ModelPackage.STEM_TIME__TIME, ModelPackage.Literals.STEM_TIME__TIME, newTime.clone());
 	}
 
 	/**
@@ -100,7 +97,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	public STEMTime addIncrement(long timeIncrement) {
 		final STEMTime retValue = ModelFactory.eINSTANCE.createSTEMTime();
 
-		final long newTime = time.getTime() + timeIncrement;
+		final long newTime = getTime().getTime() + timeIncrement;
 		final Date newDate = new Date(newTime);
 
 		retValue.setTime(newDate);
@@ -115,7 +112,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * 
 	 */
 	public int compareTo(STEMTime otherTime) {
-		return time.compareTo(otherTime.getTime());
+		return getTime().compareTo(otherTime.getTime());
 	}
 
 	/**
@@ -126,7 +123,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	public int hashCode() {
 		final int PRIME = 31;
 		int result = 1;
-		result = PRIME * result + ((time == null) ? 0 : time.hashCode());
+		result = PRIME * result + ((getTime() == null) ? 0 : getTime().hashCode());
 		return result;
 	}
 
@@ -143,10 +140,10 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 		if (getClass() != obj.getClass())
 			return false;
 		final STEMTimeImpl other = (STEMTimeImpl) obj;
-		if (time == null) {
-			if (other.time != null)
+		if (getTime() == null) {
+			if (other.getTime() != null)
 				return false;
-		} else if (!time.equals(other.time))
+		} else if (!getTime().equals(other.getTime()))
 			return false;
 		return true;
 	}
@@ -200,7 +197,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.STEM_TIME__TIME:
-				return TIME_EDEFAULT == null ? time != null : !TIME_EDEFAULT.equals(time);
+				return TIME_EDEFAULT == null ? getTime() != null : !TIME_EDEFAULT.equals(getTime());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,7 +215,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 		// result.append(" (time: ");
 		// result.append(time);
 		// result.append(')');
-		return time.toString();
+		return getTime().toString();
 	} // toString
 
 } // STEMTimeImpl

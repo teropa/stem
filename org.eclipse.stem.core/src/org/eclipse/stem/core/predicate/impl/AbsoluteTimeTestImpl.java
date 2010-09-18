@@ -11,12 +11,9 @@ package org.eclipse.stem.core.predicate.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
@@ -37,15 +34,6 @@ import org.eclipse.stem.core.predicate.PredicatePackage;
  * @generated
  */
 public class AbsoluteTimeTestImpl extends TimeTestImpl implements AbsoluteTimeTest {
-	/**
-	 * The cached value of the '{@link #getTime() <em>Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime time;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,7 +60,7 @@ public class AbsoluteTimeTestImpl extends TimeTestImpl implements AbsoluteTimeTe
 	 * @generated
 	 */
 	public STEMTime getTime() {
-		return time;
+		return (STEMTime)eDynamicGet(PredicatePackage.ABSOLUTE_TIME_TEST__TIME, PredicatePackage.Literals.ABSOLUTE_TIME_TEST__TIME, true, true);
 	}
 
 	/**
@@ -81,12 +69,7 @@ public class AbsoluteTimeTestImpl extends TimeTestImpl implements AbsoluteTimeTe
 	 * @generated
 	 */
 	public NotificationChain basicSetTime(STEMTime newTime, NotificationChain msgs) {
-		STEMTime oldTime = time;
-		time = newTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PredicatePackage.ABSOLUTE_TIME_TEST__TIME, oldTime, newTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newTime, PredicatePackage.ABSOLUTE_TIME_TEST__TIME, msgs);
 		return msgs;
 	}
 
@@ -96,17 +79,7 @@ public class AbsoluteTimeTestImpl extends TimeTestImpl implements AbsoluteTimeTe
 	 * @generated
 	 */
 	public void setTime(STEMTime newTime) {
-		if (newTime != time) {
-			NotificationChain msgs = null;
-			if (time != null)
-				msgs = ((InternalEObject)time).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.ABSOLUTE_TIME_TEST__TIME, null, msgs);
-			if (newTime != null)
-				msgs = ((InternalEObject)newTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.ABSOLUTE_TIME_TEST__TIME, null, msgs);
-			msgs = basicSetTime(newTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.ABSOLUTE_TIME_TEST__TIME, newTime, newTime));
+		eDynamicSet(PredicatePackage.ABSOLUTE_TIME_TEST__TIME, PredicatePackage.Literals.ABSOLUTE_TIME_TEST__TIME, newTime);
 	}
 
 	/**
@@ -176,7 +149,7 @@ public class AbsoluteTimeTestImpl extends TimeTestImpl implements AbsoluteTimeTe
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PredicatePackage.ABSOLUTE_TIME_TEST__TIME:
-				return time != null;
+				return getTime() != null;
 		}
 		return super.eIsSet(featureID);
 	}

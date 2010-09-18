@@ -11,9 +11,7 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.DoubleRangeModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -45,14 +43,6 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 */
 	protected static final double START_VALUE_EDEFAULT = -9.9999999E7;
 	/**
-	 * The cached value of the '{@link #getStartValue() <em>Start Value</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getStartValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double startValue = START_VALUE_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getEndValue() <em>End Value</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndValue()
@@ -61,14 +51,6 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 */
 	protected static final double END_VALUE_EDEFAULT = -9.9999999E7;
 	/**
-	 * The cached value of the '{@link #getEndValue() <em>End Value</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getEndValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double endValue = END_VALUE_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getIncrement()
@@ -76,15 +58,6 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @ordered
 	 */
 	protected static final double INCREMENT_EDEFAULT = -9.9999999E7;
-	/**
-	 * The cached value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getIncrement()
-	 * @generated
-	 * @ordered
-	 */
-	protected double increment = INCREMENT_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getNextValue() <em>Next Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,15 +68,6 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 */
 	protected static final double NEXT_VALUE_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getNextValue() <em>Next Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double nextValue = NEXT_VALUE_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,15 +76,6 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @ordered
 	 */
 	protected static final double ORIGINAL_VALUE_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double originalValue = ORIGINAL_VALUE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -143,7 +98,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public double getStartValue() {
-		return startValue;
+		return (Double)eDynamicGet(ModifierPackage.DOUBLE_RANGE_MODIFIER__START_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__START_VALUE, true, true);
 	}
 
 	/**
@@ -151,10 +106,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setStartValue(double newStartValue) {
-		double oldStartValue = startValue;
-		startValue = newStartValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.DOUBLE_RANGE_MODIFIER__START_VALUE, oldStartValue, startValue));
+		eDynamicSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__START_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__START_VALUE, newStartValue);
 	}
 
 	/**
@@ -162,7 +114,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public double getEndValue() {
-		return endValue;
+		return (Double)eDynamicGet(ModifierPackage.DOUBLE_RANGE_MODIFIER__END_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__END_VALUE, true, true);
 	}
 
 	/**
@@ -170,10 +122,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setEndValue(double newEndValue) {
-		double oldEndValue = endValue;
-		endValue = newEndValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.DOUBLE_RANGE_MODIFIER__END_VALUE, oldEndValue, endValue));
+		eDynamicSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__END_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__END_VALUE, newEndValue);
 	}
 
 	/**
@@ -181,7 +130,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public double getIncrement() {
-		return increment;
+		return (Double)eDynamicGet(ModifierPackage.DOUBLE_RANGE_MODIFIER__INCREMENT, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__INCREMENT, true, true);
 	}
 
 	/**
@@ -189,10 +138,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setIncrement(double newIncrement) {
-		double oldIncrement = increment;
-		increment = newIncrement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.DOUBLE_RANGE_MODIFIER__INCREMENT, oldIncrement, increment));
+		eDynamicSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__INCREMENT, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__INCREMENT, newIncrement);
 	}
 
 	/**
@@ -204,28 +150,28 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 		// Unset?
 		if (!eIsSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
-			nextValue = startValue;
+			setNextValue(getStartValue());
 		} // if
 		
-		final double retValue = nextValue;
+		final double retValue = (Double)eDynamicGet(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__NEXT_VALUE, true, true);
 		
-		complete = (increment < 0.0)? (retValue <= endValue):(retValue >= endValue); 
+		complete = (getIncrement() < 0.0)? (retValue <= getEndValue()):(retValue >= getEndValue()); 
 		
 		// Still incrementing?
 		if (!complete) {
 			// Yes
-			final double temp = retValue + increment;
+			final double temp = retValue + getIncrement();
 			// Would the new currentValue be equal or "past" the endValue?
-			if ((increment >= 0 && temp < endValue) || (increment < 0 && temp > endValue)) {
+			if ((getIncrement() >= 0 && temp < getEndValue()) || (getIncrement() < 0 && temp > getEndValue())) {
 				// No
-				nextValue = temp;
+				setNextValue(temp);
 			} // if
 			else {
 				// Yes
-				nextValue = endValue;
+				setNextValue(getEndValue());
 			} // else 
 		} // if 
-		currentValueText = Double.toString(retValue);
+		eDynamicSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, Double.toString(retValue));
 		return retValue;
 	} // getNextValue
 
@@ -235,10 +181,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setNextValue(double newNextValue) {
-		double oldNextValue = nextValue;
-		nextValue = newNextValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE, oldNextValue, nextValue));
+		eDynamicSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__NEXT_VALUE, newNextValue);
 	}
 
 	/**
@@ -247,7 +190,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public double getOriginalValue() {
-		return originalValue;
+		return (Double)eDynamicGet(ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -256,10 +199,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setOriginalValue(double newOriginalValue) {
-		double oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -271,9 +211,9 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((Double)target.eGet(getEStructuralFeature()));
+			setOriginalValue((Double)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	} // updateFeature
 
 	
@@ -284,7 +224,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	public void reset() {
 		super.reset();
 		eUnset(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE);
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 
 	/**
@@ -368,40 +308,17 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__START_VALUE:
-				return startValue != START_VALUE_EDEFAULT;
+				return getStartValue() != START_VALUE_EDEFAULT;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__END_VALUE:
-				return endValue != END_VALUE_EDEFAULT;
+				return getEndValue() != END_VALUE_EDEFAULT;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__INCREMENT:
-				return increment != INCREMENT_EDEFAULT;
+				return getIncrement() != INCREMENT_EDEFAULT;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE:
-				return nextValue != NEXT_VALUE_EDEFAULT;
+				return getNextValue() != NEXT_VALUE_EDEFAULT;
 			case ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE:
-				return originalValue != ORIGINAL_VALUE_EDEFAULT;
+				return getOriginalValue() != ORIGINAL_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (startValue: "); //$NON-NLS-1$
-		result.append(startValue);
-		result.append(", endValue: "); //$NON-NLS-1$
-		result.append(endValue);
-		result.append(", increment: "); //$NON-NLS-1$
-		result.append(increment);
-		result.append(", nextValue: "); //$NON-NLS-1$
-		result.append(nextValue);
-		result.append(", originalValue: "); //$NON-NLS-1$
-		result.append(originalValue);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**
@@ -412,10 +329,10 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 		boolean retValue = super.sane();
 		assert retValue;
 
-		retValue = retValue && (endValue >= startValue);
+		retValue = retValue && (getEndValue() >= getStartValue());
 		assert retValue;
 
-		retValue = retValue && (increment > 0.0);
+		retValue = retValue && (getIncrement() > 0.0);
 		assert retValue;
 
 		return retValue;

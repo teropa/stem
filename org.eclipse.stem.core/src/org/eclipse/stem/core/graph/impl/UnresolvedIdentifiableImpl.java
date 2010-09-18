@@ -11,11 +11,8 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
  
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.GraphPackage;
@@ -41,42 +38,6 @@ import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
 public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 		UnresolvedIdentifiable {
 	/**
-	 * The cached value of the '{@link #getScenario() <em>Scenario</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getScenario()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifiable scenario;
-
-	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifiable model;
-
-	/**
-	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifiable graph;
-
-	/**
-	 * The cached value of the '{@link #getIdentifiable() <em>Identifiable</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getIdentifiable()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifiable identifiable;
-
-	/**
 	 * The default value of the '{@link #getUnresolvedURI() <em>Unresolved URI</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getUnresolvedURI()
@@ -86,15 +47,6 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	protected static final URI UNRESOLVED_URI_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUnresolvedURI() <em>Unresolved URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getUnresolvedURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI unresolvedURI = UNRESOLVED_URI_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getFieldName() <em>Field Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFieldName()
@@ -102,15 +54,6 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @ordered
 	 */
 	protected static final String FIELD_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFieldName() <em>Field Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getFieldName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String fieldName = FIELD_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -130,19 +73,21 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Identifiable getScenario() {
-		if (scenario != null && scenario.eIsProxy()) {
-			InternalEObject oldScenario = (InternalEObject)scenario;
-			scenario = (Identifiable)eResolveProxy(oldScenario);
-			if (scenario != oldScenario) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.UNRESOLVED_IDENTIFIABLE__SCENARIO, oldScenario, scenario));
-			}
-		}
-		return scenario;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__SCENARIO, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__SCENARIO, true, true);
 	}
 
 	/**
@@ -150,7 +95,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public Identifiable basicGetScenario() {
-		return scenario;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__SCENARIO, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__SCENARIO, false, true);
 	}
 
 	/**
@@ -158,10 +103,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public void setScenario(Identifiable newScenario) {
-		Identifiable oldScenario = scenario;
-		scenario = newScenario;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.UNRESOLVED_IDENTIFIABLE__SCENARIO, oldScenario, scenario));
+		eDynamicSet(GraphPackage.UNRESOLVED_IDENTIFIABLE__SCENARIO, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__SCENARIO, newScenario);
 	}
 
 	/**
@@ -169,15 +111,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public Identifiable getModel() {
-		if (model != null && model.eIsProxy()) {
-			InternalEObject oldModel = (InternalEObject)model;
-			model = (Identifiable)eResolveProxy(oldModel);
-			if (model != oldModel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.UNRESOLVED_IDENTIFIABLE__MODEL, oldModel, model));
-			}
-		}
-		return model;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__MODEL, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__MODEL, true, true);
 	}
 
 	/**
@@ -185,7 +119,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public Identifiable basicGetModel() {
-		return model;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__MODEL, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__MODEL, false, true);
 	}
 
 	/**
@@ -193,10 +127,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public void setModel(Identifiable newModel) {
-		Identifiable oldModel = model;
-		model = newModel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.UNRESOLVED_IDENTIFIABLE__MODEL, oldModel, model));
+		eDynamicSet(GraphPackage.UNRESOLVED_IDENTIFIABLE__MODEL, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__MODEL, newModel);
 	}
 
 	/**
@@ -204,15 +135,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public Identifiable getGraph() {
-		if (graph != null && graph.eIsProxy()) {
-			InternalEObject oldGraph = (InternalEObject)graph;
-			graph = (Identifiable)eResolveProxy(oldGraph);
-			if (graph != oldGraph) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.UNRESOLVED_IDENTIFIABLE__GRAPH, oldGraph, graph));
-			}
-		}
-		return graph;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__GRAPH, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__GRAPH, true, true);
 	}
 
 	/**
@@ -220,7 +143,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public Identifiable basicGetGraph() {
-		return graph;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__GRAPH, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__GRAPH, false, true);
 	}
 
 	/**
@@ -228,10 +151,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public void setGraph(Identifiable newGraph) {
-		Identifiable oldGraph = graph;
-		graph = newGraph;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.UNRESOLVED_IDENTIFIABLE__GRAPH, oldGraph, graph));
+		eDynamicSet(GraphPackage.UNRESOLVED_IDENTIFIABLE__GRAPH, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__GRAPH, newGraph);
 	}
 
 	/**
@@ -239,15 +159,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public Identifiable getIdentifiable() {
-		if (identifiable != null && identifiable.eIsProxy()) {
-			InternalEObject oldIdentifiable = (InternalEObject)identifiable;
-			identifiable = (Identifiable)eResolveProxy(oldIdentifiable);
-			if (identifiable != oldIdentifiable) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphPackage.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, oldIdentifiable, identifiable));
-			}
-		}
-		return identifiable;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, true, true);
 	}
 
 	/**
@@ -255,7 +167,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public Identifiable basicGetIdentifiable() {
-		return identifiable;
+		return (Identifiable)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, false, true);
 	}
 
 	/**
@@ -263,10 +175,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public void setIdentifiable(Identifiable newIdentifiable) {
-		Identifiable oldIdentifiable = identifiable;
-		identifiable = newIdentifiable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, oldIdentifiable, identifiable));
+		eDynamicSet(GraphPackage.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE, newIdentifiable);
 	}
 
 	/**
@@ -274,7 +183,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public URI getUnresolvedURI() {
-		return unresolvedURI;
+		return (URI)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__UNRESOLVED_URI, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__UNRESOLVED_URI, true, true);
 	}
 
 	/**
@@ -282,10 +191,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public void setUnresolvedURI(URI newUnresolvedURI) {
-		URI oldUnresolvedURI = unresolvedURI;
-		unresolvedURI = newUnresolvedURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.UNRESOLVED_IDENTIFIABLE__UNRESOLVED_URI, oldUnresolvedURI, unresolvedURI));
+		eDynamicSet(GraphPackage.UNRESOLVED_IDENTIFIABLE__UNRESOLVED_URI, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__UNRESOLVED_URI, newUnresolvedURI);
 	}
 
 	/**
@@ -293,7 +199,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public String getFieldName() {
-		return fieldName;
+		return (String)eDynamicGet(GraphPackage.UNRESOLVED_IDENTIFIABLE__FIELD_NAME, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__FIELD_NAME, true, true);
 	}
 
 	/**
@@ -301,10 +207,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public void setFieldName(String newFieldName) {
-		String oldFieldName = fieldName;
-		fieldName = newFieldName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.UNRESOLVED_IDENTIFIABLE__FIELD_NAME, oldFieldName, fieldName));
+		eDynamicSet(GraphPackage.UNRESOLVED_IDENTIFIABLE__FIELD_NAME, GraphPackage.Literals.UNRESOLVED_IDENTIFIABLE__FIELD_NAME, newFieldName);
 	}
 
 	/**
@@ -400,17 +303,17 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.UNRESOLVED_IDENTIFIABLE__SCENARIO:
-				return scenario != null;
+				return basicGetScenario() != null;
 			case GraphPackage.UNRESOLVED_IDENTIFIABLE__MODEL:
-				return model != null;
+				return basicGetModel() != null;
 			case GraphPackage.UNRESOLVED_IDENTIFIABLE__GRAPH:
-				return graph != null;
+				return basicGetGraph() != null;
 			case GraphPackage.UNRESOLVED_IDENTIFIABLE__IDENTIFIABLE:
-				return identifiable != null;
+				return basicGetIdentifiable() != null;
 			case GraphPackage.UNRESOLVED_IDENTIFIABLE__UNRESOLVED_URI:
-				return UNRESOLVED_URI_EDEFAULT == null ? unresolvedURI != null : !UNRESOLVED_URI_EDEFAULT.equals(unresolvedURI);
+				return UNRESOLVED_URI_EDEFAULT == null ? getUnresolvedURI() != null : !UNRESOLVED_URI_EDEFAULT.equals(getUnresolvedURI());
 			case GraphPackage.UNRESOLVED_IDENTIFIABLE__FIELD_NAME:
-				return FIELD_NAME_EDEFAULT == null ? fieldName != null : !FIELD_NAME_EDEFAULT.equals(fieldName);
+				return FIELD_NAME_EDEFAULT == null ? getFieldName() != null : !FIELD_NAME_EDEFAULT.equals(getFieldName());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -425,11 +328,11 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer();
-		result.append(identifiable.toString());
+		result.append(getIdentifiable().toString());
 		result.append(", unresolved URI: ");
-		result.append(unresolvedURI);
+		result.append(getUnresolvedURI());
 		result.append(", fieldName: ");
-		result.append(fieldName);
+		result.append(getFieldName());
 		return result.toString();
 	} // toString
 

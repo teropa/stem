@@ -11,10 +11,7 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.LongModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -43,16 +40,6 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 */
 	protected static final long VALUE_EDEFAULT = 0L;
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected long value = VALUE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,16 +48,6 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 * @ordered
 	 */
 	protected static final long ORIGINAL_VALUE_EDEFAULT = 0L;
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected long originalValue = ORIGINAL_VALUE_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,7 +73,7 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 * @generated
 	 */
 	public long getValue() {
-		return value;
+		return (Long)eDynamicGet(ModifierPackage.LONG_MODIFIER__VALUE, ModifierPackage.Literals.LONG_MODIFIER__VALUE, true, true);
 	}
 
 	/**
@@ -105,10 +82,7 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 * @generated
 	 */
 	public void setValue(long newValue) {
-		long oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.LONG_MODIFIER__VALUE, oldValue, value));
+		eDynamicSet(ModifierPackage.LONG_MODIFIER__VALUE, ModifierPackage.Literals.LONG_MODIFIER__VALUE, newValue);
 	}
 
 	/**
@@ -117,7 +91,7 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 * @generated
 	 */
 	public long getOriginalValue() {
-		return originalValue;
+		return (Long)eDynamicGet(ModifierPackage.LONG_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.LONG_MODIFIER__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -126,10 +100,7 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 * @generated
 	 */
 	public void setOriginalValue(long newOriginalValue) {
-		long oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.LONG_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(ModifierPackage.LONG_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.LONG_MODIFIER__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -193,9 +164,9 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.LONG_MODIFIER__VALUE:
-				return value != VALUE_EDEFAULT;
+				return getValue() != VALUE_EDEFAULT;
 			case ModifierPackage.LONG_MODIFIER__ORIGINAL_VALUE:
-				return originalValue != ORIGINAL_VALUE_EDEFAULT;
+				return getOriginalValue() != ORIGINAL_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,9 +181,9 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((Long)target.eGet(getEStructuralFeature()));
+			setOriginalValue((Long)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getValue());
+		getTarget().eSet(getEStructuralFeature(), getValue());
 		complete = true;
 	} // updateFeature
 
@@ -223,7 +194,7 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	@Override
 	public void reset() {
 		complete = false;
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	
@@ -234,24 +205,6 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	@Override
 	public boolean isComplete() {
 		return complete;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: "); //$NON-NLS-1$
-		result.append(value);
-		result.append(", originalValue: "); //$NON-NLS-1$
-		result.append(originalValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //LongModifierImpl

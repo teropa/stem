@@ -11,10 +11,7 @@ package org.eclipse.stem.core.modifier.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.modifier.ModifierPackage;
@@ -39,22 +36,6 @@ import org.eclipse.stem.core.modifier.STEMTimeRangeModifier;
 public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		STEMTimeRangeModifier {
 	/**
-	 * The cached value of the '{@link #getStartValue() <em>Start Value</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getStartValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime startValue;
-	/**
-	 * The cached value of the '{@link #getEndValue() <em>End Value</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getEndValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime endValue;
-	/**
 	 * The default value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getIncrement()
@@ -62,33 +43,6 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @ordered
 	 */
 	protected static final long INCREMENT_EDEFAULT = 0L;
-	/**
-	 * The cached value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getIncrement()
-	 * @generated
-	 * @ordered
-	 */
-	protected long increment = INCREMENT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getNextValue() <em>Next Value</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNextValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime nextValue;
-
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime originalValue;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
@@ -110,15 +64,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public STEMTime getStartValue() {
-		if (startValue != null && startValue.eIsProxy()) {
-			InternalEObject oldStartValue = (InternalEObject)startValue;
-			startValue = (STEMTime)eResolveProxy(oldStartValue);
-			if (startValue != oldStartValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModifierPackage.STEM_TIME_RANGE_MODIFIER__START_VALUE, oldStartValue, startValue));
-			}
-		}
-		return startValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__START_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__START_VALUE, true, true);
 	}
 
 	/**
@@ -126,7 +72,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public STEMTime basicGetStartValue() {
-		return startValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__START_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__START_VALUE, false, true);
 	}
 
 	/**
@@ -134,10 +80,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setStartValue(STEMTime newStartValue) {
-		STEMTime oldStartValue = startValue;
-		startValue = newStartValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.STEM_TIME_RANGE_MODIFIER__START_VALUE, oldStartValue, startValue));
+		eDynamicSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__START_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__START_VALUE, newStartValue);
 	}
 
 	/**
@@ -145,15 +88,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public STEMTime getEndValue() {
-		if (endValue != null && endValue.eIsProxy()) {
-			InternalEObject oldEndValue = (InternalEObject)endValue;
-			endValue = (STEMTime)eResolveProxy(oldEndValue);
-			if (endValue != oldEndValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModifierPackage.STEM_TIME_RANGE_MODIFIER__END_VALUE, oldEndValue, endValue));
-			}
-		}
-		return endValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__END_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__END_VALUE, true, true);
 	}
 
 	/**
@@ -161,7 +96,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public STEMTime basicGetEndValue() {
-		return endValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__END_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__END_VALUE, false, true);
 	}
 
 	/**
@@ -169,10 +104,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setEndValue(STEMTime newEndValue) {
-		STEMTime oldEndValue = endValue;
-		endValue = newEndValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.STEM_TIME_RANGE_MODIFIER__END_VALUE, oldEndValue, endValue));
+		eDynamicSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__END_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__END_VALUE, newEndValue);
 	}
 
 	/**
@@ -180,7 +112,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public long getIncrement() {
-		return increment;
+		return (Long)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__INCREMENT, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__INCREMENT, true, true);
 	}
 
 	/**
@@ -188,10 +120,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setIncrement(long newIncrement) {
-		long oldIncrement = increment;
-		increment = newIncrement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.STEM_TIME_RANGE_MODIFIER__INCREMENT, oldIncrement, increment));
+		eDynamicSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__INCREMENT, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__INCREMENT, newIncrement);
 	}
 
 	/**
@@ -279,32 +208,17 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__START_VALUE:
-				return startValue != null;
+				return basicGetStartValue() != null;
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__END_VALUE:
-				return endValue != null;
+				return basicGetEndValue() != null;
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__INCREMENT:
-				return increment != INCREMENT_EDEFAULT;
+				return getIncrement() != INCREMENT_EDEFAULT;
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE:
-				return nextValue != null;
+				return basicGetNextValue() != null;
 			case ModifierPackage.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE:
-				return originalValue != null;
+				return basicGetOriginalValue() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (increment: "); //$NON-NLS-1$
-		result.append(increment);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**
@@ -316,28 +230,28 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		// Unset?
 		if (!eIsSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
-			nextValue = startValue;
+			setNextValue(getStartValue());
 		} // if
 
-		final STEMTime retValue = nextValue;
-		complete = retValue.equals(endValue);
+		final STEMTime retValue = (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, false, true);
+		complete = retValue.equals(getEndValue());
 
 		// Still incrementing?
 		if (!complete) {
 			// Yes
 			final STEMTime temp = ((STEMTime) EcoreUtil.copy(retValue))
-					.addIncrement(increment);
+					.addIncrement(getIncrement());
 			// Would the new currentValue be equal or "past" the endValue?
-			if (temp.getTime().before(endValue.getTime())) {
+			if (temp.getTime().before(getEndValue().getTime())) {
 				// No
-				nextValue = temp;
+				setNextValue(temp);
 			} // if
 			else {
 				// Yes
-				nextValue = endValue;
+				setNextValue(getEndValue());
 			} // else
 		} // if
-		currentValueText = retValue.toString();
+		eDynamicSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
 		return retValue;
 
 	} // getNextValue
@@ -347,7 +261,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public STEMTime basicGetNextValue() {
-		return nextValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, false, true);
 	}
 
 	/**
@@ -356,10 +270,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setNextValue(STEMTime newNextValue) {
-		STEMTime oldNextValue = nextValue;
-		nextValue = newNextValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, oldNextValue, nextValue));
+		eDynamicSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, newNextValue);
 	}
 
 	/**
@@ -368,15 +279,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public STEMTime getOriginalValue() {
-		if (originalValue != null && originalValue.eIsProxy()) {
-			InternalEObject oldOriginalValue = (InternalEObject)originalValue;
-			originalValue = (STEMTime)eResolveProxy(oldOriginalValue);
-			if (originalValue != oldOriginalValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModifierPackage.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
-			}
-		}
-		return originalValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -385,7 +288,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public STEMTime basicGetOriginalValue() {
-		return originalValue;
+		return (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, false, true);
 	}
 
 	/**
@@ -394,10 +297,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 * @generated
 	 */
 	public void setOriginalValue(STEMTime newOriginalValue) {
-		STEMTime oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -408,9 +308,9 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((STEMTime)target.eGet(getEStructuralFeature()));
+			setOriginalValue((STEMTime)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 
 	/**
@@ -420,7 +320,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	public void reset() {
 		super.reset();
 		eUnset(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE);
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -432,10 +332,10 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		assert retValue;
 
 		retValue = retValue
-				&& !((endValue).getTime().before((startValue).getTime()));
+				&& !((getEndValue()).getTime().before((getStartValue()).getTime()));
 		assert retValue;
 
-		retValue = retValue && increment > 0;
+		retValue = retValue && getIncrement() > 0;
 		assert retValue;
 
 		return retValue;

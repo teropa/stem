@@ -18,8 +18,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
@@ -42,24 +40,6 @@ import org.eclipse.stem.core.graph.NodeLabel;
  * @generated
  */
 public class NodeImpl extends IdentifiableImpl implements Node {
-
-	/**
-	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Edge> edges;
-
-	/**
-	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<NodeLabel> labels;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -86,22 +66,18 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Edge> getEdges() {
-		if (edges == null) {
-			edges = new EObjectResolvingEList<Edge>(Edge.class, this, GraphPackage.NODE__EDGES);
-		}
-		return edges;
+		return (EList<Edge>)eDynamicGet(GraphPackage.NODE__EDGES, GraphPackage.Literals.NODE__EDGES, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<NodeLabel> getLabels() {
-		if (labels == null) {
-			labels = new EObjectWithInverseResolvingEList<NodeLabel>(NodeLabel.class, this, GraphPackage.NODE__LABELS, GraphPackage.NODE_LABEL__NODE);
-		}
-		return labels;
+		return (EList<NodeLabel>)eDynamicGet(GraphPackage.NODE__LABELS, GraphPackage.Literals.NODE__LABELS, true, true);
 	}
 
 	/**
@@ -139,7 +115,7 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		if (labels != null) {
+		if (getLabels() != null) {
 			// All the labels should be sane
 			for (final Iterator<NodeLabel> labelIter = getLabels().iterator(); labelIter
 					.hasNext()
@@ -231,9 +207,9 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphPackage.NODE__EDGES:
-				return edges != null && !edges.isEmpty();
+				return !getEdges().isEmpty();
 			case GraphPackage.NODE__LABELS:
-				return labels != null && !labels.isEmpty();
+				return !getLabels().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

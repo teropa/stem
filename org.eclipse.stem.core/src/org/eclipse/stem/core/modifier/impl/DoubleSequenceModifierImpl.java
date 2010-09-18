@@ -15,7 +15,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.stem.core.modifier.DoubleSequenceModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -33,16 +32,6 @@ import org.eclipse.stem.core.modifier.ModifierPackage;
  * @generated
  */
 public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements DoubleSequenceModifier {
-	/**
-	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Double> sequence;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,11 +56,9 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Double> getSequence() {
-		if (sequence == null) {
-			sequence = new EDataTypeUniqueEList<Double>(Double.class, this, ModifierPackage.DOUBLE_SEQUENCE_MODIFIER__SEQUENCE);
-		}
-		return sequence;
+		return (EList<Double>)eDynamicGet(ModifierPackage.DOUBLE_SEQUENCE_MODIFIER__SEQUENCE, ModifierPackage.Literals.DOUBLE_SEQUENCE_MODIFIER__SEQUENCE, true, true);
 	}
 
 
@@ -102,7 +89,7 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 
@@ -112,7 +99,7 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 
 	/**
@@ -170,25 +157,9 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.DOUBLE_SEQUENCE_MODIFIER__SEQUENCE:
-				return sequence != null && !sequence.isEmpty();
+				return !getSequence().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sequence: "); //$NON-NLS-1$
-		result.append(sequence);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DoubleSequenceModifierImpl

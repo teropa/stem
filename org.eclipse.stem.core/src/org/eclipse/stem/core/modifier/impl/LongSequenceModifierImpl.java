@@ -15,7 +15,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.stem.core.modifier.LongSequenceModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -33,16 +32,6 @@ import org.eclipse.stem.core.modifier.ModifierPackage;
  * @generated
  */
 public class LongSequenceModifierImpl extends SequenceModifierImpl implements LongSequenceModifier {
-	/**
-	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Long> sequence;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,11 +56,9 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Long> getSequence() {
-		if (sequence == null) {
-			sequence = new EDataTypeUniqueEList<Long>(Long.class, this, ModifierPackage.LONG_SEQUENCE_MODIFIER__SEQUENCE);
-		}
-		return sequence;
+		return (EList<Long>)eDynamicGet(ModifierPackage.LONG_SEQUENCE_MODIFIER__SEQUENCE, ModifierPackage.Literals.LONG_SEQUENCE_MODIFIER__SEQUENCE, true, true);
 	}
 
 	/**
@@ -82,7 +69,7 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 		int index = getCurrentSequenceIndex();
 		final Object retValue = getSequence().get(index++);
 		setCurrentSequenceIndex(index);	
-		currentValueText = retValue.toString();
+		eDynamicSet(ModifierPackage.LONG_SEQUENCE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
 		return retValue;
 	} // getNextValue
 	
@@ -102,7 +89,7 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 	/**
@@ -111,7 +98,7 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -169,25 +156,9 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModifierPackage.LONG_SEQUENCE_MODIFIER__SEQUENCE:
-				return sequence != null && !sequence.isEmpty();
+				return !getSequence().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sequence: "); //$NON-NLS-1$
-		result.append(sequence);
-		result.append(')');
-		return result.toString();
 	}
 
 } //LongSequenceModifierImpl

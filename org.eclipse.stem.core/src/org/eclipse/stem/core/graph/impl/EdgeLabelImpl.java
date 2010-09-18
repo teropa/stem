@@ -11,16 +11,9 @@ package org.eclipse.stem.core.graph.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
@@ -76,8 +69,7 @@ public abstract class EdgeLabelImpl extends LabelImpl implements EdgeLabel {
 	 * @generated
 	 */
 	public Edge getEdge() {
-		if (eContainerFeatureID() != GraphPackage.EDGE_LABEL__EDGE) return null;
-		return (Edge)eContainer();
+		return (Edge)eDynamicGet(GraphPackage.EDGE_LABEL__EDGE, GraphPackage.Literals.EDGE_LABEL__EDGE, true, true);
 	}
 
 	/**
@@ -96,19 +88,7 @@ public abstract class EdgeLabelImpl extends LabelImpl implements EdgeLabel {
 	 * @generated
 	 */
 	public void setEdge(Edge newEdge) {
-		if (newEdge != eInternalContainer() || (eContainerFeatureID() != GraphPackage.EDGE_LABEL__EDGE && newEdge != null)) {
-			if (EcoreUtil.isAncestor(this, newEdge))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newEdge != null)
-				msgs = ((InternalEObject)newEdge).eInverseAdd(this, GraphPackage.EDGE__LABEL, Edge.class, msgs);
-			msgs = basicSetEdge(newEdge, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphPackage.EDGE_LABEL__EDGE, newEdge, newEdge));
+		eDynamicSet(GraphPackage.EDGE_LABEL__EDGE, GraphPackage.Literals.EDGE_LABEL__EDGE, newEdge);
 	}
 
 	/**

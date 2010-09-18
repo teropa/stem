@@ -14,17 +14,11 @@ package org.eclipse.stem.core.common.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
@@ -43,16 +37,6 @@ import org.eclipse.stem.core.common.StringValueList;
  * @generated
  */
 public class StringValueListImpl extends EObjectImpl implements StringValueList {
-	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValues()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<StringValue> values;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,11 +61,19 @@ public class StringValueListImpl extends EObjectImpl implements StringValueList 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<StringValue> getValues() {
-		if (values == null) {
-			values = new EObjectContainmentEList<StringValue>(StringValue.class, this, CommonPackage.STRING_VALUE_LIST__VALUES);
-		}
-		return values;
+		return (EList<StringValue>)eDynamicGet(CommonPackage.STRING_VALUE_LIST__VALUES, CommonPackage.Literals.STRING_VALUE_LIST__VALUES, true, true);
 	}
 
 	/**
@@ -153,7 +145,7 @@ public class StringValueListImpl extends EObjectImpl implements StringValueList 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CommonPackage.STRING_VALUE_LIST__VALUES:
-				return values != null && !values.isEmpty();
+				return !getValues().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

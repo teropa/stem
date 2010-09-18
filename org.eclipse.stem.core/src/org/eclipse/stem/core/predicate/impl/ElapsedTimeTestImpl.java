@@ -11,15 +11,10 @@ package org.eclipse.stem.core.predicate.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
@@ -54,16 +49,6 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	protected static final boolean REFERENCE_TIME_VALID_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isReferenceTimeValid() <em>Reference Time Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReferenceTimeValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean referenceTimeValid = REFERENCE_TIME_VALID_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getElapsedMilliseconds() <em>Elapsed Milliseconds</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,16 +59,6 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	protected static final long ELAPSED_MILLISECONDS_EDEFAULT = 0L;
 
 	/**
-	 * The cached value of the '{@link #getElapsedMilliseconds() <em>Elapsed Milliseconds</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElapsedMilliseconds()
-	 * @generated
-	 * @ordered
-	 */
-	protected long elapsedMilliseconds = ELAPSED_MILLISECONDS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getNumberofDays() <em>Numberof Days</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,26 +67,6 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @ordered
 	 */
 	protected static final int NUMBEROF_DAYS_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getNumberofDays() <em>Numberof Days</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumberofDays()
-	 * @generated
-	 * @ordered
-	 */
-	protected int numberofDays = NUMBEROF_DAYS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getReferenceTime() <em>Reference Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime referenceTime;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,7 +94,7 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated
 	 */
 	public boolean isReferenceTimeValid() {
-		return referenceTimeValid;
+		return (Boolean)eDynamicGet(PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID, PredicatePackage.Literals.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID, true, true);
 	}
 
 	/**
@@ -148,10 +103,7 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated
 	 */
 	public void setReferenceTimeValid(boolean newReferenceTimeValid) {
-		boolean oldReferenceTimeValid = referenceTimeValid;
-		referenceTimeValid = newReferenceTimeValid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID, oldReferenceTimeValid, referenceTimeValid));
+		eDynamicSet(PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID, PredicatePackage.Literals.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID, newReferenceTimeValid);
 	}
 
 	/**
@@ -160,7 +112,7 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated
 	 */
 	public long getElapsedMilliseconds() {
-		return elapsedMilliseconds;
+		return (Long)eDynamicGet(PredicatePackage.ELAPSED_TIME_TEST__ELAPSED_MILLISECONDS, PredicatePackage.Literals.ELAPSED_TIME_TEST__ELAPSED_MILLISECONDS, true, true);
 	}
 
 	/**
@@ -169,7 +121,7 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated
 	 */
 	public int getNumberofDays() {
-		return numberofDays;
+		return (Integer)eDynamicGet(PredicatePackage.ELAPSED_TIME_TEST__NUMBEROF_DAYS, PredicatePackage.Literals.ELAPSED_TIME_TEST__NUMBEROF_DAYS, true, true);
 	}
 
 	/**
@@ -178,13 +130,8 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated NOT
 	 */
 	public void setNumberofDays(int newNumberofDays) {
-		int oldNumberofDays = numberofDays;
-		numberofDays = newNumberofDays;
-		
-		elapsedMilliseconds = numberofDays * STEMTime.Units.DAY.getMilliseconds();
-		
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.ELAPSED_TIME_TEST__NUMBEROF_DAYS, oldNumberofDays, numberofDays));
+		eDynamicSet(PredicatePackage.ELAPSED_TIME_TEST__NUMBEROF_DAYS, PredicatePackage.Literals.ELAPSED_TIME_TEST__NUMBEROF_DAYS, newNumberofDays);
+		eDynamicSet(PredicatePackage.ELAPSED_TIME_TEST__ELAPSED_MILLISECONDS, PredicatePackage.Literals.ELAPSED_TIME_TEST__ELAPSED_MILLISECONDS, newNumberofDays * STEMTime.Units.DAY.getMilliseconds());
 	}
 
 	/**
@@ -193,7 +140,7 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated
 	 */
 	public STEMTime getReferenceTime() {
-		return referenceTime;
+		return (STEMTime)eDynamicGet(PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME, PredicatePackage.Literals.ELAPSED_TIME_TEST__REFERENCE_TIME, true, true);
 	}
 
 	/**
@@ -202,12 +149,7 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated
 	 */
 	public NotificationChain basicSetReferenceTime(STEMTime newReferenceTime, NotificationChain msgs) {
-		STEMTime oldReferenceTime = referenceTime;
-		referenceTime = newReferenceTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME, oldReferenceTime, newReferenceTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newReferenceTime, PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME, msgs);
 		return msgs;
 	}
 
@@ -217,17 +159,7 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated
 	 */
 	public void setReferenceTime(STEMTime newReferenceTime) {
-		if (newReferenceTime != referenceTime) {
-			NotificationChain msgs = null;
-			if (referenceTime != null)
-				msgs = ((InternalEObject)referenceTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME, null, msgs);
-			if (newReferenceTime != null)
-				msgs = ((InternalEObject)newReferenceTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME, null, msgs);
-			msgs = basicSetReferenceTime(newReferenceTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME, newReferenceTime, newReferenceTime));
+		eDynamicSet(PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME, PredicatePackage.Literals.ELAPSED_TIME_TEST__REFERENCE_TIME, newReferenceTime);
 	}
 
 	/**
@@ -315,35 +247,15 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME_VALID:
-				return referenceTimeValid != REFERENCE_TIME_VALID_EDEFAULT;
+				return isReferenceTimeValid() != REFERENCE_TIME_VALID_EDEFAULT;
 			case PredicatePackage.ELAPSED_TIME_TEST__ELAPSED_MILLISECONDS:
-				return elapsedMilliseconds != ELAPSED_MILLISECONDS_EDEFAULT;
+				return getElapsedMilliseconds() != ELAPSED_MILLISECONDS_EDEFAULT;
 			case PredicatePackage.ELAPSED_TIME_TEST__NUMBEROF_DAYS:
-				return numberofDays != NUMBEROF_DAYS_EDEFAULT;
+				return getNumberofDays() != NUMBEROF_DAYS_EDEFAULT;
 			case PredicatePackage.ELAPSED_TIME_TEST__REFERENCE_TIME:
-				return referenceTime != null;
+				return getReferenceTime() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (referenceTimeValid: "); //$NON-NLS-1$
-		result.append(referenceTimeValid);
-		result.append(", elapsedMilliseconds: "); //$NON-NLS-1$
-		result.append(elapsedMilliseconds);
-		result.append(", numberofDays: "); //$NON-NLS-1$
-		result.append(numberofDays);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

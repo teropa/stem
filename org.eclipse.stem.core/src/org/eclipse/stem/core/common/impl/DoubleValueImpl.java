@@ -11,14 +11,9 @@ package org.eclipse.stem.core.common.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.Identifiable;
@@ -49,16 +44,6 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	protected static final String IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String identifier = IDENTIFIER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,16 +52,6 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	 * @ordered
 	 */
 	protected static final double VALUE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,8 +77,18 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getIdentifier() {
-		return identifier;
+		return (String)eDynamicGet(CommonPackage.DOUBLE_VALUE__IDENTIFIER, CommonPackage.Literals.DOUBLE_VALUE__IDENTIFIER, true, true);
 	}
 
 	/**
@@ -112,10 +97,7 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
-		String oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.DOUBLE_VALUE__IDENTIFIER, oldIdentifier, identifier));
+		eDynamicSet(CommonPackage.DOUBLE_VALUE__IDENTIFIER, CommonPackage.Literals.DOUBLE_VALUE__IDENTIFIER, newIdentifier);
 	}
 
 	/**
@@ -124,7 +106,7 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	 * @generated
 	 */
 	public double getValue() {
-		return value;
+		return (Double)eDynamicGet(CommonPackage.DOUBLE_VALUE__VALUE, CommonPackage.Literals.DOUBLE_VALUE__VALUE, true, true);
 	}
 
 	/**
@@ -133,10 +115,7 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	 * @generated
 	 */
 	public void setValue(double newValue) {
-		double oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.DOUBLE_VALUE__VALUE, oldValue, value));
+		eDynamicSet(CommonPackage.DOUBLE_VALUE__VALUE, CommonPackage.Literals.DOUBLE_VALUE__VALUE, newValue);
 	}
 
 	/**
@@ -200,29 +179,11 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CommonPackage.DOUBLE_VALUE__IDENTIFIER:
-				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
+				return IDENTIFIER_EDEFAULT == null ? getIdentifier() != null : !IDENTIFIER_EDEFAULT.equals(getIdentifier());
 			case CommonPackage.DOUBLE_VALUE__VALUE:
-				return value != VALUE_EDEFAULT;
+				return getValue() != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (identifier: "); //$NON-NLS-1$
-		result.append(identifier);
-		result.append(", value: "); //$NON-NLS-1$
-		result.append(value);
-		result.append(')');
-		return result.toString();
 	}
 
 	private Identifiable findIdentifiable(EObject o) {

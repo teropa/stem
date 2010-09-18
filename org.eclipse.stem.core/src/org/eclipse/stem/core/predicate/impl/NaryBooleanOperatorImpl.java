@@ -17,7 +17,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.stem.core.predicate.NaryBooleanOperator;
 import org.eclipse.stem.core.predicate.Predicate;
@@ -37,16 +36,6 @@ import org.eclipse.stem.core.predicate.PredicatePackage;
  * @generated
  */
 public abstract class NaryBooleanOperatorImpl extends BooleanOperatorImpl implements NaryBooleanOperator {
-	/**
-	 * The cached value of the '{@link #getOperands() <em>Operands</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperands()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Predicate> operands;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,11 +60,9 @@ public abstract class NaryBooleanOperatorImpl extends BooleanOperatorImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Predicate> getOperands() {
-		if (operands == null) {
-			operands = new EObjectContainmentEList<Predicate>(Predicate.class, this, PredicatePackage.NARY_BOOLEAN_OPERATOR__OPERANDS);
-		}
-		return operands;
+		return (EList<Predicate>)eDynamicGet(PredicatePackage.NARY_BOOLEAN_OPERATOR__OPERANDS, PredicatePackage.Literals.NARY_BOOLEAN_OPERATOR__OPERANDS, true, true);
 	}
 
 	/**
@@ -147,7 +134,7 @@ public abstract class NaryBooleanOperatorImpl extends BooleanOperatorImpl implem
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PredicatePackage.NARY_BOOLEAN_OPERATOR__OPERANDS:
-				return operands != null && !operands.isEmpty();
+				return !getOperands().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
