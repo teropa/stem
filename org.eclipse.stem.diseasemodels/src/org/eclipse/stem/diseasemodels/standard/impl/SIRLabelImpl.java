@@ -48,52 +48,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  */
 public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLabel {
 	/**
-	 * The cached value of the '{@link #getDeltaValue() <em>Delta Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeltaValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SIRLabelValue deltaValue;
-	/**
-	 * The cached value of the '{@link #getProbeValue() <em>Probe Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProbeValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SIRLabelValue probeValue;
-	/**
-	 * The cached value of the '{@link #getTempValue() <em>Temp Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTempValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SIRLabelValue tempValue;
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SIRLabelValue originalValue;
-	/**
-	 * The cached value of the '{@link #getErrorScale() <em>Error Scale</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorScale()
-	 * @generated
-	 * @ordered
-	 */
-	protected SIRLabelValue errorScale;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -124,15 +78,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue getDeltaValue() {
-		if (deltaValue != null && deltaValue.eIsProxy()) {
-			InternalEObject oldDeltaValue = (InternalEObject)deltaValue;
-			deltaValue = (SIRLabelValue)eResolveProxy(oldDeltaValue);
-			if (deltaValue != oldDeltaValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SIR_LABEL__DELTA_VALUE, oldDeltaValue, deltaValue));
-			}
-		}
-		return deltaValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__DELTA_VALUE, StandardPackage.Literals.SIR_LABEL__DELTA_VALUE, true, true);
 	}
 
 	/**
@@ -141,7 +87,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue basicGetDeltaValue() {
-		return deltaValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__DELTA_VALUE, StandardPackage.Literals.SIR_LABEL__DELTA_VALUE, false, true);
 	}
 
 	/**
@@ -150,10 +96,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public void setDeltaValue(SIRLabelValue newDeltaValue) {
-		SIRLabelValue oldDeltaValue = deltaValue;
-		deltaValue = newDeltaValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_LABEL__DELTA_VALUE, oldDeltaValue, deltaValue));
+		eDynamicSet(StandardPackage.SIR_LABEL__DELTA_VALUE, StandardPackage.Literals.SIR_LABEL__DELTA_VALUE, newDeltaValue);
 	}
 
 	/**
@@ -162,15 +105,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue getProbeValue() {
-		if (probeValue != null && probeValue.eIsProxy()) {
-			InternalEObject oldProbeValue = (InternalEObject)probeValue;
-			probeValue = (SIRLabelValue)eResolveProxy(oldProbeValue);
-			if (probeValue != oldProbeValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SIR_LABEL__PROBE_VALUE, oldProbeValue, probeValue));
-			}
-		}
-		return probeValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__PROBE_VALUE, StandardPackage.Literals.SIR_LABEL__PROBE_VALUE, true, true);
 	}
 
 	/**
@@ -179,7 +114,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue basicGetProbeValue() {
-		return probeValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__PROBE_VALUE, StandardPackage.Literals.SIR_LABEL__PROBE_VALUE, false, true);
 	}
 
 	/**
@@ -188,10 +123,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public void setProbeValue(SIRLabelValue newProbeValue) {
-		SIRLabelValue oldProbeValue = probeValue;
-		probeValue = newProbeValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_LABEL__PROBE_VALUE, oldProbeValue, probeValue));
+		eDynamicSet(StandardPackage.SIR_LABEL__PROBE_VALUE, StandardPackage.Literals.SIR_LABEL__PROBE_VALUE, newProbeValue);
 	}
 
 	/**
@@ -200,15 +132,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue getTempValue() {
-		if (tempValue != null && tempValue.eIsProxy()) {
-			InternalEObject oldTempValue = (InternalEObject)tempValue;
-			tempValue = (SIRLabelValue)eResolveProxy(oldTempValue);
-			if (tempValue != oldTempValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SIR_LABEL__TEMP_VALUE, oldTempValue, tempValue));
-			}
-		}
-		return tempValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__TEMP_VALUE, StandardPackage.Literals.SIR_LABEL__TEMP_VALUE, true, true);
 	}
 
 	/**
@@ -217,7 +141,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue basicGetTempValue() {
-		return tempValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__TEMP_VALUE, StandardPackage.Literals.SIR_LABEL__TEMP_VALUE, false, true);
 	}
 
 	/**
@@ -226,10 +150,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public void setTempValue(SIRLabelValue newTempValue) {
-		SIRLabelValue oldTempValue = tempValue;
-		tempValue = newTempValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_LABEL__TEMP_VALUE, oldTempValue, tempValue));
+		eDynamicSet(StandardPackage.SIR_LABEL__TEMP_VALUE, StandardPackage.Literals.SIR_LABEL__TEMP_VALUE, newTempValue);
 	}
 
 	/**
@@ -238,15 +159,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue getOriginalValue() {
-		if (originalValue != null && originalValue.eIsProxy()) {
-			InternalEObject oldOriginalValue = (InternalEObject)originalValue;
-			originalValue = (SIRLabelValue)eResolveProxy(oldOriginalValue);
-			if (originalValue != oldOriginalValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SIR_LABEL__ORIGINAL_VALUE, oldOriginalValue, originalValue));
-			}
-		}
-		return originalValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.SIR_LABEL__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -255,7 +168,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue basicGetOriginalValue() {
-		return originalValue;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.SIR_LABEL__ORIGINAL_VALUE, false, true);
 	}
 
 	/**
@@ -264,10 +177,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public void setOriginalValue(SIRLabelValue newOriginalValue) {
-		SIRLabelValue oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_LABEL__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(StandardPackage.SIR_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.SIR_LABEL__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -276,15 +186,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue getErrorScale() {
-		if (errorScale != null && errorScale.eIsProxy()) {
-			InternalEObject oldErrorScale = (InternalEObject)errorScale;
-			errorScale = (SIRLabelValue)eResolveProxy(oldErrorScale);
-			if (errorScale != oldErrorScale) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SIR_LABEL__ERROR_SCALE, oldErrorScale, errorScale));
-			}
-		}
-		return errorScale;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__ERROR_SCALE, StandardPackage.Literals.SIR_LABEL__ERROR_SCALE, true, true);
 	}
 
 	/**
@@ -293,7 +195,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public SIRLabelValue basicGetErrorScale() {
-		return errorScale;
+		return (SIRLabelValue)eDynamicGet(StandardPackage.SIR_LABEL__ERROR_SCALE, StandardPackage.Literals.SIR_LABEL__ERROR_SCALE, false, true);
 	}
 
 	/**
@@ -302,10 +204,7 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	 * @generated
 	 */
 	public void setErrorScale(SIRLabelValue newErrorScale) {
-		SIRLabelValue oldErrorScale = errorScale;
-		errorScale = newErrorScale;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_LABEL__ERROR_SCALE, oldErrorScale, errorScale));
+		eDynamicSet(StandardPackage.SIR_LABEL__ERROR_SCALE, StandardPackage.Literals.SIR_LABEL__ERROR_SCALE, newErrorScale);
 	}
 
 	/**
@@ -490,15 +389,15 @@ public class SIRLabelImpl extends StandardDiseaseModelLabelImpl implements SIRLa
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SIR_LABEL__DELTA_VALUE:
-				return deltaValue != null;
+				return basicGetDeltaValue() != null;
 			case StandardPackage.SIR_LABEL__PROBE_VALUE:
-				return probeValue != null;
+				return basicGetProbeValue() != null;
 			case StandardPackage.SIR_LABEL__TEMP_VALUE:
-				return tempValue != null;
+				return basicGetTempValue() != null;
 			case StandardPackage.SIR_LABEL__ORIGINAL_VALUE:
-				return originalValue != null;
+				return basicGetOriginalValue() != null;
 			case StandardPackage.SIR_LABEL__ERROR_SCALE:
-				return errorScale != null;
+				return basicGetErrorScale() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -45,16 +45,6 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	protected static final double INFECTIOUS_COUNT_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getInfectiousCount() <em>Infectious Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInfectiousCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected double infectiousCount = INFECTIOUS_COUNT_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -77,7 +67,7 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	 * @generated
 	 */
 	public double getInfectiousCount() {
-		return infectiousCount;
+		return (Double)eDynamicGet(StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT, StandardPackage.Literals.SI_INFECTOR__INFECTIOUS_COUNT, true, true);
 	}
 
 	/**
@@ -86,10 +76,7 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	 * @generated
 	 */
 	public void setInfectiousCount(double newInfectiousCount) {
-		double oldInfectiousCount = infectiousCount;
-		infectiousCount = newInfectiousCount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT, oldInfectiousCount, infectiousCount));
+		eDynamicSet(StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT, StandardPackage.Literals.SI_INFECTOR__INFECTIOUS_COUNT, newInfectiousCount);
 	}
 
 	/**
@@ -200,28 +187,9 @@ public class SIInfectorImpl extends StandardInfectorImpl implements SIInfector {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SI_INFECTOR__INFECTIOUS_COUNT:
-				return infectiousCount != INFECTIOUS_COUNT_EDEFAULT;
+				return getInfectiousCount() != INFECTIOUS_COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (infectiousCount: "); //$NON-NLS-1$
-		result.append(infectiousCount);
-		result.append(')');
-		return result.toString();
 	}
 
 } // SIInfectorImpl

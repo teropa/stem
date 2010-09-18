@@ -83,15 +83,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	protected static final double TRANSMISSION_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getTransmissionRate() <em>Transmission Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTransmissionRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double transmissionRate = TRANSMISSION_RATE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getNonLinearityCoefficient() <em>Non Linearity Coefficient</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNonLinearityCoefficient()
@@ -99,15 +90,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @ordered
 	 */
 	protected static final double NON_LINEARITY_COEFFICIENT_EDEFAULT = 1.0;
-
-	/**
-	 * The cached value of the '{@link #getNonLinearityCoefficient() <em>Non Linearity Coefficient</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNonLinearityCoefficient()
-	 * @generated
-	 * @ordered
-	 */
-	protected double nonLinearityCoefficient = NON_LINEARITY_COEFFICIENT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRecoveryRate() <em>Recovery Rate</em>}' attribute.
@@ -119,15 +101,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	protected static final double RECOVERY_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getRecoveryRate() <em>Recovery Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getRecoveryRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double recoveryRate = RECOVERY_RATE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getInfectiousMortalityRate() <em>Infectious Mortality Rate</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInfectiousMortalityRate()
@@ -135,15 +108,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @ordered
 	 */
 	protected static final double INFECTIOUS_MORTALITY_RATE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getInfectiousMortalityRate() <em>Infectious Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getInfectiousMortalityRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double infectiousMortalityRate = INFECTIOUS_MORTALITY_RATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
@@ -157,16 +121,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	
 
 	/**
-	 * The cached value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPhysicallyAdjacentInfectiousProportion()
-	 * @generated
-	 * @ordered
-	 */
-	protected double physicallyAdjacentInfectiousProportion = PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getRoadNetworkInfectiousProportion() <em>Road Network Infectious Proportion</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,16 +129,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @ordered
 	 */
 	protected static final double ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT = 0.01;
-
-	/**
-	 * The cached value of the '{@link #getRoadNetworkInfectiousProportion() <em>Road Network Infectious Proportion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoadNetworkInfectiousProportion()
-	 * @generated
-	 * @ordered
-	 */
-	protected double roadNetworkInfectiousProportion = ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getInfectiousMortality() <em>Infectious Mortality</em>}' attribute.
@@ -197,16 +141,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	protected static final double INFECTIOUS_MORTALITY_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getInfectiousMortality() <em>Infectious Mortality</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInfectiousMortality()
-	 * @generated
-	 * @ordered
-	 */
-	protected double infectiousMortality = INFECTIOUS_MORTALITY_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,16 +149,6 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @ordered
 	 */
 	protected static final double CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT = 2.25;
-
-	/**
-	 * The cached value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCharacteristicMixingDistance()
-	 * @generated
-	 * @ordered
-	 */
-	protected double characteristicMixingDistance = CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -467,7 +391,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getTransmissionRate() {
-		return transmissionRate;
+		return (Double)eDynamicGet(StandardPackage.SI__TRANSMISSION_RATE, StandardPackage.Literals.SI__TRANSMISSION_RATE, true, true);
 	}
 
 	/**
@@ -479,10 +403,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setTransmissionRate(double newTransmissionRate) {
-		double oldTransmissionRate = transmissionRate;
-		transmissionRate = newTransmissionRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__TRANSMISSION_RATE, oldTransmissionRate, transmissionRate));
+		eDynamicSet(StandardPackage.SI__TRANSMISSION_RATE, StandardPackage.Literals.SI__TRANSMISSION_RATE, newTransmissionRate);
 	}
 
 	/**
@@ -494,7 +415,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getRecoveryRate() {
-		return recoveryRate;
+		return (Double)eDynamicGet(StandardPackage.SI__RECOVERY_RATE, StandardPackage.Literals.SI__RECOVERY_RATE, true, true);
 	}
 
 	/**
@@ -506,10 +427,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setRecoveryRate(double newRecoveryRate) {
-		double oldRecoveryRate = recoveryRate;
-		recoveryRate = newRecoveryRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__RECOVERY_RATE, oldRecoveryRate, recoveryRate));
+		eDynamicSet(StandardPackage.SI__RECOVERY_RATE, StandardPackage.Literals.SI__RECOVERY_RATE, newRecoveryRate);
 	}
 
 	/**
@@ -517,7 +435,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getInfectiousMortalityRate() {
-		return infectiousMortalityRate;
+		return (Double)eDynamicGet(StandardPackage.SI__INFECTIOUS_MORTALITY_RATE, StandardPackage.Literals.SI__INFECTIOUS_MORTALITY_RATE, true, true);
 	}
 
 	/**
@@ -525,10 +443,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setInfectiousMortalityRate(double newInfectiousMortalityRate) {
-		double oldInfectiousMortalityRate = infectiousMortalityRate;
-		infectiousMortalityRate = newInfectiousMortalityRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__INFECTIOUS_MORTALITY_RATE, oldInfectiousMortalityRate, infectiousMortalityRate));
+		eDynamicSet(StandardPackage.SI__INFECTIOUS_MORTALITY_RATE, StandardPackage.Literals.SI__INFECTIOUS_MORTALITY_RATE, newInfectiousMortalityRate);
 	}
 
 	/**
@@ -537,7 +452,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getPhysicallyAdjacentInfectiousProportion() {
-		return physicallyAdjacentInfectiousProportion;
+		return (Double)eDynamicGet(StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, StandardPackage.Literals.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, true, true);
 	}
 
 	/**
@@ -546,10 +461,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setPhysicallyAdjacentInfectiousProportion(double newPhysicallyAdjacentInfectiousProportion) {
-		double oldPhysicallyAdjacentInfectiousProportion = physicallyAdjacentInfectiousProportion;
-		physicallyAdjacentInfectiousProportion = newPhysicallyAdjacentInfectiousProportion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, oldPhysicallyAdjacentInfectiousProportion, physicallyAdjacentInfectiousProportion));
+		eDynamicSet(StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, StandardPackage.Literals.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, newPhysicallyAdjacentInfectiousProportion);
 	}
 
 	/**
@@ -558,7 +470,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getRoadNetworkInfectiousProportion() {
-		return roadNetworkInfectiousProportion;
+		return (Double)eDynamicGet(StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION, StandardPackage.Literals.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION, true, true);
 	}
 
 	/**
@@ -567,10 +479,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setRoadNetworkInfectiousProportion(double newRoadNetworkInfectiousProportion) {
-		double oldRoadNetworkInfectiousProportion = roadNetworkInfectiousProportion;
-		roadNetworkInfectiousProportion = newRoadNetworkInfectiousProportion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION, oldRoadNetworkInfectiousProportion, roadNetworkInfectiousProportion));
+		eDynamicSet(StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION, StandardPackage.Literals.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION, newRoadNetworkInfectiousProportion);
 	}
 
 	/**
@@ -579,7 +488,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getInfectiousMortality() {
-		return infectiousMortality;
+		return (Double)eDynamicGet(StandardPackage.SI__INFECTIOUS_MORTALITY, StandardPackage.Literals.SI__INFECTIOUS_MORTALITY, true, true);
 	}
 
 	/**
@@ -588,10 +497,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setInfectiousMortality(double newInfectiousMortality) {
-		double oldInfectiousMortality = infectiousMortality;
-		infectiousMortality = newInfectiousMortality;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__INFECTIOUS_MORTALITY, oldInfectiousMortality, infectiousMortality));
+		eDynamicSet(StandardPackage.SI__INFECTIOUS_MORTALITY, StandardPackage.Literals.SI__INFECTIOUS_MORTALITY, newInfectiousMortality);
 	}
 
 	/**
@@ -600,7 +506,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getCharacteristicMixingDistance() {
-		return characteristicMixingDistance;
+		return (Double)eDynamicGet(StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE, StandardPackage.Literals.SI__CHARACTERISTIC_MIXING_DISTANCE, true, true);
 	}
 
 	/**
@@ -609,10 +515,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setCharacteristicMixingDistance(double newCharacteristicMixingDistance) {
-		double oldCharacteristicMixingDistance = characteristicMixingDistance;
-		characteristicMixingDistance = newCharacteristicMixingDistance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE, oldCharacteristicMixingDistance, characteristicMixingDistance));
+		eDynamicSet(StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE, StandardPackage.Literals.SI__CHARACTERISTIC_MIXING_DISTANCE, newCharacteristicMixingDistance);
 	}
 
 	/**
@@ -635,7 +538,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public double getNonLinearityCoefficient() {
-		return nonLinearityCoefficient;
+		return (Double)eDynamicGet(StandardPackage.SI__NON_LINEARITY_COEFFICIENT, StandardPackage.Literals.SI__NON_LINEARITY_COEFFICIENT, true, true);
 	}
 
 	/**
@@ -647,10 +550,7 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	 * @generated
 	 */
 	public void setNonLinearityCoefficient(double newNonLinearityCoefficient) {
-		double oldNonLinearityCoefficient = nonLinearityCoefficient;
-		nonLinearityCoefficient = newNonLinearityCoefficient;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI__NON_LINEARITY_COEFFICIENT, oldNonLinearityCoefficient, nonLinearityCoefficient));
+		eDynamicSet(StandardPackage.SI__NON_LINEARITY_COEFFICIENT, StandardPackage.Literals.SI__NON_LINEARITY_COEFFICIENT, newNonLinearityCoefficient);
 	}
 
 	/**
@@ -1015,56 +915,23 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SI__TRANSMISSION_RATE:
-				return transmissionRate != TRANSMISSION_RATE_EDEFAULT;
+				return getTransmissionRate() != TRANSMISSION_RATE_EDEFAULT;
 			case StandardPackage.SI__NON_LINEARITY_COEFFICIENT:
-				return nonLinearityCoefficient != NON_LINEARITY_COEFFICIENT_EDEFAULT;
+				return getNonLinearityCoefficient() != NON_LINEARITY_COEFFICIENT_EDEFAULT;
 			case StandardPackage.SI__RECOVERY_RATE:
-				return recoveryRate != RECOVERY_RATE_EDEFAULT;
+				return getRecoveryRate() != RECOVERY_RATE_EDEFAULT;
 			case StandardPackage.SI__INFECTIOUS_MORTALITY_RATE:
-				return infectiousMortalityRate != INFECTIOUS_MORTALITY_RATE_EDEFAULT;
+				return getInfectiousMortalityRate() != INFECTIOUS_MORTALITY_RATE_EDEFAULT;
 			case StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
-				return physicallyAdjacentInfectiousProportion != PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT;
+				return getPhysicallyAdjacentInfectiousProportion() != PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT;
 			case StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION:
-				return roadNetworkInfectiousProportion != ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
+				return getRoadNetworkInfectiousProportion() != ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
-				return infectiousMortality != INFECTIOUS_MORTALITY_EDEFAULT;
+				return getInfectiousMortality() != INFECTIOUS_MORTALITY_EDEFAULT;
 			case StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE:
-				return characteristicMixingDistance != CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
+				return getCharacteristicMixingDistance() != CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (transmissionRate: "); //$NON-NLS-1$
-		result.append(transmissionRate);
-		result.append(", nonLinearityCoefficient: "); //$NON-NLS-1$
-		result.append(nonLinearityCoefficient);
-		result.append(", recoveryRate: "); //$NON-NLS-1$
-		result.append(recoveryRate);
-		result.append(", infectiousMortalityRate: "); //$NON-NLS-1$
-		result.append(infectiousMortalityRate);
-		result.append(", physicallyAdjacentInfectiousProportion: "); //$NON-NLS-1$
-		result.append(physicallyAdjacentInfectiousProportion);
-		result.append(", roadNetworkInfectiousProportion: "); //$NON-NLS-1$
-		result.append(roadNetworkInfectiousProportion);
-		result.append(", infectiousMortality: "); //$NON-NLS-1$
-		result.append(infectiousMortality);
-		result.append(", characteristicMixingDistance: "); //$NON-NLS-1$
-		result.append(characteristicMixingDistance);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**
@@ -1075,34 +942,34 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		boolean retValue = super.sane();
 		
 		// transmissionRate
-		retValue = retValue && transmissionRate >= TRANSMISSION_RATE_EDEFAULT;
+		retValue = retValue && getTransmissionRate() >= TRANSMISSION_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(transmissionRate);
+		retValue = retValue && !Double.isInfinite(getTransmissionRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(transmissionRate);
+		retValue = retValue && !Double.isNaN(getTransmissionRate());
 		assert retValue;
 		
 		// recoveryRate
-		retValue = retValue && recoveryRate >= RECOVERY_RATE_EDEFAULT;
+		retValue = retValue && getRecoveryRate() >= RECOVERY_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(recoveryRate);
+		retValue = retValue && !Double.isInfinite(getRecoveryRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(recoveryRate);
+		retValue = retValue && !Double.isNaN(getRecoveryRate());
 		assert retValue;
 		
 		// nonLinearityCoefficient
 		retValue = retValue
-				&& nonLinearityCoefficient >= 0.0;
+				&& getNonLinearityCoefficient() >= 0.0;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(nonLinearityCoefficient);
+		retValue = retValue && !Double.isInfinite(getNonLinearityCoefficient());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(nonLinearityCoefficient);
+		retValue = retValue && !Double.isNaN(getNonLinearityCoefficient());
 		assert retValue;
 		
 		return retValue;

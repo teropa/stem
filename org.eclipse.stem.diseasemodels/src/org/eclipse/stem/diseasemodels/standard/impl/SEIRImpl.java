@@ -63,15 +63,6 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	protected static final double INCUBATION_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getIncubationRate() <em>Incubation Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getIncubationRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double incubationRate = INCUBATION_RATE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -265,7 +256,7 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	 * @generated
 	 */
 	public double getIncubationRate() {
-		return incubationRate;
+		return (Double)eDynamicGet(StandardPackage.SEIR__INCUBATION_RATE, StandardPackage.Literals.SEIR__INCUBATION_RATE, true, true);
 	}
 
 	/**
@@ -277,10 +268,7 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	 * @generated
 	 */
 	public void setIncubationRate(double newIncubationRate) {
-		double oldIncubationRate = incubationRate;
-		incubationRate = newIncubationRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SEIR__INCUBATION_RATE, oldIncubationRate, incubationRate));
+		eDynamicSet(StandardPackage.SEIR__INCUBATION_RATE, StandardPackage.Literals.SEIR__INCUBATION_RATE, newIncubationRate);
 	}
 
 	/**
@@ -371,28 +359,9 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SEIR__INCUBATION_RATE:
-				return incubationRate != INCUBATION_RATE_EDEFAULT;
+				return getIncubationRate() != INCUBATION_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (incubationRate: "); //$NON-NLS-1$
-		result.append(incubationRate);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**
@@ -402,13 +371,13 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && incubationRate >= INCUBATION_RATE_EDEFAULT;
+		retValue = retValue && getIncubationRate() >= INCUBATION_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(incubationRate);
+		retValue = retValue && !Double.isInfinite(getIncubationRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(incubationRate);
+		retValue = retValue && !Double.isNaN(getIncubationRate());
 		assert retValue;
 		
 		return retValue;

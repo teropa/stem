@@ -66,15 +66,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	protected static final double TOTAL_POPULATION_COUNT_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getTotalPopulationCount() <em>Total Population Count</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTotalPopulationCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected double totalPopulationCount = TOTAL_POPULATION_COUNT_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTotalPopulationCountReciprocal() <em>Total Population Count Reciprocal</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTotalPopulationCountReciprocal()
@@ -82,15 +73,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @ordered
 	 */
 	protected static final double TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getTotalPopulationCountReciprocal() <em>Total Population Count Reciprocal</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTotalPopulationCountReciprocal()
-	 * @generated
-	 * @ordered
-	 */
-	protected double totalPopulationCountReciprocal = TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTotalArea() <em>Total Area</em>}' attribute.
@@ -102,15 +84,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	protected static final double TOTAL_AREA_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getTotalArea() <em>Total Area</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTotalArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected double totalArea = TOTAL_AREA_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getReferencePopulationDensity() <em>Reference Population Density</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,18 +93,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 */
 	protected static final double REFERENCE_POPULATION_DENSITY_EDEFAULT = 100.0;
 
-	/**
-	 * The cached value of the '{@link #getReferencePopulationDensity() <em>Reference Population Density</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferencePopulationDensity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double referencePopulationDensity = REFERENCE_POPULATION_DENSITY_EDEFAULT;
-
-	
-		
 	/**
 	 * We only need one of these.
 	 * 
@@ -185,7 +146,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated
 	 */
 	public double getTotalPopulationCount() {
-		return totalPopulationCount;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT, true, true);
 	}
 
 	/**
@@ -193,10 +154,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated
 	 */
 	public void setTotalPopulationCount(double newTotalPopulationCount) {
-		double oldTotalPopulationCount = totalPopulationCount;
-		totalPopulationCount = newTotalPopulationCount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT, oldTotalPopulationCount, totalPopulationCount));
+		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT, newTotalPopulationCount);
 	}
 
 	/**
@@ -204,7 +162,15 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated
 	 */
 	public double getTotalPopulationCountReciprocal() {
-		return totalPopulationCountReciprocal;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTotalPopulationCountReciprocal(double newTotalPopulationCountReciprocal) {
+		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, newTotalPopulationCountReciprocal);
 	}
 
 	/**
@@ -212,7 +178,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated
 	 */
 	public double getTotalArea() {
-		return totalArea;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_AREA, true, true);
 	}
 
 	/**
@@ -220,10 +186,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated
 	 */
 	public void setTotalArea(double newTotalArea) {
-		double oldTotalArea = totalArea;
-		totalArea = newTotalArea;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA, oldTotalArea, totalArea));
+		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_AREA, newTotalArea);
 	}
 
 	/**
@@ -232,7 +195,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated
 	 */
 	public double getReferencePopulationDensity() {
-		return referencePopulationDensity;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY, StandardPackage.Literals.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY, true, true);
 	}
 
 	/**
@@ -241,10 +204,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated
 	 */
 	public void setReferencePopulationDensity(double newReferencePopulationDensity) {
-		double oldReferencePopulationDensity = referencePopulationDensity;
-		referencePopulationDensity = newReferencePopulationDensity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY, oldReferencePopulationDensity, referencePopulationDensity));
+		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY, StandardPackage.Literals.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY, newReferencePopulationDensity);
 	}
 
 	/**
@@ -253,7 +213,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated NOT
 	 */
 	public void addToTotalPopulationCount(double populationCount) {
-		setTotalPopulationCount(totalPopulationCount + populationCount);
+		setTotalPopulationCount(getTotalPopulationCount() + populationCount);
 	} // addToTotalPopulationCount
 
 	/**
@@ -262,7 +222,8 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated NOT
 	 */
 	public double computeTotalPopulationCountReciprocal() {
-		return totalPopulationCountReciprocal = 1.0 / totalPopulationCount;
+		setTotalPopulationCountReciprocal(1.0 / getTotalPopulationCount());
+		return getTotalPopulationCountReciprocal();
 	} // computeTotalPopulationCountReciprocal
 
 	/**
@@ -271,7 +232,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated NOT
 	 */
 	public void addToTotalArea(double area) {
-		setTotalArea(totalArea + area);
+		setTotalArea(getTotalArea() + area);
 	} // addToTotalArea
 
 	/**
@@ -488,13 +449,13 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT:
-				return totalPopulationCount != TOTAL_POPULATION_COUNT_EDEFAULT;
+				return getTotalPopulationCount() != TOTAL_POPULATION_COUNT_EDEFAULT;
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL:
-				return totalPopulationCountReciprocal != TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT;
+				return getTotalPopulationCountReciprocal() != TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT;
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA:
-				return totalArea != TOTAL_AREA_EDEFAULT;
+				return getTotalArea() != TOTAL_AREA_EDEFAULT;
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
-				return referencePopulationDensity != REFERENCE_POPULATION_DENSITY_EDEFAULT;
+				return getReferencePopulationDensity() != REFERENCE_POPULATION_DENSITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -567,7 +528,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		final StandardDiseaseModelState sdms = (StandardDiseaseModelState) diseaseModelLabel
 				.getDiseaseModelState();
 		// Is there a population ?
-		if (totalPopulationCount > 0.0) {
+		if (getTotalPopulationCount() > 0.0) {
 			// Yes
 			double area = getArea(diseaseModelLabel.getPopulationLabel());
 			// Do we have a bad area value?
@@ -735,27 +696,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	} // resetLabels
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (totalPopulationCount: "); //$NON-NLS-1$
-		result.append(totalPopulationCount);
-		result.append(", totalPopulationCountReciprocal: "); //$NON-NLS-1$
-		result.append(totalPopulationCountReciprocal);
-		result.append(", totalArea: "); //$NON-NLS-1$
-		result.append(totalArea);
-		result.append(", referencePopulationDensity: "); //$NON-NLS-1$
-		result.append(referencePopulationDensity);
-		result.append(')');
-		return result.toString();
-	}
-	
-	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.DiseaseModelImpl#sane()
 	 */
 	@Override
@@ -763,32 +703,32 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		boolean retValue = super.sane();
 
 		retValue = retValue
-				&& totalPopulationCount >= TOTAL_POPULATION_COUNT_EDEFAULT;
+				&& getTotalPopulationCount() >= TOTAL_POPULATION_COUNT_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(totalPopulationCount);
+		retValue = retValue && !Double.isInfinite(getTotalPopulationCount());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(totalPopulationCount);
+		retValue = retValue && !Double.isNaN(getTotalPopulationCount());
 		assert retValue;
 		
 		retValue = retValue
-				&& totalPopulationCountReciprocal >= TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT;
+				&& getTotalPopulationCountReciprocal() >= TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(totalPopulationCountReciprocal);
+		retValue = retValue && !Double.isInfinite(getTotalPopulationCountReciprocal());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(totalPopulationCountReciprocal);
+		retValue = retValue && !Double.isNaN(getTotalPopulationCountReciprocal());
 		assert retValue;
 		
-		retValue = retValue && totalArea >= TOTAL_AREA_EDEFAULT;
+		retValue = retValue && getTotalArea() >= TOTAL_AREA_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(totalArea);
+		retValue = retValue && !Double.isInfinite(getTotalArea());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(totalArea);
+		retValue = retValue && !Double.isNaN(getTotalArea());
 		assert retValue;
 		
 		return retValue;

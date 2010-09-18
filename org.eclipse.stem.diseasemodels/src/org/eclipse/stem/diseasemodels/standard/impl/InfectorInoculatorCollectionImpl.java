@@ -47,16 +47,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  */
 public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implements InfectorInoculatorCollection {
 	/**
-	 * The cached value of the '{@link #getList() <em>List</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getList()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Infector> list;
-
-	/**
 	 * The default value of the '{@link #getImportFolder() <em>Import Folder</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,16 +55,6 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	 * @ordered
 	 */
 	protected static final String IMPORT_FOLDER_EDEFAULT = ""; //$NON-NLS-1$
-	/**
-	 * The cached value of the '{@link #getImportFolder() <em>Import Folder</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImportFolder()
-	 * @generated
-	 * @ordered
-	 */
-	protected String importFolder = IMPORT_FOLDER_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +72,16 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	@Override
 	protected EClass eStaticClass() {
 		return StandardPackage.Literals.INFECTOR_INOCULATOR_COLLECTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 8;
 	}
 
 	/**
@@ -120,11 +110,9 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Infector> getList() {
-		if (list == null) {
-			list = new EObjectContainmentEList<Infector>(Infector.class, this, StandardPackage.INFECTOR_INOCULATOR_COLLECTION__LIST);
-		}
-		return list;
+		return (EList<Infector>)eDynamicGet(StandardPackage.INFECTOR_INOCULATOR_COLLECTION__LIST, StandardPackage.Literals.INFECTOR_INOCULATOR_COLLECTION__LIST, true, true);
 	}
 
 	/**
@@ -133,7 +121,7 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	 * @generated
 	 */
 	public String getImportFolder() {
-		return importFolder;
+		return (String)eDynamicGet(StandardPackage.INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER, StandardPackage.Literals.INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER, true, true);
 	}
 
 	/**
@@ -142,10 +130,7 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	 * @generated
 	 */
 	public void setImportFolder(String newImportFolder) {
-		String oldImportFolder = importFolder;
-		importFolder = newImportFolder;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER, oldImportFolder, importFolder));
+		eDynamicSet(StandardPackage.INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER, StandardPackage.Literals.INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER, newImportFolder);
 	}
 
 	/**
@@ -225,27 +210,11 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.INFECTOR_INOCULATOR_COLLECTION__LIST:
-				return list != null && !list.isEmpty();
+				return !getList().isEmpty();
 			case StandardPackage.INFECTOR_INOCULATOR_COLLECTION__IMPORT_FOLDER:
-				return IMPORT_FOLDER_EDEFAULT == null ? importFolder != null : !IMPORT_FOLDER_EDEFAULT.equals(importFolder);
+				return IMPORT_FOLDER_EDEFAULT == null ? getImportFolder() != null : !IMPORT_FOLDER_EDEFAULT.equals(getImportFolder());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (importFolder: "); //$NON-NLS-1$
-		result.append(importFolder);
-		result.append(')');
-		return result.toString();
 	}
 
 } //InfectorInoculatorCollectionImpl

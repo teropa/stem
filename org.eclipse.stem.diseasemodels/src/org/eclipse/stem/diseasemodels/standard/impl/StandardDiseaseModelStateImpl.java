@@ -42,16 +42,6 @@ public abstract class StandardDiseaseModelStateImpl extends
 	protected static final double AREA_RATIO_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getAreaRatio() <em>Area Ratio</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAreaRatio()
-	 * @generated
-	 * @ordered
-	 */
-	protected double areaRatio = AREA_RATIO_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -84,7 +74,7 @@ public abstract class StandardDiseaseModelStateImpl extends
 	 * @generated
 	 */
 	public double getAreaRatio() {
-		return areaRatio;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO, StandardPackage.Literals.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO, true, true);
 	}
 
 	/**
@@ -93,10 +83,7 @@ public abstract class StandardDiseaseModelStateImpl extends
 	 * @generated
 	 */
 	public void setAreaRatio(double newAreaRatio) {
-		double oldAreaRatio = areaRatio;
-		areaRatio = newAreaRatio;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO, oldAreaRatio, areaRatio));
+		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO, StandardPackage.Literals.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO, newAreaRatio);
 	}
 
 	/**
@@ -169,28 +156,9 @@ public abstract class StandardDiseaseModelStateImpl extends
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL_STATE__AREA_RATIO:
-				return areaRatio != AREA_RATIO_EDEFAULT;
+				return getAreaRatio() != AREA_RATIO_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (areaRatio: "); //$NON-NLS-1$
-		result.append(areaRatio);
-		result.append(')');
-		return result.toString();
 	}
 
 } // StandardDiseaseModelStateImpl

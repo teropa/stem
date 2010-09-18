@@ -43,34 +43,6 @@ import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 		implements DiseaseModelLabel {
 	/**
-	 * The cached value of the '{@link #getPopulationLabel() <em>Population Label</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getPopulationLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected PopulationLabel populationLabel;
-
-	/**
-	 * The cached value of the '{@link #getDiseaseModelState() <em>Disease Model State</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDiseaseModelState()
-	 * @generated
-	 * @ordered
-	 */
-	protected DiseaseModelState diseaseModelState;
-
-	/**
-	 * The cached value of the '{@link #getPopulationModelLabel() <em>Population Model Label</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationModelLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected PopulationModelLabel populationModelLabel;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -107,6 +79,16 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 10;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * @return
 	 * 
@@ -114,15 +96,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public PopulationLabel getPopulationLabel() {
-		if (populationLabel != null && populationLabel.eIsProxy()) {
-			InternalEObject oldPopulationLabel = (InternalEObject)populationLabel;
-			populationLabel = (PopulationLabel)eResolveProxy(oldPopulationLabel);
-			if (populationLabel != oldPopulationLabel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.DISEASE_MODEL_LABEL__POPULATION_LABEL, oldPopulationLabel, populationLabel));
-			}
-		}
-		return populationLabel;
+		return (PopulationLabel)eDynamicGet(StandardPackage.DISEASE_MODEL_LABEL__POPULATION_LABEL, StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_LABEL, true, true);
 	}
 
 	/**
@@ -134,7 +108,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public PopulationLabel basicGetPopulationLabel() {
-		return populationLabel;
+		return (PopulationLabel)eDynamicGet(StandardPackage.DISEASE_MODEL_LABEL__POPULATION_LABEL, StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_LABEL, false, true);
 	}
 
 	/**
@@ -146,10 +120,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public void setPopulationLabel(PopulationLabel newPopulationLabel) {
-		PopulationLabel oldPopulationLabel = populationLabel;
-		populationLabel = newPopulationLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__POPULATION_LABEL, oldPopulationLabel, populationLabel));
+		eDynamicSet(StandardPackage.DISEASE_MODEL_LABEL__POPULATION_LABEL, StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_LABEL, newPopulationLabel);
 	}
 
 	/**
@@ -161,7 +132,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public DiseaseModelState getDiseaseModelState() {
-		return diseaseModelState;
+		return (DiseaseModelState)eDynamicGet(StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, StandardPackage.Literals.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, true, true);
 	}
 
 	/**
@@ -175,12 +146,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public NotificationChain basicSetDiseaseModelState(DiseaseModelState newDiseaseModelState, NotificationChain msgs) {
-		DiseaseModelState oldDiseaseModelState = diseaseModelState;
-		diseaseModelState = newDiseaseModelState;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, oldDiseaseModelState, newDiseaseModelState);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newDiseaseModelState, StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, msgs);
 		return msgs;
 	}
 
@@ -193,17 +159,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public void setDiseaseModelState(DiseaseModelState newDiseaseModelState) {
-		if (newDiseaseModelState != diseaseModelState) {
-			NotificationChain msgs = null;
-			if (diseaseModelState != null)
-				msgs = ((InternalEObject)diseaseModelState).eInverseRemove(this, StandardPackage.DISEASE_MODEL_STATE__LABEL, DiseaseModelState.class, msgs);
-			if (newDiseaseModelState != null)
-				msgs = ((InternalEObject)newDiseaseModelState).eInverseAdd(this, StandardPackage.DISEASE_MODEL_STATE__LABEL, DiseaseModelState.class, msgs);
-			msgs = basicSetDiseaseModelState(newDiseaseModelState, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, newDiseaseModelState, newDiseaseModelState));
+		eDynamicSet(StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, StandardPackage.Literals.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, newDiseaseModelState);
 	}
 
 	/**
@@ -212,15 +168,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public PopulationModelLabel getPopulationModelLabel() {
-		if (populationModelLabel != null && populationModelLabel.eIsProxy()) {
-			InternalEObject oldPopulationModelLabel = (InternalEObject)populationModelLabel;
-			populationModelLabel = (PopulationModelLabel)eResolveProxy(oldPopulationModelLabel);
-			if (populationModelLabel != oldPopulationModelLabel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, oldPopulationModelLabel, populationModelLabel));
-			}
-		}
-		return populationModelLabel;
+		return (PopulationModelLabel)eDynamicGet(StandardPackage.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, true, true);
 	}
 
 	/**
@@ -229,7 +177,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public PopulationModelLabel basicGetPopulationModelLabel() {
-		return populationModelLabel;
+		return (PopulationModelLabel)eDynamicGet(StandardPackage.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, false, true);
 	}
 
 	/**
@@ -238,10 +186,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	 * @generated
 	 */
 	public void setPopulationModelLabel(PopulationModelLabel newPopulationModelLabel) {
-		PopulationModelLabel oldPopulationModelLabel = populationModelLabel;
-		populationModelLabel = newPopulationModelLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, oldPopulationModelLabel, populationModelLabel));
+		eDynamicSet(StandardPackage.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, StandardPackage.Literals.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL, newPopulationModelLabel);
 	}
 
 	/**
@@ -277,6 +222,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE:
+				DiseaseModelState diseaseModelState = getDiseaseModelState();
 				if (diseaseModelState != null)
 					msgs = ((InternalEObject)diseaseModelState).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE, null, msgs);
 				return basicSetDiseaseModelState((DiseaseModelState)otherEnd, msgs);
@@ -413,11 +359,11 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL_LABEL__POPULATION_LABEL:
-				return populationLabel != null;
+				return basicGetPopulationLabel() != null;
 			case StandardPackage.DISEASE_MODEL_LABEL__DISEASE_MODEL_STATE:
-				return diseaseModelState != null;
+				return getDiseaseModelState() != null;
 			case StandardPackage.DISEASE_MODEL_LABEL__POPULATION_MODEL_LABEL:
-				return populationModelLabel != null;
+				return basicGetPopulationModelLabel() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -429,7 +375,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && diseaseModelState != null ? diseaseModelState
+		retValue = retValue && getDiseaseModelState() != null ? getDiseaseModelState()
 				.sane() : true;
 		assert retValue;
 

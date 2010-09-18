@@ -67,17 +67,6 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	protected static final double S_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getS() <em>S</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getS()
-	 * @generated
-	 * @ordered
-	 */
-	protected double s = S_EDEFAULT;
-
-	
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -106,7 +95,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public StandardDiseaseModelLabelValueImpl(final double s,
 			final double diseaseDeaths) {
 		super(diseaseDeaths);
-		this.s = s;
+		this.setS(s);
 	} // StandardDiseaseModelLabelValueImpl
 
 	/**
@@ -127,7 +116,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	 * @generated
 	 */
 	public double getS() {
-		return s;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_DISEASE_MODEL_LABEL_VALUE__S, StandardPackage.Literals.STANDARD_DISEASE_MODEL_LABEL_VALUE__S, true, true);
 	}
 
 	/**
@@ -139,10 +128,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	 * @generated
 	 */
 	public void setS(double newS) {
-		double oldS = s;
-		s = newS;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL_LABEL_VALUE__S, oldS, s));
+		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL_LABEL_VALUE__S, StandardPackage.Literals.STANDARD_DISEASE_MODEL_LABEL_VALUE__S, newS);
 	}
 
 	/**
@@ -150,7 +136,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	 */
 	@Override
 	public double getPopulationCount() {
-		return s;
+		return getS();
 	} // getPopulationCount
 
 	@Override
@@ -219,16 +205,16 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && s >= S_EDEFAULT;
+		retValue = retValue && getS() >= S_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && s <= MAX_POPULATION_VALUE;
+		retValue = retValue && getS() <= MAX_POPULATION_VALUE;
 		assert retValue;		
 		
-		retValue = retValue && !Double.isInfinite(s);
+		retValue = retValue && !Double.isInfinite(getS());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(s);
+		retValue = retValue && !Double.isNaN(getS());
 		assert retValue;
 		
 		return retValue;
@@ -304,7 +290,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_DISEASE_MODEL_LABEL_VALUE__S:
-				return s != S_EDEFAULT;
+				return getS() != S_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -324,7 +310,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (s: "); //$NON-NLS-1$
-		result.append(getFormatter().format(s));
+		result.append(getFormatter().format(getS()));
 		result.append(')');
 		return result.toString();
 	} // toString

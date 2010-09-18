@@ -48,16 +48,6 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	protected static final double E_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getE() <em>E</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getE()
-	 * @generated
-	 * @ordered
-	 */
-	protected double e = E_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -98,7 +88,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 			final double r, 
 			final double diseaseDeaths) {
 		super(s, i, incidence, r, diseaseDeaths);
-		this.e = e;
+		this.setE(e);
 	} // SEIRLabelValueImpl
 	
 	/**
@@ -131,7 +121,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 			final double r, 
 			final double diseaseDeaths) {
 		super(s, i, 0.0, r, diseaseDeaths);
-		this.e = e;
+		this.setE(e);
 	} // SEIRLabelValueImpl
 
 	/**
@@ -152,7 +142,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	 * @generated
 	 */
 	public double getE() {
-		return e;
+		return (Double)eDynamicGet(StandardPackage.SEIR_LABEL_VALUE__E, StandardPackage.Literals.SEIR_LABEL_VALUE__E, true, true);
 	}
 
 	/**
@@ -164,10 +154,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	 * @generated
 	 */
 	public void setE(double newE) {
-		double oldE = e;
-		e = newE;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SEIR_LABEL_VALUE__E, oldE, e));
+		eDynamicSet(StandardPackage.SEIR_LABEL_VALUE__E, StandardPackage.Literals.SEIR_LABEL_VALUE__E, newE);
 	}
 
 
@@ -176,7 +163,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	 */
 	@Override
 	public double getPopulationCount() {
-		return e + super.getPopulationCount();
+		return getE() + super.getPopulationCount();
 	} // getPopulationCount
 
 	
@@ -238,11 +225,11 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
 		SEIRLabelValue _scale = (SEIRLabelValue)d;
-		double sScaled = Math.abs(s) / Math.abs(_scale.getS());
-		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
-		double rScaled = Math.abs(r) / Math.abs(_scale.getR());
-		double eScaled = Math.abs(e) / Math.abs(_scale.getE());
-		double ddScaled = Math.abs(diseaseDeaths) / Math.abs(_scale.getDiseaseDeaths());
+		double sScaled = Math.abs(getS()) / Math.abs(_scale.getS());
+		double iScaled = Math.abs(getI()) / Math.abs(_scale.getI());
+		double rScaled = Math.abs(getR()) / Math.abs(_scale.getR());
+		double eScaled = Math.abs(getE()) / Math.abs(_scale.getE());
+		double ddScaled = Math.abs(getDiseaseDeaths()) / Math.abs(_scale.getDiseaseDeaths());
 		setS(sScaled);
 		setI(iScaled);
 		setR(rScaled);
@@ -252,7 +239,11 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	}
 	
 	public double max() {
+		final double s = getS(), e = getE(), i = getI(), r = getR();
+		final double diseaseDeaths = getDiseaseDeaths();
+		
 		double max;
+		 
 		if(s > i && s > r && s > e && s > diseaseDeaths)
 			max = s;
 		else if(i > r && i > e &&  i > diseaseDeaths) max = i;
@@ -424,7 +415,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SEIR_LABEL_VALUE__E:
-				return e != E_EDEFAULT;
+				return getE() != E_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -444,13 +435,13 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 
 		StringBuffer result = new StringBuffer();
 		result.append("s:"); //$NON-NLS-1$
-		result.append(getFormatter().format(s));
+		result.append(getFormatter().format(getS()));
 		result.append(", e:"); //$NON-NLS-1$
-		result.append(getFormatter().format(e));
+		result.append(getFormatter().format(getE()));
 		result.append(", i:"); //$NON-NLS-1$
-		result.append(getFormatter().format(i));
+		result.append(getFormatter().format(getI()));
 		result.append(", r:"); //$NON-NLS-1$
-		result.append(getFormatter().format(r));
+		result.append(getFormatter().format(getR()));
 		result.append(", DD:"); //$NON-NLS-1$
 		result.append(getFormatter().format(getDiseaseDeaths()));
 		return result.toString();

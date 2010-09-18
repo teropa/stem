@@ -68,15 +68,6 @@ import org.eclipse.stem.populationmodels.standard.PopulationModel;
 public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		Infector {
 	/**
-	 * The cached value of the '{@link #getDiseaseModel() <em>Disease Model</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDiseaseModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected StandardDiseaseModel diseaseModel;
-
-	/**
 	 * The default value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTargetURI()
@@ -84,15 +75,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final URI TARGET_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTargetURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI targetURI = TARGET_URI_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDiseaseName() <em>Disease Name</em>}' attribute.
@@ -104,15 +86,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	protected static final String DISEASE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDiseaseName() <em>Disease Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDiseaseName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String diseaseName = DISEASE_NAME_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTargetISOKey() <em>Target ISO Key</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTargetISOKey()
@@ -120,25 +93,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final String TARGET_ISO_KEY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTargetISOKey() <em>Target ISO Key</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTargetISOKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected String targetISOKey = TARGET_ISO_KEY_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLabelsToInfect() <em>Labels To Infect</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabelsToInfect()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DiseaseModelLabel> labelsToInfect;
 
 	/**
 	 * The default value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
@@ -151,16 +105,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isInfectPercentage() <em>Infect Percentage</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -169,16 +113,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final boolean INFECT_PERCENTAGE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isInfectPercentage() <em>Infect Percentage</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInfectPercentage()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean infectPercentage = INFECT_PERCENTAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -199,7 +133,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 			graph = ((NodeDecorator)eContainer()).getGraph();
 		
 		// Do we need to look up the disease model from its name?
-		if (diseaseModel == null) {
+		if (getDiseaseModel() == null) {
 			// Yes
 			// There's a disease model out there with our name on it
 			// (maybe)...let's find it
@@ -213,7 +147,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 					if (diseaseModel.getDiseaseName().equalsIgnoreCase(
 							getDiseaseName())) {
 						// Yes
-						this.diseaseModel = diseaseModel;
+						this.setDiseaseModel(diseaseModel);
 						break;
 					}
 				}
@@ -221,7 +155,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		} // if look up disease model
 
 		// Did we find the disease model we're suppose to work for?
-		if (diseaseModel != null) {
+		if (getDiseaseModel() != null) {
 			// Yes
 			// Now try to find the node to be infected
 			final Node parent = graph.getNode(getTargetURI());
@@ -251,7 +185,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 								final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
 								// Yes
 								// Is it updated by this disease model?
-								if (diseaseModelLabel.getDecorator() == diseaseModel && diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+								if (diseaseModelLabel.getDecorator() == getDiseaseModel() && diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
 									// Yes
 									doInitialization(diseaseModelLabel);
 									getLabelsToInfect().add(diseaseModelLabel);
@@ -273,7 +207,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		else {
 			// No
 			// The disease name was probably wrong
-			Activator.logError("The disease named \"" + diseaseName
+			Activator.logError("The disease named \"" + getDiseaseName()
 					+ "\" was not found.", null);
 		} // else node not found
 
@@ -330,6 +264,16 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 8;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * 
 	 * @return
 	 * 
@@ -337,15 +281,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public StandardDiseaseModel getDiseaseModel() {
-		if (diseaseModel != null && diseaseModel.eIsProxy()) {
-			InternalEObject oldDiseaseModel = (InternalEObject)diseaseModel;
-			diseaseModel = (StandardDiseaseModel)eResolveProxy(oldDiseaseModel);
-			if (diseaseModel != oldDiseaseModel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.INFECTOR__DISEASE_MODEL, oldDiseaseModel, diseaseModel));
-			}
-		}
-		return diseaseModel;
+		return (StandardDiseaseModel)eDynamicGet(StandardPackage.INFECTOR__DISEASE_MODEL, StandardPackage.Literals.INFECTOR__DISEASE_MODEL, true, true);
 	}
 
 	/**
@@ -357,7 +293,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public StandardDiseaseModel basicGetDiseaseModel() {
-		return diseaseModel;
+		return (StandardDiseaseModel)eDynamicGet(StandardPackage.INFECTOR__DISEASE_MODEL, StandardPackage.Literals.INFECTOR__DISEASE_MODEL, false, true);
 	}
 
 	/**
@@ -369,14 +305,8 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	public void setDiseaseModel(StandardDiseaseModel newDiseaseModel) {
-		StandardDiseaseModel oldDiseaseModel = diseaseModel;
-		diseaseModel = newDiseaseModel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					StandardPackage.INFECTOR__DISEASE_MODEL, oldDiseaseModel,
-					diseaseModel));
-		
-		setDiseaseName(diseaseModel != null? diseaseModel.getDiseaseName():null);
+		eDynamicSet(StandardPackage.INFECTOR__DISEASE_MODEL, StandardPackage.Literals.INFECTOR__DISEASE_MODEL, newDiseaseModel);
+		setDiseaseName(newDiseaseModel != null? newDiseaseModel.getDiseaseName():null);
 	} // setDiseaseModel
 
 	
@@ -448,10 +378,12 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	public URI getTargetURI() {
+		URI targetURI = (URI)eDynamicGet(StandardPackage.INFECTOR__TARGET_URI, StandardPackage.Literals.INFECTOR__TARGET_URI, true, true);
 		// Is it set?
 		if (targetURI == null) {
 			// No
-			targetURI = RegionImpl.createRegionNodeURI(targetISOKey);
+			targetURI = RegionImpl.createRegionNodeURI(getTargetISOKey());
+			setTargetURI(targetURI);
 		}
 		return targetURI;
 	} // getTargetURI
@@ -465,10 +397,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setTargetURI(URI newTargetURI) {
-		URI oldTargetURI = targetURI;
-		targetURI = newTargetURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR__TARGET_URI, oldTargetURI, targetURI));
+		eDynamicSet(StandardPackage.INFECTOR__TARGET_URI, StandardPackage.Literals.INFECTOR__TARGET_URI, newTargetURI);
 	}
 
 	/**
@@ -476,7 +405,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public String getDiseaseName() {
-		return diseaseName;
+		return (String)eDynamicGet(StandardPackage.INFECTOR__DISEASE_NAME, StandardPackage.Literals.INFECTOR__DISEASE_NAME, true, true);
 	}
 
 	/**
@@ -484,10 +413,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setDiseaseName(String newDiseaseName) {
-		String oldDiseaseName = diseaseName;
-		diseaseName = newDiseaseName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR__DISEASE_NAME, oldDiseaseName, diseaseName));
+		eDynamicSet(StandardPackage.INFECTOR__DISEASE_NAME, StandardPackage.Literals.INFECTOR__DISEASE_NAME, newDiseaseName);
 	}
 
 	/**
@@ -495,7 +421,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public String getTargetISOKey() {
-		return targetISOKey;
+		return (String)eDynamicGet(StandardPackage.INFECTOR__TARGET_ISO_KEY, StandardPackage.Literals.INFECTOR__TARGET_ISO_KEY, true, true);
 	}
 
 	/**
@@ -504,10 +430,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	public void setTargetISOKey(String newTargetISOKey) {
-		String oldTargetISOKey = targetISOKey;
-		targetISOKey = newTargetISOKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR__TARGET_ISO_KEY, oldTargetISOKey, targetISOKey));
+		eDynamicSet(StandardPackage.INFECTOR__TARGET_ISO_KEY, StandardPackage.Literals.INFECTOR__TARGET_ISO_KEY, newTargetISOKey);
 		// This will cause the URI to be recreated with the new ISO key
 	}
 
@@ -516,11 +439,9 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<DiseaseModelLabel> getLabelsToInfect() {
-		if (labelsToInfect == null) {
-			labelsToInfect = new EObjectResolvingEList<DiseaseModelLabel>(DiseaseModelLabel.class, this, StandardPackage.INFECTOR__LABELS_TO_INFECT);
-		}
-		return labelsToInfect;
+		return (EList<DiseaseModelLabel>)eDynamicGet(StandardPackage.INFECTOR__LABELS_TO_INFECT, StandardPackage.Literals.INFECTOR__LABELS_TO_INFECT, true, true);
 	}
 
 	/**
@@ -529,7 +450,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(StandardPackage.INFECTOR__POPULATION_IDENTIFIER, StandardPackage.Literals.INFECTOR__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -538,10 +459,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(StandardPackage.INFECTOR__POPULATION_IDENTIFIER, StandardPackage.Literals.INFECTOR__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 	/**
@@ -550,7 +468,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public boolean isInfectPercentage() {
-		return infectPercentage;
+		return (Boolean)eDynamicGet(StandardPackage.INFECTOR__INFECT_PERCENTAGE, StandardPackage.Literals.INFECTOR__INFECT_PERCENTAGE, true, true);
 	}
 
 	/**
@@ -559,10 +477,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setInfectPercentage(boolean newInfectPercentage) {
-		boolean oldInfectPercentage = infectPercentage;
-		infectPercentage = newInfectPercentage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.INFECTOR__INFECT_PERCENTAGE, oldInfectPercentage, infectPercentage));
+		eDynamicSet(StandardPackage.INFECTOR__INFECT_PERCENTAGE, StandardPackage.Literals.INFECTOR__INFECT_PERCENTAGE, newInfectPercentage);
 	}
 
 	/**
@@ -688,19 +603,19 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.INFECTOR__DISEASE_MODEL:
-				return diseaseModel != null;
+				return basicGetDiseaseModel() != null;
 			case StandardPackage.INFECTOR__TARGET_URI:
-				return TARGET_URI_EDEFAULT == null ? targetURI != null : !TARGET_URI_EDEFAULT.equals(targetURI);
+				return TARGET_URI_EDEFAULT == null ? getTargetURI() != null : !TARGET_URI_EDEFAULT.equals(getTargetURI());
 			case StandardPackage.INFECTOR__DISEASE_NAME:
-				return DISEASE_NAME_EDEFAULT == null ? diseaseName != null : !DISEASE_NAME_EDEFAULT.equals(diseaseName);
+				return DISEASE_NAME_EDEFAULT == null ? getDiseaseName() != null : !DISEASE_NAME_EDEFAULT.equals(getDiseaseName());
 			case StandardPackage.INFECTOR__TARGET_ISO_KEY:
-				return TARGET_ISO_KEY_EDEFAULT == null ? targetISOKey != null : !TARGET_ISO_KEY_EDEFAULT.equals(targetISOKey);
+				return TARGET_ISO_KEY_EDEFAULT == null ? getTargetISOKey() != null : !TARGET_ISO_KEY_EDEFAULT.equals(getTargetISOKey());
 			case StandardPackage.INFECTOR__LABELS_TO_INFECT:
-				return labelsToInfect != null && !labelsToInfect.isEmpty();
+				return !getLabelsToInfect().isEmpty();
 			case StandardPackage.INFECTOR__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 			case StandardPackage.INFECTOR__INFECT_PERCENTAGE:
-				return infectPercentage != INFECT_PERCENTAGE_EDEFAULT;
+				return isInfectPercentage() != INFECT_PERCENTAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -720,13 +635,13 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (populationIdentifier: "); //$NON-NLS-1$
-		result.append(populationIdentifier != null ? populationIdentifier : "\"\"");
+		result.append(getPopulationIdentifier() != null ? getPopulationIdentifier() : "\"\"");
 		result.append(", targetURI: "); //$NON-NLS-1$
-		result.append(targetURI != null ? targetURI : "\"\"");
+		result.append(getTargetURI() != null ? getTargetURI() : "\"\"");
 		result.append(", diseaseName: "); //$NON-NLS-1$
-		result.append(diseaseName != null ? diseaseName : "\"\"");
+		result.append(getDiseaseName() != null ? getDiseaseName() : "\"\"");
 		result.append(", targetISOKey: "); //$NON-NLS-1$
-		result.append(targetISOKey != null ? targetISOKey : "\"\"");
+		result.append(getTargetISOKey() != null ? getTargetISOKey() : "\"\"");
 		result.append(')');
 		return result.toString();
 	} // toString
@@ -736,7 +651,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	public boolean sane() {
 		boolean retValue = super.sane();
 		checkInfectorURIs();// issues warning if infector uri is not in the graph
-		retValue = retValue && !(targetISOKey == null && targetURI == null);
+		retValue = retValue && !(getTargetISOKey() == null && getTargetURI() == null);
 		assert retValue;
 		
 		return retValue;

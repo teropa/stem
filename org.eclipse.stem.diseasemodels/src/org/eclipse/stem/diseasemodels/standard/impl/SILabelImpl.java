@@ -48,52 +48,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
 public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 		SILabel {
 	/**
-	 * The cached value of the '{@link #getDeltaValue() <em>Delta Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeltaValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SILabelValue deltaValue;
-	/**
-	 * The cached value of the '{@link #getProbeValue() <em>Probe Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProbeValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SILabelValue probeValue;
-	/**
-	 * The cached value of the '{@link #getTempValue() <em>Temp Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTempValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SILabelValue tempValue;
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected SILabelValue originalValue;
-	/**
-	 * The cached value of the '{@link #getErrorScale() <em>Error Scale</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorScale()
-	 * @generated
-	 * @ordered
-	 */
-	protected SILabelValue errorScale;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -123,15 +77,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue getDeltaValue() {
-		if (deltaValue != null && deltaValue.eIsProxy()) {
-			InternalEObject oldDeltaValue = (InternalEObject)deltaValue;
-			deltaValue = (SILabelValue)eResolveProxy(oldDeltaValue);
-			if (deltaValue != oldDeltaValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SI_LABEL__DELTA_VALUE, oldDeltaValue, deltaValue));
-			}
-		}
-		return deltaValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__DELTA_VALUE, StandardPackage.Literals.SI_LABEL__DELTA_VALUE, true, true);
 	}
 
 	/**
@@ -140,7 +86,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue basicGetDeltaValue() {
-		return deltaValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__DELTA_VALUE, StandardPackage.Literals.SI_LABEL__DELTA_VALUE, false, true);
 	}
 
 	/**
@@ -149,10 +95,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public void setDeltaValue(SILabelValue newDeltaValue) {
-		SILabelValue oldDeltaValue = deltaValue;
-		deltaValue = newDeltaValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_LABEL__DELTA_VALUE, oldDeltaValue, deltaValue));
+		eDynamicSet(StandardPackage.SI_LABEL__DELTA_VALUE, StandardPackage.Literals.SI_LABEL__DELTA_VALUE, newDeltaValue);
 	}
 
 	/**
@@ -161,15 +104,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue getProbeValue() {
-		if (probeValue != null && probeValue.eIsProxy()) {
-			InternalEObject oldProbeValue = (InternalEObject)probeValue;
-			probeValue = (SILabelValue)eResolveProxy(oldProbeValue);
-			if (probeValue != oldProbeValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SI_LABEL__PROBE_VALUE, oldProbeValue, probeValue));
-			}
-		}
-		return probeValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__PROBE_VALUE, StandardPackage.Literals.SI_LABEL__PROBE_VALUE, true, true);
 	}
 
 	/**
@@ -178,7 +113,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue basicGetProbeValue() {
-		return probeValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__PROBE_VALUE, StandardPackage.Literals.SI_LABEL__PROBE_VALUE, false, true);
 	}
 
 	/**
@@ -187,10 +122,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public void setProbeValue(SILabelValue newProbeValue) {
-		SILabelValue oldProbeValue = probeValue;
-		probeValue = newProbeValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_LABEL__PROBE_VALUE, oldProbeValue, probeValue));
+		eDynamicSet(StandardPackage.SI_LABEL__PROBE_VALUE, StandardPackage.Literals.SI_LABEL__PROBE_VALUE, newProbeValue);
 	}
 
 	/**
@@ -199,15 +131,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue getTempValue() {
-		if (tempValue != null && tempValue.eIsProxy()) {
-			InternalEObject oldTempValue = (InternalEObject)tempValue;
-			tempValue = (SILabelValue)eResolveProxy(oldTempValue);
-			if (tempValue != oldTempValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SI_LABEL__TEMP_VALUE, oldTempValue, tempValue));
-			}
-		}
-		return tempValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__TEMP_VALUE, StandardPackage.Literals.SI_LABEL__TEMP_VALUE, true, true);
 	}
 
 	/**
@@ -216,7 +140,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue basicGetTempValue() {
-		return tempValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__TEMP_VALUE, StandardPackage.Literals.SI_LABEL__TEMP_VALUE, false, true);
 	}
 
 	/**
@@ -225,10 +149,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public void setTempValue(SILabelValue newTempValue) {
-		SILabelValue oldTempValue = tempValue;
-		tempValue = newTempValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_LABEL__TEMP_VALUE, oldTempValue, tempValue));
+		eDynamicSet(StandardPackage.SI_LABEL__TEMP_VALUE, StandardPackage.Literals.SI_LABEL__TEMP_VALUE, newTempValue);
 	}
 
 	/**
@@ -237,15 +158,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue getOriginalValue() {
-		if (originalValue != null && originalValue.eIsProxy()) {
-			InternalEObject oldOriginalValue = (InternalEObject)originalValue;
-			originalValue = (SILabelValue)eResolveProxy(oldOriginalValue);
-			if (originalValue != oldOriginalValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SI_LABEL__ORIGINAL_VALUE, oldOriginalValue, originalValue));
-			}
-		}
-		return originalValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.SI_LABEL__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -254,7 +167,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue basicGetOriginalValue() {
-		return originalValue;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.SI_LABEL__ORIGINAL_VALUE, false, true);
 	}
 
 	/**
@@ -263,10 +176,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public void setOriginalValue(SILabelValue newOriginalValue) {
-		SILabelValue oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_LABEL__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(StandardPackage.SI_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.SI_LABEL__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -275,15 +185,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue getErrorScale() {
-		if (errorScale != null && errorScale.eIsProxy()) {
-			InternalEObject oldErrorScale = (InternalEObject)errorScale;
-			errorScale = (SILabelValue)eResolveProxy(oldErrorScale);
-			if (errorScale != oldErrorScale) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.SI_LABEL__ERROR_SCALE, oldErrorScale, errorScale));
-			}
-		}
-		return errorScale;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__ERROR_SCALE, StandardPackage.Literals.SI_LABEL__ERROR_SCALE, true, true);
 	}
 
 	/**
@@ -292,7 +194,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public SILabelValue basicGetErrorScale() {
-		return errorScale;
+		return (SILabelValue)eDynamicGet(StandardPackage.SI_LABEL__ERROR_SCALE, StandardPackage.Literals.SI_LABEL__ERROR_SCALE, false, true);
 	}
 
 	/**
@@ -301,10 +203,7 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	 * @generated
 	 */
 	public void setErrorScale(SILabelValue newErrorScale) {
-		SILabelValue oldErrorScale = errorScale;
-		errorScale = newErrorScale;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SI_LABEL__ERROR_SCALE, oldErrorScale, errorScale));
+		eDynamicSet(StandardPackage.SI_LABEL__ERROR_SCALE, StandardPackage.Literals.SI_LABEL__ERROR_SCALE, newErrorScale);
 	}
 
 	/**
@@ -463,15 +362,15 @@ public class SILabelImpl extends StandardDiseaseModelLabelImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SI_LABEL__DELTA_VALUE:
-				return deltaValue != null;
+				return basicGetDeltaValue() != null;
 			case StandardPackage.SI_LABEL__PROBE_VALUE:
-				return probeValue != null;
+				return basicGetProbeValue() != null;
 			case StandardPackage.SI_LABEL__TEMP_VALUE:
-				return tempValue != null;
+				return basicGetTempValue() != null;
 			case StandardPackage.SI_LABEL__ORIGINAL_VALUE:
-				return originalValue != null;
+				return basicGetOriginalValue() != null;
 			case StandardPackage.SI_LABEL__ERROR_SCALE:
-				return errorScale != null;
+				return basicGetErrorScale() != null;
 		}
 		return super.eIsSet(featureID);
 	}

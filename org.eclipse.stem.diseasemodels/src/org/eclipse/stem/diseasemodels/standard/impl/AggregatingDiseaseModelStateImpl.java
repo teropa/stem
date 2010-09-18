@@ -57,15 +57,6 @@ public class AggregatingDiseaseModelStateImpl extends DiseaseModelStateImpl
 	protected Map<TransportMode, List<Edge>> parentPeerTransportEdges = null;
 
 	/**
-	 * The cached value of the '{@link #getChildrensLabels() <em>Childrens Labels</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getChildrensLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SILabel> childrensLabels;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -86,11 +77,9 @@ public class AggregatingDiseaseModelStateImpl extends DiseaseModelStateImpl
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<SILabel> getChildrensLabels() {
-		if (childrensLabels == null) {
-			childrensLabels = new EObjectResolvingEList<SILabel>(SILabel.class, this, StandardPackage.AGGREGATING_DISEASE_MODEL_STATE__CHILDRENS_LABELS);
-		}
-		return childrensLabels;
+		return (EList<SILabel>)eDynamicGet(StandardPackage.AGGREGATING_DISEASE_MODEL_STATE__CHILDRENS_LABELS, StandardPackage.Literals.AGGREGATING_DISEASE_MODEL_STATE__CHILDRENS_LABELS, true, true);
 	}
 
 	/**
@@ -144,7 +133,7 @@ public class AggregatingDiseaseModelStateImpl extends DiseaseModelStateImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.AGGREGATING_DISEASE_MODEL_STATE__CHILDRENS_LABELS:
-				return childrensLabels != null && !childrensLabels.isEmpty();
+				return !getChildrensLabels().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

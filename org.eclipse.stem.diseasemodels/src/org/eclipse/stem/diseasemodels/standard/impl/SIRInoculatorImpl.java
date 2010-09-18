@@ -67,16 +67,6 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	protected static final double INOCULATED_PERCENTAGE_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getInoculatedPercentage() <em>Inoculated Percentage</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInoculatedPercentage()
-	 * @generated
-	 * @ordered
-	 */
-	protected double inoculatedPercentage = INOCULATED_PERCENTAGE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isInoculatePercentage() <em>Inoculate Percentage</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,16 +75,6 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * @ordered
 	 */
 	protected static final boolean INOCULATE_PERCENTAGE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isInoculatePercentage() <em>Inoculate Percentage</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInoculatePercentage()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean inoculatePercentage = INOCULATE_PERCENTAGE_EDEFAULT;
 
 	/**
 	 * OverrideThe default value of the '{@link #getInfectiousCount() <em>Infectious Count</em>}' attribute.
@@ -127,7 +107,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			graph = ((NodeDecorator)eContainer()).getGraph();
 	
 		// Do we need to look up the disease model from its name?
-		if (diseaseModel == null) {
+		if (getDiseaseModel() == null) {
 			// Yes
 			// There's a disease model out there with our name on it
 			// (maybe)...let's find it
@@ -141,7 +121,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 					if (diseaseModel.getDiseaseName().equalsIgnoreCase(
 							getDiseaseName())) {
 						// Yes
-						this.diseaseModel = diseaseModel;
+						this.setDiseaseModel(diseaseModel);
 						break;
 					}
 				}
@@ -149,7 +129,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 		} // if look up disease model
 
 		// Did we find the disease model we're suppose to work for?
-		if (diseaseModel != null) {
+		if (getDiseaseModel() != null) {
 			// Yes
 			// Now try to find the node to be infected
 			final Node parent = graph.getNode(getTargetURI());
@@ -177,8 +157,8 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 							final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
 							// Yes
 							// Is it updated by this disease model?
-							if (diseaseModelLabel.getDecorator() == diseaseModel &&
-									diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(diseaseModel.getPopulationIdentifier())) {
+							if (diseaseModelLabel.getDecorator() == getDiseaseModel() &&
+									diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(getDiseaseModel().getPopulationIdentifier())) {
 								// Yes
 								doInitialization(diseaseModelLabel);
 								getLabelsToInfect().add(diseaseModelLabel);
@@ -201,7 +181,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 		else {
 			// No
 			// The disease name was probably wrong
-			Activator.logError("The disease named \"" + diseaseName
+			Activator.logError("The disease named \"" + getDiseaseName()
 					+ "\" was not found.", null);
 		} // else node not found
 
@@ -286,7 +266,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * @generated
 	 */
 	public double getInoculatedPercentage() {
-		return inoculatedPercentage;
+		return (Double)eDynamicGet(StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE, StandardPackage.Literals.SIR_INOCULATOR__INOCULATED_PERCENTAGE, true, true);
 	}
 
 
@@ -296,10 +276,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * @generated
 	 */
 	public void setInoculatedPercentage(double newInoculatedPercentage) {
-		double oldInoculatedPercentage = inoculatedPercentage;
-		inoculatedPercentage = newInoculatedPercentage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE, oldInoculatedPercentage, inoculatedPercentage));
+		eDynamicSet(StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE, StandardPackage.Literals.SIR_INOCULATOR__INOCULATED_PERCENTAGE, newInoculatedPercentage);
 	}
 
 
@@ -309,7 +286,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * @generated
 	 */
 	public boolean isInoculatePercentage() {
-		return inoculatePercentage;
+		return (Boolean)eDynamicGet(StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE, StandardPackage.Literals.SIR_INOCULATOR__INOCULATE_PERCENTAGE, true, true);
 	}
 
 
@@ -319,10 +296,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	 * @generated
 	 */
 	public void setInoculatePercentage(boolean newInoculatePercentage) {
-		boolean oldInoculatePercentage = inoculatePercentage;
-		inoculatePercentage = newInoculatePercentage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE, oldInoculatePercentage, inoculatePercentage));
+		eDynamicSet(StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE, StandardPackage.Literals.SIR_INOCULATOR__INOCULATE_PERCENTAGE, newInoculatePercentage);
 	}
 
 
@@ -387,29 +361,11 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SIR_INOCULATOR__INOCULATED_PERCENTAGE:
-				return inoculatedPercentage != INOCULATED_PERCENTAGE_EDEFAULT;
+				return getInoculatedPercentage() != INOCULATED_PERCENTAGE_EDEFAULT;
 			case StandardPackage.SIR_INOCULATOR__INOCULATE_PERCENTAGE:
-				return inoculatePercentage != INOCULATE_PERCENTAGE_EDEFAULT;
+				return isInoculatePercentage() != INOCULATE_PERCENTAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (inoculatedPercentage: "); //$NON-NLS-1$
-		result.append(inoculatedPercentage);
-		result.append(", inoculatePercentage: "); //$NON-NLS-1$
-		result.append(inoculatePercentage);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SIRInoculatorImpl

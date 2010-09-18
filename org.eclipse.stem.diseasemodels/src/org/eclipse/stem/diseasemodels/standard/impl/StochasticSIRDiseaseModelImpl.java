@@ -54,15 +54,6 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 */
 	protected static final long SEED_EDEFAULT = 0L;
 	/**
-	 * The cached value of the '{@link #getSeed() <em>Seed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSeed()
-	 * @generated
-	 * @ordered
-	 */
-	protected long seed = SEED_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getRandomGenerator() <em>Random Generator</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,15 +63,6 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 */
 	protected static final Random RANDOM_GENERATOR_EDEFAULT = (Random)StandardFactory.eINSTANCE.createFromString(StandardPackage.eINSTANCE.getRandom(), "0");
 	/**
-	 * The cached value of the '{@link #getRandomGenerator() <em>Random Generator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRandomGenerator()
-	 * @generated
-	 * @ordered
-	 */
-	protected Random randomGenerator = RANDOM_GENERATOR_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getGain() <em>Gain</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,16 +71,6 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * @ordered
 	 */
 	protected static final double GAIN_EDEFAULT = 0.01;
-	/**
-	 * The cached value of the '{@link #getGain() <em>Gain</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGain()
-	 * @generated
-	 * @ordered
-	 */
-	protected double gain = GAIN_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * 
@@ -214,7 +186,7 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * @generated
 	 */
 	public long getSeed() {
-		return seed;
+		return (Long)eDynamicGet(StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__SEED, StandardPackage.Literals.STOCHASTIC_DISEASE_MODEL__SEED, true, true);
 	}
 
 	/**
@@ -223,11 +195,8 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * @generated NOT
 	 */
 	public void setSeed(long newSeed) {
-		long oldSeed = seed;
-		seed = newSeed;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__SEED, oldSeed, seed));
-		randomGenerator.setSeed(newSeed);
+		eDynamicSet(StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__SEED, StandardPackage.Literals.STOCHASTIC_DISEASE_MODEL__SEED, newSeed);
+		getRandomGenerator().setSeed(newSeed);
 	}
 
 	/**
@@ -236,7 +205,7 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * @generated
 	 */
 	public Random getRandomGenerator() {
-		return randomGenerator;
+		return (Random)eDynamicGet(StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__RANDOM_GENERATOR, StandardPackage.Literals.STOCHASTIC_DISEASE_MODEL__RANDOM_GENERATOR, true, true);
 	}
 
 	/**
@@ -245,7 +214,7 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * @generated
 	 */
 	public double getGain() {
-		return gain;
+		return (Double)eDynamicGet(StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__GAIN, StandardPackage.Literals.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN, true, true);
 	}
 
 	/**
@@ -254,10 +223,7 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * @generated
 	 */
 	public void setGain(double newGain) {
-		double oldGain = gain;
-		gain = newGain;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__GAIN, oldGain, gain));
+		eDynamicSet(StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__GAIN, StandardPackage.Literals.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN, newGain);
 	}
 
 	/**
@@ -267,7 +233,7 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	 * @generated NOT
 	 */
 	public double computeNoise() {
-		return StandardStochasticDiseaseModelImpl.computeNoise(gain, randomGenerator);
+		return StandardStochasticDiseaseModelImpl.computeNoise(getGain(), getRandomGenerator());
 	}
 	
 
@@ -334,11 +300,11 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__SEED:
-				return seed != SEED_EDEFAULT;
+				return getSeed() != SEED_EDEFAULT;
 			case StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__RANDOM_GENERATOR:
-				return RANDOM_GENERATOR_EDEFAULT == null ? randomGenerator != null : !RANDOM_GENERATOR_EDEFAULT.equals(randomGenerator);
+				return RANDOM_GENERATOR_EDEFAULT == null ? getRandomGenerator() != null : !RANDOM_GENERATOR_EDEFAULT.equals(getRandomGenerator());
 			case StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__GAIN:
-				return gain != GAIN_EDEFAULT;
+				return getGain() != GAIN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -387,26 +353,6 @@ public class StochasticSIRDiseaseModelImpl extends SIRImpl implements
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (seed: "); //$NON-NLS-1$
-		result.append(seed);
-		result.append(", randomGenerator: "); //$NON-NLS-1$
-		result.append(randomGenerator);
-		result.append(", gain: "); //$NON-NLS-1$
-		result.append(gain);
-		result.append(')');
-		return result.toString();
 	}
 
 } // StochasticSIRDiseaseModelImpl

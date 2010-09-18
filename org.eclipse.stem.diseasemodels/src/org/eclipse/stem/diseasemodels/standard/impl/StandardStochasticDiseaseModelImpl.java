@@ -44,16 +44,6 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	public static final double GAIN_EDEFAULT = 0.01;
 
 	/**
-	 * The cached value of the '{@link #getGain() <em>Gain</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGain()
-	 * @generated
-	 * @ordered
-	 */
-	protected double gain = GAIN_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -78,7 +68,7 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	 * @generated
 	 */
 	public double getGain() {
-		return gain;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN, StandardPackage.Literals.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN, true, true);
 	}
 
 	/**
@@ -87,10 +77,7 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	 * @generated
 	 */
 	public void setGain(double newGain) {
-		double oldGain = gain;
-		gain = newGain;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN, oldGain, gain));
+		eDynamicSet(StandardPackage.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN, StandardPackage.Literals.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN, newGain);
 	}
 
 	/**
@@ -100,7 +87,7 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	 * @generated NOT
 	 */
 	public double computeNoise() {
-		return computeNoise(gain, randomGenerator);
+		return computeNoise(getGain(), getRandomGenerator());
 	}
 	
 
@@ -177,25 +164,9 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_STOCHASTIC_DISEASE_MODEL__GAIN:
-				return gain != GAIN_EDEFAULT;
+				return getGain() != GAIN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (gain: "); //$NON-NLS-1$
-		result.append(gain);
-		result.append(')');
-		return result.toString();
 	}
 
 } //StandardStochasticDiseaseModelImpl

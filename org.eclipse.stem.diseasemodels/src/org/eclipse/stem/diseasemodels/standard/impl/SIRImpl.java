@@ -64,15 +64,6 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	protected static final double IMMUNITY_LOSS_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getImmunityLossRate() <em>Immunity Loss Rate</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getImmunityLossRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double immunityLossRate = IMMUNITY_LOSS_RATE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -256,7 +247,7 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	 * @generated
 	 */
 	public double getImmunityLossRate() {
-		return immunityLossRate;
+		return (Double)eDynamicGet(StandardPackage.SIR__IMMUNITY_LOSS_RATE, StandardPackage.Literals.SIR__IMMUNITY_LOSS_RATE, true, true);
 	}
 
 	/**
@@ -268,10 +259,7 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	 * @generated
 	 */
 	public void setImmunityLossRate(double newImmunityLossRate) {
-		double oldImmunityLossRate = immunityLossRate;
-		immunityLossRate = newImmunityLossRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SIR__IMMUNITY_LOSS_RATE, oldImmunityLossRate, immunityLossRate));
+		eDynamicSet(StandardPackage.SIR__IMMUNITY_LOSS_RATE, StandardPackage.Literals.SIR__IMMUNITY_LOSS_RATE, newImmunityLossRate);
 	}
 
 	/**
@@ -360,28 +348,9 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SIR__IMMUNITY_LOSS_RATE:
-				return immunityLossRate != IMMUNITY_LOSS_RATE_EDEFAULT;
+				return getImmunityLossRate() != IMMUNITY_LOSS_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (immunityLossRate: "); //$NON-NLS-1$
-		result.append(immunityLossRate);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**
@@ -391,13 +360,13 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && immunityLossRate >= IMMUNITY_LOSS_RATE_EDEFAULT;
+		retValue = retValue && getImmunityLossRate() >= IMMUNITY_LOSS_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(immunityLossRate);
+		retValue = retValue && !Double.isInfinite(getImmunityLossRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(immunityLossRate);
+		retValue = retValue && !Double.isNaN(getImmunityLossRate());
 		assert retValue;
 		
 		return retValue;

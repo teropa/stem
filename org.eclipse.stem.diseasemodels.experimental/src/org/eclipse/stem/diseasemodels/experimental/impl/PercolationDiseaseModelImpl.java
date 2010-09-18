@@ -122,10 +122,10 @@ public class PercolationDiseaseModelImpl extends StochasticSEIRDiseaseModelImpl 
         
 		
 		if (lds==null) {
-			int inc = (int) (this.incubationRate*100.0);
-			int beta = (int) (this.transmissionRate*100.0);
-			int rec = (int) (this.recoveryRate*100.0);
-			int imloss = (int) (this.immunityLossRate*1000.0);
+			int inc = (int) (this.getIncubationRate()*100.0);
+			int beta = (int) (this.getTransmissionRate()*100.0);
+			int rec = (int) (this.getRecoveryRate()*100.0);
+			int imloss = (int) (this.getImmunityLossRate()*1000.0);
 			
 			lds = new LogDiseaseState("./timelogI"+inc+"B"+beta+"il"+imloss+"r"+rec+".txt");
 		}

@@ -78,16 +78,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	protected static final double BACKGROUND_MORTALITY_RATE_EDEFAULT = 5.5E-5;
 
 	/**
-	 * The cached value of the '{@link #getBackgroundMortalityRate() <em>Background Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBackgroundMortalityRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double backgroundMortalityRate = BACKGROUND_MORTALITY_RATE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPopulationIdentifier()
@@ -95,15 +85,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = "human";
-
-	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTimePeriod() <em>Time Period</em>}'
@@ -116,15 +97,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	protected static final long TIME_PERIOD_EDEFAULT = STEMTime.Units.DAY.getMilliseconds();
 
 	/**
-	 * The cached value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTimePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected long timePeriod = TIME_PERIOD_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getDiseaseName() <em>Disease Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDiseaseName()
@@ -132,15 +104,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final String DISEASE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDiseaseName() <em>Disease Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDiseaseName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String diseaseName = DISEASE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRelativeTolerance() <em>Relative Tolerance</em>}' attribute.
@@ -153,16 +116,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	protected static final double RELATIVE_TOLERANCE_EDEFAULT = 1.0E-9;
 
 	/**
-	 * The cached value of the '{@link #getRelativeTolerance() <em>Relative Tolerance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelativeTolerance()
-	 * @generated
-	 * @ordered
-	 */
-	protected double relativeTolerance = RELATIVE_TOLERANCE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isFiniteDifference() <em>Finite Difference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,16 +124,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final boolean FINITE_DIFFERENCE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isFiniteDifference() <em>Finite Difference</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFiniteDifference()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean finiteDifference = FINITE_DIFFERENCE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isFrequencyDependent() <em>Frequency Dependent</em>}' attribute.
@@ -193,16 +136,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	protected static final boolean FREQUENCY_DEPENDENT_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isFrequencyDependent() <em>Frequency Dependent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFrequencyDependent()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean frequencyDependent = FREQUENCY_DEPENDENT_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getBackgroundBirthRate() <em>Background Birth Rate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -211,16 +144,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final double BACKGROUND_BIRTH_RATE_EDEFAULT = 5.5E-5;
-
-	/**
-	 * The cached value of the '{@link #getBackgroundBirthRate() <em>Background Birth Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBackgroundBirthRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double backgroundBirthRate = BACKGROUND_BIRTH_RATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -268,8 +191,18 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 8;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public double getBackgroundMortalityRate() {
-		return backgroundMortalityRate;
+		return (Double)eDynamicGet(StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, true, true);
 	}
 
 	/**
@@ -278,10 +211,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setBackgroundMortalityRate(double newBackgroundMortalityRate) {
-		double oldBackgroundMortalityRate = backgroundMortalityRate;
-		backgroundMortalityRate = newBackgroundMortalityRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, oldBackgroundMortalityRate, backgroundMortalityRate));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, newBackgroundMortalityRate);
 	}
 
 	/**
@@ -293,7 +223,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public long getTimePeriod() {
-		return timePeriod;
+		return (Long)eDynamicGet(StandardPackage.DISEASE_MODEL__TIME_PERIOD, StandardPackage.Literals.DISEASE_MODEL__TIME_PERIOD, true, true);
 	}
 
 	/**
@@ -305,10 +235,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setTimePeriod(long newTimePeriod) {
-		long oldTimePeriod = timePeriod;
-		timePeriod = newTimePeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__TIME_PERIOD, oldTimePeriod, timePeriod));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__TIME_PERIOD, StandardPackage.Literals.DISEASE_MODEL__TIME_PERIOD, newTimePeriod);
 	}
 
 	/**
@@ -320,7 +247,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(StandardPackage.DISEASE_MODEL__POPULATION_IDENTIFIER, StandardPackage.Literals.DISEASE_MODEL__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -332,10 +259,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__POPULATION_IDENTIFIER, StandardPackage.Literals.DISEASE_MODEL__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 	/**
@@ -343,7 +267,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public String getDiseaseName() {
-		return diseaseName;
+		return (String)eDynamicGet(StandardPackage.DISEASE_MODEL__DISEASE_NAME, StandardPackage.Literals.DISEASE_MODEL__DISEASE_NAME, true, true);
 	}
 
 	/**
@@ -351,10 +275,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setDiseaseName(String newDiseaseName) {
-		String oldDiseaseName = diseaseName;
-		diseaseName = newDiseaseName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__DISEASE_NAME, oldDiseaseName, diseaseName));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__DISEASE_NAME, StandardPackage.Literals.DISEASE_MODEL__DISEASE_NAME, newDiseaseName);
 	}
 
 	/**
@@ -363,7 +284,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public double getRelativeTolerance() {
-		return relativeTolerance;
+		return (Double)eDynamicGet(StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE, StandardPackage.Literals.DISEASE_MODEL__RELATIVE_TOLERANCE, true, true);
 	}
 
 	/**
@@ -372,10 +293,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setRelativeTolerance(double newRelativeTolerance) {
-		double oldRelativeTolerance = relativeTolerance;
-		relativeTolerance = newRelativeTolerance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE, oldRelativeTolerance, relativeTolerance));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE, StandardPackage.Literals.DISEASE_MODEL__RELATIVE_TOLERANCE, newRelativeTolerance);
 	}
 
 	/**
@@ -384,7 +302,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public boolean isFiniteDifference() {
-		return finiteDifference;
+		return (Boolean)eDynamicGet(StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE, StandardPackage.Literals.DISEASE_MODEL__FINITE_DIFFERENCE, true, true);
 	}
 
 	/**
@@ -393,10 +311,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setFiniteDifference(boolean newFiniteDifference) {
-		boolean oldFiniteDifference = finiteDifference;
-		finiteDifference = newFiniteDifference;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE, oldFiniteDifference, finiteDifference));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE, StandardPackage.Literals.DISEASE_MODEL__FINITE_DIFFERENCE, newFiniteDifference);
 	}
 
 	/**
@@ -405,7 +320,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public boolean isFrequencyDependent() {
-		return frequencyDependent;
+		return (Boolean)eDynamicGet(StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT, StandardPackage.Literals.DISEASE_MODEL__FREQUENCY_DEPENDENT, true, true);
 	}
 
 	/**
@@ -414,10 +329,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setFrequencyDependent(boolean newFrequencyDependent) {
-		boolean oldFrequencyDependent = frequencyDependent;
-		frequencyDependent = newFrequencyDependent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT, oldFrequencyDependent, frequencyDependent));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT, StandardPackage.Literals.DISEASE_MODEL__FREQUENCY_DEPENDENT, newFrequencyDependent);
 	}
 
 	/**
@@ -426,7 +338,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public double getBackgroundBirthRate() {
-		return backgroundBirthRate;
+		return (Double)eDynamicGet(StandardPackage.DISEASE_MODEL__BACKGROUND_BIRTH_RATE, StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_BIRTH_RATE, true, true);
 	}
 
 	/**
@@ -435,10 +347,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setBackgroundBirthRate(double newBackgroundBirthRate) {
-		double oldBackgroundBirthRate = backgroundBirthRate;
-		backgroundBirthRate = newBackgroundBirthRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL__BACKGROUND_BIRTH_RATE, oldBackgroundBirthRate, backgroundBirthRate));
+		eDynamicSet(StandardPackage.DISEASE_MODEL__BACKGROUND_BIRTH_RATE, StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_BIRTH_RATE, newBackgroundBirthRate);
 	}
 
 	/**
@@ -855,21 +764,21 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE:
-				return backgroundMortalityRate != BACKGROUND_MORTALITY_RATE_EDEFAULT;
+				return getBackgroundMortalityRate() != BACKGROUND_MORTALITY_RATE_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 			case StandardPackage.DISEASE_MODEL__TIME_PERIOD:
-				return timePeriod != TIME_PERIOD_EDEFAULT;
+				return getTimePeriod() != TIME_PERIOD_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__DISEASE_NAME:
-				return DISEASE_NAME_EDEFAULT == null ? diseaseName != null : !DISEASE_NAME_EDEFAULT.equals(diseaseName);
+				return DISEASE_NAME_EDEFAULT == null ? getDiseaseName() != null : !DISEASE_NAME_EDEFAULT.equals(getDiseaseName());
 			case StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE:
-				return relativeTolerance != RELATIVE_TOLERANCE_EDEFAULT;
+				return getRelativeTolerance() != RELATIVE_TOLERANCE_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE:
-				return finiteDifference != FINITE_DIFFERENCE_EDEFAULT;
+				return isFiniteDifference() != FINITE_DIFFERENCE_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT:
-				return frequencyDependent != FREQUENCY_DEPENDENT_EDEFAULT;
+				return isFrequencyDependent() != FREQUENCY_DEPENDENT_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL__BACKGROUND_BIRTH_RATE:
-				return backgroundBirthRate != BACKGROUND_BIRTH_RATE_EDEFAULT;
+				return getBackgroundBirthRate() != BACKGROUND_BIRTH_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -892,7 +801,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		final String title = getDublinCore().getTitle();
 		result.append(title == null ? "<disease model>" : title);
 		result.append("(");
-		result.append(populationIdentifier);
+		result.append(getPopulationIdentifier());
 		result.append(')');
 		return result.toString();
 	} // toString
@@ -904,20 +813,20 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && diseaseName != null;
+		retValue = retValue && getDiseaseName() != null;
 		assert retValue;
 
 		retValue = retValue
-				&& backgroundMortalityRate >= 0.0;
+				&& getBackgroundMortalityRate() >= 0.0;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(backgroundMortalityRate);
+		retValue = retValue && !Double.isInfinite(getBackgroundMortalityRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(backgroundMortalityRate);
+		retValue = retValue && !Double.isNaN(getBackgroundMortalityRate());
 		assert retValue;
 		
-		retValue = retValue && timePeriod >= TIME_PERIOD_EDEFAULT;
+		retValue = retValue && getTimePeriod() >= TIME_PERIOD_EDEFAULT;
 		assert retValue;
 
 	

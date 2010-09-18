@@ -50,15 +50,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	protected static final double DISEASE_DEATHS_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getDiseaseDeaths() <em>Disease Deaths</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDiseaseDeaths()
-	 * @generated
-	 * @ordered
-	 */
-	protected double diseaseDeaths = DISEASE_DEATHS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getPopulationCount() <em>Population Count</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPopulationCount()
@@ -76,16 +67,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @ordered
 	 */
 	protected static final double INCIDENCE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getIncidence() <em>Incidence</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIncidence()
-	 * @generated
-	 * @ordered
-	 */
-	protected double incidence = INCIDENCE_EDEFAULT;
 
 	public static final double ABS_TOLERANCE = 1E-12; // fix hardcoded?
 	
@@ -113,7 +94,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * <!-- end-user-doc -->
 	 */
 	protected DiseaseModelLabelValueImpl(final double diseaseDeaths) {
-		this.diseaseDeaths = diseaseDeaths;
+		this.setDiseaseDeaths(diseaseDeaths);
 	} // DiseaseModelLabelValueImpl
 
 	/**
@@ -123,6 +104,16 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	@Override
 	protected EClass eStaticClass() {
 		return StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	/**
@@ -141,7 +132,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public double getIncidence() {
-		return incidence;
+		return (Double)eDynamicGet(StandardPackage.DISEASE_MODEL_LABEL_VALUE__INCIDENCE, StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE__INCIDENCE, true, true);
 	}
 
 	/**
@@ -150,10 +141,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public void setIncidence(double newIncidence) {
-		double oldIncidence = incidence;
-		incidence = newIncidence;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL_VALUE__INCIDENCE, oldIncidence, incidence));
+		eDynamicSet(StandardPackage.DISEASE_MODEL_LABEL_VALUE__INCIDENCE, StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE__INCIDENCE, newIncidence);
 	}
 
 	/**
@@ -192,7 +180,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public double getDiseaseDeaths() {
-		return diseaseDeaths;
+		return (Double)eDynamicGet(StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS, StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS, true, true);
 	}
 
 	/**
@@ -204,10 +192,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public void setDiseaseDeaths(double newDiseaseDeaths) {
-		double oldDiseaseDeaths = diseaseDeaths;
-		diseaseDeaths = newDiseaseDeaths;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS, oldDiseaseDeaths, diseaseDeaths));
+		eDynamicSet(StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS, StandardPackage.Literals.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS, newDiseaseDeaths);
 	}
 
 	/**
@@ -289,16 +274,16 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 		boolean retValue = super.sane();
 				
 		// disease deaths
-		retValue = retValue && diseaseDeaths >= DISEASE_DEATHS_EDEFAULT;
+		retValue = retValue && getDiseaseDeaths() >= DISEASE_DEATHS_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && diseaseDeaths <= MAX_POPULATION_VALUE;
+		retValue = retValue && getDiseaseDeaths() <= MAX_POPULATION_VALUE;
 		assert retValue;
 		
-		retValue = retValue && !Double.isInfinite(diseaseDeaths);
+		retValue = retValue && !Double.isInfinite(getDiseaseDeaths());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(diseaseDeaths);
+		retValue = retValue && !Double.isNaN(getDiseaseDeaths());
 		assert retValue;
 		
 		return retValue;
@@ -384,11 +369,11 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__DISEASE_DEATHS:
-				return diseaseDeaths != DISEASE_DEATHS_EDEFAULT;
+				return getDiseaseDeaths() != DISEASE_DEATHS_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__POPULATION_COUNT:
 				return getPopulationCount() != POPULATION_COUNT_EDEFAULT;
 			case StandardPackage.DISEASE_MODEL_LABEL_VALUE__INCIDENCE:
-				return incidence != INCIDENCE_EDEFAULT;
+				return getIncidence() != INCIDENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -408,7 +393,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append("(DD: "); //$NON-NLS-1$
-		result.append(diseaseDeaths);
+		result.append(getDiseaseDeaths());
 		result.append(')');
 		return result.toString();
 	} // toString
