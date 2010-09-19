@@ -65,8 +65,8 @@ public class SequencerFactoryImpl extends EFactoryImpl implements SequencerFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SequencerPackage.REAL_TIME_SEQUENCER: return createRealTimeSequencer();
-			case SequencerPackage.SEQUENTIAL_SEQUENCER: return createSequentialSequencer();
+			case SequencerPackage.REAL_TIME_SEQUENCER: return (EObject)createRealTimeSequencer();
+			case SequencerPackage.SEQUENTIAL_SEQUENCER: return (EObject)createSequentialSequencer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

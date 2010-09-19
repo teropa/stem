@@ -12,9 +12,9 @@ package org.eclipse.stem.core.common;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
-import java.lang.Comparable;
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.stem.core.graph.Graph;
 
 /**
  * An <code>Identifiable</code> instance represents an "identifiable"
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @implements SanityChecker
  */
-public interface Identifiable extends EObject, Comparable<Identifiable>, SanityChecker {
+public interface Identifiable extends CDOObject, Comparable<Identifiable>, SanityChecker {
 
 	/**
 	 * @return the URL that uniquely identifies this Identifiable component.

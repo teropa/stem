@@ -71,10 +71,10 @@ public class GraphFactoryImpl extends EFactoryImpl implements GraphFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GraphPackage.EDGE: return createEdge();
-			case GraphPackage.GRAPH: return createGraph();
-			case GraphPackage.NODE: return createNode();
-			case GraphPackage.UNRESOLVED_IDENTIFIABLE: return createUnresolvedIdentifiable();
+			case GraphPackage.EDGE: return (EObject)createEdge();
+			case GraphPackage.GRAPH: return (EObject)createGraph();
+			case GraphPackage.NODE: return (EObject)createNode();
+			case GraphPackage.UNRESOLVED_IDENTIFIABLE: return (EObject)createUnresolvedIdentifiable();
 			case GraphPackage.URI_TO_IDENTIFIABLE_MAP_ENTRY: return (EObject)createURIToIdentifiableMapEntry();
 			case GraphPackage.URI_TO_EDGE_MAP_ENTRY: return (EObject)createURIToEdgeMapEntry();
 			case GraphPackage.URI_TO_NODE_MAP_ENTRY: return (EObject)createURIToNodeMapEntry();

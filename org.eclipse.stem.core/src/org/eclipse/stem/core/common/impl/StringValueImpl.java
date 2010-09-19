@@ -13,7 +13,7 @@ package org.eclipse.stem.core.common.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.StringValue;
@@ -31,7 +31,7 @@ import org.eclipse.stem.core.common.StringValue;
  *
  * @generated
  */
-public class StringValueImpl extends EObjectImpl implements StringValue {
+public class StringValueImpl extends CDOObjectImpl implements StringValue {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -155,20 +155,19 @@ public class StringValueImpl extends EObjectImpl implements StringValue {
 	/**
 	 * Need to override to make sure modifiers can find
 	 */
-	@Override
-	public int hashCode() {
-		Identifiable id = findIdentifiable(this);
-		
-		
-		if(id!=null) 
-			return id.getURI().hashCode() ^
-			this.eContainingFeature().getName().hashCode();
-			
-		return this.hashCode();
-	}
+//	@Override
+//	public int hashCode() {
+//		Identifiable id = findIdentifiable(this);
+//		
+//		
+//		if(id!=null) 
+//			return id.getURI().hashCode() ^
+//			this.eContainingFeature().getName().hashCode();
+//			
+//		return this.hashCode();
+//	}
 	
-	@Override
-	public boolean equals(Object o) {
+	public boolean valueEquals(Object o) {
 		if(!(o instanceof DoubleValueImpl)) return false;
 		DoubleValueImpl dvi = (DoubleValueImpl)o;
 		Identifiable id = findIdentifiable(dvi);

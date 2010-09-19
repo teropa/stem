@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Label;
 
@@ -36,7 +36,7 @@ import org.eclipse.stem.core.graph.Label;
  *
  * @generated
  */
-public class URIToLabelMapEntryImpl extends EObjectImpl implements BasicEMap.Entry<URI,Label> {
+public class URIToLabelMapEntryImpl extends CDOObjectImpl implements BasicEMap.Entry<URI,Label> {
 	/**
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->

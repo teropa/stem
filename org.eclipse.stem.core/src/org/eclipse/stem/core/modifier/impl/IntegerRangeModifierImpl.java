@@ -159,7 +159,7 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 	 */
 	public int getNextValue() {
 		// Unset?
-		if (!eIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__NEXT_VALUE)) {
+		if (!eDynamicIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
 			setNextValue(getStartValue());
 		} // if

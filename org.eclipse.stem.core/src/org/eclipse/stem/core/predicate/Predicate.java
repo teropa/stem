@@ -12,9 +12,10 @@ package org.eclipse.stem.core.predicate;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.core.modifier.Modifier;
 import org.eclipse.stem.core.trigger.Trigger;
 
 /**
@@ -37,7 +38,7 @@ import org.eclipse.stem.core.trigger.Trigger;
  * @see Modifier
  * @model abstract="true"
  */
-public interface Predicate extends EObject {
+public interface Predicate extends CDOObject {
 
 	/**
 	 * Determine if a particular condition is <code>true</code> or

@@ -13,7 +13,7 @@ package org.eclipse.stem.core.graph.impl;
  
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
@@ -35,7 +35,7 @@ import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
  *
  * @generated
  */
-public class UnresolvedIdentifiableImpl extends EObjectImpl implements
+public class UnresolvedIdentifiableImpl extends CDOObjectImpl implements
 		UnresolvedIdentifiable {
 	/**
 	 * The default value of the '{@link #getUnresolvedURI() <em>Unresolved URI</em>}' attribute.

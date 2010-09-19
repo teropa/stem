@@ -12,10 +12,9 @@ package org.eclipse.stem.core.model;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.lang.Comparable;
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * A <code>STEMTime</code> instance represents a point in time in in the STEM
@@ -25,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @model
  */
-public interface STEMTime extends EObject, Comparable<STEMTime> {
+public interface STEMTime extends CDOObject, Comparable<STEMTime> {
 
 	/**
 	 * This is an enumeration of different common time units with their duration
@@ -78,14 +77,7 @@ public interface STEMTime extends EObject, Comparable<STEMTime> {
 	STEMTime addIncrement(long timeIncrement);
 
 	/**
-	 * @see java.lang.Object#hashCode()
 	 * @model volatile="true" transient="true" changeable="false"
 	 */
-	int hashCode();
-
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 * @model volatile="true" transient="true" changeable="false"
-	 */
-	boolean equals(Object obj);
+	boolean valueEquals(STEMTime other);
 } // STEMTime

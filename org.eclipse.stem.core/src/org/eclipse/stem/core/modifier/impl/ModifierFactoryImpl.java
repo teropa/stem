@@ -85,26 +85,26 @@ public class ModifierFactoryImpl extends EFactoryImpl implements ModifierFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ModifierPackage.DOUBLE_NOP_MODIFIER: return createDoubleNOPModifier();
-			case ModifierPackage.DOUBLE_RANGE_MODIFIER: return createDoubleRangeModifier();
-			case ModifierPackage.DOUBLE_SEQUENCE_MODIFIER: return createDoubleSequenceModifier();
-			case ModifierPackage.INTEGER_NOP_MODIFIER: return createIntegerNOPModifier();
-			case ModifierPackage.INTEGER_RANGE_MODIFIER: return createIntegerRangeModifier();
-			case ModifierPackage.INTEGER_SEQUENCE_MODIFIER: return createIntegerSequenceModifier();
-			case ModifierPackage.LONG_NOP_MODIFIER: return createLongNOPModifier();
-			case ModifierPackage.LONG_RANGE_MODIFIER: return createLongRangeModifier();
-			case ModifierPackage.LONG_SEQUENCE_MODIFIER: return createLongSequenceModifier();
-			case ModifierPackage.MODIFIER: return createModifier();
-			case ModifierPackage.NOP_MODIFIER: return createNOPModifier();
-			case ModifierPackage.STEM_TIME_NOP_MODIFIER: return createSTEMTimeNOPModifier();
-			case ModifierPackage.STEM_TIME_RANGE_MODIFIER: return createSTEMTimeRangeModifier();
-			case ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER: return createSTEMTimeSequenceModifier();
-			case ModifierPackage.STRING_NOP_MODIFIER: return createStringNOPModifier();
-			case ModifierPackage.STRING_SEQUENCE_MODIFIER: return createStringSequenceModifier();
-			case ModifierPackage.DOUBLE_MODIFIER: return createDoubleModifier();
-			case ModifierPackage.INTEGER_MODIFIER: return createIntegerModifier();
-			case ModifierPackage.LONG_MODIFIER: return createLongModifier();
-			case ModifierPackage.STEM_TIME_MODIFIER: return createSTEMTimeModifier();
+			case ModifierPackage.DOUBLE_NOP_MODIFIER: return (EObject)createDoubleNOPModifier();
+			case ModifierPackage.DOUBLE_RANGE_MODIFIER: return (EObject)createDoubleRangeModifier();
+			case ModifierPackage.DOUBLE_SEQUENCE_MODIFIER: return (EObject)createDoubleSequenceModifier();
+			case ModifierPackage.INTEGER_NOP_MODIFIER: return (EObject)createIntegerNOPModifier();
+			case ModifierPackage.INTEGER_RANGE_MODIFIER: return (EObject)createIntegerRangeModifier();
+			case ModifierPackage.INTEGER_SEQUENCE_MODIFIER: return (EObject)createIntegerSequenceModifier();
+			case ModifierPackage.LONG_NOP_MODIFIER: return (EObject)createLongNOPModifier();
+			case ModifierPackage.LONG_RANGE_MODIFIER: return (EObject)createLongRangeModifier();
+			case ModifierPackage.LONG_SEQUENCE_MODIFIER: return (EObject)createLongSequenceModifier();
+			case ModifierPackage.MODIFIER: return (EObject)createModifier();
+			case ModifierPackage.NOP_MODIFIER: return (EObject)createNOPModifier();
+			case ModifierPackage.STEM_TIME_NOP_MODIFIER: return (EObject)createSTEMTimeNOPModifier();
+			case ModifierPackage.STEM_TIME_RANGE_MODIFIER: return (EObject)createSTEMTimeRangeModifier();
+			case ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER: return (EObject)createSTEMTimeSequenceModifier();
+			case ModifierPackage.STRING_NOP_MODIFIER: return (EObject)createStringNOPModifier();
+			case ModifierPackage.STRING_SEQUENCE_MODIFIER: return (EObject)createStringSequenceModifier();
+			case ModifierPackage.DOUBLE_MODIFIER: return (EObject)createDoubleModifier();
+			case ModifierPackage.INTEGER_MODIFIER: return (EObject)createIntegerModifier();
+			case ModifierPackage.LONG_MODIFIER: return (EObject)createLongModifier();
+			case ModifierPackage.STEM_TIME_MODIFIER: return (EObject)createSTEMTimeModifier();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

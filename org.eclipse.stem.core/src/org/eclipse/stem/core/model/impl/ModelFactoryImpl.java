@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-//import org.eclipse.stem.core.model.*;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.EdgeDecorator;
 import org.eclipse.stem.core.model.GraphDecorator;
@@ -73,12 +71,12 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ModelPackage.DECORATOR: return createDecorator();
-			case ModelPackage.EDGE_DECORATOR: return createEdgeDecorator();
-			case ModelPackage.GRAPH_DECORATOR: return createGraphDecorator();
-			case ModelPackage.MODEL: return createModel();
-			case ModelPackage.NODE_DECORATOR: return createNodeDecorator();
-			case ModelPackage.STEM_TIME: return createSTEMTime();
+			case ModelPackage.DECORATOR: return (EObject)createDecorator();
+			case ModelPackage.EDGE_DECORATOR: return (EObject)createEdgeDecorator();
+			case ModelPackage.GRAPH_DECORATOR: return (EObject)createGraphDecorator();
+			case ModelPackage.MODEL: return (EObject)createModel();
+			case ModelPackage.NODE_DECORATOR: return (EObject)createNodeDecorator();
+			case ModelPackage.STEM_TIME: return (EObject)createSTEMTime();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

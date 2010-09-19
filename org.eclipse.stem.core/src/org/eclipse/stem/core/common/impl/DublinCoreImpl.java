@@ -18,7 +18,7 @@ import java.util.Date;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DublinCore;
 
@@ -54,7 +54,7 @@ import org.eclipse.stem.core.common.DublinCore;
  *
  * @generated
  */
-public class DublinCoreImpl extends EObjectImpl implements DublinCore {
+public class DublinCoreImpl extends CDOObjectImpl implements DublinCore {
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -281,6 +281,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 	 * @generated NOT
 	 */
 	public DublinCoreImpl(IConfigurationElement configElement) {
+		super();
 		setTitle(configElement.getAttribute("title"));
 		setCreator(configElement.getAttribute("creator"));
 		setSubject(configElement.getAttribute("subject"));

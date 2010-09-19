@@ -12,6 +12,7 @@ package org.eclipse.stem.core.modifier;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import java.lang.String;
 import java.util.List;
 
@@ -27,7 +28,7 @@ import org.eclipse.stem.core.common.SanityChecker;
  * @model abstract="true"
  * @implements SanityChecker
  */
-public interface FeatureModifier extends EObject, SanityChecker {
+public interface FeatureModifier extends CDOObject, SanityChecker {
 	
 	/**
 	 * @return the {@link Identifiable} that will be modified.

@@ -159,7 +159,7 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 	 */
 	public long getNextValue() {
 		// Unset?
-		if (!eIsSet(ModifierPackage.LONG_RANGE_MODIFIER__NEXT_VALUE)) {
+		if (!eDynamicIsSet(ModifierPackage.LONG_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
 			setNextValue(getStartValue());
 		} // if

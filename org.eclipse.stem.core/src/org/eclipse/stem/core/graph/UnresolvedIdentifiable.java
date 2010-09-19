@@ -12,9 +12,10 @@ package org.eclipse.stem.core.graph;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
+import org.eclipse.stem.core.model.Model;
 
 /**
  * An <code>UnresolvedIdentifiable</code> is created during the generation of
@@ -29,7 +30,7 @@ import org.eclipse.stem.core.common.Identifiable;
  * 
  * @model
  */
-public interface UnresolvedIdentifiable extends EObject {
+public interface UnresolvedIdentifiable extends CDOObject {
 
 	/**
 	 * This is the {@link org.eclipse.stem.core.scenario.Scenario} that

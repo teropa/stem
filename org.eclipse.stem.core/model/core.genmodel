@@ -4,7 +4,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.core/src"
     editDirectory="/org.eclipse.stem.core/src" editorDirectory="/org.eclipse.stem.ui/src"
     modelPluginID="org.eclipse.stem.core" modelName="Core" modelPluginClass="" editorPluginClass="org.eclipse.stem.core.common.presentation.CoreEditorPlugin"
-    nonNLSMarkers="true" testsDirectory="/org.eclipse.stem.tests.core/src" importerID="org.eclipse.emf.importer.ecore"
+    nonNLSMarkers="true" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    rootImplementsInterface="" testsDirectory="/org.eclipse.stem.tests.core/src" importerID="org.eclipse.emf.importer.ecore"
     featureDelegation="Dynamic" complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <foreignModel>common.ecore</foreignModel>
   <foreignModel>experiment.ecore</foreignModel>
@@ -17,6 +18,7 @@
   <foreignModel>trigger.ecore</foreignModel>
   <foreignModel>solver.ecore</foreignModel>
   <foreignModel>graphgenerator.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Common" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
       contentTypeIdentifier="" ecorePackage="common.ecore#/">

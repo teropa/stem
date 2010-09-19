@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.GraphPackage;
 
@@ -37,7 +37,7 @@ import org.eclipse.stem.core.graph.GraphPackage;
  *
  * @generated
  */
-public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicEMap.Entry<URI,Identifiable> {
+public class URIToIdentifiableMapEntryImpl extends CDOObjectImpl implements BasicEMap.Entry<URI,Identifiable> {
 	/**
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->

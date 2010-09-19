@@ -10,7 +10,7 @@ package org.eclipse.stem.core.common;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.stem.core.common.CommonPackage#getIdentifiableFilter()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface IdentifiableFilter extends EObject {
+public interface IdentifiableFilter extends CDOObject {
 } // IdentifiableFilter

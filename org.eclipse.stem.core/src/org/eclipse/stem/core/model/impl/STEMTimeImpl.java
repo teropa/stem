@@ -15,7 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.STEMTime;
@@ -32,7 +32,7 @@ import org.eclipse.stem.core.model.STEMTime;
  *
  * @generated
  */
-public class STEMTimeImpl extends EObjectImpl implements STEMTime {
+public class STEMTimeImpl extends CDOObjectImpl implements STEMTime {
 	/**
 	 * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -120,26 +120,23 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public int hashCode() {
-		final int PRIME = 31;
-		int result = 1;
-		result = PRIME * result + ((getTime() == null) ? 0 : getTime().hashCode());
-		return result;
-	}
+//	public int hashCode() {
+//		final int PRIME = 31;
+//		int result = 1;
+//		result = PRIME * result + ((getTime() == null) ? 0 : getTime().hashCode());
+//		return result;
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean valueEquals(STEMTime other) {
+		if (this == other)
 			return true;
-		if (obj == null)
+		if (other == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		final STEMTimeImpl other = (STEMTimeImpl) obj;
 		if (getTime() == null) {
 			if (other.getTime() != null)
 				return false;

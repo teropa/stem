@@ -65,16 +65,16 @@ public class PredicateFactoryImpl extends EFactoryImpl implements PredicateFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PredicatePackage.AND: return createAnd();
-			case PredicatePackage.FALSE: return createFalse();
-			case PredicatePackage.NOT: return createNot();
-			case PredicatePackage.OR: return createOr();
-			case PredicatePackage.PREDICATE_REFERENCE: return createPredicateReference();
-			case PredicatePackage.TRUE: return createTrue();
-			case PredicatePackage.PREDICATE_EXPRESSION: return createPredicateExpression();
-			case PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION: return createIdentifiablePredicateExpression();
-			case PredicatePackage.ABSOLUTE_TIME_TEST: return createAbsoluteTimeTest();
-			case PredicatePackage.ELAPSED_TIME_TEST: return createElapsedTimeTest();
+			case PredicatePackage.AND: return (EObject)createAnd();
+			case PredicatePackage.FALSE: return (EObject)createFalse();
+			case PredicatePackage.NOT: return (EObject)createNot();
+			case PredicatePackage.OR: return (EObject)createOr();
+			case PredicatePackage.PREDICATE_REFERENCE: return (EObject)createPredicateReference();
+			case PredicatePackage.TRUE: return (EObject)createTrue();
+			case PredicatePackage.PREDICATE_EXPRESSION: return (EObject)createPredicateExpression();
+			case PredicatePackage.IDENTIFIABLE_PREDICATE_EXPRESSION: return (EObject)createIdentifiablePredicateExpression();
+			case PredicatePackage.ABSOLUTE_TIME_TEST: return (EObject)createAbsoluteTimeTest();
+			case PredicatePackage.ELAPSED_TIME_TEST: return (EObject)createElapsedTimeTest();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

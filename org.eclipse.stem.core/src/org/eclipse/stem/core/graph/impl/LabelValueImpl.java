@@ -10,9 +10,9 @@ package org.eclipse.stem.core.graph.impl;
  * Contributors: 
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
- 
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.LabelValue;
 
@@ -24,7 +24,7 @@ import org.eclipse.stem.core.graph.LabelValue;
  *
  * @generated
  */
-public abstract class LabelValueImpl extends EObjectImpl implements LabelValue {
+public abstract class LabelValueImpl extends CDOObjectImpl implements LabelValue {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

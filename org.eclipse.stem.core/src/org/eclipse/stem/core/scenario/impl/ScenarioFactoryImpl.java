@@ -65,7 +65,7 @@ public class ScenarioFactoryImpl extends EFactoryImpl implements ScenarioFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ScenarioPackage.SCENARIO: return createScenario();
+			case ScenarioPackage.SCENARIO: return (EObject)createScenario();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

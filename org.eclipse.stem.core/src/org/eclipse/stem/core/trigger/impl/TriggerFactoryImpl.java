@@ -65,7 +65,7 @@ public class TriggerFactoryImpl extends EFactoryImpl implements TriggerFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TriggerPackage.TRIGGER: return createTrigger();
+			case TriggerPackage.TRIGGER: return (EObject)createTrigger();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

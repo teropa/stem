@@ -66,7 +66,7 @@ public class ExperimentFactoryImpl extends EFactoryImpl implements
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExperimentPackage.EXPERIMENT: return createExperiment();
+			case ExperimentPackage.EXPERIMENT: return (EObject)createExperiment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

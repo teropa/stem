@@ -12,7 +12,7 @@ package org.eclipse.stem.core.graph;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.stem.core.common.SanityChecker;
 
 /**
@@ -24,7 +24,7 @@ import org.eclipse.stem.core.common.SanityChecker;
  * 
  * @model abstract="true"
  */
-public interface LabelValue extends EObject, SanityChecker {
+public interface LabelValue extends CDOObject, SanityChecker {
 
 	/**
 	 * @model volatile="true" transient="true" changeable="false"

@@ -10,9 +10,8 @@ package org.eclipse.stem.core.common;
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,9 +27,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.stem.core.common.CommonPackage#getDoubleValueMatrix()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface DoubleValueMatrix extends EObject {
+public interface DoubleValueMatrix extends CDOObject {
 	/**
 	 * Returns the value of the '<em><b>Value Lists</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.stem.core.common.DoubleValueList}.

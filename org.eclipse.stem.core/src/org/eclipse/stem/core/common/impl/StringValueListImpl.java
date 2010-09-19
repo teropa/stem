@@ -17,8 +17,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
@@ -36,7 +36,7 @@ import org.eclipse.stem.core.common.StringValueList;
  *
  * @generated
  */
-public class StringValueListImpl extends EObjectImpl implements StringValueList {
+public class StringValueListImpl extends CDOObjectImpl implements StringValueList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

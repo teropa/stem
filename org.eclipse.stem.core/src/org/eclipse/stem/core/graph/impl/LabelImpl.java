@@ -122,7 +122,8 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	 */
 	public URI getURIOfIdentifiableToBeLabeled() {
 		// Is it set?
-		if (getURIOfIdentifiableToBeLabeled() == null) {
+		URI uRIOfIdentifiableToBeLabeled = (URI)eDynamicGet(GraphPackage.LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED, GraphPackage.Literals.LABEL__URI_OF_IDENTIFIABLE_TO_BE_LABELED, true, true);
+		if (uRIOfIdentifiableToBeLabeled == null) {
 			// No
 			final Identifiable identifiable = getIdentifiable();
 			// Do we have an Identifiable?
@@ -131,7 +132,7 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 				return identifiable.getURI();
 			}
 		}
-		return getURIOfIdentifiableToBeLabeled();
+		return uRIOfIdentifiableToBeLabeled;
 	} // getURIOfIdentifiableToBeLabeled
 
 	/**

@@ -15,9 +15,9 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.Constants;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.CommonFactory;
@@ -40,7 +40,7 @@ import org.eclipse.stem.core.common.Identifiable;
  *
  * @generated
  */
-public abstract class IdentifiableImpl extends EObjectImpl implements
+public abstract class IdentifiableImpl extends CDOObjectImpl implements
 		Identifiable {
 
 

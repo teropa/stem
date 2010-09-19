@@ -148,7 +148,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	 */
 	public double getNextValue() {
 		// Unset?
-		if (!eIsSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE)) {
+		if (!eDynamicIsSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
 			setNextValue(getStartValue());
 		} // if

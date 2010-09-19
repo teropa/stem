@@ -13,7 +13,7 @@ package org.eclipse.stem.core.modifier;
  *******************************************************************************/
 
 import org.eclipse.core.runtime.IAdapterFactory;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.stem.core.common.Identifiable;
 
 /**
@@ -49,6 +49,6 @@ import org.eclipse.stem.core.common.Identifiable;
  * 
  * @model interface="true"
  */
-public interface Modifiable extends EObject {
+public interface Modifiable extends CDOObject {
 	// Nothing
 } // Modifiable

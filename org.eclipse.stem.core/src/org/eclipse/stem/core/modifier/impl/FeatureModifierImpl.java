@@ -14,7 +14,7 @@ package org.eclipse.stem.core.modifier.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -36,7 +36,7 @@ import org.eclipse.stem.core.modifier.ModifierPackage;
  *
  * @generated
  */
-public abstract class FeatureModifierImpl extends EObjectImpl implements FeatureModifier {
+public abstract class FeatureModifierImpl extends CDOObjectImpl implements FeatureModifier {
 	/**
 	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -136,7 +136,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 */
 	public EStructuralFeature getEStructuralFeature() {
 		// Is it set yet?
-		if (!eIsSet(ModifierPackage.eINSTANCE.getFeatureModifier_EStructuralFeature())) {
+		if (!eDynamicIsSet(ModifierPackage.eINSTANCE.getFeatureModifier_EStructuralFeature())) {
 			// No			
 			eDynamicSet(ModifierPackage.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, ModifierPackage.Literals.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, getTarget().eClass().getEStructuralFeature(getFeatureId()));
 		} // if 

@@ -228,13 +228,13 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	 */
 	public STEMTime getNextValue() {
 		// Unset?
-		if (!eIsSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE)) {
+		if (!eDynamicIsSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
 			setNextValue(getStartValue());
 		} // if
 
 		final STEMTime retValue = (STEMTime)eDynamicGet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, ModifierPackage.Literals.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE, false, true);
-		complete = retValue.equals(getEndValue());
+		complete = retValue.valueEquals(getEndValue());
 
 		// Still incrementing?
 		if (!complete) {

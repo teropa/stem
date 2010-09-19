@@ -77,13 +77,13 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CommonPackage.DUBLIN_CORE: return createDublinCore();
-			case CommonPackage.IDENTIFIABLE_FILTER: return createIdentifiableFilter();
-			case CommonPackage.DOUBLE_VALUE_LIST: return createDoubleValueList();
-			case CommonPackage.DOUBLE_VALUE_MATRIX: return createDoubleValueMatrix();
-			case CommonPackage.DOUBLE_VALUE: return createDoubleValue();
-			case CommonPackage.STRING_VALUE_LIST: return createStringValueList();
-			case CommonPackage.STRING_VALUE: return createStringValue();
+			case CommonPackage.DUBLIN_CORE: return (EObject)createDublinCore();
+			case CommonPackage.IDENTIFIABLE_FILTER: return (EObject)createIdentifiableFilter();
+			case CommonPackage.DOUBLE_VALUE_LIST: return (EObject)createDoubleValueList();
+			case CommonPackage.DOUBLE_VALUE_MATRIX: return (EObject)createDoubleValueMatrix();
+			case CommonPackage.DOUBLE_VALUE: return (EObject)createDoubleValue();
+			case CommonPackage.STRING_VALUE_LIST: return (EObject)createStringValueList();
+			case CommonPackage.STRING_VALUE: return (EObject)createStringValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

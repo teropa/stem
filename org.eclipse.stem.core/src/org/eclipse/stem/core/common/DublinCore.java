@@ -14,7 +14,8 @@ package org.eclipse.stem.core.common;
 
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
+import org.eclipse.stem.core.graph.Graph;
 
 /**
  * A <code>DublinCore</code> instance records a set of attributes that describe
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @model
  */
-public interface DublinCore extends EObject {
+public interface DublinCore extends CDOObject {
 
 	/**
 	 * The XML attribute name for the "Format" of the resource.

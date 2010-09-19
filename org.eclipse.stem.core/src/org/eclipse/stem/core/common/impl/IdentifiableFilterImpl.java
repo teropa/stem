@@ -16,9 +16,7 @@ import java.util.StringTokenizer;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.graph.Edge;
@@ -35,7 +33,7 @@ import org.eclipse.stem.core.graph.NodeLabel;
  *
  * @generated
  */
-public class IdentifiableFilterImpl extends EObjectImpl implements IdentifiableFilter {
+public class IdentifiableFilterImpl extends CDOObjectImpl implements IdentifiableFilter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,6 +65,7 @@ public class IdentifiableFilterImpl extends EObjectImpl implements IdentifiableF
 
 	private String []patterns;
 	public IdentifiableFilterImpl(String filter) {
+		super();
 		if(filter == null)return;
 		if(filter.contains(":"))return; // Internal use by STEM, not specified by the user
 		if(filter.trim().equals(""))return;

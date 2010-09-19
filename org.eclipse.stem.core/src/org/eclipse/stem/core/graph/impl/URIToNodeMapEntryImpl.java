@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Node;
 
@@ -36,7 +36,7 @@ import org.eclipse.stem.core.graph.Node;
  *
  * @generated
  */
-public class URIToNodeMapEntryImpl extends EObjectImpl implements BasicEMap.Entry<URI,Node> {
+public class URIToNodeMapEntryImpl extends CDOObjectImpl implements BasicEMap.Entry<URI,Node> {
 	/**
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -70,7 +70,7 @@ public class SolverExample {
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.solver")); //$NON-NLS-1$
 				Solver root = SolverFactory.eINSTANCE.createSolver();
-				resource.getContents().add(root);
+				resource.getContents().add((EObject)root);
 				resource.save(System.out, null);
 			}
 			catch (IOException exception) {
