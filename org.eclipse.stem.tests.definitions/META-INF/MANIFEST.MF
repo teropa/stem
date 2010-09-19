@@ -15,6 +15,7 @@ Export-Package: org.eclipse.stem.definitions.adapters.relativevalue,
  org.eclipse.stem.definitions.nodes.tests
 Require-Bundle: org.eclipse.stem.definitions;visibility:=reexport,
  org.eclipse.stem.tests.core,
- org.eclipse.stem.tests.util
+ org.eclipse.stem.tests.util,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

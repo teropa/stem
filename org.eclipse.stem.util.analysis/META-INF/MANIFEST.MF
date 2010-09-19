@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.birt.chart.engine;visibility:=reexport,
  org.eclipse.stem.definitions,
  org.eclipse.stem.data.geography,
  org.eclipse.stem.diseasemodels,
- org.eclipse.stem.analysis
+ org.eclipse.stem.analysis,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.util.analysis,
  org.eclipse.stem.util.analysis.views

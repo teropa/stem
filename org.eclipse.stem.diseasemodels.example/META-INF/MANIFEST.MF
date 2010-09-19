@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.stem.diseasemodels;visibility:=reexport,
  org.eclipse.stem.core;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.diseasemodels.example;uses:="org.eclipse.stem.diseasemodels.standard,org.eclipse.emf.ecore",
  org.eclipse.stem.diseasemodels.example.impl;

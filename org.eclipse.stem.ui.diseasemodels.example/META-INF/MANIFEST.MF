@@ -12,5 +12,6 @@ Export-Package: org.eclipse.stem.ui.diseasemodels.example.presentation
 Require-Bundle: org.eclipse.stem.diseasemodels.example;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.stem.ui,
- org.eclipse.stem.ui.diseasemodels
+ org.eclipse.stem.ui.diseasemodels,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy

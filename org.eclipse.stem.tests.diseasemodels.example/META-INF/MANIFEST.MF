@@ -11,5 +11,6 @@ Export-Package: org.eclipse.stem.diseasemodels.example.tests
 Require-Bundle: org.eclipse.stem.diseasemodels;visibility:=reexport,
  org.eclipse.stem.diseasemodels.example,
  org.eclipse.stem.tests.diseasemodels,
- org.junit;visibility:=reexport
+ org.junit;visibility:=reexport,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy

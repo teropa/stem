@@ -8,7 +8,8 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.stem.jobs,
  org.junit,
- org.eclipse.stem.tests.diseasemodels
+ org.eclipse.stem.tests.diseasemodels,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.sample,
  org.eclipse.stem.sample.adaption

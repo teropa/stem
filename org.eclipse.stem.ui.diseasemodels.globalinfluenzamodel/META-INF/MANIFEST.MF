@@ -21,5 +21,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.stem.definitions;visibility:=reexport,
  org.eclipse.stem.ui.diseasemodels,
- org.eclipse.stem.ui
+ org.eclipse.stem.ui,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy

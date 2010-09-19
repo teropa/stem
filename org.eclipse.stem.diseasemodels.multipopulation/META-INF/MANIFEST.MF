@@ -36,6 +36,7 @@ Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.stem.diseasemodels;visibility:=reexport,
  org.eclipse.stem.core;visibility:=reexport,
  org.eclipse.stem.definitions,
- org.eclipse.stem.populationmodels;visibility:=reexport
+ org.eclipse.stem.populationmodels;visibility:=reexport,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipse.stem.diseasemodels.multipopulation.Activator

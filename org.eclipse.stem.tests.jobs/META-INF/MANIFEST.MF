@@ -7,6 +7,7 @@ Bundle-Activator: org.eclipse.stem.tests.jobs.Activator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.stem.jobs,
- org.eclipse.stem.tests.core
+ org.eclipse.stem.tests.core,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

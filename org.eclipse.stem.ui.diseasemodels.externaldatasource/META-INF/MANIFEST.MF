@@ -12,5 +12,6 @@ Export-Package: org.eclipse.stem.diseasemodels.externaldatasource.presentation
 Require-Bundle: org.eclipse.stem.diseasemodels.externaldatasource;visibility:=reexport,
  org.eclipse.stem.util.loggers,
  org.eclipse.stem.ui.diseasemodels,
- org.eclipse.stem.ui
+ org.eclipse.stem.ui,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy

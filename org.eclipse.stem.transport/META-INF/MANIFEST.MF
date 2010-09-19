@@ -10,5 +10,6 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.stem.definitions.transport,
  org.eclipse.stem.definitions.transport.impl,
  org.eclipse.stem.definitions.transport.util
-Require-Bundle: org.eclipse.stem.definitions;visibility:=reexport
+Require-Bundle: org.eclipse.stem.definitions;visibility:=reexport,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy

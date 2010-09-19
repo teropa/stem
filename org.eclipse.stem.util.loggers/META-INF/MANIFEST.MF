@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.birt.chart.engine;visibility:=reexport,
  org.eclipse.stem.diseasemodels,
  org.eclipse.stem.jobs,
  org.eclipse.stem.populationmodels,
- org.eclipse.stem.diseasemodels.multipopulation
+ org.eclipse.stem.diseasemodels.multipopulation,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.stem.util.loggers,
  org.eclipse.stem.util.loggers.views
