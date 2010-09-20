@@ -446,29 +446,32 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @param time Reference time
 	 */
 	public void reset(STEMTime time) {
-		StandardPopulationModel spm = (StandardPopulationModel)this.getDecorator();
-		PopulationLabel plabel = this.getPopulationLabel();
-		int year = plabel.getValidYear();
-		Calendar c = Calendar.getInstance();
-		c.setTime(time.getTime());
-		int startYear = c.get(Calendar.YEAR);
-		double growth = spm.getBirthRate() - spm.getDeathRate();
-		double dailyGrowth = (spm.getTimePeriod() / 86400000.0)*growth;
-		double diff = ((double)startYear - (double)year)*365.25; // approx
-		double currentPopulation = ((StandardPopulationModelLabelValue)this.getCurrentValue()).getCount();
-		dailyGrowth = 1.0 + dailyGrowth;
-		double newPopulation = currentPopulation * Math.pow(dailyGrowth, diff);
-		((StandardPopulationModelLabelValue)this.getCurrentValue()).setCount(newPopulation);	
-		// Store the additions/substractions in the delta value so that disease models can
-		// adjust their counts
-		double popdiff = newPopulation - currentPopulation;
-		if(popdiff > 0.0) {
-			((SimpleDataExchangeLabelValue)this.getDeltaValue()).getArrivals().put(this.getNode(), popdiff);
-			this.getDeltaValue().setBirths(popdiff);
-		}
-		else {
-			((SimpleDataExchangeLabelValue)this.getDeltaValue()).getDepartures().put(this.getNode(), -popdiff);
-			(this.getDeltaValue()).setDeaths(-popdiff);
+		// Only rewind population if it's a standard population model
+		if(this.getDecorator() instanceof StandardPopulationModel) {
+			StandardPopulationModel spm = (StandardPopulationModel)this.getDecorator();
+			PopulationLabel plabel = this.getPopulationLabel();
+			int year = plabel.getValidYear();
+			Calendar c = Calendar.getInstance();
+			c.setTime(time.getTime());
+			int startYear = c.get(Calendar.YEAR);
+			double growth = spm.getBirthRate() - spm.getDeathRate();
+			double dailyGrowth = (spm.getTimePeriod() / 86400000.0)*growth;
+			double diff = ((double)startYear - (double)year)*365.25; // approx
+			double currentPopulation = ((StandardPopulationModelLabelValue)this.getCurrentValue()).getCount();
+			dailyGrowth = 1.0 + dailyGrowth;
+			double newPopulation = currentPopulation * Math.pow(dailyGrowth, diff);
+			((StandardPopulationModelLabelValue)this.getCurrentValue()).setCount(newPopulation);	
+			// Store the additions/substractions in the delta value so that disease models can
+			// adjust their counts
+			double popdiff = newPopulation - currentPopulation;
+			if(popdiff > 0.0) {
+				((SimpleDataExchangeLabelValue)this.getDeltaValue()).getArrivals().put(this.getNode(), popdiff);
+				this.getDeltaValue().setBirths(popdiff);
+			}
+			else {
+				((SimpleDataExchangeLabelValue)this.getDeltaValue()).getDepartures().put(this.getNode(), -popdiff);
+				(this.getDeltaValue()).setDeaths(-popdiff);
+			}
 		}
 	}
 

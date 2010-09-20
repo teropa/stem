@@ -1759,6 +1759,143 @@ public interface StandardPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl <em>Mosquito Population Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl
+	 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getMosquitoPopulationModel()
+	 * @generated
+	 */
+	int MOSQUITO_POPULATION_MODEL = 17;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__URI = POPULATION_MODEL__URI;
+
+	/**
+	 * The feature id for the '<em><b>Type URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__TYPE_URI = POPULATION_MODEL__TYPE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Dublin Core</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__DUBLIN_CORE = POPULATION_MODEL__DUBLIN_CORE;
+
+	/**
+	 * The feature id for the '<em><b>Labels To Update</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__LABELS_TO_UPDATE = POPULATION_MODEL__LABELS_TO_UPDATE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__GRAPH = POPULATION_MODEL__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__ENABLED = POPULATION_MODEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__GRAPH_DECORATED = POPULATION_MODEL__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__PROGRESS = POPULATION_MODEL__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Population Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__POPULATION_IDENTIFIER = POPULATION_MODEL__POPULATION_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__NAME = POPULATION_MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Target ISO Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__TARGET_ISO_KEY = POPULATION_MODEL__TARGET_ISO_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Scaling Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__SCALING_FACTOR = POPULATION_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Time Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__TIME_PERIOD = POPULATION_MODEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Mosquito Population Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL_FEATURE_COUNT = POPULATION_MODEL_FEATURE_COUNT + 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.PopulationModel <em>Population Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2262,6 +2399,38 @@ public interface StandardPackage extends EPackage {
 	EClass getYetiPopulationInitializer();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel <em>Mosquito Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mosquito Population Model</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel
+	 * @generated
+	 */
+	EClass getMosquitoPopulationModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getScalingFactor <em>Scaling Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scaling Factor</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getScalingFactor()
+	 * @see #getMosquitoPopulationModel()
+	 * @generated
+	 */
+	EAttribute getMosquitoPopulationModel_ScalingFactor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getTimePeriod <em>Time Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Period</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getTimePeriod()
+	 * @see #getMosquitoPopulationModel()
+	 * @generated
+	 */
+	EAttribute getMosquitoPopulationModel_TimePeriod();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2692,6 +2861,32 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YETI_POPULATION_INITIALIZER = eINSTANCE.getYetiPopulationInitializer();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl <em>Mosquito Population Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl
+		 * @see org.eclipse.stem.populationmodels.standard.impl.StandardPackageImpl#getMosquitoPopulationModel()
+		 * @generated
+		 */
+		EClass MOSQUITO_POPULATION_MODEL = eINSTANCE.getMosquitoPopulationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Scaling Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOSQUITO_POPULATION_MODEL__SCALING_FACTOR = eINSTANCE.getMosquitoPopulationModel_ScalingFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Time Period</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOSQUITO_POPULATION_MODEL__TIME_PERIOD = eINSTANCE.getMosquitoPopulationModel_TimePeriod();
 
 	}
 
