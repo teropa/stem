@@ -30,6 +30,12 @@ public class StandardPopulationModelPropertyEditorAdapterFactory extends
 		return new StandardPopulationModelPropertyEditorAdapter();
 	}
 
+
+	@Override
+	public Adapter createMosquitoPopulationModelAdapter() {
+		return new MosquitoPopulationModelPropertyEditorAdapter();
+	}
+	
 	@Override
 	public boolean isFactoryForType(Object type) {
 		return type == PopulationModelPropertyEditorAdapter.class

@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.SeasonalPopulationModel;
@@ -214,35 +215,55 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 		super.populate(populationModel);
 		
 		for (final Map.Entry<EStructuralFeature, Text> entry : map.entrySet()) {
-			switch (entry.getKey().getFeatureID()) {
-			case StandardPackage.STANDARD_POPULATION_MODEL__POPULATION_IDENTIFIER:
-				((StandardPopulationModel)populationModel).setPopulationIdentifier(entry.getValue().getText());
-				break;
-			case StandardPackage.STANDARD_POPULATION_MODEL__NAME:
-				((StandardPopulationModel)populationModel).setName(entry.getValue().getText());
-				break;
-			case StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE:
-				((StandardPopulationModel)populationModel)
-						.setBirthRate(Double.parseDouble(entry.getValue().getText().trim()));
-				break;
-			case StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE:
-				((StandardPopulationModel)populationModel)
-				.setDeathRate(Double.parseDouble(entry.getValue().getText().trim()));
-				break;
-			case StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD:
-				((StandardPopulationModel)populationModel)
-				.setTimePeriod(Long.parseLong(entry.getValue().getText().trim()));
-				break;
-			case StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE:
-				((SeasonalPopulationModel)populationModel)
-				.setModulationAmplitude(Double.parseDouble(entry.getValue().getText().trim()));
-				break;
-			case StandardPackage.SEASONAL_POPULATION_MODEL__PHASE:
-				((SeasonalPopulationModel)populationModel)
-				.setPhase(Double.parseDouble(entry.getValue().getText().trim()));
-				break;
-			default:
-				break;
+			if(populationModel instanceof StandardPopulationModel) {
+				switch (entry.getKey().getFeatureID()) {
+					case StandardPackage.STANDARD_POPULATION_MODEL__POPULATION_IDENTIFIER:
+						((StandardPopulationModel)populationModel).setPopulationIdentifier(entry.getValue().getText());
+						break;
+					case StandardPackage.STANDARD_POPULATION_MODEL__NAME:
+						((StandardPopulationModel)populationModel).setName(entry.getValue().getText());
+						break;
+					case StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE:
+						((StandardPopulationModel)populationModel)
+								.setBirthRate(Double.parseDouble(entry.getValue().getText().trim()));
+						break;
+					case StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE:
+						((StandardPopulationModel)populationModel)
+						.setDeathRate(Double.parseDouble(entry.getValue().getText().trim()));
+						break;
+					case StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD:
+						((StandardPopulationModel)populationModel)
+						.setTimePeriod(Long.parseLong(entry.getValue().getText().trim()));
+						break;
+					default:
+						break;
+				}
+			} else if (populationModel instanceof SeasonalPopulationModel) {
+				switch (entry.getKey().getFeatureID()) {
+					case StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE:
+						((SeasonalPopulationModel)populationModel)
+						.setModulationAmplitude(Double.parseDouble(entry.getValue().getText().trim()));
+						break;
+					case StandardPackage.SEASONAL_POPULATION_MODEL__PHASE:
+						((SeasonalPopulationModel)populationModel)
+						.setPhase(Double.parseDouble(entry.getValue().getText().trim()));
+						break;
+					default:
+						break;	
+				}
+			} else if (populationModel instanceof MosquitoPopulationModel) {
+				switch (entry.getKey().getFeatureID()) {
+				case StandardPackage.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR:
+					((MosquitoPopulationModel)populationModel)
+					.setScalingFactor(Double.parseDouble(entry.getValue().getText().trim()));
+					break;
+				case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
+					((MosquitoPopulationModel)populationModel)
+					.setTimePeriod((Long.parseLong(entry.getValue().getText().trim())));
+					break;	
+				default:
+					break;
+				}
 			} // switch
 		} // for each Map.entry
 		
@@ -287,21 +308,23 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			// Yes
 			final Text text = map
 					.get(StandardPackage.Literals.STANDARD_POPULATION_MODEL__DEATH_RATE);
-			retValue = !text.getText().equals(""); //$NON-NLS-1$
-			// nothing?
-			if (!retValue) {
-				// Yes
-				errorMessage = PopulationModelWizardMessages.getString("NDizWizErr4"); //$NON-NLS-1$
-			} // if
-			else {
-				// No
-				// Is it a valid value > 0?
-				retValue = isValidValue(text.getText(), 0.0);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
 				if (!retValue) {
-					// No
-					errorMessage = PopulationModelWizardMessages
-							.getString("NDizWizErr5"); //$NON-NLS-1$
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr4"); //$NON-NLS-1$
 				} // if
+				else {
+					// No
+					// Is it a valid value > 0?
+					retValue = isValidValue(text.getText(), 0.0);
+					if (!retValue) {
+						// No
+						errorMessage = PopulationModelWizardMessages
+								.getString("NDizWizErr5"); //$NON-NLS-1$
+					} // if
+				}
 			}
 		} // if Background mortality rate
 		
@@ -311,21 +334,23 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			// Yes
 			final Text text = map
 					.get(StandardPackage.Literals.STANDARD_POPULATION_MODEL__BIRTH_RATE);
-			retValue = !text.getText().equals(""); //$NON-NLS-1$
-			// nothing?
-			if (!retValue) {
-				// Yes
-				errorMessage = PopulationModelWizardMessages.getString("NDizWizErr6"); //$NON-NLS-1$
-			} // if
-			else {
-				// No
-				// Is it a valid value > 0?
-				retValue = isValidValue(text.getText(), 0.0);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
 				if (!retValue) {
-					// No
-					errorMessage = PopulationModelWizardMessages
-							.getString("NDizWizErr7"); //$NON-NLS-1$
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr6"); //$NON-NLS-1$
 				} // if
+				else {
+					// No
+					// Is it a valid value > 0?
+					retValue = isValidValue(text.getText(), 0.0);
+					if (!retValue) {
+						// No
+						errorMessage = PopulationModelWizardMessages
+								.getString("NDizWizErr7"); //$NON-NLS-1$
+					} // if
+				}
 			}
 		} // if Background mortality rate
 
@@ -335,21 +360,23 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 			// Yes
 			final Text text = map
 					.get(StandardPackage.Literals.STANDARD_POPULATION_MODEL__TIME_PERIOD);
-			retValue = !text.getText().equals(""); //$NON-NLS-1$
-			// nothing?
-			if (!retValue) {
-				// Yes
-				errorMessage = PopulationModelWizardMessages.getString("NDizWizErr8"); //$NON-NLS-1$
-			} // if
-			else {
-				// No
-				// Is it a valid value > 0?
-				retValue = isValidLongValue(text.getText(), 0L);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
 				if (!retValue) {
-					// No
-					errorMessage = PopulationModelWizardMessages
-							.getString("NDizWizErr9"); //$NON-NLS-1$
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr8"); //$NON-NLS-1$
 				} // if
+				else {
+					// No
+					// Is it a valid value > 0?
+					retValue = isValidLongValue(text.getText(), 0L);
+					if (!retValue) {
+						// No
+						errorMessage = PopulationModelWizardMessages
+								.getString("NDizWizErr9"); //$NON-NLS-1$
+					} // if
+				}
 			}
 		} // if  time period
 		
@@ -432,6 +459,53 @@ public class StandardPopulationModelPropertyEditor extends PopulationModelProper
 				}
 			}
 		} // phase
+		
+		
+		//scaling factor
+		if (retValue) {
+			// Yes
+			final Text text = map
+					.get(StandardPackage.Literals.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr20"); //$NON-NLS-1$
+				} // if
+				else {
+					try {
+						double testDouble = (new Double(text.getText())).doubleValue();
+					} catch(Exception e) {
+						errorMessage = PopulationModelWizardMessages.getString("NDizWizErr20"); //$NON-NLS-1$
+						retValue = false;
+					}
+				}
+			}
+		} // modulation amplitude
+		
+		//scaling factor
+		if (retValue) {
+			// Yes
+			final Text text = map
+					.get(StandardPackage.Literals.MOSQUITO_POPULATION_MODEL__TIME_PERIOD);
+			if(text != null) {
+				retValue = !text.getText().equals(""); //$NON-NLS-1$
+				// nothing?
+				if (!retValue) {
+					// Yes
+					errorMessage = PopulationModelWizardMessages.getString("NDizWizErr21"); //$NON-NLS-1$
+				} // if
+				else {
+					try {
+						long testLong = (new Long(text.getText())).longValue();
+					} catch(Exception e) {
+						errorMessage = PopulationModelWizardMessages.getString("NDizWizErr21"); //$NON-NLS-1$
+						retValue = false;
+					}
+				}
+			}
+		} // modulation amplitude
 		
 		// Check that the group fractions add up to < 1.0
 		
