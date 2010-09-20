@@ -86,6 +86,7 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 			case StandardPackage.STANDARD_POPULATION_INITIALIZER: return createStandardPopulationInitializer();
 			case StandardPackage.SEASONAL_POPULATION_MODEL: return createSeasonalPopulationModel();
 			case StandardPackage.YETI_POPULATION_INITIALIZER: return createYetiPopulationInitializer();
+			case StandardPackage.MOSQUITO_POPULATION_MODEL: return createMosquitoPopulationModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -199,6 +200,16 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 	public YetiPopulationInitializer createYetiPopulationInitializer() {
 		YetiPopulationInitializerImpl yetiPopulationInitializer = new YetiPopulationInitializerImpl();
 		return yetiPopulationInitializer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MosquitoPopulationModel createMosquitoPopulationModel() {
+		MosquitoPopulationModelImpl mosquitoPopulationModel = new MosquitoPopulationModelImpl();
+		return mosquitoPopulationModel;
 	}
 
 	/**

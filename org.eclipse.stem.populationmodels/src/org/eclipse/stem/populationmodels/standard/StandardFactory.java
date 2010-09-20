@@ -131,6 +131,15 @@ public interface StandardFactory extends EFactory {
 	YetiPopulationInitializer createYetiPopulationInitializer();
 
 	/**
+	 * Returns a new object of class '<em>Mosquito Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mosquito Population Model</em>'.
+	 * @generated
+	 */
+	MosquitoPopulationModel createMosquitoPopulationModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
