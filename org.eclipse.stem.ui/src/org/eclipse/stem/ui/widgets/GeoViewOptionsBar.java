@@ -37,7 +37,9 @@ import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.jobs.simulation.ISimulation;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
+import org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
+import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.ui.adapters.color.ColorProviderAdapterFactory;
 import org.eclipse.stem.ui.adapters.color.IColorProviderAdapterFactory;
@@ -392,9 +394,9 @@ public class GeoViewOptionsBar extends Composite {
 			for(PopulationGroup g:((DemographicPopulationModel)decorator).getPopulationGroups()) {
 				popIds.add(g.getIdentifier());
 			}
-		} else if(decorator instanceof StandardPopulationModel) {
-			popIds.add(((StandardPopulationModel)decorator).getPopulationIdentifier());
-		}
+		} else if(decorator instanceof PopulationModel) {
+			popIds.add(((PopulationModel)decorator).getPopulationIdentifier());
+		} 
 		return popIds;
 	}
 	/**
