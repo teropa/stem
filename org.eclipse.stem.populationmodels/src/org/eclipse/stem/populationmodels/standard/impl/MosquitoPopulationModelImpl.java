@@ -6,6 +6,7 @@
  */
 package org.eclipse.stem.populationmodels.standard.impl;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -52,6 +53,8 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * @ordered
 	 */
 	protected static final double SCALING_FACTOR_EDEFAULT = 1.0;
+	
+	static double maxDen = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getScalingFactor() <em>Scaling Factor</em>}' attribute.
@@ -123,26 +126,92 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			StandardPopulationModelLabelValue current = slabel.getProbeValue();
 			
 			double currentPopulation = current.getCount();
-			int month = time.getTime().getMonth(); // deprecated but still works
+			Calendar c = Calendar.getInstance();
+			c.setTime(time.getTime());
+			int month = c.get(Calendar.MONTH); // deprecated but still works
+			int nextMonth = month+1;
+			if (nextMonth > 11) nextMonth = 0;
+			
+			double dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+			double daysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);  
+			
+			double fraction = dayOfMonth/daysInMonth;
+			
 			// Get the elevation 
 			 Node n = slabel.getNode();
-			 double elevation = -1; // to avoid division by zero below
+			 double elevation = 0; 
 			 double temperature = 0;
 			 double rainfall = 0;
-			 
+			 double vegetation = 0;
+			
+			 double temperature0 = 0;
+			 double rainfall0 = 0;
+			 double vegetation0 = 0;
+			
+			 double temperature1 = 0;
+			 double rainfall1 = 0;
+			 double vegetation1 = 0;
 			 for(NodeLabel nl:n.getLabels()) {
 				 if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("elevation")) {
 					 elevation = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(0).doubleValue();
 				 } else if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("temperature")) {
-					 temperature = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(month*4).doubleValue();
+					 temperature0 = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(month*4).doubleValue();
+					 temperature1 = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(nextMonth*4).doubleValue();
+					 // interpolate
+					 temperature = (fraction*temperature1) +(1.0-fraction)*temperature0;
+					 
 				 } else if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("rainfall")) {
-					 rainfall = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(month*8).doubleValue();
+					 rainfall0 = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(month*8).doubleValue();
+					 rainfall1 = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(nextMonth*8).doubleValue();
+					 // interpolate
+					 rainfall = (fraction*rainfall1) +(1.0-fraction)*rainfall0;
+					 
+				 } else if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("vegetation")) {
+					 vegetation0 = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(month*4).doubleValue();
+					 vegetation1 = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(nextMonth*4).doubleValue();
+					 
+					 // interpolate
+					 vegetation = (fraction*vegetation1) +(1.0-fraction)*vegetation0;
 				 }
 			 }
 			 
 			 // If the model does not contain the earth science data, the defaults above will be used
-			 
-			double newPopulation = scalingFactor * temperature * rainfall / elevation;
+			// ELEVATION
+			final double ELEVATION_SLOPE = 0.125;
+			final double ElEVATION_PEAK = 400.0;
+			double eFactor =0.0;
+			if(elevation <= ElEVATION_PEAK) {
+				eFactor = ELEVATION_SLOPE*elevation;
+			} else {
+				eFactor = (ElEVATION_PEAK*ELEVATION_SLOPE) - (ELEVATION_SLOPE*elevation);
+			}
+			// RAINFALL - just make it linear
+			double rFactor = rainfall;
+			
+			// TEMPERATURE gaussian model peaked about 27 degrees
+			// reference: http://www.cell.com/trends/parasitology/abstract/S0169-4758%2899%2901396-4
+			// Trends in Parasitology, Volume 15, Issue 3, 105-111, 1 March 1999
+			// A Climate-based Distribution Model of Malaria Transmission in Sub-Saharan Africa
+			// M.H. Craiga, *,  , R.W. Snowb and D. le Sueura
+			
+			final double TAVG = 30;  // ref says 27C
+			final double sigma = 3.0;
+			double arg = -1.0*Math.pow((temperature - TAVG),2) / (2.0*sigma*sigma);
+			double tFactor = 1/Math.sqrt(2*Math.PI*sigma*sigma)*Math.exp(arg);
+			
+			// vegetation linear model above 
+			double vFactor = Math.max(0.0, (vegetation-0.3));
+			
+			
+			
+			//double newPopulation = scalingFactor * temperature * rainfall / elevation;
+			double newPopulation = scalingFactor * eFactor*rFactor*tFactor*vFactor;
+			
+			// TEST CODE
+			if(newPopulation > maxDen) {
+				maxDen = newPopulation;
+				System.out.println("found max mosquito density = "+maxDen);
+			}
 			double pdelta = newPopulation - currentPopulation;
 			
 			
