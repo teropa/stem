@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CRI/CRI_0_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="CRI (0) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CRI/CRI_0_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="CRI:0/" source="https://www.cia.gov/cia/publications/factbook/geos/cs.html" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/CRI/0/CRI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/CRI/0/CRI" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CRI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/CRI/0/CRI" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="50660.0" averageExtent="225.07776433935007"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

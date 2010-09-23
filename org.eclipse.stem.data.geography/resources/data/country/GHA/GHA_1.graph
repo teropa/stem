@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GHA/GHA_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="GHA(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GHA/GHA_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="GHA:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-CP">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-CP" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CENTRAL1, 03, CP GH-CP" identifier="stem://org.eclipse.stem/node/geo/region/GH-CP" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-CP"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-BA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-BA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BRONG AHAFO, 02, BA GH-BA" identifier="stem://org.eclipse.stem/node/geo/region/GH-BA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-BA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-WP">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-WP" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="WESTERN2, 10, WP GH-WP" identifier="stem://org.eclipse.stem/node/geo/region/GH-WP" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-WP"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-AH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-AH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ASHANTI, 01, AH GH-AH" identifier="stem://org.eclipse.stem/node/geo/region/GH-AH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-AH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-NP">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-NP" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NORTHERN, 06, NP GH-NP" identifier="stem://org.eclipse.stem/node/geo/region/GH-NP" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-NP"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-UE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-UE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UPPER EAST, 07, UE GH-UE" identifier="stem://org.eclipse.stem/node/geo/region/GH-UE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-UE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-EP">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-EP" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EASTERN3, 04, EP GH-EP" identifier="stem://org.eclipse.stem/node/geo/region/GH-EP" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-EP"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-AA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-AA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GREATER ACCRA, 05, AA GH-AA" identifier="stem://org.eclipse.stem/node/geo/region/GH-AA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-AA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-UW">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-UW" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UPPER WEST, 08, UW GH-UW" identifier="stem://org.eclipse.stem/node/geo/region/GH-UW" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-UW"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GH-TV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GH-TV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VOLTA, 09, TV GH-TV" identifier="stem://org.eclipse.stem/node/geo/region/GH-TV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GHA/GHA_1_MAP.xml#GH-TV"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

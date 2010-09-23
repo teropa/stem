@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ECU/ECU_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="ECU(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ECU/ECU_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ECU:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-M">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-M" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MANABI, 14, M EC-M" identifier="stem://org.eclipse.stem/node/geo/region/EC-M" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-M"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-L">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-L" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LOJA, 12, L EC-L" identifier="stem://org.eclipse.stem/node/geo/region/EC-L" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-L"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-I">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-I" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="IMBABURA, 11, I EC-I" identifier="stem://org.eclipse.stem/node/geo/region/EC-I" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-I"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-H">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-H" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CHIMBORAZO, 05, H EC-H" identifier="stem://org.eclipse.stem/node/geo/region/EC-H" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-H"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-G">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-G" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GUAYAS, 10, G EC-G" identifier="stem://org.eclipse.stem/node/geo/region/EC-G" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-G"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-F">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-F" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CANAR, 03, F EC-F" identifier="stem://org.eclipse.stem/node/geo/region/EC-F" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-F"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-E">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-E" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ESMERALDAS, 08, E EC-E" identifier="stem://org.eclipse.stem/node/geo/region/EC-E" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-E"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-C">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-C" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CARCHI, 04, C EC-C" identifier="stem://org.eclipse.stem/node/geo/region/EC-C" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-C"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-B">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-B" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BOLIVAR, 02, B EC-B" identifier="stem://org.eclipse.stem/node/geo/region/EC-B" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-B"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-A">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-A" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AZUAY, 01, A EC-A" identifier="stem://org.eclipse.stem/node/geo/region/EC-A" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-A"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-ZND">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-ZND" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZONA NO DELIMTDA, 23, ZND EC-ZND" identifier="stem://org.eclipse.stem/node/geo/region/EC-ZND" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-ZND"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-Z">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-Z" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZAMORA CHINCHIPE, 22, Z EC-Z" identifier="stem://org.eclipse.stem/node/geo/region/EC-Z" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-Z"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-Y">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-Y" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PASTAZA, 18, Y EC-Y" identifier="stem://org.eclipse.stem/node/geo/region/EC-Y" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-Y"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-X">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-X" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="COTOPAXI, 06, X EC-X" identifier="stem://org.eclipse.stem/node/geo/region/EC-X" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-X"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-U">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-U" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SUCUMBIOS, 20, U EC-U" identifier="stem://org.eclipse.stem/node/geo/region/EC-U" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-U"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-T">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-T" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TUNGURAHUA, 21, T EC-T" identifier="stem://org.eclipse.stem/node/geo/region/EC-T" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-T"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-S">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-S" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MORONA SANTIAGO, 15, S EC-S" identifier="stem://org.eclipse.stem/node/geo/region/EC-S" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-S"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-R">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-R" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LOS RIOS, 13, R EC-R" identifier="stem://org.eclipse.stem/node/geo/region/EC-R" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-R"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-P">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-P" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PICHINCHA, 19, P EC-P" identifier="stem://org.eclipse.stem/node/geo/region/EC-P" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-P"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-O">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-O" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EL ORO, 07, O EC-O" identifier="stem://org.eclipse.stem/node/geo/region/EC-O" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-O"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/EC-N">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/EC-N" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NAPO, 16, N EC-N" identifier="stem://org.eclipse.stem/node/geo/region/EC-N" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ECU/ECU_1_MAP.xml#EC-N"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

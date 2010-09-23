@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ZAF/ZAF_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="ZAF elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ZAF/ZAF_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ZAF:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-PWM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-PWM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-PWM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-PWM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1481.167413572343</data>
+        <data>150.35435829195575</data>
+        <data>1882.0</data>
+        <data>937.0</data>
+        <data>945.0</data>
+        <data>984.6060391878447</data>
+        <data>9965.968493474298</data>
+        <data>1488.7791441600632</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NW/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NW/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-NW">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NW/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1247.1834863599079</data>
+        <data>158.1439169919793</data>
+        <data>1767.0</data>
+        <data>877.0</data>
+        <data>890.0</data>
+        <data>514.3053835134872</data>
+        <data>4248.241244024747</data>
+        <data>1257.1698958893428</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-EC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-EC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-EC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-EC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>969.0199446342834</data>
+        <data>516.8135683638576</data>
+        <data>2929.0</data>
+        <data>1.0</data>
+        <data>2928.0</data>
+        <data>12.465521283154477</data>
+        <data>37.77675877251363</data>
+        <data>1098.2239833221688</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-LM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-LM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-LM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-LM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>854.2366430721378</data>
+        <data>345.29633316943614</data>
+        <data>2243.0</data>
+        <data>106.0</data>
+        <data>2137.0</data>
+        <data>22.65030616739661</data>
+        <data>77.43230576414382</data>
+        <data>921.3847188158771</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-OFS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-OFS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-OFS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-OFS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1446.0877434894924</data>
+        <data>173.94416018806717</data>
+        <data>2713.0</data>
+        <data>1055.0</data>
+        <data>1658.0</data>
+        <data>600.1939590077662</data>
+        <data>5217.201376426282</data>
+        <data>1456.5117001706728</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-MP/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-MP/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-MP">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-MP/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1326.7424825855578</data>
+        <data>441.10984470059014</data>
+        <data>2301.0</data>
+        <data>95.0</data>
+        <data>2206.0</data>
+        <data>35.098037881156394</data>
+        <data>125.84738615237734</data>
+        <data>1398.1500313589636</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-WC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-WC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-WC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-WC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>600.6524296760432</data>
+        <data>422.5641734014123</data>
+        <data>2235.0</data>
+        <data>1.0</data>
+        <data>2234.0</data>
+        <data>7.667582403661488</data>
+        <data>21.700337248615423</data>
+        <data>734.4003144867169</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-OR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-OR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-OR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-OR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1890.8872266973533</data>
+        <data>227.75924782361488</data>
+        <data>2998.0</data>
+        <data>1602.0</data>
+        <data>1396.0</data>
+        <data>598.9040866875939</data>
+        <data>5230.224466539187</data>
+        <data>1904.5547456180898</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-NC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1012.2938210161544</data>
+        <data>291.66240427347515</data>
+        <data>2063.0</data>
+        <data>1.0</data>
+        <data>2062.0</data>
+        <data>51.414522434941446</data>
+        <data>210.64517359009017</data>
+        <data>1053.4731786495886</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NAT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NAT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZA-NAT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ZAF/1/ZA-NAT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>872.6149515820786</data>
+        <data>559.1983387470713</data>
+        <data>3278.0</data>
+        <data>1.0</data>
+        <data>3277.0</data>
+        <data>8.606815491335615</data>
+        <data>23.702034362988705</data>
+        <data>1036.4167288219942</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

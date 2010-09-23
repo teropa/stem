@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography.population.human/resources/data/country/CHL/CHL_1_human_2006_population.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="CHL (1) population" identifier="platform:/plugin/org.eclipse.stem.data.geography.population.human/resources/data/country/CHL/CHL_1_human_2006_population.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="CHL:1/" source="Primary (https://www.cia.gov/library/publications/the-world-factbook/). " subject="Label:population" type="stemtype://org.eclipse.stem/Graph" valid="start=2006-01-01; end=2006-12-31;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ACO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ACO" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-ACO" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ACO" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="140623.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TOC">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TOC" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-TOC" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TOC" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="23368.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CBU">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CBU" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CBU" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CBU" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="152868.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHQ">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHQ" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CHQ" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHQ" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="55734.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHP">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHP" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CHP" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHP" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="589435.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-OSR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-OSR" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-OSR" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-OSR" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="239248.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CHN" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="34815.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ARI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ARI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-ARI" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ARI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="147308.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHG">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHG" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CHG" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CHG" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="214818.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CTN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CTN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CTN" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CTN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="722529.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ARC">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ARC" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-ARC" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ARC" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="162961.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-VAL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-VAL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-VAL" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-VAL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="883743.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-GCR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-GCR" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-GCR" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-GCR" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="7541.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-VDI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-VDI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-VDI" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-VDI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="391382.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ESP">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ESP" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-ESP" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ESP" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="19980.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-EL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-EL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-EL" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-EL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="156782.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-BI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-BI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-BI" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-BI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="385149.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-QUI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-QUI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-QUI" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-QUI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="261227.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ANT">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ANT" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-ANT" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ANT" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2172.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CAU">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CAU" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CAU" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CAU" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="63100.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CAR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CAR" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CAR" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CAR" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="43574.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-HUA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-HUA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-HUA" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-HUA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="71272.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CPT">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CPT" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CPT" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CPT" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="4167.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TAL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TAL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-TAL" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TAL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="24222.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TF">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TF" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-TF" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TF" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="7513.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-SAT">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-SAT" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-SAT" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-SAT" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="141019.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AND">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AND" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-AND" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AND" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="101632.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PET">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PET" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-PET" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PET" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="79399.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-IQI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-IQI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-IQI" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-IQI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="243768.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ELQ">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ELQ" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-ELQ" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-ELQ" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="385149.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-SGO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-SGO" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-SGO" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-SGO" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2102903.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-AN" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="279189.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MIP">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MIP" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-MIP" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MIP" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="628481.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-AI" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-AI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="31464.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CPA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CPA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CPA" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CPA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="84941.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MIL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MIL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-MIL" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MIL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="151690.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MLL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MLL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-MLL" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MLL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="223305.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-NUB">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-NUB" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-NUB" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-NUB" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="476909.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LIN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LIN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-LIN" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LIN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="275819.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LIM">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LIM" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-LIM" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LIM" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="169587.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-COR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-COR" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-COR" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-COR" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="3543134.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-MA" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-MA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="119664.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-COP">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-COP" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-COP" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-COP" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="165870.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CUR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CUR" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CUR" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CUR" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="267465.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CON">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CON" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CON" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CON" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="950704.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PAN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PAN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-PAN" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PAN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="3596.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LLA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LLA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-LLA" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-LLA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="347347.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CLE">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CLE" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-CLE" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-CLE" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="154718.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PAL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PAL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-PAL" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-PAL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="19697.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TCA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TCA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CL-TCA" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/CHL/1/human/2006/CL-TCA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="381239.0"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

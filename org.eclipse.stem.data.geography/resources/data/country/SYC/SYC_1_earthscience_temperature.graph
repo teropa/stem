@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SYC/SYC_1_earthscience_temperature.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="SYC temperature data for 2009 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SYC/SYC_1_earthscience_temperature.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="SYC:1/" subject="Label:earthscience_temperature" type="stemtype://org.eclipse.stem/Graph" valid="start=2009"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/SYC/1/SC-P/temperature">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/SYC/1/SC-P/temperature" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/SC-P">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/SYC/1/SC-P/temperature" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="temperature" units="C">
+        <data>23.71063025</data>
+        <data>0.20669325000000072</data>
+        <data>23.917323500000002</data>
+        <data>23.503937</data>
+        <data>25.91535475</data>
+        <data>0.2066927500000002</data>
+        <data>26.1220475</data>
+        <data>25.708662</data>
+        <data>26.19094425</data>
+        <data>0.20669325000000072</data>
+        <data>26.397637500000002</data>
+        <data>25.984251</data>
+        <data>23.9862205</data>
+        <data>0.4822835000000012</data>
+        <data>24.468504000000003</data>
+        <data>23.503937</data>
+        <data>24.9507875</data>
+        <data>0.20669249999999906</data>
+        <data>25.15748</data>
+        <data>24.744095</data>
+        <data>25.22637775</data>
+        <data>0.06889775000000142</data>
+        <data>25.295275500000002</data>
+        <data>25.15748</data>
+        <data>21.78149525</data>
+        <data>0.20669325000000072</data>
+        <data>21.9881885</data>
+        <data>21.574802</data>
+        <data>21.850392999999997</data>
+        <data>0.27559100000000036</data>
+        <data>22.125984</data>
+        <data>21.574802</data>
+        <data>23.090552</data>
+        <data>0.41338599999999914</data>
+        <data>23.503937999999998</data>
+        <data>22.677166</data>
+        <data>24.81299125</data>
+        <data>0.20669325000000072</data>
+        <data>25.0196845</data>
+        <data>24.606298</data>
+        <data>24.881889</data>
+        <data>0.27559100000000036</data>
+        <data>25.15748</data>
+        <data>24.606298</data>
+        <data>24.81299125</data>
+        <data>0.20669325000000072</data>
+        <data>25.0196845</data>
+        <data>24.606298</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/SYC/1/SC-M/temperature">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/SYC/1/SC-M/temperature" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/SC-M">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/SYC/1/SC-M/temperature" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="temperature" units="C">
+        <data>23.389107316666664</data>
+        <data>0.4606936293705052</data>
+        <data>23.963254333333335</data>
+        <data>22.814960499999998</data>
+        <data>24.6384515</data>
+        <data>0.47369855096442887</data>
+        <data>25.019685</data>
+        <data>23.779528</data>
+        <data>26.360892683333333</data>
+        <data>0.9279578666069036</data>
+        <data>27.6377955</data>
+        <data>24.88189</data>
+        <data>24.496063149999998</data>
+        <data>0.22047207500018992</data>
+        <data>24.6062995</data>
+        <data>24.055119</data>
+        <data>22.534776116666666</data>
+        <data>1.5859698034010254</data>
+        <data>24.238844333333333</data>
+        <data>19.7834635</data>
+        <data>24.56955393333333</data>
+        <data>0.5583307053474243</data>
+        <data>25.433071</data>
+        <data>23.779528</data>
+        <data>21.556429716666667</data>
+        <data>1.8194077272023723</data>
+        <data>23.7795265</data>
+        <data>18.818897</data>
+        <data>22.282151933333335</data>
+        <data>0.23884515256413513</data>
+        <data>22.677165000000002</data>
+        <data>21.9881885</data>
+        <data>21.864173450000003</data>
+        <data>0.6439623235623421</data>
+        <data>22.883858250000003</data>
+        <data>21.023623</data>
+        <data>23.52231033333333</data>
+        <data>0.4653410455785571</data>
+        <data>23.917323500000002</data>
+        <data>22.677166</data>
+        <data>23.843832666666664</data>
+        <data>0.46805377482768357</data>
+        <data>24.33071</data>
+        <data>22.952756</data>
+        <data>25.212598749999998</data>
+        <data>0.44094499999999925</data>
+        <data>25.984252499999997</data>
+        <data>24.88189</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

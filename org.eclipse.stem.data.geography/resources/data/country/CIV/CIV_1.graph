@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CIV/CIV_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="CIV(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CIV/CIV_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="CIV:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BEO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BEO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BEOUMI, 11, BEO CI-BEO" identifier="stem://org.eclipse.stem/node/geo/region/CI-BEO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BEO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-MAN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-MAN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MANKONO, 39, MAN CI-MAN" identifier="stem://org.eclipse.stem/node/geo/region/CI-MAN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-MAN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-DAO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-DAO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DAOUKRO, 22, DAO CI-DAO" identifier="stem://org.eclipse.stem/node/geo/region/CI-DAO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-DAO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-DAN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-DAN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DANANE, 21, DAN CI-DAN" identifier="stem://org.eclipse.stem/node/geo/region/CI-DAN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-DAN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-ABO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-ABO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ABOISSO, 04, ABO CI-ABO" identifier="stem://org.eclipse.stem/node/geo/region/CI-ABO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-ABO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-ZUE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-ZUE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZUENOULA, 65, ZUE CI-ZUE" identifier="stem://org.eclipse.stem/node/geo/region/CI-ZUE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-ZUE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-DAL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-DAL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DALOA, 20, DAL CI-DAL" identifier="stem://org.eclipse.stem/node/geo/region/CI-DAL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-DAL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-SEG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-SEG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SEGUELA, 49, SEG CI-SEG" identifier="stem://org.eclipse.stem/node/geo/region/CI-SEG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-SEG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-DAK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-DAK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DABAKALA, 19, DAK CI-DAK" identifier="stem://org.eclipse.stem/node/geo/region/CI-DAK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-DAK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-ABI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-ABI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ABIDJAN, 03, ABI CI-ABI" identifier="stem://org.eclipse.stem/node/geo/region/CI-ABI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-ABI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-LAK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-LAK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LAKOTA, 36, LAK CI-LAK" identifier="stem://org.eclipse.stem/node/geo/region/CI-LAK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-LAK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-ABE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-ABE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ABENGOUROU, 02, ABE CI-ABE" identifier="stem://org.eclipse.stem/node/geo/region/CI-ABE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-ABE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-KAT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-KAT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KATIOLA, 33, KAT CI-KAT" identifier="stem://org.eclipse.stem/node/geo/region/CI-KAT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-KAT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-LAH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-LAH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GRAND-LAHOU, 29, LAH CI-LAH" identifier="stem://org.eclipse.stem/node/geo/region/CI-LAH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-LAH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-TAN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-TAN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TANDA, 55, TAN CI-TAN" identifier="stem://org.eclipse.stem/node/geo/region/CI-TAN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-TAN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-GUI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-GUI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GUIGLO, 30, GUI CI-GUI" identifier="stem://org.eclipse.stem/node/geo/region/CI-GUI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-GUI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-SAS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-SAS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SASSANDRA, 47, SAS CI-SAS" identifier="stem://org.eclipse.stem/node/geo/region/CI-SAS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-SAS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BAN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BAN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BANGOLO, 09, BAN CI-BAN" identifier="stem://org.eclipse.stem/node/geo/region/CI-BAN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BAN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-TAB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-TAB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TABOU, 54, TAB CI-TAB" identifier="stem://org.eclipse.stem/node/geo/region/CI-TAB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-TAB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-SAK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-SAK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SAKASSOU, 45, SAK CI-SAK" identifier="stem://org.eclipse.stem/node/geo/region/CI-SAK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-SAK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-DIV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-DIV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DIVO, 25, DIV CI-DIV" identifier="stem://org.eclipse.stem/node/geo/region/CI-DIV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-DIV"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-MN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-MN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MAN, 38, MN CI-MN" identifier="stem://org.eclipse.stem/node/geo/region/CI-MN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-MN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-SP">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-SP" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SAN-PEDRO, 46, SP CI-SP" identifier="stem://org.eclipse.stem/node/geo/region/CI-SP" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-SP"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-AD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-AD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ADZOPE, 05, AD CI-AD" identifier="stem://org.eclipse.stem/node/geo/region/CI-AD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-AD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-AGN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-AGN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AGNIBILEKRO, 08, AGN CI-AGN" identifier="stem://org.eclipse.stem/node/geo/region/CI-AGN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-AGN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-DIM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-DIM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DIMBOKRO, 24, DIM CI-DIM" identifier="stem://org.eclipse.stem/node/geo/region/CI-DIM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-DIM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-FER">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-FER" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FERKESSEDOUGOU, 27, FER CI-FER" identifier="stem://org.eclipse.stem/node/geo/region/CI-FER" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-FER"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-ISS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-ISS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ISSIA, 32, ISS CI-ISS" identifier="stem://org.eclipse.stem/node/geo/region/CI-ISS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-ISS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-AGB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-AGB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AGBOVILLE, 06, AGB CI-AGB" identifier="stem://org.eclipse.stem/node/geo/region/CI-AGB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-AGB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-DUE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-DUE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DUEKOUE, 26, DUE CI-DUE" identifier="stem://org.eclipse.stem/node/geo/region/CI-DUE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-DUE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-YAM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-YAM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="YAMOUSSOUKRO, 63, YAM CI-YAM" identifier="stem://org.eclipse.stem/node/geo/region/CI-YAM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-YAM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-KOR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-KOR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KORHOGO, 34, KOR CI-KOR" identifier="stem://org.eclipse.stem/node/geo/region/CI-KOR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-KOR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-TOM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-TOM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOUMODI, 59, TOM CI-TOM" identifier="stem://org.eclipse.stem/node/geo/region/CI-TOM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-TOM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BOU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BOU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BOUNA, 17, BOU CI-BOU" identifier="stem://org.eclipse.stem/node/geo/region/CI-BOU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BOU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-OU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-OU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="OUME, 44, OU CI-OU" identifier="stem://org.eclipse.stem/node/geo/region/CI-OU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-OU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-SOR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-SOR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SOUBRE, 51, SOR CI-SOR" identifier="stem://org.eclipse.stem/node/geo/region/CI-SOR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-SOR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-SIN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-SIN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SINFRA, 50, SIN CI-SIN" identifier="stem://org.eclipse.stem/node/geo/region/CI-SIN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-SIN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BON">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BON" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BOUNDIALI, 18, BON CI-BON" identifier="stem://org.eclipse.stem/node/geo/region/CI-BON" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BON"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-TIA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-TIA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TIASSALE, 57, TIA CI-TIA" identifier="stem://org.eclipse.stem/node/geo/region/CI-TIA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-TIA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BOK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BOK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BOUAKE, 16, BOK CI-BOK" identifier="stem://org.eclipse.stem/node/geo/region/CI-BOK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BOK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-TOB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-TOB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOUBA, 58, TOB CI-TOB" identifier="stem://org.eclipse.stem/node/geo/region/CI-TOB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-TOB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-GAG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-GAG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GAGNOA, 28, GAG CI-GAG" identifier="stem://org.eclipse.stem/node/geo/region/CI-GAG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-GAG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BOG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BOG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BONGOUANOU, 14, BOG CI-BOG" identifier="stem://org.eclipse.stem/node/geo/region/CI-BOG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BOG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BOF">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BOF" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BOUAFLE, 15, BOF CI-BOF" identifier="stem://org.eclipse.stem/node/geo/region/CI-BOF" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BOF"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BIA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BIA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BIANKOUMA, 12, BIA CI-BIA" identifier="stem://org.eclipse.stem/node/geo/region/CI-BIA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BIA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-MBA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-MBA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="M'BAHIAKRO, 37, MBA CI-MBA" identifier="stem://org.eclipse.stem/node/geo/region/CI-MBA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-MBA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-BOD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-BOD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BONDOUKOU, 13, BOD CI-BOD" identifier="stem://org.eclipse.stem/node/geo/region/CI-BOD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-BOD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-ODI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-ODI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ODIENNE, 43, ODI CI-ODI" identifier="stem://org.eclipse.stem/node/geo/region/CI-ODI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-ODI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-VAV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-VAV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VAVOUA, 61, VAV CI-VAV" identifier="stem://org.eclipse.stem/node/geo/region/CI-VAV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-VAV"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CI-TEN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CI-TEN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TENGRELA, 56, TEN CI-TEN" identifier="stem://org.eclipse.stem/node/geo/region/CI-TEN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CIV/CIV_1_MAP.xml#CI-TEN"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

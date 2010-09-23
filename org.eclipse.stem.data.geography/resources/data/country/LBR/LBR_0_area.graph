@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/LBR/LBR_0_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="LBR (0) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/LBR/LBR_0_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="LBR:0/" source="https://www.cia.gov/cia/publications/factbook/geos/li.html" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/LBR/0/LBR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/LBR/0/LBR" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/LBR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/LBR/0/LBR" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="96320.0" averageExtent="310.3546358603332"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

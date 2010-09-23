@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BEL/BEL_0_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="BEL elevation data for 1999 at admin level 0" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BEL/BEL_0_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="BEL:0/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BEL/0/BEL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BEL/0/BEL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BEL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BEL/0/BEL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>153.31397583987302</data>
+        <data>159.68841983335204</data>
+        <data>687.0</data>
+        <data>-1.0</data>
+        <data>688.0</data>
+        <data>4.7982122717240285</data>
+        <data>13.316484359782706</data>
+        <data>221.372009560153</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

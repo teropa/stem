@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography.infrastructure.transportation/resources/data/relationship/road/USA_1_USA_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Road Transportation Network (2001) for USA Level 1 " identifier="platform:/plugin/org.eclipse.stem.data.geography.infrastructure.transportation/resources/data/relationship/road/USA_1_USA_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="USA:1/" subject="Edge:road" type="stemtype://org.eclipse.stem/Graph" valid="start=2001-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NH_US-VT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NH_US-VT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NH" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NH_US-VT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/91F736389FD37BC2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/91F736389FD37BC2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-OR">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-OR" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ID" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OR">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-OR" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/455C52C5031D46F6" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/455C52C5031D46F6" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-MO">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-MO" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MO">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-MO" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/C4D2A496A9C58A28" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C4D2A496A9C58A28" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-NE">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-NE" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-KS" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NE">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-NE" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/1F82D89038D6F744" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1F82D89038D6F744" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-OK">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-OK" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OK">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-OK" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/AC9EED9FBE762FB3" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/AC9EED9FBE762FB3" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CA_US-OR">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CA_US-OR" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OR">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CA_US-OR" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/D1237956B403729B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D1237956B403729B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-FL">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-FL" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-FL">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-FL" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/3B369C4D8EB586CA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3B369C4D8EB586CA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-MS">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-MS" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MS">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-MS" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/37F266EF52A30A46" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/37F266EF52A30A46" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-LA_US-MS">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-LA_US-MS" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-LA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MS">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-LA_US-MS" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/9883F666226B6790" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9883F666226B6790" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="6"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-TN_US-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-TN_US-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-TN" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-TN_US-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/C21B8AB18534511B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C21B8AB18534511B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NE_US-WY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NE_US-WY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NE" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NE_US-WY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/8C2E9233E5EFDD8D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/8C2E9233E5EFDD8D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-UT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-UT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-UT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-UT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/41CDF445AA14C3BC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/41CDF445AA14C3BC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-WI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-WI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-WI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/53A01379D4C2D38D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/53A01379D4C2D38D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-NY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-NY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CT" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-NY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/500EE1C4850D311A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/500EE1C4850D311A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NV_US-UT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NV_US-UT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NV" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-UT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NV_US-UT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/806343A4FFB819C8" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/806343A4FFB819C8" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-IN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-IN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-IN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-IN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/DC2CB4FE9D1DA73A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/DC2CB4FE9D1DA73A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-SD_US-WY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-SD_US-WY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-SD" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-SD_US-WY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5B5FF942965B2A43" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5B5FF942965B2A43" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-OH_US-PA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-OH_US-PA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-OH" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-PA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-OH_US-PA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/91DB6A16F194E83B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/91DB6A16F194E83B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-NV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-NV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AZ" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-NV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/6AA982AEC9A04F75" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/6AA982AEC9A04F75" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-TN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-TN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-TN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5E896357ADBBAB97" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5E896357ADBBAB97" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-OR_US-WA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-OR_US-WA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-OR" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-OR_US-WA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/F0BC8815772F112C" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F0BC8815772F112C" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-NH">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-NH" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NH">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-NH" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/58149E43781C2FA9" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/58149E43781C2FA9" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="4"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-NV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-NV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ID" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-NV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/98649894DAEC0BB1" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/98649894DAEC0BB1" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-VA_US-WV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-VA_US-WV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-VA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-VA_US-WV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/B8F5A5E7A3F2DF6F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/B8F5A5E7A3F2DF6F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-SD">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-SD" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-SD">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-SD" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/7F50D6C13626952B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/7F50D6C13626952B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-NC">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-NC" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-GA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NC">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-NC" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/4176D675E0DD1090" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/4176D675E0DD1090" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-UT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-UT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ID" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-UT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-UT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/A5E2784CC330D540" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/A5E2784CC330D540" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MT_US-WY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MT_US-WY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MT" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MT_US-WY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/97E3C61442A71D9F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/97E3C61442A71D9F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="8"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-NY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-NY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-NY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/9C370D059F6F3301" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9C370D059F6F3301" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-DE_US-MD">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-DE_US-MD" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-DE" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MD">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-DE_US-MD" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/D405E6F1616B60A1" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D405E6F1616B60A1" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-FL_US-GA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-FL_US-GA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-FL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-GA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-FL_US-GA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/6E1BC100EF563D07" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/6E1BC100EF563D07" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="4"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-SC">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-SC" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NC" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-SC">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-SC" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/2A00B6996547D1CC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/2A00B6996547D1CC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="7"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MO_US-OK">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MO_US-OK" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OK">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MO_US-OK" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/20B60E181D9C6FD8" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/20B60E181D9C6FD8" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MO_US-TN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MO_US-TN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MO_US-TN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/26F10E8A99084E91" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/26F10E8A99084E91" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-CA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-CA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AZ" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-CA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-CA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/108190921B577E90" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/108190921B577E90" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-KY" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/7BD86A07687FCCDC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/7BD86A07687FCCDC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-WA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-WA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ID" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-WA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/9C09F320381301BC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9C09F320381301BC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="4"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-KY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-KY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IN" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-KY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-KY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5296352ACA2AFE99" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5296352ACA2AFE99" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NY_US-PA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NY_US-PA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NY" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-PA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NY_US-PA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/72C3260FF168B089" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/72C3260FF168B089" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="7"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-WY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-WY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-WY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5A3E7940145B297A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5A3E7940145B297A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-GA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-GA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-GA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-GA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/B6D155BBC780881D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/B6D155BBC780881D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="4"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-LA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-LA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-LA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-LA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/6D3E7A513CD036F7" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/6D3E7A513CD036F7" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-OK_US-TX">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-OK_US-TX" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-OK" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TX">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-OK_US-TX" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/B7B5544329618544" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/B7B5544329618544" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="9"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ND_US-SD">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ND_US-SD" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ND" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-SD">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ND_US-SD" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/11B519FCDA954096" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/11B519FCDA954096" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MI_US-OH">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MI_US-OH" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MI" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OH">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MI_US-OH" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/29E96A7B3F61D44F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/29E96A7B3F61D44F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-PA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-PA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MD" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-PA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-PA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/546E138CD5631C6C" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/546E138CD5631C6C" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-MO">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-MO" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MO">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-MO" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5FC5C426358F9B38" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5FC5C426358F9B38" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-MT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-MT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ID" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-MT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/2E4C65492000ADE2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/2E4C65492000ADE2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="6"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-NM">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-NM" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AZ" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NM">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-NM" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/99C2EB6389D9C20A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/99C2EB6389D9C20A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="7"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NJ_US-NY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NJ_US-NY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NJ" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NJ_US-NY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/E3E17B05D450FEBC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/E3E17B05D450FEBC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="6"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-NM">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-NM" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NM">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-NM" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/2AA407664C525D7F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/2AA407664C525D7F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-WI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-WI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MN" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-WI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/94B3EE03743B6457" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/94B3EE03743B6457" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="4"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-WY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-WY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ID" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ID_US-WY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/FE79D26B995A9FEA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/FE79D26B995A9FEA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-SC">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-SC" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-GA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-SC">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-SC" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/8491EDF6629A3531" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/8491EDF6629A3531" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NY_US-VT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NY_US-VT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NY" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NY_US-VT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5D0A7AE768227457" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5D0A7AE768227457" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NE_US-SD">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NE_US-SD" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NE" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-SD">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NE_US-SD" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/EA78A7610F20D2AE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/EA78A7610F20D2AE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-ME_US-NH">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-ME_US-NH" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-ME" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NH">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-ME_US-NH" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/4039E40001E427F0" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/4039E40001E427F0" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MT_US-ND">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MT_US-ND" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MT" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-ND">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MT_US-ND" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/2F5B3B2907F20B19" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/2F5B3B2907F20B19" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-UT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-UT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AZ" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-UT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AZ_US-UT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/C0D0F93EA9E6C5A1" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C0D0F93EA9E6C5A1" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MS_US-TN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MS_US-TN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MS" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MS_US-TN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/48A91B67A7AC17E8" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/48A91B67A7AC17E8" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-WV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-WV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MD" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-WV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/56BA0984A1D807FF" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/56BA0984A1D807FF" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-TN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-TN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-TN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/181CE181673FBC43" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/181CE181673FBC43" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-MS">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-MS" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MS">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AL_US-MS" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/90B35D3963B90565" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/90B35D3963B90565" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="8"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-SD">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-SD" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MN" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-SD">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-SD" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/A159F174BC3C47C7" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/A159F174BC3C47C7" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-WV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-WV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-KY" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-WV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/89D87BCAA0A6FA60" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/89D87BCAA0A6FA60" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-OK">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-OK" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-KS" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OK">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-OK" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/37707E73A6928186" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/37707E73A6928186" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="7"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-OH">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-OH" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-KY" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OH">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-OH" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/8475D453F47BD64C" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/8475D453F47BD64C" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NV_US-OR">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NV_US-OR" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NV" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OR">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NV_US-OR" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/15C4C4B6B06CBF52" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/15C4C4B6B06CBF52" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-TN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-TN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-KY" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-KY_US-TN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/68A1BD9BCFD86E3E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/68A1BD9BCFD86E3E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="4"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-KS">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-KS" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-KS">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-KS" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/D24F8C8BB7DAAD3B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D24F8C8BB7DAAD3B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MD" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MD_US-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5D51014286E47A24" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5D51014286E47A24" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-MO">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-MO" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MO">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-MO" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/B7FB4AB1B8F38955" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/B7FB4AB1B8F38955" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-VT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-VT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-VT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/AB4C6634C92EC02B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/AB4C6634C92EC02B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-TX">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-TX" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TX">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-TX" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/F04271E64FF9D7BE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F04271E64FF9D7BE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NC" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/A5CFEE68B8DA1260" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/A5CFEE68B8DA1260" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="6"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CA_US-NV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CA_US-NV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CA_US-NV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/D868C9BD6A37D2DE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D868C9BD6A37D2DE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="7"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-KY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-KY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IL" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-KY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IL_US-KY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/7BF3BBC6FAEA0299" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/7BF3BBC6FAEA0299" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-TN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-TN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-GA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-GA_US-TN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/69F2DEB3B9FC1BF0" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/69F2DEB3B9FC1BF0" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-IL">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-IL" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-IL">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-IL" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/D389D0652A4C7096" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D389D0652A4C7096" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-NE">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-NE" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CO" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NE">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CO_US-NE" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/C9BDF84E2926FC1" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C9BDF84E2926FC1" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-OK">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-OK" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OK">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-AR_US-OK" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/911B1DF7316B5662" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/911B1DF7316B5662" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NM_US-TX">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NM_US-TX" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NM" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TX">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NM_US-TX" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/DB3B7BBADC8C63B9" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/DB3B7BBADC8C63B9" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="10"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-LA_US-TX">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-LA_US-TX" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-LA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TX">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-LA_US-TX" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/9C619883F4E47700" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9C619883F4E47700" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-OH">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-OH" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IN" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-OH">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-OH" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/92129787F56A6F17" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/92129787F56A6F17" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-NE">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-NE" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NE">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-NE" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/1C44405C13BAD342" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1C44405C13BAD342" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-MA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-MA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CT" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-MA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/4D0EE8D5B7F5C47E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/4D0EE8D5B7F5C47E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-UT_US-WY">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-UT_US-WY" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-UT" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WY">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-UT_US-WY" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/1C355748183008FB" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1C355748183008FB" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-ND">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-ND" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MN" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-ND">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MN_US-ND" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/8D02D19B709FBFB7" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/8D02D19B709FBFB7" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-RI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-RI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-CT" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-RI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-CT_US-RI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/CE22350376B20058" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/CE22350376B20058" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-MI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-MI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IN" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IN_US-MI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/DCD00B715B43EBAF" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/DCD00B715B43EBAF" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-TN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-TN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NC" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-TN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NC_US-TN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/5B276EE8F82B8B8A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5B276EE8F82B8B8A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="State Route" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-PA_US-WV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-PA_US-WV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-PA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-PA_US-WV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/E858F86591F5E4C2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/E858F86591F5E4C2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-RI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-RI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-RI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MA_US-RI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/193346EE60CCDCA8" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/193346EE60CCDCA8" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-MN">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-MN" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-IA" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MN">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-IA_US-MN" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/FFF5AD0DCF549B3B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/FFF5AD0DCF549B3B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-MI_US-WI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-MI_US-WI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-MI" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-MI_US-WI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/DFEB95D1264AF5D3" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/DFEB95D1264AF5D3" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-DE_US-NJ">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-DE_US-NJ" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-DE" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-NJ">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-DE_US-NJ" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/496707E10670BA1B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/496707E10670BA1B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-NJ_US-PA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-NJ_US-PA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-NJ" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-PA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-NJ_US-PA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/6ACBA49016E3779A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/6ACBA49016E3779A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="5"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-OH_US-WV">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-OH_US-WV" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-OH" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-WV">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-OH_US-WV" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/441369C3BEEC3619" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/441369C3BEEC3619" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="US Route" roadClass="Route" numberCrossings="3"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-MO">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-MO" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-KS" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MO">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-KS_US-MO" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/3CC1A91DCF6471A0" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3CC1A91DCF6471A0" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="4"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-DC_US-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-DC_US-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-DC" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-DC_US-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/9EFDE3E059D548EA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9EFDE3E059D548EA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Interstate" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/road/US-DC_US-MD">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/road/US-DC_US-MD" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/US-DC" nodeBURI="stem://org.eclipse.stem/node/geo/region/US-MD">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/road/US-DC_US-MD" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabel" uRI="stem://org.eclipse.stem/label/49DADA53904E197C" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/49DADA53904E197C" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RoadTransportRelationshipLabelValue" roadName="Road" roadClass="Route" numberCrossings="2"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

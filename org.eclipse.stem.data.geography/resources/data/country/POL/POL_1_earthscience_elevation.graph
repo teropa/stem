@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/POL/POL_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="POL elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/POL/POL_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="POL:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-WA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>86.96227477477477</data>
+        <data>22.235779345768062</data>
+        <data>179.0</data>
+        <data>33.0</data>
+        <data>146.0</data>
+        <data>72.22569031694496</data>
+        <data>340.02655384504544</data>
+        <data>89.76005301422853</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PZ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PZ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-PZ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PZ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>81.67435864380559</data>
+        <data>20.437030667399586</data>
+        <data>138.0</data>
+        <data>21.0</data>
+        <data>117.0</data>
+        <data>76.22273458051932</data>
+        <data>359.93261482671295</data>
+        <data>84.19247640007512</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-GO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-GO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-GO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-GO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>62.5991709972779</data>
+        <data>27.910509441756556</data>
+        <data>202.0</data>
+        <data>9.0</data>
+        <data>193.0</data>
+        <data>18.470256620231726</data>
+        <data>63.74434077762063</data>
+        <data>68.53942476301388</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-SU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>155.95160501076532</data>
+        <data>31.209488234667155</data>
+        <data>294.0</data>
+        <data>67.0</data>
+        <data>227.0</data>
+        <data>140.99020008199295</data>
+        <data>802.6720215886193</data>
+        <data>159.04381553931478</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-PR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>252.3314756174794</data>
+        <data>67.80800815085809</data>
+        <data>591.0</data>
+        <data>159.0</data>
+        <data>432.0</data>
+        <data>64.14460713147682</data>
+        <data>301.27656868508853</data>
+        <data>261.28356158909315</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-SR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>158.81372220359816</data>
+        <data>25.642244299074402</data>
+        <data>248.0</data>
+        <data>81.0</data>
+        <data>167.0</data>
+        <data>256.08241803294413</data>
+        <data>1702.8241791710198</data>
+        <data>160.8705164188114</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-PO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>204.8756499133449</data>
+        <data>23.548693159797363</data>
+        <data>309.0</data>
+        <data>139.0</data>
+        <data>170.0</data>
+        <data>684.8392457834871</data>
+        <data>6193.842081573512</data>
+        <data>206.22456904294827</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SP/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SP/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-SP">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SP/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>100.45965736391268</data>
+        <data>60.16593031803749</data>
+        <data>243.0</data>
+        <data>1.0</data>
+        <data>242.0</data>
+        <data>9.477017322540219</data>
+        <data>24.970715585068792</data>
+        <data>117.09859917483894</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-GD/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-GD/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-GD">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-GD/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>121.36542400655469</data>
+        <data>62.46824251245058</data>
+        <data>309.0</data>
+        <data>1.0</data>
+        <data>308.0</data>
+        <data>12.998724055317588</data>
+        <data>37.72720161194597</data>
+        <data>136.49852551176204</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SK/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SK/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-SK">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SK/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>126.89371077580451</data>
+        <data>44.50658766756712</data>
+        <data>236.0</data>
+        <data>38.0</data>
+        <data>198.0</data>
+        <data>31.977438168604433</data>
+        <data>119.25745484837009</data>
+        <data>134.4724885627703</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-PI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-PI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>91.75769662221114</data>
+        <data>30.649512500311367</data>
+        <data>187.0</data>
+        <data>24.0</data>
+        <data>163.0</data>
+        <data>36.05370899355486</data>
+        <data>139.554462867565</data>
+        <data>96.7412399440925</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-JE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-JE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-JE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-JE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>340.2363548930031</data>
+        <data>190.71039771816788</data>
+        <data>1393.0</data>
+        <data>109.0</data>
+        <data>1284.0</data>
+        <data>12.62411326550531</data>
+        <data>46.66136266444576</data>
+        <data>390.040040237793</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-SI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-SI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>154.10320019846193</data>
+        <data>24.93805308895103</data>
+        <data>223.0</data>
+        <data>87.0</data>
+        <data>136.0</data>
+        <data>254.0160739357308</data>
+        <data>1677.7156172129564</data>
+        <data>156.1079844315294</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CZ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CZ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-CZ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CZ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>260.1136635118993</data>
+        <data>41.25896236451071</data>
+        <data>422.0</data>
+        <data>175.0</data>
+        <data>247.0</data>
+        <data>270.3920709383213</data>
+        <data>1844.9062984343848</data>
+        <data>263.3655632784546</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-RZ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-RZ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-RZ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-RZ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>235.87746087834427</data>
+        <data>56.462575793476</data>
+        <data>486.0</data>
+        <data>149.0</data>
+        <data>337.0</data>
+        <data>86.64621630118575</data>
+        <data>433.6014185881764</data>
+        <data>242.5411285032884</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-G1/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-G1/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-G1">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-G1/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>7.755102040816326</data>
+        <data>9.036277480460262</data>
+        <data>31.0</data>
+        <data>1.0</data>
+        <data>30.0</data>
+        <data>4.125743051584335</data>
+        <data>10.520958085269692</data>
+        <data>11.907809133814117</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-OS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>119.21469248291572</data>
+        <data>17.586248867978316</data>
+        <data>236.0</data>
+        <data>62.0</data>
+        <data>174.0</data>
+        <data>332.3418060659684</data>
+        <data>2404.8979805387335</data>
+        <data>120.50485074486681</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-CI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>43.4226093776259</data>
+        <data>31.08435941784253</data>
+        <data>150.0</data>
+        <data>1.0</data>
+        <data>149.0</data>
+        <data>7.522379676326865</data>
+        <data>21.642703899942326</data>
+        <data>53.401876423769224</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-LO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>100.1205056470832</data>
+        <data>20.888935277498046</data>
+        <data>151.0</data>
+        <data>35.0</data>
+        <data>116.0</data>
+        <data>123.81489957606651</data>
+        <data>655.9783650988337</data>
+        <data>102.27640621401949</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OP/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OP/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-OP">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OP/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>203.12634493173096</data>
+        <data>49.88150452585675</data>
+        <data>731.0</data>
+        <data>126.0</data>
+        <data>605.0</data>
+        <data>81.38445491385009</data>
+        <data>410.04010090655515</data>
+        <data>209.16136473805972</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CH/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CH/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-CH">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CH/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>194.47543624161074</data>
+        <data>25.462624286352504</data>
+        <data>297.0</data>
+        <data>161.0</data>
+        <data>136.0</data>
+        <data>469.77166691383604</data>
+        <data>3797.5328623479218</data>
+        <data>196.1352608199575</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-LL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>186.91299075337275</data>
+        <data>37.07668159133377</data>
+        <data>297.0</data>
+        <data>109.0</data>
+        <data>188.0</data>
+        <data>143.49070037462369</data>
+        <data>805.8366905898845</data>
+        <data>190.55483838043983</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-CE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-CE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>131.39532504328665</data>
+        <data>26.165983402425244</data>
+        <data>226.0</data>
+        <data>65.0</data>
+        <data>161.0</data>
+        <data>142.22468000782942</data>
+        <data>800.6244097317762</data>
+        <data>133.97533403819875</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-OL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-OL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>137.93252715720433</data>
+        <data>39.0959944195782</data>
+        <data>305.0</data>
+        <data>37.0</data>
+        <data>268.0</data>
+        <data>54.34974262501219</data>
+        <data>230.468046968849</data>
+        <data>143.3662401949239</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LG/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LG/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-LG">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LG/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>148.39265612436344</data>
+        <data>54.57105646193024</data>
+        <data>432.0</data>
+        <data>59.0</data>
+        <data>373.0</data>
+        <data>29.805686101787344</data>
+        <data>123.00566759303356</data>
+        <data>158.10876191727877</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-LE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>96.70576996560948</data>
+        <data>22.449020434850656</data>
+        <data>181.0</data>
+        <data>41.0</data>
+        <data>140.0</data>
+        <data>92.45970115634425</data>
+        <data>451.5165241034194</data>
+        <data>99.27721019008197</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LD/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LD/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-LD">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LD/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>167.90030832476876</data>
+        <data>39.64524939808576</data>
+        <data>268.0</data>
+        <data>84.0</data>
+        <data>184.0</data>
+        <data>88.63281535587002</data>
+        <data>430.97968555924166</data>
+        <data>172.51741748411618</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BY/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BY/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-BY">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BY/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>106.73341817256299</data>
+        <data>27.928865491897795</data>
+        <data>187.0</data>
+        <data>16.0</data>
+        <data>171.0</data>
+        <data>67.1894316307634</data>
+        <data>302.5012708166129</data>
+        <data>110.32698709954755</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-RA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-RA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-RA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-RA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>167.83148923444975</data>
+        <data>38.08237987250123</data>
+        <data>389.0</data>
+        <data>95.0</data>
+        <data>294.0</data>
+        <data>100.19131696025956</data>
+        <data>525.0788034219196</data>
+        <data>172.09786877066983</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LOA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LOA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-LOA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-LOA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>138.43058637083993</data>
+        <data>20.335751881083926</data>
+        <data>228.0</data>
+        <data>83.0</data>
+        <data>145.0</data>
+        <data>336.3828892683796</data>
+        <data>2443.026329541932</data>
+        <data>139.9162965760014</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KW/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KW/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-KW">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KW/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>308.41198312236287</data>
+        <data>103.25095506281619</data>
+        <data>895.0</data>
+        <data>190.0</data>
+        <data>705.0</data>
+        <data>37.1972275692203</data>
+        <data>158.36609309249667</data>
+        <data>325.23639257446627</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BP/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BP/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-BP">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BP/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>158.7368017629587</data>
+        <data>11.198326203832705</data>
+        <data>203.0</data>
+        <data>121.0</data>
+        <data>82.0</data>
+        <data>2890.5550470272574</data>
+        <data>41572.08097636514</data>
+        <data>159.1313128950437</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-KT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>283.8460115995629</data>
+        <data>55.56458590652814</data>
+        <data>496.0</data>
+        <data>177.0</data>
+        <data>319.0</data>
+        <data>149.55487675437308</data>
+        <data>860.0353844605085</data>
+        <data>289.23343774180603</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-KR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>479.40157480314963</data>
+        <data>181.63150633083526</data>
+        <data>1295.0</data>
+        <data>206.0</data>
+        <data>1089.0</data>
+        <data>27.271228990363394</data>
+        <data>104.41823490775394</data>
+        <data>512.6557070937064</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WY/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WY/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-WY">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WY/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>410.4892514892515</data>
+        <data>188.4697382023486</data>
+        <data>1285.0</data>
+        <data>141.0</data>
+        <data>1144.0</data>
+        <data>17.892722212064996</data>
+        <data>63.65112981340197</data>
+        <data>451.68824182866194</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TW/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TW/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-TW">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TW/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>248.7300754765255</data>
+        <data>70.48298484400932</data>
+        <data>711.0</data>
+        <data>154.0</data>
+        <data>557.0</data>
+        <data>55.84439443782469</data>
+        <data>253.585292200861</data>
+        <data>258.52369639760093</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-NS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-NS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-NS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-NS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>632.5249949606934</data>
+        <data>236.2293909877068</data>
+        <data>2191.0</data>
+        <data>212.0</data>
+        <data>1979.0</data>
+        <data>28.749505113352907</data>
+        <data>118.41388709608347</data>
+        <data>675.197892781404</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-EL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-EL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-EL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-EL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>58.493636852482524</data>
+        <data>41.720696454590495</data>
+        <data>200.0</data>
+        <data>1.0</data>
+        <data>199.0</data>
+        <data>7.323040091451189</data>
+        <data>19.994957103776095</data>
+        <data>71.84790925897691</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-BI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>162.83234250886747</data>
+        <data>21.479867087261468</data>
+        <data>239.0</data>
+        <data>110.0</data>
+        <data>129.0</data>
+        <data>458.3487323400453</data>
+        <data>3648.876167871256</data>
+        <data>164.24297993220756</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-KO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>106.02389044382247</data>
+        <data>17.9071344115483</data>
+        <data>201.0</data>
+        <data>51.0</data>
+        <data>150.0</data>
+        <data>226.38259536314783</data>
+        <data>1471.3682918576594</data>
+        <data>107.5254891068947</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-KL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>262.40569623954616</data>
+        <data>48.32643878828068</data>
+        <data>564.0</data>
+        <data>137.0</data>
+        <data>427.0</data>
+        <data>177.00266112582713</data>
+        <data>1064.1522440018077</data>
+        <data>266.8186539672937</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KOA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KOA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-KOA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KOA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>93.0500811789684</data>
+        <data>55.338138691017726</data>
+        <data>230.0</data>
+        <data>1.0</data>
+        <data>229.0</data>
+        <data>9.635432291589357</data>
+        <data>25.697979702117358</data>
+        <data>108.26184554679895</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-WR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>134.72829281325141</data>
+        <data>37.122324433654555</data>
+        <data>649.0</data>
+        <data>66.0</data>
+        <data>583.0</data>
+        <data>61.19301634553549</data>
+        <data>311.83004578486367</data>
+        <data>139.74898874671936</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-TO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>89.41882261056331</data>
+        <data>28.557437101473603</data>
+        <data>180.0</data>
+        <data>12.0</data>
+        <data>168.0</data>
+        <data>39.59411427405068</data>
+        <data>152.16889894130352</data>
+        <data>93.86827499674213</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-BB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-BB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>476.67993560661495</data>
+        <data>216.54366587384854</data>
+        <data>1373.0</data>
+        <data>194.0</data>
+        <data>1179.0</data>
+        <data>18.167634027237913</data>
+        <data>63.53311824882659</data>
+        <data>523.5598535411322</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-WO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-WO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>92.09606335360955</data>
+        <data>20.142401899849908</data>
+        <data>152.0</data>
+        <data>36.0</data>
+        <data>116.0</data>
+        <data>108.84252270269842</data>
+        <data>557.230930211103</data>
+        <data>94.27301437594505</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-ZM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-ZM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-ZM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-ZM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>232.81565189415267</data>
+        <data>34.38799472406368</data>
+        <data>359.0</data>
+        <data>145.0</data>
+        <data>214.0</data>
+        <data>331.41863256956316</data>
+        <data>2400.338448904907</data>
+        <data>235.34158567503854</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-KA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-KA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>146.12212598425197</data>
+        <data>29.717273513673586</data>
+        <data>272.0</data>
+        <data>52.0</data>
+        <data>220.0</data>
+        <data>133.52440318417257</data>
+        <data>731.1216924250208</data>
+        <data>149.11335301455767</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-ZE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-ZE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-ZE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-ZE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>88.2616138398258</data>
+        <data>34.544666590466974</data>
+        <data>216.0</data>
+        <data>24.0</data>
+        <data>192.0</data>
+        <data>24.92766762236424</data>
+        <data>90.17353012987098</data>
+        <data>94.78104487426299</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/PL-TA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/POL/1/PL-TA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>194.84992264053636</data>
+        <data>42.90878095819957</data>
+        <data>397.0</data>
+        <data>116.0</data>
+        <data>281.0</data>
+        <data>108.05471850110648</data>
+        <data>566.5746893971524</data>
+        <data>199.51856012998329</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

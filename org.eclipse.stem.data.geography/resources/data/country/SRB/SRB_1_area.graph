@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SRB/SRB_1_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="SRB (1) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SRB/SRB_1_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="SRB:1/" source="http://www.grid.unep.ch/data/data.php?category=human_related" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/SRB/1/RS-VOJ">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/SRB/1/RS-VOJ" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RS-VOJ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/SRB/1/RS-VOJ" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="21506.0" averageExtent="146.64924138910504"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/SRB/1/RS-KOS">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/SRB/1/RS-KOS" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RS-KOS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/SRB/1/RS-KOS" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="10887.0" averageExtent="104.34078780611156"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/SRB/1/RS-CGO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/SRB/1/RS-CGO" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RS-CGO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/SRB/1/RS-CGO" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="13812.0" averageExtent="117.52446553803169"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/SRB/1/RS-SRB">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/SRB/1/RS-SRB" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RS-SRB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/SRB/1/RS-SRB" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="55968.0" averageExtent="236.57556932193992"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

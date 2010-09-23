@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/OMN/OMN_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="OMN(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/OMN/OMN_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="OMN:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-BA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-BA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AL BATNAH, 03, BA OM-BA" identifier="stem://org.eclipse.stem/node/geo/region/OM-BA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-BA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-MA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-MA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MUSCAT, 10, MA OM-MA" identifier="stem://org.eclipse.stem/node/geo/region/OM-MA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-MA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-MU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-MU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MUSANDAM, 09, MU OM-MU" identifier="stem://org.eclipse.stem/node/geo/region/OM-MU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-MU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-DA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-DA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="A DAKHLIYA, 01, DA OM-DA" identifier="stem://org.eclipse.stem/node/geo/region/OM-DA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-DA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-DHF">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-DHF" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DHOFAR, 08, DHF OM-DHF" identifier="stem://org.eclipse.stem/node/geo/region/OM-DHF" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-DHF"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-DHA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-DHA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AL DHAHIRA, 04, DHA OM-DHA" identifier="stem://org.eclipse.stem/node/geo/region/OM-DHA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-DHA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-SH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-SH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="A SHARQIYA, 02, SH OM-SH" identifier="stem://org.eclipse.stem/node/geo/region/OM-SH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-SH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/OM-WU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/OM-WU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AL WUSTA, 06, WU OM-WU" identifier="stem://org.eclipse.stem/node/geo/region/OM-WU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/OMN/OMN_1_MAP.xml#OM-WU"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

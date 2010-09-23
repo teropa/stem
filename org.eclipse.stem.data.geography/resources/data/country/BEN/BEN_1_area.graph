@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BEN/BEN_1_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="BEN (1) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BEN/BEN_1_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="BEN:1/" source="https://www.cia.gov/library/publications/the-world-factbook/" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BEN/1/BJ-BO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BEN/1/BJ-BO" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BJ-BO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BEN/1/BJ-BO" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="25310.0" averageExtent="159.0911688309568"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BEN/1/BJ-MO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BEN/1/BJ-MO" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BJ-MO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BEN/1/BJ-MO" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="1587.0" averageExtent="39.83716857408418"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BEN/1/BJ-OU">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BEN/1/BJ-OU" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BJ-OU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BEN/1/BJ-OU" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="1676.0" averageExtent="40.93897898091744"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BEN/1/BJ-AQ">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BEN/1/BJ-AQ" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BJ-AQ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BEN/1/BJ-AQ" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="3239.0" averageExtent="56.91221310052878"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BEN/1/BJ-AK">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BEN/1/BJ-AK" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BJ-AK">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BEN/1/BJ-AK" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="23847.0" averageExtent="154.4247389507264"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BEN/1/BJ-ZO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BEN/1/BJ-ZO" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BJ-ZO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BEN/1/BJ-ZO" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="5667.0" averageExtent="75.27947927556353"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

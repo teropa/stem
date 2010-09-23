@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/UZB/UZB_0_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="UZB (0) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/UZB/UZB_0_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="UZB:0/" source="https://www.cia.gov/cia/publications/factbook/geos/uz.html" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/UZB/0/UZB">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/UZB/0/UZB" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/UZB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/UZB/0/UZB" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="425400.0" averageExtent="652.2269543648131"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

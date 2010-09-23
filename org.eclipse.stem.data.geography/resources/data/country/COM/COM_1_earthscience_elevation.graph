@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/COM/COM_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="COM elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/COM/COM_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="COM:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COM/1/KM-NZ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COM/1/KM-NZ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KM-NZ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COM/1/KM-NZ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>408.8663967611336</data>
+        <data>296.6991932917448</data>
+        <data>1574.0</data>
+        <data>1.0</data>
+        <data>1573.0</data>
+        <data>7.424442388547281</data>
+        <data>21.715843260126952</data>
+        <data>505.17535737643107</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COM/1/KM-M/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COM/1/KM-M/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KM-M">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COM/1/KM-M/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>196.5</data>
+        <data>172.18712793003252</data>
+        <data>769.0</data>
+        <data>1.0</data>
+        <data>768.0</data>
+        <data>5.8852880787345345</data>
+        <data>17.29403965395465</data>
+        <data>261.26740520928627</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COM/1/KM-G/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COM/1/KM-G/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KM-G">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COM/1/KM-G/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>598.3371900826446</data>
+        <data>542.0929584112366</data>
+        <data>2418.0</data>
+        <data>1.0</data>
+        <data>2417.0</data>
+        <data>5.956935257527846</data>
+        <data>18.81011585585641</data>
+        <data>807.3860096602128</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COM/1/KM-ILM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COM/1/KM-ILM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KM-ILM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COM/1/KM-ILM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>332.731884057971</data>
+        <data>49.387534833532825</data>
+        <data>619.0</data>
+        <data>234.0</data>
+        <data>385.0</data>
+        <data>327.3433125096243</data>
+        <data>2374.3691250362212</data>
+        <data>336.37722168080955</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MNP/MNP_0_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="MNP (0) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MNP/MNP_0_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="MNP:0/" source="https://www.cia.gov/cia/publications/factbook/geos/cq.html" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/MNP/0/MNP">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/MNP/0/MNP" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/MNP">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/MNP/0/MNP" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="477.0" averageExtent="21.840329667841555"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>
