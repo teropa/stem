@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ZAF/ZAF_0_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="ZAF (0) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ZAF/ZAF_0_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ZAF:0/" source="https://www.cia.gov/cia/publications/factbook/geos/sf.html" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ZAF/0/ZAF">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ZAF/0/ZAF" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/ZAF">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ZAF/0/ZAF" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="1219912.0" averageExtent="1104.4962652720922"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

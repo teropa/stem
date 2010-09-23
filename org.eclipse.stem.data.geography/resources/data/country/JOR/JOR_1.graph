@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JOR/JOR_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="JOR(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JOR/JOR_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="JOR:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-MA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-MA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MAFRAQ, 08, MA JO-MA" identifier="stem://org.eclipse.stem/node/geo/region/JO-MA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-MA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-AZ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-AZ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZARQA, 12, AZ JO-AZ" identifier="stem://org.eclipse.stem/node/geo/region/JO-AZ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-AZ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-AT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-AT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TAFILA, 11, AT JO-AT" identifier="stem://org.eclipse.stem/node/geo/region/JO-AT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-AT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-MN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-MN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MA-AN, 07, MN JO-MN" identifier="stem://org.eclipse.stem/node/geo/region/JO-MN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-MN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-AM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-AM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AMMAN, 02, AM JO-AM" identifier="stem://org.eclipse.stem/node/geo/region/JO-AM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-AM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-IR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-IR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="IRBID, 03, IR JO-IR" identifier="stem://org.eclipse.stem/node/geo/region/JO-IR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-IR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-KA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-KA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KARAK, 06, KA JO-KA" identifier="stem://org.eclipse.stem/node/geo/region/JO-KA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-KA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JO-BA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JO-BA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SALT (BALQA), 10, BA JO-BA" identifier="stem://org.eclipse.stem/node/geo/region/JO-BA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JOR/JOR_1_MAP.xml#JO-BA"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

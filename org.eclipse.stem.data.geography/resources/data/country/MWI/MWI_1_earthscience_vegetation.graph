@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MWI/MWI_1_earthscience_vegetation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="MWI vegetation data for 2009 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MWI/MWI_1_earthscience_vegetation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="MWI:1/" subject="Label:earthscience_vegetation" type="stemtype://org.eclipse.stem/Graph" valid="start=2009"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-C/vegetation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-C/vegetation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/MW-C">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-C/vegetation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="vegetation" units="UNITS">
+        <data>0.6000401581177139</data>
+        <data>0.16825956025963584</data>
+        <data>0.7976378</data>
+        <data>0.018110236</data>
+        <data>0.5968051072728139</data>
+        <data>0.16240011425897555</data>
+        <data>0.78582674</data>
+        <data>0.03385827</data>
+        <data>0.6271161445964345</data>
+        <data>0.15821166083853652</data>
+        <data>0.82913387</data>
+        <data>0.09291339</data>
+        <data>0.5906037128316707</data>
+        <data>0.14461677640176027</data>
+        <data>0.80944884</data>
+        <data>0.10472441</data>
+        <data>0.5075106541142635</data>
+        <data>0.12196792100008684</data>
+        <data>0.78188974</data>
+        <data>0.10866142</data>
+        <data>0.43692454303489253</data>
+        <data>0.1123589458759165</data>
+        <data>0.7582677</data>
+        <data>0.10472441</data>
+        <data>0.36024346670709334</data>
+        <data>0.1291308400121774</data>
+        <data>0.7031496</data>
+        <data>-0.1</data>
+        <data>0.305396326072182</data>
+        <data>0.11627547430945716</data>
+        <data>0.64015746</data>
+        <data>-0.088188976</data>
+        <data>0.26532278179463187</data>
+        <data>0.09641950106356077</data>
+        <data>0.49055117</data>
+        <data>-0.080314964</data>
+        <data>0.2756581813972395</data>
+        <data>0.0931921023593814</data>
+        <data>0.5456693</data>
+        <data>-0.06456693</data>
+        <data>0.31857126333853547</data>
+        <data>0.11803865307684192</data>
+        <data>0.6165354</data>
+        <data>-0.048818897</data>
+        <data>0.4381827857166415</data>
+        <data>0.14135012959917118</data>
+        <data>0.7385827</data>
+        <data>0.014173228</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-S/vegetation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-S/vegetation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/MW-S">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-S/vegetation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="vegetation" units="UNITS">
+        <data>0.6584819356978364</data>
+        <data>0.15895080550897192</data>
+        <data>0.82125986</data>
+        <data>-0.056692913</data>
+        <data>0.6481216500205872</data>
+        <data>0.16001463742298458</data>
+        <data>0.81338584</data>
+        <data>-0.06850394</data>
+        <data>0.6392915060336968</data>
+        <data>0.1540828707789554</data>
+        <data>0.8370079</data>
+        <data>-0.1</data>
+        <data>0.6151285326775213</data>
+        <data>0.14640161037577756</data>
+        <data>0.81338584</data>
+        <data>-0.1</data>
+        <data>0.5612196467079832</data>
+        <data>0.13950687266541809</data>
+        <data>0.77795273</data>
+        <data>-0.1</data>
+        <data>0.48398481041260516</data>
+        <data>0.12905447293009648</data>
+        <data>0.71496063</data>
+        <data>-0.1</data>
+        <data>0.4031206568114701</data>
+        <data>0.12346395290899109</data>
+        <data>0.6795276</data>
+        <data>-0.1</data>
+        <data>0.3361774623550627</data>
+        <data>0.12086671184741594</data>
+        <data>0.64015746</data>
+        <data>-0.1</data>
+        <data>0.2777666583010504</data>
+        <data>0.1056132086923692</data>
+        <data>0.5811024</data>
+        <data>-0.1</data>
+        <data>0.2847821409237395</data>
+        <data>0.10593179707429733</data>
+        <data>0.6007874</data>
+        <data>-0.1</data>
+        <data>0.3223913177047268</data>
+        <data>0.11053802749153445</data>
+        <data>0.6125984</data>
+        <data>-0.1</data>
+        <data>0.46846258267353</data>
+        <data>0.14109516566812366</data>
+        <data>0.72677165</data>
+        <data>-0.088188976</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-N/vegetation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-N/vegetation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/MW-N">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/MWI/1/MW-N/vegetation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="vegetation" units="UNITS">
+        <data>0.49226352071085644</data>
+        <data>0.23202110028717945</data>
+        <data>0.80944884</data>
+        <data>0.03385827</data>
+        <data>0.47935386154610166</data>
+        <data>0.2597413997865418</data>
+        <data>0.82913387</data>
+        <data>0.018110236</data>
+        <data>0.4787449539457205</data>
+        <data>0.23790798168834257</data>
+        <data>0.7740157</data>
+        <data>0.018110236</data>
+        <data>0.5132896620956846</data>
+        <data>0.22638682622708717</data>
+        <data>0.82125986</data>
+        <data>0.06929134</data>
+        <data>0.4953238101732784</data>
+        <data>0.20695576001162666</data>
+        <data>0.81732285</data>
+        <data>0.073228344</data>
+        <data>0.43925432295407096</data>
+        <data>0.1857497654268921</data>
+        <data>0.7937008</data>
+        <data>0.1007874</data>
+        <data>0.33580238666351675</data>
+        <data>0.22978510095087554</data>
+        <data>0.7582677</data>
+        <data>-0.1</data>
+        <data>0.3022912455115345</data>
+        <data>0.20495817587900655</data>
+        <data>0.72677165</data>
+        <data>-0.072440945</data>
+        <data>0.25496632793006274</data>
+        <data>0.1830234926092793</data>
+        <data>0.66377956</data>
+        <data>-0.1</data>
+        <data>0.2476265615896989</data>
+        <data>0.19224617038308073</data>
+        <data>0.7031496</data>
+        <data>-0.1</data>
+        <data>0.32822905774564987</data>
+        <data>0.1930830146906251</data>
+        <data>0.73070866</data>
+        <data>-0.0015748031</data>
+        <data>0.35841346909711197</data>
+        <data>0.2068434960319342</data>
+        <data>0.6913386</data>
+        <data>0.0062992126</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

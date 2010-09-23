@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AZE/AZE_1_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="AZE (1) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AZE/AZE_1_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="AZE:1/" source="https://www.cia.gov/library/publications/the-world-factbook/" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/AZE/1/AZ-NKA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/AZE/1/AZ-NKA" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AZ-NKA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/AZE/1/AZ-NKA" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="2700.0" averageExtent="51.96152422706632"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/AZE/1/AZ-ATE">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/AZE/1/AZ-ATE" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AZ-ATE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/AZE/1/AZ-ATE" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="85056.3" averageExtent="291.6441324628356"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/AZE/1/AZ-NAK">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/AZE/1/AZ-NAK" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AZ-NAK">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/AZE/1/AZ-NAK" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="5500.0" averageExtent="74.16198487095663"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GBR/GBR_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="GBR elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GBR/GBR_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="GBR:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-KEN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-KEN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-KEN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-KEN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>59.94886113152094</data>
+        <data>45.23575309824089</data>
+        <data>183.0</data>
+        <data>1.0</data>
+        <data>182.0</data>
+        <data>6.878557262078517</data>
+        <data>19.247113999271125</data>
+        <data>75.10086090938887</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BER/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BER/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-BER">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BER/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>95.6446511627907</data>
+        <data>35.68256504420833</data>
+        <data>278.0</data>
+        <data>28.0</data>
+        <data>250.0</data>
+        <data>28.055945665469412</data>
+        <data>105.45686602712301</data>
+        <data>102.08400826861202</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LEC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LEC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-LEC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LEC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>99.61497268930063</data>
+        <data>34.703472880515974</data>
+        <data>277.0</data>
+        <data>33.0</data>
+        <data>244.0</data>
+        <data>32.82519479774105</data>
+        <data>126.31766349324383</data>
+        <data>105.4868418991622</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DGY/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DGY/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-DGY">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DGY/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>189.01457483567586</data>
+        <data>130.6126562369767</data>
+        <data>1062.0</data>
+        <data>1.0</data>
+        <data>1061.0</data>
+        <data>8.24713672175968</data>
+        <data>25.550145525877866</data>
+        <data>229.75242211909386</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-WMI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-WMI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-WMI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-WMI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>124.83574320416426</data>
+        <data>28.433492163582933</data>
+        <data>161.0</data>
+        <data>75.0</data>
+        <data>86.0</data>
+        <data>97.25799807169885</data>
+        <data>479.398361551469</data>
+        <data>128.0329108391767</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SHR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SHR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-SHR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SHR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>135.4168419281568</data>
+        <data>75.18482850709594</data>
+        <data>520.0</data>
+        <data>34.0</data>
+        <data>486.0</data>
+        <data>12.75195335140474</data>
+        <data>45.97528034326359</data>
+        <data>154.88860356861971</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LND/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LND/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-LND">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LND/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>47.92986577181208</data>
+        <data>32.67403758638875</data>
+        <data>157.0</data>
+        <data>5.0</data>
+        <data>152.0</data>
+        <data>8.814843850389755</data>
+        <data>29.623475457820675</data>
+        <data>58.00745439252331</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-WYO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-WYO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-WYO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-WYO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>154.19794021602613</data>
+        <data>100.76916703359441</data>
+        <data>471.0</data>
+        <data>26.0</data>
+        <data>445.0</data>
+        <data>9.105175224420767</data>
+        <data>28.140331852701355</data>
+        <data>184.2048582190754</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-MAN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-MAN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-MAN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-MAN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>127.60230433055224</data>
+        <data>96.65606282168054</data>
+        <data>498.0</data>
+        <data>26.0</data>
+        <data>472.0</data>
+        <data>7.837300198025876</data>
+        <data>26.761769868988008</data>
+        <data>160.07730179714906</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-EAG/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-EAG/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-EAG">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-EAG/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>32.0742064326256</data>
+        <data>23.229338934417456</data>
+        <data>116.0</data>
+        <data>1.0</data>
+        <data>115.0</data>
+        <data>7.254297605307016</data>
+        <data>19.962640646116895</data>
+        <data>39.60248610394026</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-ESS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-ESS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-ESS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-ESS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>45.72720511676335</data>
+        <data>31.671468421457863</data>
+        <data>139.0</data>
+        <data>1.0</data>
+        <data>138.0</data>
+        <data>7.166111341704081</data>
+        <data>17.45682965582885</data>
+        <data>55.624268082933106</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HUM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HUM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-HUM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HUM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>30.952186588921283</data>
+        <data>38.623148086414695</data>
+        <data>217.0</data>
+        <data>1.0</data>
+        <data>216.0</data>
+        <data>4.574341403959723</data>
+        <data>15.313323122330802</data>
+        <data>49.49530707794957</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NYK/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NYK/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-NYK">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NYK/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>163.73538217144252</data>
+        <data>140.67994137686233</data>
+        <data>682.0</data>
+        <data>1.0</data>
+        <data>681.0</data>
+        <data>6.134825270549524</data>
+        <data>18.21608136431592</data>
+        <data>215.8706123598709</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LAN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LAN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-LAN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LAN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>136.52154955559283</data>
+        <data>118.62025563934098</data>
+        <data>546.0</data>
+        <data>1.0</data>
+        <data>545.0</data>
+        <data>5.729520674129267</data>
+        <data>15.699418262537302</data>
+        <data>180.85601604868677</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NIR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NIR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-NIR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NIR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>128.45786707661506</data>
+        <data>89.5391533743698</data>
+        <data>753.0</data>
+        <data>1.0</data>
+        <data>752.0</data>
+        <data>8.62992880178108</data>
+        <data>29.593888994204374</data>
+        <data>156.5844296246352</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-GRA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-GRA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-GRA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-GRA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>237.12846456057264</data>
+        <data>201.66247027200865</data>
+        <data>1292.0</data>
+        <data>1.0</data>
+        <data>1291.0</data>
+        <data>6.4404084996171385</data>
+        <data>20.719186038305164</data>
+        <data>311.2838907188493</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HEF/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HEF/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-HEF">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HEF/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>104.36384829193939</data>
+        <data>44.57486346316526</data>
+        <data>576.0</data>
+        <data>69.0</data>
+        <data>507.0</data>
+        <data>22.46302205466888</data>
+        <data>102.67125694674004</data>
+        <data>113.4844979856846</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BDF/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BDF/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-BDF">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BDF/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>86.40650406504065</data>
+        <data>29.251204771926563</data>
+        <data>161.0</data>
+        <data>39.0</data>
+        <data>122.0</data>
+        <data>35.723798259070726</data>
+        <data>144.53932652342573</data>
+        <data>91.22344504211114</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CMA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CMA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-CMA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CMA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>220.08847402597402</data>
+        <data>167.47939328555674</data>
+        <data>945.0</data>
+        <data>1.0</data>
+        <data>944.0</data>
+        <data>7.038666649273401</data>
+        <data>20.519251238520837</data>
+        <data>276.565152494634</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DOR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DOR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-DOR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DOR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>98.96010805943268</data>
+        <data>78.09434562923815</data>
+        <data>473.0</data>
+        <data>1.0</data>
+        <data>472.0</data>
+        <data>7.32013033757915</data>
+        <data>25.355046202759173</data>
+        <data>126.06280104136</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-GWT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-GWT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-GWT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-GWT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>146.81327367636092</data>
+        <data>115.22774143632506</data>
+        <data>583.0</data>
+        <data>1.0</data>
+        <data>582.0</data>
+        <data>6.8780356791251265</data>
+        <data>20.583655545104342</data>
+        <data>186.63217762241993</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SYO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SYO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-SYO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SYO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>109.08127438231469</data>
+        <data>107.71679938207055</data>
+        <data>494.0</data>
+        <data>3.0</data>
+        <data>491.0</data>
+        <data>5.739843801718499</data>
+        <data>19.088055169266216</data>
+        <data>153.30242427954946</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CLW/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CLW/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-CLW">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CLW/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>214.2566647147656</data>
+        <data>137.75665053541044</data>
+        <data>1068.0</data>
+        <data>1.0</data>
+        <data>1067.0</data>
+        <data>9.022611269089658</data>
+        <data>27.064486239717183</data>
+        <data>254.72104966301987</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CLV/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CLV/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-CLV">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CLV/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>199.51641497045304</data>
+        <data>157.34345280394103</data>
+        <data>632.0</data>
+        <data>1.0</data>
+        <data>631.0</data>
+        <data>6.77154755823801</data>
+        <data>19.784649584851373</data>
+        <data>254.09400225689788</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LIN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LIN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-LIN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-LIN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>39.17736516357206</data>
+        <data>26.824863767306475</data>
+        <data>167.0</data>
+        <data>1.0</data>
+        <data>166.0</data>
+        <data>7.89689552269312</data>
+        <data>22.421483344490287</data>
+        <data>47.48093572471408</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-AVO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-AVO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-AVO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-AVO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>111.61637838225795</data>
+        <data>45.2633945921649</data>
+        <data>311.0</data>
+        <data>1.0</data>
+        <data>310.0</data>
+        <data>22.381742397340457</data>
+        <data>76.05310860777598</data>
+        <data>120.44497006175621</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NBL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NBL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-NBL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-NBL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>171.4515440064074</data>
+        <data>124.47439977988219</data>
+        <data>798.0</data>
+        <data>1.0</data>
+        <data>797.0</data>
+        <data>7.616109186032875</data>
+        <data>23.033419351423287</data>
+        <data>211.87144248988048</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HAM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HAM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-HAM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HAM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>77.35777630708141</data>
+        <data>47.001322102365066</data>
+        <data>256.0</data>
+        <data>1.0</data>
+        <data>255.0</data>
+        <data>9.559249543559128</data>
+        <data>26.91567692359345</data>
+        <data>90.51712453755178</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CON/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CON/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-CON">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CON/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>132.60312668463612</data>
+        <data>87.94236234798967</data>
+        <data>604.0</data>
+        <data>1.0</data>
+        <data>603.0</data>
+        <data>9.72229151404153</data>
+        <data>36.53970235455418</data>
+        <data>159.11457601956772</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DBY/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DBY/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-DBY">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-DBY/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>132.42648166075077</data>
+        <data>111.38242083032785</data>
+        <data>613.0</data>
+        <data>10.0</data>
+        <data>603.0</data>
+        <data>6.699553169743045</data>
+        <data>21.795491700866602</data>
+        <data>173.03992809484572</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SRY/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SRY/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-SRY">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-SRY/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>68.2322360497792</data>
+        <data>39.58905551434064</data>
+        <data>260.0</data>
+        <data>1.0</data>
+        <data>259.0</data>
+        <data>11.048806094340437</data>
+        <data>35.54073472975571</data>
+        <data>78.88555858248284</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HGL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HGL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-HGL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-HGL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>242.68151388807328</data>
+        <data>193.03569269312663</data>
+        <data>1326.0</data>
+        <data>1.0</data>
+        <data>1325.0</data>
+        <data>6.665303326015426</data>
+        <data>19.865952968402357</data>
+        <data>310.09207638460254</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-MER/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-MER/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-MER">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-MER/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>24.45587044534413</data>
+        <data>22.952800450790875</data>
+        <data>105.0</data>
+        <data>1.0</data>
+        <data>104.0</data>
+        <data>5.384276041633333</data>
+        <data>15.022905585068786</data>
+        <data>33.53983672848273</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BCF/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BCF/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-BCF">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-BCF/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>256.7134847958993</data>
+        <data>181.38259055138943</data>
+        <data>1104.0</data>
+        <data>1.0</data>
+        <data>1103.0</data>
+        <data>7.864654650782912</data>
+        <data>23.525542793699746</data>
+        <data>314.32699125462926</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CHS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CHS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-CHS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-CHS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>71.74838853078462</data>
+        <data>79.10047908494971</data>
+        <data>537.0</data>
+        <data>1.0</data>
+        <data>536.0</data>
+        <data>6.0842200119301975</data>
+        <data>25.9195458938486</data>
+        <data>106.79286983798562</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-UK/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-UK/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GB-UK">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GBR/1/GB-UK/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>113.68507890961263</data>
+        <data>103.18209985966554</data>
+        <data>587.0</data>
+        <data>1.0</data>
+        <data>586.0</data>
+        <data>5.828177724713288</data>
+        <data>17.86514353904709</data>
+        <data>153.52798734476676</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/TGO/TGO_0_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="TGO elevation data for 1999 at admin level 0" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/TGO/TGO_0_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="TGO:0/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TGO/0/TGO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TGO/0/TGO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TGO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TGO/0/TGO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>257.8988407601767</data>
+        <data>150.65570676226284</data>
+        <data>930.0</data>
+        <data>62.0</data>
+        <data>868.0</data>
+        <data>11.247065440243622</data>
+        <data>37.60502818742021</data>
+        <data>298.6786802660681</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

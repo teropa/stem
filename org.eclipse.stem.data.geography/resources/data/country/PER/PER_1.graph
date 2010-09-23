@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/PER/PER_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="PER(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/PER/PER_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="PER:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-ANC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-ANC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ANCASH, 02, ANC PE-ANC" identifier="stem://org.eclipse.stem/node/geo/region/PE-ANC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-ANC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-TAC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-TAC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TACNA, 23, TAC PE-TAC" identifier="stem://org.eclipse.stem/node/geo/region/PE-TAC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-TAC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-LOR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-LOR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LORETO, 16, LOR PE-LOR" identifier="stem://org.eclipse.stem/node/geo/region/PE-LOR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-LOR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-JUN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-JUN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="JUNIN, 12, JUN PE-JUN" identifier="stem://org.eclipse.stem/node/geo/region/PE-JUN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-JUN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-CUS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-CUS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CUZCO, 07, CUS PE-CUS" identifier="stem://org.eclipse.stem/node/geo/region/PE-CUS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-CUS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-LIM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-LIM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LIMA, 15, LIM PE-LIM" identifier="stem://org.eclipse.stem/node/geo/region/PE-LIM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-LIM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-PIU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-PIU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PIURA, 20, PIU PE-PIU" identifier="stem://org.eclipse.stem/node/geo/region/PE-PIU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-PIU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-MDD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-MDD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MADRE DE DIOS, 17, MDD PE-MDD" identifier="stem://org.eclipse.stem/node/geo/region/PE-MDD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-MDD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-HUC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-HUC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HUANUCO, 10, HUC PE-HUC" identifier="stem://org.eclipse.stem/node/geo/region/PE-HUC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-HUC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-APU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-APU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="APURIMAC, 03, APU PE-APU" identifier="stem://org.eclipse.stem/node/geo/region/PE-APU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-APU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-SAM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-SAM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SAN MARTIN, 22, SAM PE-SAM" identifier="stem://org.eclipse.stem/node/geo/region/PE-SAM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-SAM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-ARE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-ARE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AREQUIPA, 04, ARE PE-ARE" identifier="stem://org.eclipse.stem/node/geo/region/PE-ARE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-ARE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-UCA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-UCA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UCAYALI, 25, UCA PE-UCA" identifier="stem://org.eclipse.stem/node/geo/region/PE-UCA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-UCA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-PUN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-PUN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PUNO, 21, PUN PE-PUN" identifier="stem://org.eclipse.stem/node/geo/region/PE-PUN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-PUN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-LAM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-LAM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LAMBAYEQUE, 14, LAM PE-LAM" identifier="stem://org.eclipse.stem/node/geo/region/PE-LAM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-LAM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-LAL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-LAL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LA LIBERTAD, 13, LAL PE-LAL" identifier="stem://org.eclipse.stem/node/geo/region/PE-LAL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-LAL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-PAS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-PAS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PASCO, 19, PAS PE-PAS" identifier="stem://org.eclipse.stem/node/geo/region/PE-PAS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-PAS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-CAJ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-CAJ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CAJAMARCA, 06, CAJ PE-CAJ" identifier="stem://org.eclipse.stem/node/geo/region/PE-CAJ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-CAJ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-TUM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-TUM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TUMBES, 24, TUM PE-TUM" identifier="stem://org.eclipse.stem/node/geo/region/PE-TUM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-TUM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-MOQ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-MOQ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MOQUEGUA, 18, MOQ PE-MOQ" identifier="stem://org.eclipse.stem/node/geo/region/PE-MOQ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-MOQ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-AMA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-AMA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AMAZONAS, 01, AMA PE-AMA" identifier="stem://org.eclipse.stem/node/geo/region/PE-AMA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-AMA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-ICA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-ICA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ICA, 11, ICA PE-ICA" identifier="stem://org.eclipse.stem/node/geo/region/PE-ICA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-ICA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-AYA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-AYA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AYACUCHO, 05, AYA PE-AYA" identifier="stem://org.eclipse.stem/node/geo/region/PE-AYA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-AYA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/PE-HUV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/PE-HUV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HUANCAVELICA, 09, HUV PE-HUV" identifier="stem://org.eclipse.stem/node/geo/region/PE-HUV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/PER/PER_1_MAP.xml#PE-HUV"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

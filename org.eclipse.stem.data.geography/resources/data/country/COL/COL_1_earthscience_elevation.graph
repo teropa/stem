@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/COL/COL_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="COL elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/COL/COL_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="COL:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-COR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-COR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-COR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-COR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>191.85870191492967</data>
+        <data>278.3110829071402</data>
+        <data>2105.0</data>
+        <data>1.0</data>
+        <data>2104.0</data>
+        <data>5.056735295670078</data>
+        <data>20.2417274537169</data>
+        <data>338.0337562573136</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BOY/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BOY/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-BOY">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BOY/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>2252.425852469158</data>
+        <data>1026.0707952092428</data>
+        <data>5294.0</data>
+        <data>48.0</data>
+        <data>5246.0</data>
+        <data>16.798763237166273</data>
+        <data>51.27860766482498</data>
+        <data>2475.124945866926</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-AMA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-AMA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-AMA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-AMA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>108.2363692468371</data>
+        <data>28.888864974937945</data>
+        <data>583.0</data>
+        <data>69.0</data>
+        <data>514.0</data>
+        <data>68.39606727052121</data>
+        <data>394.74842220777043</data>
+        <data>112.0253460038299</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CUN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CUN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-CUN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CUN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1877.8143733444863</data>
+        <data>1069.7846205849116</data>
+        <data>4122.0</data>
+        <data>131.0</data>
+        <data>3991.0</data>
+        <data>10.597351285177174</data>
+        <data>29.165694259774675</data>
+        <data>2161.163102400914</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-MET/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-MET/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-MET">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-MET/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>473.21238425347866</data>
+        <data>607.3934111132937</data>
+        <data>4232.0</data>
+        <data>121.0</data>
+        <data>4111.0</data>
+        <data>5.99419845152517</data>
+        <data>26.960609879947558</data>
+        <data>769.9718933017705</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-TOL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-TOL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-TOL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-TOL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1618.8027419237221</data>
+        <data>1166.3542596718582</data>
+        <data>5692.0</data>
+        <data>143.0</data>
+        <data>5549.0</data>
+        <data>7.472508712985991</data>
+        <data>21.053667516567725</data>
+        <data>1995.2204330134668</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BOL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BOL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-BOL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BOL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>274.9869902345651</data>
+        <data>366.4134898313654</data>
+        <data>2086.0</data>
+        <data>1.0</data>
+        <data>2085.0</data>
+        <data>4.284904903055771</data>
+        <data>13.300712901418716</data>
+        <data>458.1230078577703</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-RIS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-RIS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-RIS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-RIS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1754.9029003783103</data>
+        <data>845.7171364048016</data>
+        <data>4514.0</data>
+        <data>219.0</data>
+        <data>4295.0</data>
+        <data>16.00167625128647</data>
+        <data>54.981959243177386</data>
+        <data>1948.0558679270323</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CES/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CES/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-CES">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CES/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>498.95288266715784</data>
+        <data>745.2673574159339</data>
+        <data>4819.0</data>
+        <data>15.0</data>
+        <data>4804.0</data>
+        <data>4.624760840542453</data>
+        <data>17.747332154671952</data>
+        <data>896.870901050755</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BUE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BUE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-BUE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-BUE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>1.0</data>
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>1.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-NAR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-NAR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-NAR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-NAR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1164.5356719793238</data>
+        <data>1194.2134532772886</data>
+        <data>4848.0</data>
+        <data>1.0</data>
+        <data>4847.0</data>
+        <data>4.469550876334812</data>
+        <data>10.980071692237768</data>
+        <data>1668.0195152637357</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CHO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CHO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-CHO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CHO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>290.7529411764706</data>
+        <data>496.84617098207957</data>
+        <data>3763.0</data>
+        <data>1.0</data>
+        <data>3762.0</data>
+        <data>5.38191497707359</data>
+        <data>26.023967177750066</data>
+        <data>575.6677778218291</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VAU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VAU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-VAU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VAU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>177.99813959455992</data>
+        <data>62.78226507283447</data>
+        <data>618.0</data>
+        <data>70.0</data>
+        <data>548.0</data>
+        <data>32.14669099444873</data>
+        <data>129.10827964345734</data>
+        <data>188.74572977103375</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SUC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SUC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-SUC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SUC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>71.10643972076241</data>
+        <data>76.52559265748202</data>
+        <data>684.0</data>
+        <data>1.0</data>
+        <data>683.0</data>
+        <data>6.168846865999838</data>
+        <data>27.7362343895844</data>
+        <data>104.46191699055346</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ARA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ARA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-ARA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ARA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>371.7837919361866</data>
+        <data>716.0660025678973</data>
+        <data>5072.0</data>
+        <data>75.0</data>
+        <data>4997.0</data>
+        <data>5.179058443044193</data>
+        <data>23.886739835490708</data>
+        <data>806.8294169029937</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-PUT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-PUT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-PUT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-PUT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>510.1081750619323</data>
+        <data>561.8488267181918</data>
+        <data>3489.0</data>
+        <data>118.0</data>
+        <data>3371.0</data>
+        <data>6.248449889785709</data>
+        <data>26.23055712773282</data>
+        <data>758.8705122414635</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-QUI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-QUI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-QUI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-QUI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1864.1788537549407</data>
+        <data>711.9405345467425</data>
+        <data>4508.0</data>
+        <data>830.0</data>
+        <data>3678.0</data>
+        <data>26.792197037106366</data>
+        <data>101.91784473998652</data>
+        <data>1995.5004694356217</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VAC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VAC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-VAC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VAC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1167.3711756179732</data>
+        <data>894.144973348894</data>
+        <data>4071.0</data>
+        <data>1.0</data>
+        <data>4070.0</data>
+        <data>6.811204283277203</data>
+        <data>19.483629261872284</data>
+        <data>1470.4593483088179</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-MAG/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-MAG/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-MAG">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-MAG/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>388.2198264326949</data>
+        <data>823.3619790709641</data>
+        <data>5421.0</data>
+        <data>1.0</data>
+        <data>5420.0</data>
+        <data>4.57164892457474</data>
+        <data>19.662123030269782</data>
+        <data>910.2964254654007</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ANT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ANT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-ANT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ANT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1009.6211327043518</data>
+        <data>877.4428336629362</data>
+        <data>3992.0</data>
+        <data>1.0</data>
+        <data>3991.0</data>
+        <data>5.6131461555798365</data>
+        <data>14.87092317211163</data>
+        <data>1337.6250438555746</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-CAU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1498.3896706718763</data>
+        <data>1058.3899642446565</data>
+        <data>4514.0</data>
+        <data>1.0</data>
+        <data>4513.0</data>
+        <data>7.446306657448802</data>
+        <data>20.295363256125576</data>
+        <data>1834.4920064121131</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-GUV/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-GUV/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-GUV">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-GUV/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>288.05939513215145</data>
+        <data>83.59541025720331</data>
+        <data>1055.0</data>
+        <data>112.0</data>
+        <data>943.0</data>
+        <data>53.68167026317425</data>
+        <data>261.8345610948024</data>
+        <data>299.9440076747182</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-CAS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>263.3840969835815</data>
+        <data>359.469897015727</data>
+        <data>3673.0</data>
+        <data>72.0</data>
+        <data>3601.0</data>
+        <data>6.870686665185824</data>
+        <data>40.36833036573608</data>
+        <data>445.6341429966434</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-HUI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-HUI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-HUI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-HUI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1680.1836476928258</data>
+        <data>836.4364499862733</data>
+        <data>4655.0</data>
+        <data>263.0</data>
+        <data>4392.0</data>
+        <data>14.542986694832198</data>
+        <data>46.35519366166936</data>
+        <data>1876.8705402451212</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAQ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAQ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-CAQ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAQ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>355.6746709372957</data>
+        <data>360.96371941393863</data>
+        <data>3141.0</data>
+        <data>86.0</data>
+        <data>3055.0</data>
+        <data>7.433169943084237</data>
+        <data>38.70508491026833</data>
+        <data>506.7536662713872</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-NSA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-NSA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-NSA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-NSA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1232.3714773064373</data>
+        <data>991.6756721342529</data>
+        <data>4513.0</data>
+        <data>37.0</data>
+        <data>4476.0</data>
+        <data>6.34419434523799</data>
+        <data>17.662148801805948</data>
+        <data>1581.8217651750056</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-CAL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-CAL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1564.073209249859</data>
+        <data>934.6010699811088</data>
+        <data>4737.0</data>
+        <data>152.0</data>
+        <data>4585.0</data>
+        <data>10.201037679665015</data>
+        <data>30.4193839947786</data>
+        <data>1822.032975525687</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-LAG/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-LAG/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-LAG">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-LAG/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>342.1580026011902</data>
+        <data>671.1260125210979</data>
+        <data>5153.0</data>
+        <data>1.0</data>
+        <data>5152.0</data>
+        <data>5.040053669744732</data>
+        <data>24.296392760220684</data>
+        <data>753.3141598473222</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ATL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ATL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-ATL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-ATL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>48.784707871501034</data>
+        <data>62.09815588826389</data>
+        <data>461.0</data>
+        <data>1.0</data>
+        <data>460.0</data>
+        <data>4.97179300668521</data>
+        <data>19.352387710360237</data>
+        <data>78.96916288546267</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SAP/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SAP/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-SAP">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SAP/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>1.0</data>
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>1.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-GUA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-GUA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-GUA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-GUA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>169.12091611276364</data>
+        <data>64.82683243382638</data>
+        <data>736.0</data>
+        <data>64.0</data>
+        <data>672.0</data>
+        <data>27.104730884407516</data>
+        <data>110.66268560087597</data>
+        <data>181.11985664256665</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SAN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SAN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-SAN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-SAN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1088.7426977630766</data>
+        <data>997.0610467141319</data>
+        <data>4461.0</data>
+        <data>14.0</data>
+        <data>4447.0</data>
+        <data>5.304296471890751</data>
+        <data>14.336873442786256</data>
+        <data>1476.3100598475532</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VID/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VID/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CO-VID">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/COL/1/CO-VID/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>113.68983405123171</data>
+        <data>47.34392156410653</data>
+        <data>609.0</data>
+        <data>1.0</data>
+        <data>608.0</data>
+        <data>22.172914946646255</data>
+        <data>84.88230783177406</data>
+        <data>123.1536652952908</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

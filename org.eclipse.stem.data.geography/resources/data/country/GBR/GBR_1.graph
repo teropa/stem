@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GBR/GBR_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="GBR(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GBR/GBR_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="GBR:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-LEC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-LEC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LEICESTERSHIRE, 129, LEC GB-LEC" identifier="stem://org.eclipse.stem/node/geo/region/GB-LEC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-LEC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-KEN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-KEN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KENT, 119, KEN GB-KEN" identifier="stem://org.eclipse.stem/node/geo/region/GB-KEN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-KEN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-BER">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-BER" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BERKS, 18, BER GB-BER" identifier="stem://org.eclipse.stem/node/geo/region/GB-BER" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-BER"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-DGY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-DGY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DUMFRIES-GALLO, 67, DGY GB-DGY" identifier="stem://org.eclipse.stem/node/geo/region/GB-DGY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-DGY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-SHR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-SHR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SHROPSHIRE, 193, SHR GB-SHR" identifier="stem://org.eclipse.stem/node/geo/region/GB-SHR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-SHR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-LND">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-LND" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GREATER LONDON, 91, LND GB-LND" identifier="stem://org.eclipse.stem/node/geo/region/GB-LND" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-LND"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-WMI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-WMI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="WEST MIDLANDS (COUNTY), 237, WMI GB-WMI" identifier="stem://org.eclipse.stem/node/geo/region/GB-WMI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-WMI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-MAN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-MAN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GREATER MANCHESTER, 92, MAN GB-MAN" identifier="stem://org.eclipse.stem/node/geo/region/GB-MAN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-MAN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-EAG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-EAG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EAST ANGLIA, 72, EAG GB-EAG" identifier="stem://org.eclipse.stem/node/geo/region/GB-EAG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-EAG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-WYO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-WYO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="WEST YORKSHIRE, 239, WYO GB-WYO" identifier="stem://org.eclipse.stem/node/geo/region/GB-WYO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-WYO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-ESS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-ESS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ESSEX, 82, ESS GB-ESS" identifier="stem://org.eclipse.stem/node/geo/region/GB-ESS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-ESS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-HUM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-HUM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HUMBERSIDE, 111, HUM GB-HUM" identifier="stem://org.eclipse.stem/node/geo/region/GB-HUM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-HUM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-NYK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-NYK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NORTH YORKSHIRE, 161, NYK GB-NYK" identifier="stem://org.eclipse.stem/node/geo/region/GB-NYK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-NYK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-LAN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-LAN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LANCASHIRE, 125, LAN GB-LAN" identifier="stem://org.eclipse.stem/node/geo/region/GB-LAN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-LAN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-NIR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-NIR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NORTHERN IRELAND, 163, NIR GB-NIR" identifier="stem://org.eclipse.stem/node/geo/region/GB-NIR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-NIR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-GRA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-GRA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GRAMPIAN, 90, GRA GB-GRA" identifier="stem://org.eclipse.stem/node/geo/region/GB-GRA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-GRA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-HEF">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-HEF" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HEREFORD, 105, HEF GB-HEF" identifier="stem://org.eclipse.stem/node/geo/region/GB-HEF" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-HEF"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-CMA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-CMA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CUMBRIA, 56, CMA GB-CMA" identifier="stem://org.eclipse.stem/node/geo/region/GB-CMA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-CMA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-BDF">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-BDF" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BEDFORDSHIRE, 16, BDF GB-BDF" identifier="stem://org.eclipse.stem/node/geo/region/GB-BDF" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-BDF"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-DOR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-DOR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DORSET, 64, DOR GB-DOR" identifier="stem://org.eclipse.stem/node/geo/region/GB-DOR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-DOR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-GWT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-GWT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GWENT, 95, GWT GB-GWT" identifier="stem://org.eclipse.stem/node/geo/region/GB-GWT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-GWT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-SYO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-SYO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SOUTH YORKSHIRE, 201, SYO GB-SYO" identifier="stem://org.eclipse.stem/node/geo/region/GB-SYO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-SYO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-CLW">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-CLW" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CLWYD, 48, CLW GB-CLW" identifier="stem://org.eclipse.stem/node/geo/region/GB-CLW" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-CLW"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-CLV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-CLV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CLEVELAND, 47, CLV GB-CLV" identifier="stem://org.eclipse.stem/node/geo/region/GB-CLV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-CLV"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-LIN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-LIN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LINCOLNSHIRE, 132, LIN GB-LIN" identifier="stem://org.eclipse.stem/node/geo/region/GB-LIN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-LIN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-AVO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-AVO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AVON, 08, AVO GB-AVO" identifier="stem://org.eclipse.stem/node/geo/region/GB-AVO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-AVO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-NBL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-NBL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NORTHUMBERLAND, 164, NBL GB-NBL" identifier="stem://org.eclipse.stem/node/geo/region/GB-NBL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-NBL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-HAM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-HAM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HAMPSHIRE, 100, HAM GB-HAM" identifier="stem://org.eclipse.stem/node/geo/region/GB-HAM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-HAM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-CON">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-CON" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CORNWALL, 52, CON GB-CON" identifier="stem://org.eclipse.stem/node/geo/region/GB-CON" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-CON"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-DBY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-DBY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DERBYSHIRE, 60, DBY GB-DBY" identifier="stem://org.eclipse.stem/node/geo/region/GB-DBY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-DBY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-HGL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-HGL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HIGHLANDS, 108, HGL GB-HGL" identifier="stem://org.eclipse.stem/node/geo/region/GB-HGL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-HGL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-SRY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-SRY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SURREY, 214, SRY GB-SRY" identifier="stem://org.eclipse.stem/node/geo/region/GB-SRY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-SRY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-MER">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-MER" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MERSEYSIDE, 138, MER GB-MER" identifier="stem://org.eclipse.stem/node/geo/region/GB-MER" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-MER"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-BCF">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-BCF" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BORD-CENTR-FIFE-LOTHIAN-TAY, 25, BCF GB-BCF" identifier="stem://org.eclipse.stem/node/geo/region/GB-BCF" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-BCF"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-CHS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-CHS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CHESHIRE, 45, CHS GB-CHS" identifier="stem://org.eclipse.stem/node/geo/region/GB-CHS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-CHS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GB-UK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GB-UK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UNITED KINGDOM, 225, UK GB-UK" identifier="stem://org.eclipse.stem/node/geo/region/GB-UK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GBR/GBR_1_MAP.xml#GB-UK"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

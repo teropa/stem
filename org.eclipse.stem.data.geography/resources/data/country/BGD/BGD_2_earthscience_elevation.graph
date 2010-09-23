@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BGD/BGD_2_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="BGD elevation data for 1999 at admin level 2" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BGD/BGD_2_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="BGD:2/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-06-G030001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>2.195104391648668</data>
+        <data>1.1069928619669414</data>
+        <data>11.0</data>
+        <data>1.0</data>
+        <data>10.0</data>
+        <data>17.148008576842674</data>
+        <data>83.82559743983104</data>
+        <data>2.4584378142798458</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250010/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250010/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250010">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250010/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>7.387946040034813</data>
+        <data>5.050857371286514</data>
+        <data>24.0</data>
+        <data>1.0</data>
+        <data>23.0</data>
+        <data>7.900584810765287</data>
+        <data>22.05493462249774</data>
+        <data>8.949464055212689</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080009/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080009/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080009">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080009/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>100.73982205446212</data>
+        <data>64.98686830100796</data>
+        <data>512.0</data>
+        <data>4.0</data>
+        <data>508.0</data>
+        <data>10.35638806783574</data>
+        <data>40.726762944007476</data>
+        <data>119.88246243357379</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080008/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080008/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080008">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080008/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>9.745954198473282</data>
+        <data>10.156615320889818</data>
+        <data>92.0</data>
+        <data>2.0</data>
+        <data>90.0</data>
+        <data>7.069213094049516</data>
+        <data>36.413541993071995</data>
+        <data>14.076237352903195</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080007/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080007/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080007">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080007/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>7.616190476190476</data>
+        <data>5.292251727258557</data>
+        <data>32.0</data>
+        <data>1.0</data>
+        <data>31.0</data>
+        <data>8.57279030790439</data>
+        <data>28.692673669026576</data>
+        <data>9.274388697606206</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080006/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080006/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080006">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080006/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>21.6127911018422</data>
+        <data>26.125127698912472</data>
+        <data>251.0</data>
+        <data>1.0</data>
+        <data>250.0</data>
+        <data>5.726350241563771</data>
+        <data>28.686221802730362</data>
+        <data>33.906268395332894</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080005/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080005/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080005">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080005/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>7.342590046741821</data>
+        <data>4.245722193339864</data>
+        <data>50.0</data>
+        <data>1.0</data>
+        <data>49.0</data>
+        <data>12.087861823394311</data>
+        <data>51.186250993832566</data>
+        <data>8.48173246085556</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080004/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080004/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080004">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080004/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>23.282913638668244</data>
+        <data>28.659966497947533</data>
+        <data>344.0</data>
+        <data>1.0</data>
+        <data>343.0</data>
+        <data>5.708020918365271</data>
+        <data>28.040221314560895</data>
+        <data>36.92543496249128</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080003/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080003/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080003">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080003/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>3.8040979510244877</data>
+        <data>1.8417131277097532</data>
+        <data>15.0</data>
+        <data>1.0</data>
+        <data>14.0</data>
+        <data>17.72323647405358</data>
+        <data>79.93562716892848</data>
+        <data>4.226472342955425</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080002/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080002/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080002">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080002/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>6.687169042769858</data>
+        <data>4.0955863096627665</data>
+        <data>36.0</data>
+        <data>1.0</data>
+        <data>35.0</data>
+        <data>10.503292907749982</data>
+        <data>37.38729828206625</data>
+        <data>7.841687128831179</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>180.83214351089146</data>
+        <data>163.7804050078741</data>
+        <data>900.0</data>
+        <data>2.0</data>
+        <data>898.0</data>
+        <data>5.999351096018302</data>
+        <data>18.949048319427217</data>
+        <data>243.97599306343</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120017/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120017/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120017">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120017/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>14.343154630039876</data>
+        <data>6.511865953835676</data>
+        <data>46.0</data>
+        <data>2.0</data>
+        <data>44.0</data>
+        <data>18.104222851607837</data>
+        <data>63.022351983137376</data>
+        <data>15.752158040787883</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120016/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120016/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120016">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120016/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>17.945244956772335</data>
+        <data>10.214297440462747</data>
+        <data>89.0</data>
+        <data>1.0</data>
+        <data>88.0</data>
+        <data>13.532238166877187</data>
+        <data>63.83387025166119</data>
+        <data>20.64857594994887</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120015/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120015/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120015">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120015/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>3.9013921113689096</data>
+        <data>1.0512495765681709</data>
+        <data>6.0</data>
+        <data>1.0</data>
+        <data>5.0</data>
+        <data>61.953810335435584</data>
+        <data>271.8874121573313</data>
+        <data>4.0405427950816595</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490016/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490016/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490016">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490016/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>38.19387755102041</data>
+        <data>4.764019404134002</data>
+        <data>66.0</data>
+        <data>29.0</data>
+        <data>37.0</data>
+        <data>541.0462922629099</data>
+        <data>4579.229982753169</data>
+        <data>38.48984493688311</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120014/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120014/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120014">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120014/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>11.235627530364372</data>
+        <data>4.513087795324937</data>
+        <data>26.0</data>
+        <data>1.0</data>
+        <data>25.0</data>
+        <data>23.332107964784075</data>
+        <data>82.67732208269231</data>
+        <data>12.108149629460016</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490015/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490015/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490015">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490015/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>14.17114914425428</data>
+        <data>4.74509644203992</data>
+        <data>25.0</data>
+        <data>1.0</data>
+        <data>24.0</data>
+        <data>34.96903135341091</data>
+        <data>128.65217123786056</data>
+        <data>14.944477518901705</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120013/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120013/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120013">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120013/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>5.133240997229917</data>
+        <data>6.001452065297132</data>
+        <data>126.0</data>
+        <data>1.0</data>
+        <data>125.0</data>
+        <data>10.717843728206113</data>
+        <data>141.12774280212264</data>
+        <data>7.8973153683831585</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490014/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490014/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490014">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490014/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>28.25278058645096</data>
+        <data>4.556591486233654</data>
+        <data>42.0</data>
+        <data>15.0</data>
+        <data>27.0</data>
+        <data>257.057632624309</data>
+        <data>1713.1679788684341</data>
+        <data>28.617863946118646</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120012/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120012/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120012">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120012/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>4.961538461538462</data>
+        <data>2.4375275697064755</data>
+        <data>17.0</data>
+        <data>2.0</data>
+        <data>15.0</data>
+        <data>16.010589346473402</data>
+        <data>59.66829661411218</data>
+        <data>5.527965679922819</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250009/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250009/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250009">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250009/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>10.055366269165248</data>
+        <data>3.8535146452794935</data>
+        <data>22.0</data>
+        <data>1.0</data>
+        <data>21.0</data>
+        <data>25.777678375535146</data>
+        <data>91.87655117951503</data>
+        <data>10.768470918772532</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490013/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490013/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490013">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490013/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>16.978011158516573</data>
+        <data>7.682182377036291</data>
+        <data>46.0</data>
+        <data>4.0</data>
+        <data>42.0</data>
+        <data>17.93975210870173</data>
+        <data>60.64237068885864</data>
+        <data>18.6351492876435</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120011/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120011/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120011">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120011/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>3.7105855855855854</data>
+        <data>0.6425425420552211</data>
+        <data>6.0</data>
+        <data>1.0</data>
+        <data>5.0</data>
+        <data>209.776941697109</data>
+        <data>1312.425360202564</data>
+        <data>3.7658075237996838</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250008/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250008/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250008">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250008/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>12.963350785340314</data>
+        <data>2.1459122902807306</data>
+        <data>25.0</data>
+        <data>5.0</data>
+        <data>20.0</data>
+        <data>238.99908683639867</data>
+        <data>1565.1009900657045</data>
+        <data>13.139764196566134</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490012/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490012/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490012">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490012/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>57.823878984332794</data>
+        <data>16.621677548673784</data>
+        <data>108.0</data>
+        <data>31.0</data>
+        <data>77.0</data>
+        <data>53.25778368397763</data>
+        <data>232.0386932953974</data>
+        <data>60.16544810210301</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120010/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120010/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120010">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120010/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>11.3723677452491</data>
+        <data>5.423497927024416</data>
+        <data>70.0</data>
+        <data>1.0</data>
+        <data>69.0</data>
+        <data>16.620737619437783</data>
+        <data>63.00372833665815</data>
+        <data>12.599407839165309</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250007/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250007/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250007">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250007/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>11.302397525135344</data>
+        <data>4.132638706913656</data>
+        <data>26.0</data>
+        <data>1.0</data>
+        <data>25.0</data>
+        <data>28.929144254681837</data>
+        <data>106.62079251492334</data>
+        <data>12.034238343080402</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490011/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490011/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490011">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490011/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>16.70269286754003</data>
+        <data>8.85488911064709</data>
+        <data>41.0</data>
+        <data>1.0</data>
+        <data>40.0</data>
+        <data>12.431774980134188</data>
+        <data>36.72539367339943</data>
+        <data>18.904735126132515</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250006/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250006/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250006">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250006/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>16.22715800100959</data>
+        <data>6.582132779968645</data>
+        <data>39.0</data>
+        <data>1.0</data>
+        <data>38.0</data>
+        <data>22.904259382274553</data>
+        <data>81.44151535857719</data>
+        <data>17.511285752989906</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490010/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490010/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490010">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490010/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>39.29064947029019</data>
+        <data>7.3186850394520775</data>
+        <data>55.0</data>
+        <data>24.0</data>
+        <data>31.0</data>
+        <data>170.7404856448505</data>
+        <data>1003.2423252937706</data>
+        <data>39.9664645234466</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250005/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250005/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250005">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250005/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>6.7248813291139244</data>
+        <data>4.547749259196771</data>
+        <data>26.0</data>
+        <data>1.0</data>
+        <data>25.0</data>
+        <data>8.190598846287998</data>
+        <data>23.943309153749823</data>
+        <data>8.11825425908735</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250004/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250004/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250004">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250004/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>15.443824701195219</data>
+        <data>5.555499743815419</data>
+        <data>31.0</data>
+        <data>1.0</data>
+        <data>30.0</data>
+        <data>29.753502264340423</data>
+        <data>107.6355555327097</data>
+        <data>16.412656665049106</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250003/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250003/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250003">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250003/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>11.99718045112782</data>
+        <data>4.853265915353437</data>
+        <data>26.0</data>
+        <data>1.0</data>
+        <data>25.0</data>
+        <data>22.649303680949355</data>
+        <data>77.66736458325356</data>
+        <data>12.9416586580722</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250002/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250002/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250002">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250002/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>11.990189208128943</data>
+        <data>2.4061738287129297</data>
+        <data>22.0</data>
+        <data>5.0</data>
+        <data>17.0</data>
+        <data>138.67416659861408</data>
+        <data>768.4675842985972</data>
+        <data>12.229239949429187</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-27-G250001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-27-G250001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>5.2632520688883915</data>
+        <data>4.612110329313499</data>
+        <data>25.0</data>
+        <data>1.0</data>
+        <data>24.0</data>
+        <data>6.208909851459341</data>
+        <data>19.701063869189554</data>
+        <data>6.9980986010786</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120009/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120009/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120009">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120009/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>3.931937172774869</data>
+        <data>0.9881899028075796</data>
+        <data>7.0</data>
+        <data>1.0</data>
+        <data>6.0</data>
+        <data>74.50718698224811</data>
+        <data>343.4198194172929</data>
+        <data>4.054213760355969</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120008/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120008/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120008">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120008/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>11.006724949562878</data>
+        <data>7.299709934749132</data>
+        <data>24.0</data>
+        <data>1.0</data>
+        <data>23.0</data>
+        <data>8.095308541464448</data>
+        <data>21.07738186845225</data>
+        <data>13.20733732615343</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490009/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490009/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490009">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490009/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>19.417959567465914</data>
+        <data>7.2711418291772345</data>
+        <data>49.0</data>
+        <data>4.0</data>
+        <data>45.0</data>
+        <data>27.940087572750436</data>
+        <data>106.6682203582365</data>
+        <data>20.73467282750687</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120007/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120007/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120007">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120007/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>3.7375886524822697</data>
+        <data>1.1185156426839853</data>
+        <data>13.0</data>
+        <data>1.0</data>
+        <data>12.0</data>
+        <data>49.089003885820105</data>
+        <data>226.55717329705718</data>
+        <data>3.9013646558727353</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490008/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490008/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490008">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490008/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>20.323996655518396</data>
+        <data>5.545943054268802</data>
+        <data>37.0</data>
+        <data>4.0</data>
+        <data>33.0</data>
+        <data>60.15994112304359</data>
+        <data>263.3896102305833</data>
+        <data>21.06709102877556</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120006/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120006/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120006">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120006/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>4.564469914040115</data>
+        <data>3.030262036681681</data>
+        <data>23.0</data>
+        <data>1.0</data>
+        <data>22.0</data>
+        <data>9.604630264527499</data>
+        <data>35.34548079547821</data>
+        <data>5.4787657010618265</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490007/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490007/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490007">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490007/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>19.743810786914235</data>
+        <data>7.4838771102152615</data>
+        <data>49.0</data>
+        <data>4.0</data>
+        <data>45.0</data>
+        <data>26.83130461086136</data>
+        <data>99.60283066428141</data>
+        <data>21.11460350066451</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120005/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120005/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120005">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120005/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>17.066846986089644</data>
+        <data>6.987221596464677</data>
+        <data>83.0</data>
+        <data>1.0</data>
+        <data>82.0</data>
+        <data>24.78562318543509</data>
+        <data>121.36696294429618</data>
+        <data>18.441760536475325</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490006/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490006/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490006">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490006/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>41.56175972927242</data>
+        <data>10.02271777408918</data>
+        <data>69.0</data>
+        <data>25.0</data>
+        <data>44.0</data>
+        <data>84.85948842652533</data>
+        <data>420.6553152664398</data>
+        <data>42.75318401444288</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120004/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120004/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120004">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120004/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>7.367195767195767</data>
+        <data>3.623203158944781</data>
+        <data>18.0</data>
+        <data>1.0</data>
+        <data>17.0</data>
+        <data>14.75611308199841</data>
+        <data>46.10580461931058</data>
+        <data>8.209943641900022</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490005/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490005/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490005">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490005/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>31.347217360868044</data>
+        <data>8.578888389448014</data>
+        <data>49.0</data>
+        <data>12.0</data>
+        <data>37.0</data>
+        <data>59.42284554844833</data>
+        <data>255.67657324457178</data>
+        <data>32.499928650200346</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120003/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120003/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120003">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120003/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>7.026007802340702</data>
+        <data>4.016893214056611</data>
+        <data>29.0</data>
+        <data>1.0</data>
+        <data>28.0</data>
+        <data>11.479208492770647</data>
+        <data>37.50725699428564</data>
+        <data>8.093220417836534</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490004/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490004/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490004">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490004/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>23.72174590802806</data>
+        <data>4.487938567653875</data>
+        <data>40.0</data>
+        <data>9.0</data>
+        <data>31.0</data>
+        <data>163.729911218749</data>
+        <data>955.4241497833372</data>
+        <data>24.142552091940924</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120002/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120002/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120002">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120002/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>9.562181247548057</data>
+        <data>4.351079476828416</data>
+        <data>23.0</data>
+        <data>1.0</data>
+        <data>22.0</data>
+        <data>17.196693676486106</data>
+        <data>54.57020391426122</data>
+        <data>10.505579604411986</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490003/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490003/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490003">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490003/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>20.389676481279533</data>
+        <data>3.2731165865344645</data>
+        <data>29.0</data>
+        <data>11.0</data>
+        <data>18.0</data>
+        <data>260.172983036583</data>
+        <data>1735.264811418237</data>
+        <data>20.650719096445304</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-3-G120001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-3-G120001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>4.102173913043479</data>
+        <data>2.573779924583499</data>
+        <data>27.0</data>
+        <data>1.0</data>
+        <data>26.0</data>
+        <data>14.058023507304998</data>
+        <data>88.59769177888883</data>
+        <data>4.84274446084485</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490002/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490002/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490002">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490002/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>30.485212569316083</data>
+        <data>5.4263054257973335</data>
+        <data>43.0</data>
+        <data>14.0</data>
+        <data>29.0</data>
+        <data>193.3352905196157</data>
+        <data>1169.6856554555416</data>
+        <data>30.96438237669896</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-54-G490001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-54-G490001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>20.302702702702703</data>
+        <data>4.0713558725987316</data>
+        <data>35.0</data>
+        <data>2.0</data>
+        <data>33.0</data>
+        <data>138.3714856842811</data>
+        <data>759.055433173087</data>
+        <data>20.70689922889653</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080015/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080015/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080015">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080015/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>15.67630979498861</data>
+        <data>19.1463315756851</data>
+        <data>205.0</data>
+        <data>1.0</data>
+        <data>204.0</data>
+        <data>8.49430768638517</data>
+        <data>60.82490013918247</data>
+        <data>24.745276349124353</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080014/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080014/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080014">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080014/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>16.63674280039722</data>
+        <data>36.08400934491024</data>
+        <data>278.0</data>
+        <data>1.0</data>
+        <data>277.0</data>
+        <data>5.3977952875811415</data>
+        <data>28.43846742900034</data>
+        <data>39.73458117823981</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080013/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080013/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080013">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080013/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>125.09009929906541</data>
+        <data>121.01150031319847</data>
+        <data>910.0</data>
+        <data>4.0</data>
+        <data>906.0</data>
+        <data>6.371663287857579</data>
+        <data>25.212824879719605</data>
+        <data>174.04400636247414</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080012/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080012/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080012">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080012/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>4.630866807610993</data>
+        <data>2.2375563085306864</data>
+        <data>11.0</data>
+        <data>1.0</data>
+        <data>10.0</data>
+        <data>15.19260481892397</data>
+        <data>47.37166255891809</data>
+        <data>5.143110500823275</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080011/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080011/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080011">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080011/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>19.192935814660082</data>
+        <data>19.13436199128622</data>
+        <data>220.0</data>
+        <data>6.0</data>
+        <data>214.0</data>
+        <data>7.8498713492512335</data>
+        <data>47.89696701376551</data>
+        <data>27.10152383168224</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080010/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080010/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-0-G080010">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-0-G080010/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>2.4457142857142857</data>
+        <data>1.0729305873874024</data>
+        <data>7.0</data>
+        <data>1.0</data>
+        <data>6.0</data>
+        <data>20.08184026354829</data>
+        <data>77.09318190934847</data>
+        <data>2.670711218514352</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030006/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030006/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-06-G030006">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030006/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>3.5913255956017105</data>
+        <data>2.5088233817503154</data>
+        <data>18.0</data>
+        <data>1.0</data>
+        <data>17.0</data>
+        <data>8.472178259906913</data>
+        <data>27.85230156048581</data>
+        <data>4.380846298883476</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030005/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030005/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-06-G030005">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030005/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.8707438016528926</data>
+        <data>0.4234688808402382</data>
+        <data>4.0</data>
+        <data>1.0</data>
+        <data>3.0</data>
+        <data>98.97034316376714</data>
+        <data>495.3366694924665</data>
+        <data>1.918074102964432</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030004/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030004/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-06-G030004">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030004/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.7888493475682088</data>
+        <data>0.41675351484041345</data>
+        <data>3.0</data>
+        <data>1.0</data>
+        <data>2.0</data>
+        <data>90.6929996445115</data>
+        <data>431.3033009296019</data>
+        <data>1.836754060952921</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030003/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030003/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-06-G030003">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030003/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.7120786516853932</data>
+        <data>0.46402830836865727</data>
+        <data>3.0</data>
+        <data>1.0</data>
+        <data>2.0</data>
+        <data>60.51453977696319</data>
+        <data>257.5004899422873</data>
+        <data>1.773847676810031</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030002/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030002/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BD-06-G030002">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BGD/2/BD-06-G030002/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.9950839819746007</data>
+        <data>0.7754796609458363</data>
+        <data>6.0</data>
+        <data>1.0</data>
+        <data>5.0</data>
+        <data>26.67349767282734</data>
+        <data>112.32322708278589</data>
+        <data>2.140497325313037</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

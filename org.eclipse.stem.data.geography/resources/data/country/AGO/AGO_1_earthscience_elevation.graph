@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AGO/AGO_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="AGO elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AGO/AGO_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="AGO:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-ZAI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-ZAI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-ZAI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-ZAI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>365.2741753329255</data>
+        <data>206.12774615525277</data>
+        <data>1084.0</data>
+        <data>1.0</data>
+        <data>1083.0</data>
+        <data>11.154253637139002</data>
+        <data>33.111936028043154</data>
+        <data>419.42087561325906</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-UIG/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-UIG/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-UIG">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-UIG/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>792.1658257100272</data>
+        <data>183.26242990028226</data>
+        <data>1335.0</data>
+        <data>333.0</data>
+        <data>1002.0</data>
+        <data>93.71436406353426</data>
+        <data>463.070647444791</data>
+        <data>813.0878265204838</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-HUA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-HUA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-HUA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-HUA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1624.1528449144007</data>
+        <data>135.0257053851843</data>
+        <data>2548.0</data>
+        <data>1253.0</data>
+        <data>1295.0</data>
+        <data>1777.2835700845299</data>
+        <data>21849.492186919666</data>
+        <data>1629.7559341074075</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LSU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LSU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-LSU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LSU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1120.3879773752726</data>
+        <data>117.83198768881171</data>
+        <data>1487.0</data>
+        <data>748.0</data>
+        <data>739.0</data>
+        <data>888.4729233587601</data>
+        <data>8731.030875304066</data>
+        <data>1126.5671738381827</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LUA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LUA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-LUA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LUA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>49.72333016777461</data>
+        <data>50.56468779034246</data>
+        <data>156.0</data>
+        <data>1.0</data>
+        <data>155.0</data>
+        <data>4.573774089597384</data>
+        <data>11.41945369495304</data>
+        <data>70.9168330814929</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-MOX/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-MOX/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-MOX">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-MOX/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1214.423868570213</data>
+        <data>126.24460665299625</data>
+        <data>1670.0</data>
+        <data>973.0</data>
+        <data>697.0</data>
+        <data>919.663016403271</data>
+        <data>9145.150156909065</data>
+        <data>1220.9680721714278</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-NAM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-NAM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-NAM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-NAM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>560.3106133256996</data>
+        <data>335.09537241642533</data>
+        <data>2289.0</data>
+        <data>1.0</data>
+        <data>2288.0</data>
+        <data>10.66831423269187</data>
+        <data>35.67101243618279</data>
+        <data>652.868204173189</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CAB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CAB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-CAB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CAB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>160.86467697470934</data>
+        <data>159.18618930269298</data>
+        <data>755.0</data>
+        <data>1.0</data>
+        <data>754.0</data>
+        <data>5.465068293562337</data>
+        <data>17.209230450522252</data>
+        <data>226.31325008247097</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BGU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BGU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-BGU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BGU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>891.6513431065164</data>
+        <data>462.38946745448766</data>
+        <data>2481.0</data>
+        <data>1.0</data>
+        <data>2480.0</data>
+        <data>13.10717175979235</data>
+        <data>39.94494732395278</data>
+        <data>1004.4133298978574</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BIE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BIE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-BIE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BIE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1453.2318269754294</data>
+        <data>158.11480208140458</data>
+        <data>1857.0</data>
+        <data>1041.0</data>
+        <data>816.0</data>
+        <data>804.0174517799037</data>
+        <data>7646.746717989649</data>
+        <data>1461.8081384270597</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LNO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LNO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-LNO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-LNO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>946.6959926042043</data>
+        <data>146.35190051425224</data>
+        <data>1351.0</data>
+        <data>553.0</data>
+        <data>798.0</data>
+        <data>289.96407959915587</data>
+        <data>2001.1665176266358</data>
+        <data>957.9416376778877</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CNO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CNO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-CNO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CNO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>689.3100794438927</data>
+        <data>346.0107124170751</data>
+        <data>1493.0</data>
+        <data>79.0</data>
+        <data>1414.0</data>
+        <data>13.8397686457827</data>
+        <data>41.17360022204913</data>
+        <data>771.2793260099199</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CNN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CNN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-CNN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CNN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1153.3040986472029</data>
+        <data>89.22211620529613</data>
+        <data>1478.0</data>
+        <data>659.0</data>
+        <data>819.0</data>
+        <data>2197.9044335048407</data>
+        <data>28892.30547926844</data>
+        <data>1156.7501588400964</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BGO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BGO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-BGO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-BGO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>238.43962353646054</data>
+        <data>205.07325891390397</data>
+        <data>1093.0</data>
+        <data>1.0</data>
+        <data>1092.0</data>
+        <data>6.335537195716012</data>
+        <data>19.57411751961118</data>
+        <data>314.4972107885519</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CCU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CCU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-CCU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CCU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1191.1758617993573</data>
+        <data>133.21228836941552</data>
+        <data>1646.0</data>
+        <data>952.0</data>
+        <data>694.0</data>
+        <data>742.6552208488848</data>
+        <data>6906.655768810288</data>
+        <data>1198.6014548239375</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-MAL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-MAL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-MAL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-MAL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>986.8515188166713</data>
+        <data>226.92901358316104</data>
+        <data>1447.0</data>
+        <data>321.0</data>
+        <data>1126.0</data>
+        <data>94.74600421130494</data>
+        <data>463.7539348474289</data>
+        <data>1012.6068819618981</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-HUI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-HUI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-HUI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-HUI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1380.762634335107</data>
+        <data>201.98501794602478</data>
+        <data>2301.0</data>
+        <data>688.0</data>
+        <data>1613.0</data>
+        <data>339.8880631422333</data>
+        <data>2466.607433252329</data>
+        <data>1395.4581326040134</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CUS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CUS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AO-CUS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AGO/1/AO-CUS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1090.6129347014073</data>
+        <data>473.05925057333684</data>
+        <data>2462.0</data>
+        <data>1.0</data>
+        <data>2461.0</data>
+        <data>18.262836536606038</data>
+        <data>54.6512785734685</data>
+        <data>1188.789984770658</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>
