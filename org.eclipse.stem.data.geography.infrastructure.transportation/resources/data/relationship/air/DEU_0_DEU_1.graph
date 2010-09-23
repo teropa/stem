@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" xmlns:org.eclipse.stem.definitions.transport="http:///org/eclipse/stem/definitions/transport.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography.infrastructure.transportation/resources/data/relationship/air/DEU_0_DEU_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Air transport between DEU(0) and DEU(1)" identifier="platform:/plugin/org.eclipse.stem.data.geography.infrastructure.transportation/resources/data/relationship/air/DEU_0_DEU_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="DEU:0_1/" subject="Edge:air" type="stemtype://org.eclipse.stem/Graph" valid="start=2000-01-01; end=2008-12-31;"/>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2056">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2056" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-TU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2056" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/75E38F56746B7ECC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/75E38F56746B7ECC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="761.8630136986301" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2057">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2057" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-TU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2057" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/76A90EAEDE4F0149" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/76A90EAEDE4F0149" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="761.8630136986301" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2058">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2058" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-TU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2058" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/6FB079A0815D2B0A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/6FB079A0815D2B0A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="761.8630136986301" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2059">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2059" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-TU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2059" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3C912632BCB425DF" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3C912632BCB425DF" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="761.8630136986301" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2060">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2060" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-TH" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2060" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/CEA4DE0364529CCE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/CEA4DE0364529CCE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="713.1041095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2061">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2061" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-TH" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2061" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/C221BC32AF7474ED" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C221BC32AF7474ED" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="713.1041095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2062">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2062" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-TH" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2062" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/701F76A03887B093" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/701F76A03887B093" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="713.1041095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2063">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2063" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-TH" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2063" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/D80B865AA2E9E0B2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D80B865AA2E9E0B2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="713.1041095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2064">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2064" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-ST" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2064" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/1B52E34EE2C0C87E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1B52E34EE2C0C87E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12026.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2065">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2065" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-ST" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2065" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/9F3F4748C3471752" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9F3F4748C3471752" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12026.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2066">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2066" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-ST" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2066" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/56712C193A105CD4" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/56712C193A105CD4" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12026.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2067">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2067" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-ST" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2067" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/C43EF913D8559B56" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C43EF913D8559B56" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12026.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2068">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2068" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-SL" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2068" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/43D513BE608E1C7F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/43D513BE608E1C7F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2069">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2069" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-SL" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2069" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3279C7C534AE6C2A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3279C7C534AE6C2A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2070">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2070" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-SL" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2070" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3B133A3022A19D8D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3B133A3022A19D8D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2071">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2071" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-SL" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2071" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/83CDBD8972F3E9E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/83CDBD8972F3E9E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2072">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2072" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-SH" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2072" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/A51D0F15A5C29DB1" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/A51D0F15A5C29DB1" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="987.9561643835616" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2073">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2073" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-SH" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2073" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/5B02F4BCB3AE4565" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5B02F4BCB3AE4565" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="987.9561643835616" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2074">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2074" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-SH" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2074" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/9DDF944A29D0D2C1" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9DDF944A29D0D2C1" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="987.9561643835616" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2075">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2075" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-SH" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2075" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/CB2CD359F62E8999" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/CB2CD359F62E8999" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="987.9561643835616" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2076">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2076" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-RP" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2076" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/107F05C22654B36" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/107F05C22654B36" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="367.1917808219178" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2077">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2077" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-RP" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2077" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/FD6C74867A16D335" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/FD6C74867A16D335" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="367.1917808219178" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2078">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2078" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-RP" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2078" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/D2D7D10C77BF5EAF" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D2D7D10C77BF5EAF" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="367.1917808219178" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2079">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2079" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-RP" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2079" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/CF6D1B8F1D2D219A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/CF6D1B8F1D2D219A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="367.1917808219178" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2080">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2080" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-OB" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2080" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/69339DD3512F2E6E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/69339DD3512F2E6E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2081">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2081" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-OB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2081" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/84822CB50C58B40B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/84822CB50C58B40B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2082">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2082" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-OB" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2082" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/54547A5B651FB5D9" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/54547A5B651FB5D9" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2083">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2083" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-OB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2083" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3666D7AC266CA230" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3666D7AC266CA230" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2084">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2084" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-MV" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2084" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/C9C819036D226AFA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C9C819036D226AFA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="251.84109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2085">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2085" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-MV" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2085" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/8D58921E177D0497" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/8D58921E177D0497" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="251.84109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2086">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2086" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-MV" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2086" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3FA85D5C069E6F00" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3FA85D5C069E6F00" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="251.84109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2087">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2087" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-MV" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2087" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/221662271D80AD2E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/221662271D80AD2E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="251.84109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2088">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2088" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-DT" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2088" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/F934CEADFB054EBC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F934CEADFB054EBC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1715.9506849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2089">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2089" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-DT" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2089" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/F38EF8D6FD416FCB" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F38EF8D6FD416FCB" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1715.9506849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2090">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2090" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-DT" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2090" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/8137DA73A4AF5325" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/8137DA73A4AF5325" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1715.9506849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2091">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2091" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-DT" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2091" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/9479CB3CCDCFAA4" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9479CB3CCDCFAA4" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1715.9506849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2092">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2092" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-DR" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2092" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/71E1E6DAE7C161D4" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/71E1E6DAE7C161D4" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2258.241095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2093">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2093" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-DR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2093" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/B2C5E434DF583ED7" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/B2C5E434DF583ED7" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2258.241095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2094">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2094" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-DR" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2094" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/7504354800BE6D89" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/7504354800BE6D89" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2258.241095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2095">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2095" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-DR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2095" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/D38640484B0768E3" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D38640484B0768E3" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2258.241095890411" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2096">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2096" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-MU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2096" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/1AD594CF3CA676A4" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1AD594CF3CA676A4" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2268.2109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2097">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2097" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-MU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2097" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/524956CD3ACC692D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/524956CD3ACC692D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2268.2109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2098">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2098" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-MU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2098" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/AAE4BC88C51BAD" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/AAE4BC88C51BAD" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2268.2109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2099">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2099" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-MU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2099" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/11C22D18786E0C7E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/11C22D18786E0C7E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2268.2109589041097" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2100">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2100" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-DA" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2100" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/C44D670DAA91B9CD" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C44D670DAA91B9CD" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="67496.41369863013" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2101">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2101" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-DA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2101" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/CFEF22736489A47F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/CFEF22736489A47F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="67496.41369863013" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2102">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2102" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-DA" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2102" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/6BD8E2F6DA431D52" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/6BD8E2F6DA431D52" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="67496.41369863013" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2103">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2103" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-DA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2103" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/E8A7BA98DEE14042" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/E8A7BA98DEE14042" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="67496.41369863013" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2104">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2104" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-MT" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2104" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3D4B975D6CF8C22E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3D4B975D6CF8C22E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5424.306849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2105">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2105" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-MT" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2105" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3F29383D780874BB" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3F29383D780874BB" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5424.306849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2106">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2106" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-MT" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2106" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/7C31FD5C359BA482" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/7C31FD5C359BA482" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5424.306849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2107">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2107" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-MT" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2107" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/81AC0780A3B1B54D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/81AC0780A3B1B54D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5424.306849315069" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2108">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2108" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-BY" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2108" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/27185AC245D8A0F4" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/27185AC245D8A0F4" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="39128.739726027394" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2109">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2109" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-BY" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2109" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/914BF87F891E3C1E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/914BF87F891E3C1E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="39128.739726027394" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2110">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2110" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-BY" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2110" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/99AC2491C2D6656C" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/99AC2491C2D6656C" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="39128.739726027394" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2111">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2111" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-BY" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2111" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/17CD49C47D7282DA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/17CD49C47D7282DA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="39128.739726027394" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2112">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2112" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-LU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2112" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/EBB731829388F16B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/EBB731829388F16B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2113">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2113" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-LU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2113" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3C0882D029F14B05" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3C0882D029F14B05" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2114">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2114" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-LU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2114" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/5EBC7BC8C4A699" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5EBC7BC8C4A699" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2115">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2115" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-LU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2115" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/F5071E96DE5F3686" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F5071E96DE5F3686" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2116">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2116" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-BE" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2116" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/7C503720C172E93F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/7C503720C172E93F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="3000.93698630137" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2117">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2117" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-BE" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2117" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/B31B06039610F02A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/B31B06039610F02A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="3000.93698630137" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2118">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2118" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-BE" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2118" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/44C5EC41378A50CB" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/44C5EC41378A50CB" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="3000.93698630137" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2119">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2119" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-BE" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2119" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/F57ADA6EC465E421" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F57ADA6EC465E421" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="3000.93698630137" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2120">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2120" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-KO" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2120" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/BC8D726494AC6850" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/BC8D726494AC6850" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12115.323287671234" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2121">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2121" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-KO" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2121" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/EA2D102D13B1887F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/EA2D102D13B1887F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12115.323287671234" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2122">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2122" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-KO" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2122" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/AF79EE44278AFF03" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/AF79EE44278AFF03" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12115.323287671234" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2123">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2123" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-KO" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2123" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/654BD901DFD535BC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/654BD901DFD535BC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="12115.323287671234" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2124">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2124" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-BB" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2124" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/BFEC2551157708BF" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/BFEC2551157708BF" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="23273.358904109587" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2125">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2125" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-BB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2125" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/53EBDEA55C0C8F35" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/53EBDEA55C0C8F35" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="23273.358904109587" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2126">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2126" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-BB" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2126" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/355A602C2DBB0E82" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/355A602C2DBB0E82" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="23273.358904109587" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2127">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2127" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-BB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2127" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/4E2FCD4301AE7BA9" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/4E2FCD4301AE7BA9" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="23273.358904109587" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2128">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2128" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-KA" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2128" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3E021D2C16A32EEE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3E021D2C16A32EEE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="52.4" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2129">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2129" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-KA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2129" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/1352ADFE1BE4ADBC" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1352ADFE1BE4ADBC" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="52.4" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2130">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2130" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-KA" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2130" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/112D92DBA654AECA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/112D92DBA654AECA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="52.4" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2131">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2131" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-KA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2131" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/89B31169029BBC78" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/89B31169029BBC78" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="52.4" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2132">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2132" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-AR" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2132" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/E2B7027A9BD7197E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/E2B7027A9BD7197E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2581.3424657534247" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2133">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2133" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-AR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2133" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/54290A0CDD2DCBC7" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/54290A0CDD2DCBC7" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2581.3424657534247" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2134">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2134" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-AR" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2134" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/43B3DA7A56F0F199" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/43B3DA7A56F0F199" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2581.3424657534247" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2135">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2135" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-AR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2135" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/2D30F6E89389C4FA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/2D30F6E89389C4FA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2581.3424657534247" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2136">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2136" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-HH" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2136" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/5F71A9029FB9F14E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5F71A9029FB9F14E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="16333.890410958904" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2137">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2137" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-HH" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2137" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/FFB51DE8EAD91F44" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/FFB51DE8EAD91F44" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="16333.890410958904" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2138">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2138" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-HH" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2138" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/7F2EDE6B0904DAF3" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/7F2EDE6B0904DAF3" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="16333.890410958904" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2139">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2139" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-HH" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2139" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/24801674A8E6383F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/24801674A8E6383F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="16333.890410958904" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2140">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2140" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-KO2" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2140" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/62395FC5FB02D981" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/62395FC5FB02D981" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5131.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2141">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2141" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-KO2" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2141" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/42A203E4FFC53C67" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/42A203E4FFC53C67" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5131.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2142">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2142" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-KO2" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2142" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/435CE954FDC27117" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/435CE954FDC27117" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5131.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2143">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2143" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-KO2" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2143" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/1052A00671819F9A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1052A00671819F9A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="5131.753424657534" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2144">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2144" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-HB" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2144" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/D7CB410D6D6BFF78" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/D7CB410D6D6BFF78" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2451.487671232877" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2145">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2145" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-HB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2145" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/991A1596D1D2259E" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/991A1596D1D2259E" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2451.487671232877" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2146">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2146" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-HB" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2146" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/2EE8391B5C5DCC88" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/2EE8391B5C5DCC88" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2451.487671232877" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2147">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2147" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-HB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2147" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/BD4AAACE0A157A9B" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/BD4AAACE0A157A9B" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="2451.487671232877" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2148">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2148" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-KA2" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2148" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/1DA3825C0989AAD2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/1DA3825C0989AAD2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1251.1123287671232" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2149">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2149" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-KA2" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2149" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/56153BD3CA195B9D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/56153BD3CA195B9D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1251.1123287671232" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2150">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2150" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-KA2" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2150" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/CB4A4EE2FBB62805" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/CB4A4EE2FBB62805" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1251.1123287671232" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2151">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2151" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-KA2" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2151" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/C8C285445E6E4F13" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/C8C285445E6E4F13" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1251.1123287671232" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2152">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2152" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-HA" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2152" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/8FAC47784854D72" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/8FAC47784854D72" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2153">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2153" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-HA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2153" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/DADB3EB07B49ED53" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/DADB3EB07B49ED53" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2154">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2154" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-HA" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2154" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/58233F122862F090" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/58233F122862F090" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2155">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2155" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-HA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2155" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/4849051BE939B914" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/4849051BE939B914" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="13.994520547945205" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2156">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2156" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-SH2" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2156" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/E7B763632ABC9379" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/E7B763632ABC9379" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="330.8301369863014" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2157">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2157" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-SH2" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2157" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/F3BA1580A72887F2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F3BA1580A72887F2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="330.8301369863014" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2158">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2158" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-SH2" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2158" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/5B05014D4824D56A" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5B05014D4824D56A" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="330.8301369863014" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2159">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2159" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-SH2" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2159" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/88D1D74B43787AED" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/88D1D74B43787AED" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="330.8301369863014" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2160">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2160" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-FR" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2160" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/E052C6667A447347" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/E052C6667A447347" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1581.5698630136985" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2161">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2161" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-FR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2161" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/EF036DBE43386EA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/EF036DBE43386EA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1581.5698630136985" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2162">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2162" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-FR" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2162" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/F8B2C0797BBAD814" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/F8B2C0797BBAD814" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1581.5698630136985" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2163">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2163" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-FR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2163" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/3A99D006B4948D31" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/3A99D006B4948D31" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="1581.5698630136985" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2164">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2164" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/DE-DU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2164" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/55B2B003A4503D7D" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/55B2B003A4503D7D" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="30441.621917808217" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2165">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2165" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/geo/region/DE-DU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2165" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/42CAE895346B03ED" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/42CAE895346B03ED" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="30441.621917808217" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2166">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2166" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DE-DU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DEU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2166" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/5CD42ABBA01B5C4F" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/5CD42ABBA01B5C4F" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="30441.621917808217" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/pipetransport/2167">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdge" uRI="stem://org.eclipse.stem/edge/pipetransport/2167" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/transport/pipe/DEU" nodeBURI="stem://org.eclipse.stem/node/transport/pipe/DE-DU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/pipetransport/2167" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabel" uRI="stem://org.eclipse.stem/label/9EBF3AC3341B2EAF" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/9EBF3AC3341B2EAF" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.transport:PipeTransportEdgeLabelValue" maxFlow="30441.621917808217" timePeriod="86400000"/>
+      </label>
+    </value>
+  </edges>
+  <nodes key="stem://org.eclipse.stem/node/transport/pipe/DEU">
+    <value xsi:type="org.eclipse.stem.definitions.transport:PipeStyleTransportSystem" uRI="stem://org.eclipse.stem/node/transport/pipe/DEU" typeURI="stemtype://org.eclipse.stem/Node" maxCapacity="232002.17808219176">
+      <dublinCore identifier="stem://org.eclipse.stem/node/transport/pipe/DEU" type="stemtype://org.eclipse.stem/Node"/>
+      <labels xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" href="#//@nodeLabels.0/@value"/>
+    </value>
+  </nodes>
+  <nodeLabels key="stem://org.eclipse.stem/label/8368726C0EFE484E">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/8368726C0EFE484E" typeURI="stemtype://org.eclipse.stem/label/population" populationIdentifier="human" populatedArea="1.0">
+      <dublinCore identifier="stem://org.eclipse.stem/label/8368726C0EFE484E" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue"/>
+      <node href="#//@nodes.0/@value"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

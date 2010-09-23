@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MAC/MAC_2_earthscience_temperature.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="MAC temperature data for 2009 at admin level 2" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MAC/MAC_2_earthscience_temperature.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="MAC:2/" subject="Label:earthscience_temperature" type="stemtype://org.eclipse.stem/Graph" valid="start=2009"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010003/temperature">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010003/temperature" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/MO-M-G010003">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010003/temperature" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="temperature" units="C">
+        <data>17.096456500000002</data>
+        <data>0.20669299999999957</data>
+        <data>17.3031495</data>
+        <data>16.8897635</data>
+        <data>20.610236625</data>
+        <data>0.41338587500000123</data>
+        <data>21.023622500000002</data>
+        <data>20.19685075</data>
+        <data>16.78641725</data>
+        <data>0.03444874999999925</data>
+        <data>16.820866</data>
+        <data>16.7519685</data>
+        <data>21.1958655</data>
+        <data>0.03444899999999862</data>
+        <data>21.2303145</data>
+        <data>21.1614165</data>
+        <data>23.813976750000002</data>
+        <data>0.10334675000000182</data>
+        <data>23.917323500000002</data>
+        <data>23.71063</data>
+        <data>25.123032000000002</data>
+        <data>0.17224400000000095</data>
+        <data>25.295276</data>
+        <data>24.950788</data>
+        <data>26.328740000000003</data>
+        <data>0.06889750000000028</data>
+        <data>26.397637500000002</data>
+        <data>26.2598425</data>
+        <data>26.638779624999998</data>
+        <data>0.172244375</data>
+        <data>26.811024</data>
+        <data>26.46653525</data>
+        <data>25.949803125000003</data>
+        <data>0.03444887500000071</data>
+        <data>25.984252</data>
+        <data>25.91535425</data>
+        <data>25.019685</data>
+        <data>0.1377954999999993</data>
+        <data>25.1574805</data>
+        <data>24.8818895</data>
+        <data>19.611220625</data>
+        <data>0.10334612500000162</data>
+        <data>19.714566750000003</data>
+        <data>19.5078745</data>
+        <data>19.955709125000002</data>
+        <data>0.24114187500000028</data>
+        <data>20.196851000000002</data>
+        <data>19.71456725</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010002/temperature">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010002/temperature" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/MO-M-G010002">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010002/temperature" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="temperature" units="C">
+        <data>17.3031495</data>
+        <data>0.0</data>
+        <data>17.3031495</data>
+        <data>17.3031495</data>
+        <data>21.023622500000002</data>
+        <data>0.0</data>
+        <data>21.023622500000002</data>
+        <data>21.023622500000002</data>
+        <data>16.7519685</data>
+        <data>0.0</data>
+        <data>16.7519685</data>
+        <data>16.7519685</data>
+        <data>21.1614165</data>
+        <data>0.0</data>
+        <data>21.1614165</data>
+        <data>21.1614165</data>
+        <data>23.917323500000002</data>
+        <data>0.0</data>
+        <data>23.917323500000002</data>
+        <data>23.917323500000002</data>
+        <data>25.295276</data>
+        <data>0.0</data>
+        <data>25.295276</data>
+        <data>25.295276</data>
+        <data>26.397637500000002</data>
+        <data>0.0</data>
+        <data>26.397637500000002</data>
+        <data>26.397637500000002</data>
+        <data>26.811024</data>
+        <data>0.0</data>
+        <data>26.811024</data>
+        <data>26.811024</data>
+        <data>25.984252</data>
+        <data>0.0</data>
+        <data>25.984252</data>
+        <data>25.984252</data>
+        <data>25.1574805</data>
+        <data>0.0</data>
+        <data>25.1574805</data>
+        <data>25.1574805</data>
+        <data>19.5078745</data>
+        <data>0.0</data>
+        <data>19.5078745</data>
+        <data>19.5078745</data>
+        <data>20.196851000000002</data>
+        <data>0.0</data>
+        <data>20.196851000000002</data>
+        <data>20.196851000000002</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010001/temperature">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010001/temperature" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/MO-M-G010001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/MAC/2/MO-M-G010001/temperature" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="temperature" units="C">
+        <data>17.768208937500003</data>
+        <data>0.5626347191074668</data>
+        <data>18.405512</data>
+        <data>16.889764</data>
+        <data>21.316437125</data>
+        <data>0.7800585194604296</data>
+        <data>22.401575</data>
+        <data>20.1968505</data>
+        <data>17.6476380625</data>
+        <data>0.9421610300292408</data>
+        <data>18.543307499999997</data>
+        <data>16.338583</data>
+        <data>21.505905</data>
+        <data>0.7885699838983863</data>
+        <data>22.401575</data>
+        <data>20.47244</data>
+        <data>24.330708875</data>
+        <data>0.32315845281424577</data>
+        <data>24.6062995</data>
+        <data>23.779528</data>
+        <data>24.445539166666666</data>
+        <data>0.11933397051447567</data>
+        <data>24.606299999999997</data>
+        <data>24.33071</data>
+        <data>26.173719875</data>
+        <data>0.475780648360194</data>
+        <data>26.879921</data>
+        <data>25.5708655</data>
+        <data>26.053149500000004</data>
+        <data>0.8522168285402052</data>
+        <data>26.811024</data>
+        <data>24.606299</data>
+        <data>26.01870075</data>
+        <data>0.5003979272257355</data>
+        <data>26.8110235</data>
+        <data>25.433071</data>
+        <data>26.294291125</data>
+        <data>0.7444451550954222</data>
+        <data>27.224409</data>
+        <data>25.433071</data>
+        <data>20.300197187500004</data>
+        <data>0.5956757691149874</data>
+        <data>21.023622500000002</data>
+        <data>19.64567</data>
+        <data>20.9375005625</data>
+        <data>0.39390812623838695</data>
+        <data>21.437008</data>
+        <data>20.334646499999998</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

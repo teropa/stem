@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CZE/CZE_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="CZE elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CZE/CZE_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="CZE:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-VY/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-VY/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-VY">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-VY/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>431.4580766938208</data>
+        <data>181.55993860489983</data>
+        <data>1511.0</data>
+        <data>191.0</data>
+        <data>1320.0</data>
+        <data>22.171806196071397</data>
+        <data>88.78207896792813</data>
+        <data>468.10264178975365</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SV/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SV/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-SV">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SV/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>469.94396355353075</data>
+        <data>199.76028800417546</data>
+        <data>1473.0</data>
+        <data>193.0</data>
+        <data>1280.0</data>
+        <data>21.131859638993983</data>
+        <data>78.03391682158072</data>
+        <data>510.63832753125075</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ST/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ST/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-ST">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ST/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>607.7106086956521</data>
+        <data>298.6071184837953</data>
+        <data>2130.0</data>
+        <data>108.0</data>
+        <data>2022.0</data>
+        <data>15.386403539051118</data>
+        <data>53.03287462935289</data>
+        <data>677.1103271479728</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-PR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-PR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-PR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-PR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>270.14814814814815</data>
+        <data>46.849430302452205</data>
+        <data>391.0</data>
+        <data>169.0</data>
+        <data>222.0</data>
+        <data>209.20131776408212</data>
+        <data>1311.5655921839518</data>
+        <data>274.18039876610095</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-SR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>339.27205746914717</data>
+        <data>118.0943550466661</data>
+        <data>863.0</data>
+        <data>139.0</data>
+        <data>724.0</data>
+        <data>32.97825595410489</data>
+        <data>128.40128242015302</data>
+        <data>359.2378121429262</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-JM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-JM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-JM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-JM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>390.1279650902581</data>
+        <data>150.12634143597157</data>
+        <data>827.0</data>
+        <data>141.0</data>
+        <data>686.0</data>
+        <data>25.555537348375022</data>
+        <data>90.25914160475934</data>
+        <data>418.0164441004871</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-BR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-BR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-BR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-BR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>179.40981012658227</data>
+        <data>85.40759366508428</data>
+        <data>503.0</data>
+        <data>107.0</data>
+        <data>396.0</data>
+        <data>17.24711991961181</data>
+        <data>64.86275225925938</data>
+        <data>198.70162813957126</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-JC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-JC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-JC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-JC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>558.7874514103459</data>
+        <data>153.09289334204945</data>
+        <data>1325.0</data>
+        <data>330.0</data>
+        <data>995.0</data>
+        <data>60.99987582771359</data>
+        <data>283.0915854353859</data>
+        <data>579.3797112822556</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-SE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-SE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>385.8094099444405</data>
+        <data>177.70984986154275</data>
+        <data>1096.0</data>
+        <data>123.0</data>
+        <data>973.0</data>
+        <data>17.98732567599774</data>
+        <data>65.386592358944</data>
+        <data>424.7701631935668</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-YC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-YC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-YC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-YC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>498.03518201807964</data>
+        <data>316.69472459446877</data>
+        <data>2525.0</data>
+        <data>80.0</data>
+        <data>2445.0</data>
+        <data>9.946049564867735</data>
+        <data>35.80882641555847</data>
+        <data>590.1987725451047</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ZD/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ZD/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-ZD">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ZD/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>553.6695285511075</data>
+        <data>155.29062391071673</data>
+        <data>1280.0</data>
+        <data>253.0</data>
+        <data>1027.0</data>
+        <data>57.406946936515595</data>
+        <data>262.9952975837771</data>
+        <data>575.034890002846</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ZA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ZA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CZ-ZA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CZE/1/CZ-ZA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>214.5321545307762</data>
+        <data>120.54776658774114</data>
+        <data>1016.0</data>
+        <data>89.0</data>
+        <data>927.0</data>
+        <data>12.876630067642491</data>
+        <data>49.561909809502744</data>
+        <data>246.08090002458417</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

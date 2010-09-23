@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JPN/JPN_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="JPN(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JPN/JPN_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="JPN:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-HRI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-HRI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HOKURIKU, 11, HRI JP-HRI" identifier="stem://org.eclipse.stem/node/geo/region/JP-HRI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-HRI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-RYU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-RYU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="RYUKIU-ISLANDS, 38, RYU JP-RYU" identifier="stem://org.eclipse.stem/node/geo/region/JP-RYU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-RYU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-0">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-0" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HOKKAIDO, 10, 0 JP-0" identifier="stem://org.eclipse.stem/node/geo/region/JP-0" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-0"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-CHG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-CHG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CHUGOKU, 05, CHG JP-CHG" identifier="stem://org.eclipse.stem/node/geo/region/JP-CHG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-CHG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-TAI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-TAI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOKAI, 47, TAI JP-TAI" identifier="stem://org.eclipse.stem/node/geo/region/JP-TAI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-TAI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-SKO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-SKO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SHIKOKU, 41, SKO JP-SKO" identifier="stem://org.eclipse.stem/node/geo/region/JP-SKO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-SKO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-KIN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-KIN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KINKI, 24, KIN JP-KIN" identifier="stem://org.eclipse.stem/node/geo/region/JP-KIN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-KIN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-KNT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-KNT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KANTO, 23, KNT JP-KNT" identifier="stem://org.eclipse.stem/node/geo/region/JP-KNT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-KNT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-TOH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-TOH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOHOKU, 46, TOH JP-TOH" identifier="stem://org.eclipse.stem/node/geo/region/JP-TOH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-TOH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-KYU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-KYU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KYUSHU, 28, KYU JP-KYU" identifier="stem://org.eclipse.stem/node/geo/region/JP-KYU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-KYU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/JP-CHB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/JP-CHB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CHUBU, 04, CHB JP-CHB" identifier="stem://org.eclipse.stem/node/geo/region/JP-CHB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/JPN/JPN_1_MAP.xml#JP-CHB"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

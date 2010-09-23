@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/relativephysical/LSO_0_LSO_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Physical containment of LSO level (1) by LSO (0)" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/relativephysical/LSO_0_LSO_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="LSO:0_1/" source="http://www.ibm.com" subject="Edge:relativephysical" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-B/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-B/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-B" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-B/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-B/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-B/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-E/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-E/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-E" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-E/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-E/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-E/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-G/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-G/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-G" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-G/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-G/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-G/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-D/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-D/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-D" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-D/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-D/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-D/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-J/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-J/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-J" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-J/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-J/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-J/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-A/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-A/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-A" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-A/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-A/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-A/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-K/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-K/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-K" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-K/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-K/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-K/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-H/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-H/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-H" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-H/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-H/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-H/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-F/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-F/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-F" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-F/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-F/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-F/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-C/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-C/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/LSO" nodeBURI="stem://org.eclipse.stem/node/geo/region/LS-C" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/LSO_LS-C/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-C/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/LSO_LS-C/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

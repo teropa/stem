@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/relativephysical/AFG_0_AFG_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Physical containment of AFG level (1) by AFG (0)" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/relativephysical/AFG_0_AFG_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="AFG:0_1/" source="http://www.ibm.com" subject="Edge:relativephysical" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-FYB/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-FYB/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-FYB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-FYB/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-FYB/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-FYB/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-PAR/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-PAR/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-PAR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-PAR/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-PAR/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-PAR/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-NAN/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-NAN/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-NAN" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-NAN/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-NAN/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-NAN/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-SAM/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-SAM/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-SAM" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-SAM/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-SAM/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-SAM/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-LAG/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-LAG/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-LAG" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-LAG/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-LAG/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-LAG/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAB/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAB/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-KAB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAB/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KAB/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KAB/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-PIA/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-PIA/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-PIA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-PIA/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-PIA/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-PIA/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KDZ/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KDZ/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-KDZ" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KDZ/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KDZ/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KDZ/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-GHA/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-GHA/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-GHA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-GHA/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-GHA/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-GHA/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BDS/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BDS/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-BDS" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BDS/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BDS/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BDS/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-GHO/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-GHO/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-GHO" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-GHO/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-GHO/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-GHO/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-JOW/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-JOW/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-JOW" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-JOW/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-JOW/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-JOW/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BAL/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BAL/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-BAL" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BAL/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BAL/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BAL/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-ORU/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-ORU/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-ORU" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-ORU/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-ORU/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-ORU/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-FRA/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-FRA/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-FRA" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-FRA/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-FRA/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-FRA/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-LOW/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-LOW/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-LOW" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-LOW/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-LOW/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-LOW/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-WAR/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-WAR/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-WAR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-WAR/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-WAR/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-WAR/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-HEL/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-HEL/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-HEL" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-HEL/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-HEL/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-HEL/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-TAK/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-TAK/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-TAK" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-TAK/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-TAK/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-TAK/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BDG/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BDG/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-BDG" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BDG/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BDG/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BDG/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KNR/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KNR/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-KNR" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KNR/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KNR/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KNR/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-ZAB/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-ZAB/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-ZAB" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-ZAB/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-ZAB/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-ZAB/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BGL/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BGL/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-BGL" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BGL/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BGL/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BGL/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-HER/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-HER/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-HER" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-HER/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-HER/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-HER/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-NIM/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-NIM/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-NIM" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-NIM/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-NIM/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-NIM/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAN/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAN/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-KAN" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAN/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KAN/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KAN/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAP/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAP/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-KAP" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-KAP/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KAP/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-KAP/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BAM/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BAM/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/AFG" nodeBURI="stem://org.eclipse.stem/node/geo/region/AF-BAM" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/AFG_AF-BAM/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BAM/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/AFG_AF-BAM/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

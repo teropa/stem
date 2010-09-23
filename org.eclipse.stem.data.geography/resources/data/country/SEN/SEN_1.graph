@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SEN/SEN_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="SEN(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SEN/SEN_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="SEN:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-GS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-GS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GOSSAS, 09, GS SN-GS" identifier="stem://org.eclipse.stem/node/geo/region/SN-GS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-GS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-MT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-MT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MATAM, 17, MT SN-MT" identifier="stem://org.eclipse.stem/node/geo/region/SN-MT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-MT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-DK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-DK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DAKAR, 05, DK SN-DK" identifier="stem://org.eclipse.stem/node/geo/region/SN-DK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-DK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-DAG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-DAG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DAGANA, 04, DAG SN-DAG" identifier="stem://org.eclipse.stem/node/geo/region/SN-DAG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-DAG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-OUY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-OUY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="OUSSOUYE, 21, OUY SN-OUY" identifier="stem://org.eclipse.stem/node/geo/region/SN-OUY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-OUY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-DB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-DB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DIOURBEL, 06, DB SN-DB" identifier="stem://org.eclipse.stem/node/geo/region/SN-DB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-DB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-LGE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-LGE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LINGUERE, 15, LGE SN-LGE" identifier="stem://org.eclipse.stem/node/geo/region/SN-LGE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-LGE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-BAK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-BAK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BAKEL, 01, BAK SN-BAK" identifier="stem://org.eclipse.stem/node/geo/region/SN-BAK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-BAK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-BGO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-BGO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BIGNONA, 03, BGO SN-BGO" identifier="stem://org.eclipse.stem/node/geo/region/SN-BGO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-BGO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-KAF">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-KAF" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KAFFRINE, 10, KAF SN-KAF" identifier="stem://org.eclipse.stem/node/geo/region/SN-KAF" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-KAF"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-TVO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-TVO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TIVAOUANE, 29, TVO SN-TVO" identifier="stem://org.eclipse.stem/node/geo/region/SN-TVO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-TVO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-SDH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-SDH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SEDHIOU, 26, SDH SN-SDH" identifier="stem://org.eclipse.stem/node/geo/region/SN-SDH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-SDH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-FK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-FK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FATICK, 07, FK SN-FK" identifier="stem://org.eclipse.stem/node/geo/region/SN-FK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-FK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-PKE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-PKE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PIKINE, 22, PKE SN-PKE" identifier="stem://org.eclipse.stem/node/geo/region/SN-PKE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-PKE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-LG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-LG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LOUGA, 16, LG SN-LG" identifier="stem://org.eclipse.stem/node/geo/region/SN-LG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-LG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-MBU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-MBU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MBOUR, 19, MBU SN-MBU" identifier="stem://org.eclipse.stem/node/geo/region/SN-MBU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-MBU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-PDR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-PDR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PODOR, 23, PDR SN-PDR" identifier="stem://org.eclipse.stem/node/geo/region/SN-PDR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-PDR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-MBK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-MBK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MBACKE, 18, MBK SN-MBK" identifier="stem://org.eclipse.stem/node/geo/region/SN-MBK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-MBK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-KL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-KL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KAOLACK, 11, KL SN-KL" identifier="stem://org.eclipse.stem/node/geo/region/SN-KL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-KL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-BBY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-BBY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BAMBEY, 02, BBY SN-BBY" identifier="stem://org.eclipse.stem/node/geo/region/SN-BBY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-BBY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-KEU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-KEU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KEDOUGOU, 13, KEU SN-KEU" identifier="stem://org.eclipse.stem/node/geo/region/SN-KEU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-KEU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-RUQ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-RUQ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="RUFISQUE-BARGNY, 24, RUQ SN-RUQ" identifier="stem://org.eclipse.stem/node/geo/region/SN-RUQ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-RUQ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-NDR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-NDR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NIORO-DU-RIP, 20, NDR SN-NDR" identifier="stem://org.eclipse.stem/node/geo/region/SN-NDR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-NDR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-KD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-KD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KOLDA, 14, KD SN-KD" identifier="stem://org.eclipse.stem/node/geo/region/SN-KD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-KD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-FDI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-FDI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FOUNDIOUGNE, 08, FDI SN-FDI" identifier="stem://org.eclipse.stem/node/geo/region/SN-FDI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-FDI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-TH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-TH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="THIES, 28, TH SN-TH" identifier="stem://org.eclipse.stem/node/geo/region/SN-TH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-TH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-KEM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-KEM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KEBEMER, 12, KEM SN-KEM" identifier="stem://org.eclipse.stem/node/geo/region/SN-KEM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-KEM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-ZG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-ZG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZIGUINCHOR, 31, ZG SN-ZG" identifier="stem://org.eclipse.stem/node/geo/region/SN-ZG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-ZG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-TC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-TC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TAMBACOUNDA, 27, TC SN-TC" identifier="stem://org.eclipse.stem/node/geo/region/SN-TC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-TC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SN-VGR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SN-VGR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VELINGARA, 30, VGR SN-VGR" identifier="stem://org.eclipse.stem/node/geo/region/SN-VGR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SEN/SEN_1_MAP.xml#SN-VGR"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

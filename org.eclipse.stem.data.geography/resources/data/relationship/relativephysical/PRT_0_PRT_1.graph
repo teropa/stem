@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/relativephysical/PRT_0_PRT_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Physical containment of PRT level (1) by PRT (0)" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/relativephysical/PRT_0_PRT_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="PRT:0_1/" source="http://www.ibm.com" subject="Edge:relativephysical" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-01/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-01/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/PRT" nodeBURI="stem://org.eclipse.stem/node/geo/region/PT-01" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-01/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-01/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-01/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-15/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-15/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/PRT" nodeBURI="stem://org.eclipse.stem/node/geo/region/PT-15" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-15/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-15/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-15/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-14/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-14/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/PRT" nodeBURI="stem://org.eclipse.stem/node/geo/region/PT-14" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-14/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-14/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-14/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-10/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-10/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/PRT" nodeBURI="stem://org.eclipse.stem/node/geo/region/PT-10" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-10/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-10/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-10/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-11/contains">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-11/contains" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/PRT" nodeBURI="stem://org.eclipse.stem/node/geo/region/PT-11" directed="true">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/relativephysical/PRT_PT-11/contains" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-11/contains" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/relativephysical/PRT_PT-11/contains" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:RelativePhysicalRelationshipLabelValue" relationship="Contains"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

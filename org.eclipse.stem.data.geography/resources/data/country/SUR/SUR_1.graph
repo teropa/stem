@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SUR/SUR_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="SUR(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SUR/SUR_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="SUR:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-WA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-WA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="WANICA, 10, WA SR-WA" identifier="stem://org.eclipse.stem/node/geo/region/SR-WA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-WA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-SI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-SI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SIPALIWINI, 09, SI SR-SI" identifier="stem://org.eclipse.stem/node/geo/region/SR-SI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-SI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-CR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-CR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CORONIE, 03, CR SR-CR" identifier="stem://org.eclipse.stem/node/geo/region/SR-CR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-CR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-SA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-SA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SARAMACCA, 08, SA SR-SA" identifier="stem://org.eclipse.stem/node/geo/region/SR-SA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-SA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-CM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-CM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="COMMEWIJNE, 02, CM SR-CM" identifier="stem://org.eclipse.stem/node/geo/region/SR-CM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-CM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-MA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-MA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MAROWIJNE, 04, MA SR-MA" identifier="stem://org.eclipse.stem/node/geo/region/SR-MA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-MA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-BR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-BR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BROKOPONDO, 01, BR SR-BR" identifier="stem://org.eclipse.stem/node/geo/region/SR-BR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-BR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-PR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-PR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PARA, 06, PR SR-PR" identifier="stem://org.eclipse.stem/node/geo/region/SR-PR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-PR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-NI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-NI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NICKERIE, 05, NI SR-NI" identifier="stem://org.eclipse.stem/node/geo/region/SR-NI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-NI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SR-PM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SR-PM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PARAMARIBO, 07, PM SR-PM" identifier="stem://org.eclipse.stem/node/geo/region/SR-PM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SUR/SUR_1_MAP.xml#SR-PM"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

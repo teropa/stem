@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CHE/CHE_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="CHE(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CHE/CHE_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="CHE:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-GN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-GN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GENVE, 09, GN CH-GN" identifier="stem://org.eclipse.stem/node/geo/region/CH-GN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-GN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-AI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-AI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="APPENZELL INNERRHODEN, 03, AI CH-AI" identifier="stem://org.eclipse.stem/node/geo/region/CH-AI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-AI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-GL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-GL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GLARUS, 10, GL CH-GL" identifier="stem://org.eclipse.stem/node/geo/region/CH-GL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-GL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-AG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-AG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="AARGAU, 01, AG CH-AG" identifier="stem://org.eclipse.stem/node/geo/region/CH-AG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-AG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-VS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-VS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VALAIS/WALLIS, 24, VS CH-VS" identifier="stem://org.eclipse.stem/node/geo/region/CH-VS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-VS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-SO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-SO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SOLOTHURN, 20, SO CH-SO" identifier="stem://org.eclipse.stem/node/geo/region/CH-SO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-SO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-SH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-SH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SCHAFFHAUSEN, 18, SH CH-SH" identifier="stem://org.eclipse.stem/node/geo/region/CH-SH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-SH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-SG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-SG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SANKT GALLEN, 17, SG CH-SG" identifier="stem://org.eclipse.stem/node/geo/region/CH-SG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-SG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-VD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-VD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VAUD, 25, VD CH-VD" identifier="stem://org.eclipse.stem/node/geo/region/CH-VD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-VD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G9">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G9" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G9, 00, UNK CH-G9" identifier="stem://org.eclipse.stem/node/geo/region/CH-G9" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G9"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G8">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G8" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G8, 00, UNK CH-G8" identifier="stem://org.eclipse.stem/node/geo/region/CH-G8" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G8"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G7">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G7" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G7, 00, UNK CH-G7" identifier="stem://org.eclipse.stem/node/geo/region/CH-G7" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G7"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G6">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G6" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G6, 00, UNK CH-G6" identifier="stem://org.eclipse.stem/node/geo/region/CH-G6" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G6"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G5">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G5" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G5, 00, UNK CH-G5" identifier="stem://org.eclipse.stem/node/geo/region/CH-G5" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G5"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G4">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G4" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G4, 00, UNK CH-G4" identifier="stem://org.eclipse.stem/node/geo/region/CH-G4" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G4"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G3">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G3" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G3, 00, UNK CH-G3" identifier="stem://org.eclipse.stem/node/geo/region/CH-G3" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G3"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-FR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-FR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FRIBOURG/FREIBURG, 07, FR CH-FR" identifier="stem://org.eclipse.stem/node/geo/region/CH-FR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-FR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-OW">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-OW" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="OBWALDEN, 16, OW CH-OW" identifier="stem://org.eclipse.stem/node/geo/region/CH-OW" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-OW"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G2">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G2" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G2, 00, UNK CH-G2" identifier="stem://org.eclipse.stem/node/geo/region/CH-G2" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G2"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-LU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-LU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LUZERN, 13, LU CH-LU" identifier="stem://org.eclipse.stem/node/geo/region/CH-LU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-LU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G1">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G1" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G1, 00, UNK CH-G1" identifier="stem://org.eclipse.stem/node/geo/region/CH-G1" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G1"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-UR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-UR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="URI, 23, UR CH-UR" identifier="stem://org.eclipse.stem/node/geo/region/CH-UR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-UR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-BS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-BS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BASEL-STADT, 05, BS CH-BS" identifier="stem://org.eclipse.stem/node/geo/region/CH-BS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-BS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-G10">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-G10" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CH-G10, 00, UNK CH-G10" identifier="stem://org.eclipse.stem/node/geo/region/CH-G10" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-G10"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-NW">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-NW" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MIDWALDEN, 14, NW CH-NW" identifier="stem://org.eclipse.stem/node/geo/region/CH-NW" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-NW"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-BL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-BL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BASEL-LANDSCHAFT, 04, BL CH-BL" identifier="stem://org.eclipse.stem/node/geo/region/CH-BL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-BL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-BE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-BE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BERN/BERNE, 06, BE CH-BE" identifier="stem://org.eclipse.stem/node/geo/region/CH-BE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-BE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-TI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-TI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TICINO, 22, TI CH-TI" identifier="stem://org.eclipse.stem/node/geo/region/CH-TI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-TI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-NE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-NE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NEUCHATEL, 15, NE CH-NE" identifier="stem://org.eclipse.stem/node/geo/region/CH-NE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-NE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-TG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-TG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="THURGAU, 21, TG CH-TG" identifier="stem://org.eclipse.stem/node/geo/region/CH-TG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-TG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-ZH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-ZH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZURICH, 27, ZH CH-ZH" identifier="stem://org.eclipse.stem/node/geo/region/CH-ZH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-ZH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-ZG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-ZG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZUG, 26, ZG CH-ZG" identifier="stem://org.eclipse.stem/node/geo/region/CH-ZG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-ZG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-AR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-AR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="APPENZELL AUSSERRHODEN, 02, AR CH-AR" identifier="stem://org.eclipse.stem/node/geo/region/CH-AR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-AR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-GR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-GR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GRAUB?NDEN/GRIGIONI/GRISCHUN, 11, GR CH-GR" identifier="stem://org.eclipse.stem/node/geo/region/CH-GR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-GR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/CH-SZ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/CH-SZ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SCHWYZ, 19, SZ CH-SZ" identifier="stem://org.eclipse.stem/node/geo/region/CH-SZ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/CHE/CHE_1_MAP.xml#CH-SZ"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

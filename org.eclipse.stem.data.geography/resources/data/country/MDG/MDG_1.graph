@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MDG/MDG_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="MDG(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/MDG/MDG_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="MDG:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/MDG/MDG_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/MG-T">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/MG-T" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ANTANANARIVO, 01, T MG-T" identifier="stem://org.eclipse.stem/node/geo/region/MG-T" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/MDG/MDG_1_MAP.xml#MG-T"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/MG-M">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/MG-M" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MAHAJANGA, 04, M MG-M" identifier="stem://org.eclipse.stem/node/geo/region/MG-M" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/MDG/MDG_1_MAP.xml#MG-M"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/MG-F">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/MG-F" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FIANARANTSOA, 03, F MG-F" identifier="stem://org.eclipse.stem/node/geo/region/MG-F" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/MDG/MDG_1_MAP.xml#MG-F"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/MG-D">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/MG-D" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ANTSIRANANA, 02, D MG-D" identifier="stem://org.eclipse.stem/node/geo/region/MG-D" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/MDG/MDG_1_MAP.xml#MG-D"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/MG-A">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/MG-A" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOAMASINA, 05, A MG-A" identifier="stem://org.eclipse.stem/node/geo/region/MG-A" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/MDG/MDG_1_MAP.xml#MG-A"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/MG-U">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/MG-U" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOLIARY, 06, U MG-U" identifier="stem://org.eclipse.stem/node/geo/region/MG-U" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/MDG/MDG_1_MAP.xml#MG-U"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

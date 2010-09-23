@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/USA/USA_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="All USA States (1) (except Puerto Rico)" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/USA/USA_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="USA:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-OK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-OK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Oklahoma, 40, OK US-OK" identifier="stem://org.eclipse.stem/node/geo/region/US-OK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-OK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-CA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-CA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="California, 06, CA US-CA" identifier="stem://org.eclipse.stem/node/geo/region/US-CA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-CA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-OH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-OH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Ohio, 39, OH US-OH" identifier="stem://org.eclipse.stem/node/geo/region/US-OH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-OH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-ID">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-ID" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Idaho, 16, ID US-ID" identifier="stem://org.eclipse.stem/node/geo/region/US-ID" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-ID"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-RI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-RI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Rhode Island, 44, RI US-RI" identifier="stem://org.eclipse.stem/node/geo/region/US-RI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-RI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-IA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-IA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Iowa, 19, IA US-IA" identifier="stem://org.eclipse.stem/node/geo/region/US-IA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-IA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-LA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-LA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Louisiana, 22, LA US-LA" identifier="stem://org.eclipse.stem/node/geo/region/US-LA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-LA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-KY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-KY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Kentucky, 21, KY US-KY" identifier="stem://org.eclipse.stem/node/geo/region/US-KY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-KY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-NY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-NY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="New York, 36, NY US-NY" identifier="stem://org.eclipse.stem/node/geo/region/US-NY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-NY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-NV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-NV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Nevada, 32, NV US-NV" identifier="stem://org.eclipse.stem/node/geo/region/US-NV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-NV"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-KS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-KS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Kansas, 20, KS US-KS" identifier="stem://org.eclipse.stem/node/geo/region/US-KS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-KS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-TX">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-TX" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Texas, 48, TX US-TX" identifier="stem://org.eclipse.stem/node/geo/region/US-TX" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-TX"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-WY">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-WY" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Wyoming, 56, WY US-WY" identifier="stem://org.eclipse.stem/node/geo/region/US-WY" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-WY"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-WV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-WV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="West Virginia, 54, WV US-WV" identifier="stem://org.eclipse.stem/node/geo/region/US-WV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-WV"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-NM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-NM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="New Mexico, 35, NM US-NM" identifier="stem://org.eclipse.stem/node/geo/region/US-NM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-NM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-HI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-HI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Hawaii, 15, HI US-HI" identifier="stem://org.eclipse.stem/node/geo/region/US-HI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-HI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-TN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-TN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Tennessee, 47, TN US-TN" identifier="stem://org.eclipse.stem/node/geo/region/US-TN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-TN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-NJ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-NJ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="New Jersey, 34, NJ US-NJ" identifier="stem://org.eclipse.stem/node/geo/region/US-NJ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-NJ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-NH">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-NH" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="New Hampshire, 33, NH US-NH" identifier="stem://org.eclipse.stem/node/geo/region/US-NH" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-NH"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-NE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-NE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Nebraska, 31, NE US-NE" identifier="stem://org.eclipse.stem/node/geo/region/US-NE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-NE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-ND">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-ND" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="North Dakota, 38, ND US-ND" identifier="stem://org.eclipse.stem/node/geo/region/US-ND" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-ND"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-WI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-WI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Wisconsin, 55, WI US-WI" identifier="stem://org.eclipse.stem/node/geo/region/US-WI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-WI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-AZ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-AZ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Arizona, 04, AZ US-AZ" identifier="stem://org.eclipse.stem/node/geo/region/US-AZ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-AZ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-NC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-NC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="North Carolina, 37, NC US-NC" identifier="stem://org.eclipse.stem/node/geo/region/US-NC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-NC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-WA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-WA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Washington, 53, WA US-WA" identifier="stem://org.eclipse.stem/node/geo/region/US-WA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-WA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-AR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-AR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Arkansas, 05, AR US-AR" identifier="stem://org.eclipse.stem/node/geo/region/US-AR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-AR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-AL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-AL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Alabama, 01, AL US-AL" identifier="stem://org.eclipse.stem/node/geo/region/US-AL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-AL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-MT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-MT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Montana, 30, MT US-MT" identifier="stem://org.eclipse.stem/node/geo/region/US-MT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-MT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-AK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-AK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Alaska, 02, AK US-AK" identifier="stem://org.eclipse.stem/node/geo/region/US-AK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-AK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-MS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-MS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Mississippi, 28, MS US-MS" identifier="stem://org.eclipse.stem/node/geo/region/US-MS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-MS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-MO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-MO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Missouri, 29, MO US-MO" identifier="stem://org.eclipse.stem/node/geo/region/US-MO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-MO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-VT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-VT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Vermont, 50, VT US-VT" identifier="stem://org.eclipse.stem/node/geo/region/US-VT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-VT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-MN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-MN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Minnesota, 27, MN US-MN" identifier="stem://org.eclipse.stem/node/geo/region/US-MN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-MN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-DE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-DE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Delaware, 10, DE US-DE" identifier="stem://org.eclipse.stem/node/geo/region/US-DE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-DE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-DC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-DC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="District of Columbia, 11, DC US-DC" identifier="stem://org.eclipse.stem/node/geo/region/US-DC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-DC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-MI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-MI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Michigan, 26, MI US-MI" identifier="stem://org.eclipse.stem/node/geo/region/US-MI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-MI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-GA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-GA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Georgia, 13, GA US-GA" identifier="stem://org.eclipse.stem/node/geo/region/US-GA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-GA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-ME">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-ME" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Maine, 23, ME US-ME" identifier="stem://org.eclipse.stem/node/geo/region/US-ME" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-ME"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-MD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-MD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Maryland, 24, MD US-MD" identifier="stem://org.eclipse.stem/node/geo/region/US-MD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-MD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-MA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-MA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Massachusetts, 25, MA US-MA" identifier="stem://org.eclipse.stem/node/geo/region/US-MA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-MA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-SD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-SD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="South Dakota, 46, SD US-SD" identifier="stem://org.eclipse.stem/node/geo/region/US-SD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-SD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-SC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-SC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="South Carolina, 45, SC US-SC" identifier="stem://org.eclipse.stem/node/geo/region/US-SC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-SC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-PA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-PA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Pennsylvania, 42, PA US-PA" identifier="stem://org.eclipse.stem/node/geo/region/US-PA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-PA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-VA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-VA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Virginia, 51, VA US-VA" identifier="stem://org.eclipse.stem/node/geo/region/US-VA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-VA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-CT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-CT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Connecticut, 09, CT US-CT" identifier="stem://org.eclipse.stem/node/geo/region/US-CT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-CT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-CO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-CO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Colorado, 08, CO US-CO" identifier="stem://org.eclipse.stem/node/geo/region/US-CO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-CO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-OR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-OR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Oregon, 41, OR US-OR" identifier="stem://org.eclipse.stem/node/geo/region/US-OR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-OR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-FL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-FL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Florida, 12, FL US-FL" identifier="stem://org.eclipse.stem/node/geo/region/US-FL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-FL"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-IN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-IN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Indiana, 18, IN US-IN" identifier="stem://org.eclipse.stem/node/geo/region/US-IN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-IN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-UT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-UT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Utah, 49, UT US-UT" identifier="stem://org.eclipse.stem/node/geo/region/US-UT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-UT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/US-IL">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/US-IL" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="Illinois, 17, IL US-IL" identifier="stem://org.eclipse.stem/node/geo/region/US-IL" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_1_MAP.xml#US-IL"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

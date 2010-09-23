@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BRN/BRN_1_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="BRN (1) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BRN/BRN_1_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="BRN:1/" source="https://www.cia.gov/library/publications/the-world-factbook/" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BRN/1/BN-TE">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BRN/1/BN-TE" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BN-TE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BRN/1/BN-TE" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="1306.0" averageExtent="36.138621999185304"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/BRN/1/BN-TU">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/BRN/1/BN-TU" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BN-TU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/BRN/1/BN-TU" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="1166.0" averageExtent="34.14674215792775"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

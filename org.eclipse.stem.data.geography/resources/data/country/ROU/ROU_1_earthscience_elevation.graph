@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ROU/ROU_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="ROU elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ROU/ROU_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ROU:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CV/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CV/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-CV">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CV/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>753.7682534304591</data>
+        <data>225.5012873347917</data>
+        <data>1767.0</data>
+        <data>423.0</data>
+        <data>1344.0</data>
+        <data>48.45754852348395</data>
+        <data>210.20744731338192</data>
+        <data>786.7765950187213</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-CT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>26.83865721918922</data>
+        <data>16.997491820183104</data>
+        <data>126.0</data>
+        <data>1.0</data>
+        <data>125.0</data>
+        <data>9.102637061278141</data>
+        <data>26.653279922919616</data>
+        <data>31.768352955517393</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-CS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>517.4120809166784</data>
+        <data>356.04670081727267</data>
+        <data>2114.0</data>
+        <data>58.0</data>
+        <data>2056.0</data>
+        <data>8.580963621540624</data>
+        <data>28.16547915453663</data>
+        <data>628.0800224823203</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-IS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-IS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-IS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-IS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>172.9039866416197</data>
+        <data>94.57224864464138</data>
+        <data>537.0</data>
+        <data>11.0</data>
+        <data>526.0</data>
+        <data>12.218388356761277</data>
+        <data>38.60076492992876</data>
+        <data>197.07790035990655</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-OT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-OT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-OT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-OT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>157.2697550703757</data>
+        <data>85.17129665910751</data>
+        <data>462.0</data>
+        <data>14.0</data>
+        <data>448.0</data>
+        <data>12.733764154702145</data>
+        <data>42.32532397910083</data>
+        <data>178.85168613823475</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-B/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-B/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-B">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-B/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>79.83144763562518</data>
+        <data>21.358972510952277</data>
+        <data>167.0</data>
+        <data>28.0</data>
+        <data>139.0</data>
+        <data>63.998075983326274</data>
+        <data>290.607266577456</data>
+        <data>82.63937159927573</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CJ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CJ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-CJ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CJ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>591.8664770201796</data>
+        <data>319.8316948732078</data>
+        <data>1757.0</data>
+        <data>189.0</data>
+        <data>1568.0</data>
+        <data>13.203148819541102</data>
+        <data>45.76273189621804</data>
+        <data>672.7542193593051</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-IL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-IL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-IL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-IL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>33.18893817576934</data>
+        <data>22.819610209219103</data>
+        <data>170.0</data>
+        <data>1.0</data>
+        <data>169.0</data>
+        <data>7.860481628713116</data>
+        <data>22.127303432808752</data>
+        <data>40.27704342843124</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-CA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-CA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>74.5248833592535</data>
+        <data>49.286944491629356</data>
+        <data>242.0</data>
+        <data>1.0</data>
+        <data>241.0</data>
+        <data>8.469708900606673</data>
+        <data>24.592398780483315</data>
+        <data>89.34853740846168</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BZ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BZ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-BZ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BZ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>391.7708787938901</data>
+        <data>404.44604795474334</data>
+        <data>1711.0</data>
+        <data>4.0</data>
+        <data>1707.0</data>
+        <data>4.921544104709711</data>
+        <data>13.888178860469678</data>
+        <data>563.0817233556311</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BV/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BV/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-BV">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BV/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>703.9778333522792</data>
+        <data>284.31967717893815</data>
+        <data>2328.0</data>
+        <data>377.0</data>
+        <data>1951.0</data>
+        <data>24.441271854830518</data>
+        <data>99.39443855176997</data>
+        <data>759.2249131071144</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-BT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>182.54868347338936</data>
+        <data>74.84817880760887</data>
+        <data>535.0</data>
+        <data>28.0</data>
+        <data>507.0</data>
+        <data>22.850818803617095</data>
+        <data>85.90853342132012</data>
+        <data>197.29741941719226</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-BR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>15.149766550939782</data>
+        <data>11.866387938264996</data>
+        <data>101.0</data>
+        <data>1.0</data>
+        <data>100.0</data>
+        <data>7.2098359876350315</data>
+        <data>24.473886683282643</data>
+        <data>19.24387147248109</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-BN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>689.5111844908394</data>
+        <data>361.087237314163</data>
+        <data>2172.0</data>
+        <data>225.0</data>
+        <data>1947.0</data>
+        <data>13.794755303038427</data>
+        <data>47.21006337680984</data>
+        <data>778.3377586171282</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-HR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-HR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-HR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-HR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>917.8016040523428</data>
+        <data>269.889101526527</data>
+        <data>2015.0</data>
+        <data>364.0</data>
+        <data>1651.0</data>
+        <data>49.90079551261197</data>
+        <data>210.945223549257</data>
+        <data>956.6608132059396</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-NT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-NT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-NT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-NT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>594.878813559322</data>
+        <data>328.3933986804508</data>
+        <data>1822.0</data>
+        <data>151.0</data>
+        <data>1671.0</data>
+        <data>11.987887051993015</data>
+        <data>37.220852039461946</data>
+        <data>679.5020434985049</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BH/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BH/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-BH">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BH/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>310.0235230183992</data>
+        <data>270.17545212313024</data>
+        <data>1715.0</data>
+        <data>88.0</data>
+        <data>1627.0</data>
+        <data>6.980344281206319</data>
+        <data>26.40383716876218</data>
+        <data>411.22908427624304</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-TR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>89.5842494503298</data>
+        <data>37.2617228020878</data>
+        <data>237.0</data>
+        <data>7.0</data>
+        <data>230.0</data>
+        <data>21.269923966953893</data>
+        <data>72.3881820357114</data>
+        <data>97.02460376501696</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-BC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-BC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>462.9201714438789</data>
+        <data>315.10751614386635</data>
+        <data>1676.0</data>
+        <data>90.0</data>
+        <data>1586.0</data>
+        <data>8.838620011989116</data>
+        <data>28.691102329401502</data>
+        <data>559.9891354838837</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-TM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>141.37199971844865</data>
+        <data>129.61649714792765</data>
+        <data>1302.0</data>
+        <data>40.0</data>
+        <data>1262.0</data>
+        <data>8.886632692644753</data>
+        <data>52.5483905919941</data>
+        <data>191.7980152068615</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-TL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-TL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>58.363819176319176</data>
+        <data>80.71465473835406</data>
+        <data>417.0</data>
+        <data>1.0</data>
+        <data>416.0</data>
+        <data>4.147979796112994</data>
+        <data>12.753118279077071</data>
+        <data>99.60517495782224</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-HD/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-HD/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-HD">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-HD/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>710.7655253440752</data>
+        <data>442.2616246661961</data>
+        <data>2460.0</data>
+        <data>132.0</data>
+        <data>2328.0</data>
+        <data>10.117612384194196</data>
+        <data>33.379880803319736</data>
+        <data>837.1278138193853</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-AR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>208.99866389548694</data>
+        <data>159.49701641859235</data>
+        <data>1390.0</data>
+        <data>79.0</data>
+        <data>1311.0</data>
+        <data>8.298704711430908</data>
+        <data>33.0765786389102</data>
+        <data>262.9063326672297</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GR/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GR/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-GR">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GR/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>78.98943455292506</data>
+        <data>34.395570341836994</data>
+        <data>166.0</data>
+        <data>1.0</data>
+        <data>165.0</data>
+        <data>18.447544540430595</data>
+        <data>56.783633323653355</data>
+        <data>86.15327057129689</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-MS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>552.4292965271594</data>
+        <data>301.64361440668375</data>
+        <data>2085.0</data>
+        <data>220.0</data>
+        <data>1865.0</data>
+        <data>13.34384408142923</data>
+        <data>49.28025616264923</data>
+        <data>629.4179833574984</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SV/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SV/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-SV">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SV/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>755.9803011967191</data>
+        <data>364.10272297165005</data>
+        <data>2039.0</data>
+        <data>199.0</data>
+        <data>1840.0</data>
+        <data>15.513306682069034</data>
+        <data>49.27337181648657</data>
+        <data>839.092967836611</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-DJ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-DJ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-DJ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-DJ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>112.77002448408534</data>
+        <data>66.92143987885594</data>
+        <data>349.0</data>
+        <data>1.0</data>
+        <data>348.0</data>
+        <data>10.264925636274246</data>
+        <data>30.33850359642955</data>
+        <data>131.13183266316597</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-GL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>100.09934528892684</data>
+        <data>72.14471596915403</data>
+        <data>318.0</data>
+        <data>1.0</data>
+        <data>317.0</data>
+        <data>7.346869973284557</data>
+        <data>20.50127597754765</data>
+        <data>123.38856903920113</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AG/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AG/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-AG">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AG/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>704.2869731104652</data>
+        <data>534.9356006845303</data>
+        <data>2436.0</data>
+        <data>127.0</data>
+        <data>2309.0</data>
+        <data>7.388973728588452</data>
+        <data>22.882716990257457</data>
+        <data>884.4072802576989</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GJ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GJ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-GJ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-GJ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>540.9414910685634</data>
+        <data>455.8840469964639</data>
+        <data>2318.0</data>
+        <data>76.0</data>
+        <data>2242.0</data>
+        <data>6.732371527169275</data>
+        <data>21.91984222700566</data>
+        <data>707.4234665780848</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-VS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>172.5418391806494</data>
+        <data>86.24594282337286</data>
+        <data>461.0</data>
+        <data>11.0</data>
+        <data>450.0</data>
+        <data>14.20527796561516</data>
+        <data>44.28560790749339</data>
+        <data>192.89647202925622</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-MM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>659.3210779774032</data>
+        <data>368.65410435699164</data>
+        <data>2098.0</data>
+        <data>134.0</data>
+        <data>1964.0</data>
+        <data>11.782511150596253</data>
+        <data>37.153600687011334</data>
+        <data>755.3874055903643</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-AB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-AB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>663.4068292682927</data>
+        <data>372.0369210004659</data>
+        <data>2073.0</data>
+        <data>184.0</data>
+        <data>1889.0</data>
+        <data>11.780782166691068</data>
+        <data>37.44177064645855</data>
+        <data>760.6050826199605</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SM/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SM/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-SM">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SM/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>182.2721027859051</data>
+        <data>118.34004385848245</data>
+        <data>1155.0</data>
+        <data>81.0</data>
+        <data>1074.0</data>
+        <data>11.555654909950565</data>
+        <data>57.02113444271404</data>
+        <data>217.31885660113136</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-VN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>379.71378276176813</data>
+        <data>350.3107297074632</data>
+        <data>1626.0</data>
+        <data>3.0</data>
+        <data>1623.0</data>
+        <data>5.532481330459591</data>
+        <data>16.07101807305</data>
+        <data>516.6238130084862</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-DB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-DB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-DB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-DB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>396.4982057416268</data>
+        <data>362.07187265193664</data>
+        <data>2217.0</data>
+        <data>82.0</data>
+        <data>2135.0</data>
+        <data>6.780518258568524</data>
+        <data>25.86964719263443</data>
+        <data>536.9421459729247</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MH/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MH/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-MH">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-MH/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>264.21977345481406</data>
+        <data>198.36209354529842</data>
+        <data>1384.0</data>
+        <data>41.0</data>
+        <data>1343.0</data>
+        <data>7.921734041395427</data>
+        <data>28.182384758350345</data>
+        <data>330.39311257982837</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-VL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-VL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>666.9106206293707</data>
+        <data>487.2645891271726</data>
+        <data>2281.0</data>
+        <data>122.0</data>
+        <data>2159.0</data>
+        <data>7.779086978545539</data>
+        <data>23.857711755495824</data>
+        <data>825.9519088454996</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SJ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SJ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-SJ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SJ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>335.9458173445894</data>
+        <data>104.98920448360442</data>
+        <data>868.0</data>
+        <data>150.0</data>
+        <data>718.0</data>
+        <data>43.32679880352934</data>
+        <data>182.8650246164665</data>
+        <data>351.96921065545547</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-PH/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-PH/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-PH">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-PH/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>541.4007707129094</data>
+        <data>447.2966574381559</data>
+        <data>2450.0</data>
+        <data>36.0</data>
+        <data>2414.0</data>
+        <data>6.458265659772165</data>
+        <data>19.450497763478875</data>
+        <data>702.2742301151875</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/RO-SB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/ROU/1/RO-SB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>644.919779967912</data>
+        <data>388.09572144467626</data>
+        <data>2167.0</data>
+        <data>230.0</data>
+        <data>1937.0</data>
+        <data>11.238928968924808</data>
+        <data>40.00672145433943</data>
+        <data>752.6883894398296</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

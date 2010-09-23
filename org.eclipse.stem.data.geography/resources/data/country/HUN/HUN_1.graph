@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/HUN/HUN_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="HUN(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/HUN/HUN_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="HUN:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-CS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-CS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CSONGRAD, 07, CS HU-CS" identifier="stem://org.eclipse.stem/node/geo/region/HU-CS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-CS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-HE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-HE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HEVES, 16, HE HU-HE" identifier="stem://org.eclipse.stem/node/geo/region/HU-HE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-HE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-KE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-KE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KOMAROM-ESZTERGOM, 21, KE HU-KE" identifier="stem://org.eclipse.stem/node/geo/region/HU-KE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-KE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-BA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-BA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BARANYA, 02, BA HU-BA" identifier="stem://org.eclipse.stem/node/geo/region/HU-BA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-BA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-HB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-HB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="HAJDU-BIHAR, 15, HB HU-HB" identifier="stem://org.eclipse.stem/node/geo/region/HU-HB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-HB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-ZA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-ZA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ZALA, 42, ZA HU-ZA" identifier="stem://org.eclipse.stem/node/geo/region/HU-ZA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-ZA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-SZ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-SZ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SZABOLCS-SZATAR-BEREG, 30, BE HU-SZ" identifier="stem://org.eclipse.stem/node/geo/region/HU-SZ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-SZ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-FE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-FE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FEJER, 11, FE HU-FE" identifier="stem://org.eclipse.stem/node/geo/region/HU-FE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-FE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-GS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-GS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GYR-MOSON-SOPRON, 14, SO HU-GS" identifier="stem://org.eclipse.stem/node/geo/region/HU-GS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-GS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-JN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-JN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="JASZ-NAGYKUN-SZOLNOK, 18, JN HU-JN" identifier="stem://org.eclipse.stem/node/geo/region/HU-JN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-JN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-BZ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-BZ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BORSOD-ABAUJ-ZEMPLEN, 04, BZ HU-BZ" identifier="stem://org.eclipse.stem/node/geo/region/HU-BZ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-BZ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-SO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-SO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SOMOGY, 00, UNK HU-SO" identifier="stem://org.eclipse.stem/node/geo/region/HU-SO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-SO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-PE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-PE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PEST, 27, PE HU-PE" identifier="stem://org.eclipse.stem/node/geo/region/HU-PE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-PE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-VE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-VE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VESZPREM, 40, VE HU-VE" identifier="stem://org.eclipse.stem/node/geo/region/HU-VE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-VE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-NO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-NO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NOGRAD, 24, NO HU-NO" identifier="stem://org.eclipse.stem/node/geo/region/HU-NO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-NO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-BK">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-BK" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BACS-KISKUN, 01, BK HU-BK" identifier="stem://org.eclipse.stem/node/geo/region/HU-BK" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-BK"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-VA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-VA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VAS, 39, VA HU-VA" identifier="stem://org.eclipse.stem/node/geo/region/HU-VA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-VA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-TO">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-TO" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOLNA, 38, TO HU-TO" identifier="stem://org.eclipse.stem/node/geo/region/HU-TO" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-TO"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/HU-BE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/HU-BE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BEKES, 00, UNK HU-BE" identifier="stem://org.eclipse.stem/node/geo/region/HU-BE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/HUN/HUN_1_MAP.xml#HU-BE"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

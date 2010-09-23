@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SDN/SDN_0_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="SDN elevation data for 1999 at admin level 0" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SDN/SDN_0_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="SDN:0/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/SDN/0/SDN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/SDN/0/SDN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/SDN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/SDN/0/SDN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>528.813056432776</data>
+        <data>193.2957260117563</data>
+        <data>3334.0</data>
+        <data>1.0</data>
+        <data>3333.0</data>
+        <data>30.424529860968967</data>
+        <data>130.36272960782927</data>
+        <data>563.033290621601</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

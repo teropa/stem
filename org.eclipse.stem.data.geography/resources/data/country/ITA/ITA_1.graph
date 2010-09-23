@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ITA/ITA_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="ITA(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ITA/ITA_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ITA:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-ML">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-ML" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MOLISE, 67, ML IT-ML" identifier="stem://org.eclipse.stem/node/geo/region/IT-ML" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-ML"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-PM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-PM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PIEMONTE, 80, PM IT-PM" identifier="stem://org.eclipse.stem/node/geo/region/IT-PM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-PM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-VN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-VN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VENETO, 117, VN IT-VN" identifier="stem://org.eclipse.stem/node/geo/region/IT-VN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-VN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-AD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-AD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TRENTINO-ALTO ADIGE, 109, AD IT-AD" identifier="stem://org.eclipse.stem/node/geo/region/IT-AD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-AD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-AB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-AB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ABRUZZI, 01, AB IT-AB" identifier="stem://org.eclipse.stem/node/geo/region/IT-AB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-AB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-ER">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-ER" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EMILIA-ROMAGNA, 34, ER IT-ER" identifier="stem://org.eclipse.stem/node/geo/region/IT-ER" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-ER"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-SD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-SD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SARDEGNA, 96, SD IT-SD" identifier="stem://org.eclipse.stem/node/geo/region/IT-SD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-SD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-SC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-SC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="SICILIA, 99, SC IT-SC" identifier="stem://org.eclipse.stem/node/geo/region/IT-SC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-SC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-MA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-MA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MARCHE, 61, MA IT-MA" identifier="stem://org.eclipse.stem/node/geo/region/IT-MA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-MA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-FV">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-FV" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FRIULI-VENEZIA GIULIA, 41, FV IT-FV" identifier="stem://org.eclipse.stem/node/geo/region/IT-FV" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-FV"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-BC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-BC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BASILICATA, 11, BC IT-BC" identifier="stem://org.eclipse.stem/node/geo/region/IT-BC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-BC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-CM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-CM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CAMPANIA, 23, CM IT-CM" identifier="stem://org.eclipse.stem/node/geo/region/IT-CM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-CM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-TC">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-TC" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="TOSCANA, 107, TC IT-TC" identifier="stem://org.eclipse.stem/node/geo/region/IT-TC" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-TC"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-CI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-CI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CALABRIA, 21, CI IT-CI" identifier="stem://org.eclipse.stem/node/geo/region/IT-CI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-CI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-UM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-UM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UMBRIA, 114, UM IT-UM" identifier="stem://org.eclipse.stem/node/geo/region/IT-UM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-UM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-LG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-LG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LIGURIA, 54, LG IT-LG" identifier="stem://org.eclipse.stem/node/geo/region/IT-LG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-LG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-AS">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-AS" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="VALLE D'AOSTA, 115, AS IT-AS" identifier="stem://org.eclipse.stem/node/geo/region/IT-AS" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-AS"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-PU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-PU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PUGLIA, 86, PU IT-PU" identifier="stem://org.eclipse.stem/node/geo/region/IT-PU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-PU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-LB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-LB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LOMBARDIA, 57, LB IT-LB" identifier="stem://org.eclipse.stem/node/geo/region/IT-LB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-LB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/IT-LA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/IT-LA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="LAZIO, 51, LA IT-LA" identifier="stem://org.eclipse.stem/node/geo/region/IT-LA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ITA/ITA_1_MAP.xml#IT-LA"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

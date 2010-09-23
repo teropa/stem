@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/NAM_2_ZAF_2.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Common Border relationship between country NAM and ZAF" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/NAM_2_ZAF_2.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ZAF:2/NAM:2/" subject="Edge:commonborder" type="stemtype://org.eclipse.stem/Graph" valid="start=2001-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-SWK-G360001_ZA-NC-G090025">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-SWK-G360001_ZA-NC-G090025" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-SWK-G360001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZA-NC-G090025">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-SWK-G360001_ZA-NC-G090025" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-SWK-G360001_ZA-NC-G090025" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-SWK-G360001_ZA-NC-G090025" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-MRI-G210001_ZA-NC-G090008">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-MRI-G210001_ZA-NC-G090008" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-MRI-G210001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZA-NC-G090008">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-MRI-G210001_ZA-NC-G090008" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-MRI-G210001_ZA-NC-G090008" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-MRI-G210001_ZA-NC-G090008" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-LU-G190002_ZA-NC-G090017">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-LU-G190002_ZA-NC-G090017" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-LU-G190002" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZA-NC-G090017">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-LU-G190002_ZA-NC-G090017" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-LU-G190002_ZA-NC-G090017" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-LU-G190002_ZA-NC-G090017" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KE-G160001_ZA-NC-G090008">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KE-G160001_ZA-NC-G090008" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-KE-G160001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZA-NC-G090008">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KE-G160001_ZA-NC-G090008" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-KE-G160001_ZA-NC-G090008" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-KE-G160001_ZA-NC-G090008" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090017">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090017" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-KAS-G130001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZA-NC-G090017">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090017" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090017" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090017" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090014">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090014" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-KAS-G130001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZA-NC-G090014">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090014" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090014" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090014" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090008">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090008" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-KAS-G130001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZA-NC-G090008">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090008" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090008" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-KAS-G130001_ZA-NC-G090008" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

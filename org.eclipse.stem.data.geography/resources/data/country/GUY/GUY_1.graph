@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GUY/GUY_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="GUY(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GUY/GUY_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="GUY:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-BAW">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-BAW" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BARIMA/WAINI, 02, BAW GY-BAW" identifier="stem://org.eclipse.stem/node/geo/region/GY-BAW" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-BAW"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-UT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-UT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UPPER TAKUTU/U.ESSEQUIBO, 11, UT GY-UT" identifier="stem://org.eclipse.stem/node/geo/region/GY-UT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-UT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-PM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-PM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="POMEROON/SUPENAAM, 08, PM GY-PM" identifier="stem://org.eclipse.stem/node/geo/region/GY-PM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-PM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-CU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-CU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CUYUNI/MAZARUNI, 03, CU GY-CU" identifier="stem://org.eclipse.stem/node/geo/region/GY-CU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-CU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-EB">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-EB" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EAST BERBICE/CORENTYNE, 05, EB GY-EB" identifier="stem://org.eclipse.stem/node/geo/region/GY-EB" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-EB"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-DE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-DE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DEMERARA/MAHAICA, 04, DE GY-DE" identifier="stem://org.eclipse.stem/node/geo/region/GY-DE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-DE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-MA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-MA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MAHAICA/BERBICE, 07, MA GY-MA" identifier="stem://org.eclipse.stem/node/geo/region/GY-MA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-MA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-ES">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-ES" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ESSEQUIBO I./WEST D., 06, ES GY-ES" identifier="stem://org.eclipse.stem/node/geo/region/GY-ES" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-ES"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-UD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-UD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UPPER DEMERARA/BERBICE, 10, UD GY-UD" identifier="stem://org.eclipse.stem/node/geo/region/GY-UD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-UD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/GY-PT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/GY-PT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="POTARO/SIPARUNI, 09, PT GY-PT" identifier="stem://org.eclipse.stem/node/geo/region/GY-PT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/GUY/GUY_1_MAP.xml#GY-PT"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GIN/GIN_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="GIN elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GIN/GIN_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="GIN:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-NZ/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-NZ/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GN-NZ">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-NZ/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>587.0425017662589</data>
+        <data>131.1219797651337</data>
+        <data>1735.0</data>
+        <data>225.0</data>
+        <data>1510.0</data>
+        <data>103.84397211102439</data>
+        <data>538.8230145013467</data>
+        <data>601.5079986646203</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-KD/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-KD/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GN-KD">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-KD/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>205.75874882678568</data>
+        <data>177.5775739977702</data>
+        <data>1110.0</data>
+        <data>1.0</data>
+        <data>1109.0</data>
+        <data>6.505596387517013</data>
+        <data>21.81320445205057</data>
+        <data>271.7912020388049</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-KA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-KA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GN-KA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-KA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>466.9512700534759</data>
+        <data>110.14802031237649</data>
+        <data>1383.0</data>
+        <data>148.0</data>
+        <data>1235.0</data>
+        <data>90.81494034709685</data>
+        <data>470.8637290708725</data>
+        <data>479.7666880717009</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-LA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-LA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GN-LA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/GIN/1/GN-LA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>497.7944101089218</data>
+        <data>290.05292753601447</data>
+        <data>1479.0</data>
+        <data>18.0</data>
+        <data>1461.0</data>
+        <data>10.324859365056952</data>
+        <data>29.16785539421686</data>
+        <data>576.133643790999</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

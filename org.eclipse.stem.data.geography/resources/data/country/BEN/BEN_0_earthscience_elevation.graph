@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BEN/BEN_0_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="BEN elevation data for 1999 at admin level 0" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/BEN/BEN_0_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="BEN:0/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/BEN/0/BEN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/BEN/0/BEN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/BEN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/BEN/0/BEN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>264.6523926899348</data>
+        <data>105.27268437522497</data>
+        <data>654.0</data>
+        <data>36.0</data>
+        <data>618.0</data>
+        <data>23.136599072115775</data>
+        <data>77.71127986717445</data>
+        <data>284.82139496897474</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

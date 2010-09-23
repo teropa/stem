@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography.population.human/resources/data/country/JOR/JOR_2_human_2006_population.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="JOR (2) population" identifier="platform:/plugin/org.eclipse.stem.data.geography.population.human/resources/data/country/JOR/JOR_2_human_2006_population.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="JOR:2/" source="Primary (https://www.cia.gov/library/publications/the-world-factbook/). " subject="Label:population" type="stemtype://org.eclipse.stem/Graph" valid="start=2006-01-01; end=2006-12-31;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-IR-G030001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-IR-G030001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-IR-G030001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-IR-G030001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1375380.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AT-G110001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AT-G110001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-AT-G110001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AT-G110001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="65744.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-KA-G060001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-KA-G060001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-KA-G060001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-KA-G060001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="235618.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-BA-G100001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-BA-G100001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-BA-G100001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-BA-G100001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="402504.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AZ-G120001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AZ-G120001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-AZ-G120001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AZ-G120001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="825207.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-MN-G070001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-MN-G070001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-MN-G070001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-MN-G070001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="217820.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AM-G020001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AM-G020001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-AM-G020001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-AM-G020001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2537916.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-MA-G080001">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-MA-G080001" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JO-MA-G080001" populationIdentifier="human">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/JOR/2/human/2006/JO-MA-G080001" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="246572.0"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>
