@@ -183,7 +183,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			if(elevation <= ElEVATION_PEAK) {
 				eFactor = ELEVATION_SLOPE*elevation;
 			} else {
-				eFactor = (ElEVATION_PEAK*ELEVATION_SLOPE) - (ELEVATION_SLOPE*elevation);
+				eFactor = Math.max(0.0,(ElEVATION_PEAK*ELEVATION_SLOPE) - (ELEVATION_SLOPE*(elevation-ElEVATION_PEAK)));
 			}
 			// RAINFALL - just make it linear
 			double rFactor = rainfall;
