@@ -13,7 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioDecorators" upperBound="-1"
         eType="ecore:EClass model.ecore#//Decorator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="canonicalGraph" eType="ecore:EClass graph.ecore#//Graph"
-        changeable="false" resolveProxies="false"/>
+        resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="solver" eType="ecore:EClass solver.ecore#//Solver"

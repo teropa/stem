@@ -75,16 +75,6 @@ public class InfectorInoculatorCollectionImpl extends NodeDecoratorImpl implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 8;
-	}
-
-	/**
 	 * @see org.eclipse.stem.core.model.impl.DecoratorImpl#decorateGraph(org.eclipse.stem.core.graph.Graph)
 	 */
 	@Override

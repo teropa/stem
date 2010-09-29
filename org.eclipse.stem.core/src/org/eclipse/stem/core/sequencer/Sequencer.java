@@ -119,6 +119,16 @@ public interface Sequencer extends Identifiable {
 	long getTimeDelta();
 
 	/**
+	 * Sets the value of the '{@link org.eclipse.stem.core.sequencer.Sequencer#getTimeDelta <em>Time Delta</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time Delta</em>' attribute.
+	 * @see #getTimeDelta()
+	 * @generated
+	 */
+	void setTimeDelta(long value);
+
+	/**
 	 * @return the total amount of time in milliseconds in the sequence. If
 	 *         there is no ending time specified for the sequence, the constant
 	 *         {@link #UNKNOWN_DURATION} is returned.

@@ -146,6 +146,16 @@ public interface Scenario extends Identifiable {
 	Graph getCanonicalGraph();
 
 	/**
+	 * Sets the value of the '{@link org.eclipse.stem.core.scenario.Scenario#getCanonicalGraph <em>Canonical Graph</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Canonical Graph</em>' reference.
+	 * @see #getCanonicalGraph()
+	 * @generated
+	 */
+	void setCanonicalGraph(Graph value);
+
+	/**
 	 * Returns the value of the '<em><b>Progress</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->

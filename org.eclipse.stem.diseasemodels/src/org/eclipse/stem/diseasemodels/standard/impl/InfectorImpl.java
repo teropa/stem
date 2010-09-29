@@ -264,16 +264,6 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 8;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * 
 	 * @return
 	 * 

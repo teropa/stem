@@ -12,21 +12,15 @@ package org.eclipse.stem.diseasemodels.standard.presentation;
  *******************************************************************************/
 
 import java.io.File;
-
 import java.util.Arrays;
 import java.util.List;
+
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
-import org.eclipse.stem.diseasemodels.standard.presentation.DiseasemodelsEditorPlugin;
-import org.eclipse.stem.core.common.presentation.CommonEditor;
-import org.eclipse.stem.core.graph.presentation.GraphEditor;
-import org.eclipse.stem.core.model.presentation.ModelEditor;
-import org.eclipse.stem.core.scenario.presentation.ScenarioEditor;
-import org.eclipse.stem.definitions.labels.presentation.LabelsEditor;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.jface.action.GroupMarker;
@@ -34,8 +28,6 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-//import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;

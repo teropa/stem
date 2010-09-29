@@ -79,16 +79,6 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 10;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * 
 	 * @return
 	 * 

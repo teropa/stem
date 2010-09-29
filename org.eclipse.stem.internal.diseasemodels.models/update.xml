@@ -103,6 +103,7 @@
 		<pathelement location="${pluginRootDirectory}/${ID_ROOT}.populationmodels/${targetBin}" />
 		<fileset dir="${baseLocation}/plugins/">
 			<include name="*emf*.jar" />
+			<include name="*net4j*.jar" />
 		</fileset>
 	</path>
 

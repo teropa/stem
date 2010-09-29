@@ -92,6 +92,7 @@
 		<pathelement location="${pluginRootDirectory}/${ID_ROOT}.transport/${targetBin}" />
 		<fileset dir="${baseLocation}/plugins/">
 			<include name="*emf*.jar" />
+			<include name="*net4j*.jar" />
 		</fileset>
 	</path>
 

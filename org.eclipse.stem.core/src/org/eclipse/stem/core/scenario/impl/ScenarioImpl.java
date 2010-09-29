@@ -184,6 +184,15 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setCanonicalGraph(Graph newCanonicalGraph) {
+		eDynamicSet(ScenarioPackage.SCENARIO__CANONICAL_GRAPH, ScenarioPackage.Literals.SCENARIO__CANONICAL_GRAPH, newCanonicalGraph);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public double getProgress() {
 		return (Double)eDynamicGet(ScenarioPackage.SCENARIO__PROGRESS, ScenarioPackage.Literals.SCENARIO__PROGRESS, true, true);
 	}
@@ -344,7 +353,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.
-		eDynamicSet(ScenarioPackage.SCENARIO__CANONICAL_GRAPH, ScenarioPackage.Literals.SCENARIO__CANONICAL_GRAPH, getModel().getCanonicalGraph(CANONICAL_GRAPH_URI,
+		setCanonicalGraph(getModel().getCanonicalGraph(CANONICAL_GRAPH_URI,
 				new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()), start));
 
 		getCanonicalGraph().setTime((STEMTime) EcoreUtil.copy(getSequencer()
@@ -384,7 +393,9 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 							  Decorator decorator = (Decorator)msg.getNotifier();
 							  switch(msg.getFeatureID(Decorator.class)) {
 							  	case ModelPackage.DECORATOR__PROGRESS:
-							  		double delta = (msg.getNewDoubleValue() - msg.getOldDoubleValue());
+							  		double newValue = ((Double)msg.getNewValue()).doubleValue();
+							  		double oldValue = ((Double)msg.getOldValue()).doubleValue();
+							  		double delta = (newValue - oldValue);
 							  		delta /= numDecorators;
 							  		self.setProgress(self.getProgress()+delta);
 							  }
@@ -555,6 +566,9 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				getScenarioDecorators().clear();
 				getScenarioDecorators().addAll((Collection<? extends Decorator>)newValue);
 				return;
+			case ScenarioPackage.SCENARIO__CANONICAL_GRAPH:
+				setCanonicalGraph((Graph)newValue);
+				return;
 			case ScenarioPackage.SCENARIO__PROGRESS:
 				setProgress((Double)newValue);
 				return;
@@ -580,6 +594,9 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 				return;
 			case ScenarioPackage.SCENARIO__SCENARIO_DECORATORS:
 				getScenarioDecorators().clear();
+				return;
+			case ScenarioPackage.SCENARIO__CANONICAL_GRAPH:
+				setCanonicalGraph((Graph)null);
 				return;
 			case ScenarioPackage.SCENARIO__PROGRESS:
 				setProgress(PROGRESS_EDEFAULT);

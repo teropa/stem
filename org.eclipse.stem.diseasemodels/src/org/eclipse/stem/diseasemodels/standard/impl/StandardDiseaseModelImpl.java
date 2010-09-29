@@ -169,14 +169,6 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTotalPopulationCountReciprocal(double newTotalPopulationCountReciprocal) {
-		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, newTotalPopulationCountReciprocal);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public double getTotalArea() {
 		return (Double)eDynamicGet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_AREA, true, true);
 	}
@@ -222,7 +214,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated NOT
 	 */
 	public double computeTotalPopulationCountReciprocal() {
-		setTotalPopulationCountReciprocal(1.0 / getTotalPopulationCount());
+		eDynamicSet(StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, StandardPackage.Literals.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL, 1.0 / getTotalPopulationCount());
 		return getTotalPopulationCountReciprocal();
 	} // computeTotalPopulationCountReciprocal
 

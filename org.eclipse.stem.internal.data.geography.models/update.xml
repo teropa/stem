@@ -97,6 +97,7 @@
 		<pathelement location="${pluginRootDirectory}/${ID_ROOT}.data.geography/${targetBin}" />
 		<fileset dir="${baseLocation}/plugins/">
 			<include name="*emf*.jar" />
+			<include name="*net4j*.jar" />
 		</fileset>
 	</path>
 

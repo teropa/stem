@@ -24,8 +24,7 @@ import org.eclipse.stem.core.model.STEMTime;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.stem.core.model.STEMTime#addIncrement(long) <em>Add Increment</em>}</li>
- *   <li>{@link org.eclipse.stem.core.model.STEMTime#hashCode() <em>Hash Code</em>}</li>
- *   <li>{@link org.eclipse.stem.core.model.STEMTime#equals(java.lang.Object) <em>Equals</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.STEMTime#valueEquals(org.eclipse.stem.core.model.STEMTime) <em>Value Equals</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -115,6 +114,19 @@ public class STEMTimeTest extends TestCase {
 		assertTrue(newTime.getTime().compareTo(startTime.getTime()) > 0);
 		assertTrue(newTime.getTime().getTime() - startTime.getTime().getTime() == TEST_INCREMENT);
 	} // testAddIncrement__long
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.core.model.STEMTime#valueEquals(org.eclipse.stem.core.model.STEMTime) <em>Value Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.core.model.STEMTime#valueEquals(org.eclipse.stem.core.model.STEMTime)
+	 * @generated
+	 */
+	public void testValueEquals__STEMTime() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 	/**
 	 * Tests the '{@link org.eclipse.stem.core.model.STEMTime#hashCode() <em>Hash Code</em>}' operation.

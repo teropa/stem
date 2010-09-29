@@ -85,29 +85,29 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case StandardPackage.DETERMINISTIC_SEIR_DISEASE_MODEL: return createDeterministicSEIRDiseaseModel();
-			case StandardPackage.DETERMINISTIC_SI_DISEASE_MODEL: return createDeterministicSIDiseaseModel();
-			case StandardPackage.DETERMINISTIC_SIR_DISEASE_MODEL: return createDeterministicSIRDiseaseModel();
-			case StandardPackage.SEIR_LABEL: return createSEIRLabel();
-			case StandardPackage.SEIR_LABEL_VALUE: return createSEIRLabelValue();
-			case StandardPackage.SI_DISEASE_MODEL_STATE: return createSIDiseaseModelState();
-			case StandardPackage.SI_INFECTOR: return createSIInfector();
-			case StandardPackage.SI_LABEL: return createSILabel();
-			case StandardPackage.SI_LABEL_VALUE: return createSILabelValue();
-			case StandardPackage.SIR_LABEL: return createSIRLabel();
-			case StandardPackage.SIR_LABEL_VALUE: return createSIRLabelValue();
-			case StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL: return createStochasticSEIRDiseaseModel();
-			case StandardPackage.STOCHASTIC_SI_DISEASE_MODEL: return createStochasticSIDiseaseModel();
-			case StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL: return createStochasticSIRDiseaseModel();
-			case StandardPackage.AGGREGATING_SI_DISEASE_MODEL: return createAggregatingSIDiseaseModel();
-			case StandardPackage.AGGREGATING_DISEASE_MODEL_STATE: return createAggregatingDiseaseModelState();
-			case StandardPackage.AGGREGATING_SEIR_DISEASE_MODEL: return createAggregatingSEIRDiseaseModel();
-			case StandardPackage.AGGREGATING_SIR_DISEASE_MODEL: return createAggregatingSIRDiseaseModel();
-			case StandardPackage.SIR_INOCULATOR: return createSIRInoculator();
-			case StandardPackage.STOCHASTIC_POISSON_SI_DISEASE_MODEL: return createStochasticPoissonSIDiseaseModel();
-			case StandardPackage.STOCHASTIC_POISSON_SIR_DISEASE_MODEL: return createStochasticPoissonSIRDiseaseModel();
-			case StandardPackage.STOCHASTIC_POISSON_SEIR_DISEASE_MODEL: return createStochasticPoissonSEIRDiseaseModel();
-			case StandardPackage.INFECTOR_INOCULATOR_COLLECTION: return createInfectorInoculatorCollection();
+			case StandardPackage.DETERMINISTIC_SEIR_DISEASE_MODEL: return (EObject)createDeterministicSEIRDiseaseModel();
+			case StandardPackage.DETERMINISTIC_SI_DISEASE_MODEL: return (EObject)createDeterministicSIDiseaseModel();
+			case StandardPackage.DETERMINISTIC_SIR_DISEASE_MODEL: return (EObject)createDeterministicSIRDiseaseModel();
+			case StandardPackage.SEIR_LABEL: return (EObject)createSEIRLabel();
+			case StandardPackage.SEIR_LABEL_VALUE: return (EObject)createSEIRLabelValue();
+			case StandardPackage.SI_DISEASE_MODEL_STATE: return (EObject)createSIDiseaseModelState();
+			case StandardPackage.SI_INFECTOR: return (EObject)createSIInfector();
+			case StandardPackage.SI_LABEL: return (EObject)createSILabel();
+			case StandardPackage.SI_LABEL_VALUE: return (EObject)createSILabelValue();
+			case StandardPackage.SIR_LABEL: return (EObject)createSIRLabel();
+			case StandardPackage.SIR_LABEL_VALUE: return (EObject)createSIRLabelValue();
+			case StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL: return (EObject)createStochasticSEIRDiseaseModel();
+			case StandardPackage.STOCHASTIC_SI_DISEASE_MODEL: return (EObject)createStochasticSIDiseaseModel();
+			case StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL: return (EObject)createStochasticSIRDiseaseModel();
+			case StandardPackage.AGGREGATING_SI_DISEASE_MODEL: return (EObject)createAggregatingSIDiseaseModel();
+			case StandardPackage.AGGREGATING_DISEASE_MODEL_STATE: return (EObject)createAggregatingDiseaseModelState();
+			case StandardPackage.AGGREGATING_SEIR_DISEASE_MODEL: return (EObject)createAggregatingSEIRDiseaseModel();
+			case StandardPackage.AGGREGATING_SIR_DISEASE_MODEL: return (EObject)createAggregatingSIRDiseaseModel();
+			case StandardPackage.SIR_INOCULATOR: return (EObject)createSIRInoculator();
+			case StandardPackage.STOCHASTIC_POISSON_SI_DISEASE_MODEL: return (EObject)createStochasticPoissonSIDiseaseModel();
+			case StandardPackage.STOCHASTIC_POISSON_SIR_DISEASE_MODEL: return (EObject)createStochasticPoissonSIRDiseaseModel();
+			case StandardPackage.STOCHASTIC_POISSON_SEIR_DISEASE_MODEL: return (EObject)createStochasticPoissonSEIRDiseaseModel();
+			case StandardPackage.INFECTOR_INOCULATOR_COLLECTION: return (EObject)createInfectorInoculatorCollection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

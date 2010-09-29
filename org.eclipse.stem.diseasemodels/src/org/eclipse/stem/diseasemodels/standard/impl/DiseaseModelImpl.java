@@ -191,16 +191,6 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 8;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public double getBackgroundMortalityRate() {
 		return (Double)eDynamicGet(StandardPackage.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, StandardPackage.Literals.DISEASE_MODEL__BACKGROUND_MORTALITY_RATE, true, true);
 	}

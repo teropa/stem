@@ -235,6 +235,15 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimeDelta(long newTimeDelta) {
+		eDynamicSet(SequencerPackage.SEQUENCER__TIME_DELTA, SequencerPackage.Literals.SEQUENCER__TIME_DELTA, newTimeDelta);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -384,6 +393,9 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 			case SequencerPackage.SEQUENCER__CURRENT_TIME:
 				setCurrentTime((STEMTime)newValue);
 				return;
+			case SequencerPackage.SEQUENCER__TIME_DELTA:
+				setTimeDelta((Long)newValue);
+				return;
 			case SequencerPackage.SEQUENCER__DURATION:
 				setDuration((Long)newValue);
 				return;
@@ -412,6 +424,9 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 				return;
 			case SequencerPackage.SEQUENCER__CURRENT_TIME:
 				setCurrentTime((STEMTime)null);
+				return;
+			case SequencerPackage.SEQUENCER__TIME_DELTA:
+				setTimeDelta(TIME_DELTA_EDEFAULT);
 				return;
 			case SequencerPackage.SEQUENCER__DURATION:
 				setDuration(DURATION_EDEFAULT);

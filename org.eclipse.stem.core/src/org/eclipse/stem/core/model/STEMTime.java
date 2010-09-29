@@ -12,6 +12,7 @@ package org.eclipse.stem.core.model;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.lang.Comparable;
 import java.util.Date;
 
 import org.eclipse.emf.cdo.CDOObject;

@@ -12,6 +12,7 @@ package org.eclipse.stem.core.common;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
+import java.lang.Comparable;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.graph.Graph;

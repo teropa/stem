@@ -12,6 +12,7 @@ package org.eclipse.stem.diseasemodels.standard;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.SanityChecker;
 
@@ -29,7 +30,7 @@ import org.eclipse.stem.core.common.SanityChecker;
  * @model abstract="true"
  * @implements SanityChecker
  */
-public interface DiseaseModelState extends EObject, SanityChecker {
+public interface DiseaseModelState extends CDOObject, SanityChecker {
 
 	/**
 	 * @return the label associated with the state information

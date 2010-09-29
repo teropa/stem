@@ -108,16 +108,6 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * 
 	 * @return
 	 * 
