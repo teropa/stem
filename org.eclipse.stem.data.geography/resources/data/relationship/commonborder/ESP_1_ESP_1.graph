@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/ESP_1_ESP_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Common Border relationship within country ESP" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/ESP_1_ESP_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ESP:1/" subject="Edge:commonborder" type="stemtype://org.eclipse.stem/Graph" valid="start=2006-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MU_ES-VA2">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MU_ES-VA2" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-MU" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA2">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MU_ES-VA2" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-MU_ES-VA2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-MU_ES-VA2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MA_ES-VA2">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MA_ES-VA2" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-MA" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA2">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MA_ES-VA2" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-MA_ES-VA2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-MA_ES-VA2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-VA2">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-VA2" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA2">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-VA2" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-VA2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-VA2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-CT_ES-VA2">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-CT_ES-VA2" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-CT" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA2">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-CT_ES-VA2" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-CT_ES-VA2" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-CT_ES-VA2" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-S_ES-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-S_ES-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-S" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-S_ES-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-S_ES-VA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-S_ES-VA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-RI_ES-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-RI_ES-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-RI" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-RI_ES-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-RI_ES-VA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-RI_ES-VA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-O_ES-S">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-O_ES-S" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-O" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-S">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-O_ES-S" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-O_ES-S" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-O_ES-S" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-NA_ES-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-NA_ES-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-NA" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-NA_ES-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-NA_ES-VA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-NA_ES-VA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-NA_ES-RI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-NA_ES-RI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-NA" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-RI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-NA_ES-RI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-NA_ES-RI" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-NA_ES-RI" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-ET_ES-MA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-ET_ES-MA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-ET" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-MA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-ET_ES-MA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-ET_ES-MA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-ET_ES-MA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-ET_ES-LE">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-ET_ES-LE" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-ET" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-LE">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-ET_ES-LE" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-ET_ES-LE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-ET_ES-LE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MA_ES-MU">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MA_ES-MU" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-MA" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-MU">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-MA_ES-MU" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-MA_ES-MU" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-MA_ES-MU" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-RI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-RI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-RI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-RI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-RI" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-RI" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-M_ES-MA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-M_ES-MA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-M" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-MA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-M_ES-MA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-M_ES-MA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-M_ES-MA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-NA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-NA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-NA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-NA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-NA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-NA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-VA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-VA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-LE" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-VA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-VA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-VA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-VA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-MA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-MA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-MA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-MA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-MA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-MA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-S">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-S" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-LE" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-S">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-S" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-S" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-S" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-LE">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-LE" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-LE">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-LE" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-LE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-LE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-RI">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-RI" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-LE" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-RI">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-RI" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-RI" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-RI" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-CT">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-CT" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AR" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-CT">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AR_ES-CT" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-CT" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AR_ES-CT" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-O">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-O" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-LE" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-O">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-O" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-O" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-O" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-MU">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-MU" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AD" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-MU">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-MU" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AD_ES-MU" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AD_ES-MU" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-MA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-MA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-LE" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-MA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-MA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-MA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-MA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-MA">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-MA" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AD" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-MA">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-MA" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AD_ES-MA" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AD_ES-MA" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-M">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-M" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-LE" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-M">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-LE_ES-M" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-M" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-LE_ES-M" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-ET">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-ET" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-AD" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-ET">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-AD_ES-ET" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-AD_ES-ET" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-AD_ES-ET" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-GA_ES-O">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-GA_ES-O" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-GA" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-O">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-GA_ES-O" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-GA_ES-O" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-GA_ES-O" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/ES-GA_ES-LE">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/ES-GA_ES-LE" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/ES-GA" nodeBURI="stem://org.eclipse.stem/node/geo/region/ES-LE">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/ES-GA_ES-LE" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/ES-GA_ES-LE" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/ES-GA_ES-LE" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

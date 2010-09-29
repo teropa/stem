@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CHL/CHL_0_earthscience_vegetation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="CHL vegetation data for 2009 at admin level 0" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CHL/CHL_0_earthscience_vegetation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="CHL:0/" subject="Label:earthscience_vegetation" type="stemtype://org.eclipse.stem/Graph" valid="start=2009"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CHL/0/CHL/vegetation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CHL/0/CHL/vegetation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CHL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CHL/0/CHL/vegetation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="vegetation" units="UNITS">
+        <data>0.3676194781125621</data>
+        <data>0.25378954000053766</data>
+        <data>0.8685039</data>
+        <data>-0.07637795</data>
+        <data>0.3500318531355834</data>
+        <data>0.24804389714382874</data>
+        <data>0.88031495</data>
+        <data>-0.056692913</data>
+        <data>0.3695071060430599</data>
+        <data>0.25047560086722515</data>
+        <data>0.89606297</data>
+        <data>-0.048818897</data>
+        <data>0.33369073562979434</data>
+        <data>0.24414145514585203</data>
+        <data>0.9</data>
+        <data>-0.080314964</data>
+        <data>0.29857899528052984</data>
+        <data>0.2523537331543496</data>
+        <data>0.88818896</data>
+        <data>-0.096062995</data>
+        <data>0.2665853877212448</data>
+        <data>0.24585204795899224</data>
+        <data>0.87637794</data>
+        <data>-0.07637795</data>
+        <data>0.30000400779662284</data>
+        <data>0.2566235835221989</data>
+        <data>0.87637794</data>
+        <data>-0.080314964</data>
+        <data>0.2937110296373594</data>
+        <data>0.23791744588278482</data>
+        <data>0.8566929</data>
+        <data>-0.06456693</data>
+        <data>0.30673835822356627</data>
+        <data>0.25557114948336684</data>
+        <data>0.8566929</data>
+        <data>-0.080314964</data>
+        <data>0.2911154216580631</data>
+        <data>0.23967107587973108</data>
+        <data>0.88425195</data>
+        <data>-0.06850394</data>
+        <data>0.2968370790206089</data>
+        <data>0.23871530069666375</data>
+        <data>0.8645669</data>
+        <data>-0.06850394</data>
+        <data>0.33272898996867145</data>
+        <data>0.24700409370604895</data>
+        <data>0.87244093</data>
+        <data>-0.072440945</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

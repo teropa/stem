@@ -282,6 +282,19 @@ public class StandardSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StandardPackage.MOSQUITO_POPULATION_MODEL: {
+				MosquitoPopulationModel mosquitoPopulationModel = (MosquitoPopulationModel)theEObject;
+				T1 result = caseMosquitoPopulationModel(mosquitoPopulationModel);
+				if (result == null) result = casePopulationModel(mosquitoPopulationModel);
+				if (result == null) result = caseIntegrationDecorator(mosquitoPopulationModel);
+				if (result == null) result = caseNodeDecorator(mosquitoPopulationModel);
+				if (result == null) result = caseModifiable(mosquitoPopulationModel);
+				if (result == null) result = caseDecorator(mosquitoPopulationModel);
+				if (result == null) result = caseIdentifiable(mosquitoPopulationModel);
+				if (result == null) result = caseComparable(mosquitoPopulationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -538,6 +551,21 @@ public class StandardSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseYetiPopulationInitializer(YetiPopulationInitializer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mosquito Population Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mosquito Population Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMosquitoPopulationModel(MosquitoPopulationModel object) {
 		return null;
 	}
 

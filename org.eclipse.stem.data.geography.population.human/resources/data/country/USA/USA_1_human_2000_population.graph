@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography.population.human/resources/data/country/USA/USA_1_human_2000_population.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="The 2000 Human population for the States (1) of the USA (except Puerto Rico)" identifier="platform:/plugin/org.eclipse.stem.data.geography.population.human/resources/data/country/USA/USA_1_human_2000_population.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="USA:1/" source="http://www.census.gov/geo/www/tiger/" subject="Label:population" type="stemtype://org.eclipse.stem/Graph" valid="start=2000-01-01; end=2000-12-31; "/>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OK">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OK" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-OK" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OK" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="3450654.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-CA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="3.3871648E7"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OH">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OH" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-OH" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OH" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1.135314E7"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ID">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ID" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-ID" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ID" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1293953.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-RI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-RI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-RI" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-RI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1048319.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-IA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2926324.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-LA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-LA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-LA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-LA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="4468976.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-KY">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-KY" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-KY" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-KY" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="4041769.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NY">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NY" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-NY" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NY" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1.8976457E7"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NV">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NV" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-NV" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NV" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1998257.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-KS">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-KS" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-KS" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-KS" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2688418.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-TX">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-TX" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-TX" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-TX" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2.085182E7"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WY">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WY" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-WY" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WY" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="493782.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WV">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WV" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-WV" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WV" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1808344.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NM">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NM" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-NM" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NM" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1819046.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-HI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-HI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-HI" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-HI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1211537.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-TN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-TN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-TN" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-TN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="5689283.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NJ">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NJ" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-NJ" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NJ" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="8414350.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NH">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NH" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-NH" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NH" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1235786.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NE">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NE" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-NE" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NE" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1711263.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ND">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ND" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-ND" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ND" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="642200.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-WI" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="5363675.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NC">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NC" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-NC" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-NC" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="8049313.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AZ">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AZ" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-AZ" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AZ" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="5130632.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-WA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-WA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="5894121.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AR" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-AR" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AR" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2673400.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-AL" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="4447100.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MT">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MT" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-MT" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MT" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="902195.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AK">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AK" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-AK" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-AK" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="626932.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MS">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MS" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-MS" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MS" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2844658.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MO" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-MO" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MO" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="5595211.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-VT">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-VT" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-VT" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-VT" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="608827.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-MN" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="4919479.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-DE">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-DE" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-DE" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-DE" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="783600.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-DC">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-DC" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-DC" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-DC" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="572059.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MI" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-MI" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MI" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="9938444.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-GA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-GA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-GA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-GA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="8186453.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ME">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ME" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-ME" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-ME" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1274923.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MD">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MD" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-MD" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MD" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="5296486.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-MA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-MA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="6349097.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-SD">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-SD" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-SD" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-SD" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="754844.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-SC">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-SC" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-SC" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-SC" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="4012012.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-PA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-PA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-PA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-PA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1.2281054E7"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-VA">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-VA" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-VA" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-VA" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="7078516.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CT">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CT" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-CT" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CT" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="3405565.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CO">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CO" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-CO" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-CO" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="4301261.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OR">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OR" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-OR" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-OR" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="3421399.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-FL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-FL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-FL" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-FL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1.5982378E7"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IN" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-IN" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IN" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="6080485.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-UT">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-UT" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-UT" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-UT" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="2233169.0"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IL">
+    <value xsi:type="org.eclipse.stem.definitions.labels:PopulationLabel" uRI="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IL" typeURI="stemtype://org.eclipse.stem/label/population" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/US-IL" populationIdentifier="human" validYear="2000">
+      <dublinCore identifier="stem://org.eclipse.stem/label/population/USA/1/human/2000/US-IL" type="stemtype://org.eclipse.stem/label/population"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:PopulationLabelValue" count="1.2419293E7"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

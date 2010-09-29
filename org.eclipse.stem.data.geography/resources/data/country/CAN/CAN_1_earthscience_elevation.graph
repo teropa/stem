@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CAN/CAN_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="CAN elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/CAN/CAN_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="CAN:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G2/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G2/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-G2">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G2/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>1.0</data>
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>1.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G1/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G1/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-G1">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G1/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>20.5</data>
+        <data>9.643650760992955</data>
+        <data>26.0</data>
+        <data>1.0</data>
+        <data>25.0</data>
+        <data>14.745899099795563</data>
+        <data>39.66149265811077</data>
+        <data>22.655021518418383</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-QC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-QC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-QC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-QC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>330.5422204484104</data>
+        <data>173.09655108049074</data>
+        <data>1436.0</data>
+        <data>-31.0</data>
+        <data>1467.0</data>
+        <data>12.994818399648755</data>
+        <data>40.21847866960572</data>
+        <data>373.1227351621149</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-NB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>182.63233036910708</data>
+        <data>137.25230015152442</data>
+        <data>762.0</data>
+        <data>1.0</data>
+        <data>761.0</data>
+        <data>7.167501634560624</data>
+        <data>21.043966256634082</data>
+        <data>228.45735267864455</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-ON/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-ON/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-ON">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-ON/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>244.52784410319987</data>
+        <data>127.26221353512607</data>
+        <data>677.0</data>
+        <data>1.0</data>
+        <data>676.0</data>
+        <data>12.916492638907988</data>
+        <data>38.268872371556824</data>
+        <data>275.6619987151978</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-YT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-YT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-YT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-YT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>993.5763989920601</data>
+        <data>466.38630299038886</data>
+        <data>5800.0</data>
+        <data>1.0</data>
+        <data>5799.0</data>
+        <data>17.081606379508578</data>
+        <data>63.25138926831958</data>
+        <data>1097.5929319429392</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-SK/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-SK/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-SK">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-SK/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>517.1706122762247</data>
+        <data>146.9105578760928</data>
+        <data>1382.0</data>
+        <data>137.0</data>
+        <data>1245.0</data>
+        <data>54.96501281309692</data>
+        <data>243.24214944891176</data>
+        <data>537.6319877180167</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-AB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-AB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-AB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-AB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>749.4136097725645</data>
+        <data>409.00922228404585</data>
+        <data>3548.0</data>
+        <data>201.0</data>
+        <data>3347.0</data>
+        <data>13.536262125624157</data>
+        <data>53.207263498210935</data>
+        <data>853.7618534613187</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-NT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>329.62347943633796</data>
+        <data>339.91901460809197</data>
+        <data>2711.0</data>
+        <data>1.0</data>
+        <data>2710.0</data>
+        <data>6.017959017544069</data>
+        <data>23.533268797663712</data>
+        <data>473.49400702295344</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-NS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>112.43089936283107</data>
+        <data>91.70305306038512</data>
+        <data>531.0</data>
+        <data>1.0</data>
+        <data>530.0</data>
+        <data>7.102979718557026</data>
+        <data>25.089897813755123</data>
+        <data>145.08672259077008</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-MB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-MB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-MB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-MB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>247.91331603878615</data>
+        <data>113.6349151774128</data>
+        <data>822.0</data>
+        <data>1.0</data>
+        <data>821.0</data>
+        <data>17.43781427848011</data>
+        <data>60.62104844425372</data>
+        <data>272.71579751956784</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NL/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NL/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-NL">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-NL/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>332.5344380433265</data>
+        <data>188.99836389514954</data>
+        <data>1524.0</data>
+        <data>1.0</data>
+        <data>1523.0</data>
+        <data>10.98741525453969</data>
+        <data>32.69528392915868</data>
+        <data>382.49122086636305</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G6/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G6/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-G6">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G6/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>290.0</data>
+        <data>0.0</data>
+        <data>290.0</data>
+        <data>290.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>290.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G5/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G5/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-G5">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G5/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>89.1</data>
+        <data>136.13923020202515</data>
+        <data>393.0</data>
+        <data>1.0</data>
+        <data>392.0</data>
+        <data>3.677541237614555</data>
+        <data>9.830994804300767</data>
+        <data>162.7043330707575</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-BC/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-BC/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-BC">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-BC/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1114.1258763392862</data>
+        <data>514.7958730597167</data>
+        <data>3889.0</data>
+        <data>1.0</data>
+        <data>3888.0</data>
+        <data>16.80249937976766</data>
+        <data>54.27370341456858</data>
+        <data>1227.3105797833568</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G4/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G4/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-G4">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G4/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>8.954545454545455</data>
+        <data>16.080697838564305</data>
+        <data>67.0</data>
+        <data>1.0</data>
+        <data>66.0</data>
+        <data>4.43986145701882</data>
+        <data>16.571312706431073</data>
+        <data>18.4057797246606</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G3/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G3/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/CA-G3">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/CAN/1/CA-G3/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>1.0</data>
+        <data>1.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>1.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

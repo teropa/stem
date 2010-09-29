@@ -28,6 +28,7 @@ import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.populationmodels.standard.DemographicPopulationModel;
 import org.eclipse.stem.populationmodels.standard.EarthSciencePopulationInitializer;
+import org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
 import org.eclipse.stem.populationmodels.standard.PopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.PopulationModel;
@@ -168,6 +169,13 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * @generated
 	 */
 	private EClass yetiPopulationInitializerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mosquitoPopulationModelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -661,6 +669,33 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMosquitoPopulationModel() {
+		return mosquitoPopulationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMosquitoPopulationModel_ScalingFactor() {
+		return (EAttribute)mosquitoPopulationModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMosquitoPopulationModel_TimePeriod() {
+		return (EAttribute)mosquitoPopulationModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StandardFactory getStandardFactory() {
 		return (StandardFactory)getEFactoryInstance();
 	}
@@ -747,6 +782,10 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		earthSciencePopulationInitializerEClass = createEClass(EARTH_SCIENCE_POPULATION_INITIALIZER);
 
 		yetiPopulationInitializerEClass = createEClass(YETI_POPULATION_INITIALIZER);
+
+		mosquitoPopulationModelEClass = createEClass(MOSQUITO_POPULATION_MODEL);
+		createEAttribute(mosquitoPopulationModelEClass, MOSQUITO_POPULATION_MODEL__SCALING_FACTOR);
+		createEAttribute(mosquitoPopulationModelEClass, MOSQUITO_POPULATION_MODEL__TIME_PERIOD);
 	}
 
 	/**
@@ -802,6 +841,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		seasonalPopulationModelEClass.getESuperTypes().add(this.getStandardPopulationModel());
 		earthSciencePopulationInitializerEClass.getESuperTypes().add(this.getPopulationInitializer());
 		yetiPopulationInitializerEClass.getESuperTypes().add(this.getEarthSciencePopulationInitializer());
+		mosquitoPopulationModelEClass.getESuperTypes().add(this.getPopulationModel());
+		mosquitoPopulationModelEClass.getESuperTypes().add(this.getIntegrationDecorator());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(populationModelEClass, PopulationModel.class, "PopulationModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -870,6 +911,10 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(earthSciencePopulationInitializerEClass, EarthSciencePopulationInitializer.class, "EarthSciencePopulationInitializer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yetiPopulationInitializerEClass, YetiPopulationInitializer.class, "YetiPopulationInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(mosquitoPopulationModelEClass, MosquitoPopulationModel.class, "MosquitoPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMosquitoPopulationModel_ScalingFactor(), theEcorePackage.getEDouble(), "scalingFactor", "1.0", 0, 1, MosquitoPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMosquitoPopulationModel_TimePeriod(), theEcorePackage.getELong(), "timePeriod", "86400000", 0, 1, MosquitoPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

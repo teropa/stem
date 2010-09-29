@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AZE/AZE_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="AZE elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AZE/AZE_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="AZE:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-ATE/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-ATE/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AZ-ATE">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-ATE/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>647.4197074116236</data>
+        <data>773.1815056541633</data>
+        <data>4287.0</data>
+        <data>-28.0</data>
+        <data>4315.0</data>
+        <data>4.454921417317938</data>
+        <data>13.381582313572327</data>
+        <data>1008.4452975896238</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-NKA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-NKA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AZ-NKA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-NKA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1409.701163692785</data>
+        <data>518.9111373019696</data>
+        <data>3353.0</data>
+        <data>321.0</data>
+        <data>3032.0</data>
+        <data>28.515981574390793</data>
+        <data>104.94218986550749</data>
+        <data>1502.1738046354078</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-NAK/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-NAK/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AZ-NAK">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/AZE/1/AZ-NAK/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1417.6378864392166</data>
+        <data>597.8547541879044</data>
+        <data>3800.0</data>
+        <data>590.0</data>
+        <data>3210.0</data>
+        <data>21.498413411756772</data>
+        <data>78.833395383079</data>
+        <data>1538.5471992021978</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SDN/SDN_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="SDN(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/SDN/SDN_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="SDN:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-N">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-N" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NORTHERN3, 27, N SD-N" identifier="stem://org.eclipse.stem/node/geo/region/SD-N" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-N"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-UPN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-UPN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="UPPER NILE, 33, UPN SD-UPN" identifier="stem://org.eclipse.stem/node/geo/region/SD-UPN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-UPN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-KOR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-KOR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KORDUFAN, 25, KOR SD-KOR" identifier="stem://org.eclipse.stem/node/geo/region/SD-KOR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-KOR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-BEG">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-BEG" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BAHR EL GHAZAL, 11, BEG SD-BEG" identifier="stem://org.eclipse.stem/node/geo/region/SD-BEG" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-BEG"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-KHA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-KHA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="KHARTOUM, 24, KHA SD-KHA" identifier="stem://org.eclipse.stem/node/geo/region/SD-KHA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-KHA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-EQ">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-EQ" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EQUATORIA, 16, EQ SD-EQ" identifier="stem://org.eclipse.stem/node/geo/region/SD-EQ" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-EQ"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-E">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-E" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EASTERN1, 15, E SD-E" identifier="stem://org.eclipse.stem/node/geo/region/SD-E" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-E"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-C">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-C" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CENTRAL, 13, C SD-C" identifier="stem://org.eclipse.stem/node/geo/region/SD-C" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-C"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/SD-DAF">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/SD-DAF" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="DARFUR, 14, DAF SD-DAF" identifier="stem://org.eclipse.stem/node/geo/region/SD-DAF" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/SDN/SDN_1_MAP.xml#SD-DAF"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/KAZ/KAZ_2_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="KAZ elevation data for 1999 at admin level 2" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/KAZ/KAZ_2_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="KAZ:2/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050028/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050028/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050028">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050028/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>50.0</data>
+        <data>0.0</data>
+        <data>50.0</data>
+        <data>50.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>50.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KZO-G170001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KZO-G170001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-KZO-G170001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KZO-G170001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>117.33528461724102</data>
+        <data>65.27997158134524</data>
+        <data>1172.0</data>
+        <data>20.0</data>
+        <data>1152.0</data>
+        <data>15.725190577999925</data>
+        <data>102.06448523744307</data>
+        <data>134.27227452408707</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050027/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050027/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050027">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050027/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>44.375</data>
+        <data>3.3888604279314896</data>
+        <data>47.0</data>
+        <data>40.0</data>
+        <data>7.0</data>
+        <data>2283.9616371007505</data>
+        <data>30402.41262436948</data>
+        <data>44.504213283688095</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050026/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050026/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050026">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050026/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>50.2</data>
+        <data>6.8527366796047255</data>
+        <data>61.0</data>
+        <data>40.0</data>
+        <data>21.0</data>
+        <data>415.2204024182418</data>
+        <data>3207.769978581939</data>
+        <data>50.665570163573605</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050025/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050025/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050025">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050025/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050024/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050024/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050024">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050024/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050023/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050023/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050023">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050023/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>46.666666666666664</data>
+        <data>4.988876515698588</data>
+        <data>52.0</data>
+        <data>40.0</data>
+        <data>12.0</data>
+        <data>846.1681819834437</data>
+        <data>8168.464285714288</data>
+        <data>46.93257575146144</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050022/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050022/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050022">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050022/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>49.0</data>
+        <data>0.0</data>
+        <data>49.0</data>
+        <data>49.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>49.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050021/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050021/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050021">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050021/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>46.72727272727273</data>
+        <data>0.616575453011388</data>
+        <data>47.0</data>
+        <data>45.0</data>
+        <data>2.0</data>
+        <data>435489.1388102647</data>
+        <data>3.3020380203213606E7</data>
+        <data>46.731340466737976</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050020/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050020/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050020">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050020/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>43.791666666666664</data>
+        <data>3.4878260500712406</data>
+        <data>47.0</data>
+        <data>40.0</data>
+        <data>7.0</data>
+        <data>2016.7919482817235</data>
+        <data>25789.641292508397</data>
+        <data>43.93034258914902</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KOC-G150001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KOC-G150001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-KOC-G150001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KOC-G150001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>218.84395600005328</data>
+        <data>101.389721003102</data>
+        <data>850.0</data>
+        <data>21.0</data>
+        <data>829.0</data>
+        <data>17.02003902627114</data>
+        <data>56.50381894697117</data>
+        <data>241.18986836689862</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-PAV-G210001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-PAV-G210001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-PAV-G210001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-PAV-G210001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>184.73068447247007</data>
+        <data>115.63355047582573</data>
+        <data>949.0</data>
+        <data>25.0</data>
+        <data>924.0</data>
+        <data>10.791472243802172</data>
+        <data>40.919476006963095</data>
+        <data>217.9370179233261</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-CHI-G090001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-CHI-G090001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-CHI-G090001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-CHI-G090001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>378.3680399875575</data>
+        <data>390.36085297013756</data>
+        <data>4027.0</data>
+        <data>80.0</data>
+        <data>3947.0</data>
+        <data>8.040968451349997</data>
+        <data>48.568888628337604</data>
+        <data>543.6395581776471</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050019/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050019/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050019">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050019/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>50.90243902439025</data>
+        <data>6.813920035213355</data>
+        <data>62.0</data>
+        <data>40.0</data>
+        <data>22.0</data>
+        <data>438.63305930692866</data>
+        <data>3431.136404159169</data>
+        <data>51.35647773044846</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050018/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050018/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050018">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050018/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>44.0</data>
+        <data>2.943920288775949</data>
+        <data>47.0</data>
+        <data>40.0</data>
+        <data>7.0</data>
+        <data>3383.08700120394</data>
+        <data>51214.37573964497</data>
+        <data>44.098374875574116</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050017/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050017/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050017">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050017/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050016/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050016/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050016">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050016/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-DZE-G110001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-DZE-G110001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-DZE-G110001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-DZE-G110001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>457.3108999615166</data>
+        <data>202.33434917679566</data>
+        <data>1463.0</data>
+        <data>36.0</data>
+        <data>1427.0</data>
+        <data>18.65579197606386</data>
+        <data>62.540281697963394</data>
+        <data>500.072442832448</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050015/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050015/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050015">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050015/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050014/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050014/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050014">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050014/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050013/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050013/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050013">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050013/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050012/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050012/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050012">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050012/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>44.94596912521441</data>
+        <data>7.542082967222406</data>
+        <data>76.0</data>
+        <data>40.0</data>
+        <data>36.0</data>
+        <data>230.92837288652257</data>
+        <data>1512.2964856415965</data>
+        <data>45.574369508411124</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050011/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050011/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050011">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050011/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>44.5</data>
+        <data>5.0019227072427626</data>
+        <data>52.0</data>
+        <data>40.0</data>
+        <data>12.0</data>
+        <data>731.1632647825987</data>
+        <data>6752.056287335291</data>
+        <data>44.78023258949456</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050010/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050010/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050010">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050010/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-GUR-G130001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-GUR-G130001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-GUR-G130001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-GUR-G130001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>51.76994170459047</data>
+        <data>88.55666643457343</data>
+        <data>492.0</data>
+        <data>-140.0</data>
+        <data>632.0</data>
+        <data>2.8466081308330047</data>
+        <data>6.921447961827683</data>
+        <data>102.57879914536544</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050009/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050009/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050009">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050009/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>43.45454545454545</data>
+        <data>4.09797369803078</data>
+        <data>51.0</data>
+        <data>40.0</data>
+        <data>11.0</data>
+        <data>1224.7500770378308</data>
+        <data>13345.469702767525</data>
+        <data>43.64734710255492</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050008/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050008/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050008">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050008/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050007/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050007/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050007">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050007/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>42.0</data>
+        <data>2.390457218668787</data>
+        <data>46.0</data>
+        <data>40.0</data>
+        <data>6.0</data>
+        <data>5477.02753170002</data>
+        <data>97184.71000000002</data>
+        <data>42.06797220825227</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050006/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050006/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050006">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050006/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050037/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050037/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050037">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050037/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>46.333333333333336</data>
+        <data>1.8856180831641267</data>
+        <data>49.0</data>
+        <data>45.0</data>
+        <data>4.0</data>
+        <data>14910.512102652969</data>
+        <data>368245.4853515625</data>
+        <data>46.37168676394394</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050005/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050005/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050005">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050005/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050036/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050036/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050036">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050036/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>48.774193548387096</data>
+        <data>1.033840952280742</data>
+        <data>53.0</data>
+        <data>45.0</data>
+        <data>8.0</data>
+        <data>105143.52827345341</data>
+        <data>4966720.147289866</data>
+        <data>48.78514920967382</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050004/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050004/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050004">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050004/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>61.022922636103154</data>
+        <data>18.425861405523513</data>
+        <data>103.0</data>
+        <data>40.0</data>
+        <data>63.0</data>
+        <data>46.90954279376432</data>
+        <data>196.77358834697014</data>
+        <data>63.744093495690976</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050035/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050035/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050035">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050035/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>45.0</data>
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>45.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050003/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050003/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050003">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050003/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050034/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050034/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050034">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050034/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>45.0</data>
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>45.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050002/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050002/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050002">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050002/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050033/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050033/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050033">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050033/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>45.0</data>
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>45.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.69374843658801</data>
+        <data>3.742953036163958</data>
+        <data>197.0</data>
+        <data>39.0</data>
+        <data>158.0</data>
+        <data>1332.5220243833658</data>
+        <data>15653.942613302315</data>
+        <data>40.865521644183495</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050032/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050032/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050032">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050032/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>45.0</data>
+        <data>45.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>45.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050031/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050031/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050031">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050031/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-TSE-G270001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-TSE-G270001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-TSE-G270001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-TSE-G270001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>323.11084346916897</data>
+        <data>68.79560632038421</data>
+        <data>737.0</data>
+        <data>69.0</data>
+        <data>668.0</data>
+        <data>117.95595332826953</data>
+        <data>629.7868038438528</data>
+        <data>330.353526720008</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050030/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050030/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050030">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050030/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>40.0</data>
+        <data>40.0</data>
+        <data>0.0</data>
+        <data>0.0</data>
+        <data>-1.2</data>
+        <data>40.0</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ALM-G020001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ALM-G020001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ALM-G020001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ALM-G020001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>920.9034807835961</data>
+        <data>863.3445731686326</data>
+        <data>5950.0</data>
+        <data>325.0</data>
+        <data>5625.0</data>
+        <data>6.201688528698708</data>
+        <data>21.126251761817375</data>
+        <data>1262.3102126416977</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-NOK-G190001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-NOK-G190001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-NOK-G190001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-NOK-G190001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>143.7071128725874</data>
+        <data>21.69207398554531</data>
+        <data>243.0</data>
+        <data>70.0</data>
+        <data>173.0</data>
+        <data>311.00653978266934</data>
+        <data>2202.5524505013077</data>
+        <data>145.33506240398066</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-AKT-G010001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-AKT-G010001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-AKT-G010001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-AKT-G010001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>192.96069954880258</data>
+        <data>90.50253968333217</data>
+        <data>616.0</data>
+        <data>-16.0</data>
+        <data>632.0</data>
+        <data>16.477663977765403</data>
+        <data>53.96200383972119</data>
+        <data>213.13033866509093</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-TAK-G260001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-TAK-G260001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-TAK-G260001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-TAK-G260001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>843.8629071001061</data>
+        <data>769.8731314743969</data>
+        <data>4391.0</data>
+        <data>316.0</data>
+        <data>4075.0</data>
+        <data>6.600091617931516</data>
+        <data>23.661748737409013</data>
+        <data>1142.2824714339745</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-EAK-G120001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-EAK-G120001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-EAK-G120001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-EAK-G120001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>973.936609059466</data>
+        <data>600.4814105520275</data>
+        <data>3983.0</data>
+        <data>195.0</data>
+        <data>3788.0</data>
+        <data>10.204540574169021</data>
+        <data>33.122189083755586</data>
+        <data>1144.1723833779806</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-SEM-G230001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-SEM-G230001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-SEM-G230001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-SEM-G230001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>608.2603046154918</data>
+        <data>292.42376079784094</data>
+        <data>2895.0</data>
+        <data>135.0</data>
+        <data>2760.0</data>
+        <data>16.84774756248709</data>
+        <data>66.53434753380228</data>
+        <data>674.9016625035684</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-DZA-G100001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-DZA-G100001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-DZA-G100001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-DZA-G100001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>515.5949975445238</data>
+        <data>359.68716505895173</data>
+        <data>4050.0</data>
+        <data>178.0</data>
+        <data>3872.0</data>
+        <data>11.286411752288721</data>
+        <data>64.87242715968675</data>
+        <data>628.6597316522511</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KAR-G140001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KAR-G140001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-KAR-G140001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KAR-G140001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>550.4252060918072</data>
+        <data>185.73142836944118</data>
+        <data>1513.0</data>
+        <data>239.0</data>
+        <data>1274.0</data>
+        <data>35.92650589771088</data>
+        <data>145.21232728319262</data>
+        <data>580.9165783357879</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KUS-G160001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KUS-G160001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-KUS-G160001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-KUS-G160001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>197.5358270075633</data>
+        <data>62.18304698555689</data>
+        <data>499.0</data>
+        <data>8.0</data>
+        <data>491.0</data>
+        <data>42.079324362012954</data>
+        <data>171.95361917313582</data>
+        <data>207.09209131198298</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-URA-G280001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-URA-G280001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-URA-G280001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-URA-G280001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>33.57717459597518</data>
+        <data>42.760312596164326</data>
+        <data>264.0</data>
+        <data>-70.0</data>
+        <data>334.0</data>
+        <data>4.362412117763339</data>
+        <data>13.935299647299992</data>
+        <data>54.36792240991095</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050029/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050029/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/KZ-ARS-G050029">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/KAZ/2/KZ-ARS-G050029/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>42.0</data>
+        <data>4.0</data>
+        <data>50.0</data>
+        <data>40.0</data>
+        <data>10.0</data>
+        <data>1190.625</data>
+        <data>12882.8125</data>
+        <data>42.190046219457976</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

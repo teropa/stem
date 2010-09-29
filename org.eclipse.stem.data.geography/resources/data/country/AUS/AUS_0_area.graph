@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AUS/AUS_0_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="AUS (0) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/AUS/AUS_0_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="AUS:0/" source="https://www.cia.gov/cia/publications/factbook/geos/be.html" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/AUS/0/AUS">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/AUS/0/AUS" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/AUS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/AUS/0/AUS" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="7692030.0" averageExtent="2773.4509189816213"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

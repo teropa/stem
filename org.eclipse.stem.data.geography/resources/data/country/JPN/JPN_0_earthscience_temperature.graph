@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JPN/JPN_0_earthscience_temperature.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="JPN temperature data for 2009 at admin level 0" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JPN/JPN_0_earthscience_temperature.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="JPN:0/" subject="Label:earthscience_temperature" type="stemtype://org.eclipse.stem/Graph" valid="start=2009"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/0/JPN/temperature">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/0/JPN/temperature" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JPN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/0/JPN/temperature" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="temperature" units="C">
+        <data>0.5160694346213078</data>
+        <data>6.638354481268915</data>
+        <data>23.228346</data>
+        <data>-13.700788</data>
+        <data>2.6959871550126393</data>
+        <data>7.753658845774539</data>
+        <data>23.779528</data>
+        <data>-13.700788</data>
+        <data>6.6121771561505875</data>
+        <data>6.621350765385024</data>
+        <data>25.846456500000002</data>
+        <data>-8.740157</data>
+        <data>15.160782164544338</data>
+        <data>5.7520498379429155</data>
+        <data>30.393702</data>
+        <data>-1.5748031</data>
+        <data>19.51342601648943</data>
+        <data>4.053905567307737</data>
+        <data>35.62992</data>
+        <data>4.4881887</data>
+        <data>20.77831416052903</data>
+        <data>3.2197033425778376</data>
+        <data>34.25197</data>
+        <data>9.448819</data>
+        <data>21.199343585455914</data>
+        <data>3.038934360025631</data>
+        <data>39.48819</data>
+        <data>-1.0236222499999998</data>
+        <data>22.83071546620723</data>
+        <data>2.9982060496126874</data>
+        <data>37.007874</data>
+        <data>13.307087</data>
+        <data>20.84155250792339</data>
+        <data>4.116331733582825</data>
+        <data>33.700787</data>
+        <data>10.275591</data>
+        <data>16.347908054322804</data>
+        <data>4.338033242055497</data>
+        <data>27.5</data>
+        <data>2.559055</data>
+        <data>9.93020306792461</data>
+        <data>5.75784697226524</data>
+        <data>28.051181999999997</data>
+        <data>-7.3622046</data>
+        <data>2.939392975664351</data>
+        <data>6.864122854843559</data>
+        <data>23.503937</data>
+        <data>-14.527559</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

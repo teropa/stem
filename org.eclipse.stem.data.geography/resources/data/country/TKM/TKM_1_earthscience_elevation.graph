@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/TKM/TKM_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="TKM elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/TKM/TKM_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="TKM:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-CHA/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-CHA/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TM-CHA">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-CHA/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>227.92273916035788</data>
+        <data>152.21216960041502</data>
+        <data>2780.0</data>
+        <data>73.0</data>
+        <data>2707.0</data>
+        <data>14.444391871850863</data>
+        <data>125.66146135216036</data>
+        <data>274.07539035970717</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-TAS/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-TAS/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TM-TAS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-TAS/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>85.43182299385984</data>
+        <data>45.272729964199314</data>
+        <data>326.0</data>
+        <data>-94.0</data>
+        <data>420.0</data>
+        <data>12.631028316363448</data>
+        <data>40.048068114816395</data>
+        <data>96.68617511550275</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-TT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-TT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TM-TT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-TT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>153.37896786368935</data>
+        <data>229.33855547754726</data>
+        <data>2864.0</data>
+        <data>-60.0</data>
+        <data>2924.0</data>
+        <data>6.487616302973185</data>
+        <data>40.96292784554562</data>
+        <data>275.9008532270833</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-M/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-M/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TM-M">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TKM/1/TM-M/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>370.14522587513704</data>
+        <data>212.9017408557373</data>
+        <data>1012.0</data>
+        <data>93.0</data>
+        <data>919.0</data>
+        <data>11.175331104124794</data>
+        <data>34.37128620901096</data>
+        <data>427.0066035760582</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

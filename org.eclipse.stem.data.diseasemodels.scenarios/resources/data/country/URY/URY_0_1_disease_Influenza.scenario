@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.scenario="http:///org/eclipse/stem/core/scenario.ecore" xmlns:org.eclipse.stem.core.sequencer="http:///org/eclipse/stem/core/sequencer.ecore" xmlns:org.eclipse.stem.diseasemodels.standard="http:///org/eclipse/stem/diseasemodels/standard.ecore">
+  <org.eclipse.stem.core.scenario:Scenario uRI="platform:/plugin/org.eclipse.stem.data.diseasemodels.scenarios/resources/data/country/URY/URY_0_1_disease_Influenza.scenario" typeURI="stemtype://org.eclipse.stem/Scenario">
+    <dublinCore title="URY  (Levels: 0,1) Influenza, 10000.0 infections in UY-FD" identifier="platform:/plugin/org.eclipse.stem.data.diseasemodels.scenarios/resources/data/country/URY/URY_0_1_disease_Influenza.scenario" description="" creator="teroparv" format="http:///org/eclipse/stem/core/scenario.ecore" coverage="" subject="" type="stemtype://org.eclipse.stem/Scenario" created="2010-09-18"/>
+    <model href="platform:/plugin/org.eclipse.stem.data.diseasemodels.models/resources/data/country/URY/URY_0_1_disease_Influenza.model#/"/>
+    <sequencer xsi:type="org.eclipse.stem.core.sequencer:SequentialSequencer" href="#/1"/>
+    <scenarioDecorators href="#/2"/>
+  </org.eclipse.stem.core.scenario:Scenario>
+  <org.eclipse.stem.core.sequencer:SequentialSequencer uRI="stem://org.eclipse.stem/sequencer/2E9D7FC67FC63137" typeURI="stemtype://org.eclipse.stem/Identifiable" cycle="86400000">
+    <dublinCore identifier="stem://org.eclipse.stem/sequencer/2E9D7FC67FC63137" type="stemtype://org.eclipse.stem/Identifiable"/>
+    <startTime time="2000-01-01T00:00:00.000+0200"/>
+  </org.eclipse.stem.core.sequencer:SequentialSequencer>
+  <org.eclipse.stem.diseasemodels.standard:SIInfector uRI="stem://org.eclipse.stem/Infector/CF92CFDC1985A244" typeURI="stemtype://org.eclipse.stem/Identifiable" targetURI="stem://org.eclipse.stem/node/geo/region/UY-FD" diseaseName="Influenza" populationIdentifier="human" infectiousCount="10000.0">
+    <dublinCore title="Infect 10000 human in UY-FD" identifier="stem://org.eclipse.stem/Infector/CF92CFDC1985A244" type="stemtype://org.eclipse.stem/Identifiable"/>
+  </org.eclipse.stem.diseasemodels.standard:SIInfector>
+</xmi:XMI>

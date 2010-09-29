@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/YEM/YEM_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="YEM(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/YEM/YEM_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="YEM:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/YEM/YEM_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/YE-S">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/YE-S" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FORMER SOUTH YEMEN, 16, S YE-S" identifier="stem://org.eclipse.stem/node/geo/region/YE-S" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/YEM/YEM_1_MAP.xml#YE-S"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/YE-N">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/YE-N" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FORMER NORTH YEMEN, 15, N YE-N" identifier="stem://org.eclipse.stem/node/geo/region/YE-N" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/YEM/YEM_1_MAP.xml#YE-N"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

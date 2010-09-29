@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/TJK/TJK_2_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="TJK elevation data for 1999 at admin level 2" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/TJK/TJK_2_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="TJK:2/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-TA-G050001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-TA-G050001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TJ-TA-G050001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-TA-G050001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>2731.292515724752</data>
+        <data>1098.9970480817633</data>
+        <data>6855.0</data>
+        <data>519.0</data>
+        <data>6336.0</data>
+        <data>22.800117879240727</data>
+        <data>77.41850222761256</data>
+        <data>2944.104841568398</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-GB-G010001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-GB-G010001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TJ-GB-G010001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-GB-G010001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>4233.1756377203465</data>
+        <data>716.6618903359644</data>
+        <data>7217.0</data>
+        <data>806.0</data>
+        <data>6411.0</data>
+        <data>222.94703546448284</data>
+        <data>1410.734434286673</data>
+        <data>4293.411259691876</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-LE-G030001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-LE-G030001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TJ-LE-G030001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-LE-G030001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>1970.5108105229524</data>
+        <data>1224.9426868094372</data>
+        <data>5245.0</data>
+        <data>265.0</data>
+        <data>4980.0</data>
+        <data>9.269357250407749</data>
+        <data>25.867977223826706</data>
+        <data>2320.214955635735</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-KT-G020001/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-KT-G020001/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/TJ-KT-G020001">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/TJK/2/TJ-KT-G020001/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>934.5543103689799</data>
+        <data>550.9728907872556</data>
+        <data>3171.0</data>
+        <data>276.0</data>
+        <data>2895.0</data>
+        <data>11.049812403704266</data>
+        <data>36.39586087023803</data>
+        <data>1084.8792031427763</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

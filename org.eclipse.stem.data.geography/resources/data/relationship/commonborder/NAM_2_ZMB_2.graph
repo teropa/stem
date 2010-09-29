@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/NAM_2_ZMB_2.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Common Border relationship between country NAM and ZMB" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/NAM_2_ZMB_2.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ZMB:2/NAM:2/" subject="Edge:commonborder" type="stemtype://org.eclipse.stem/Graph" valid="start=2006-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-CA-G030001_ZM-07-G110003">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-CA-G030001_ZM-07-G110003" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-CA-G030001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZM-07-G110003">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-CA-G030001_ZM-07-G110003" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-CA-G030001_ZM-07-G110003" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-CA-G030001_ZM-07-G110003" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/NA-CA-G030001_ZM-0-G130006">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/NA-CA-G030001_ZM-0-G130006" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/NA-CA-G030001" nodeBURI="stem://org.eclipse.stem/node/geo/region/ZM-0-G130006">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/NA-CA-G030001_ZM-0-G130006" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/NA-CA-G030001_ZM-0-G130006" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/NA-CA-G030001_ZM-0-G130006" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

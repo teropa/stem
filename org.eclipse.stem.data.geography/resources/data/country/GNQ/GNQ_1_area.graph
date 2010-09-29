@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GNQ/GNQ_1_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="GNQ (1) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/GNQ/GNQ_1_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="GNQ:1/" source="https://www.cia.gov/library/publications/the-world-factbook/" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=1900-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/GNQ/1/GQ-BN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/GNQ/1/GQ-BN" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GQ-BN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/GNQ/1/GQ-BN" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="225.959" averageExtent="15.031932676805068"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/GNQ/1/GQ-AN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/GNQ/1/GQ-AN" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GQ-AN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/GNQ/1/GQ-AN" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="2757.864" averageExtent="52.51536917893656"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/GNQ/1/GQ-CS">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/GNQ/1/GQ-CS" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GQ-CS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/GNQ/1/GQ-CS" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="3290.749" averageExtent="57.36505033554838"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/GNQ/1/GQ-WN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/GNQ/1/GQ-WN" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GQ-WN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/GNQ/1/GQ-WN" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="2342.063" averageExtent="48.394865430125954"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/GNQ/1/GQ-LI">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/GNQ/1/GQ-LI" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GQ-LI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/GNQ/1/GQ-LI" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="2757.864" averageExtent="52.51536917893656"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/GNQ/1/GQ-BS">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/GNQ/1/GQ-BS" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GQ-BS">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/GNQ/1/GQ-BS" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="548.56" averageExtent="23.42135777447584"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/GNQ/1/GQ-KN">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/GNQ/1/GQ-KN" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/GQ-KN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/GNQ/1/GQ-KN" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="1292.441" averageExtent="35.95053546193714"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

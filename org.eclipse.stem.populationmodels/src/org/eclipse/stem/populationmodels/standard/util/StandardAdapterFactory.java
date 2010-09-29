@@ -169,6 +169,10 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 				return createYetiPopulationInitializerAdapter();
 			}
 			@Override
+			public Adapter caseMosquitoPopulationModel(MosquitoPopulationModel object) {
+				return createMosquitoPopulationModelAdapter();
+			}
+			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
 				return createComparableAdapter();
 			}
@@ -467,6 +471,20 @@ public class StandardAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYetiPopulationInitializerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel <em>Mosquito Population Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel
+	 * @generated
+	 */
+	public Adapter createMosquitoPopulationModelAdapter() {
 		return null;
 	}
 

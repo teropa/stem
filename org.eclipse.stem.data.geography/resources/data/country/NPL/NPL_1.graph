@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/NPL/NPL_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="NPL(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/NPL/NPL_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="NPL:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/NPL/NPL_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/NP-FAW">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/NP-FAW" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="FAR WEST, 06, FAW NP-FAW" identifier="stem://org.eclipse.stem/node/geo/region/NP-FAW" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/NPL/NPL_1_MAP.xml#NP-FAW"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/NP-E">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/NP-E" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EAST, 05, E NP-E" identifier="stem://org.eclipse.stem/node/geo/region/NP-E" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/NPL/NPL_1_MAP.xml#NP-E"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/NP-C">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/NP-C" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CENTRAL, 03, C NP-C" identifier="stem://org.eclipse.stem/node/geo/region/NP-C" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/NPL/NPL_1_MAP.xml#NP-C"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/NP-W">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/NP-W" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="WEST, 19, W NP-W" identifier="stem://org.eclipse.stem/node/geo/region/NP-W" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/NPL/NPL_1_MAP.xml#NP-W"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/NP-MID">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/NP-MID" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MIDWEST, 14, MID NP-MID" identifier="stem://org.eclipse.stem/node/geo/region/NP-MID" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/NPL/NPL_1_MAP.xml#NP-MID"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>

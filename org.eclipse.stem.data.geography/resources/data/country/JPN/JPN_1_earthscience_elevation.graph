@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JPN/JPN_1_earthscience_elevation.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="JPN elevation data for 1999 at admin level 1" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/JPN/JPN_1_earthscience_elevation.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="JPN:1/" subject="Label:earthscience_elevation" type="stemtype://org.eclipse.stem/Graph" valid="start=1999"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-CHG/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-CHG/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-CHG">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-CHG/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>313.4389446905566</data>
+        <data>233.02775554659047</data>
+        <data>1450.0</data>
+        <data>1.0</data>
+        <data>1449.0</data>
+        <data>7.241420210724074</data>
+        <data>21.508862988018556</data>
+        <data>390.5712571398612</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-CHB/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-CHB/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-CHB">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-CHB/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>954.9641298020955</data>
+        <data>514.2273374280126</data>
+        <data>3512.0</data>
+        <data>1.0</data>
+        <data>3511.0</data>
+        <data>12.529728613677007</data>
+        <data>39.93746920201902</data>
+        <data>1084.6134075176174</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-HRI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-HRI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-HRI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-HRI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>406.0603891685944</data>
+        <data>461.79837240207195</data>
+        <data>2810.0</data>
+        <data>1.0</data>
+        <data>2809.0</data>
+        <data>5.078913617351517</data>
+        <data>17.756560316222334</data>
+        <data>614.9331479152454</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KNT/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KNT/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-KNT">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KNT/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>332.2263741509884</data>
+        <data>444.07526928455434</data>
+        <data>2386.0</data>
+        <data>1.0</data>
+        <data>2385.0</data>
+        <data>4.2672768863514605</data>
+        <data>13.286515411973244</data>
+        <data>554.5964374855564</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-0/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-0/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-0">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-0/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>304.90750261033133</data>
+        <data>290.1685954858105</data>
+        <data>2115.0</data>
+        <data>1.0</data>
+        <data>2114.0</data>
+        <data>5.89981385934603</data>
+        <data>20.62128072683757</data>
+        <data>420.9113908583057</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KIN/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KIN/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-KIN">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KIN/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>307.090942189166</data>
+        <data>256.43401530820046</data>
+        <data>1773.0</data>
+        <data>1.0</data>
+        <data>1772.0</data>
+        <data>6.505661919596314</data>
+        <data>20.761272722578305</data>
+        <data>400.07905591485036</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-SKO/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-SKO/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-SKO">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-SKO/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>402.5908200499328</data>
+        <data>334.66828168691933</data>
+        <data>1731.0</data>
+        <data>1.0</data>
+        <data>1730.0</data>
+        <data>6.2908418668702355</data>
+        <data>18.670320335524806</data>
+        <data>523.5286306934435</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-TOH/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-TOH/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-TOH">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-TOH/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>373.26107971816106</data>
+        <data>311.77420054616385</data>
+        <data>2121.0</data>
+        <data>1.0</data>
+        <data>2120.0</data>
+        <data>6.42136318784907</data>
+        <data>20.377187730743124</data>
+        <data>486.34040111691655</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-RYU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-RYU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-RYU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-RYU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>100.63569189431259</data>
+        <data>88.22978725136923</data>
+        <data>556.0</data>
+        <data>1.0</data>
+        <data>555.0</data>
+        <data>6.072336167109581</data>
+        <data>18.775363487887155</data>
+        <data>133.83586156732758</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KYU/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KYU/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-KYU">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-KYU/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>286.2283264079215</data>
+        <data>282.63913482454376</data>
+        <data>1755.0</data>
+        <data>1.0</data>
+        <data>1754.0</data>
+        <data>5.459525429545589</data>
+        <data>17.530493689285574</data>
+        <data>402.2580457525319</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-TAI/elevation">
+    <value xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabel" uRI="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-TAI/elevation" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/JP-TAI">
+      <dublinCore identifier="stem://org.eclipse.stem/label/earthscience/JPN/1/JP-TAI/elevation" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:EarthScienceLabelValue" dataType="elevation" units="M">
+        <data>343.0392851868262</data>
+        <data>418.0755989963634</data>
+        <data>3571.0</data>
+        <data>1.0</data>
+        <data>3570.0</data>
+        <data>5.320989804067523</data>
+        <data>22.196703478610946</data>
+        <data>540.7986294894409</data>
+      </currentValue>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

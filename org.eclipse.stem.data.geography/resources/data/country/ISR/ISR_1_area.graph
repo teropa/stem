@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ISR/ISR_1_area.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="ISR (1) area" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ISR/ISR_1_area.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ISR:1/" source="Israel CDC bitmap (Scanned)" subject="Label:area" type="stemtype://org.eclipse.stem/Graph" valid="start=2001-01-01;"/>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ISR/1/IL-06">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ISR/1/IL-06" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/IL-06">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ISR/1/IL-06" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="69.31" averageExtent="8.325262758616091"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ISR/1/IL-05">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ISR/1/IL-05" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/IL-05">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ISR/1/IL-05" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="5589.149" averageExtent="74.76061128696047"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ISR/1/IL-04">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ISR/1/IL-04" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/IL-04">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ISR/1/IL-04" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="1315.823" averageExtent="36.27427463092818"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ISR/1/IL-03">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ISR/1/IL-03" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/IL-03">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ISR/1/IL-03" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="210.532" averageExtent="14.5097208794656"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ISR/1/IL-02">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ISR/1/IL-02" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/IL-02">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ISR/1/IL-02" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="335.668" averageExtent="18.321244499214565"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ISR/1/IL-01">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ISR/1/IL-01" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/IL-01">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ISR/1/IL-01" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="500.291" averageExtent="22.367185786325468"/>
+    </value>
+  </nodeLabels>
+  <nodeLabels key="stem://org.eclipse.stem/label/area/ISR/1/IL-00">
+    <value xsi:type="org.eclipse.stem.definitions.labels:AreaLabel" uRI="stem://org.eclipse.stem/label/area/ISR/1/IL-00" typeURI="stemtype://org.eclipse.stem/label" uRIOfIdentifiableToBeLabeled="stem://org.eclipse.stem/node/geo/region/IL-00">
+      <dublinCore identifier="stem://org.eclipse.stem/label/area/ISR/1/IL-00" type="stemtype://org.eclipse.stem/label"/>
+      <currentValue xsi:type="org.eclipse.stem.definitions.labels:AreaLabelValue" area="144.218" averageExtent="12.009079898143737"/>
+    </value>
+  </nodeLabels>
+</org.eclipse.stem.core.graph:Graph>

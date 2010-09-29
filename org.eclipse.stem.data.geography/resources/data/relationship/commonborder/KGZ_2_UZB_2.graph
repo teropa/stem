@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/KGZ_2_UZB_2.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Common Border relationship between country KGZ and UZB" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/KGZ_2_UZB_2.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="KGZ:2/UZB:2/" subject="Edge:commonborder" type="stemtype://org.eclipse.stem/Graph" valid="start=2006-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-TO-G140001">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-TO-G140001" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/KG-O-G080001" nodeBURI="stem://org.eclipse.stem/node/geo/region/UZ-TO-G140001">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-TO-G140001" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-TO-G140001" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-TO-G140001" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-NG-G090001">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-NG-G090001" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/KG-O-G080001" nodeBURI="stem://org.eclipse.stem/node/geo/region/UZ-NG-G090001">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-NG-G090001" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-NG-G090001" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-NG-G090001" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-FA-G040001">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-FA-G040001" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/KG-O-G080001" nodeBURI="stem://org.eclipse.stem/node/geo/region/UZ-FA-G040001">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-FA-G040001" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-FA-G040001" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-FA-G040001" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-AN-G010001">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-AN-G010001" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/KG-O-G080001" nodeBURI="stem://org.eclipse.stem/node/geo/region/UZ-AN-G010001">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/KG-O-G080001_UZ-AN-G010001" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-AN-G010001" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/KG-O-G080001_UZ-AN-G010001" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

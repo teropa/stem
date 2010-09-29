@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.labels="http:///org/eclipse/stem/definitions/labels.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/IRQ_2_TUR_2.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="Common Border relationship between country IRQ and TUR" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/relationship/commonborder/IRQ_2_TUR_2.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="TUR:2/IRQ:2/" subject="Edge:commonborder" type="stemtype://org.eclipse.stem/Graph" valid="start=2006-01-01;"/>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-DA-G110001_TR-73-G710001">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-DA-G110001_TR-73-G710001" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/IQ-DA-G110001" nodeBURI="stem://org.eclipse.stem/node/geo/region/TR-73-G710001">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-DA-G110001_TR-73-G710001" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/IQ-DA-G110001_TR-73-G710001" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/IQ-DA-G110001_TR-73-G710001" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-DA-G110001_TR-30-G350001">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-DA-G110001_TR-30-G350001" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/IQ-DA-G110001" nodeBURI="stem://org.eclipse.stem/node/geo/region/TR-30-G350001">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-DA-G110001_TR-30-G350001" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/IQ-DA-G110001_TR-30-G350001" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/IQ-DA-G110001_TR-30-G350001" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+  <edges key="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-AR-G060001_TR-30-G350001">
+    <value uRI="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-AR-G060001_TR-30-G350001" typeURI="stemtype://org.eclipse.stem/Edge" nodeAURI="stem://org.eclipse.stem/node/geo/region/IQ-AR-G060001" nodeBURI="stem://org.eclipse.stem/node/geo/region/TR-30-G350001">
+      <dublinCore identifier="stem://org.eclipse.stem/edge/relationship/commonborder/IQ-AR-G060001_TR-30-G350001" type="stemtype://org.eclipse.stem/Edge"/>
+      <label xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabel" uRI="stem://org.eclipse.stem/label/relationship/commonborder/IQ-AR-G060001_TR-30-G350001" typeURI="stemtype://org.eclipse.stem/label">
+        <dublinCore identifier="stem://org.eclipse.stem/label/relationship/commonborder/IQ-AR-G060001_TR-30-G350001" type="stemtype://org.eclipse.stem/label"/>
+        <currentValue xsi:type="org.eclipse.stem.definitions.labels:CommonBorderRelationshipLabelValue"/>
+      </label>
+    </value>
+  </edges>
+</org.eclipse.stem.core.graph:Graph>

@@ -86,4 +86,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="EarthSciencePopulationInitializer" abstract="true"
       eSuperTypes="#//PopulationInitializer"/>
   <eClassifiers xsi:type="ecore:EClass" name="YetiPopulationInitializer" eSuperTypes="#//EarthSciencePopulationInitializer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MosquitoPopulationModel" eSuperTypes="#//PopulationModel #//IntegrationDecorator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scalingFactor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timePeriod" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
+        defaultValueLiteral="86400000"/>
+  </eClassifiers>
 </ecore:EPackage>

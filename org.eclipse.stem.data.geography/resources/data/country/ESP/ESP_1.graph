@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.graph="http:///org/eclipse/stem/core/graph.ecore" xmlns:org.eclipse.stem.definitions.nodes="http:///org/eclipse/stem/definitions/nodes.ecore" uRI="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ESP/ESP_1.graph" typeURI="stemtype://org.eclipse.stem/Graph">
+  <dublinCore title="ESP(1) Nodes" identifier="platform:/plugin/org.eclipse.stem.data.geography/resources/data/country/ESP/ESP_1.graph" description="" format="http:///org/eclipse/stem/core/graph.ecore" coverage="ESP:1/" source="http://www.iso.org/iso/home.htm" subject="Node:region" type="stemtype://org.eclipse.stem/Graph" spatial="platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml" valid="start=1900-01-01;"/>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-RI">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-RI" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="RIOJA, 46, RI ES-RI" identifier="stem://org.eclipse.stem/node/geo/region/ES-RI" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-RI"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-AR">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-AR" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ARAGON, 06, AR ES-AR" identifier="stem://org.eclipse.stem/node/geo/region/ES-AR" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-AR"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-LE">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-LE" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CASTILLA - LEON, 16, LE ES-LE" identifier="stem://org.eclipse.stem/node/geo/region/ES-LE" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-LE"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-MU">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-MU" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MURCIA, 40, MU ES-MU" identifier="stem://org.eclipse.stem/node/geo/region/ES-MU" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-MU"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-VA2">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-VA2" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="COMUNIDAD VALENCIANA, 00, UNK ES-VA2" identifier="stem://org.eclipse.stem/node/geo/region/ES-VA2" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-VA2"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-PM">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-PM" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="BALEARES, 09, PM ES-PM" identifier="stem://org.eclipse.stem/node/geo/region/ES-PM" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-PM"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-AD">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-AD" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ANDALUCIA, 05, AD ES-AD" identifier="stem://org.eclipse.stem/node/geo/region/ES-AD" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-AD"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-ET">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-ET" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="EXTREMADURA, 24, ET ES-ET" identifier="stem://org.eclipse.stem/node/geo/region/ES-ET" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-ET"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-GA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-GA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="GALICIA, 25, GA ES-GA" identifier="stem://org.eclipse.stem/node/geo/region/ES-GA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-GA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-MA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-MA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CASTILLA - LA MANCHA, 15, MA ES-MA" identifier="stem://org.eclipse.stem/node/geo/region/ES-MA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-MA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-VA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-VA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="PAIS VASCO, 43, VA ES-VA" identifier="stem://org.eclipse.stem/node/geo/region/ES-VA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-VA"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-S">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-S" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CANTABRIA, 13, S ES-S" identifier="stem://org.eclipse.stem/node/geo/region/ES-S" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-S"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-O">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-O" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="ASTURIAS, 07, O ES-O" identifier="stem://org.eclipse.stem/node/geo/region/ES-O" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-O"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-CT">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-CT" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CATALUNA, 17, CT ES-CT" identifier="stem://org.eclipse.stem/node/geo/region/ES-CT" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-CT"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-M">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-M" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="MADRID, 38, M ES-M" identifier="stem://org.eclipse.stem/node/geo/region/ES-M" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-M"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-CN">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-CN" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="CANARIAS, 12, CN ES-CN" identifier="stem://org.eclipse.stem/node/geo/region/ES-CN" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-CN"/>
+    </value>
+  </nodes>
+  <nodes key="stem://org.eclipse.stem/node/geo/region/ES-NA">
+    <value xsi:type="org.eclipse.stem.definitions.nodes:Region" uRI="stem://org.eclipse.stem/node/geo/region/ES-NA" typeURI="stemtype://org.eclipse.stem/Node">
+      <dublinCore title="NAVARRA, 41, NA ES-NA" identifier="stem://org.eclipse.stem/node/geo/region/ES-NA" type="stemtype://org.eclipse.stem/Node" spatial="stemspatial:platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/ESP/ESP_1_MAP.xml#ES-NA"/>
+    </value>
+  </nodes>
+</org.eclipse.stem.core.graph:Graph>
