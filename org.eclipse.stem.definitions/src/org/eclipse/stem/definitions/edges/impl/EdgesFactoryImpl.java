@@ -65,13 +65,13 @@ public class EdgesFactoryImpl extends EFactoryImpl implements EdgesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case EdgesPackage.MIGRATION_EDGE: return createMigrationEdge();
-			case EdgesPackage.MIGRATION_EDGE_LABEL: return createMigrationEdgeLabel();
-			case EdgesPackage.MIGRATION_EDGE_LABEL_VALUE: return createMigrationEdgeLabelValue();
-			case EdgesPackage.MIXING_EDGE: return createMixingEdge();
-			case EdgesPackage.MIXING_EDGE_LABEL: return createMixingEdgeLabel();
-			case EdgesPackage.MIXING_EDGE_LABEL_VALUE: return createMixingEdgeLabelValue();
-			case EdgesPackage.POPULATION_EDGE: return createPopulationEdge();
+			case EdgesPackage.MIGRATION_EDGE: return (EObject)createMigrationEdge();
+			case EdgesPackage.MIGRATION_EDGE_LABEL: return (EObject)createMigrationEdgeLabel();
+			case EdgesPackage.MIGRATION_EDGE_LABEL_VALUE: return (EObject)createMigrationEdgeLabelValue();
+			case EdgesPackage.MIXING_EDGE: return (EObject)createMixingEdge();
+			case EdgesPackage.MIXING_EDGE_LABEL: return (EObject)createMixingEdgeLabel();
+			case EdgesPackage.MIXING_EDGE_LABEL_VALUE: return (EObject)createMixingEdgeLabelValue();
+			case EdgesPackage.POPULATION_EDGE: return (EObject)createPopulationEdge();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

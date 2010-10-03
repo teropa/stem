@@ -44,15 +44,6 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	protected static final boolean ADJACENT_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isAdjacent() <em>Adjacent</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isAdjacent()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean adjacent = ADJACENT_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getRelationship() <em>Relationship</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRelationship()
@@ -60,15 +51,6 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	 * @ordered
 	 */
 	protected static final RelativePhysicalRelationship RELATIONSHIP_EDEFAULT = RelativePhysicalRelationship.UNSPECIFIED_LITERAL;
-
-	/**
-	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getRelationship()
-	 * @generated
-	 * @ordered
-	 */
-	protected RelativePhysicalRelationship relationship = RELATIONSHIP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -92,7 +74,7 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public boolean isAdjacent() {
-		return adjacent;
+		return (Boolean)eDynamicGet(LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT, LabelsPackage.Literals.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT, true, true);
 	}
 
 	/**
@@ -100,10 +82,7 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public void setAdjacent(boolean newAdjacent) {
-		boolean oldAdjacent = adjacent;
-		adjacent = newAdjacent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT, oldAdjacent, adjacent));
+		eDynamicSet(LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT, LabelsPackage.Literals.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT, newAdjacent);
 	}
 
 	/**
@@ -111,7 +90,7 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public RelativePhysicalRelationship getRelationship() {
-		return relationship;
+		return (RelativePhysicalRelationship)eDynamicGet(LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP, LabelsPackage.Literals.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP, true, true);
 	}
 
 	/**
@@ -119,10 +98,7 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public void setRelationship(RelativePhysicalRelationship newRelationship) {
-		RelativePhysicalRelationship oldRelationship = relationship;
-		relationship = newRelationship == null ? RELATIONSHIP_EDEFAULT : newRelationship;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP, oldRelationship, relationship));
+		eDynamicSet(LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP, LabelsPackage.Literals.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP, newRelationship);
 	}
 
 	/**
@@ -182,9 +158,9 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__ADJACENT:
-				return adjacent != ADJACENT_EDEFAULT;
+				return isAdjacent() != ADJACENT_EDEFAULT;
 			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE__RELATIONSHIP:
-				return relationship != RELATIONSHIP_EDEFAULT;
+				return getRelationship() != RELATIONSHIP_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -201,9 +177,9 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 
 		StringBuffer result = new StringBuffer("");
 		result.append("adjacent: ");
-		result.append(adjacent);
+		result.append(isAdjacent());
 		result.append(", relationship: ");
-		result.append(relationship);
+		result.append(getRelationship());
 		return result.toString();
 	} // toString
 

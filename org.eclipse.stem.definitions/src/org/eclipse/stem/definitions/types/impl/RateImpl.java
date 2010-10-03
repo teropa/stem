@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -34,7 +35,7 @@ import org.eclipse.stem.definitions.types.TypesPackage;
  *
  * @generated
  */
-public abstract class RateImpl extends EObjectImpl implements Rate {
+public abstract class RateImpl extends CDOObjectImpl implements Rate {
 	/**
 	 * The default value of the '{@link #getRate() <em>Rate</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,16 +45,6 @@ public abstract class RateImpl extends EObjectImpl implements Rate {
 	 * @ordered
 	 */
 	protected static final double RATE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getRate() <em>Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double rate = RATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,8 +70,18 @@ public abstract class RateImpl extends EObjectImpl implements Rate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public double getRate() {
-		return rate;
+		return (Double)eDynamicGet(TypesPackage.RATE__RATE, TypesPackage.Literals.RATE__RATE, true, true);
 	}
 
 	/**
@@ -89,10 +90,7 @@ public abstract class RateImpl extends EObjectImpl implements Rate {
 	 * @generated
 	 */
 	public void setRate(double newRate) {
-		double oldRate = rate;
-		rate = newRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.RATE__RATE, oldRate, rate));
+		eDynamicSet(TypesPackage.RATE__RATE, TypesPackage.Literals.RATE__RATE, newRate);
 	}
 
 	/**
@@ -148,25 +146,9 @@ public abstract class RateImpl extends EObjectImpl implements Rate {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TypesPackage.RATE__RATE:
-				return rate != RATE_EDEFAULT;
+				return getRate() != RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rate: "); //$NON-NLS-1$
-		result.append(rate);
-		result.append(')');
-		return result.toString();
 	}
 
 } //RateImpl

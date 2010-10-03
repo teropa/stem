@@ -78,21 +78,21 @@ public class LabelsFactoryImpl extends EFactoryImpl implements LabelsFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case LabelsPackage.AREA_LABEL: return createAreaLabel();
-			case LabelsPackage.AREA_LABEL_VALUE: return createAreaLabelValue();
-			case LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL: return createCommonBorderRelationshipLabel();
-			case LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE: return createCommonBorderRelationshipLabelValue();
-			case LabelsPackage.POPULATION_LABEL: return createPopulationLabel();
-			case LabelsPackage.POPULATION_LABEL_VALUE: return createPopulationLabelValue();
-			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL: return createRelativePhysicalRelationshipLabel();
-			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE: return createRelativePhysicalRelationshipLabelValue();
-			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL: return createTransportRelationshipLabel();
-			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE: return createTransportRelationshipLabelValue();
-			case LabelsPackage.PHYSICAL_RELATIONSHIP_LABEL_VALUE: return createPhysicalRelationshipLabelValue();
-			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL: return createRoadTransportRelationshipLabel();
-			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE: return createRoadTransportRelationshipLabelValue();
-			case LabelsPackage.EARTH_SCIENCE_LABEL: return createEarthScienceLabel();
-			case LabelsPackage.EARTH_SCIENCE_LABEL_VALUE: return createEarthScienceLabelValue();
+			case LabelsPackage.AREA_LABEL: return (EObject)createAreaLabel();
+			case LabelsPackage.AREA_LABEL_VALUE: return (EObject)createAreaLabelValue();
+			case LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL: return (EObject)createCommonBorderRelationshipLabel();
+			case LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE: return (EObject)createCommonBorderRelationshipLabelValue();
+			case LabelsPackage.POPULATION_LABEL: return (EObject)createPopulationLabel();
+			case LabelsPackage.POPULATION_LABEL_VALUE: return (EObject)createPopulationLabelValue();
+			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL: return (EObject)createRelativePhysicalRelationshipLabel();
+			case LabelsPackage.RELATIVE_PHYSICAL_RELATIONSHIP_LABEL_VALUE: return (EObject)createRelativePhysicalRelationshipLabelValue();
+			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL: return (EObject)createTransportRelationshipLabel();
+			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE: return (EObject)createTransportRelationshipLabelValue();
+			case LabelsPackage.PHYSICAL_RELATIONSHIP_LABEL_VALUE: return (EObject)createPhysicalRelationshipLabelValue();
+			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL: return (EObject)createRoadTransportRelationshipLabel();
+			case LabelsPackage.ROAD_TRANSPORT_RELATIONSHIP_LABEL_VALUE: return (EObject)createRoadTransportRelationshipLabelValue();
+			case LabelsPackage.EARTH_SCIENCE_LABEL: return (EObject)createEarthScienceLabel();
+			case LabelsPackage.EARTH_SCIENCE_LABEL_VALUE: return (EObject)createEarthScienceLabelValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

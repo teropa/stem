@@ -42,16 +42,6 @@ public class PopulationEdgeImpl extends EdgeImpl implements PopulationEdge {
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = "human"; //$NON-NLS-1$
 
 	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -76,7 +66,7 @@ public class PopulationEdgeImpl extends EdgeImpl implements PopulationEdge {
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(EdgesPackage.POPULATION_EDGE__POPULATION_IDENTIFIER, EdgesPackage.Literals.POPULATION_EDGE__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -85,10 +75,7 @@ public class PopulationEdgeImpl extends EdgeImpl implements PopulationEdge {
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EdgesPackage.POPULATION_EDGE__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(EdgesPackage.POPULATION_EDGE__POPULATION_IDENTIFIER, EdgesPackage.Literals.POPULATION_EDGE__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 	/**
@@ -144,25 +131,9 @@ public class PopulationEdgeImpl extends EdgeImpl implements PopulationEdge {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EdgesPackage.POPULATION_EDGE__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (populationIdentifier: "); //$NON-NLS-1$
-		result.append(populationIdentifier);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PopulationEdgeImpl

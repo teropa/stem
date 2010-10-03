@@ -72,16 +72,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	protected static final TransportMode TRANSPORT_MODE_EDEFAULT = TransportMode.UNSPECIFIED_LITERAL;
 
 	/**
-	 * The cached value of the '{@link #getTransportMode() <em>Transport Mode</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getTransportMode()
-	 * @generated
-	 * @ordered
-	 */
-	protected TransportMode transportMode = TRANSPORT_MODE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -90,16 +80,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @ordered
 	 */
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTransportIdentifier() <em>Transport Identifier</em>}' attribute.
@@ -112,16 +92,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	protected static final String TRANSPORT_IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportIdentifier() <em>Transport Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getTransportIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String transportIdentifier = TRANSPORT_IDENTIFIER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getRateTimePeriod() <em>Rate Time Period</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -130,16 +100,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @ordered
 	 */
 	protected static final long RATE_TIME_PERIOD_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getRateTimePeriod() <em>Rate Time Period</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getRateTimePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected long rateTimePeriod = RATE_TIME_PERIOD_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDepartureCapacity() <em>Departure Capacity</em>}' attribute.
@@ -162,16 +122,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	protected static final int MAXIMUM_DEPARTURE_CAPACITY_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMaximumDepartureCapacity() <em>Maximum Departure Capacity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaximumDepartureCapacity()
-	 * @generated
-	 * @ordered
-	 */
-	protected int maximumDepartureCapacity = MAXIMUM_DEPARTURE_CAPACITY_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCapacity()
@@ -191,16 +141,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	protected static final int MAXIMUM_CAPACITY_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMaximumCapacity() <em>Maximum Capacity</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getMaximumCapacity()
-	 * @generated
-	 * @ordered
-	 */
-	protected int maximumCapacity = MAXIMUM_CAPACITY_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTransitTime() <em>Transit Time</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTransitTime()
@@ -208,15 +148,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @ordered
 	 */
 	protected static final long TRANSIT_TIME_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getTransitTime() <em>Transit Time</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getTransitTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected long transitTime = TRANSIT_TIME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStartUpDelay() <em>Start Up Delay</em>}' attribute.
@@ -227,16 +158,6 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @ordered
 	 */
 	protected static final long START_UP_DELAY_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getStartUpDelay() <em>Start Up Delay</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getStartUpDelay()
-	 * @generated
-	 * @ordered
-	 */
-	protected long startUpDelay = START_UP_DELAY_EDEFAULT;
 
 	private EObject nodeBArrivals = null;
 
@@ -412,7 +333,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public TransportMode getTransportMode() {
-		return transportMode;
+		return (TransportMode)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_MODE, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_MODE, true, true);
 	}
 
 	/**
@@ -420,10 +341,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setTransportMode(TransportMode newTransportMode) {
-		TransportMode oldTransportMode = transportMode;
-		transportMode = newTransportMode == null ? TRANSPORT_MODE_EDEFAULT : newTransportMode;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_MODE, oldTransportMode, transportMode));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_MODE, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_MODE, newTransportMode);
 	}
 
 	/**
@@ -431,7 +349,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__POPULATION_IDENTIFIER, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -439,10 +357,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__POPULATION_IDENTIFIER, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 	/**
@@ -450,7 +365,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public String getTransportIdentifier() {
-		return transportIdentifier;
+		return (String)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_IDENTIFIER, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -458,10 +373,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setTransportIdentifier(String newTransportIdentifier) {
-		String oldTransportIdentifier = transportIdentifier;
-		transportIdentifier = newTransportIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_IDENTIFIER, oldTransportIdentifier, transportIdentifier));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_IDENTIFIER, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_IDENTIFIER, newTransportIdentifier);
 	}
 
 	/**
@@ -478,7 +390,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public long getRateTimePeriod() {
-		return rateTimePeriod;
+		return (Long)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD, true, true);
 	}
 
 	/**
@@ -486,10 +398,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setRateTimePeriod(long newRateTimePeriod) {
-		long oldRateTimePeriod = rateTimePeriod;
-		rateTimePeriod = newRateTimePeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD, oldRateTimePeriod, rateTimePeriod));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD, newRateTimePeriod);
 	}
 
 	/**
@@ -508,7 +417,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public int getMaximumDepartureCapacity() {
-		return maximumDepartureCapacity;
+		return (Integer)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY, true, true);
 	}
 
 	/**
@@ -516,10 +425,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setMaximumDepartureCapacity(int newMaximumDepartureCapacity) {
-		int oldMaximumDepartureCapacity = maximumDepartureCapacity;
-		maximumDepartureCapacity = newMaximumDepartureCapacity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY, oldMaximumDepartureCapacity, maximumDepartureCapacity));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY, newMaximumDepartureCapacity);
 	}
 
 	/**
@@ -538,7 +444,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public int getMaximumCapacity() {
-		return maximumCapacity;
+		return (Integer)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY, true, true);
 	}
 
 	/**
@@ -546,10 +452,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setMaximumCapacity(int newMaximumCapacity) {
-		int oldMaximumCapacity = maximumCapacity;
-		maximumCapacity = newMaximumCapacity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY, oldMaximumCapacity, maximumCapacity));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY, newMaximumCapacity);
 	}
 
 	/**
@@ -557,7 +460,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public long getTransitTime() {
-		return transitTime;
+		return (Long)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME, true, true);
 	}
 
 	/**
@@ -565,10 +468,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setTransitTime(long newTransitTime) {
-		long oldTransitTime = transitTime;
-		transitTime = newTransitTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME, oldTransitTime, transitTime));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME, newTransitTime);
 	}
 
 	/**
@@ -576,7 +476,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public long getStartUpDelay() {
-		return startUpDelay;
+		return (Long)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY, true, true);
 	}
 
 	/**
@@ -584,10 +484,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	 * @generated
 	 */
 	public void setStartUpDelay(long newStartUpDelay) {
-		long oldStartUpDelay = startUpDelay;
-		startUpDelay = newStartUpDelay;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY, oldStartUpDelay, startUpDelay));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY, newStartUpDelay);
 	}
 
 	/**
@@ -828,27 +725,27 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_MODE:
-				return transportMode != TRANSPORT_MODE_EDEFAULT;
+				return getTransportMode() != TRANSPORT_MODE_EDEFAULT;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSPORT_IDENTIFIER:
-				return TRANSPORT_IDENTIFIER_EDEFAULT == null ? transportIdentifier != null : !TRANSPORT_IDENTIFIER_EDEFAULT.equals(transportIdentifier);
+				return TRANSPORT_IDENTIFIER_EDEFAULT == null ? getTransportIdentifier() != null : !TRANSPORT_IDENTIFIER_EDEFAULT.equals(getTransportIdentifier());
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__CURRENT_TRANSPORT_RELATIONSHIP_LABEL_VALUE:
 				return getCurrentTransportRelationshipLabelValue() != null;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__RATE_TIME_PERIOD:
-				return rateTimePeriod != RATE_TIME_PERIOD_EDEFAULT;
+				return getRateTimePeriod() != RATE_TIME_PERIOD_EDEFAULT;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__DEPARTURE_CAPACITY:
 				return getDepartureCapacity() != DEPARTURE_CAPACITY_EDEFAULT;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_DEPARTURE_CAPACITY:
-				return maximumDepartureCapacity != MAXIMUM_DEPARTURE_CAPACITY_EDEFAULT;
+				return getMaximumDepartureCapacity() != MAXIMUM_DEPARTURE_CAPACITY_EDEFAULT;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__CAPACITY:
 				return getCapacity() != CAPACITY_EDEFAULT;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__MAXIMUM_CAPACITY:
-				return maximumCapacity != MAXIMUM_CAPACITY_EDEFAULT;
+				return getMaximumCapacity() != MAXIMUM_CAPACITY_EDEFAULT;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__TRANSIT_TIME:
-				return transitTime != TRANSIT_TIME_EDEFAULT;
+				return getTransitTime() != TRANSIT_TIME_EDEFAULT;
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL__START_UP_DELAY:
-				return startUpDelay != START_UP_DELAY_EDEFAULT;
+				return getStartUpDelay() != START_UP_DELAY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -863,11 +760,11 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 		if (eIsProxy())
 			return super.toString();
 		StringBuffer result = new StringBuffer();
-		result.append(transportMode);
+		result.append(getTransportMode());
 		result.append(", ");
-		result.append(populationIdentifier);
+		result.append(getPopulationIdentifier());
 		result.append(", \"");
-		result.append(transportIdentifier);
+		result.append(getTransportIdentifier());
 		result.append("\" ");
 		result.append(getCurrentTransportRelationshipLabelValue().toString());
 		return result.toString();
@@ -880,7 +777,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && rateTimePeriod >= 0;
+		retValue = retValue && getRateTimePeriod() >= 0;
 		assert retValue;
 
 		retValue = retValue

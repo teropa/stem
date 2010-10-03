@@ -12,6 +12,7 @@ package org.eclipse.stem.definitions.types;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -23,6 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @model interface="true"
  */
-public interface CategorizedType extends EObject {
+public interface CategorizedType extends CDOObject {
 	// Nothing
 } // CategorizedType

@@ -47,16 +47,6 @@ public class MigrationEdgeLabelValueImpl extends LabelValueImpl implements Migra
 	protected static final double MIGRATION_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getMigrationRate() <em>Migration Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMigrationRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double migrationRate = MIGRATION_RATE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -81,7 +71,7 @@ public class MigrationEdgeLabelValueImpl extends LabelValueImpl implements Migra
 	 * @generated
 	 */
 	public double getMigrationRate() {
-		return migrationRate;
+		return (Double)eDynamicGet(EdgesPackage.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE, EdgesPackage.Literals.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE, true, true);
 	}
 
 	/**
@@ -90,10 +80,7 @@ public class MigrationEdgeLabelValueImpl extends LabelValueImpl implements Migra
 	 * @generated
 	 */
 	public void setMigrationRate(double newMigrationRate) {
-		double oldMigrationRate = migrationRate;
-		migrationRate = newMigrationRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EdgesPackage.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE, oldMigrationRate, migrationRate));
+		eDynamicSet(EdgesPackage.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE, EdgesPackage.Literals.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE, newMigrationRate);
 	}
 
 	/**
@@ -149,27 +136,11 @@ public class MigrationEdgeLabelValueImpl extends LabelValueImpl implements Migra
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EdgesPackage.MIGRATION_EDGE_LABEL_VALUE__MIGRATION_RATE:
-				return migrationRate != MIGRATION_RATE_EDEFAULT;
+				return getMigrationRate() != MIGRATION_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (migrationRate: "); //$NON-NLS-1$
-		result.append(migrationRate);
-		result.append(')');
-		return result.toString();
-	}
-	
 	/**
 	 * Resets the value for this migration edge to the default value. Is this
 	 * really the correct behavior? do we really want to go to the model start

@@ -43,16 +43,6 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	protected static final double AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getAvailableDepartureCapacityProportion() <em>Available Departure Capacity Proportion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAvailableDepartureCapacityProportion()
-	 * @generated
-	 * @ordered
-	 */
-	protected double availableDepartureCapacityProportion = AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -75,7 +65,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public double getAvailableDepartureCapacityProportion() {
-		return availableDepartureCapacityProportion;
+		return (Double)eDynamicGet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION, true, true);
 	}
 
 	/**
@@ -84,10 +74,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	 * @generated
 	 */
 	public void setAvailableDepartureCapacityProportion(double newAvailableDepartureCapacityProportion) {
-		double oldAvailableDepartureCapacityProportion = availableDepartureCapacityProportion;
-		availableDepartureCapacityProportion = newAvailableDepartureCapacityProportion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION, oldAvailableDepartureCapacityProportion, availableDepartureCapacityProportion));
+		eDynamicSet(LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION, LabelsPackage.Literals.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION, newAvailableDepartureCapacityProportion);
 	}
 
 	/**
@@ -105,7 +92,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	public boolean sane() {
 		boolean retValue = true;
 
-		retValue = retValue && availableDepartureCapacityProportion >= 0 && availableDepartureCapacityProportion<= AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT;
+		retValue = retValue && getAvailableDepartureCapacityProportion() >= 0 && getAvailableDepartureCapacityProportion()<= AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT;
 		assert retValue;
 
 		return retValue;
@@ -160,7 +147,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.TRANSPORT_RELATIONSHIP_LABEL_VALUE__AVAILABLE_DEPARTURE_CAPACITY_PROPORTION:
-				return availableDepartureCapacityProportion != AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT;
+				return getAvailableDepartureCapacityProportion() != AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -177,7 +164,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (available proportion: ");
-		result.append(availableDepartureCapacityProportion);
+		result.append(getAvailableDepartureCapacityProportion());
 		result.append(')');
 		return result.toString();
 	} // toString

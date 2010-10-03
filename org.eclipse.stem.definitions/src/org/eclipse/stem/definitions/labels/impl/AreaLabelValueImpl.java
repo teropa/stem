@@ -44,15 +44,6 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	protected static final double AREA_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getArea() <em>Area</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected double area = AREA_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getAverageExtent() <em>Average Extent</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,16 +52,6 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * @ordered
 	 */
 	protected static final double AVERAGE_EXTENT_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getAverageExtent() <em>Average Extent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAverageExtent()
-	 * @generated
-	 * @ordered
-	 */
-	protected double averageExtent = AVERAGE_EXTENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -98,7 +79,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * @generated
 	 */
 	public double getArea() {
-		return area;
+		return (Double)eDynamicGet(LabelsPackage.AREA_LABEL_VALUE__AREA, LabelsPackage.Literals.AREA_LABEL_VALUE__AREA, true, true);
 	}
 
 	/**
@@ -132,15 +113,13 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * @generated NOT
 	 */
 	public void setArea(double newArea) {
-		double oldArea = area;
-		area = newArea;
-		if(area >= 1.0) {
-			setAverageExtent(Math.sqrt(area));
+		double oldArea = getArea();
+		eDynamicSet(LabelsPackage.AREA_LABEL_VALUE__AREA, LabelsPackage.Literals.AREA_LABEL_VALUE__AREA, newArea);
+		if(newArea >= 1.0) {
+			setAverageExtent(Math.sqrt(newArea));
 		} else {
 			setAverageExtent(1.0);
 		}
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.AREA_LABEL_VALUE__AREA, oldArea, area));
 	}
 
 	/**
@@ -149,7 +128,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * @generated
 	 */
 	public double getAverageExtent() {
-		return averageExtent;
+		return (Double)eDynamicGet(LabelsPackage.AREA_LABEL_VALUE__AVERAGE_EXTENT, LabelsPackage.Literals.AREA_LABEL_VALUE__AVERAGE_EXTENT, true, true);
 	}
 
 	/**
@@ -158,10 +137,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * @generated
 	 */
 	public void setAverageExtent(double newAverageExtent) {
-		double oldAverageExtent = averageExtent;
-		averageExtent = newAverageExtent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.AREA_LABEL_VALUE__AVERAGE_EXTENT, oldAverageExtent, averageExtent));
+		eDynamicSet(LabelsPackage.AREA_LABEL_VALUE__AVERAGE_EXTENT, LabelsPackage.Literals.AREA_LABEL_VALUE__AVERAGE_EXTENT, newAverageExtent);
 	}
 
 	/**
@@ -243,9 +219,9 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.AREA_LABEL_VALUE__AREA:
-				return area != AREA_EDEFAULT;
+				return getArea() != AREA_EDEFAULT;
 			case LabelsPackage.AREA_LABEL_VALUE__AVERAGE_EXTENT:
-				return averageExtent != AVERAGE_EXTENT_EDEFAULT;
+				return getAverageExtent() != AVERAGE_EXTENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,7 +240,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer();
-		result.append(area);
+		result.append(getArea());
 		result.append(" km^2");
 		return result.toString();
 	}

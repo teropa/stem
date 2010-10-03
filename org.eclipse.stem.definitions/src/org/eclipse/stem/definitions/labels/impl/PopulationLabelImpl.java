@@ -56,16 +56,6 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
@@ -73,15 +63,6 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPopulatedArea() <em>Populated Area</em>}' attribute.
@@ -94,16 +75,6 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	protected static final double POPULATED_AREA_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getPopulatedArea() <em>Populated Area</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getPopulatedArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected double populatedArea = POPULATED_AREA_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getValidYear() <em>Valid Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,16 +83,6 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @ordered
 	 */
 	protected static final int VALID_YEAR_EDEFAULT = 2006;
-
-	/**
-	 * The cached value of the '{@link #getValidYear() <em>Valid Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidYear()
-	 * @generated
-	 * @ordered
-	 */
-	protected int validYear = VALID_YEAR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -202,7 +163,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(LabelsPackage.POPULATION_LABEL__POPULATION_IDENTIFIER, LabelsPackage.Literals.POPULATION_LABEL__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -214,10 +175,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.POPULATION_LABEL__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(LabelsPackage.POPULATION_LABEL__POPULATION_IDENTIFIER, LabelsPackage.Literals.POPULATION_LABEL__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 	/**
@@ -229,7 +187,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	public String getName() {
 		// Is a name set?
 		if (eIsSet(LabelsPackage.POPULATION_LABEL__NAME)) {
-			return name;
+			return (String)eDynamicGet(LabelsPackage.POPULATION_LABEL__NAME, LabelsPackage.Literals.POPULATION_LABEL__NAME, true, true);
 		} else {
 			return getPopulationIdentifier();
 		}
@@ -244,10 +202,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.POPULATION_LABEL__NAME, oldName, name));
+		eDynamicSet(LabelsPackage.POPULATION_LABEL__NAME, LabelsPackage.Literals.POPULATION_LABEL__NAME, newName);
 	}
 
 	/**
@@ -265,7 +220,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated
 	 */
 	public double getPopulatedArea() {
-		return populatedArea;
+		return (Double)eDynamicGet(LabelsPackage.POPULATION_LABEL__POPULATED_AREA, LabelsPackage.Literals.POPULATION_LABEL__POPULATED_AREA, true, true);
 	}
 
 	/**
@@ -273,10 +228,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated
 	 */
 	public void setPopulatedArea(double newPopulatedArea) {
-		double oldPopulatedArea = populatedArea;
-		populatedArea = newPopulatedArea;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.POPULATION_LABEL__POPULATED_AREA, oldPopulatedArea, populatedArea));
+		eDynamicSet(LabelsPackage.POPULATION_LABEL__POPULATED_AREA, LabelsPackage.Literals.POPULATION_LABEL__POPULATED_AREA, newPopulatedArea);
 	}
 
 	/**
@@ -285,7 +237,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated
 	 */
 	public int getValidYear() {
-		return validYear;
+		return (Integer)eDynamicGet(LabelsPackage.POPULATION_LABEL__VALID_YEAR, LabelsPackage.Literals.POPULATION_LABEL__VALID_YEAR, true, true);
 	}
 
 	/**
@@ -294,10 +246,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated
 	 */
 	public void setValidYear(int newValidYear) {
-		int oldValidYear = validYear;
-		validYear = newValidYear;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.POPULATION_LABEL__VALID_YEAR, oldValidYear, validYear));
+		eDynamicSet(LabelsPackage.POPULATION_LABEL__VALID_YEAR, LabelsPackage.Literals.POPULATION_LABEL__VALID_YEAR, newValidYear);
 	}
 
 	/**
@@ -392,15 +341,15 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.POPULATION_LABEL__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 			case LabelsPackage.POPULATION_LABEL__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case LabelsPackage.POPULATION_LABEL__CURRENT_POPULATION_VALUE:
 				return getCurrentPopulationValue() != null;
 			case LabelsPackage.POPULATION_LABEL__POPULATED_AREA:
-				return populatedArea != POPULATED_AREA_EDEFAULT;
+				return getPopulatedArea() != POPULATED_AREA_EDEFAULT;
 			case LabelsPackage.POPULATION_LABEL__VALID_YEAR:
-				return validYear != VALID_YEAR_EDEFAULT;
+				return getValidYear() != VALID_YEAR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -417,7 +366,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(
-				name == null ? populationIdentifier : name);
+				getName() == null ? getPopulationIdentifier() : getName());
 		result.append(" [");
 		result.append(getCurrentPopulationValue().getCount());
 		// Was an area extend specified?

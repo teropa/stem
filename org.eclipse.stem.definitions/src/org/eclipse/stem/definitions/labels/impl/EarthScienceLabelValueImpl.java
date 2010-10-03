@@ -45,16 +45,6 @@ import org.eclipse.stem.definitions.labels.LabelsPackage;
  */
 public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthScienceLabelValue {
 	/**
-	 * The cached value of the '{@link #getData() <em>Data</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getData()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Double> data;
-
-	/**
 	 * The default value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,16 +55,6 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	protected static final String DATA_TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String dataType = DATA_TYPE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,16 +63,6 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	 * @ordered
 	 */
 	protected static final String UNITS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnits()
-	 * @generated
-	 * @ordered
-	 */
-	protected String units = UNITS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,11 +88,9 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Double> getData() {
-		if (data == null) {
-			data = new EDataTypeEList<Double>(Double.class, this, LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA);
-		}
-		return data;
+		return (EList<Double>)eDynamicGet(LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA, LabelsPackage.Literals.EARTH_SCIENCE_LABEL_VALUE__DATA, true, true);
 	}
 
 	/**
@@ -131,7 +99,7 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	 * @generated
 	 */
 	public String getDataType() {
-		return dataType;
+		return (String)eDynamicGet(LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE, LabelsPackage.Literals.EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE, true, true);
 	}
 
 	/**
@@ -140,10 +108,7 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	 * @generated
 	 */
 	public void setDataType(String newDataType) {
-		String oldDataType = dataType;
-		dataType = newDataType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE, oldDataType, dataType));
+		eDynamicSet(LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE, LabelsPackage.Literals.EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE, newDataType);
 	}
 
 	/**
@@ -152,7 +117,7 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	 * @generated
 	 */
 	public String getUnits() {
-		return units;
+		return (String)eDynamicGet(LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__UNITS, LabelsPackage.Literals.EARTH_SCIENCE_LABEL_VALUE__UNITS, true, true);
 	}
 
 	/**
@@ -161,10 +126,7 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	 * @generated
 	 */
 	public void setUnits(String newUnits) {
-		String oldUnits = units;
-		units = newUnits;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__UNITS, oldUnits, units));
+		eDynamicSet(LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__UNITS, LabelsPackage.Literals.EARTH_SCIENCE_LABEL_VALUE__UNITS, newUnits);
 	}
 
 	/**
@@ -238,33 +200,13 @@ public class EarthScienceLabelValueImpl extends LabelValueImpl implements EarthS
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA:
-				return data != null && !data.isEmpty();
+				return !getData().isEmpty();
 			case LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__DATA_TYPE:
-				return DATA_TYPE_EDEFAULT == null ? dataType != null : !DATA_TYPE_EDEFAULT.equals(dataType);
+				return DATA_TYPE_EDEFAULT == null ? getDataType() != null : !DATA_TYPE_EDEFAULT.equals(getDataType());
 			case LabelsPackage.EARTH_SCIENCE_LABEL_VALUE__UNITS:
-				return UNITS_EDEFAULT == null ? units != null : !UNITS_EDEFAULT.equals(units);
+				return UNITS_EDEFAULT == null ? getUnits() != null : !UNITS_EDEFAULT.equals(getUnits());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (data: "); //$NON-NLS-1$
-		result.append(data);
-		result.append(", dataType: "); //$NON-NLS-1$
-		result.append(dataType);
-		result.append(", units: "); //$NON-NLS-1$
-		result.append(units);
-		result.append(')');
-		return result.toString();
 	}
 
 } //EarthScienceLabelValueImpl

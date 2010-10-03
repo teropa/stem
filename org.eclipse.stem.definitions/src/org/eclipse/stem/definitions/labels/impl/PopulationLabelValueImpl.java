@@ -42,15 +42,6 @@ public class PopulationLabelValueImpl extends LabelValueImpl implements
 	protected static final double COUNT_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected double count = COUNT_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -76,7 +67,7 @@ public class PopulationLabelValueImpl extends LabelValueImpl implements
 	 * @generated
 	 */
 	public double getCount() {
-		return count;
+		return (Double)eDynamicGet(LabelsPackage.POPULATION_LABEL_VALUE__COUNT, LabelsPackage.Literals.POPULATION_LABEL_VALUE__COUNT, true, true);
 	}
 
 	/**
@@ -84,10 +75,7 @@ public class PopulationLabelValueImpl extends LabelValueImpl implements
 	 * @generated
 	 */
 	public void setCount(double newCount) {
-		double oldCount = count;
-		count = newCount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.POPULATION_LABEL_VALUE__COUNT, oldCount, count));
+		eDynamicSet(LabelsPackage.POPULATION_LABEL_VALUE__COUNT, LabelsPackage.Literals.POPULATION_LABEL_VALUE__COUNT, newCount);
 	}
 
 	/**
@@ -169,28 +157,9 @@ public class PopulationLabelValueImpl extends LabelValueImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.POPULATION_LABEL_VALUE__COUNT:
-				return count != COUNT_EDEFAULT;
+				return getCount() != COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @return
-	 * 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (count: "); //$NON-NLS-1$
-		result.append(count);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

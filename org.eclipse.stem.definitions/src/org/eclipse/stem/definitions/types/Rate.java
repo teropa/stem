@@ -1,6 +1,7 @@
 // Rate.java
 package org.eclipse.stem.definitions.types;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
 /*******************************************************************************
@@ -20,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @model abstract="true"
  */
-public interface Rate extends EObject {
+public interface Rate extends CDOObject {
 	/**
 	 * @model
 	 */

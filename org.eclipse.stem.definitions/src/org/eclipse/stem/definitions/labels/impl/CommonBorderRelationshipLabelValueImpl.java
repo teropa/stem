@@ -43,15 +43,6 @@ public class CommonBorderRelationshipLabelValueImpl extends
 	protected static final double BORDER_LENGTH_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getBorderLength() <em>Border Length</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getBorderLength()
-	 * @generated
-	 * @ordered
-	 */
-	protected double borderLength = BORDER_LENGTH_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -73,7 +64,7 @@ public class CommonBorderRelationshipLabelValueImpl extends
 	 * @generated
 	 */
 	public double getBorderLength() {
-		return borderLength;
+		return (Double)eDynamicGet(LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH, LabelsPackage.Literals.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH, true, true);
 	}
 
 	/**
@@ -82,10 +73,7 @@ public class CommonBorderRelationshipLabelValueImpl extends
 	 * @generated
 	 */
 	public void setBorderLength(double newBorderLength) {
-		double oldBorderLength = borderLength;
-		borderLength = newBorderLength;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH, oldBorderLength, borderLength));
+		eDynamicSet(LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH, LabelsPackage.Literals.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH, newBorderLength);
 	}
 
 	/**
@@ -137,24 +125,9 @@ public class CommonBorderRelationshipLabelValueImpl extends
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.COMMON_BORDER_RELATIONSHIP_LABEL_VALUE__BORDER_LENGTH:
-				return borderLength != BORDER_LENGTH_EDEFAULT;
+				return getBorderLength() != BORDER_LENGTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (borderLength: "); //$NON-NLS-1$
-		result.append(borderLength);
-		result.append(')');
-		return result.toString();
 	}
 
 } // CommonBorderRelationshipLabelValueImpl

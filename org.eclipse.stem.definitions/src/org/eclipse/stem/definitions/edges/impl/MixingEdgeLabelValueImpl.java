@@ -47,16 +47,6 @@ public class MixingEdgeLabelValueImpl extends LabelValueImpl implements MixingEd
 	protected static final double MIXING_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getMixingRate() <em>Mixing Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMixingRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double mixingRate = MIXING_RATE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -81,7 +71,7 @@ public class MixingEdgeLabelValueImpl extends LabelValueImpl implements MixingEd
 	 * @generated
 	 */
 	public double getMixingRate() {
-		return mixingRate;
+		return (Double)eDynamicGet(EdgesPackage.MIXING_EDGE_LABEL_VALUE__MIXING_RATE, EdgesPackage.Literals.MIXING_EDGE_LABEL_VALUE__MIXING_RATE, true, true);
 	}
 
 	/**
@@ -90,10 +80,7 @@ public class MixingEdgeLabelValueImpl extends LabelValueImpl implements MixingEd
 	 * @generated
 	 */
 	public void setMixingRate(double newMixingRate) {
-		double oldMixingRate = mixingRate;
-		mixingRate = newMixingRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EdgesPackage.MIXING_EDGE_LABEL_VALUE__MIXING_RATE, oldMixingRate, mixingRate));
+		eDynamicSet(EdgesPackage.MIXING_EDGE_LABEL_VALUE__MIXING_RATE, EdgesPackage.Literals.MIXING_EDGE_LABEL_VALUE__MIXING_RATE, newMixingRate);
 	}
 
 	/**
@@ -149,27 +136,11 @@ public class MixingEdgeLabelValueImpl extends LabelValueImpl implements MixingEd
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EdgesPackage.MIXING_EDGE_LABEL_VALUE__MIXING_RATE:
-				return mixingRate != MIXING_RATE_EDEFAULT;
+				return getMixingRate() != MIXING_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (mixingRate: "); //$NON-NLS-1$
-		result.append(mixingRate);
-		result.append(')');
-		return result.toString();
-	}
-	
 	/**
 	 * for reset set the rate to the default rate.
 	 */
