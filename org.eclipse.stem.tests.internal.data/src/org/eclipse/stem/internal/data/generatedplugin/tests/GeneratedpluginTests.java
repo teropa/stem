@@ -19,7 +19,6 @@ import junit.textui.TestRunner;
 /**
  * <!-- begin-user-doc --> A test suite for the '<em><b>generatedplugin</b></em>
  * ' package. <!-- end-user-doc -->
- * 
  * @generated
  */
 @SuppressWarnings("all")
@@ -27,7 +26,6 @@ public class GeneratedpluginTests extends TestSuite {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -36,7 +34,6 @@ public class GeneratedpluginTests extends TestSuite {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static Test suite() {
@@ -46,7 +43,6 @@ public class GeneratedpluginTests extends TestSuite {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public GeneratedpluginTests(String name) {

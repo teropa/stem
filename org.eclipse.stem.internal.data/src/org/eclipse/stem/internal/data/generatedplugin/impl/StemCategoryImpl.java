@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -27,22 +28,16 @@ import org.eclipse.stem.internal.data.generatedplugin.StemCategory;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl#getId
- * <em>Id</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl#getParentId
- * <em>Parent Id</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl#getParentId <em>Parent Id</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 @SuppressWarnings("all")
-public class StemCategoryImpl extends EObjectImpl implements StemCategory {
+public class StemCategoryImpl extends CDOObjectImpl implements StemCategory {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,19 +49,8 @@ public class StemCategoryImpl extends EObjectImpl implements StemCategory {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -74,19 +58,8 @@ public class StemCategoryImpl extends EObjectImpl implements StemCategory {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getParentId() <em>Parent Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getParentId() <em>Parent Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getParentId()
 	 * @generated
 	 * @ordered
@@ -94,18 +67,7 @@ public class StemCategoryImpl extends EObjectImpl implements StemCategory {
 	protected static final String PARENT_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getParentId() <em>Parent Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getParentId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String parentId = PARENT_ID_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected StemCategoryImpl() {
@@ -114,7 +76,6 @@ public class StemCategoryImpl extends EObjectImpl implements StemCategory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -123,148 +84,133 @@ public class StemCategoryImpl extends EObjectImpl implements StemCategory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getId() {
-		return id;
+		return (String)eDynamicGet(GeneratedpluginPackage.STEM_CATEGORY__ID, GeneratedpluginPackage.Literals.STEM_CATEGORY__ID, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					GeneratedpluginPackage.STEM_CATEGORY__ID, oldId, id));
+		eDynamicSet(GeneratedpluginPackage.STEM_CATEGORY__ID, GeneratedpluginPackage.Literals.STEM_CATEGORY__ID, newId);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return (String)eDynamicGet(GeneratedpluginPackage.STEM_CATEGORY__NAME, GeneratedpluginPackage.Literals.STEM_CATEGORY__NAME, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					GeneratedpluginPackage.STEM_CATEGORY__NAME, oldName, name));
+		eDynamicSet(GeneratedpluginPackage.STEM_CATEGORY__NAME, GeneratedpluginPackage.Literals.STEM_CATEGORY__NAME, newName);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getParentId() {
-		return parentId;
+		return (String)eDynamicGet(GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID, GeneratedpluginPackage.Literals.STEM_CATEGORY__PARENT_ID, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setParentId(String newParentId) {
-		String oldParentId = parentId;
-		parentId = newParentId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID,
-					oldParentId, parentId));
+		eDynamicSet(GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID, GeneratedpluginPackage.Literals.STEM_CATEGORY__PARENT_ID, newParentId);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GeneratedpluginPackage.STEM_CATEGORY__ID:
-			return getId();
-		case GeneratedpluginPackage.STEM_CATEGORY__NAME:
-			return getName();
-		case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
-			return getParentId();
+			case GeneratedpluginPackage.STEM_CATEGORY__ID:
+				return getId();
+			case GeneratedpluginPackage.STEM_CATEGORY__NAME:
+				return getName();
+			case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
+				return getParentId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GeneratedpluginPackage.STEM_CATEGORY__ID:
-			setId((String) newValue);
-			return;
-		case GeneratedpluginPackage.STEM_CATEGORY__NAME:
-			setName((String) newValue);
-			return;
-		case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
-			setParentId((String) newValue);
-			return;
+			case GeneratedpluginPackage.STEM_CATEGORY__ID:
+				setId((String)newValue);
+				return;
+			case GeneratedpluginPackage.STEM_CATEGORY__NAME:
+				setName((String)newValue);
+				return;
+			case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
+				setParentId((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GeneratedpluginPackage.STEM_CATEGORY__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case GeneratedpluginPackage.STEM_CATEGORY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
-			setParentId(PARENT_ID_EDEFAULT);
-			return;
+			case GeneratedpluginPackage.STEM_CATEGORY__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case GeneratedpluginPackage.STEM_CATEGORY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
+				setParentId(PARENT_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GeneratedpluginPackage.STEM_CATEGORY__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case GeneratedpluginPackage.STEM_CATEGORY__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
-			return PARENT_ID_EDEFAULT == null ? parentId != null
-					: !PARENT_ID_EDEFAULT.equals(parentId);
+			case GeneratedpluginPackage.STEM_CATEGORY__ID:
+				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
+			case GeneratedpluginPackage.STEM_CATEGORY__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case GeneratedpluginPackage.STEM_CATEGORY__PARENT_ID:
+				return PARENT_ID_EDEFAULT == null ? getParentId() != null : !PARENT_ID_EDEFAULT.equals(getParentId());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -281,11 +227,11 @@ public class StemCategoryImpl extends EObjectImpl implements StemCategory {
 
 		StringBuffer result = new StringBuffer();
 		result.append("id: ");
-		result.append(id);
+		result.append(getId());
 		result.append(", name: ");
-		result.append(name);
+		result.append(getName());
 		result.append(", parentId: ");
-		result.append(parentId);
+		result.append(getParentId());
 		return result.toString();
 	}
 

@@ -26,41 +26,39 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginFactory
  * @model kind="package"
  * @generated
  */
 public interface GeneratedpluginPackage extends EPackage {
 	/**
-	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package name.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNAME = "generatedplugin";
 
 	/**
-	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package namespace URI.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNS_URI = "http://data.internal.stem.eclipse.org/generatedplugin";
 
 	/**
-	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package namespace name.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNS_PREFIX = "generatedplugin";
 
 	/**
-	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
+	 * The singleton instance of the package.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	GeneratedpluginPackage eINSTANCE = org.eclipse.stem.internal.data.generatedplugin.impl.GeneratedpluginPackageImpl
-			.init();
+	GeneratedpluginPackage eINSTANCE = org.eclipse.stem.internal.data.generatedplugin.impl.GeneratedpluginPackageImpl.init();
 
 	/**
 	 * The meta object id for the '
@@ -75,9 +73,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	int DUBLIN_CORE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Bibliographic Citation</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>Bibliographic Citation</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -275,17 +272,14 @@ public interface GeneratedpluginPackage extends EPackage {
 	/**
 	 * The number of structural features of the '<em>Dublin Core</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int DUBLIN_CORE_FEATURE_COUNT = 22;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl
-	 * <em>Extension</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The meta object id for the '{@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl <em>Extension</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl
 	 * @see org.eclipse.stem.internal.data.generatedplugin.impl.GeneratedpluginPackageImpl#getExtension()
 	 * @generated
@@ -293,18 +287,16 @@ public interface GeneratedpluginPackage extends EPackage {
 	int EXTENSION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Categories</b></em>' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int EXTENSION__CATEGORIES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Dublin Cores</b></em>' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>Dublin Cores</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -329,10 +321,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	int EXTENSION_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.impl.PluginImpl
-	 * <em>Plugin</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The meta object id for the '{@link org.eclipse.stem.internal.data.generatedplugin.impl.PluginImpl <em>Plugin</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.stem.internal.data.generatedplugin.impl.PluginImpl
 	 * @see org.eclipse.stem.internal.data.generatedplugin.impl.GeneratedpluginPackageImpl#getPlugin()
 	 * @generated
@@ -340,9 +330,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	int PLUGIN = 2;
 
 	/**
-	 * The feature id for the '<em><b>Extensionelement</b></em>' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>Extensionelement</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -399,17 +388,14 @@ public interface GeneratedpluginPackage extends EPackage {
 	/**
 	 * The number of structural features of the '<em>Stem Category</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int STEM_CATEGORY_FEATURE_COUNT = 3;
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore
-	 * <em>Dublin Core</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for class '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore <em>Dublin Core</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Dublin Core</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore
 	 * @generated
@@ -417,13 +403,10 @@ public interface GeneratedpluginPackage extends EPackage {
 	EClass getDublinCore();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getBibliographicCitation
-	 * <em>Bibliographic Citation</em>}'. <!-- begin-user-doc --> <!--
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getBibliographicCitation <em>Bibliographic Citation</em>}'.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '
-	 *         <em>Bibliographic Citation</em>'.
+	 * @return the meta object for the attribute '<em>Bibliographic Citation</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getBibliographicCitation()
 	 * @see #getDublinCore()
 	 * @generated
@@ -431,10 +414,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_BibliographicCitation();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCategoryId
-	 * <em>Category Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCategoryId <em>Category Id</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Category Id</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCategoryId()
 	 * @see #getDublinCore()
@@ -443,10 +424,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_CategoryId();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getContributor
-	 * <em>Contributor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getContributor <em>Contributor</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Contributor</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getContributor()
 	 * @see #getDublinCore()
@@ -455,10 +434,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Contributor();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCoverage
-	 * <em>Coverage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCoverage <em>Coverage</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Coverage</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCoverage()
 	 * @see #getDublinCore()
@@ -467,10 +444,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Coverage();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreated
-	 * <em>Created</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreated <em>Created</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Created</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreated()
 	 * @see #getDublinCore()
@@ -479,10 +454,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Created();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreator
-	 * <em>Creator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreator <em>Creator</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Creator</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreator()
 	 * @see #getDublinCore()
@@ -491,10 +464,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Creator();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDate
-	 * <em>Date</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDate <em>Date</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Date</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDate()
 	 * @see #getDublinCore()
@@ -503,10 +474,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Date();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDescription
-	 * <em>Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDescription()
 	 * @see #getDublinCore()
@@ -515,10 +484,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Description();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getFormat
-	 * <em>Format</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Format</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getFormat()
 	 * @see #getDublinCore()
@@ -527,10 +494,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Format();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getIdentifier
-	 * <em>Identifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Identifier</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getIdentifier()
 	 * @see #getDublinCore()
@@ -539,10 +504,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Identifier();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLanguage
-	 * <em>Language</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Language</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLanguage()
 	 * @see #getDublinCore()
@@ -551,10 +514,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Language();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLicense
-	 * <em>License</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLicense <em>License</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>License</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLicense()
 	 * @see #getDublinCore()
@@ -563,10 +524,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_License();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getPublisher
-	 * <em>Publisher</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getPublisher <em>Publisher</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Publisher</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getPublisher()
 	 * @see #getDublinCore()
@@ -575,10 +534,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Publisher();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRelation
-	 * <em>Relation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRelation <em>Relation</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Relation</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRelation()
 	 * @see #getDublinCore()
@@ -587,10 +544,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Relation();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRequires
-	 * <em>Requires</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRequires <em>Requires</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Requires</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRequires()
 	 * @see #getDublinCore()
@@ -599,10 +554,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Requires();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRights
-	 * <em>Rights</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRights <em>Rights</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Rights</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRights()
 	 * @see #getDublinCore()
@@ -611,10 +564,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Rights();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSource
-	 * <em>Source</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Source</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSource()
 	 * @see #getDublinCore()
@@ -623,10 +574,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Source();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSpatial
-	 * <em>Spatial</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSpatial <em>Spatial</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Spatial</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSpatial()
 	 * @see #getDublinCore()
@@ -635,10 +584,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Spatial();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSubject
-	 * <em>Subject</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSubject <em>Subject</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Subject</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSubject()
 	 * @see #getDublinCore()
@@ -647,10 +594,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Subject();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getTitle
-	 * <em>Title</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Title</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getTitle()
 	 * @see #getDublinCore()
@@ -659,10 +604,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Title();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getType
-	 * <em>Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getType()
 	 * @see #getDublinCore()
@@ -671,10 +614,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Type();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getValid
-	 * <em>Valid</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getValid <em>Valid</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Valid</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.DublinCore#getValid()
 	 * @see #getDublinCore()
@@ -683,10 +624,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getDublinCore_Valid();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.Extension
-	 * <em>Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for class '{@link org.eclipse.stem.internal.data.generatedplugin.Extension <em>Extension</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Extension</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.Extension
 	 * @generated
@@ -694,12 +633,9 @@ public interface GeneratedpluginPackage extends EPackage {
 	EClass getExtension();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.Extension#getCategories
-	 * <em>Categories</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '
-	 *         <em>Categories</em>'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.internal.data.generatedplugin.Extension#getCategories <em>Categories</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.Extension#getCategories()
 	 * @see #getExtension()
 	 * @generated
@@ -707,12 +643,9 @@ public interface GeneratedpluginPackage extends EPackage {
 	EReference getExtension_Categories();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.Extension#getDublinCores
-	 * <em>Dublin Cores</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '
-	 *         <em>Dublin Cores</em>'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.stem.internal.data.generatedplugin.Extension#getDublinCores <em>Dublin Cores</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dublin Cores</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.Extension#getDublinCores()
 	 * @see #getExtension()
 	 * @generated
@@ -720,10 +653,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EReference getExtension_DublinCores();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.Extension#getPoint
-	 * <em>Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.Extension#getPoint <em>Point</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Point</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.Extension#getPoint()
 	 * @see #getExtension()
@@ -732,10 +663,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getExtension_Point();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.Plugin
-	 * <em>Plugin</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for class '{@link org.eclipse.stem.internal.data.generatedplugin.Plugin <em>Plugin</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Plugin</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.Plugin
 	 * @generated
@@ -757,10 +686,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EReference getPlugin_Extensionelement();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory
-	 * <em>Stem Category</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for class '{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory <em>Stem Category</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Stem Category</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.StemCategory
 	 * @generated
@@ -768,10 +695,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EClass getStemCategory();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getId
-	 * <em>Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Id</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.StemCategory#getId()
 	 * @see #getStemCategory()
@@ -780,10 +705,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getStemCategory_Id();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getName
-	 * <em>Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.StemCategory#getName()
 	 * @see #getStemCategory()
@@ -792,10 +715,8 @@ public interface GeneratedpluginPackage extends EPackage {
 	EAttribute getStemCategory_Name();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getParentId
-	 * <em>Parent Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getParentId <em>Parent Id</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Parent Id</em>'.
 	 * @see org.eclipse.stem.internal.data.generatedplugin.StemCategory#getParentId()
 	 * @see #getStemCategory()
@@ -822,16 +743,13 @@ public interface GeneratedpluginPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.stem.internal.data.generatedplugin.impl.DublinCoreImpl
-		 * <em>Dublin Core</em>}' class. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '{@link org.eclipse.stem.internal.data.generatedplugin.impl.DublinCoreImpl <em>Dublin Core</em>}' class.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @see org.eclipse.stem.internal.data.generatedplugin.impl.DublinCoreImpl
 		 * @see org.eclipse.stem.internal.data.generatedplugin.impl.GeneratedpluginPackageImpl#getDublinCore()
 		 * @generated
@@ -845,177 +763,151 @@ public interface GeneratedpluginPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute DUBLIN_CORE__BIBLIOGRAPHIC_CITATION = eINSTANCE
-				.getDublinCore_BibliographicCitation();
+		EAttribute DUBLIN_CORE__BIBLIOGRAPHIC_CITATION = eINSTANCE.getDublinCore_BibliographicCitation();
 
 		/**
-		 * The meta object literal for the '<em><b>Category Id</b></em>'
-		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Category Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DUBLIN_CORE__CATEGORY_ID = eINSTANCE
-				.getDublinCore_CategoryId();
+		EAttribute DUBLIN_CORE__CATEGORY_ID = eINSTANCE.getDublinCore_CategoryId();
 
 		/**
-		 * The meta object literal for the '<em><b>Contributor</b></em>'
-		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Contributor</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DUBLIN_CORE__CONTRIBUTOR = eINSTANCE
-				.getDublinCore_Contributor();
+		EAttribute DUBLIN_CORE__CONTRIBUTOR = eINSTANCE.getDublinCore_Contributor();
 
 		/**
-		 * The meta object literal for the '<em><b>Coverage</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Coverage</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__COVERAGE = eINSTANCE.getDublinCore_Coverage();
 
 		/**
-		 * The meta object literal for the '<em><b>Created</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__CREATED = eINSTANCE.getDublinCore_Created();
 
 		/**
-		 * The meta object literal for the '<em><b>Creator</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Creator</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__CREATOR = eINSTANCE.getDublinCore_Creator();
 
 		/**
-		 * The meta object literal for the '<em><b>Date</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__DATE = eINSTANCE.getDublinCore_Date();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>'
-		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DUBLIN_CORE__DESCRIPTION = eINSTANCE
-				.getDublinCore_Description();
+		EAttribute DUBLIN_CORE__DESCRIPTION = eINSTANCE.getDublinCore_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__FORMAT = eINSTANCE.getDublinCore_Format();
 
 		/**
-		 * The meta object literal for the '<em><b>Identifier</b></em>'
-		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DUBLIN_CORE__IDENTIFIER = eINSTANCE
-				.getDublinCore_Identifier();
+		EAttribute DUBLIN_CORE__IDENTIFIER = eINSTANCE.getDublinCore_Identifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Language</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__LANGUAGE = eINSTANCE.getDublinCore_Language();
 
 		/**
-		 * The meta object literal for the '<em><b>License</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>License</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__LICENSE = eINSTANCE.getDublinCore_License();
 
 		/**
-		 * The meta object literal for the '<em><b>Publisher</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Publisher</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__PUBLISHER = eINSTANCE.getDublinCore_Publisher();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Relation</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__RELATION = eINSTANCE.getDublinCore_Relation();
 
 		/**
-		 * The meta object literal for the '<em><b>Requires</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Requires</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__REQUIRES = eINSTANCE.getDublinCore_Requires();
 
 		/**
-		 * The meta object literal for the '<em><b>Rights</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Rights</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__RIGHTS = eINSTANCE.getDublinCore_Rights();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__SOURCE = eINSTANCE.getDublinCore_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Spatial</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Spatial</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__SPATIAL = eINSTANCE.getDublinCore_Spatial();
 
 		/**
-		 * The meta object literal for the '<em><b>Subject</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Subject</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__SUBJECT = eINSTANCE.getDublinCore_Subject();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__TITLE = eINSTANCE.getDublinCore_Title();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__TYPE = eINSTANCE.getDublinCore_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Valid</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DUBLIN_CORE__VALID = eINSTANCE.getDublinCore_Valid();
@@ -1033,28 +925,24 @@ public interface GeneratedpluginPackage extends EPackage {
 		EClass EXTENSION = eINSTANCE.getExtension();
 
 		/**
-		 * The meta object literal for the '<em><b>Categories</b></em>'
-		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @generated
 		 */
 		EReference EXTENSION__CATEGORIES = eINSTANCE.getExtension_Categories();
 
 		/**
-		 * The meta object literal for the '<em><b>Dublin Cores</b></em>'
-		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Dublin Cores</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @generated
 		 */
-		EReference EXTENSION__DUBLIN_CORES = eINSTANCE
-				.getExtension_DublinCores();
+		EReference EXTENSION__DUBLIN_CORES = eINSTANCE.getExtension_DublinCores();
 
 		/**
-		 * The meta object literal for the '<em><b>Point</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Point</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute EXTENSION__POINT = eINSTANCE.getExtension_Point();
@@ -1072,21 +960,17 @@ public interface GeneratedpluginPackage extends EPackage {
 		EClass PLUGIN = eINSTANCE.getPlugin();
 
 		/**
-		 * The meta object literal for the '<em><b>Extensionelement</b></em>'
-		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Extensionelement</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @generated
 		 */
-		EReference PLUGIN__EXTENSIONELEMENT = eINSTANCE
-				.getPlugin_Extensionelement();
+		EReference PLUGIN__EXTENSIONELEMENT = eINSTANCE.getPlugin_Extensionelement();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl
-		 * <em>Stem Category</em>}' class. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '{@link org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl <em>Stem Category</em>}' class.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @see org.eclipse.stem.internal.data.generatedplugin.impl.StemCategoryImpl
 		 * @see org.eclipse.stem.internal.data.generatedplugin.impl.GeneratedpluginPackageImpl#getStemCategory()
 		 * @generated
@@ -1094,29 +978,25 @@ public interface GeneratedpluginPackage extends EPackage {
 		EClass STEM_CATEGORY = eINSTANCE.getStemCategory();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute STEM_CATEGORY__ID = eINSTANCE.getStemCategory_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute STEM_CATEGORY__NAME = eINSTANCE.getStemCategory_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent Id</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Parent Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STEM_CATEGORY__PARENT_ID = eINSTANCE
-				.getStemCategory_ParentId();
+		EAttribute STEM_CATEGORY__PARENT_ID = eINSTANCE.getStemCategory_ParentId();
 
 	}
 

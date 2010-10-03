@@ -24,15 +24,14 @@ import org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginPackage;
 /**
  * This class contains helper methods to serialize and deserialize XML documents
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public class GeneratedpluginXMLProcessor extends XMLProcessor {
 
 	/**
-	 * Public constructor to instantiate the helper. <!-- begin-user-doc -->
+	 * Public constructor to instantiate the helper.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public GeneratedpluginXMLProcessor() {
@@ -41,20 +40,17 @@ public class GeneratedpluginXMLProcessor extends XMLProcessor {
 	}
 
 	/**
-	 * Register for "*" and "xml" file extensions the
-	 * GeneratedpluginResourceFactoryImpl factory. <!-- begin-user-doc --> <!--
+	 * Register for "*" and "xml" file extensions the GeneratedpluginResourceFactoryImpl factory.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected Map<String, Resource.Factory> getRegistrations() {
 		if (registrations == null) {
 			super.getRegistrations();
-			registrations.put(XML_EXTENSION,
-					new GeneratedpluginResourceFactoryImpl());
-			registrations.put(STAR_EXTENSION,
-					new GeneratedpluginResourceFactoryImpl());
+			registrations.put(XML_EXTENSION, new GeneratedpluginResourceFactoryImpl());
+			registrations.put(STAR_EXTENSION, new GeneratedpluginResourceFactoryImpl());
 		}
 		return registrations;
 	}

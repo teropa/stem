@@ -18,17 +18,15 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 /**
  * <!-- begin-user-doc --> The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.stem.internal.data.generatedplugin.util.GeneratedpluginResourceFactoryImpl
  * @generated
  */
 public class GeneratedpluginResourceImpl extends XMLResourceImpl {
 	/**
-	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
+	 * Creates an instance of the resource.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param uri
-	 *            the URI of the new resource.
+	 * @param uri the URI of the new resource.
 	 * @generated
 	 */
 	public GeneratedpluginResourceImpl(URI uri) {

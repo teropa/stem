@@ -11,5 +11,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.internal.data;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport,
- org.eclipse.stem.core
+ org.eclipse.stem.core,
+ org.eclipse.emf.cdo
 Bundle-ActivationPolicy: lazy

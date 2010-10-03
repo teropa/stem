@@ -21,23 +21,21 @@ import org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginFactory;
 /**
  * <!-- begin-user-doc --> A test case for the model object '
  * <em><b>Dublin Core</b></em>'. <!-- end-user-doc -->
- * 
  * @generated
  */
 @SuppressWarnings("all")
 public class DublinCoreTest extends TestCase {
 
 	/**
-	 * The fixture for this Dublin Core test case. <!-- begin-user-doc --> <!--
+	 * The fixture for this Dublin Core test case.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected DublinCore fixture = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -55,9 +53,9 @@ public class DublinCoreTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Dublin Core test case. <!-- begin-user-doc -->
+	 * Sets the fixture for this Dublin Core test case.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(DublinCore fixture) {
@@ -65,9 +63,9 @@ public class DublinCoreTest extends TestCase {
 	}
 
 	/**
-	 * Returns the fixture for this Dublin Core test case. <!-- begin-user-doc
+	 * Returns the fixture for this Dublin Core test case.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected DublinCore getFixture() {
@@ -76,7 +74,6 @@ public class DublinCoreTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -87,7 +84,6 @@ public class DublinCoreTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

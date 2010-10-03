@@ -11,98 +11,55 @@ package org.eclipse.stem.internal.data.generatedplugin;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Dublin Core</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getBibliographicCitation
- * <em>Bibliographic Citation</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCategoryId
- * <em>Category Id</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getContributor
- * <em>Contributor</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCoverage
- * <em>Coverage</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreated
- * <em>Created</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreator
- * <em>Creator</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDate
- * <em>Date</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDescription
- * <em>Description</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getFormat
- * <em>Format</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getIdentifier
- * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLanguage
- * <em>Language</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLicense
- * <em>License</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getPublisher
- * <em>Publisher</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRelation
- * <em>Relation</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRequires
- * <em>Requires</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRights
- * <em>Rights</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSource
- * <em>Source</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSpatial
- * <em>Spatial</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSubject
- * <em>Subject</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getTitle
- * <em>Title</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getType
- * <em>Type</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getValid
- * <em>Valid</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getBibliographicCitation <em>Bibliographic Citation</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCategoryId <em>Category Id</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getContributor <em>Contributor</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCreator <em>Creator</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDate <em>Date</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getLicense <em>License</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getPublisher <em>Publisher</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRelation <em>Relation</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRequires <em>Requires</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getRights <em>Rights</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSpatial <em>Spatial</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getValid <em>Valid</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginPackage#getDublinCore()
  * @model extendedMetaData="name='dublin_core' kind='empty'"
+ * @extends CDOObject
  * @generated
  */
-public interface DublinCore extends EObject {
+public interface DublinCore extends CDOObject {
 	/**
-	 * Returns the value of the '<em><b>Bibliographic Citation</b></em>'
-	 * attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bibliographic Citation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bibliographic Citation</em>' attribute isn't
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Bibliographic Citation</em>' attribute.
 	 * @see #setBibliographicCitation(String)
 	 * @see org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginPackage#getDublinCore_BibliographicCitation()
@@ -113,14 +70,10 @@ public interface DublinCore extends EObject {
 	String getBibliographicCitation();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getBibliographicCitation
-	 * <em>Bibliographic Citation</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getBibliographicCitation <em>Bibliographic Citation</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Bibliographic Citation</em>'
-	 *            attribute.
+	 * @param value the new value of the '<em>Bibliographic Citation</em>' attribute.
 	 * @see #getBibliographicCitation()
 	 * @generated
 	 */
@@ -145,13 +98,10 @@ public interface DublinCore extends EObject {
 	String getCategoryId();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCategoryId
-	 * <em>Category Id</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getCategoryId <em>Category Id</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Category Id</em>' attribute.
+	 * @param value the new value of the '<em>Category Id</em>' attribute.
 	 * @see #getCategoryId()
 	 * @generated
 	 */
@@ -176,13 +126,10 @@ public interface DublinCore extends EObject {
 	String getContributor();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getContributor
-	 * <em>Contributor</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getContributor <em>Contributor</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Contributor</em>' attribute.
+	 * @param value the new value of the '<em>Contributor</em>' attribute.
 	 * @see #getContributor()
 	 * @generated
 	 */
@@ -300,12 +247,9 @@ public interface DublinCore extends EObject {
 	String getDate();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDate
-	 * <em>Date</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Date</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDate <em>Date</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date</em>' attribute.
 	 * @see #getDate()
 	 * @generated
 	 */
@@ -330,13 +274,10 @@ public interface DublinCore extends EObject {
 	String getDescription();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDescription
-	 * <em>Description</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Description</em>' attribute.
+	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
 	 */
@@ -392,13 +333,10 @@ public interface DublinCore extends EObject {
 	String getIdentifier();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getIdentifier
-	 * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getIdentifier <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Identifier</em>' attribute.
+	 * @param value the new value of the '<em>Identifier</em>' attribute.
 	 * @see #getIdentifier()
 	 * @generated
 	 */
@@ -702,12 +640,9 @@ public interface DublinCore extends EObject {
 	String getTitle();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getTitle
-	 * <em>Title</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Title</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getTitle <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' attribute.
 	 * @see #getTitle()
 	 * @generated
 	 */
@@ -732,12 +667,9 @@ public interface DublinCore extends EObject {
 	String getType();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getType
-	 * <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Type</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
 	 * @see #getType()
 	 * @generated
 	 */
@@ -762,12 +694,9 @@ public interface DublinCore extends EObject {
 	String getValid();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getValid
-	 * <em>Valid</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Valid</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.DublinCore#getValid <em>Valid</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Valid</em>' attribute.
 	 * @see #getValid()
 	 * @generated
 	 */

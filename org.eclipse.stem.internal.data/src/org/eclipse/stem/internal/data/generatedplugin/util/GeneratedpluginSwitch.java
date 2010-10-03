@@ -25,23 +25,22 @@ import org.eclipse.stem.internal.data.generatedplugin.*;
  * starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the
  * result of the switch. <!-- end-user-doc -->
- * 
  * @see org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginPackage
  * @generated
  */
 @SuppressWarnings("all")
 public class GeneratedpluginSwitch<T> {
 	/**
-	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached model package
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected static GeneratedpluginPackage modelPackage;
 
 	/**
-	 * Creates an instance of the switch. <!-- begin-user-doc --> <!--
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public GeneratedpluginSwitch() {
@@ -51,12 +50,10 @@ public class GeneratedpluginSwitch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns
-	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code>
-	 *         call.
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	public T doSwitch(EObject theEObject) {
@@ -64,78 +61,69 @@ public class GeneratedpluginSwitch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns
-	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code>
-	 *         call.
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	protected T doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
-		} else {
+		}
+		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(
-					eSuperTypes.get(0), theEObject);
+			return
+				eSuperTypes.isEmpty() ?
+					defaultCase(theEObject) :
+					doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns
-	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code>
-	 *         call.
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case GeneratedpluginPackage.DUBLIN_CORE: {
-			DublinCore dublinCore = (DublinCore) theEObject;
-			T result = caseDublinCore(dublinCore);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case GeneratedpluginPackage.EXTENSION: {
-			Extension extension = (Extension) theEObject;
-			T result = caseExtension(extension);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case GeneratedpluginPackage.PLUGIN: {
-			Plugin plugin = (Plugin) theEObject;
-			T result = casePlugin(plugin);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case GeneratedpluginPackage.STEM_CATEGORY: {
-			StemCategory stemCategory = (StemCategory) theEObject;
-			T result = caseStemCategory(stemCategory);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case GeneratedpluginPackage.DUBLIN_CORE: {
+				DublinCore dublinCore = (DublinCore)theEObject;
+				T result = caseDublinCore(dublinCore);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GeneratedpluginPackage.EXTENSION: {
+				Extension extension = (Extension)theEObject;
+				T result = caseExtension(extension);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GeneratedpluginPackage.PLUGIN: {
+				Plugin plugin = (Plugin)theEObject;
+				T result = casePlugin(plugin);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GeneratedpluginPackage.STEM_CATEGORY: {
+				StemCategory stemCategory = (StemCategory)theEObject;
+				T result = caseStemCategory(stemCategory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Dublin Core</em>'. <!-- begin-user-doc --> This implementation
+	 * Returns the result of interpreting the object as an instance of '<em>Dublin Core</em>'.
+	 * <!-- begin-user-doc --> This implementation
 	 * returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Dublin Core</em>'.
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dublin Core</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -144,15 +132,12 @@ public class GeneratedpluginSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Extension</em>'. <!-- begin-user-doc --> This implementation returns
+	 * Returns the result of interpreting the object as an instance of '<em>Extension</em>'.
+	 * <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Extension</em>'.
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extension</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -161,15 +146,12 @@ public class GeneratedpluginSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Plugin</em>'. <!-- begin-user-doc --> This implementation returns
+	 * Returns the result of interpreting the object as an instance of '<em>Plugin</em>'.
+	 * <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Plugin</em>'.
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plugin</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -178,15 +160,12 @@ public class GeneratedpluginSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Stem Category</em>'. <!-- begin-user-doc --> This implementation
+	 * Returns the result of interpreting the object as an instance of '<em>Stem Category</em>'.
+	 * <!-- begin-user-doc --> This implementation
 	 * returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Stem Category</em>'.
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stem Category</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -195,15 +174,12 @@ public class GeneratedpluginSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch, but this is
 	 * the last case anyway. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>EObject</em>'.
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

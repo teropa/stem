@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.stem.internal.data.generatedplugin.DublinCore;
 import org.eclipse.stem.internal.data.generatedplugin.Extension;
 import org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginPackage;
@@ -38,46 +39,19 @@ import org.eclipse.stem.internal.data.generatedplugin.StemCategory;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl#getCategories
- * <em>Categories</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl#getDublinCores
- * <em>Dublin Cores</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl#getPoint
- * <em>Point</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl#getDublinCores <em>Dublin Cores</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.impl.ExtensionImpl#getPoint <em>Point</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 @SuppressWarnings("all")
-public class ExtensionImpl extends EObjectImpl implements Extension {
-	/**
-	 * The cached value of the '{@link #getCategories() <em>Categories</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getCategories()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<StemCategory> categories;
-
-	/**
-	 * The cached value of the '{@link #getDublinCores() <em>Dublin Cores</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getDublinCores()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DublinCore> dublinCores;
-
+public class ExtensionImpl extends CDOObjectImpl implements Extension {
 	/**
 	 * The default value of the '{@link #getPoint() <em>Point</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPoint()
 	 * @generated
 	 * @ordered
@@ -85,18 +59,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	protected static final String POINT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPoint() <em>Point</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getPoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected String point = POINT_EDEFAULT;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ExtensionImpl() {
@@ -105,7 +68,6 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,154 +76,138 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<StemCategory> getCategories() {
-		if (categories == null) {
-			categories = new EObjectContainmentEList<StemCategory>(
-					StemCategory.class, this,
-					GeneratedpluginPackage.EXTENSION__CATEGORIES);
-		}
-		return categories;
+		return (EList<StemCategory>)eDynamicGet(GeneratedpluginPackage.EXTENSION__CATEGORIES, GeneratedpluginPackage.Literals.EXTENSION__CATEGORIES, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<DublinCore> getDublinCores() {
-		if (dublinCores == null) {
-			dublinCores = new EObjectContainmentEList<DublinCore>(
-					DublinCore.class, this,
-					GeneratedpluginPackage.EXTENSION__DUBLIN_CORES);
-		}
-		return dublinCores;
+		return (EList<DublinCore>)eDynamicGet(GeneratedpluginPackage.EXTENSION__DUBLIN_CORES, GeneratedpluginPackage.Literals.EXTENSION__DUBLIN_CORES, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getPoint() {
-		return point;
+		return (String)eDynamicGet(GeneratedpluginPackage.EXTENSION__POINT, GeneratedpluginPackage.Literals.EXTENSION__POINT, true, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPoint(String newPoint) {
-		String oldPoint = point;
-		point = newPoint;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					GeneratedpluginPackage.EXTENSION__POINT, oldPoint, point));
+		eDynamicSet(GeneratedpluginPackage.EXTENSION__POINT, GeneratedpluginPackage.Literals.EXTENSION__POINT, newPoint);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GeneratedpluginPackage.EXTENSION__CATEGORIES:
-			return ((InternalEList<?>) getCategories()).basicRemove(otherEnd,
-					msgs);
-		case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
-			return ((InternalEList<?>) getDublinCores()).basicRemove(otherEnd,
-					msgs);
+			case GeneratedpluginPackage.EXTENSION__CATEGORIES:
+				return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
+			case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
+				return ((InternalEList<?>)getDublinCores()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GeneratedpluginPackage.EXTENSION__CATEGORIES:
-			return getCategories();
-		case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
-			return getDublinCores();
-		case GeneratedpluginPackage.EXTENSION__POINT:
-			return getPoint();
+			case GeneratedpluginPackage.EXTENSION__CATEGORIES:
+				return getCategories();
+			case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
+				return getDublinCores();
+			case GeneratedpluginPackage.EXTENSION__POINT:
+				return getPoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GeneratedpluginPackage.EXTENSION__CATEGORIES:
-			getCategories().clear();
-			getCategories().addAll(
-					(Collection<? extends StemCategory>) newValue);
-			return;
-		case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
-			getDublinCores().clear();
-			getDublinCores()
-					.addAll((Collection<? extends DublinCore>) newValue);
-			return;
-		case GeneratedpluginPackage.EXTENSION__POINT:
-			setPoint((String) newValue);
-			return;
+			case GeneratedpluginPackage.EXTENSION__CATEGORIES:
+				getCategories().clear();
+				getCategories().addAll((Collection<? extends StemCategory>)newValue);
+				return;
+			case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
+				getDublinCores().clear();
+				getDublinCores().addAll((Collection<? extends DublinCore>)newValue);
+				return;
+			case GeneratedpluginPackage.EXTENSION__POINT:
+				setPoint((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GeneratedpluginPackage.EXTENSION__CATEGORIES:
-			getCategories().clear();
-			return;
-		case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
-			getDublinCores().clear();
-			return;
-		case GeneratedpluginPackage.EXTENSION__POINT:
-			setPoint(POINT_EDEFAULT);
-			return;
+			case GeneratedpluginPackage.EXTENSION__CATEGORIES:
+				getCategories().clear();
+				return;
+			case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
+				getDublinCores().clear();
+				return;
+			case GeneratedpluginPackage.EXTENSION__POINT:
+				setPoint(POINT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GeneratedpluginPackage.EXTENSION__CATEGORIES:
-			return categories != null && !categories.isEmpty();
-		case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
-			return dublinCores != null && !dublinCores.isEmpty();
-		case GeneratedpluginPackage.EXTENSION__POINT:
-			return POINT_EDEFAULT == null ? point != null : !POINT_EDEFAULT
-					.equals(point);
+			case GeneratedpluginPackage.EXTENSION__CATEGORIES:
+				return !getCategories().isEmpty();
+			case GeneratedpluginPackage.EXTENSION__DUBLIN_CORES:
+				return !getDublinCores().isEmpty();
+			case GeneratedpluginPackage.EXTENSION__POINT:
+				return POINT_EDEFAULT == null ? getPoint() != null : !POINT_EDEFAULT.equals(getPoint());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -278,7 +224,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 		StringBuffer result = new StringBuffer();
 		result.append("point: ");
-		result.append(point);
+		result.append(getPoint());
 		return result.toString();
 	}
 

@@ -11,32 +11,28 @@ package org.eclipse.stem.internal.data.generatedplugin;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Stem Category</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getId
- * <em>Id</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getParentId
- * <em>Parent Id</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getParentId <em>Parent Id</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.stem.internal.data.generatedplugin.GeneratedpluginPackage#getStemCategory()
  * @model extendedMetaData="name='stem_category' kind='empty'"
+ * @extends CDOObject
  * @generated
  */
-public interface StemCategory extends EObject {
+public interface StemCategory extends CDOObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!--
 	 * begin-user-doc -->
@@ -56,12 +52,9 @@ public interface StemCategory extends EObject {
 	String getId();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getId
-	 * <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Id</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
 	 */
@@ -86,12 +79,9 @@ public interface StemCategory extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getName
-	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.stem.internal.data.generatedplugin.StemCategory#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */

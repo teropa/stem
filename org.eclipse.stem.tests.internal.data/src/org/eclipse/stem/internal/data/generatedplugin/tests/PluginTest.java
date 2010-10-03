@@ -30,23 +30,21 @@ import org.eclipse.stem.internal.data.generatedplugin.util.GeneratedpluginResour
 /**
  * <!-- begin-user-doc --> A test case for the model object '
  * <em><b>Plugin</b></em>'. <!-- end-user-doc -->
- * 
  * @generated
  */
 @SuppressWarnings("all")
 public class PluginTest extends TestCase {
 
 	/**
-	 * The fixture for this Plugin test case. <!-- begin-user-doc --> <!--
+	 * The fixture for this Plugin test case.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected Plugin fixture = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -64,9 +62,9 @@ public class PluginTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Plugin test case. <!-- begin-user-doc --> <!--
+	 * Sets the fixture for this Plugin test case.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(Plugin fixture) {
@@ -74,9 +72,9 @@ public class PluginTest extends TestCase {
 	}
 
 	/**
-	 * Returns the fixture for this Plugin test case. <!-- begin-user-doc -->
+	 * Returns the fixture for this Plugin test case.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected Plugin getFixture() {
@@ -85,7 +83,6 @@ public class PluginTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -96,7 +93,6 @@ public class PluginTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
