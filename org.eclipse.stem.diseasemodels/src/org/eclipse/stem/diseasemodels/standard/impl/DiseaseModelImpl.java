@@ -87,14 +87,13 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = "human";
 
 	/**
-	 * The default value of the '{@link #getTimePeriod() <em>Time Period</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTimePeriod()
-	 * @generated NOT
+	 * @generated
 	 * @ordered
 	 */
-	protected static final long TIME_PERIOD_EDEFAULT = STEMTime.Units.DAY.getMilliseconds();
+	protected static final long TIME_PERIOD_EDEFAULT = 86400000L;
 
 	/**
 	 * The default value of the '{@link #getDiseaseName() <em>Disease Name</em>}' attribute.

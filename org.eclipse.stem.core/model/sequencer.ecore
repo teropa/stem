@@ -27,6 +27,7 @@
         defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SequentialSequencer" eSuperTypes="#//Sequencer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeIncrement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeIncrement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="86400000"/>
   </eClassifiers>
 </ecore:EPackage>

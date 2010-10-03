@@ -88,10 +88,13 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected SIRInoculatorImpl() {
 		super();
+		if (!eIsSet(StandardPackage.SIR_INOCULATOR__INFECTIOUS_COUNT)) {
+			setInfectiousCount(INFECTIOUS_COUNT_EDEFAULT);
+		}
 	}
 	
 	

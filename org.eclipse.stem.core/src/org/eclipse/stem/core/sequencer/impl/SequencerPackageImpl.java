@@ -398,7 +398,7 @@ public class SequencerPackageImpl extends EPackageImpl implements SequencerPacka
 		addEOperation(sequencerEClass, null, "reset", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(sequentialSequencerEClass, SequentialSequencer.class, "SequentialSequencer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getSequentialSequencer_TimeIncrement(), ecorePackage.getELong(), "timeIncrement", null, 0, 1, SequentialSequencer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSequentialSequencer_TimeIncrement(), ecorePackage.getELong(), "timeIncrement", "86400000", 0, 1, SequentialSequencer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		// Create resource
 		createResource(eNS_URI);

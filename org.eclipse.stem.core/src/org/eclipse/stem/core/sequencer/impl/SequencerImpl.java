@@ -48,16 +48,6 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 		Sequencer {
 
 	/**
-	 * The cached value of the '{@link #getStartTime() <em>Start Time</em>}'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getStartTime()
-	 * @generated NOT
-	 * @ordered
-	 */
-	protected STEMTime startTime = ModelFactory.eINSTANCE.createSTEMTime();
-
-	/**
 	 * The default value of the '{@link #getTimeDelta() <em>Time Delta</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTimeDelta()
@@ -117,6 +107,9 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 */
 	protected SequencerImpl() {
 		super();
+		if (!eDynamicIsSet(SequencerPackage.SEQUENCER__START_TIME)) {
+			setStartTime(ModelFactory.eINSTANCE.createSTEMTime());
+		}
 	}
 
 	/**
@@ -134,6 +127,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public STEMTime getStartTime() {
+		STEMTime startTime = (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__START_TIME, SequencerPackage.Literals.SEQUENCER__START_TIME, true, true);
 		return (STEMTime) EcoreUtil.copy(startTime);
 	}
 
@@ -484,7 +478,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 		final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy");
 
 		final StringBuffer result = new StringBuffer();
-		result.append(dateFormat.format(startTime.getTime()));
+		result.append(dateFormat.format(getStartTime().getTime()));
 
 		if (getEndTime() != null) {
 			result.append(" to ");

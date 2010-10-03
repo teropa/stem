@@ -32,14 +32,13 @@ import org.eclipse.stem.core.sequencer.SequentialSequencer;
 public class SequentialSequencerImpl extends SequencerImpl implements
 		SequentialSequencer {
 	/**
-	 * The default value of the '{@link #getTimeIncrement() <em>Time Increment</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTimeIncrement() <em>Time Increment</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTimeIncrement()
-	 * @generated NOT
+	 * @generated
 	 * @ordered
 	 */
-	protected static final long TIME_INCREMENT_EDEFAULT = STEMTime.Units.DAY.getMilliseconds();
+	protected static final long TIME_INCREMENT_EDEFAULT = 86400000L;
 
 	/**
 	 * This is an accumulator of the work increment that keeps account of the
