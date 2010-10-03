@@ -90,7 +90,11 @@ public class FiniteDifferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return super.getText(object);
+		URI labelValue = ((FiniteDifference)object).getURI();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_FiniteDifference_type") :
+			getString("_UI_FiniteDifference_type") + " " + label;
 	}
 
 	/**

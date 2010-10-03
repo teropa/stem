@@ -102,13 +102,22 @@ public interface FdPackage extends EPackage {
 	int FINITE_DIFFERENCE__DUBLIN_CORE = SolverPackage.SOLVER__DUBLIN_CORE;
 
 	/**
-	 * The feature id for the '<em><b>Decorators</b></em>' reference.
+	 * The feature id for the '<em><b>Decorators</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int FINITE_DIFFERENCE__DECORATORS = SolverPackage.SOLVER__DECORATORS;
+
+	/**
+	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINITE_DIFFERENCE__INITIALIZED = SolverPackage.SOLVER__INITIALIZED;
 
 	/**
 	 * The number of structural features of the '<em>Finite Difference</em>' class.

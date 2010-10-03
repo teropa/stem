@@ -65,7 +65,7 @@ public class FdFactoryImpl extends EFactoryImpl implements FdFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case FdPackage.FINITE_DIFFERENCE: return createFiniteDifference();
+			case FdPackage.FINITE_DIFFERENCE: return (EObject)createFiniteDifference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
