@@ -70,7 +70,7 @@ public class MultipopulationExample {
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.multipopulation"));
 				MultiPopulationSIDiseaseModel root = MultipopulationFactory.eINSTANCE.createMultiPopulationSIDiseaseModel();
-				resource.getContents().add(root);
+				resource.getContents().add((EObject)root);
 				resource.save(System.out, null);
 			}
 			catch (IOException exception) {
@@ -86,7 +86,7 @@ public class MultipopulationExample {
 				// Otherwise, it's directly treated as a URL.
 				//
 				File file = new File(args[i]);
-				URI uri = file.isFile() ? URI.createFileURI(file.getAbsolutePath()): URI.createURI(args[0]);
+				URI uri = file.isFile() ? URI.createFileURI(file.getAbsolutePath()): URI.createURI(args[i]);
 
 				try {
 					// Demand load resource for this file.

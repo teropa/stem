@@ -64,9 +64,9 @@ public class MultipopulationFactoryImpl extends EFactoryImpl implements Multipop
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL: return createMultiPopulationSIDiseaseModel();
-			case MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL: return createMultiPopulationSIRDiseaseModel();
-			case MultipopulationPackage.MULTI_POPULATION_SEIR_DISEASE_MODEL: return createMultiPopulationSEIRDiseaseModel();
+			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL: return (EObject)createMultiPopulationSIDiseaseModel();
+			case MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL: return (EObject)createMultiPopulationSIRDiseaseModel();
+			case MultipopulationPackage.MULTI_POPULATION_SEIR_DISEASE_MODEL: return (EObject)createMultiPopulationSEIRDiseaseModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

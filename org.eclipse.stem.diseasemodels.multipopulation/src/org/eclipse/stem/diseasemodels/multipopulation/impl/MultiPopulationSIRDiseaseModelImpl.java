@@ -57,16 +57,6 @@ import org.eclipse.stem.diseasemodels.standard.impl.SIRLabelValueImpl;
  */
 public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDiseaseModelImpl implements MultiPopulationSIRDiseaseModel {
 	/**
-	 * The cached value of the '{@link #getImmunityLossRate() <em>Immunity Loss Rate</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImmunityLossRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DoubleValueList immunityLossRate;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -91,7 +81,7 @@ public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDisease
 	 * @generated
 	 */
 	public DoubleValueList getImmunityLossRate() {
-		return immunityLossRate;
+		return (DoubleValueList)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, true, true);
 	}
 
 	/**
@@ -100,12 +90,7 @@ public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDisease
 	 * @generated
 	 */
 	public NotificationChain basicSetImmunityLossRate(DoubleValueList newImmunityLossRate, NotificationChain msgs) {
-		DoubleValueList oldImmunityLossRate = immunityLossRate;
-		immunityLossRate = newImmunityLossRate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, oldImmunityLossRate, newImmunityLossRate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newImmunityLossRate, MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, msgs);
 		return msgs;
 	}
 
@@ -115,17 +100,7 @@ public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDisease
 	 * @generated
 	 */
 	public void setImmunityLossRate(DoubleValueList newImmunityLossRate) {
-		if (newImmunityLossRate != immunityLossRate) {
-			NotificationChain msgs = null;
-			if (immunityLossRate != null)
-				msgs = ((InternalEObject)immunityLossRate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, null, msgs);
-			if (newImmunityLossRate != null)
-				msgs = ((InternalEObject)newImmunityLossRate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, null, msgs);
-			msgs = basicSetImmunityLossRate(newImmunityLossRate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, newImmunityLossRate, newImmunityLossRate));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE, newImmunityLossRate);
 	}
 
 	
@@ -187,14 +162,14 @@ public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDisease
 			
 		// now we know the index of the current population being integrated.
 		// Get the correct transmission rate list from the MATRIX
-		EList<DoubleValue> transmissionVector = transmissionRate.getValueLists().get(populationIndex).getValues();
+		EList<DoubleValue> transmissionVector = getTransmissionRate().getValueLists().get(populationIndex).getValues();
 		
 		// ALL the other disease parameters are also DoubleValueLists. We now iterate through all populations
 		// get the specific rate parameters from EACH list based on this population index
 		double thisRecoveryRate = 0.0;
-		if(recoveryRate != null) thisRecoveryRate = recoveryRate.getValues().get(populationIndex).getValue();
+		if(getRecoveryRate() != null) thisRecoveryRate = getRecoveryRate().getValues().get(populationIndex).getValue();
 		double thisImmunityLossRate = 0.0;
-		if(immunityLossRate != null) thisImmunityLossRate =  immunityLossRate.getValues().get(populationIndex).getValue();
+		if(getImmunityLossRate() != null) thisImmunityLossRate =  getImmunityLossRate().getValues().get(populationIndex).getValue();
 		
 		
 		//  NOW iterate over every population (including this one) to compute new infections
@@ -204,7 +179,7 @@ public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDisease
 		double numberSusceptible = currentSIR.getS();
 		Node thisNode = diseaseLabel.getNode();
 		
-		EList<StringValue> groupList = populationGroups.getValues();
+		EList<StringValue> groupList = getPopulationGroups().getValues();
 		
 		for(int i = 0; i< transmissionVector.size(); i ++) {
 			// We need to get the identifier of the ith population model
@@ -335,7 +310,7 @@ public class MultiPopulationSIRDiseaseModelImpl extends MultiPopulationSIDisease
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case MultipopulationPackage.MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE:
-				return immunityLossRate != null;
+				return getImmunityLossRate() != null;
 		}
 		return super.eIsSet(featureID);
 	}

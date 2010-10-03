@@ -84,47 +84,6 @@ import org.eclipse.stem.populationmodels.standard.impl.StandardFactoryImpl;
  */
 public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl implements MultiPopulationSIDiseaseModel {
 	/**
-	 * The cached value of the '{@link #getPopulationGroups() <em>Population Groups</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationGroups()
-	 * @generated
-	 * @ordered
-	 */
-	protected StringValueList populationGroups;
-	
-
-	/**
-	 * The cached value of the '{@link #getTransmissionRate() <em>Transmission Rate</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransmissionRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DoubleValueMatrix transmissionRate;
-
-	/**
-	 * The cached value of the '{@link #getRecoveryRate() <em>Recovery Rate</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecoveryRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DoubleValueList recoveryRate;
-
-	/**
-	 * The cached value of the '{@link #getInfectiousMortalityRate() <em>Infectious Mortality Rate</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInfectiousMortalityRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DoubleValueList infectiousMortalityRate;
-
-	/**
 	 * The default value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,16 +92,6 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @ordered
 	 */
 	protected static final double PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT = 0.01;
-
-	/**
-	 * The cached value of the '{@link #getPhysicallyAdjacentInfectiousProportion() <em>Physically Adjacent Infectious Proportion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPhysicallyAdjacentInfectiousProportion()
-	 * @generated
-	 * @ordered
-	 */
-	protected double physicallyAdjacentInfectiousProportion = PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRoadNetworkInfectiousProportion() <em>Road Network Infectious Proportion</em>}' attribute.
@@ -155,15 +104,6 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	protected static final double ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT = 0.05;
 
 	/**
-	 * The cached value of the '{@link #getRoadNetworkInfectiousProportion() <em>Road Network Infectious Proportion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoadNetworkInfectiousProportion()
-	 * @generated
-	 * @ordered
-	 */
-	protected double roadNetworkInfectiousProportion = ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,15 +114,6 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	protected static final double CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT = 2.25;
 
 
-	/**
-	 * The cached value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCharacteristicMixingDistance()
-	 * @generated
-	 * @ordered
-	 */
-	protected double characteristicMixingDistance = CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,7 +139,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public DoubleValueMatrix getTransmissionRate() {
-		return transmissionRate;
+		return (DoubleValueMatrix)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, true, true);
 	}
 
 	/**
@@ -217,12 +148,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public NotificationChain basicSetTransmissionRate(DoubleValueMatrix newTransmissionRate, NotificationChain msgs) {
-		DoubleValueMatrix oldTransmissionRate = transmissionRate;
-		transmissionRate = newTransmissionRate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, oldTransmissionRate, newTransmissionRate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newTransmissionRate, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, msgs);
 		return msgs;
 	}
 
@@ -232,17 +158,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public void setTransmissionRate(DoubleValueMatrix newTransmissionRate) {
-		if (newTransmissionRate != transmissionRate) {
-			NotificationChain msgs = null;
-			if (transmissionRate != null)
-				msgs = ((InternalEObject)transmissionRate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, null, msgs);
-			if (newTransmissionRate != null)
-				msgs = ((InternalEObject)newTransmissionRate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, null, msgs);
-			msgs = basicSetTransmissionRate(newTransmissionRate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, newTransmissionRate, newTransmissionRate));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE, newTransmissionRate);
 	}
 
 	/**
@@ -251,7 +167,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public DoubleValueList getRecoveryRate() {
-		return recoveryRate;
+		return (DoubleValueList)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, true, true);
 	}
 
 	/**
@@ -260,12 +176,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public NotificationChain basicSetRecoveryRate(DoubleValueList newRecoveryRate, NotificationChain msgs) {
-		DoubleValueList oldRecoveryRate = recoveryRate;
-		recoveryRate = newRecoveryRate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, oldRecoveryRate, newRecoveryRate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newRecoveryRate, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, msgs);
 		return msgs;
 	}
 
@@ -275,17 +186,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public void setRecoveryRate(DoubleValueList newRecoveryRate) {
-		if (newRecoveryRate != recoveryRate) {
-			NotificationChain msgs = null;
-			if (recoveryRate != null)
-				msgs = ((InternalEObject)recoveryRate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, null, msgs);
-			if (newRecoveryRate != null)
-				msgs = ((InternalEObject)newRecoveryRate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, null, msgs);
-			msgs = basicSetRecoveryRate(newRecoveryRate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, newRecoveryRate, newRecoveryRate));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE, newRecoveryRate);
 	}
 
 	/**
@@ -294,7 +195,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public DoubleValueList getInfectiousMortalityRate() {
-		return infectiousMortalityRate;
+		return (DoubleValueList)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, true, true);
 	}
 	
 	/**
@@ -305,8 +206,8 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		// next get it's INDEX in the model
 		// TODO we should encapsulate this code in a helper method
 		int populationIndex = this.getPopulationIndex(populationName);
-		if(infectiousMortalityRate != null)
-			return infectiousMortalityRate.getValues().get(populationIndex).getValue();
+		if(getInfectiousMortalityRate() != null)
+			return getInfectiousMortalityRate().getValues().get(populationIndex).getValue();
 		else return 0.0; //default if not specified
 	}
 
@@ -316,12 +217,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public NotificationChain basicSetInfectiousMortalityRate(DoubleValueList newInfectiousMortalityRate, NotificationChain msgs) {
-		DoubleValueList oldInfectiousMortalityRate = infectiousMortalityRate;
-		infectiousMortalityRate = newInfectiousMortalityRate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, oldInfectiousMortalityRate, newInfectiousMortalityRate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newInfectiousMortalityRate, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, msgs);
 		return msgs;
 	}
 
@@ -331,17 +227,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public void setInfectiousMortalityRate(DoubleValueList newInfectiousMortalityRate) {
-		if (newInfectiousMortalityRate != infectiousMortalityRate) {
-			NotificationChain msgs = null;
-			if (infectiousMortalityRate != null)
-				msgs = ((InternalEObject)infectiousMortalityRate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, null, msgs);
-			if (newInfectiousMortalityRate != null)
-				msgs = ((InternalEObject)newInfectiousMortalityRate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, null, msgs);
-			msgs = basicSetInfectiousMortalityRate(newInfectiousMortalityRate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, newInfectiousMortalityRate, newInfectiousMortalityRate));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE, newInfectiousMortalityRate);
 	}
 
 	/**
@@ -350,7 +236,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public double getPhysicallyAdjacentInfectiousProportion() {
-		return physicallyAdjacentInfectiousProportion;
+		return (Double)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, true, true);
 	}
 
 	/**
@@ -359,10 +245,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public void setPhysicallyAdjacentInfectiousProportion(double newPhysicallyAdjacentInfectiousProportion) {
-		double oldPhysicallyAdjacentInfectiousProportion = physicallyAdjacentInfectiousProportion;
-		physicallyAdjacentInfectiousProportion = newPhysicallyAdjacentInfectiousProportion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, oldPhysicallyAdjacentInfectiousProportion, physicallyAdjacentInfectiousProportion));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION, newPhysicallyAdjacentInfectiousProportion);
 	}
 
 	/**
@@ -371,7 +254,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public double getRoadNetworkInfectiousProportion() {
-		return roadNetworkInfectiousProportion;
+		return (Double)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION, true, true);
 	}
 
 	/**
@@ -380,10 +263,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public void setRoadNetworkInfectiousProportion(double newRoadNetworkInfectiousProportion) {
-		double oldRoadNetworkInfectiousProportion = roadNetworkInfectiousProportion;
-		roadNetworkInfectiousProportion = newRoadNetworkInfectiousProportion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION, oldRoadNetworkInfectiousProportion, roadNetworkInfectiousProportion));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION, newRoadNetworkInfectiousProportion);
 	}
 
 	/**
@@ -392,7 +272,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public double getCharacteristicMixingDistance() {
-		return characteristicMixingDistance;
+		return (Double)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE, true, true);
 	}
 
 	/**
@@ -401,10 +281,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public void setCharacteristicMixingDistance(double newCharacteristicMixingDistance) {
-		double oldCharacteristicMixingDistance = characteristicMixingDistance;
-		characteristicMixingDistance = newCharacteristicMixingDistance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE, oldCharacteristicMixingDistance, characteristicMixingDistance));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE, newCharacteristicMixingDistance);
 	}
 
 	/**
@@ -413,7 +290,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public StringValueList getPopulationGroups() {
-		return populationGroups;
+		return (StringValueList)eDynamicGet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, true, true);
 	}
 
 	/**
@@ -422,12 +299,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public NotificationChain basicSetPopulationGroups(StringValueList newPopulationGroups, NotificationChain msgs) {
-		StringValueList oldPopulationGroups = populationGroups;
-		populationGroups = newPopulationGroups;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, oldPopulationGroups, newPopulationGroups);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newPopulationGroups, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, msgs);
 		return msgs;
 	}
 
@@ -437,17 +309,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	 * @generated
 	 */
 	public void setPopulationGroups(StringValueList newPopulationGroups) {
-		if (newPopulationGroups != populationGroups) {
-			NotificationChain msgs = null;
-			if (populationGroups != null)
-				msgs = ((InternalEObject)populationGroups).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, null, msgs);
-			if (newPopulationGroups != null)
-				msgs = ((InternalEObject)newPopulationGroups).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, null, msgs);
-			msgs = basicSetPopulationGroups(newPopulationGroups, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, newPopulationGroups, newPopulationGroups));
+		eDynamicSet(MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS, newPopulationGroups);
 	}
 
 	/**
@@ -571,41 +433,21 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS:
-				return populationGroups != null;
+				return getPopulationGroups() != null;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__TRANSMISSION_RATE:
-				return transmissionRate != null;
+				return getTransmissionRate() != null;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE:
-				return recoveryRate != null;
+				return getRecoveryRate() != null;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE:
-				return infectiousMortalityRate != null;
+				return getInfectiousMortalityRate() != null;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
-				return physicallyAdjacentInfectiousProportion != PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT;
+				return getPhysicallyAdjacentInfectiousProportion() != PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION_EDEFAULT;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
-				return roadNetworkInfectiousProportion != ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
+				return getRoadNetworkInfectiousProportion() != ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
-				return characteristicMixingDistance != CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
+				return getCharacteristicMixingDistance() != CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (physicallyAdjacentInfectiousProportion: ");
-		result.append(physicallyAdjacentInfectiousProportion);
-		result.append(", roadNetworkInfectiousProportion: ");
-		result.append(roadNetworkInfectiousProportion);
-		result.append(", characteristicMixingDistance: ");
-		result.append(characteristicMixingDistance);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override
@@ -671,12 +513,12 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			
 		// now we know the index of the current population being integrated.
 		// Get the correct transmission rate list from the MATRIX
-		EList<DoubleValue> transmissionVector = transmissionRate.getValueLists().get(populationIndex).getValues();
+		EList<DoubleValue> transmissionVector = getTransmissionRate().getValueLists().get(populationIndex).getValues();
 		
 		// ALL the other disease parameters are also DoubleValueLists. We now iterate through all populations
 		// get the specific rate parameters from EACH list based on this population index
 		double thisRecoveryRate = 0.0;
-		if(recoveryRate != null) thisRecoveryRate = recoveryRate.getValues().get(populationIndex).getValue();
+		if(getRecoveryRate() != null) thisRecoveryRate = getRecoveryRate().getValues().get(populationIndex).getValue();
 		
 		
 		//  NOW iterate over every population (including this one) to compute new infections
@@ -686,7 +528,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		double numberSusceptible = currentSI.getS();
 		Node thisNode = diseaseLabel.getNode();
 		
-		EList<StringValue> groupList = populationGroups.getValues();
+		EList<StringValue> groupList = getPopulationGroups().getValues();
 		
 		for(int i = 0; i< transmissionVector.size(); i ++) {
 			// We need to get the identifier of the ith population model
@@ -748,7 +590,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		// next get it's INDEX in the model
 		// TODO we should encapsulate this code in a helper method
 		int populationIndex = -1;
-		EList<StringValue> groupList = populationGroups.getValues();
+		EList<StringValue> groupList = getPopulationGroups().getValues();
 		for(int i =0; i < groupList.size(); i ++) {
 			String nextPop = groupList.get(i).getValue();
 			if(nextPop.equalsIgnoreCase(thisPopulation)) {
