@@ -143,7 +143,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 			} // else
 
 			// Are we returning a value equal to the specified end time?
-			if (nextTime.equals(getEndTime())) {
+			if (nextTime.valueEquals(getEndTime())) {
 				// Yes
 				// ok, then this is the last value of the sequence. The next
 				// call

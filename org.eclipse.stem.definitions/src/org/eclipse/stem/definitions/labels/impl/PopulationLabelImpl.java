@@ -185,9 +185,10 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 	 * @generated NOT
 	 */
 	public String getName() {
+		String name = (String)eDynamicGet(LabelsPackage.POPULATION_LABEL__NAME, LabelsPackage.Literals.POPULATION_LABEL__NAME, true, true);
 		// Is a name set?
-		if (eIsSet(LabelsPackage.POPULATION_LABEL__NAME)) {
-			return (String)eDynamicGet(LabelsPackage.POPULATION_LABEL__NAME, LabelsPackage.Literals.POPULATION_LABEL__NAME, true, true);
+		if (name != null) {
+			return name;
 		} else {
 			return getPopulationIdentifier();
 		}
