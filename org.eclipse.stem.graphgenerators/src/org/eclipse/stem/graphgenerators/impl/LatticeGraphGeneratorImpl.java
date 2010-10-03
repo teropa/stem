@@ -43,16 +43,6 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	protected static final boolean USE_NEAREST_NEIGHBORS_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isUseNearestNeighbors() <em>Use Nearest Neighbors</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseNearestNeighbors()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean useNearestNeighbors = USE_NEAREST_NEIGHBORS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isUseNextNearestNeighbors() <em>Use Next Nearest Neighbors</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,16 +53,6 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	protected static final boolean USE_NEXT_NEAREST_NEIGHBORS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isUseNextNearestNeighbors() <em>Use Next Nearest Neighbors</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseNextNearestNeighbors()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean useNextNearestNeighbors = USE_NEXT_NEAREST_NEIGHBORS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isPeriodicBoundaries() <em>Periodic Boundaries</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,16 +61,6 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @ordered
 	 */
 	protected static final boolean PERIODIC_BOUNDARIES_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isPeriodicBoundaries() <em>Periodic Boundaries</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isPeriodicBoundaries()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean periodicBoundaries = PERIODIC_BOUNDARIES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,7 +87,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 */
 	public boolean isUseNearestNeighbors() {
-		return useNearestNeighbors;
+		return (Boolean)eDynamicGet(GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS, GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS, true, true);
 	}
 
 	/**
@@ -126,10 +96,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 */
 	public void setUseNearestNeighbors(boolean newUseNearestNeighbors) {
-		boolean oldUseNearestNeighbors = useNearestNeighbors;
-		useNearestNeighbors = newUseNearestNeighbors;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS, oldUseNearestNeighbors, useNearestNeighbors));
+		eDynamicSet(GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS, GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS, newUseNearestNeighbors);
 	}
 
 	/**
@@ -138,7 +105,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 */
 	public boolean isUseNextNearestNeighbors() {
-		return useNextNearestNeighbors;
+		return (Boolean)eDynamicGet(GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS, GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS, true, true);
 	}
 
 	/**
@@ -147,10 +114,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 */
 	public void setUseNextNearestNeighbors(boolean newUseNextNearestNeighbors) {
-		boolean oldUseNextNearestNeighbors = useNextNearestNeighbors;
-		useNextNearestNeighbors = newUseNextNearestNeighbors;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS, oldUseNextNearestNeighbors, useNextNearestNeighbors));
+		eDynamicSet(GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS, GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS, newUseNextNearestNeighbors);
 	}
 
 	/**
@@ -159,7 +123,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 */
 	public boolean isPeriodicBoundaries() {
-		return periodicBoundaries;
+		return (Boolean)eDynamicGet(GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES, GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES, true, true);
 	}
 
 	/**
@@ -168,10 +132,7 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	 * @generated
 	 */
 	public void setPeriodicBoundaries(boolean newPeriodicBoundaries) {
-		boolean oldPeriodicBoundaries = periodicBoundaries;
-		periodicBoundaries = newPeriodicBoundaries;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES, oldPeriodicBoundaries, periodicBoundaries));
+		eDynamicSet(GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES, GraphgeneratorsPackage.Literals.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES, newPeriodicBoundaries);
 	}
 
 	/**
@@ -243,33 +204,13 @@ public abstract class LatticeGraphGeneratorImpl extends GraphGeneratorImpl imple
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEAREST_NEIGHBORS:
-				return useNearestNeighbors != USE_NEAREST_NEIGHBORS_EDEFAULT;
+				return isUseNearestNeighbors() != USE_NEAREST_NEIGHBORS_EDEFAULT;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__USE_NEXT_NEAREST_NEIGHBORS:
-				return useNextNearestNeighbors != USE_NEXT_NEAREST_NEIGHBORS_EDEFAULT;
+				return isUseNextNearestNeighbors() != USE_NEXT_NEAREST_NEIGHBORS_EDEFAULT;
 			case GraphgeneratorsPackage.LATTICE_GRAPH_GENERATOR__PERIODIC_BOUNDARIES:
-				return periodicBoundaries != PERIODIC_BOUNDARIES_EDEFAULT;
+				return isPeriodicBoundaries() != PERIODIC_BOUNDARIES_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (useNearestNeighbors: ");
-		result.append(useNearestNeighbors);
-		result.append(", useNextNearestNeighbors: ");
-		result.append(useNextNearestNeighbors);
-		result.append(", periodicBoundaries: ");
-		result.append(periodicBoundaries);
-		result.append(')');
-		return result.toString();
 	}
 
 } //LatticeGraphGeneratorImpl

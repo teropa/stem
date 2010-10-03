@@ -65,16 +65,6 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	protected static final URI LOCATION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI location = LOCATION_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getMigrationRate() <em>Migration Rate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,16 +75,6 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	protected static final double MIGRATION_RATE_EDEFAULT = 0.1;
 
 	/**
-	 * The cached value of the '{@link #getMigrationRate() <em>Migration Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMigrationRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double migrationRate = MIGRATION_RATE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getPopulation() <em>Population</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,16 +83,6 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @ordered
 	 */
 	protected static final String POPULATION_EDEFAULT = "human";
-
-	/**
-	 * The cached value of the '{@link #getPopulation() <em>Population</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulation()
-	 * @generated
-	 * @ordered
-	 */
-	protected String population = POPULATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,7 +261,7 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @generated
 	 */
 	public URI getLocation() {
-		return location;
+		return (URI)eDynamicGet(GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION, GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION, true, true);
 	}
 
 	/**
@@ -300,10 +270,7 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
-		URI oldLocation = location;
-		location = newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION, oldLocation, location));
+		eDynamicSet(GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION, GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION, newLocation);
 	}
 
 	/**
@@ -312,7 +279,7 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @generated
 	 */
 	public double getMigrationRate() {
-		return migrationRate;
+		return (Double)eDynamicGet(GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE, GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE, true, true);
 	}
 
 	/**
@@ -321,10 +288,7 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @generated
 	 */
 	public void setMigrationRate(double newMigrationRate) {
-		double oldMigrationRate = migrationRate;
-		migrationRate = newMigrationRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE, oldMigrationRate, migrationRate));
+		eDynamicSet(GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE, GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE, newMigrationRate);
 	}
 
 	/**
@@ -333,7 +297,7 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @generated
 	 */
 	public String getPopulation() {
-		return population;
+		return (String)eDynamicGet(GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION, GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION, true, true);
 	}
 
 	/**
@@ -342,10 +306,7 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	 * @generated
 	 */
 	public void setPopulation(String newPopulation) {
-		String oldPopulation = population;
-		population = newPopulation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION, oldPopulation, population));
+		eDynamicSet(GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION, GraphgeneratorsPackage.Literals.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION, newPopulation);
 	}
 
 	/**
@@ -417,33 +378,13 @@ public class MigrationEdgeGraphGeneratorImpl extends GraphGeneratorImpl implemen
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__LOCATION:
-				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null ? getLocation() != null : !LOCATION_EDEFAULT.equals(getLocation());
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__MIGRATION_RATE:
-				return migrationRate != MIGRATION_RATE_EDEFAULT;
+				return getMigrationRate() != MIGRATION_RATE_EDEFAULT;
 			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR__POPULATION:
-				return POPULATION_EDEFAULT == null ? population != null : !POPULATION_EDEFAULT.equals(population);
+				return POPULATION_EDEFAULT == null ? getPopulation() != null : !POPULATION_EDEFAULT.equals(getPopulation());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (location: ");
-		result.append(location);
-		result.append(", migrationRate: ");
-		result.append(migrationRate);
-		result.append(", population: ");
-		result.append(population);
-		result.append(')');
-		return result.toString();
 	}
 
 } //MigrationEdgeGraphGeneratorImpl

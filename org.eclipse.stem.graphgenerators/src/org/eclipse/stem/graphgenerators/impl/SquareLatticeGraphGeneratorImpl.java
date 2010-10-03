@@ -45,15 +45,6 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 */
 	protected static final int XSIZE_EDEFAULT = 10;
 	/**
-	 * The cached value of the '{@link #getXSize() <em>XSize</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getXSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected int xSize = XSIZE_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getYSize() <em>YSize</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,16 +54,6 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 */
 	protected static final int YSIZE_EDEFAULT = 10;
 	/**
-	 * The cached value of the '{@link #getYSize() <em>YSize</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getYSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected int ySize = YSIZE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getArea() <em>Area</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,16 +62,6 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @ordered
 	 */
 	protected static final double AREA_EDEFAULT = 2025.0;
-	/**
-	 * The cached value of the '{@link #getArea() <em>Area</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected double area = AREA_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,7 +87,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @generated
 	 */
 	public int getXSize() {
-		return xSize;
+		return (Integer)eDynamicGet(GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE, GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE, true, true);
 	}
 
 	/**
@@ -125,10 +96,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @generated
 	 */
 	public void setXSize(int newXSize) {
-		int oldXSize = xSize;
-		xSize = newXSize;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE, oldXSize, xSize));
+		eDynamicSet(GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE, GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE, newXSize);
 	}
 
 	/**
@@ -137,7 +105,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @generated
 	 */
 	public int getYSize() {
-		return ySize;
+		return (Integer)eDynamicGet(GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE, GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE, true, true);
 	}
 
 	/**
@@ -146,10 +114,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @generated
 	 */
 	public void setYSize(int newYSize) {
-		int oldYSize = ySize;
-		ySize = newYSize;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE, oldYSize, ySize));
+		eDynamicSet(GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE, GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE, newYSize);
 	}
 
 	/**
@@ -158,7 +123,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @generated
 	 */
 	public double getArea() {
-		return area;
+		return (Double)eDynamicGet(GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA, GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__AREA, true, true);
 	}
 
 	/**
@@ -167,10 +132,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	 * @generated
 	 */
 	public void setArea(double newArea) {
-		double oldArea = area;
-		area = newArea;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA, oldArea, area));
+		eDynamicSet(GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA, GraphgeneratorsPackage.Literals.SQUARE_LATTICE_GRAPH_GENERATOR__AREA, newArea);
 	}
 
 	/**
@@ -242,33 +204,13 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__XSIZE:
-				return xSize != XSIZE_EDEFAULT;
+				return getXSize() != XSIZE_EDEFAULT;
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__YSIZE:
-				return ySize != YSIZE_EDEFAULT;
+				return getYSize() != YSIZE_EDEFAULT;
 			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR__AREA:
-				return area != AREA_EDEFAULT;
+				return getArea() != AREA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (xSize: ");
-		result.append(xSize);
-		result.append(", ySize: ");
-		result.append(ySize);
-		result.append(", area: ");
-		result.append(area);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**
@@ -278,7 +220,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	public Graph getGraph() {
 		LatticeGeneratorUtilityImpl slgi = new LatticeGeneratorUtilityImpl(GraphLatticeGeneratorInterface.SQR_LATTICE_TYPE);
 		// Get the graph
-		Graph g = slgi.getGraph(this.getXSize(), this.getYSize(), this.area, this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
+		Graph g = slgi.getGraph(this.getXSize(), this.getYSize(), this.getArea(), this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
 		return g;
 	}
 } //SquareLatticeGraphGeneratorImpl

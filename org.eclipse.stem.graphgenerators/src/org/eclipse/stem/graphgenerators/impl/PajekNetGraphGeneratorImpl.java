@@ -73,16 +73,6 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	protected static final String DATA_FILE_NET_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getDataFile_net() <em>Data File net</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataFile_net()
-	 * @generated
-	 * @ordered
-	 */
-	protected String dataFile_net = DATA_FILE_NET_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getArea() <em>Area</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,16 +81,6 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @ordered
 	 */
 	protected static final double AREA_EDEFAULT = 100.0;
-
-	/**
-	 * The cached value of the '{@link #getArea() <em>Area</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected double area = AREA_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getZoomFactor() <em>Zoom Factor</em>}' attribute.
@@ -113,16 +93,6 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	protected static final int ZOOM_FACTOR_EDEFAULT = 1000;
 
 	/**
-	 * The cached value of the '{@link #getZoomFactor() <em>Zoom Factor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getZoomFactor()
-	 * @generated
-	 * @ordered
-	 */
-	protected int zoomFactor = ZOOM_FACTOR_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getColArea() <em>Col Area</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,16 +101,6 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @ordered
 	 */
 	protected static final int COL_AREA_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getColArea() <em>Col Area</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected int colArea = COL_AREA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,7 +127,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public String getDataFile_net() {
-		return dataFile_net;
+		return (String)eDynamicGet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET, true, true);
 	}
 
 	/**
@@ -176,10 +136,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public void setDataFile_net(String newDataFile_net) {
-		String oldDataFile_net = dataFile_net;
-		dataFile_net = newDataFile_net;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET, oldDataFile_net, dataFile_net));
+		eDynamicSet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET, newDataFile_net);
 	}
 
 	/**
@@ -188,7 +145,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public double getArea() {
-		return area;
+		return (Double)eDynamicGet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__AREA, true, true);
 	}
 
 	/**
@@ -197,10 +154,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public void setArea(double newArea) {
-		double oldArea = area;
-		area = newArea;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA, oldArea, area));
+		eDynamicSet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__AREA, newArea);
 	}
 
 	/**
@@ -209,7 +163,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public int getZoomFactor() {
-		return zoomFactor;
+		return (Integer)eDynamicGet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR, true, true);
 	}
 
 	/**
@@ -218,10 +172,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public void setZoomFactor(int newZoomFactor) {
-		int oldZoomFactor = zoomFactor;
-		zoomFactor = newZoomFactor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR, oldZoomFactor, zoomFactor));
+		eDynamicSet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR, newZoomFactor);
 	}
 
 	/**
@@ -230,7 +181,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public int getColArea() {
-		return colArea;
+		return (Integer)eDynamicGet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__COL_AREA, true, true);
 	}
 
 	/**
@@ -239,10 +190,7 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	 * @generated
 	 */
 	public void setColArea(int newColArea) {
-		int oldColArea = colArea;
-		colArea = newColArea;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA, oldColArea, colArea));
+		eDynamicSet(GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA, GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__COL_AREA, newColArea);
 	}
 
 	/**
@@ -322,37 +270,15 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
-				return DATA_FILE_NET_EDEFAULT == null ? dataFile_net != null : !DATA_FILE_NET_EDEFAULT.equals(dataFile_net);
+				return DATA_FILE_NET_EDEFAULT == null ? getDataFile_net() != null : !DATA_FILE_NET_EDEFAULT.equals(getDataFile_net());
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
-				return area != AREA_EDEFAULT;
+				return getArea() != AREA_EDEFAULT;
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR:
-				return zoomFactor != ZOOM_FACTOR_EDEFAULT;
+				return getZoomFactor() != ZOOM_FACTOR_EDEFAULT;
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA:
-				return colArea != COL_AREA_EDEFAULT;
+				return getColArea() != COL_AREA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (dataFile_net: ");
-		result.append(dataFile_net);
-		result.append(", area: ");
-		result.append(area);
-		result.append(", zoomFactor: ");
-		result.append(zoomFactor);
-		result.append(", colArea: ");
-		result.append(colArea);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

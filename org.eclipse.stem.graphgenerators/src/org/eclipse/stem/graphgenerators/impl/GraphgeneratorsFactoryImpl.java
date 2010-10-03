@@ -65,10 +65,10 @@ public class GraphgeneratorsFactoryImpl extends EFactoryImpl implements Graphgen
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR: return createSquareLatticeGraphGenerator();
-			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR: return createMigrationEdgeGraphGenerator();
-			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR: return createPlateCarreeGlobeGraphGenerator();
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR: return createPajekNetGraphGenerator();
+			case GraphgeneratorsPackage.SQUARE_LATTICE_GRAPH_GENERATOR: return (EObject)createSquareLatticeGraphGenerator();
+			case GraphgeneratorsPackage.MIGRATION_EDGE_GRAPH_GENERATOR: return (EObject)createMigrationEdgeGraphGenerator();
+			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR: return (EObject)createPlateCarreeGlobeGraphGenerator();
+			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR: return (EObject)createPajekNetGraphGenerator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

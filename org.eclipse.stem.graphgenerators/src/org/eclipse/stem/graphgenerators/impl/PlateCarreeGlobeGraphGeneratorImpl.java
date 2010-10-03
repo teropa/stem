@@ -49,16 +49,6 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	protected static final int ANGULAR_STEP_EDEFAULT = 10;
 
 	/**
-	 * The cached value of the '{@link #getAngularStep() <em>Angular Step</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAngularStep()
-	 * @generated
-	 * @ordered
-	 */
-	protected int angularStep = ANGULAR_STEP_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getRadius() <em>Radius</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,16 +57,6 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	 * @ordered
 	 */
 	protected static final double RADIUS_EDEFAULT = 6371.0;
-
-	/**
-	 * The cached value of the '{@link #getRadius() <em>Radius</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRadius()
-	 * @generated
-	 * @ordered
-	 */
-	protected double radius = RADIUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,7 +83,7 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	@Override
 	public Graph getGraph() {
 		LatticeGeneratorUtilityImpl slgi = new LatticeGeneratorUtilityImpl(GraphLatticeGeneratorInterface.GLOBE_LATTICE_TYPE);
-		Graph g = slgi.getPlateCareeGraph(this.getAngularStep(), this.radius, this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
+		Graph g = slgi.getPlateCareeGraph(this.getAngularStep(), this.getRadius(), this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
 		
 		return g;
 		
@@ -116,7 +96,7 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	 * @generated
 	 */
 	public int getAngularStep() {
-		return angularStep;
+		return (Integer)eDynamicGet(GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP, GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP, true, true);
 	}
 
 	/**
@@ -125,10 +105,7 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	 * @generated
 	 */
 	public void setAngularStep(int newAngularStep) {
-		int oldAngularStep = angularStep;
-		angularStep = newAngularStep;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP, oldAngularStep, angularStep));
+		eDynamicSet(GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP, GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP, newAngularStep);
 	}
 
 	/**
@@ -137,7 +114,7 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	 * @generated
 	 */
 	public double getRadius() {
-		return radius;
+		return (Double)eDynamicGet(GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS, GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS, true, true);
 	}
 
 	/**
@@ -146,10 +123,7 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	 * @generated
 	 */
 	public void setRadius(double newRadius) {
-		double oldRadius = radius;
-		radius = newRadius;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS, oldRadius, radius));
+		eDynamicSet(GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS, GraphgeneratorsPackage.Literals.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS, newRadius);
 	}
 
 	/**
@@ -213,29 +187,11 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__ANGULAR_STEP:
-				return angularStep != ANGULAR_STEP_EDEFAULT;
+				return getAngularStep() != ANGULAR_STEP_EDEFAULT;
 			case GraphgeneratorsPackage.PLATE_CARREE_GLOBE_GRAPH_GENERATOR__RADIUS:
-				return radius != RADIUS_EDEFAULT;
+				return getRadius() != RADIUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (angularStep: ");
-		result.append(angularStep);
-		result.append(", radius: ");
-		result.append(radius);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PlateCarreeGlobeGraphGeneratorImpl
