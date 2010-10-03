@@ -65,7 +65,7 @@ public class RkFactoryImpl extends EFactoryImpl implements RkFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case RkPackage.RUNGE_KUTTA: return createRungeKutta();
+			case RkPackage.RUNGE_KUTTA: return (EObject)createRungeKutta();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

@@ -103,13 +103,22 @@ public interface RkPackage extends EPackage {
 	int RUNGE_KUTTA__DUBLIN_CORE = SolverPackage.SOLVER__DUBLIN_CORE;
 
 	/**
-	 * The feature id for the '<em><b>Decorators</b></em>' reference.
+	 * The feature id for the '<em><b>Decorators</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int RUNGE_KUTTA__DECORATORS = SolverPackage.SOLVER__DECORATORS;
+
+	/**
+	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNGE_KUTTA__INITIALIZED = SolverPackage.SOLVER__INITIALIZED;
 
 	/**
 	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.

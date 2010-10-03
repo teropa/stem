@@ -102,16 +102,6 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	protected static final double RELATIVE_TOLERANCE_EDEFAULT = 1.0E-9;
 
 	/**
-	 * The cached value of the '{@link #getRelativeTolerance() <em>Relative Tolerance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelativeTolerance()
-	 * @generated
-	 * @ordered
-	 */
-	protected double relativeTolerance = RELATIVE_TOLERANCE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -753,7 +743,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					
 					yerror.divide((IntegrationLabelValue)diseaseLabel.getErrorScale());
 					double error = yerror.max();
-					error /= relativeTolerance;
+					error /= getRelativeTolerance();
 					
 					if(error > maxerror) {
 						maxerror = error;
@@ -959,7 +949,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	 * @generated
 	 */
 	public double getRelativeTolerance() {
-		return relativeTolerance;
+		return (Double)eDynamicGet(RkPackage.RUNGE_KUTTA__RELATIVE_TOLERANCE, RkPackage.Literals.RUNGE_KUTTA__RELATIVE_TOLERANCE, true, true);
 	}
 
 	/**
@@ -968,10 +958,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	 * @generated
 	 */
 	public void setRelativeTolerance(double newRelativeTolerance) {
-		double oldRelativeTolerance = relativeTolerance;
-		relativeTolerance = newRelativeTolerance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RkPackage.RUNGE_KUTTA__RELATIVE_TOLERANCE, oldRelativeTolerance, relativeTolerance));
+		eDynamicSet(RkPackage.RUNGE_KUTTA__RELATIVE_TOLERANCE, RkPackage.Literals.RUNGE_KUTTA__RELATIVE_TOLERANCE, newRelativeTolerance);
 	}
 
 	/**
@@ -983,7 +970,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RkPackage.RUNGE_KUTTA__RELATIVE_TOLERANCE:
-				return new Double(getRelativeTolerance());
+				return getRelativeTolerance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -997,7 +984,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RkPackage.RUNGE_KUTTA__RELATIVE_TOLERANCE:
-				setRelativeTolerance(((Double)newValue).doubleValue());
+				setRelativeTolerance((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1027,25 +1014,9 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RkPackage.RUNGE_KUTTA__RELATIVE_TOLERANCE:
-				return relativeTolerance != RELATIVE_TOLERANCE_EDEFAULT;
+				return getRelativeTolerance() != RELATIVE_TOLERANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (relativeTolerance: ");
-		result.append(relativeTolerance);
-		result.append(')');
-		return result.toString();
 	}
 
 } //RungeKuttaImpl
