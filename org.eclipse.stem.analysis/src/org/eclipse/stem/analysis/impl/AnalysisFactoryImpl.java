@@ -65,11 +65,11 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case AnalysisPackage.ERROR_FUNCTION: return createErrorFunction();
-			case AnalysisPackage.THRESHOLD_ERROR_FUNCTION: return createThresholdErrorFunction();
-			case AnalysisPackage.REFERENCE_SCENARIO_DATA_MAP: return createReferenceScenarioDataMap();
-			case AnalysisPackage.SIMPLE_ERROR_FUNCTION: return createSimpleErrorFunction();
-			case AnalysisPackage.ERROR_RESULT: return createErrorResult();
+			case AnalysisPackage.ERROR_FUNCTION: return (EObject)createErrorFunction();
+			case AnalysisPackage.THRESHOLD_ERROR_FUNCTION: return (EObject)createThresholdErrorFunction();
+			case AnalysisPackage.REFERENCE_SCENARIO_DATA_MAP: return (EObject)createReferenceScenarioDataMap();
+			case AnalysisPackage.SIMPLE_ERROR_FUNCTION: return (EObject)createSimpleErrorFunction();
+			case AnalysisPackage.ERROR_RESULT: return (EObject)createErrorResult();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

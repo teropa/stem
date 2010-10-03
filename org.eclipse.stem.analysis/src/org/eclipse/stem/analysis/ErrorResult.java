@@ -11,6 +11,7 @@ package org.eclipse.stem.analysis;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -32,9 +33,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.stem.analysis.AnalysisPackage#getErrorResult()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface ErrorResult extends EObject {
+public interface ErrorResult extends CDOObject {
 
 	/**
 	 * Returns the value of the '<em><b>Error By Time Step</b></em>' attribute.

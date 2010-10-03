@@ -23,6 +23,7 @@ import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -40,7 +41,7 @@ import org.eclipse.stem.analysis.States;
  *
  * @generated
  */
-public class ReferenceScenarioDataMapImpl extends EObjectImpl implements ReferenceScenarioDataMap {
+public class ReferenceScenarioDataMapImpl extends CDOObjectImpl implements ReferenceScenarioDataMap {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,6 +60,16 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 	@Override
 	protected EClass eStaticClass() {
 		return AnalysisPackage.Literals.REFERENCE_SCENARIO_DATA_MAP;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	public static final String ITERATION_KEY = "iteration";

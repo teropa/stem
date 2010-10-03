@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.stem.analysis.AnalysisPackage;
@@ -34,7 +35,7 @@ import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScen
  *
  * @generated
  */
-public class ErrorFunctionImpl extends EObjectImpl implements ErrorFunction {
+public class ErrorFunctionImpl extends CDOObjectImpl implements ErrorFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,6 +53,16 @@ public class ErrorFunctionImpl extends EObjectImpl implements ErrorFunction {
 	@Override
 	protected EClass eStaticClass() {
 		return AnalysisPackage.Literals.ERROR_FUNCTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	/**

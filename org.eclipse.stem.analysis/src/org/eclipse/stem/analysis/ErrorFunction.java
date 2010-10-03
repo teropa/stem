@@ -10,6 +10,7 @@ package org.eclipse.stem.analysis;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
 
@@ -18,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @author edlund
  * @model
  */
-public interface ErrorFunction extends EObject {
+public interface ErrorFunction extends CDOObject {
 
 	/**
 	 * <!-- begin-user-doc -->

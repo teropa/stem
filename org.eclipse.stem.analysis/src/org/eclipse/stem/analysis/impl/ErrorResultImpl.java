@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -40,16 +41,7 @@ import org.eclipse.stem.analysis.ErrorResult;
  *
  * @generated
  */
-public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
-	/**
-	 * The cached value of the '{@link #getErrorByTimeStep() <em>Error By Time Step</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorByTimeStep()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Double> errorByTimeStep;
+public class ErrorResultImpl extends CDOObjectImpl implements ErrorResult {
 	/**
 	 * The default value of the '{@link #getError() <em>Error</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,35 +52,6 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 */
 	protected static final double ERROR_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getError() <em>Error</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getError()
-	 * @generated
-	 * @ordered
-	 */
-	protected double error = ERROR_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getReferenceByTime() <em>Reference By Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceByTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Double> referenceByTime;
-	/**
-	 * The cached value of the '{@link #getModelByTime() <em>Model By Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModelByTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Double> modelByTime;
-
-	/**
 	 * The default value of the '{@link #getValidationError() <em>Validation Error</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,16 +60,6 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @ordered
 	 */
 	protected static final double VALIDATION_ERROR_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getValidationError() <em>Validation Error</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidationError()
-	 * @generated
-	 * @ordered
-	 */
-	protected double validationError = VALIDATION_ERROR_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,8 +84,18 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Double> getErrorByTimeStep() {
-		return errorByTimeStep;
+		return (EList<Double>)eDynamicGet(AnalysisPackage.ERROR_RESULT__ERROR_BY_TIME_STEP, AnalysisPackage.Literals.ERROR_RESULT__ERROR_BY_TIME_STEP, true, true);
 	}
 
 	/**
@@ -141,10 +104,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public void setErrorByTimeStep(EList<Double> newErrorByTimeStep) {
-		EList<Double> oldErrorByTimeStep = errorByTimeStep;
-		errorByTimeStep = newErrorByTimeStep;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__ERROR_BY_TIME_STEP, oldErrorByTimeStep, errorByTimeStep));
+		eDynamicSet(AnalysisPackage.ERROR_RESULT__ERROR_BY_TIME_STEP, AnalysisPackage.Literals.ERROR_RESULT__ERROR_BY_TIME_STEP, newErrorByTimeStep);
 	}
 
 	/**
@@ -153,7 +113,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public double getError() {
-		return error;
+		return (Double)eDynamicGet(AnalysisPackage.ERROR_RESULT__ERROR, AnalysisPackage.Literals.ERROR_RESULT__ERROR, true, true);
 	}
 
 	/**
@@ -162,10 +122,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public void setError(double newError) {
-		double oldError = error;
-		error = newError;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__ERROR, oldError, error));
+		eDynamicSet(AnalysisPackage.ERROR_RESULT__ERROR, AnalysisPackage.Literals.ERROR_RESULT__ERROR, newError);
 	}
 
 	/**
@@ -174,7 +131,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public EList<Double> getReferenceByTime() {
-		return referenceByTime;
+		return (EList<Double>)eDynamicGet(AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME, AnalysisPackage.Literals.ERROR_RESULT__REFERENCE_BY_TIME, true, true);
 	}
 
 	/**
@@ -183,10 +140,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public void setReferenceByTime(EList<Double> newReferenceByTime) {
-		EList<Double> oldReferenceByTime = referenceByTime;
-		referenceByTime = newReferenceByTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME, oldReferenceByTime, referenceByTime));
+		eDynamicSet(AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME, AnalysisPackage.Literals.ERROR_RESULT__REFERENCE_BY_TIME, newReferenceByTime);
 	}
 
 	/**
@@ -195,7 +149,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public EList<Double> getModelByTime() {
-		return modelByTime;
+		return (EList<Double>)eDynamicGet(AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME, AnalysisPackage.Literals.ERROR_RESULT__MODEL_BY_TIME, true, true);
 	}
 
 	/**
@@ -204,10 +158,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public void setModelByTime(EList<Double> newModelByTime) {
-		EList<Double> oldModelByTime = modelByTime;
-		modelByTime = newModelByTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME, oldModelByTime, modelByTime));
+		eDynamicSet(AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME, AnalysisPackage.Literals.ERROR_RESULT__MODEL_BY_TIME, newModelByTime);
 	}
 
 	/**
@@ -216,7 +167,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public double getValidationError() {
-		return validationError;
+		return (Double)eDynamicGet(AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR, AnalysisPackage.Literals.ERROR_RESULT__VALIDATION_ERROR, true, true);
 	}
 
 	/**
@@ -225,10 +176,7 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	 * @generated
 	 */
 	public void setValidationError(double newValidationError) {
-		double oldValidationError = validationError;
-		validationError = newValidationError;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR, oldValidationError, validationError));
+		eDynamicSet(AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR, AnalysisPackage.Literals.ERROR_RESULT__VALIDATION_ERROR, newValidationError);
 	}
 
 	/**
@@ -317,41 +265,17 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AnalysisPackage.ERROR_RESULT__ERROR_BY_TIME_STEP:
-				return errorByTimeStep != null;
+				return getErrorByTimeStep() != null;
 			case AnalysisPackage.ERROR_RESULT__ERROR:
-				return error != ERROR_EDEFAULT;
+				return getError() != ERROR_EDEFAULT;
 			case AnalysisPackage.ERROR_RESULT__REFERENCE_BY_TIME:
-				return referenceByTime != null;
+				return getReferenceByTime() != null;
 			case AnalysisPackage.ERROR_RESULT__MODEL_BY_TIME:
-				return modelByTime != null;
+				return getModelByTime() != null;
 			case AnalysisPackage.ERROR_RESULT__VALIDATION_ERROR:
-				return validationError != VALIDATION_ERROR_EDEFAULT;
+				return getValidationError() != VALIDATION_ERROR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (errorByTimeStep: ");
-		result.append(errorByTimeStep);
-		result.append(", error: ");
-		result.append(error);
-		result.append(", referenceByTime: ");
-		result.append(referenceByTime);
-		result.append(", modelByTime: ");
-		result.append(modelByTime);
-		result.append(", validationError: ");
-		result.append(validationError);
-		result.append(')');
-		return result.toString();
 	}
 
 	public ErrorResult copy() {
