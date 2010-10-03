@@ -185,10 +185,10 @@ public class ExampleDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExampleDiseaseModel)object).getURI().lastSegment();
+		String label = ((ExampleDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExampleDiseaseModel_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
+			getString("_UI_ExampleDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
 import org.eclipse.stem.diseasemodels.standard.provider.DiseasemodelsEditPlugin;
+import org.eclipse.stem.populationmodels.standard.provider.StandardEditPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -57,6 +58,7 @@ public final class ExampleEditorPlugin extends EMFPlugin {
 				CoreEditPlugin.INSTANCE,
 				EcoreEditPlugin.INSTANCE,
 				DefinitionsEditPlugin.INSTANCE,
+				StandardEditPlugin.INSTANCE,
 			});
 	}
 

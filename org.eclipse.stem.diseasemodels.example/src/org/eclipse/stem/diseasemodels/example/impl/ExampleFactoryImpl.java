@@ -65,7 +65,7 @@ public class ExampleFactoryImpl extends EFactoryImpl implements ExampleFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExamplePackage.EXAMPLE_DISEASE_MODEL: return createExampleDiseaseModel();
+			case ExamplePackage.EXAMPLE_DISEASE_MODEL: return (EObject)createExampleDiseaseModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

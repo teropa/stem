@@ -319,6 +319,15 @@ public interface ExamplePackage extends EPackage {
 	int EXAMPLE_DISEASE_MODEL__INFECTIOUS_MORTALITY = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__INFECTIOUS_MORTALITY;
 
 	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXAMPLE_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = StandardPackage.STOCHASTIC_SIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
