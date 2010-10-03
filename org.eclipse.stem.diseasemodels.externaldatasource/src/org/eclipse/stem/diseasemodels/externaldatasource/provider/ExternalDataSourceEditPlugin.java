@@ -16,7 +16,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
-import org.eclipse.stem.definitions.labels.provider.DefinitionsEditPlugin;
+import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
 import org.eclipse.stem.diseasemodels.standard.provider.DiseasemodelsEditPlugin;
 
 /**
@@ -53,7 +53,7 @@ public final class ExternalDataSourceEditPlugin extends EMFPlugin {
 			(new ResourceLocator [] {
 				DiseasemodelsEditPlugin.INSTANCE,
 				CoreEditPlugin.INSTANCE,
-				DefinitionsEditPlugin.INSTANCE,
+				DefinitionsEditPlugin.INSTANCE
 			});
 	}
 

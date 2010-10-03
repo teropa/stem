@@ -61,11 +61,11 @@ public class ExternalDataSourceExample {
 		// If there are no arguments, emit an appropriate usage message.
 		//
 		if (args.length == 0) {
-			System.out.println("Enter a list of file paths or URIs that have content like this:");
+			System.out.println("Enter a list of file paths or URIs that have content like this:"); //$NON-NLS-1$
 			try {
-				Resource resource = resourceSet.createResource(URI.createURI("http:///My.externaldatasource"));
+				Resource resource = resourceSet.createResource(URI.createURI("http:///My.externaldatasource")); //$NON-NLS-1$
 				ExternalDataSourceDiseaseModel root = ExternalDataSourceFactory.eINSTANCE.createExternalDataSourceDiseaseModel();
-				resource.getContents().add(root);
+				resource.getContents().add((EObject)root);
 				resource.save(System.out, null);
 			}
 			catch (IOException exception) {
@@ -81,25 +81,25 @@ public class ExternalDataSourceExample {
 				// Otherwise, it's directly treated as a URL.
 				//
 				File file = new File(args[i]);
-				URI uri = file.isFile() ? URI.createFileURI(file.getAbsolutePath()): URI.createURI(args[0]);
+				URI uri = file.isFile() ? URI.createFileURI(file.getAbsolutePath()): URI.createURI(args[i]);
 
 				try {
 					// Demand load resource for this file.
 					//
 					Resource resource = resourceSet.getResource(uri, true);
-					System.out.println("Loaded " + uri);
+					System.out.println("Loaded " + uri); //$NON-NLS-1$
 
 					// Validate the contents of the loaded resource.
 					//
 					for (EObject eObject : resource.getContents()) {
 						Diagnostic diagnostic = Diagnostician.INSTANCE.validate(eObject);
 						if (diagnostic.getSeverity() != Diagnostic.OK) {
-							printDiagnostic(diagnostic, "");
+							printDiagnostic(diagnostic, ""); //$NON-NLS-1$
 						}
 					}
 				}
 				catch (RuntimeException exception) {
-					System.out.println("Problem loading " + uri);
+					System.out.println("Problem loading " + uri); //$NON-NLS-1$
 					exception.printStackTrace();
 				}
 			}
@@ -118,7 +118,7 @@ public class ExternalDataSourceExample {
 		System.out.print(indent);
 		System.out.println(diagnostic.getMessage());
 		for (Diagnostic child : diagnostic.getChildren()) {
-			printDiagnostic(child, indent + "  ");
+			printDiagnostic(child, indent + "  "); //$NON-NLS-1$
 		}
 	}
 

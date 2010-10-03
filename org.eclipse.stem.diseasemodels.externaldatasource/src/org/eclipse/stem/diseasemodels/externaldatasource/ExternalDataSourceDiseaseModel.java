@@ -25,7 +25,7 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
  * 
  * @model
  */
-public interface ExternalDataSourceDiseaseModel extends DiseaseModel, IntegrationDecorator {
+public interface ExternalDataSourceDiseaseModel extends DiseaseModel {
 
 
 	/**

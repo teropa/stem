@@ -66,20 +66,10 @@ public class ExternalDataSourcePackageImpl extends EPackageImpl implements Exter
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link ExternalDataSourcePackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -91,16 +81,12 @@ public class ExternalDataSourcePackageImpl extends EPackageImpl implements Exter
 		if (isInited) return (ExternalDataSourcePackage)EPackage.Registry.INSTANCE.getEPackage(ExternalDataSourcePackage.eNS_URI);
 
 		// Obtain or create and register package
-		ExternalDataSourcePackageImpl theExternalDataSourcePackage = (ExternalDataSourcePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ExternalDataSourcePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ExternalDataSourcePackageImpl());
+		ExternalDataSourcePackageImpl theExternalDataSourcePackage = (ExternalDataSourcePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ExternalDataSourcePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ExternalDataSourcePackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
 		StandardPackage.eINSTANCE.eClass();
-		CommonPackage.eINSTANCE.eClass();
-		ModelPackage.eINSTANCE.eClass();
-		GraphPackage.eINSTANCE.eClass();
-		LabelsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theExternalDataSourcePackage.createPackageContents();
@@ -111,6 +97,9 @@ public class ExternalDataSourcePackageImpl extends EPackageImpl implements Exter
 		// Mark meta-data to indicate it can't be changed
 		theExternalDataSourcePackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(ExternalDataSourcePackage.eNS_URI, theExternalDataSourcePackage);
 		return theExternalDataSourcePackage;
 	}
 
@@ -208,9 +197,9 @@ public class ExternalDataSourcePackageImpl extends EPackageImpl implements Exter
 		externalDataSourceDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getDiseaseModel());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(externalDataSourceDiseaseModelEClass, ExternalDataSourceDiseaseModel.class, "ExternalDataSourceDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExternalDataSourceDiseaseModel_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, ExternalDataSourceDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExternalDataSourceDiseaseModel_DiseaseType(), ecorePackage.getEString(), "diseaseType", null, 0, 1, ExternalDataSourceDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(externalDataSourceDiseaseModelEClass, ExternalDataSourceDiseaseModel.class, "ExternalDataSourceDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getExternalDataSourceDiseaseModel_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, ExternalDataSourceDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getExternalDataSourceDiseaseModel_DiseaseType(), ecorePackage.getEString(), "diseaseType", null, 0, 1, ExternalDataSourceDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

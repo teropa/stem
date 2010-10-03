@@ -21,6 +21,7 @@ import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.NodeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
+import org.eclipse.stem.diseasemodels.externaldatasource.*;
 import org.eclipse.stem.diseasemodels.externaldatasource.ExternalDataSourceDiseaseModel;
 import org.eclipse.stem.diseasemodels.externaldatasource.ExternalDataSourcePackage;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;

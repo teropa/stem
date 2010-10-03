@@ -81,16 +81,6 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 * @ordered
 	 */
 	protected static final String DATA_PATH_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getDataPath() <em>Data Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataPath()
-	 * @generated
-	 * @ordered
-	 */
-	protected String dataPath = DATA_PATH_EDEFAULT;
-
 	//private final static String URI_PREFIX_PATTERN = "geo/region/";
 
 	/**
@@ -235,7 +225,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	private synchronized void readDatafiles() {
 		if(scenarioMap == null) { // Not yet loaded
 			try {
-				CSVscenarioLoader loader = new CSVscenarioLoader(this.dataPath);
+				CSVscenarioLoader loader = new CSVscenarioLoader(getDataPath());
 				//int maxresolution = loader.getMaxResolution();
 				scenarioMap = loader.parseAllFiles();
 				// Set the disease type here since we don't need that
@@ -593,7 +583,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 * @generated
 	 */
 	public String getDataPath() {
-		return dataPath;
+		return (String)eDynamicGet(ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH, ExternalDataSourcePackage.Literals.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH, true, true);
 	}
 
 
@@ -605,10 +595,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 * @generated
 	 */
 	public void setDataPath(String newDataPath) {
-		String oldDataPath = dataPath;
-		dataPath = newDataPath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH, oldDataPath, dataPath));
+		eDynamicSet(ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH, ExternalDataSourcePackage.Literals.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH, newDataPath);
 	}
 
 
@@ -620,7 +607,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 * @generated
 	 */
 	public String getDiseaseType() {
-		return diseaseType;
+		return (String)eDynamicGet(ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE, ExternalDataSourcePackage.Literals.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE, true, true);
 	}
 
 
@@ -632,10 +619,7 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	 * @generated
 	 */
 	public void setDiseaseType(String newDiseaseType) {
-		String oldDiseaseType = diseaseType;
-		diseaseType = newDiseaseType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE, oldDiseaseType, diseaseType));
+		eDynamicSet(ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE, ExternalDataSourcePackage.Literals.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE, newDiseaseType);
 	}
 
 
@@ -649,10 +633,10 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
-			return getDataPath();
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
-			return getDiseaseType();
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
+				return getDataPath();
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
+				return getDiseaseType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -665,12 +649,12 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
-			setDataPath((String)newValue);
-			return;
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
-			setDiseaseType((String)newValue);
-			return;
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
+				setDataPath((String)newValue);
+				return;
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
+				setDiseaseType((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -683,12 +667,12 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
-			setDataPath(DATA_PATH_EDEFAULT);
-			return;
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
-			setDiseaseType(DISEASE_TYPE_EDEFAULT);
-			return;
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
+				setDataPath(DATA_PATH_EDEFAULT);
+				return;
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
+				setDiseaseType(DISEASE_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -701,32 +685,13 @@ public class ExternalDataSourceDiseaseModelImpl extends DiseaseModelImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
-			return DATA_PATH_EDEFAULT == null ? dataPath != null : !DATA_PATH_EDEFAULT.equals(dataPath);
-		case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
-			return DISEASE_TYPE_EDEFAULT == null ? diseaseType != null : !DISEASE_TYPE_EDEFAULT.equals(diseaseType);
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH:
+				return DATA_PATH_EDEFAULT == null ? getDataPath() != null : !DATA_PATH_EDEFAULT.equals(getDataPath());
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_TYPE:
+				return DISEASE_TYPE_EDEFAULT == null ? getDiseaseType() != null : !DISEASE_TYPE_EDEFAULT.equals(getDiseaseType());
 		}
 		return super.eIsSet(featureID);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (dataPath: ");
-		result.append(dataPath);
-		result.append(", diseaseType: ");
-		result.append(diseaseType);
-		result.append(')');
-		return result.toString();
-	}
-
 
 	/**
 	 *  Since data is read from a file we don't have to take into account

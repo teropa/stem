@@ -139,6 +139,15 @@ public interface ExternalDataSourcePackage extends EPackage {
 	int EXTERNAL_DATA_SOURCE_DISEASE_MODEL__GRAPH_DECORATED = StandardPackage.DISEASE_MODEL__GRAPH_DECORATED;
 
 	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATA_SOURCE_DISEASE_MODEL__PROGRESS = StandardPackage.DISEASE_MODEL__PROGRESS;
+
+	/**
 	 * The feature id for the '<em><b>Background Mortality Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,6 +182,42 @@ public interface ExternalDataSourcePackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DISEASE_NAME = StandardPackage.DISEASE_MODEL__DISEASE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATA_SOURCE_DISEASE_MODEL__RELATIVE_TOLERANCE = StandardPackage.DISEASE_MODEL__RELATIVE_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATA_SOURCE_DISEASE_MODEL__FINITE_DIFFERENCE = StandardPackage.DISEASE_MODEL__FINITE_DIFFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATA_SOURCE_DISEASE_MODEL__FREQUENCY_DEPENDENT = StandardPackage.DISEASE_MODEL__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATA_SOURCE_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = StandardPackage.DISEASE_MODEL__BACKGROUND_BIRTH_RATE;
 
 	/**
 	 * The feature id for the '<em><b>Data Path</b></em>' attribute.

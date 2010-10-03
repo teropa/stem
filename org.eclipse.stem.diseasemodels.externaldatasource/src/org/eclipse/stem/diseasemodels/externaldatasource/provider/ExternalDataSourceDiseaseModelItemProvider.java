@@ -82,8 +82,8 @@ public class ExternalDataSourceDiseaseModelItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalDataSourceDiseaseModel_dataPath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalDataSourceDiseaseModel_dataPath_feature", "_UI_ExternalDataSourceDiseaseModel_type"),
+				 getString("_UI_ExternalDataSourceDiseaseModel_dataPath_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalDataSourceDiseaseModel_dataPath_feature", "_UI_ExternalDataSourceDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExternalDataSourcePackage.Literals.EXTERNAL_DATA_SOURCE_DISEASE_MODEL__DATA_PATH,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class ExternalDataSourceDiseaseModelItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/customobj16/ExternalDataSourceDiseaseModel"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalDataSourceDiseaseModel")); //$NON-NLS-1$
 	}
 
 	/**
@@ -112,10 +112,10 @@ public class ExternalDataSourceDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExternalDataSourceDiseaseModel)object).getURI().lastSegment();
+		String label = ((ExternalDataSourceDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExternalDataSourceDiseaseModel_type") :
-		 label;
+			getString("_UI_ExternalDataSourceDiseaseModel_type") : //$NON-NLS-1$
+			getString("_UI_ExternalDataSourceDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 	/**
@@ -128,8 +128,8 @@ public class ExternalDataSourceDiseaseModelItemProvider
 	public String getTextGen(Object object) {
 		String label = ((ExternalDataSourceDiseaseModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExternalDataSourceDiseaseModel_type") :
-			getString("_UI_ExternalDataSourceDiseaseModel_type") + " " + label;
+			getString("_UI_ExternalDataSourceDiseaseModel_type") : //$NON-NLS-1$
+			getString("_UI_ExternalDataSourceDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}				
 
 	/**

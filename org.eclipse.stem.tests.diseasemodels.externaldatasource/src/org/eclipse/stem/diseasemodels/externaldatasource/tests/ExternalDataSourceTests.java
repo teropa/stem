@@ -39,7 +39,7 @@ public class ExternalDataSourceTests extends TestSuite {
 	 * @generated
 	 */
 	public static Test suite() {
-		TestSuite suite = new ExternalDataSourceTests("externaldatasource Tests");
+		TestSuite suite = new ExternalDataSourceTests("externaldatasource Tests"); //$NON-NLS-1$
 		suite.addTestSuite(ExternalDataSourceDiseaseModelTest.class);
 		return suite;
 	}

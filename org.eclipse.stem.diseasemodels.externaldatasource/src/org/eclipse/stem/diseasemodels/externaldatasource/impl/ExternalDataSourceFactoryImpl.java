@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.stem.diseasemodels.externaldatasource.*;
 import org.eclipse.stem.diseasemodels.externaldatasource.ExternalDataSourceDiseaseModel;
 import org.eclipse.stem.diseasemodels.externaldatasource.ExternalDataSourceFactory;
 import org.eclipse.stem.diseasemodels.externaldatasource.ExternalDataSourcePackage;
@@ -36,7 +37,7 @@ public class ExternalDataSourceFactoryImpl extends EFactoryImpl implements Exter
 	 */
 	public static ExternalDataSourceFactory init() {
 		try {
-			ExternalDataSourceFactory theExternalDataSourceFactory = (ExternalDataSourceFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/eclipse/stem/diseasemodels/externaldatasource.ecore"); 
+			ExternalDataSourceFactory theExternalDataSourceFactory = (ExternalDataSourceFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/eclipse/stem/diseasemodels/externaldatasource.ecore"); //$NON-NLS-1$ 
 			if (theExternalDataSourceFactory != null) {
 				return theExternalDataSourceFactory;
 			}
@@ -65,9 +66,9 @@ public class ExternalDataSourceFactoryImpl extends EFactoryImpl implements Exter
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL: return createExternalDataSourceDiseaseModel();
+			case ExternalDataSourcePackage.EXTERNAL_DATA_SOURCE_DISEASE_MODEL: return (EObject)createExternalDataSourceDiseaseModel();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
