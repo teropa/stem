@@ -175,8 +175,8 @@ public class LabelsSwitch<T1> {
 				if (result == null) result = caseStaticEdgeLabel(testStaticEdgeLabel);
 				if (result == null) result = caseEdgeLabel(testStaticEdgeLabel);
 				if (result == null) result = caseStaticLabel(testStaticEdgeLabel);
-				if (result == null) result = caseModifiable(testStaticEdgeLabel);
 				if (result == null) result = caseLabel(testStaticEdgeLabel);
+				if (result == null) result = caseModifiable(testStaticEdgeLabel);
 				if (result == null) result = caseIdentifiable(testStaticEdgeLabel);
 				if (result == null) result = caseComparable(testStaticEdgeLabel);
 				if (result == null) result = defaultCase(theEObject);
@@ -188,8 +188,8 @@ public class LabelsSwitch<T1> {
 				if (result == null) result = caseStaticNodeLabel(testStaticNodeLabel);
 				if (result == null) result = caseNodeLabel(testStaticNodeLabel);
 				if (result == null) result = caseStaticLabel(testStaticNodeLabel);
-				if (result == null) result = caseModifiable(testStaticNodeLabel);
 				if (result == null) result = caseLabel(testStaticNodeLabel);
+				if (result == null) result = caseModifiable(testStaticNodeLabel);
 				if (result == null) result = caseIdentifiable(testStaticNodeLabel);
 				if (result == null) result = caseComparable(testStaticNodeLabel);
 				if (result == null) result = defaultCase(theEObject);

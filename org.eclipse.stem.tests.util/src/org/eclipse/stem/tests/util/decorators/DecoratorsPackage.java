@@ -150,6 +150,15 @@ public interface DecoratorsPackage extends EPackage {
 	int TEST_EDGE_DECORATOR1__GRAPH_DECORATED = ModelPackage.EDGE_DECORATOR__GRAPH_DECORATED;
 
 	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_EDGE_DECORATOR1__PROGRESS = ModelPackage.EDGE_DECORATOR__PROGRESS;
+
+	/**
 	 * The feature id for the '<em><b>Node AURI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,6 +278,15 @@ public interface DecoratorsPackage extends EPackage {
 	int TEST_GRAPH_DECORATOR1__GRAPH_DECORATED = ModelPackage.GRAPH_DECORATOR__GRAPH_DECORATED;
 
 	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_GRAPH_DECORATOR1__PROGRESS = ModelPackage.GRAPH_DECORATOR__PROGRESS;
+
+	/**
 	 * The number of structural features of the '<em>Test Graph Decorator1</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,6 +379,15 @@ public interface DecoratorsPackage extends EPackage {
 	int TEST_NODE_DECORATOR1__GRAPH_DECORATED = ModelPackage.NODE_DECORATOR__GRAPH_DECORATED;
 
 	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_NODE_DECORATOR1__PROGRESS = ModelPackage.NODE_DECORATOR__PROGRESS;
+
+	/**
 	 * The number of structural features of the '<em>Test Node Decorator1</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,6 +468,15 @@ public interface DecoratorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST_SCENARIO_GRAPH_DECORATOR1__GRAPH_DECORATED = ModelPackage.GRAPH_DECORATOR__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SCENARIO_GRAPH_DECORATOR1__PROGRESS = ModelPackage.GRAPH_DECORATOR__PROGRESS;
 
 	/**
 	 * The feature id for the '<em><b>Double Value</b></em>' attribute.

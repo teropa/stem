@@ -43,16 +43,6 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	protected static final int I_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getI() <em>I</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getI()
-	 * @generated
-	 * @ordered
-	 */
-	protected int i = I_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -82,7 +72,7 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	 * @generated
 	 */
 	public int getI() {
-		return i;
+		return (Integer)eDynamicGet(LabelsPackage.TEST_INTEGER_LABEL_VALUE__I, LabelsPackage.Literals.TEST_INTEGER_LABEL_VALUE__I, true, true);
 	}
 
 	/**
@@ -90,10 +80,7 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	 * @generated
 	 */
 	public void setI(int newI) {
-		int oldI = i;
-		i = newI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.TEST_INTEGER_LABEL_VALUE__I, oldI, i));
+		eDynamicSet(LabelsPackage.TEST_INTEGER_LABEL_VALUE__I, LabelsPackage.Literals.TEST_INTEGER_LABEL_VALUE__I, newI);
 	}
 
 	/**
@@ -102,7 +89,7 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	 * @generated NOT
 	 */
 	public void increment() {
-		i++;
+		setI(getI() + 1);
 	} // increment
 
 	/**
@@ -123,7 +110,7 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case LabelsPackage.TEST_INTEGER_LABEL_VALUE__I:
-				return new Integer(getI());
+				return getI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,7 +123,7 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case LabelsPackage.TEST_INTEGER_LABEL_VALUE__I:
-				setI(((Integer)newValue).intValue());
+				setI((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,7 +151,7 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LabelsPackage.TEST_INTEGER_LABEL_VALUE__I:
-				return i != I_EDEFAULT;
+				return getI() != I_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

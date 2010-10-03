@@ -105,7 +105,7 @@ public class DecoratorsSwitch<T1> {
 			case DecoratorsPackage.TEST_EDGE_DECORATOR1: {
 				TestEdgeDecorator1 testEdgeDecorator1 = (TestEdgeDecorator1)theEObject;
 				T1 result = caseTestEdgeDecorator1(testEdgeDecorator1);
-				if (result == null) result = caseEdgeDecorator_1(testEdgeDecorator1);
+				if (result == null) result = caseModel_EdgeDecorator(testEdgeDecorator1);
 				if (result == null) result = caseDecorator(testEdgeDecorator1);
 				if (result == null) result = caseIdentifiable(testEdgeDecorator1);
 				if (result == null) result = caseComparable(testEdgeDecorator1);
@@ -115,7 +115,7 @@ public class DecoratorsSwitch<T1> {
 			case DecoratorsPackage.TEST_GRAPH_DECORATOR1: {
 				TestGraphDecorator1 testGraphDecorator1 = (TestGraphDecorator1)theEObject;
 				T1 result = caseTestGraphDecorator1(testGraphDecorator1);
-				if (result == null) result = caseGraphDecorator_1(testGraphDecorator1);
+				if (result == null) result = caseModel_GraphDecorator(testGraphDecorator1);
 				if (result == null) result = caseDecorator(testGraphDecorator1);
 				if (result == null) result = caseIdentifiable(testGraphDecorator1);
 				if (result == null) result = caseComparable(testGraphDecorator1);
@@ -125,7 +125,7 @@ public class DecoratorsSwitch<T1> {
 			case DecoratorsPackage.TEST_NODE_DECORATOR1: {
 				TestNodeDecorator1 testNodeDecorator1 = (TestNodeDecorator1)theEObject;
 				T1 result = caseTestNodeDecorator1(testNodeDecorator1);
-				if (result == null) result = caseNodeDecorator_1(testNodeDecorator1);
+				if (result == null) result = caseModel_NodeDecorator(testNodeDecorator1);
 				if (result == null) result = caseDecorator(testNodeDecorator1);
 				if (result == null) result = caseIdentifiable(testNodeDecorator1);
 				if (result == null) result = caseComparable(testNodeDecorator1);
@@ -135,7 +135,7 @@ public class DecoratorsSwitch<T1> {
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1: {
 				TestScenarioGraphDecorator1 testScenarioGraphDecorator1 = (TestScenarioGraphDecorator1)theEObject;
 				T1 result = caseTestScenarioGraphDecorator1(testScenarioGraphDecorator1);
-				if (result == null) result = caseGraphDecorator_1(testScenarioGraphDecorator1);
+				if (result == null) result = caseModel_GraphDecorator(testScenarioGraphDecorator1);
 				if (result == null) result = caseDecorator(testScenarioGraphDecorator1);
 				if (result == null) result = caseIdentifiable(testScenarioGraphDecorator1);
 				if (result == null) result = caseComparable(testScenarioGraphDecorator1);
@@ -277,7 +277,7 @@ public class DecoratorsSwitch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseEdgeDecorator_1(EdgeDecorator object) {
+	public T1 caseModel_EdgeDecorator(EdgeDecorator object) {
 		return null;
 	}
 
@@ -292,7 +292,7 @@ public class DecoratorsSwitch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseGraphDecorator_1(GraphDecorator object) {
+	public T1 caseModel_GraphDecorator(GraphDecorator object) {
 		return null;
 	}
 
@@ -307,7 +307,7 @@ public class DecoratorsSwitch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNodeDecorator_1(NodeDecorator object) {
+	public T1 caseModel_NodeDecorator(NodeDecorator object) {
 		return null;
 	}
 

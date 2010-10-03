@@ -165,12 +165,12 @@ public class LabelsAdapterFactory extends AdapterFactoryImpl {
 				return createLabelValueAdapter();
 			}
 			@Override
-			public Adapter caseStaticLabel(StaticLabel object) {
-				return createStaticLabelAdapter();
-			}
-			@Override
 			public Adapter caseModifiable(Modifiable object) {
 				return createModifiableAdapter();
+			}
+			@Override
+			public Adapter caseStaticLabel(StaticLabel object) {
+				return createStaticLabelAdapter();
 			}
 			@Override
 			public Adapter caseStaticEdgeLabel(StaticEdgeLabel object) {

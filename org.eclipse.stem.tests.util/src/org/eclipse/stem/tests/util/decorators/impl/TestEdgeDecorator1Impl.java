@@ -59,15 +59,6 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	protected static final URI NODE_AURI_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNodeAURI() <em>Node AURI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNodeAURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI nodeAURI = NODE_AURI_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getNodeBURI() <em>Node BURI</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNodeBURI()
@@ -77,15 +68,6 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	protected static final URI NODE_BURI_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNodeBURI() <em>Node BURI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNodeBURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI nodeBURI = NODE_BURI_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getEdgeURI() <em>Edge URI</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEdgeURI()
@@ -93,15 +75,6 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @ordered
 	 */
 	protected static final URI EDGE_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEdgeURI() <em>Edge URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getEdgeURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI edgeURI = EDGE_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -125,7 +98,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated
 	 */
 	public URI getNodeAURI() {
-		return nodeAURI;
+		return (URI)eDynamicGet(DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_AURI, DecoratorsPackage.Literals.TEST_EDGE_DECORATOR1__NODE_AURI, true, true);
 	}
 
 	/**
@@ -133,10 +106,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setNodeAURI(URI newNodeAURI) {
-		URI oldNodeAURI = nodeAURI;
-		nodeAURI = newNodeAURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_AURI, oldNodeAURI, nodeAURI));
+		eDynamicSet(DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_AURI, DecoratorsPackage.Literals.TEST_EDGE_DECORATOR1__NODE_AURI, newNodeAURI);
 	}
 
 	/**
@@ -144,7 +114,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated
 	 */
 	public URI getNodeBURI() {
-		return nodeBURI;
+		return (URI)eDynamicGet(DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_BURI, DecoratorsPackage.Literals.TEST_EDGE_DECORATOR1__NODE_BURI, true, true);
 	}
 
 	/**
@@ -152,10 +122,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setNodeBURI(URI newNodeBURI) {
-		URI oldNodeBURI = nodeBURI;
-		nodeBURI = newNodeBURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_BURI, oldNodeBURI, nodeBURI));
+		eDynamicSet(DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_BURI, DecoratorsPackage.Literals.TEST_EDGE_DECORATOR1__NODE_BURI, newNodeBURI);
 	}
 
 	/**
@@ -163,7 +130,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated
 	 */
 	public URI getEdgeURI() {
-		return edgeURI;
+		return (URI)eDynamicGet(DecoratorsPackage.TEST_EDGE_DECORATOR1__EDGE_URI, DecoratorsPackage.Literals.TEST_EDGE_DECORATOR1__EDGE_URI, true, true);
 	}
 
 	/**
@@ -171,10 +138,7 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 * @generated
 	 */
 	public void setEdgeURI(URI newEdgeURI) {
-		URI oldEdgeURI = edgeURI;
-		edgeURI = newEdgeURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_EDGE_DECORATOR1__EDGE_URI, oldEdgeURI, edgeURI));
+		eDynamicSet(DecoratorsPackage.TEST_EDGE_DECORATOR1__EDGE_URI, DecoratorsPackage.Literals.TEST_EDGE_DECORATOR1__EDGE_URI, newEdgeURI);
 	}
 
 	/**
@@ -242,32 +206,13 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_AURI:
-				return NODE_AURI_EDEFAULT == null ? nodeAURI != null : !NODE_AURI_EDEFAULT.equals(nodeAURI);
+				return NODE_AURI_EDEFAULT == null ? getNodeAURI() != null : !NODE_AURI_EDEFAULT.equals(getNodeAURI());
 			case DecoratorsPackage.TEST_EDGE_DECORATOR1__NODE_BURI:
-				return NODE_BURI_EDEFAULT == null ? nodeBURI != null : !NODE_BURI_EDEFAULT.equals(nodeBURI);
+				return NODE_BURI_EDEFAULT == null ? getNodeBURI() != null : !NODE_BURI_EDEFAULT.equals(getNodeBURI());
 			case DecoratorsPackage.TEST_EDGE_DECORATOR1__EDGE_URI:
-				return EDGE_URI_EDEFAULT == null ? edgeURI != null : !EDGE_URI_EDEFAULT.equals(edgeURI);
+				return EDGE_URI_EDEFAULT == null ? getEdgeURI() != null : !EDGE_URI_EDEFAULT.equals(getEdgeURI());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nodeAURI: "); //$NON-NLS-1$
-		result.append(nodeAURI);
-		result.append(", nodeBURI: "); //$NON-NLS-1$
-		result.append(nodeBURI);
-		result.append(", edgeURI: "); //$NON-NLS-1$
-		result.append(edgeURI);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

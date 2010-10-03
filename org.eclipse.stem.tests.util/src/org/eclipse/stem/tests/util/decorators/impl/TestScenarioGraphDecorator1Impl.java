@@ -57,15 +57,6 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 */
 	protected static final double DOUBLE_VALUE_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getDoubleValue() <em>Double Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDoubleValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double doubleValue = DOUBLE_VALUE_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getIntValue() <em>Int Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,15 +65,6 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @ordered
 	 */
 	protected static final int INT_VALUE_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getIntValue() <em>Int Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIntValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected int intValue = INT_VALUE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,25 +75,6 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 */
 	protected static final String STRING_VALUE_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStringValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String stringValue = STRING_VALUE_EDEFAULT;
-	/**
-	 * The cached value of the '{@link #getSTEMTimeValue() <em>STEM Time Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSTEMTimeValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime sTEMTimeValue;
-
-	/**
 	 * The default value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,16 +83,6 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @ordered
 	 */
 	protected static final boolean BOOLEAN_VALUE_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isBooleanValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean booleanValue = BOOLEAN_VALUE_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -153,7 +106,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public double getDoubleValue() {
-		return doubleValue;
+		return (Double)eDynamicGet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE, true, true);
 	}
 
 	/**
@@ -162,10 +115,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public void setDoubleValue(double newDoubleValue) {
-		double oldDoubleValue = doubleValue;
-		doubleValue = newDoubleValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE, oldDoubleValue, doubleValue));
+		eDynamicSet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE, newDoubleValue);
 	}
 
 	/**
@@ -174,7 +124,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public int getIntValue() {
-		return intValue;
+		return (Integer)eDynamicGet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE, true, true);
 	}
 
 	/**
@@ -183,10 +133,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public void setIntValue(int newIntValue) {
-		int oldIntValue = intValue;
-		intValue = newIntValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE, oldIntValue, intValue));
+		eDynamicSet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE, newIntValue);
 	}
 
 	/**
@@ -195,7 +142,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public String getStringValue() {
-		return stringValue;
+		return (String)eDynamicGet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE, true, true);
 	}
 
 	/**
@@ -204,10 +151,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public void setStringValue(String newStringValue) {
-		String oldStringValue = stringValue;
-		stringValue = newStringValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE, oldStringValue, stringValue));
+		eDynamicSet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE, newStringValue);
 	}
 
 	/**
@@ -216,15 +160,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public STEMTime getSTEMTimeValue() {
-		if (sTEMTimeValue != null && sTEMTimeValue.eIsProxy()) {
-			InternalEObject oldSTEMTimeValue = (InternalEObject)sTEMTimeValue;
-			sTEMTimeValue = (STEMTime)eResolveProxy(oldSTEMTimeValue);
-			if (sTEMTimeValue != oldSTEMTimeValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, oldSTEMTimeValue, sTEMTimeValue));
-			}
-		}
-		return sTEMTimeValue;
+		return (STEMTime)eDynamicGet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, true, true);
 	}
 
 	/**
@@ -233,7 +169,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public STEMTime basicGetSTEMTimeValue() {
-		return sTEMTimeValue;
+		return (STEMTime)eDynamicGet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, false, true);
 	}
 
 	/**
@@ -242,10 +178,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public void setSTEMTimeValue(STEMTime newSTEMTimeValue) {
-		STEMTime oldSTEMTimeValue = sTEMTimeValue;
-		sTEMTimeValue = newSTEMTimeValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, oldSTEMTimeValue, sTEMTimeValue));
+		eDynamicSet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE, newSTEMTimeValue);
 	}
 
 	/**
@@ -254,7 +187,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public boolean isBooleanValue() {
-		return booleanValue;
+		return (Boolean)eDynamicGet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE, true, true);
 	}
 
 	/**
@@ -263,10 +196,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 * @generated
 	 */
 	public void setBooleanValue(boolean newBooleanValue) {
-		boolean oldBooleanValue = booleanValue;
-		booleanValue = newBooleanValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE, oldBooleanValue, booleanValue));
+		eDynamicSet(DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE, DecoratorsPackage.Literals.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE, newBooleanValue);
 	}
 
 	/**
@@ -278,16 +208,16 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE:
-				return new Double(getDoubleValue());
+				return getDoubleValue();
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE:
-				return new Integer(getIntValue());
+				return getIntValue();
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE:
 				return getStringValue();
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE:
 				if (resolve) return getSTEMTimeValue();
 				return basicGetSTEMTimeValue();
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE:
-				return isBooleanValue() ? Boolean.TRUE : Boolean.FALSE;
+				return isBooleanValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -301,10 +231,10 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE:
-				setDoubleValue(((Double)newValue).doubleValue());
+				setDoubleValue((Double)newValue);
 				return;
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE:
-				setIntValue(((Integer)newValue).intValue());
+				setIntValue((Integer)newValue);
 				return;
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE:
 				setStringValue((String)newValue);
@@ -313,7 +243,7 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 				setSTEMTimeValue((STEMTime)newValue);
 				return;
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE:
-				setBooleanValue(((Boolean)newValue).booleanValue());
+				setBooleanValue((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -355,39 +285,17 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__DOUBLE_VALUE:
-				return doubleValue != DOUBLE_VALUE_EDEFAULT;
+				return getDoubleValue() != DOUBLE_VALUE_EDEFAULT;
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__INT_VALUE:
-				return intValue != INT_VALUE_EDEFAULT;
+				return getIntValue() != INT_VALUE_EDEFAULT;
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STRING_VALUE:
-				return STRING_VALUE_EDEFAULT == null ? stringValue != null : !STRING_VALUE_EDEFAULT.equals(stringValue);
+				return STRING_VALUE_EDEFAULT == null ? getStringValue() != null : !STRING_VALUE_EDEFAULT.equals(getStringValue());
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__STEM_TIME_VALUE:
-				return sTEMTimeValue != null;
+				return basicGetSTEMTimeValue() != null;
 			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1__BOOLEAN_VALUE:
-				return booleanValue != BOOLEAN_VALUE_EDEFAULT;
+				return isBooleanValue() != BOOLEAN_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (doubleValue: "); //$NON-NLS-1$
-		result.append(doubleValue);
-		result.append(", intValue: "); //$NON-NLS-1$
-		result.append(intValue);
-		result.append(", stringValue: "); //$NON-NLS-1$
-		result.append(stringValue);
-		result.append(", booleanValue: "); //$NON-NLS-1$
-		result.append(booleanValue);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**

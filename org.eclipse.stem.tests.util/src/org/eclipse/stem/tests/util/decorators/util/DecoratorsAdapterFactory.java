@@ -124,16 +124,16 @@ public class DecoratorsAdapterFactory extends AdapterFactoryImpl {
 				return createDecoratorAdapter();
 			}
 			@Override
-			public Adapter caseEdgeDecorator_1(EdgeDecorator object) {
-				return createEdgeDecorator_1Adapter();
+			public Adapter caseModel_EdgeDecorator(EdgeDecorator object) {
+				return createModel_EdgeDecoratorAdapter();
 			}
 			@Override
-			public Adapter caseGraphDecorator_1(GraphDecorator object) {
-				return createGraphDecorator_1Adapter();
+			public Adapter caseModel_GraphDecorator(GraphDecorator object) {
+				return createModel_GraphDecoratorAdapter();
 			}
 			@Override
-			public Adapter caseNodeDecorator_1(NodeDecorator object) {
-				return createNodeDecorator_1Adapter();
+			public Adapter caseModel_NodeDecorator(NodeDecorator object) {
+				return createModel_NodeDecoratorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -277,7 +277,7 @@ public class DecoratorsAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.stem.core.model.EdgeDecorator
 	 * @generated
 	 */
-	public Adapter createEdgeDecorator_1Adapter() {
+	public Adapter createModel_EdgeDecoratorAdapter() {
 		return null;
 	}
 
@@ -291,7 +291,7 @@ public class DecoratorsAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.stem.core.model.GraphDecorator
 	 * @generated
 	 */
-	public Adapter createGraphDecorator_1Adapter() {
+	public Adapter createModel_GraphDecoratorAdapter() {
 		return null;
 	}
 
@@ -305,7 +305,7 @@ public class DecoratorsAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.stem.core.model.NodeDecorator
 	 * @generated
 	 */
-	public Adapter createNodeDecorator_1Adapter() {
+	public Adapter createModel_NodeDecoratorAdapter() {
 		return null;
 	}
 

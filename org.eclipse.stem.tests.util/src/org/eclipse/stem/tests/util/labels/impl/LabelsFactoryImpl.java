@@ -71,13 +71,13 @@ public class LabelsFactoryImpl extends EFactoryImpl implements LabelsFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case LabelsPackage.TEST_DYNAMIC_EDGE_LABEL: return createTestDynamicEdgeLabel();
-			case LabelsPackage.TEST_DYNAMIC_LABEL1: return createTestDynamicLabel1();
-			case LabelsPackage.TEST_DYNAMIC_NODE_LABEL: return createTestDynamicNodeLabel();
-			case LabelsPackage.TEST_INTEGER_LABEL_VALUE: return createTestIntegerLabelValue();
-			case LabelsPackage.TEST_LABEL: return createTestLabel();
-			case LabelsPackage.TEST_STATIC_EDGE_LABEL: return createTestStaticEdgeLabel();
-			case LabelsPackage.TEST_STATIC_NODE_LABEL: return createTestStaticNodeLabel();
+			case LabelsPackage.TEST_DYNAMIC_EDGE_LABEL: return (EObject)createTestDynamicEdgeLabel();
+			case LabelsPackage.TEST_DYNAMIC_LABEL1: return (EObject)createTestDynamicLabel1();
+			case LabelsPackage.TEST_DYNAMIC_NODE_LABEL: return (EObject)createTestDynamicNodeLabel();
+			case LabelsPackage.TEST_INTEGER_LABEL_VALUE: return (EObject)createTestIntegerLabelValue();
+			case LabelsPackage.TEST_LABEL: return (EObject)createTestLabel();
+			case LabelsPackage.TEST_STATIC_EDGE_LABEL: return (EObject)createTestStaticEdgeLabel();
+			case LabelsPackage.TEST_STATIC_NODE_LABEL: return (EObject)createTestStaticNodeLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

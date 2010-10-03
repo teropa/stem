@@ -70,10 +70,10 @@ public class DecoratorsFactoryImpl extends EFactoryImpl implements DecoratorsFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DecoratorsPackage.TEST_EDGE_DECORATOR1: return createTestEdgeDecorator1();
-			case DecoratorsPackage.TEST_GRAPH_DECORATOR1: return createTestGraphDecorator1();
-			case DecoratorsPackage.TEST_NODE_DECORATOR1: return createTestNodeDecorator1();
-			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1: return createTestScenarioGraphDecorator1();
+			case DecoratorsPackage.TEST_EDGE_DECORATOR1: return (EObject)createTestEdgeDecorator1();
+			case DecoratorsPackage.TEST_GRAPH_DECORATOR1: return (EObject)createTestGraphDecorator1();
+			case DecoratorsPackage.TEST_NODE_DECORATOR1: return (EObject)createTestNodeDecorator1();
+			case DecoratorsPackage.TEST_SCENARIO_GRAPH_DECORATOR1: return (EObject)createTestScenarioGraphDecorator1();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
