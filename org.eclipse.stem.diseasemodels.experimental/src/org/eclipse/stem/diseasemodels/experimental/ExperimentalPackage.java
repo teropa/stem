@@ -119,6 +119,33 @@ public interface ExperimentalPackage extends EPackage {
 	int PERCOLATION_DISEASE_MODEL__GRAPH = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__GRAPH;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__ENABLED = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__GRAPH_DECORATED = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__GRAPH_DECORATED;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__PROGRESS = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__PROGRESS;
+
+	/**
 	 * The feature id for the '<em><b>Background Mortality Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +182,42 @@ public interface ExperimentalPackage extends EPackage {
 	int PERCOLATION_DISEASE_MODEL__DISEASE_NAME = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__DISEASE_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Relative Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__RELATIVE_TOLERANCE = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__RELATIVE_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Finite Difference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__FINITE_DIFFERENCE = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__FINITE_DIFFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Dependent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__FREQUENCY_DEPENDENT = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__FREQUENCY_DEPENDENT;
+
+	/**
+	 * The feature id for the '<em><b>Background Birth Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__BACKGROUND_BIRTH_RATE = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__BACKGROUND_BIRTH_RATE;
+
+	/**
 	 * The feature id for the '<em><b>Total Population Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,7 +244,15 @@ public interface ExperimentalPackage extends EPackage {
 	 */
 	int PERCOLATION_DISEASE_MODEL__TOTAL_AREA = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__TOTAL_AREA;
 
-	
+	/**
+	 * The feature id for the '<em><b>Reference Population Density</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY;
+
 	/**
 	 * The feature id for the '<em><b>Transmission Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -226,6 +297,33 @@ public interface ExperimentalPackage extends EPackage {
 	 * @ordered
 	 */
 	int PERCOLATION_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Infectious Mortality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__INFECTIOUS_MORTALITY = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__INFECTIOUS_MORTALITY;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCOLATION_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = StandardPackage.STOCHASTIC_SEIR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Immunity Loss Rate</b></em>' attribute.

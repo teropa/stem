@@ -105,7 +105,6 @@ public class ExperimentalItemProviderAdapterFactory extends ExperimentalAdapterF
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return rootAdapterFactory
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
@@ -116,7 +115,6 @@ public class ExperimentalItemProviderAdapterFactory extends ExperimentalAdapterF
 	 * This sets the composed adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param parentAdapterFactory 
 	 * @generated
 	 */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
@@ -153,7 +151,7 @@ public class ExperimentalItemProviderAdapterFactory extends ExperimentalAdapterF
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -165,7 +163,6 @@ public class ExperimentalItemProviderAdapterFactory extends ExperimentalAdapterF
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param notifyChangedListener 
 	 * @generated
 	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
@@ -176,7 +173,6 @@ public class ExperimentalItemProviderAdapterFactory extends ExperimentalAdapterF
 	 * This removes a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param notifyChangedListener 
 	 * @generated
 	 */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
@@ -184,9 +180,9 @@ public class ExperimentalItemProviderAdapterFactory extends ExperimentalAdapterF
 	}
 
 	/**
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param notification 
 	 * @generated
 	 */
 	public void fireNotifyChanged(Notification notification) {

@@ -18,7 +18,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.modifier.Modifiable;
+import org.eclipse.stem.diseasemodels.experimental.*;
 import org.eclipse.stem.diseasemodels.experimental.ExperimentalPackage;
 import org.eclipse.stem.diseasemodels.experimental.PercolationDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
@@ -79,7 +82,7 @@ public class ExperimentalAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * The switch the delegates to the <code>createXXX</code> methods.
+	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -89,6 +92,10 @@ public class ExperimentalAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePercolationDiseaseModel(PercolationDiseaseModel object) {
 				return createPercolationDiseaseModelAdapter();
+			}
+			@Override
+			public <T> Adapter caseComparable(Comparable<T> object) {
+				return createComparableAdapter();
 			}
 			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
@@ -107,8 +114,16 @@ public class ExperimentalAdapterFactory extends AdapterFactoryImpl {
 				return createSanityCheckerAdapter();
 			}
 			@Override
+			public Adapter caseModifiable(Modifiable object) {
+				return createModifiableAdapter();
+			}
+			@Override
 			public Adapter caseDiseaseModel(DiseaseModel object) {
 				return createDiseaseModelAdapter();
+			}
+			@Override
+			public Adapter caseIntegrationDecorator(IntegrationDecorator object) {
+				return createIntegrationDecoratorAdapter();
 			}
 			@Override
 			public Adapter caseStandardDiseaseModel(StandardDiseaseModel object) {
@@ -173,6 +188,20 @@ public class ExperimentalAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link java.lang.Comparable <em>Comparable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.lang.Comparable
+	 * @generated
+	 */
+	public Adapter createComparableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.common.Identifiable <em>Identifiable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -229,6 +258,20 @@ public class ExperimentalAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.modifier.Modifiable <em>Modifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.modifier.Modifiable
+	 * @generated
+	 */
+	public Adapter createModifiableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.diseasemodels.standard.DiseaseModel <em>Disease Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -239,6 +282,20 @@ public class ExperimentalAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiseaseModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.model.IntegrationDecorator <em>Integration Decorator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.stem.core.model.IntegrationDecorator
+	 * @generated
+	 */
+	public Adapter createIntegrationDecoratorAdapter() {
 		return null;
 	}
 

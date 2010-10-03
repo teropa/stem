@@ -14,10 +14,6 @@ package org.eclipse.stem.diseasemodels.experimental.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.stem.core.common.CommonPackage;
-import org.eclipse.stem.core.graph.GraphPackage;
-import org.eclipse.stem.core.model.ModelPackage;
-import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.diseasemodels.experimental.ExperimentalFactory;
 import org.eclipse.stem.diseasemodels.experimental.ExperimentalPackage;
 import org.eclipse.stem.diseasemodels.experimental.PercolationDiseaseModel;
@@ -35,8 +31,7 @@ public class ExperimentalPackageImpl extends EPackageImpl implements Experimenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass PercolationDiseaseModelEClass = null;
-
+	private EClass percolationDiseaseModelEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -64,23 +59,12 @@ public class ExperimentalPackageImpl extends EPackageImpl implements Experimenta
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link ExperimentalPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return  ExperimentalPackate instance
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -90,16 +74,12 @@ public class ExperimentalPackageImpl extends EPackageImpl implements Experimenta
 		if (isInited) return (ExperimentalPackage)EPackage.Registry.INSTANCE.getEPackage(ExperimentalPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ExperimentalPackageImpl theExperimentalPackage = (ExperimentalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ExperimentalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ExperimentalPackageImpl());
+		ExperimentalPackageImpl theExperimentalPackage = (ExperimentalPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ExperimentalPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ExperimentalPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
 		StandardPackage.eINSTANCE.eClass();
-		CommonPackage.eINSTANCE.eClass();
-		ModelPackage.eINSTANCE.eClass();
-		GraphPackage.eINSTANCE.eClass();
-		LabelsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theExperimentalPackage.createPackageContents();
@@ -110,23 +90,24 @@ public class ExperimentalPackageImpl extends EPackageImpl implements Experimenta
 		// Mark meta-data to indicate it can't be changed
 		theExperimentalPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(ExperimentalPackage.eNS_URI, theExperimentalPackage);
 		return theExperimentalPackage;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return PercolationDiseaseModelEClass
 	 * @generated
 	 */
 	public EClass getPercolationDiseaseModel() {
-		return PercolationDiseaseModelEClass;
+		return percolationDiseaseModelEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return ExperimentalFactory
 	 * @generated
 	 */
 	public ExperimentalFactory getExperimentalFactory() {
@@ -152,7 +133,7 @@ public class ExperimentalPackageImpl extends EPackageImpl implements Experimenta
 		isCreated = true;
 
 		// Create classes and their features
-		PercolationDiseaseModelEClass = createEClass(PERCOLATION_DISEASE_MODEL);
+		percolationDiseaseModelEClass = createEClass(PERCOLATION_DISEASE_MODEL);
 	}
 
 	/**
@@ -186,10 +167,10 @@ public class ExperimentalPackageImpl extends EPackageImpl implements Experimenta
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		PercolationDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSEIRDiseaseModel());
+		percolationDiseaseModelEClass.getESuperTypes().add(theStandardPackage.getStochasticSEIRDiseaseModel());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(PercolationDiseaseModelEClass, PercolationDiseaseModel.class, "PercolationDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(percolationDiseaseModelEClass, PercolationDiseaseModel.class, "PercolationDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

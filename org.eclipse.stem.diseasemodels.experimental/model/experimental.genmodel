@@ -3,11 +3,13 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.diseasemodels.experimental/src"
     editDirectory="/org.eclipse.stem.diseasemodels.experimental/src" editorDirectory="/org.eclipse.stem.ui.diseasemodels.experimental/src"
     modelPluginID="org.eclipse.stem.diseasemodels.experimental" modelName="Experimental"
+    rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     testsDirectory="/org.eclipse.stem.diseasemodels.tests.experimental/src" importerID="org.eclipse.emf.importer.java"
-    complianceLevel="5.0" usedGenPackages="../../org.eclipse.stem.diseasemodels/model/diseasemodels.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels">
+    featureDelegation="Dynamic" complianceLevel="5.0" usedGenPackages="../../org.eclipse.stem.diseasemodels/model/diseasemodels.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.populationmodels/model/standard.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver">
   <foreignModel>@model</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Experimental" basePackage="org.eclipse.stem.diseasemodels"
       disposableProviderFactory="true" ecorePackage="experimental.ecore#/">
-    <genClasses ecoreClass="experimental.ecore#//PerculationDiseaseModel"/>
+    <genClasses ecoreClass="experimental.ecore#//PercolationDiseaseModel"/>
   </genPackages>
 </genmodel:GenModel>

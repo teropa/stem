@@ -18,7 +18,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.NodeDecorator;
+import org.eclipse.stem.core.modifier.Modifiable;
+import org.eclipse.stem.diseasemodels.experimental.*;
 import org.eclipse.stem.diseasemodels.experimental.ExperimentalPackage;
 import org.eclipse.stem.diseasemodels.experimental.PercolationDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
@@ -47,7 +50,7 @@ import org.eclipse.stem.diseasemodels.standard.StochasticSEIRDiseaseModel;
 
 import org.eclipse.emf.ecore.EObject;
 @SuppressWarnings("all")
-public class ExperimentalSwitch<T> {
+public class ExperimentalSwitch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -72,11 +75,10 @@ public class ExperimentalSwitch<T> {
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param theEObject 
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject) {
+	public T1 doSwitch(EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -87,7 +89,7 @@ public class ExperimentalSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
+	protected T1 doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
@@ -107,23 +109,26 @@ public class ExperimentalSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case ExperimentalPackage.PERCOLATION_DISEASE_MODEL: {
 				PercolationDiseaseModel percolationDiseaseModel = (PercolationDiseaseModel)theEObject;
-				T result = casePercolationDiseaseModel(percolationDiseaseModel);
+				T1 result = casePercolationDiseaseModel(percolationDiseaseModel);
 				if (result == null) result = caseStochasticSEIRDiseaseModel(percolationDiseaseModel);
 				if (result == null) result = caseSEIR(percolationDiseaseModel);
 				if (result == null) result = caseStandardStochasticDiseaseModel(percolationDiseaseModel);
 				if (result == null) result = caseSIR(percolationDiseaseModel);
 				if (result == null) result = caseStochasticDiseaseModel(percolationDiseaseModel);
 				if (result == null) result = caseSI(percolationDiseaseModel);
-				if (result == null) result = caseDiseaseModel(percolationDiseaseModel);
 				if (result == null) result = caseStandardDiseaseModel(percolationDiseaseModel);
+				if (result == null) result = caseDiseaseModel(percolationDiseaseModel);
+				if (result == null) result = caseIntegrationDecorator(percolationDiseaseModel);
 				if (result == null) result = caseNodeDecorator(percolationDiseaseModel);
 				if (result == null) result = caseSanityChecker(percolationDiseaseModel);
+				if (result == null) result = caseModifiable(percolationDiseaseModel);
 				if (result == null) result = caseDecorator(percolationDiseaseModel);
 				if (result == null) result = caseIdentifiable(percolationDiseaseModel);
+				if (result == null) result = caseComparable(percolationDiseaseModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,7 +137,7 @@ public class ExperimentalSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Percolation Disease Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Percolation Disease Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -142,7 +147,22 @@ public class ExperimentalSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePercolationDiseaseModel(PercolationDiseaseModel object) {
+	public T1 casePercolationDiseaseModel(PercolationDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Comparable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Comparable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseComparable(Comparable<T> object) {
 		return null;
 	}
 
@@ -157,172 +177,202 @@ public class ExperimentalSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIdentifiable(Identifiable object) {
+	public T1 caseIdentifiable(Identifiable object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Decorator</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Decorator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Decorator</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Decorator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDecorator(Decorator object) {
+	public T1 caseDecorator(Decorator object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Node Decorator</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Node Decorator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Node Decorator</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Node Decorator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNodeDecorator(NodeDecorator object) {
+	public T1 caseNodeDecorator(NodeDecorator object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Sanity Checker</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Sanity Checker</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Sanity Checker</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Sanity Checker</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSanityChecker(SanityChecker object) {
+	public T1 caseSanityChecker(SanityChecker object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Disease Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Modifiable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Disease Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Modifiable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDiseaseModel(DiseaseModel object) {
+	public T1 caseModifiable(Modifiable object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Disease Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Disease Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Disease Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Disease Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStandardDiseaseModel(StandardDiseaseModel object) {
+	public T1 caseDiseaseModel(DiseaseModel object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>SI</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Integration Decorator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>SI</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Integration Decorator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSI(SI object) {
+	public T1 caseIntegrationDecorator(IntegrationDecorator object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>SIR</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Disease Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>SIR</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Disease Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSIR(SIR object) {
+	public T1 caseStandardDiseaseModel(StandardDiseaseModel object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>SEIR</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SI</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>SEIR</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SI</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSEIR(SEIR object) {
+	public T1 caseSI(SI object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Stochastic Disease Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SIR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Stochastic Disease Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SIR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStochasticDiseaseModel(StochasticDiseaseModel object) {
+	public T1 caseSIR(SIR object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Stochastic Disease Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SEIR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Stochastic Disease Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SEIR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStandardStochasticDiseaseModel(StandardStochasticDiseaseModel object) {
+	public T1 caseSEIR(SEIR object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Stochastic SEIR Disease Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Stochastic Disease Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Stochastic SEIR Disease Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Stochastic Disease Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStochasticSEIRDiseaseModel(StochasticSEIRDiseaseModel object) {
+	public T1 caseStochasticDiseaseModel(StochasticDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stochastic Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stochastic Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStandardStochasticDiseaseModel(StandardStochasticDiseaseModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stochastic SEIR Disease Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stochastic SEIR Disease Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStochasticSEIRDiseaseModel(StochasticSEIRDiseaseModel object) {
 		return null;
 	}
 
@@ -337,7 +387,7 @@ public class ExperimentalSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 

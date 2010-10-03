@@ -38,7 +38,7 @@ public class PercolationDiseaseModelImpl extends StochasticSEIRDiseaseModelImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PercolationDiseaseModelImpl() {
+	protected PercolationDiseaseModelImpl() {
 		super();
 	}
 

@@ -45,7 +45,6 @@ public class PercolationDiseaseModelItemProvider
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param adapterFactory 
 	 * @generated
 	 */
 	public PercolationDiseaseModelItemProvider(AdapterFactory adapterFactory) {
@@ -119,8 +118,8 @@ public class PercolationDiseaseModelItemProvider
 	}
 	
 	/**
-	 * This handles model notifications by calling updateChildren to update any cached
-	 * children and by creating a viewer notification.
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -139,7 +138,7 @@ public class PercolationDiseaseModelItemProvider
 	 * @generated
 	 */
 	@Override
-	public void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

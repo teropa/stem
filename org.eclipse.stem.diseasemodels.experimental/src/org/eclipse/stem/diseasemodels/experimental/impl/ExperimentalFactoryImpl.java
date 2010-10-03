@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.stem.diseasemodels.experimental.*;
 import org.eclipse.stem.diseasemodels.experimental.ExperimentalFactory;
 import org.eclipse.stem.diseasemodels.experimental.ExperimentalPackage;
 import org.eclipse.stem.diseasemodels.experimental.PercolationDiseaseModel;
@@ -31,7 +32,6 @@ public class ExperimentalFactoryImpl extends EFactoryImpl implements Experimenta
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return ExperimentalFactory instance
 	 * @generated
 	 */
 	public static ExperimentalFactory init() {
@@ -65,7 +65,7 @@ public class ExperimentalFactoryImpl extends EFactoryImpl implements Experimenta
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExperimentalPackage.PERCOLATION_DISEASE_MODEL: return createPercolationDiseaseModel();
+			case ExperimentalPackage.PERCOLATION_DISEASE_MODEL: return (EObject)createPercolationDiseaseModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -74,7 +74,6 @@ public class ExperimentalFactoryImpl extends EFactoryImpl implements Experimenta
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the percolationDiseaseModel
 	 * @generated
 	 */
 	public PercolationDiseaseModel createPercolationDiseaseModel() {
@@ -85,7 +84,6 @@ public class ExperimentalFactoryImpl extends EFactoryImpl implements Experimenta
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return experimentalPackage 
 	 * @generated
 	 */
 	public ExperimentalPackage getExperimentalPackage() {
@@ -95,7 +93,6 @@ public class ExperimentalFactoryImpl extends EFactoryImpl implements Experimenta
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return ExperimentalPackage eInstance
 	 * @deprecated
 	 * @generated
 	 */
