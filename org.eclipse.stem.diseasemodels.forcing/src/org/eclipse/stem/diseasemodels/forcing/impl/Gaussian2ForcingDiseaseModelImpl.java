@@ -65,16 +65,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	protected static final double SIGMA2_2_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getSigma2_2() <em>Sigma2 2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSigma2_2()
-	 * @generated
-	 * @ordered
-	 */
-	protected double sigma2_2 = SIGMA2_2_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSigma2() <em>Sigma2</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,16 +73,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @ordered
 	 */
 	protected static final double SIGMA2_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getSigma2() <em>Sigma2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSigma2()
-	 * @generated
-	 * @ordered
-	 */
-	protected double sigma2 = SIGMA2_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
@@ -105,16 +85,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	protected static final double MODULATION_PERIOD_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPeriod = MODULATION_PERIOD_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,16 +93,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @ordered
 	 */
 	protected static final double MODULATION_PHASE_SHIFT_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPhaseShift()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPhaseShift = MODULATION_PHASE_SHIFT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getModulationFloor() <em>Modulation Floor</em>}' attribute.
@@ -145,16 +105,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	protected static final double MODULATION_FLOOR_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getModulationFloor() <em>Modulation Floor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationFloor()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationFloor = MODULATION_FLOOR_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getAtt1() <em>Att1</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,16 +113,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @ordered
 	 */
 	protected static final double ATT1_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getAtt1() <em>Att1</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAtt1()
-	 * @generated
-	 * @ordered
-	 */
-	protected double att1 = ATT1_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAtt2() <em>Att2</em>}' attribute.
@@ -185,16 +125,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	protected static final double ATT2_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getAtt2() <em>Att2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAtt2()
-	 * @generated
-	 * @ordered
-	 */
-	protected double att2 = ATT2_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getAtt3() <em>Att3</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -205,16 +135,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	protected static final double ATT3_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getAtt3() <em>Att3</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAtt3()
-	 * @generated
-	 * @ordered
-	 */
-	protected double att3 = ATT3_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getAtt4() <em>Att4</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,16 +143,6 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @ordered
 	 */
 	protected static final double ATT4_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getAtt4() <em>Att4</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAtt4()
-	 * @generated
-	 * @ordered
-	 */
-	protected double att4 = ATT4_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,7 +169,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getSigma2_2() {
-		return sigma2_2;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2, true, true);
 	}
 
 	/**
@@ -268,10 +178,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setSigma2_2(double newSigma2_2) {
-		double oldSigma2_2 = sigma2_2;
-		sigma2_2 = newSigma2_2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2, oldSigma2_2, sigma2_2));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2, newSigma2_2);
 	}
 
 	/**
@@ -280,7 +187,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getSigma2() {
-		return sigma2;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2, true, true);
 	}
 
 	/**
@@ -289,10 +196,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setSigma2(double newSigma2) {
-		double oldSigma2 = sigma2;
-		sigma2 = newSigma2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2, oldSigma2, sigma2));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2, newSigma2);
 	}
 
 	/**
@@ -301,7 +205,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getModulationPeriod() {
-		return modulationPeriod;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD, true, true);
 	}
 
 	/**
@@ -310,10 +214,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setModulationPeriod(double newModulationPeriod) {
-		double oldModulationPeriod = modulationPeriod;
-		modulationPeriod = newModulationPeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD, oldModulationPeriod, modulationPeriod));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD, newModulationPeriod);
 	}
 
 	/**
@@ -322,7 +223,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getModulationPhaseShift() {
-		return modulationPhaseShift;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, true, true);
 	}
 
 	/**
@@ -331,10 +232,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setModulationPhaseShift(double newModulationPhaseShift) {
-		double oldModulationPhaseShift = modulationPhaseShift;
-		modulationPhaseShift = newModulationPhaseShift;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, oldModulationPhaseShift, modulationPhaseShift));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, newModulationPhaseShift);
 	}
 
 	/**
@@ -343,7 +241,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getModulationFloor() {
-		return modulationFloor;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR, true, true);
 	}
 
 	/**
@@ -352,10 +250,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setModulationFloor(double newModulationFloor) {
-		double oldModulationFloor = modulationFloor;
-		modulationFloor = newModulationFloor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR, oldModulationFloor, modulationFloor));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR, newModulationFloor);
 	}
 
 	/**
@@ -364,7 +259,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getAtt1() {
-		return att1;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1, true, true);
 	}
 
 	/**
@@ -373,10 +268,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setAtt1(double newAtt1) {
-		double oldAtt1 = att1;
-		att1 = newAtt1;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1, oldAtt1, att1));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1, newAtt1);
 	}
 
 	/**
@@ -385,7 +277,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getAtt2() {
-		return att2;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2, true, true);
 	}
 
 	/**
@@ -394,10 +286,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setAtt2(double newAtt2) {
-		double oldAtt2 = att2;
-		att2 = newAtt2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2, oldAtt2, att2));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2, newAtt2);
 	}
 
 	/**
@@ -406,7 +295,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getAtt3() {
-		return att3;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3, true, true);
 	}
 
 	/**
@@ -415,10 +304,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setAtt3(double newAtt3) {
-		double oldAtt3 = att3;
-		att3 = newAtt3;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3, oldAtt3, att3));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3, newAtt3);
 	}
 
 	/**
@@ -427,7 +313,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public double getAtt4() {
-		return att4;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4, true, true);
 	}
 
 	/**
@@ -436,10 +322,7 @@ public class Gaussian2ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelI
 	 * @generated
 	 */
 	public void setAtt4(double newAtt4) {
-		double oldAtt4 = att4;
-		att4 = newAtt4;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4, oldAtt4, att4));
+		eDynamicSet(ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4, ForcingPackage.Literals.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4, newAtt4);
 	}
 
 	private Long firstTime = new Long(Long.MAX_VALUE);
@@ -703,57 +586,25 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2_2:
-				return sigma2_2 != SIGMA2_2_EDEFAULT;
+				return getSigma2_2() != SIGMA2_2_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__SIGMA2:
-				return sigma2 != SIGMA2_EDEFAULT;
+				return getSigma2() != SIGMA2_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PERIOD:
-				return modulationPeriod != MODULATION_PERIOD_EDEFAULT;
+				return getModulationPeriod() != MODULATION_PERIOD_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT:
-				return modulationPhaseShift != MODULATION_PHASE_SHIFT_EDEFAULT;
+				return getModulationPhaseShift() != MODULATION_PHASE_SHIFT_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__MODULATION_FLOOR:
-				return modulationFloor != MODULATION_FLOOR_EDEFAULT;
+				return getModulationFloor() != MODULATION_FLOOR_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT1:
-				return att1 != ATT1_EDEFAULT;
+				return getAtt1() != ATT1_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT2:
-				return att2 != ATT2_EDEFAULT;
+				return getAtt2() != ATT2_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT3:
-				return att3 != ATT3_EDEFAULT;
+				return getAtt3() != ATT3_EDEFAULT;
 			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL__ATT4:
-				return att4 != ATT4_EDEFAULT;
+				return getAtt4() != ATT4_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sigma2_2: "); //$NON-NLS-1$
-		result.append(sigma2_2);
-		result.append(", sigma2: "); //$NON-NLS-1$
-		result.append(sigma2);
-		result.append(", modulationPeriod: "); //$NON-NLS-1$
-		result.append(modulationPeriod);
-		result.append(", modulationPhaseShift: "); //$NON-NLS-1$
-		result.append(modulationPhaseShift);
-		result.append(", modulationFloor: "); //$NON-NLS-1$
-		result.append(modulationFloor);
-		result.append(", att1: "); //$NON-NLS-1$
-		result.append(att1);
-		result.append(", att2: "); //$NON-NLS-1$
-		result.append(att2);
-		result.append(", att3: "); //$NON-NLS-1$
-		result.append(att3);
-		result.append(", att4: "); //$NON-NLS-1$
-		result.append(att4);
-		result.append(')');
-		return result.toString();
 	}
 
 } //Gaussian2ForcingDiseaseModelImpl

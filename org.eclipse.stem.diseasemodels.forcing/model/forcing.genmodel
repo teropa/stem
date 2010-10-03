@@ -3,22 +3,46 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.diseasemodels.forcing/src"
     editDirectory="/org.eclipse.stem.diseasemodels.forcing/src" editorDirectory="/org.eclipse.stem.ui.diseasemodels.forcing/src"
-    modelPluginID="org.eclipse.stem.diseasemodels.forcing" modelName="Forcing"
-    editPluginClass="org.eclipse.stem.diseasemodels.forcing.provider.ForcingEditPlugin"
+    modelPluginID="org.eclipse.stem.diseasemodels.forcing" modelName="Forcing" editPluginClass="org.eclipse.stem.diseasemodels.forcing.provider.ForcingEditPlugin"
     editorPluginClass="org.eclipse.stem.ui.diseasemodels.forcing.presentation.ForcingEditorPlugin"
-    nonNLSMarkers="true" testsDirectory="/org.eclipse.stem.tests.diseasemodels.forcing/src"
-    importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
-    editPluginID="org.eclipse.stem.diseasemodels.forcing" editorPluginID="org.eclipse.stem.ui.diseasemodels.forcing.editor"
-    testsPluginID="org.eclipse.stem.tests.diseasemodels.forcing" usedGenPackages="../../org.eclipse.stem.diseasemodels/model/diseasemodels.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels">
+    nonNLSMarkers="true" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    testsDirectory="/org.eclipse.stem.tests.diseasemodels.forcing/src" importerID="org.eclipse.emf.importer.java"
+    featureDelegation="Dynamic" complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipse.stem.diseasemodels.forcing"
+    editorPluginID="org.eclipse.stem.ui.diseasemodels.forcing.editor" testsPluginID="org.eclipse.stem.tests.diseasemodels.forcing"
+    usedGenPackages="../../org.eclipse.stem.diseasemodels/model/diseasemodels.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels ../../org.eclipse.stem.populationmodels/model/standard.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//solver">
   <foreignModel>@model</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Forcing" basePackage="org.eclipse.stem.diseasemodels" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
       ecorePackage="forcing.ecore#/">
     <genClasses ecoreClass="forcing.ecore#//ForcingDiseaseModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//ForcingDiseaseModel/seasonalModulation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//ForcingDiseaseModel/seasonalModulationExponent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//ForcingDiseaseModel/modulationPeriod"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//ForcingDiseaseModel/modulationPhaseShift"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//ForcingDiseaseModel/attenuation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//ForcingDiseaseModel/seasonalModulationFloor"/>
+    </genClasses>
+    <genClasses ecoreClass="forcing.ecore#//GaussianForcingDiseaseModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//GaussianForcingDiseaseModel/sigma2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//GaussianForcingDiseaseModel/modulationPeriod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//GaussianForcingDiseaseModel/modulationPhaseShift"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//GaussianForcingDiseaseModel/modulationFloor"/>
+    </genClasses>
+    <genClasses ecoreClass="forcing.ecore#//Gaussian2ForcingDiseaseModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/sigma2_2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/sigma2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/modulationPeriod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/modulationPhaseShift"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/modulationFloor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/att1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/att2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/att3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian2ForcingDiseaseModel/att4"/>
+    </genClasses>
+    <genClasses ecoreClass="forcing.ecore#//Gaussian3ForcingDiseaseModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian3ForcingDiseaseModel/sigma2_3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian3ForcingDiseaseModel/transmissionRate2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian3ForcingDiseaseModel/transmissionRate3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute forcing.ecore#//Gaussian3ForcingDiseaseModel/modulationFloor_2"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

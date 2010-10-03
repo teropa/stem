@@ -65,10 +65,10 @@ public class ForcingFactoryImpl extends EFactoryImpl implements ForcingFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ForcingPackage.FORCING_DISEASE_MODEL: return createForcingDiseaseModel();
-			case ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL: return createGaussianForcingDiseaseModel();
-			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL: return createGaussian2ForcingDiseaseModel();
-			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL: return createGaussian3ForcingDiseaseModel();
+			case ForcingPackage.FORCING_DISEASE_MODEL: return (EObject)createForcingDiseaseModel();
+			case ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL: return (EObject)createGaussianForcingDiseaseModel();
+			case ForcingPackage.GAUSSIAN2_FORCING_DISEASE_MODEL: return (EObject)createGaussian2ForcingDiseaseModel();
+			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL: return (EObject)createGaussian3ForcingDiseaseModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}

@@ -57,16 +57,6 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	protected static final double SIGMA2_3_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getSigma2_3() <em>Sigma2 3</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSigma2_3()
-	 * @generated
-	 * @ordered
-	 */
-	protected double sigma2_3 = SIGMA2_3_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTransmissionRate2() <em>Transmission Rate2</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,16 +65,6 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @ordered
 	 */
 	protected static final double TRANSMISSION_RATE2_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getTransmissionRate2() <em>Transmission Rate2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransmissionRate2()
-	 * @generated
-	 * @ordered
-	 */
-	protected double transmissionRate2 = TRANSMISSION_RATE2_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTransmissionRate3() <em>Transmission Rate3</em>}' attribute.
@@ -97,16 +77,6 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	protected static final double TRANSMISSION_RATE3_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getTransmissionRate3() <em>Transmission Rate3</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransmissionRate3()
-	 * @generated
-	 * @ordered
-	 */
-	protected double transmissionRate3 = TRANSMISSION_RATE3_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getModulationFloor_2() <em>Modulation Floor 2</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,16 +85,6 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @ordered
 	 */
 	protected static final double MODULATION_FLOOR_2_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getModulationFloor_2() <em>Modulation Floor 2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationFloor_2()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationFloor_2 = MODULATION_FLOOR_2_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,13 +148,13 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		double f1=0;
 		switch(currentHypothesis) {
 			case H0:
-				f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+				f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 				break;	
 			case H1:
 				if(gaussian == 0) { // A
-					f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 				} else if(gaussian == 1) {
-					f1 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 				}
 				break;	
 			case H2:
@@ -226,18 +186,18 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 			switch(currentHypothesis) {
 				
 				case H0:
-					f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
-					f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+					f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+					f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
 					break;	
 				case H1:
 					if(nextGaussian == 0)
-						f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
 					else if(nextGaussian == 1) 
-						f2 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
 					if(prevGaussian == 0)
-						f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
 					else if(prevGaussian == 1)
-						f3 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));			
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));			
 									
 					break;	
 				case H2:
@@ -370,7 +330,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public double getSigma2_3() {
-		return sigma2_3;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3, true, true);
 	}
 
 	/**
@@ -379,10 +339,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public void setSigma2_3(double newSigma2_3) {
-		double oldSigma2_3 = sigma2_3;
-		sigma2_3 = newSigma2_3;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3, oldSigma2_3, sigma2_3));
+		eDynamicSet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3, newSigma2_3);
 	}
 
 	/**
@@ -391,7 +348,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public double getTransmissionRate2() {
-		return transmissionRate2;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2, true, true);
 	}
 
 	/**
@@ -400,10 +357,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public void setTransmissionRate2(double newTransmissionRate2) {
-		double oldTransmissionRate2 = transmissionRate2;
-		transmissionRate2 = newTransmissionRate2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2, oldTransmissionRate2, transmissionRate2));
+		eDynamicSet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2, newTransmissionRate2);
 	}
 
 	/**
@@ -412,7 +366,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public double getTransmissionRate3() {
-		return transmissionRate3;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3, true, true);
 	}
 
 	/**
@@ -421,10 +375,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public void setTransmissionRate3(double newTransmissionRate3) {
-		double oldTransmissionRate3 = transmissionRate3;
-		transmissionRate3 = newTransmissionRate3;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3, oldTransmissionRate3, transmissionRate3));
+		eDynamicSet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3, newTransmissionRate3);
 	}
 
 	/**
@@ -433,7 +384,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public double getModulationFloor_2() {
-		return modulationFloor_2;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2, true, true);
 	}
 
 	/**
@@ -442,10 +393,7 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	 * @generated
 	 */
 	public void setModulationFloor_2(double newModulationFloor_2) {
-		double oldModulationFloor_2 = modulationFloor_2;
-		modulationFloor_2 = newModulationFloor_2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2, oldModulationFloor_2, modulationFloor_2));
+		eDynamicSet(ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2, ForcingPackage.Literals.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2, newModulationFloor_2);
 	}
 
 	/**
@@ -525,37 +473,15 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__SIGMA2_3:
-				return sigma2_3 != SIGMA2_3_EDEFAULT;
+				return getSigma2_3() != SIGMA2_3_EDEFAULT;
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE2:
-				return transmissionRate2 != TRANSMISSION_RATE2_EDEFAULT;
+				return getTransmissionRate2() != TRANSMISSION_RATE2_EDEFAULT;
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__TRANSMISSION_RATE3:
-				return transmissionRate3 != TRANSMISSION_RATE3_EDEFAULT;
+				return getTransmissionRate3() != TRANSMISSION_RATE3_EDEFAULT;
 			case ForcingPackage.GAUSSIAN3_FORCING_DISEASE_MODEL__MODULATION_FLOOR_2:
-				return modulationFloor_2 != MODULATION_FLOOR_2_EDEFAULT;
+				return getModulationFloor_2() != MODULATION_FLOOR_2_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sigma2_3: "); //$NON-NLS-1$
-		result.append(sigma2_3);
-		result.append(", transmissionRate2: "); //$NON-NLS-1$
-		result.append(transmissionRate2);
-		result.append(", transmissionRate3: "); //$NON-NLS-1$
-		result.append(transmissionRate3);
-		result.append(", modulationFloor_2: "); //$NON-NLS-1$
-		result.append(modulationFloor_2);
-		result.append(')');
-		return result.toString();
 	}
 
 } //Gaussian3ForcingDiseaseModelImpl

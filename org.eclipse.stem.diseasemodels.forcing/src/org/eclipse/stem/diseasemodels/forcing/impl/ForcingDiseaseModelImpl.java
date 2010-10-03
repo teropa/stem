@@ -58,15 +58,6 @@ public class ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelImpl imple
 	 */
 	protected static final double SEASONAL_MODULATION_EXPONENT_EDEFAULT = 2.0;
 	/**
-	 * The cached value of the '{@link #getSeasonalModulationExponent() <em>Seasonal Modulation Exponent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSeasonalModulationExponent()
-	 * @generated
-	 * @ordered
-	 */
-	protected double seasonalModulationExponent = SEASONAL_MODULATION_EXPONENT_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,15 +66,6 @@ public class ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelImpl imple
 	 * @ordered
 	 */
 	protected static final double MODULATION_PERIOD_EDEFAULT = 365.256363051;
-	/**
-	 * The cached value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPeriod = MODULATION_PERIOD_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -94,15 +76,6 @@ public class ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelImpl imple
 	 */
 	protected static final double MODULATION_PHASE_SHIFT_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPhaseShift()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPhaseShift = MODULATION_PHASE_SHIFT_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getSeasonalModulationFloor() <em>Seasonal Modulation Floor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,15 +84,6 @@ public class ForcingDiseaseModelImpl extends StochasticSIRDiseaseModelImpl imple
 	 * @ordered
 	 */
 	protected static final double SEASONAL_MODULATION_FLOOR_EDEFAULT = 0.6;
-	/**
-	 * The cached value of the '{@link #getSeasonalModulationFloor() <em>Seasonal Modulation Floor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSeasonalModulationFloor()
-	 * @generated
-	 * @ordered
-	 */
-	protected double seasonalModulationFloor = SEASONAL_MODULATION_FLOOR_EDEFAULT;
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
 	
 	private final Calendar calendar = Calendar.getInstance();
@@ -292,7 +256,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public double getSeasonalModulationExponent() {
-		return seasonalModulationExponent;
+		return (Double)eDynamicGet(ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT, ForcingPackage.Literals.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT, true, true);
 	}
 
 
@@ -302,10 +266,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public void setSeasonalModulationExponent(double newSeasonalModulationExponent) {
-		double oldSeasonalModulationExponent = seasonalModulationExponent;
-		seasonalModulationExponent = newSeasonalModulationExponent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT, oldSeasonalModulationExponent, seasonalModulationExponent));
+		eDynamicSet(ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT, ForcingPackage.Literals.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT, newSeasonalModulationExponent);
 	}
 
 
@@ -315,7 +276,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public double getModulationPeriod() {
-		return modulationPeriod;
+		return (Double)eDynamicGet(ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PERIOD, ForcingPackage.Literals.FORCING_DISEASE_MODEL__MODULATION_PERIOD, true, true);
 	}
 
 
@@ -325,10 +286,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public void setModulationPeriod(double newModulationPeriod) {
-		double oldModulationPeriod = modulationPeriod;
-		modulationPeriod = newModulationPeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PERIOD, oldModulationPeriod, modulationPeriod));
+		eDynamicSet(ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PERIOD, ForcingPackage.Literals.FORCING_DISEASE_MODEL__MODULATION_PERIOD, newModulationPeriod);
 	}
 
 
@@ -338,7 +296,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public double getModulationPhaseShift() {
-		return modulationPhaseShift;
+		return (Double)eDynamicGet(ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, ForcingPackage.Literals.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, true, true);
 	}
 
 
@@ -348,10 +306,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public void setModulationPhaseShift(double newModulationPhaseShift) {
-		double oldModulationPhaseShift = modulationPhaseShift;
-		modulationPhaseShift = newModulationPhaseShift;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, oldModulationPhaseShift, modulationPhaseShift));
+		eDynamicSet(ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, ForcingPackage.Literals.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, newModulationPhaseShift);
 	}
 
 
@@ -361,7 +316,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public double getSeasonalModulationFloor() {
-		return seasonalModulationFloor;
+		return (Double)eDynamicGet(ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR, ForcingPackage.Literals.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR, true, true);
 	}
 
 
@@ -371,10 +326,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	 * @generated
 	 */
 	public void setSeasonalModulationFloor(double newSeasonalModulationFloor) {
-		double oldSeasonalModulationFloor = seasonalModulationFloor;
-		seasonalModulationFloor = newSeasonalModulationFloor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR, oldSeasonalModulationFloor, seasonalModulationFloor));
+		eDynamicSet(ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR, ForcingPackage.Literals.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR, newSeasonalModulationFloor);
 	}
 
 
@@ -458,38 +410,15 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_EXPONENT:
-				return seasonalModulationExponent != SEASONAL_MODULATION_EXPONENT_EDEFAULT;
+				return getSeasonalModulationExponent() != SEASONAL_MODULATION_EXPONENT_EDEFAULT;
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PERIOD:
-				return modulationPeriod != MODULATION_PERIOD_EDEFAULT;
+				return getModulationPeriod() != MODULATION_PERIOD_EDEFAULT;
 			case ForcingPackage.FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT:
-				return modulationPhaseShift != MODULATION_PHASE_SHIFT_EDEFAULT;
+				return getModulationPhaseShift() != MODULATION_PHASE_SHIFT_EDEFAULT;
 			case ForcingPackage.FORCING_DISEASE_MODEL__SEASONAL_MODULATION_FLOOR:
-				return seasonalModulationFloor != SEASONAL_MODULATION_FLOOR_EDEFAULT;
+				return getSeasonalModulationFloor() != SEASONAL_MODULATION_FLOOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (seasonalModulationExponent: "); //$NON-NLS-1$
-		result.append(seasonalModulationExponent);
-		result.append(", modulationPeriod: "); //$NON-NLS-1$
-		result.append(modulationPeriod);
-		result.append(", modulationPhaseShift: "); //$NON-NLS-1$
-		result.append(modulationPhaseShift);
-		result.append(", seasonalModulationFloor: "); //$NON-NLS-1$
-		result.append(seasonalModulationFloor);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ForcingDiseaseModelImpl

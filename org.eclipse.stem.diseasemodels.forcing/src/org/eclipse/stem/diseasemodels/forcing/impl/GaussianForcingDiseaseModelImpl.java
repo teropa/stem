@@ -57,15 +57,6 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 */
 	protected static final double SIGMA2_EDEFAULT = 100.0;
 	/**
-	 * The cached value of the '{@link #getSigma2() <em>Sigma2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSigma2()
-	 * @generated
-	 * @ordered
-	 */
-	protected double sigma2 = SIGMA2_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,15 +65,6 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @ordered
 	 */
 	protected static final double MODULATION_PERIOD_EDEFAULT = 365.25;
-	/**
-	 * The cached value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPeriod = MODULATION_PERIOD_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,15 +75,6 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 */
 	protected static final double MODULATION_PHASE_SHIFT_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPhaseShift()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPhaseShift = MODULATION_PHASE_SHIFT_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getModulationFloor() <em>Modulation Floor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,16 +83,6 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @ordered
 	 */
 	protected static final double MODULATION_FLOOR_EDEFAULT = 0.6;
-	/**
-	 * The cached value of the '{@link #getModulationFloor() <em>Modulation Floor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationFloor()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationFloor = MODULATION_FLOOR_EDEFAULT;
-
 	private Calendar calendar = Calendar.getInstance();
 	private Calendar calendar2 = Calendar.getInstance();
 	private static final double MILLIS_PER_DAY = 1000.0*60.0*60.0*24.0;
@@ -151,7 +114,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public double getSigma2() {
-		return sigma2;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2, true, true);
 	}
 
 	/**
@@ -160,10 +123,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public void setSigma2(double newSigma2) {
-		double oldSigma2 = sigma2;
-		sigma2 = newSigma2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2, oldSigma2, sigma2));
+		eDynamicSet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2, newSigma2);
 	}
 
 	/**
@@ -172,7 +132,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public double getModulationPeriod() {
-		return modulationPeriod;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD, true, true);
 	}
 
 	/**
@@ -181,10 +141,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public void setModulationPeriod(double newModulationPeriod) {
-		double oldModulationPeriod = modulationPeriod;
-		modulationPeriod = newModulationPeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD, oldModulationPeriod, modulationPeriod));
+		eDynamicSet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD, newModulationPeriod);
 	}
 
 	/**
@@ -193,7 +150,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public double getModulationPhaseShift() {
-		return modulationPhaseShift;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, true, true);
 	}
 
 	/**
@@ -202,10 +159,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public void setModulationPhaseShift(double newModulationPhaseShift) {
-		double oldModulationPhaseShift = modulationPhaseShift;
-		modulationPhaseShift = newModulationPhaseShift;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, oldModulationPhaseShift, modulationPhaseShift));
+		eDynamicSet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT, newModulationPhaseShift);
 	}
 
 	/**
@@ -214,7 +168,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public double getModulationFloor() {
-		return modulationFloor;
+		return (Double)eDynamicGet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR, true, true);
 	}
 
 	/**
@@ -223,10 +177,7 @@ public class GaussianForcingDiseaseModelImpl extends StochasticSIRDiseaseModelIm
 	 * @generated
 	 */
 	public void setModulationFloor(double newModulationFloor) {
-		double oldModulationFloor = modulationFloor;
-		modulationFloor = newModulationFloor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR, oldModulationFloor, modulationFloor));
+		eDynamicSet(ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR, ForcingPackage.Literals.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR, newModulationFloor);
 	}
 
 	/**
@@ -295,9 +246,9 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		if(day % modulationPeriod < WINDOWSIZE || day % modulationPeriod > modulationPeriod-WINDOWSIZE) {
 			double pos;
 			double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-			double f1 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
-			double f2 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
-			double f3 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+			double f1 = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+			double f2 = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+			double f3 = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
 
 
 			if((day % modulationPeriod) > modulationPeriod - WINDOWSIZE)
@@ -318,7 +269,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			modulatedTransmissionRate = smooth;
 		} else {
 			double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-			modulatedTransmissionRate = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+			modulatedTransmissionRate = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 		}
 		
 
@@ -501,37 +452,15 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__SIGMA2:
-				return sigma2 != SIGMA2_EDEFAULT;
+				return getSigma2() != SIGMA2_EDEFAULT;
 			case ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PERIOD:
-				return modulationPeriod != MODULATION_PERIOD_EDEFAULT;
+				return getModulationPeriod() != MODULATION_PERIOD_EDEFAULT;
 			case ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_PHASE_SHIFT:
-				return modulationPhaseShift != MODULATION_PHASE_SHIFT_EDEFAULT;
+				return getModulationPhaseShift() != MODULATION_PHASE_SHIFT_EDEFAULT;
 			case ForcingPackage.GAUSSIAN_FORCING_DISEASE_MODEL__MODULATION_FLOOR:
-				return modulationFloor != MODULATION_FLOOR_EDEFAULT;
+				return getModulationFloor() != MODULATION_FLOOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sigma2: "); //$NON-NLS-1$
-		result.append(sigma2);
-		result.append(", modulationPeriod: "); //$NON-NLS-1$
-		result.append(modulationPeriod);
-		result.append(", modulationPhaseShift: "); //$NON-NLS-1$
-		result.append(modulationPhaseShift);
-		result.append(", modulationFloor: "); //$NON-NLS-1$
-		result.append(modulationFloor);
-		result.append(')');
-		return result.toString();
 	}
 
 } //GaussianForcingDiseaseModelImpl
