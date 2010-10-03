@@ -65,16 +65,16 @@ public class TransportFactoryImpl extends EFactoryImpl implements TransportFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TransportPackage.LOAD_UNLOAD_EDGE: return createLoadUnloadEdge();
-			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL: return createLoadUnloadEdgeLabel();
-			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM: return createPacketStyleTransportSystem();
-			case TransportPackage.PACKET_TRANSPORT_LABEL: return createPacketTransportLabel();
-			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM: return createPipeStyleTransportSystem();
-			case TransportPackage.PACKET_TRANSPORT_LABEL_VALUE: return createPacketTransportLabelValue();
-			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM_DECORATOR: return createPacketStyleTransportSystemDecorator();
-			case TransportPackage.PIPE_TRANSPORT_EDGE: return createPipeTransportEdge();
-			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL: return createPipeTransportEdgeLabel();
-			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE: return createPipeTransportEdgeLabelValue();
+			case TransportPackage.LOAD_UNLOAD_EDGE: return (EObject)createLoadUnloadEdge();
+			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL: return (EObject)createLoadUnloadEdgeLabel();
+			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM: return (EObject)createPacketStyleTransportSystem();
+			case TransportPackage.PACKET_TRANSPORT_LABEL: return (EObject)createPacketTransportLabel();
+			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM: return (EObject)createPipeStyleTransportSystem();
+			case TransportPackage.PACKET_TRANSPORT_LABEL_VALUE: return (EObject)createPacketTransportLabelValue();
+			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM_DECORATOR: return (EObject)createPacketStyleTransportSystemDecorator();
+			case TransportPackage.PIPE_TRANSPORT_EDGE: return (EObject)createPipeTransportEdge();
+			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL: return (EObject)createPipeTransportEdgeLabel();
+			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE: return (EObject)createPipeTransportEdgeLabelValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

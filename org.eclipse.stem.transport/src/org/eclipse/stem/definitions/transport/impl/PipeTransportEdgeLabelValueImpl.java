@@ -48,16 +48,6 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	protected static final double MAX_FLOW_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getMaxFlow() <em>Max Flow</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxFlow()
-	 * @generated
-	 * @ordered
-	 */
-	protected double maxFlow = MAX_FLOW_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,16 +56,6 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	 * @ordered
 	 */
 	protected static final long TIME_PERIOD_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTimePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected long timePeriod = TIME_PERIOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,7 +82,7 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	 * @generated
 	 */
 	public double getMaxFlow() {
-		return maxFlow;
+		return (Double)eDynamicGet(TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW, TransportPackage.Literals.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW, true, true);
 	}
 
 	/**
@@ -111,10 +91,7 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	 * @generated
 	 */
 	public void setMaxFlow(double newMaxFlow) {
-		double oldMaxFlow = maxFlow;
-		maxFlow = newMaxFlow;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW, oldMaxFlow, maxFlow));
+		eDynamicSet(TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW, TransportPackage.Literals.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW, newMaxFlow);
 	}
 
 	/**
@@ -123,7 +100,7 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	 * @generated
 	 */
 	public long getTimePeriod() {
-		return timePeriod;
+		return (Long)eDynamicGet(TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD, TransportPackage.Literals.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD, true, true);
 	}
 
 	/**
@@ -132,10 +109,7 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	 * @generated
 	 */
 	public void setTimePeriod(long newTimePeriod) {
-		long oldTimePeriod = timePeriod;
-		timePeriod = newTimePeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD, oldTimePeriod, timePeriod));
+		eDynamicSet(TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD, TransportPackage.Literals.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD, newTimePeriod);
 	}
 
 	/**
@@ -199,29 +173,11 @@ public class PipeTransportEdgeLabelValueImpl extends LabelValueImpl implements P
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__MAX_FLOW:
-				return maxFlow != MAX_FLOW_EDEFAULT;
+				return getMaxFlow() != MAX_FLOW_EDEFAULT;
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE__TIME_PERIOD:
-				return timePeriod != TIME_PERIOD_EDEFAULT;
+				return getTimePeriod() != TIME_PERIOD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (maxFlow: ");
-		result.append(maxFlow);
-		result.append(", timePeriod: ");
-		result.append(timePeriod);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PipeTransportEdgeLabelValueImpl

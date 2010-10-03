@@ -49,15 +49,6 @@ public class LoadUnloadEdgeImpl extends MigrationEdgeImpl implements LoadUnloadE
 	 */
 	protected static final boolean LOADING_EDGE_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isLoadingEdge() <em>Loading Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isLoadingEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean loadingEdge = LOADING_EDGE_EDEFAULT;
-	/**
 	 * This is used to generate unique URI's for each LoadUnloadEdgeEdge generated
 	 */
 	static int loadUnloadEdgeCounter = 0;
@@ -97,7 +88,7 @@ public class LoadUnloadEdgeImpl extends MigrationEdgeImpl implements LoadUnloadE
 	 * @generated
 	 */
 	public boolean isLoadingEdge() {
-		return loadingEdge;
+		return (Boolean)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE__LOADING_EDGE, TransportPackage.Literals.LOAD_UNLOAD_EDGE__LOADING_EDGE, true, true);
 	}
 
 	/**
@@ -106,10 +97,7 @@ public class LoadUnloadEdgeImpl extends MigrationEdgeImpl implements LoadUnloadE
 	 * @generated
 	 */
 	public void setLoadingEdge(boolean newLoadingEdge) {
-		boolean oldLoadingEdge = loadingEdge;
-		loadingEdge = newLoadingEdge;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE__LOADING_EDGE, oldLoadingEdge, loadingEdge));
+		eDynamicSet(TransportPackage.LOAD_UNLOAD_EDGE__LOADING_EDGE, TransportPackage.Literals.LOAD_UNLOAD_EDGE__LOADING_EDGE, newLoadingEdge);
 	}
 
 	/**
@@ -165,25 +153,9 @@ public class LoadUnloadEdgeImpl extends MigrationEdgeImpl implements LoadUnloadE
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TransportPackage.LOAD_UNLOAD_EDGE__LOADING_EDGE:
-				return loadingEdge != LOADING_EDGE_EDEFAULT;
+				return isLoadingEdge() != LOADING_EDGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (loadingEdge: ");
-		result.append(loadingEdge);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**Implementation of methods to resolve

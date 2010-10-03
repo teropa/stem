@@ -42,26 +42,6 @@ import org.eclipse.stem.definitions.transport.TransportPackage;
  */
 public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements PipeStyleTransportSystem {
 	/**
-	 * The cached value of the '{@link #getInTransportEdges() <em>In Transport Edges</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInTransportEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PipeTransportEdge> inTransportEdges;
-
-	/**
-	 * The cached value of the '{@link #getOutTransportEdges() <em>Out Transport Edges</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutTransportEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PipeTransportEdge> outTransportEdges;
-
-	/**
 	 * The default value of the '{@link #getMaxCapacity() <em>Max Capacity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,16 +50,6 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 	 * @ordered
 	 */
 	protected static final double MAX_CAPACITY_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getMaxCapacity() <em>Max Capacity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxCapacity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double maxCapacity = MAX_CAPACITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,11 +75,9 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<PipeTransportEdge> getInTransportEdges() {
-		if (inTransportEdges == null) {
-			inTransportEdges = new EObjectResolvingEList<PipeTransportEdge>(PipeTransportEdge.class, this, TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__IN_TRANSPORT_EDGES);
-		}
-		return inTransportEdges;
+		return (EList<PipeTransportEdge>)eDynamicGet(TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__IN_TRANSPORT_EDGES, TransportPackage.Literals.PIPE_STYLE_TRANSPORT_SYSTEM__IN_TRANSPORT_EDGES, true, true);
 	}
 
 	/**
@@ -117,11 +85,9 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<PipeTransportEdge> getOutTransportEdges() {
-		if (outTransportEdges == null) {
-			outTransportEdges = new EObjectResolvingEList<PipeTransportEdge>(PipeTransportEdge.class, this, TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__OUT_TRANSPORT_EDGES);
-		}
-		return outTransportEdges;
+		return (EList<PipeTransportEdge>)eDynamicGet(TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__OUT_TRANSPORT_EDGES, TransportPackage.Literals.PIPE_STYLE_TRANSPORT_SYSTEM__OUT_TRANSPORT_EDGES, true, true);
 	}
 
 	/**
@@ -130,7 +96,7 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 	 * @generated
 	 */
 	public double getMaxCapacity() {
-		return maxCapacity;
+		return (Double)eDynamicGet(TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY, TransportPackage.Literals.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY, true, true);
 	}
 
 	/**
@@ -139,10 +105,7 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 	 * @generated
 	 */
 	public void setMaxCapacity(double newMaxCapacity) {
-		double oldMaxCapacity = maxCapacity;
-		maxCapacity = newMaxCapacity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY, oldMaxCapacity, maxCapacity));
+		eDynamicSet(TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY, TransportPackage.Literals.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY, newMaxCapacity);
 	}
 
 	/**
@@ -217,29 +180,13 @@ public class PipeStyleTransportSystemImpl extends TransportSystemImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__IN_TRANSPORT_EDGES:
-				return inTransportEdges != null && !inTransportEdges.isEmpty();
+				return !getInTransportEdges().isEmpty();
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__OUT_TRANSPORT_EDGES:
-				return outTransportEdges != null && !outTransportEdges.isEmpty();
+				return !getOutTransportEdges().isEmpty();
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY:
-				return maxCapacity != MAX_CAPACITY_EDEFAULT;
+				return getMaxCapacity() != MAX_CAPACITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (maxCapacity: ");
-		result.append(maxCapacity);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PipeStyleTransportSystemImpl

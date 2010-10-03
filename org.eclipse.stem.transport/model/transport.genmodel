@@ -2,10 +2,13 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.transport/src"
-    modelPluginID="org.eclipse.stem.transport" modelName="Transport" testsDirectory="/org.eclipse.stem.tests.transport/src"
-    importerID="org.eclipse.emf.importer.java" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.stem.definitions/model/definitions.genmodel#//edges ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer">
+    modelPluginID="org.eclipse.stem.transport" modelName="Transport" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
+    rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" testsDirectory="/org.eclipse.stem.tests.transport/src"
+    importerID="org.eclipse.emf.importer.java" featureDelegation="Dynamic" complianceLevel="5.0"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.stem.definitions/model/definitions.genmodel#//edges ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver"
+    interfaceNamePattern="">
   <foreignModel>@model</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Transport" basePackage="org.eclipse.stem.definitions" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
       ecorePackage="transport.ecore#/">
@@ -24,13 +27,20 @@
     </genClasses>
     <genClasses ecoreClass="transport.ecore#//PacketTransportLabel"/>
     <genClasses ecoreClass="transport.ecore#//PipeStyleTransportSystem">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference transport.ecore#//PipeStyleTransportSystem/inMigrationEdges"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference transport.ecore#//PipeStyleTransportSystem/outMigrationEdges"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference transport.ecore#//PipeStyleTransportSystem/inTransportEdges"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference transport.ecore#//PipeStyleTransportSystem/outTransportEdges"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transport.ecore#//PipeStyleTransportSystem/maxCapacity"/>
     </genClasses>
     <genClasses image="false" ecoreClass="transport.ecore#//TransportSystem"/>
     <genClasses ecoreClass="transport.ecore#//PacketTransportLabelValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transport.ecore#//PacketTransportLabelValue/capacity"/>
     </genClasses>
     <genClasses ecoreClass="transport.ecore#//PacketStyleTransportSystemDecorator"/>
+    <genClasses ecoreClass="transport.ecore#//PipeTransportEdge"/>
+    <genClasses ecoreClass="transport.ecore#//PipeTransportEdgeLabel"/>
+    <genClasses ecoreClass="transport.ecore#//PipeTransportEdgeLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transport.ecore#//PipeTransportEdgeLabelValue/maxFlow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transport.ecore#//PipeTransportEdgeLabelValue/timePeriod"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

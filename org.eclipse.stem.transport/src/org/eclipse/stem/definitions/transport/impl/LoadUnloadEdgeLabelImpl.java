@@ -75,56 +75,6 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	protected static final boolean NEXT_VALUE_VALID_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isNextValueValid() <em>Next Value Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isNextValueValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean nextValueValid = NEXT_VALUE_VALID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getNextValue() <em>Next Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected LabelValue nextValue;
-
-	/**
-	 * The cached value of the '{@link #getDecorator() <em>Decorator</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDecorator()
-	 * @generated
-	 * @ordered
-	 */
-	protected Decorator decorator;
-
-	/**
-	 * The cached value of the '{@link #getActivationTime() <em>Activation Time</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActivationTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime activationTime;
-
-	/**
-	 * The cached value of the '{@link #getDeactivationTime() <em>Deactivation Time</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeactivationTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected STEMTime deactivationTime;
-
-	/**
 	 * The default value of the '{@link #getActivatedRate() <em>Activated Rate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,16 +83,6 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @ordered
 	 */
 	protected static final double ACTIVATED_RATE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getActivatedRate() <em>Activated Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActivatedRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double activatedRate = ACTIVATED_RATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,7 +115,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public boolean isNextValueValid() {
-		return nextValueValid;
+		return (Boolean)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE_VALID, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE_VALID, true, true);
 	}
 
 	/**
@@ -184,10 +124,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public void setNextValueValid(boolean newNextValueValid) {
-		boolean oldNextValueValid = nextValueValid;
-		nextValueValid = newNextValueValid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE_VALID, oldNextValueValid, nextValueValid));
+		eDynamicSet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE_VALID, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE_VALID, newNextValueValid);
 	}
 
 	/**
@@ -196,7 +133,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public LabelValue getNextValue() {
-		return nextValue;
+		return (LabelValue)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE, true, true);
 	}
 
 	/**
@@ -205,12 +142,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public NotificationChain basicSetNextValue(LabelValue newNextValue, NotificationChain msgs) {
-		LabelValue oldNextValue = nextValue;
-		nextValue = newNextValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE, oldNextValue, newNextValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newNextValue, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE, msgs);
 		return msgs;
 	}
 
@@ -223,17 +155,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public void setNextValue(LabelValue newNextValue) {
-		if (newNextValue != nextValue) {
-			NotificationChain msgs = null;
-			if (nextValue != null)
-				msgs = ((InternalEObject)nextValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE, null, msgs);
-			if (newNextValue != null)
-				msgs = ((InternalEObject)newNextValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE, null, msgs);
-			msgs = basicSetNextValue(newNextValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE, newNextValue, newNextValue));
+		eDynamicSet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE, GraphPackage.Literals.DYNAMIC_LABEL__NEXT_VALUE, newNextValue);
 	}
 
 	/**
@@ -242,15 +164,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public Decorator getDecorator() {
-		if (decorator != null && decorator.eIsProxy()) {
-			InternalEObject oldDecorator = (InternalEObject)decorator;
-			decorator = (Decorator)eResolveProxy(oldDecorator);
-			if (decorator != oldDecorator) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR, oldDecorator, decorator));
-			}
-		}
-		return decorator;
+		return (Decorator)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR, GraphPackage.Literals.DYNAMIC_LABEL__DECORATOR, true, true);
 	}
 
 	/**
@@ -259,7 +173,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public Decorator basicGetDecorator() {
-		return decorator;
+		return (Decorator)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR, GraphPackage.Literals.DYNAMIC_LABEL__DECORATOR, false, true);
 	}
 
 	/**
@@ -268,12 +182,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public NotificationChain basicSetDecorator(Decorator newDecorator, NotificationChain msgs) {
-		Decorator oldDecorator = decorator;
-		decorator = newDecorator;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR, oldDecorator, newDecorator);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newDecorator, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR, msgs);
 		return msgs;
 	}
 
@@ -283,17 +192,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public void setDecorator(Decorator newDecorator) {
-		if (newDecorator != decorator) {
-			NotificationChain msgs = null;
-			if (decorator != null)
-				msgs = ((InternalEObject)decorator).eInverseRemove(this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, Decorator.class, msgs);
-			if (newDecorator != null)
-				msgs = ((InternalEObject)newDecorator).eInverseAdd(this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, Decorator.class, msgs);
-			msgs = basicSetDecorator(newDecorator, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR, newDecorator, newDecorator));
+		eDynamicSet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR, GraphPackage.Literals.DYNAMIC_LABEL__DECORATOR, newDecorator);
 	}
 
 	/**
@@ -302,15 +201,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public STEMTime getActivationTime() {
-		if (activationTime != null && activationTime.eIsProxy()) {
-			InternalEObject oldActivationTime = (InternalEObject)activationTime;
-			activationTime = (STEMTime)eResolveProxy(oldActivationTime);
-			if (activationTime != oldActivationTime) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, oldActivationTime, activationTime));
-			}
-		}
-		return activationTime;
+		return (STEMTime)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, true, true);
 	}
 
 	/**
@@ -319,7 +210,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public STEMTime basicGetActivationTime() {
-		return activationTime;
+		return (STEMTime)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, false, true);
 	}
 
 	/**
@@ -328,10 +219,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public void setActivationTime(STEMTime newActivationTime) {
-		STEMTime oldActivationTime = activationTime;
-		activationTime = newActivationTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, oldActivationTime, activationTime));
+		eDynamicSet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME, newActivationTime);
 	}
 
 	/**
@@ -340,15 +228,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public STEMTime getDeactivationTime() {
-		if (deactivationTime != null && deactivationTime.eIsProxy()) {
-			InternalEObject oldDeactivationTime = (InternalEObject)deactivationTime;
-			deactivationTime = (STEMTime)eResolveProxy(oldDeactivationTime);
-			if (deactivationTime != oldDeactivationTime) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, oldDeactivationTime, deactivationTime));
-			}
-		}
-		return deactivationTime;
+		return (STEMTime)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, true, true);
 	}
 
 	/**
@@ -357,7 +237,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public STEMTime basicGetDeactivationTime() {
-		return deactivationTime;
+		return (STEMTime)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, false, true);
 	}
 
 	/**
@@ -366,19 +246,16 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public void setDeactivationTime(STEMTime newDeactivationTime) {
-		STEMTime oldDeactivationTime = deactivationTime;
-		deactivationTime = newDeactivationTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, oldDeactivationTime, deactivationTime));
+		eDynamicSet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME, newDeactivationTime);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public double getActivatedRate() {
-		return activatedRate;
+		return (Double)eDynamicGet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE, true, true);
 	}
 
 	/**
@@ -387,10 +264,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	 * @generated
 	 */
 	public void setActivatedRate(double newActivatedRate) {
-		double oldActivatedRate = activatedRate;
-		activatedRate = newActivatedRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE, oldActivatedRate, activatedRate));
+		eDynamicSet(TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE, TransportPackage.Literals.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE, newActivatedRate);
 	}
 
 	/**
@@ -423,6 +297,7 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR:
+				Decorator decorator = basicGetDecorator();
 				if (decorator != null)
 					msgs = ((InternalEObject)decorator).eInverseRemove(this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, Decorator.class, msgs);
 				return basicSetDecorator((Decorator)otherEnd, msgs);
@@ -542,17 +417,17 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE_VALID:
-				return nextValueValid != NEXT_VALUE_VALID_EDEFAULT;
+				return isNextValueValid() != NEXT_VALUE_VALID_EDEFAULT;
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__NEXT_VALUE:
-				return nextValue != null;
+				return getNextValue() != null;
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DECORATOR:
-				return decorator != null;
+				return basicGetDecorator() != null;
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME:
-				return activationTime != null;
+				return basicGetActivationTime() != null;
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME:
-				return deactivationTime != null;
+				return basicGetDeactivationTime() != null;
 			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE:
-				return activatedRate != ACTIVATED_RATE_EDEFAULT;
+				return getActivatedRate() != ACTIVATED_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -592,24 +467,6 @@ public class LoadUnloadEdgeLabelImpl extends MigrationEdgeLabelImpl implements L
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nextValueValid: ");
-		result.append(nextValueValid);
-		result.append(", activatedRate: ");
-		result.append(activatedRate);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**Do the stuff for testing if a load/unload edge label is "sane"*/

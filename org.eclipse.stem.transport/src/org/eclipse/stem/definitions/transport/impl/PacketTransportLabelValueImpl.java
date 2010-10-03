@@ -47,16 +47,6 @@ public class PacketTransportLabelValueImpl extends LabelValueImpl implements Pac
 	protected static final double CAPACITY_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCapacity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double capacity = CAPACITY_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -81,7 +71,7 @@ public class PacketTransportLabelValueImpl extends LabelValueImpl implements Pac
 	 * @generated
 	 */
 	public double getCapacity() {
-		return capacity;
+		return (Double)eDynamicGet(TransportPackage.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY, TransportPackage.Literals.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY, true, true);
 	}
 
 	/**
@@ -90,10 +80,7 @@ public class PacketTransportLabelValueImpl extends LabelValueImpl implements Pac
 	 * @generated
 	 */
 	public void setCapacity(double newCapacity) {
-		double oldCapacity = capacity;
-		capacity = newCapacity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY, oldCapacity, capacity));
+		eDynamicSet(TransportPackage.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY, TransportPackage.Literals.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY, newCapacity);
 	}
 
 	/**
@@ -149,27 +136,11 @@ public class PacketTransportLabelValueImpl extends LabelValueImpl implements Pac
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TransportPackage.PACKET_TRANSPORT_LABEL_VALUE__CAPACITY:
-				return capacity != CAPACITY_EDEFAULT;
+				return getCapacity() != CAPACITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (capacity: ");
-		result.append(capacity);
-		result.append(')');
-		return result.toString();
-	}
-	
 	/**Reset to the default value*/
 	public void reset() {
 		super.reset();

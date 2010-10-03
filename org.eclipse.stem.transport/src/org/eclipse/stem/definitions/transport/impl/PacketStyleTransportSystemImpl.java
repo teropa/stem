@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.definitions.transport.LoadUnloadEdge;
 import org.eclipse.stem.definitions.transport.PacketStyleTransportSystem;
 import org.eclipse.stem.definitions.transport.PacketTransportLabel;
@@ -45,36 +46,6 @@ import org.eclipse.stem.definitions.transport.TransportPackage;
  * @generated
  */
 public class PacketStyleTransportSystemImpl extends TransportSystemImpl implements PacketStyleTransportSystem {
-	/**
-	 * The cached value of the '{@link #getPacketTransportLabel() <em>Packet Transport Label</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPacketTransportLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected PacketTransportLabel packetTransportLabel;
-
-	/**
-	 * The cached value of the '{@link #getLoadingEdges() <em>Loading Edges</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLoadingEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<LoadUnloadEdge> loadingEdges;
-
-	/**
-	 * The cached value of the '{@link #getUnloadingEdges() <em>Unloading Edges</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnloadingEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<LoadUnloadEdge> unloadingEdges;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,15 +72,7 @@ public class PacketStyleTransportSystemImpl extends TransportSystemImpl implemen
 	 * @generated
 	 */
 	public PacketTransportLabel getPacketTransportLabel() {
-		if (packetTransportLabel != null && packetTransportLabel.eIsProxy()) {
-			InternalEObject oldPacketTransportLabel = (InternalEObject)packetTransportLabel;
-			packetTransportLabel = (PacketTransportLabel)eResolveProxy(oldPacketTransportLabel);
-			if (packetTransportLabel != oldPacketTransportLabel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, oldPacketTransportLabel, packetTransportLabel));
-			}
-		}
-		return packetTransportLabel;
+		return (PacketTransportLabel)eDynamicGet(TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, TransportPackage.Literals.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, true, true);
 	}
 
 	/**
@@ -118,7 +81,7 @@ public class PacketStyleTransportSystemImpl extends TransportSystemImpl implemen
 	 * @generated
 	 */
 	public PacketTransportLabel basicGetPacketTransportLabel() {
-		return packetTransportLabel;
+		return (PacketTransportLabel)eDynamicGet(TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, TransportPackage.Literals.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, false, true);
 	}
 
 	/**
@@ -127,12 +90,9 @@ public class PacketStyleTransportSystemImpl extends TransportSystemImpl implemen
 	 * @generated NOT
 	 */
 	public void setPacketTransportLabel(PacketTransportLabel newPacketTransportLabel) {
-		PacketTransportLabel oldPacketTransportLabel = packetTransportLabel;
-		packetTransportLabel = newPacketTransportLabel;
+		eDynamicSet(TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, TransportPackage.Literals.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, newPacketTransportLabel);
 		newPacketTransportLabel.setURIOfIdentifiableToBeLabeled(this.getURI());
 		this.getLabels().add(newPacketTransportLabel);
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL, oldPacketTransportLabel, packetTransportLabel));
 	}
 
 	/**
@@ -140,11 +100,9 @@ public class PacketStyleTransportSystemImpl extends TransportSystemImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<LoadUnloadEdge> getLoadingEdges() {
-		if (loadingEdges == null) {
-			loadingEdges = new EObjectResolvingEList<LoadUnloadEdge>(LoadUnloadEdge.class, this, TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__LOADING_EDGES);
-		}
-		return loadingEdges;
+		return (EList<LoadUnloadEdge>)eDynamicGet(TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__LOADING_EDGES, TransportPackage.Literals.PACKET_STYLE_TRANSPORT_SYSTEM__LOADING_EDGES, true, true);
 	}
 
 	/**
@@ -152,11 +110,9 @@ public class PacketStyleTransportSystemImpl extends TransportSystemImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<LoadUnloadEdge> getUnloadingEdges() {
-		if (unloadingEdges == null) {
-			unloadingEdges = new EObjectResolvingEList<LoadUnloadEdge>(LoadUnloadEdge.class, this, TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__UNLOADING_EDGES);
-		}
-		return unloadingEdges;
+		return (EList<LoadUnloadEdge>)eDynamicGet(TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__UNLOADING_EDGES, TransportPackage.Literals.PACKET_STYLE_TRANSPORT_SYSTEM__UNLOADING_EDGES, true, true);
 	}
 
 	/**
@@ -232,11 +188,11 @@ public class PacketStyleTransportSystemImpl extends TransportSystemImpl implemen
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL:
-				return packetTransportLabel != null;
+				return basicGetPacketTransportLabel() != null;
 			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__LOADING_EDGES:
-				return loadingEdges != null && !loadingEdges.isEmpty();
+				return !getLoadingEdges().isEmpty();
 			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM__UNLOADING_EDGES:
-				return unloadingEdges != null && !unloadingEdges.isEmpty();
+				return !getUnloadingEdges().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
