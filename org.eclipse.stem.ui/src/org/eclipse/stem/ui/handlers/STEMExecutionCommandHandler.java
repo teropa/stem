@@ -21,6 +21,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.stem.jobs.execution.IExecutable;
+import org.eclipse.stem.jobs.execution.remote.IRemoteExecutable;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.perspectives.Simulation;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -118,7 +119,7 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 
 	/**
 	 * This class is a {@link STEMExecutionCommandHandler} that invokes
-	 * {@link IExecutable#run()}.
+	 * {@link IRemoteExecutable#run()}.
 	 */
 	public static class RunCommandHandler extends STEMExecutionCommandHandler {
 
@@ -131,6 +132,23 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 		}
 	} // RunCommandHandler
 
+	/**
+	 * This class is a {@link STEMExecutionCommandHandler} that invokes
+	 * {@link IExecutable#run()} on a remote server.
+	 */
+	public static class RunOnServerCommandHandler extends STEMExecutionCommandHandler {
+
+		/**
+		 * @see org.eclipse.stem.ui.handlers.STEMExecutionCommandHandler#doit(org.eclipse.stem.jobs.execution.IExecutable)
+		 */
+		@Override
+		protected void doit(IExecutable executable) {
+			IRemoteExecutable remoteExecutable = (IRemoteExecutable)Platform.getAdapterManager().getAdapter(executable, IRemoteExecutable.class);
+			remoteExecutable.run();
+		}
+	} // RunCommandHandler
+
+	
 	/**
 	 * This class is a {@link STEMExecutionCommandHandler} that invokes
 	 * {@link IExecutable#pause()}.

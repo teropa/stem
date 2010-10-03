@@ -557,6 +557,14 @@
                  tooltip="%_UI_STEM_Command_RunTT">
            </command>
            <command
+                 commandId="org.eclipse.stem.ui.command.runonserver"
+                 disabledIcon="icons/full/actions16/disabledRun.gif"
+                 icon="icons/full/actions16/run.gif"
+                 label="%_UI_STEM_Command_RunOnServer"
+                 style="push"
+                 tooltip="%_UI_STEM_Command_RunOnServerTT">
+           </command>
+           <command
                  commandId="org.eclipse.stem.ui.command.pause"
                  disabledIcon="icons/full/actions16/disabledPause.gif"
                  icon="icons/full/actions16/pause.gif"
@@ -607,6 +615,21 @@
               mnemonic="%_UI_STEM_Command_RunMne"
               style="push"
               tooltip="%_UI_STEM_Command_RunTT">
+           <visibleWhen
+                 checkEnabled="false">
+              <reference
+                    definitionId="org.eclipse.stem.ui.isexecutable">
+              </reference>
+           </visibleWhen>
+        </command>
+        <command
+              commandId="org.eclipse.stem.ui.command.runonserver"
+              disabledIcon="icons/full/actions16/disabledRun.gif"
+              icon="icons/full/actions16/run.gif"
+              label="%_UI_STEM_Command_RunOnServer"
+              mnemonic="%_UI_STEM_Command_RunOnServerMne"
+              style="push"
+              tooltip="%_UI_STEM_Command_RunOnServerTT">
            <visibleWhen
                  checkEnabled="false">
               <reference
@@ -789,6 +812,12 @@
      </command>
      <command
            categoryId="org.eclipse.stem.ui.execution"
+           description="%_UI_STEM_Command_RunOnServer_Desc"
+           id="org.eclipse.stem.ui.command.runonserver"
+           name="%_UI_STEM_Command_RunOnServer">
+     </command>
+     <command
+           categoryId="org.eclipse.stem.ui.execution"
            description="%_UI_STEM_Command_Step_Desc"
            id="org.eclipse.stem.ui.command.step"
            name="%_UI_STEM_Command_Step">
@@ -817,6 +846,15 @@
      <handler
            class="org.eclipse.stem.ui.handlers.STEMExecutionCommandHandler$RunCommandHandler"
            commandId="org.eclipse.stem.ui.command.run">
+        <activeWhen>
+           <reference
+                 definitionId="org.eclipse.stem.ui.executableNotRunning">
+           </reference>
+        </activeWhen>
+     </handler>
+     <handler
+           class="org.eclipse.stem.ui.handlers.STEMExecutionCommandHandler$RunOnServerCommandHandler"
+           commandId="org.eclipse.stem.ui.command.runonserver">
         <activeWhen>
            <reference
                  definitionId="org.eclipse.stem.ui.executableNotRunning">
