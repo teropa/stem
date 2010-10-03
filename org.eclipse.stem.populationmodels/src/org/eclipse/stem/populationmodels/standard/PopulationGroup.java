@@ -11,6 +11,7 @@ package org.eclipse.stem.populationmodels.standard;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -28,9 +29,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getPopulationGroup()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface PopulationGroup extends EObject {
+public interface PopulationGroup extends CDOObject {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->

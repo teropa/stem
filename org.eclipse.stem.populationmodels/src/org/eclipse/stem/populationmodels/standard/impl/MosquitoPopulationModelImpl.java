@@ -57,16 +57,6 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	static double maxDen = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getScalingFactor() <em>Scaling Factor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScalingFactor()
-	 * @generated
-	 * @ordered
-	 */
-	protected double scalingFactor = SCALING_FACTOR_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,16 +65,6 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * @ordered
 	 */
 	protected static final long TIME_PERIOD_EDEFAULT = 86400000L;
-
-	/**
-	 * The cached value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTimePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected long timePeriod = TIME_PERIOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,7 +185,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			
 			
 			//double newPopulation = scalingFactor * temperature * rainfall / elevation;
-			double newPopulation = scalingFactor * eFactor*rFactor*tFactor*vFactor;
+			double newPopulation = getScalingFactor() * eFactor*rFactor*tFactor*vFactor;
 			
 			// TEST CODE
 			if(newPopulation > maxDen) {
@@ -259,7 +239,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public double getScalingFactor() {
-		return scalingFactor;
+		return (Double)eDynamicGet(StandardPackage.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR, StandardPackage.Literals.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR, true, true);
 	}
 
 	/**
@@ -268,10 +248,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public void setScalingFactor(double newScalingFactor) {
-		double oldScalingFactor = scalingFactor;
-		scalingFactor = newScalingFactor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR, oldScalingFactor, scalingFactor));
+		eDynamicSet(StandardPackage.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR, StandardPackage.Literals.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR, newScalingFactor);
 	}
 
 	/**
@@ -280,7 +257,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public long getTimePeriod() {
-		return timePeriod;
+		return (Long)eDynamicGet(StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD, StandardPackage.Literals.MOSQUITO_POPULATION_MODEL__TIME_PERIOD, true, true);
 	}
 
 
@@ -290,10 +267,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public void setTimePeriod(long newTimePeriod) {
-		long oldTimePeriod = timePeriod;
-		timePeriod = newTimePeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD, oldTimePeriod, timePeriod));
+		eDynamicSet(StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD, StandardPackage.Literals.MOSQUITO_POPULATION_MODEL__TIME_PERIOD, newTimePeriod);
 	}
 
 
@@ -358,29 +332,11 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR:
-				return scalingFactor != SCALING_FACTOR_EDEFAULT;
+				return getScalingFactor() != SCALING_FACTOR_EDEFAULT;
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
-				return timePeriod != TIME_PERIOD_EDEFAULT;
+				return getTimePeriod() != TIME_PERIOD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (scalingFactor: ");
-		result.append(scalingFactor);
-		result.append(", timePeriod: ");
-		result.append(timePeriod);
-		result.append(')');
-		return result.toString();
 	}
 
 } //MosquitoPopulationModelImpl

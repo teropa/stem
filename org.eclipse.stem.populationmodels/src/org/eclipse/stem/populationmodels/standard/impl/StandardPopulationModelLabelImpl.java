@@ -46,52 +46,6 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  */
 public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl implements StandardPopulationModelLabel {
 	/**
-	 * The cached value of the '{@link #getDeltaValue() <em>Delta Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeltaValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected StandardPopulationModelLabelValue deltaValue;
-	/**
-	 * The cached value of the '{@link #getProbeValue() <em>Probe Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProbeValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected StandardPopulationModelLabelValue probeValue;
-	/**
-	 * The cached value of the '{@link #getTempValue() <em>Temp Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTempValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected StandardPopulationModelLabelValue tempValue;
-	/**
-	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected StandardPopulationModelLabelValue originalValue;
-	/**
-	 * The cached value of the '{@link #getErrorScale() <em>Error Scale</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorScale()
-	 * @generated
-	 * @ordered
-	 */
-	protected StandardPopulationModelLabelValue errorScale;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -133,15 +87,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue getDeltaValue() {
-		if (deltaValue != null && deltaValue.eIsProxy()) {
-			InternalEObject oldDeltaValue = (InternalEObject)deltaValue;
-			deltaValue = (StandardPopulationModelLabelValue)eResolveProxy(oldDeltaValue);
-			if (deltaValue != oldDeltaValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, oldDeltaValue, deltaValue));
-			}
-		}
-		return deltaValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, true, true);
 	}
 
 	/**
@@ -150,7 +96,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue basicGetDeltaValue() {
-		return deltaValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, false, true);
 	}
 
 	/**
@@ -159,10 +105,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public void setDeltaValue(StandardPopulationModelLabelValue newDeltaValue) {
-		StandardPopulationModelLabelValue oldDeltaValue = deltaValue;
-		deltaValue = newDeltaValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, oldDeltaValue, deltaValue));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE, newDeltaValue);
 	}
 
 	/**
@@ -171,15 +114,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue getProbeValue() {
-		if (probeValue != null && probeValue.eIsProxy()) {
-			InternalEObject oldProbeValue = (InternalEObject)probeValue;
-			probeValue = (StandardPopulationModelLabelValue)eResolveProxy(oldProbeValue);
-			if (probeValue != oldProbeValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, oldProbeValue, probeValue));
-			}
-		}
-		return probeValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, true, true);
 	}
 
 	/**
@@ -188,7 +123,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue basicGetProbeValue() {
-		return probeValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, false, true);
 	}
 
 	/**
@@ -197,10 +132,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public void setProbeValue(StandardPopulationModelLabelValue newProbeValue) {
-		StandardPopulationModelLabelValue oldProbeValue = probeValue;
-		probeValue = newProbeValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, oldProbeValue, probeValue));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE, newProbeValue);
 	}
 
 	/**
@@ -209,15 +141,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue getTempValue() {
-		if (tempValue != null && tempValue.eIsProxy()) {
-			InternalEObject oldTempValue = (InternalEObject)tempValue;
-			tempValue = (StandardPopulationModelLabelValue)eResolveProxy(oldTempValue);
-			if (tempValue != oldTempValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, oldTempValue, tempValue));
-			}
-		}
-		return tempValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, true, true);
 	}
 
 	/**
@@ -226,7 +150,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue basicGetTempValue() {
-		return tempValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, false, true);
 	}
 
 	/**
@@ -235,10 +159,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public void setTempValue(StandardPopulationModelLabelValue newTempValue) {
-		StandardPopulationModelLabelValue oldTempValue = tempValue;
-		tempValue = newTempValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, oldTempValue, tempValue));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE, newTempValue);
 	}
 
 	/**
@@ -247,15 +168,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue getOriginalValue() {
-		if (originalValue != null && originalValue.eIsProxy()) {
-			InternalEObject oldOriginalValue = (InternalEObject)originalValue;
-			originalValue = (StandardPopulationModelLabelValue)eResolveProxy(oldOriginalValue);
-			if (originalValue != oldOriginalValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, oldOriginalValue, originalValue));
-			}
-		}
-		return originalValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, true, true);
 	}
 
 	/**
@@ -264,7 +177,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue basicGetOriginalValue() {
-		return originalValue;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, false, true);
 	}
 
 	/**
@@ -273,10 +186,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public void setOriginalValue(StandardPopulationModelLabelValue newOriginalValue) {
-		StandardPopulationModelLabelValue oldOriginalValue = originalValue;
-		originalValue = newOriginalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, oldOriginalValue, originalValue));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE, newOriginalValue);
 	}
 
 	/**
@@ -285,15 +195,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue getErrorScale() {
-		if (errorScale != null && errorScale.eIsProxy()) {
-			InternalEObject oldErrorScale = (InternalEObject)errorScale;
-			errorScale = (StandardPopulationModelLabelValue)eResolveProxy(oldErrorScale);
-			if (errorScale != oldErrorScale) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, oldErrorScale, errorScale));
-			}
-		}
-		return errorScale;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, true, true);
 	}
 
 	/**
@@ -302,7 +204,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public StandardPopulationModelLabelValue basicGetErrorScale() {
-		return errorScale;
+		return (StandardPopulationModelLabelValue)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, false, true);
 	}
 
 	/**
@@ -311,10 +213,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	 * @generated
 	 */
 	public void setErrorScale(StandardPopulationModelLabelValue newErrorScale) {
-		StandardPopulationModelLabelValue oldErrorScale = errorScale;
-		errorScale = newErrorScale;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, oldErrorScale, errorScale));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE, newErrorScale);
 	}
 
 	/**
@@ -426,15 +325,15 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL__DELTA_VALUE:
-				return deltaValue != null;
+				return basicGetDeltaValue() != null;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL__PROBE_VALUE:
-				return probeValue != null;
+				return basicGetProbeValue() != null;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL__TEMP_VALUE:
-				return tempValue != null;
+				return basicGetTempValue() != null;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ORIGINAL_VALUE:
-				return originalValue != null;
+				return basicGetOriginalValue() != null;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL__ERROR_SCALE:
-				return errorScale != null;
+				return basicGetErrorScale() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -485,7 +384,7 @@ public class StandardPopulationModelLabelImpl extends PopulationModelLabelImpl i
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(
-				populationIdentifier == null ? "null" : populationIdentifier);
+				getPopulationIdentifier() == null ? "null" : getPopulationIdentifier());
 		result.append(" [");
 		result.append(Math.floor(((StandardPopulationModelLabelValue)getCurrentValue()).getCount()));
 		result.append("]");

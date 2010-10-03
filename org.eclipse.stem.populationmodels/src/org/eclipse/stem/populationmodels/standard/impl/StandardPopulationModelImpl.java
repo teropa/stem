@@ -78,16 +78,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	protected static final double BIRTH_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getBirthRate() <em>Birth Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBirthRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double birthRate = BIRTH_RATE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getDeathRate() <em>Death Rate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,16 +88,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	protected static final double DEATH_RATE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getDeathRate() <em>Death Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeathRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double deathRate = DEATH_RATE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,16 +96,6 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @ordered
 	 */
 	protected static final long TIME_PERIOD_EDEFAULT = 86400000L;
-
-	/**
-	 * The cached value of the '{@link #getTimePeriod() <em>Time Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTimePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected long timePeriod = TIME_PERIOD_EDEFAULT;
 
 	protected Map<Integer, List<PipeTransportEdge>> pipeTransportationUpEdgesMap;
 	protected Map<Integer, List<PipeTransportEdge>> pipeTransportationDownEdgesMap;
@@ -156,7 +126,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public double getBirthRate() {
-		return birthRate;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE, StandardPackage.Literals.STANDARD_POPULATION_MODEL__BIRTH_RATE, true, true);
 	}
 
 	/**
@@ -165,10 +135,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public void setBirthRate(double newBirthRate) {
-		double oldBirthRate = birthRate;
-		birthRate = newBirthRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE, oldBirthRate, birthRate));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE, StandardPackage.Literals.STANDARD_POPULATION_MODEL__BIRTH_RATE, newBirthRate);
 	}
 
 	/**
@@ -177,7 +144,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public double getDeathRate() {
-		return deathRate;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE, StandardPackage.Literals.STANDARD_POPULATION_MODEL__DEATH_RATE, true, true);
 	}
 
 	/**
@@ -186,10 +153,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public void setDeathRate(double newDeathRate) {
-		double oldDeathRate = deathRate;
-		deathRate = newDeathRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE, oldDeathRate, deathRate));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE, StandardPackage.Literals.STANDARD_POPULATION_MODEL__DEATH_RATE, newDeathRate);
 	}
 
 	/**
@@ -198,7 +162,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public long getTimePeriod() {
-		return timePeriod;
+		return (Long)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD, StandardPackage.Literals.STANDARD_POPULATION_MODEL__TIME_PERIOD, true, true);
 	}
 
 	/**
@@ -207,10 +171,7 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	 * @generated
 	 */
 	public void setTimePeriod(long newTimePeriod) {
-		long oldTimePeriod = timePeriod;
-		timePeriod = newTimePeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD, oldTimePeriod, timePeriod));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD, StandardPackage.Literals.STANDARD_POPULATION_MODEL__TIME_PERIOD, newTimePeriod);
 	}
 
 	/**
@@ -293,33 +254,13 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_MODEL__BIRTH_RATE:
-				return birthRate != BIRTH_RATE_EDEFAULT;
+				return getBirthRate() != BIRTH_RATE_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_MODEL__DEATH_RATE:
-				return deathRate != DEATH_RATE_EDEFAULT;
+				return getDeathRate() != DEATH_RATE_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_MODEL__TIME_PERIOD:
-				return timePeriod != TIME_PERIOD_EDEFAULT;
+				return getTimePeriod() != TIME_PERIOD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (birthRate: ");
-		result.append(birthRate);
-		result.append(", deathRate: ");
-		result.append(deathRate);
-		result.append(", timePeriod: ");
-		result.append(timePeriod);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override

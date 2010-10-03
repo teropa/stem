@@ -63,16 +63,6 @@ public abstract class PopulationInitializerImpl extends NodeDecoratorImpl implem
 	protected static final String TARGET_ISO_KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTargetISOKey() <em>Target ISO Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetISOKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected String targetISOKey = TARGET_ISO_KEY_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,16 +71,6 @@ public abstract class PopulationInitializerImpl extends NodeDecoratorImpl implem
 	 * @ordered
 	 */
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = "human";
-
-	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,7 +97,7 @@ public abstract class PopulationInitializerImpl extends NodeDecoratorImpl implem
 	 * @generated
 	 */
 	public String getTargetISOKey() {
-		return targetISOKey;
+		return (String)eDynamicGet(StandardPackage.POPULATION_INITIALIZER__TARGET_ISO_KEY, StandardPackage.Literals.POPULATION_INITIALIZER__TARGET_ISO_KEY, true, true);
 	}
 
 	/**
@@ -126,10 +106,7 @@ public abstract class PopulationInitializerImpl extends NodeDecoratorImpl implem
 	 * @generated
 	 */
 	public void setTargetISOKey(String newTargetISOKey) {
-		String oldTargetISOKey = targetISOKey;
-		targetISOKey = newTargetISOKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_INITIALIZER__TARGET_ISO_KEY, oldTargetISOKey, targetISOKey));
+		eDynamicSet(StandardPackage.POPULATION_INITIALIZER__TARGET_ISO_KEY, StandardPackage.Literals.POPULATION_INITIALIZER__TARGET_ISO_KEY, newTargetISOKey);
 	}
 
 	/**
@@ -138,7 +115,7 @@ public abstract class PopulationInitializerImpl extends NodeDecoratorImpl implem
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(StandardPackage.POPULATION_INITIALIZER__POPULATION_IDENTIFIER, StandardPackage.Literals.POPULATION_INITIALIZER__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -147,10 +124,7 @@ public abstract class PopulationInitializerImpl extends NodeDecoratorImpl implem
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_INITIALIZER__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(StandardPackage.POPULATION_INITIALIZER__POPULATION_IDENTIFIER, StandardPackage.Literals.POPULATION_INITIALIZER__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 	@Override
@@ -380,29 +354,11 @@ public abstract class PopulationInitializerImpl extends NodeDecoratorImpl implem
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.POPULATION_INITIALIZER__TARGET_ISO_KEY:
-				return TARGET_ISO_KEY_EDEFAULT == null ? targetISOKey != null : !TARGET_ISO_KEY_EDEFAULT.equals(targetISOKey);
+				return TARGET_ISO_KEY_EDEFAULT == null ? getTargetISOKey() != null : !TARGET_ISO_KEY_EDEFAULT.equals(getTargetISOKey());
 			case StandardPackage.POPULATION_INITIALIZER__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (targetISOKey: ");
-		result.append(targetISOKey);
-		result.append(", populationIdentifier: ");
-		result.append(populationIdentifier);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PopulationInitializerImpl

@@ -13,6 +13,7 @@ package org.eclipse.stem.populationmodels.standard.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.stem.populationmodels.standard.PopulationGroup;
@@ -32,7 +33,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPackage;
  *
  * @generated
  */
-public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup {
+public class PopulationGroupImpl extends CDOObjectImpl implements PopulationGroup {
 	/**
 	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,16 +45,6 @@ public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup 
 	protected static final String IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String identifier = IDENTIFIER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getFraction() <em>Fraction</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,16 +53,6 @@ public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup 
 	 * @ordered
 	 */
 	protected static final double FRACTION_EDEFAULT = 0.5;
-
-	/**
-	 * The cached value of the '{@link #getFraction() <em>Fraction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFraction()
-	 * @generated
-	 * @ordered
-	 */
-	protected double fraction = FRACTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,8 +78,18 @@ public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getIdentifier() {
-		return identifier;
+		return (String)eDynamicGet(StandardPackage.POPULATION_GROUP__IDENTIFIER, StandardPackage.Literals.POPULATION_GROUP__IDENTIFIER, true, true);
 	}
 
 	/**
@@ -107,10 +98,7 @@ public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup 
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
-		String oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_GROUP__IDENTIFIER, oldIdentifier, identifier));
+		eDynamicSet(StandardPackage.POPULATION_GROUP__IDENTIFIER, StandardPackage.Literals.POPULATION_GROUP__IDENTIFIER, newIdentifier);
 	}
 
 	/**
@@ -119,7 +107,7 @@ public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup 
 	 * @generated
 	 */
 	public double getFraction() {
-		return fraction;
+		return (Double)eDynamicGet(StandardPackage.POPULATION_GROUP__FRACTION, StandardPackage.Literals.POPULATION_GROUP__FRACTION, true, true);
 	}
 
 	/**
@@ -128,10 +116,7 @@ public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup 
 	 * @generated
 	 */
 	public void setFraction(double newFraction) {
-		double oldFraction = fraction;
-		fraction = newFraction;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_GROUP__FRACTION, oldFraction, fraction));
+		eDynamicSet(StandardPackage.POPULATION_GROUP__FRACTION, StandardPackage.Literals.POPULATION_GROUP__FRACTION, newFraction);
 	}
 
 	/**
@@ -195,29 +180,11 @@ public class PopulationGroupImpl extends EObjectImpl implements PopulationGroup 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.POPULATION_GROUP__IDENTIFIER:
-				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
+				return IDENTIFIER_EDEFAULT == null ? getIdentifier() != null : !IDENTIFIER_EDEFAULT.equals(getIdentifier());
 			case StandardPackage.POPULATION_GROUP__FRACTION:
-				return fraction != FRACTION_EDEFAULT;
+				return getFraction() != FRACTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (identifier: ");
-		result.append(identifier);
-		result.append(", fraction: ");
-		result.append(fraction);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PopulationGroupImpl

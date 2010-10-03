@@ -73,16 +73,6 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = "human";
 
 	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,16 +83,6 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	protected static final String NAME_EDEFAULT = "HumanPopulationModel";
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTargetISOKey() <em>Target ISO Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,16 +91,6 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @ordered
 	 */
 	protected static final String TARGET_ISO_KEY_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getTargetISOKey() <em>Target ISO Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetISOKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected String targetISOKey = TARGET_ISO_KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,7 +117,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(StandardPackage.POPULATION_MODEL__POPULATION_IDENTIFIER, StandardPackage.Literals.POPULATION_MODEL__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -156,10 +126,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_MODEL__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(StandardPackage.POPULATION_MODEL__POPULATION_IDENTIFIER, StandardPackage.Literals.POPULATION_MODEL__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 
@@ -169,7 +136,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return (String)eDynamicGet(StandardPackage.POPULATION_MODEL__NAME, StandardPackage.Literals.POPULATION_MODEL__NAME, true, true);
 	}
 
 	/**
@@ -178,10 +145,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_MODEL__NAME, oldName, name));
+		eDynamicSet(StandardPackage.POPULATION_MODEL__NAME, StandardPackage.Literals.POPULATION_MODEL__NAME, newName);
 	}
 
 	/**
@@ -190,7 +154,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @generated
 	 */
 	public String getTargetISOKey() {
-		return targetISOKey;
+		return (String)eDynamicGet(StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY, StandardPackage.Literals.POPULATION_MODEL__TARGET_ISO_KEY, true, true);
 	}
 
 	/**
@@ -199,10 +163,7 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	 * @generated
 	 */
 	public void setTargetISOKey(String newTargetISOKey) {
-		String oldTargetISOKey = targetISOKey;
-		targetISOKey = newTargetISOKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY, oldTargetISOKey, targetISOKey));
+		eDynamicSet(StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY, StandardPackage.Literals.POPULATION_MODEL__TARGET_ISO_KEY, newTargetISOKey);
 	}
 
 	/**
@@ -538,33 +499,13 @@ public abstract class PopulationModelImpl extends NodeDecoratorImpl implements P
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.POPULATION_MODEL__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 			case StandardPackage.POPULATION_MODEL__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case StandardPackage.POPULATION_MODEL__TARGET_ISO_KEY:
-				return TARGET_ISO_KEY_EDEFAULT == null ? targetISOKey != null : !TARGET_ISO_KEY_EDEFAULT.equals(targetISOKey);
+				return TARGET_ISO_KEY_EDEFAULT == null ? getTargetISOKey() != null : !TARGET_ISO_KEY_EDEFAULT.equals(getTargetISOKey());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (populationIdentifier: ");
-		result.append(populationIdentifier);
-		result.append(", name: ");
-		result.append(name);
-		result.append(", targetISOKey: ");
-		result.append(targetISOKey);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PopulationModelImpl

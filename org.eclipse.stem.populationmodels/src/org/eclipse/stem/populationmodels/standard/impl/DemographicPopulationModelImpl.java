@@ -49,16 +49,6 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  */
 public class DemographicPopulationModelImpl extends StandardPopulationModelImpl implements DemographicPopulationModel {
 	/**
-	 * The cached value of the '{@link #getPopulationGroups() <em>Population Groups</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationGroups()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PopulationGroup> populationGroups;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -82,11 +72,9 @@ public class DemographicPopulationModelImpl extends StandardPopulationModelImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<PopulationGroup> getPopulationGroups() {
-		if (populationGroups == null) {
-			populationGroups = new EObjectContainmentEList<PopulationGroup>(PopulationGroup.class, this, StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS);
-		}
-		return populationGroups;
+		return (EList<PopulationGroup>)eDynamicGet(StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS, StandardPackage.Literals.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS, true, true);
 	}
 
 	
@@ -229,7 +217,7 @@ public class DemographicPopulationModelImpl extends StandardPopulationModelImpl 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.DEMOGRAPHIC_POPULATION_MODEL__POPULATION_GROUPS:
-				return populationGroups != null && !populationGroups.isEmpty();
+				return !getPopulationGroups().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

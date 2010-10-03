@@ -64,16 +64,6 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	protected static final double INDIVIDUALS_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getIndividuals() <em>Individuals</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIndividuals()
-	 * @generated
-	 * @ordered
-	 */
-	protected double individuals = INDIVIDUALS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isUseDensity() <em>Use Density</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,16 +72,6 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	 * @ordered
 	 */
 	protected static final boolean USE_DENSITY_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isUseDensity() <em>Use Density</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseDensity()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean useDensity = USE_DENSITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,7 +146,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	 * @generated
 	 */
 	public double getIndividuals() {
-		return individuals;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS, StandardPackage.Literals.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS, true, true);
 	}
 
 	/**
@@ -175,10 +155,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	 * @generated
 	 */
 	public void setIndividuals(double newIndividuals) {
-		double oldIndividuals = individuals;
-		individuals = newIndividuals;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS, oldIndividuals, individuals));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS, StandardPackage.Literals.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS, newIndividuals);
 	}
 
 	/**
@@ -187,7 +164,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	 * @generated
 	 */
 	public boolean isUseDensity() {
-		return useDensity;
+		return (Boolean)eDynamicGet(StandardPackage.STANDARD_POPULATION_INITIALIZER__USE_DENSITY, StandardPackage.Literals.STANDARD_POPULATION_INITIALIZER__USE_DENSITY, true, true);
 	}
 
 	/**
@@ -196,10 +173,7 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	 * @generated
 	 */
 	public void setUseDensity(boolean newUseDensity) {
-		boolean oldUseDensity = useDensity;
-		useDensity = newUseDensity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_INITIALIZER__USE_DENSITY, oldUseDensity, useDensity));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_INITIALIZER__USE_DENSITY, StandardPackage.Literals.STANDARD_POPULATION_INITIALIZER__USE_DENSITY, newUseDensity);
 	}
 
 	/**
@@ -263,29 +237,11 @@ public class StandardPopulationInitializerImpl extends PopulationInitializerImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_INITIALIZER__INDIVIDUALS:
-				return individuals != INDIVIDUALS_EDEFAULT;
+				return getIndividuals() != INDIVIDUALS_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_INITIALIZER__USE_DENSITY:
-				return useDensity != USE_DENSITY_EDEFAULT;
+				return isUseDensity() != USE_DENSITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (individuals: ");
-		result.append(individuals);
-		result.append(", useDensity: ");
-		result.append(useDensity);
-		result.append(')');
-		return result.toString();
 	}
 
 } //StandardPopulationInitializerImpl

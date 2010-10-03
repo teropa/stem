@@ -89,16 +89,6 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	protected static final double PHASE_EDEFAULT = 0.0; // TODO The default value literal "" is not valid.
 
 	/**
-	 * The cached value of the '{@link #getPhase() <em>Phase</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPhase()
-	 * @generated
-	 * @ordered
-	 */
-	protected double phase = PHASE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getModulationAmplitude() <em>Modulation Amplitude</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,16 +97,6 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @ordered
 	 */
 	protected static final double MODULATION_AMPLITUDE_EDEFAULT = 1.0;
-
-	/**
-	 * The cached value of the '{@link #getModulationAmplitude() <em>Modulation Amplitude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationAmplitude()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationAmplitude = MODULATION_AMPLITUDE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
@@ -128,15 +108,6 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 */
 	protected static final double PERIOD_EDEFAULT = 365.25;
 	/**
-	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected double period = PERIOD_EDEFAULT;
-	/**
 	 * The default value of the '{@link #isUseLatitude() <em>Use Latitude</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,16 +116,6 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @ordered
 	 */
 	protected static final boolean USE_LATITUDE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isUseLatitude() <em>Use Latitude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseLatitude()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean useLatitude = USE_LATITUDE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,7 +145,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 		
 		final double adjustedBirthRate = adjustRate(this.getBirthRate(), this.getTimePeriod(), timeDelta);
 		final double adjustedDeathRate = adjustRate(this.getDeathRate(), this.getTimePeriod(), timeDelta);
-		double localPhase = phase;
+		double localPhase = getPhase();
 		for(DynamicLabel label:labels) {
 			
 			StandardPopulationModelLabelImpl slabel = (StandardPopulationModelLabelImpl)label;
@@ -197,8 +158,8 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			double latitude = EQUATOR_LATITUDE;
 			double currentMillis = time.getTime().getTime();
 			double latFactor = 1.0; // default = no dependence
-			localPhase = phase;
-			if(useLatitude) {
+			localPhase = getPhase();
+			if(isUseLatitude()) {
 				// center coords
 				double[] lat_long = null;
 				
@@ -234,13 +195,13 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 				// based on a logistic (sigmoidal) function
 				latFactor  = 1.0/(1.0 + Math.exp((TROPIC_OF_CANCER_LATITUDE - Math.abs(latitude))/LATITUDE_SIGMOID_WIDTH) );
 				// seasons reverse in the southern hemisphere
-				if(latitude <= 0.0) localPhase = phase+Math.PI;
+				if(latitude <= 0.0) localPhase = getPhase()+Math.PI;
 			} //if useLatitude
 			
-			double modulation = modulationAmplitude*latFactor;
+			double modulation = getModulationAmplitude()*latFactor;
 			double floor = (1.0-modulation);
 				
-			double modulationPeriod = period; 
+			double modulationPeriod = getPeriod(); 
 			double oscCos = Math.cos(localPhase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) ); // 1==>-1 cosine
 			//  init default (phase 0)  seasonalBirthFactor  is 0.0 in winter. range is 0->1.0
 			seasonalBirthFactor =  (1.0+(-1.0*oscCos))/2.0;
@@ -317,7 +278,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 */
 	public double getPhase() {
-		return phase;
+		return (Double)eDynamicGet(StandardPackage.SEASONAL_POPULATION_MODEL__PHASE, StandardPackage.Literals.SEASONAL_POPULATION_MODEL__PHASE, true, true);
 	}
 
 	/**
@@ -326,10 +287,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 */
 	public void setPhase(double newPhase) {
-		double oldPhase = phase;
-		phase = newPhase;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SEASONAL_POPULATION_MODEL__PHASE, oldPhase, phase));
+		eDynamicSet(StandardPackage.SEASONAL_POPULATION_MODEL__PHASE, StandardPackage.Literals.SEASONAL_POPULATION_MODEL__PHASE, newPhase);
 	}
 
 	/**
@@ -338,7 +296,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 */
 	public double getModulationAmplitude() {
-		return modulationAmplitude;
+		return (Double)eDynamicGet(StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE, StandardPackage.Literals.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE, true, true);
 	}
 
 	/**
@@ -347,10 +305,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 */
 	public void setModulationAmplitude(double newModulationAmplitude) {
-		double oldModulationAmplitude = modulationAmplitude;
-		modulationAmplitude = newModulationAmplitude;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE, oldModulationAmplitude, modulationAmplitude));
+		eDynamicSet(StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE, StandardPackage.Literals.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE, newModulationAmplitude);
 	}
 
 	/**
@@ -359,7 +314,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 */
 	public double getPeriod() {
-		return period;
+		return (Double)eDynamicGet(StandardPackage.SEASONAL_POPULATION_MODEL__PERIOD, StandardPackage.Literals.SEASONAL_POPULATION_MODEL__PERIOD, true, true);
 	}
 
 
@@ -369,7 +324,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 */
 	public boolean isUseLatitude() {
-		return useLatitude;
+		return (Boolean)eDynamicGet(StandardPackage.SEASONAL_POPULATION_MODEL__USE_LATITUDE, StandardPackage.Literals.SEASONAL_POPULATION_MODEL__USE_LATITUDE, true, true);
 	}
 
 	/**
@@ -378,10 +333,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	 * @generated
 	 */
 	public void setUseLatitude(boolean newUseLatitude) {
-		boolean oldUseLatitude = useLatitude;
-		useLatitude = newUseLatitude;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.SEASONAL_POPULATION_MODEL__USE_LATITUDE, oldUseLatitude, useLatitude));
+		eDynamicSet(StandardPackage.SEASONAL_POPULATION_MODEL__USE_LATITUDE, StandardPackage.Literals.SEASONAL_POPULATION_MODEL__USE_LATITUDE, newUseLatitude);
 	}
 
 	/**
@@ -455,37 +407,15 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.SEASONAL_POPULATION_MODEL__PHASE:
-				return phase != PHASE_EDEFAULT;
+				return getPhase() != PHASE_EDEFAULT;
 			case StandardPackage.SEASONAL_POPULATION_MODEL__MODULATION_AMPLITUDE:
-				return modulationAmplitude != MODULATION_AMPLITUDE_EDEFAULT;
+				return getModulationAmplitude() != MODULATION_AMPLITUDE_EDEFAULT;
 			case StandardPackage.SEASONAL_POPULATION_MODEL__PERIOD:
-				return period != PERIOD_EDEFAULT;
+				return getPeriod() != PERIOD_EDEFAULT;
 			case StandardPackage.SEASONAL_POPULATION_MODEL__USE_LATITUDE:
-				return useLatitude != USE_LATITUDE_EDEFAULT;
+				return isUseLatitude() != USE_LATITUDE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (phase: ");
-		result.append(phase);
-		result.append(", modulationAmplitude: ");
-		result.append(modulationAmplitude);
-		result.append(", period: ");
-		result.append(period);
-		result.append(", useLatitude: ");
-		result.append(useLatitude);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SeasonalPopulationModelImpl

@@ -75,18 +75,18 @@ public class StandardFactoryImpl extends EFactoryImpl implements StandardFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case StandardPackage.STANDARD_POPULATION_MODEL: return createStandardPopulationModel();
-			case StandardPackage.POPULATION_MODEL_LABEL: return createPopulationModelLabel();
-			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL: return createStandardPopulationModelLabel();
-			case StandardPackage.POPULATION_MODEL_LABEL_VALUE: return createPopulationModelLabelValue();
-			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE: return createStandardPopulationModelLabelValue();
-			case StandardPackage.STOCHASTIC_STANDARD_POPULATION_MODEL: return createStochasticStandardPopulationModel();
-			case StandardPackage.DEMOGRAPHIC_POPULATION_MODEL: return createDemographicPopulationModel();
-			case StandardPackage.POPULATION_GROUP: return createPopulationGroup();
-			case StandardPackage.STANDARD_POPULATION_INITIALIZER: return createStandardPopulationInitializer();
-			case StandardPackage.SEASONAL_POPULATION_MODEL: return createSeasonalPopulationModel();
-			case StandardPackage.YETI_POPULATION_INITIALIZER: return createYetiPopulationInitializer();
-			case StandardPackage.MOSQUITO_POPULATION_MODEL: return createMosquitoPopulationModel();
+			case StandardPackage.STANDARD_POPULATION_MODEL: return (EObject)createStandardPopulationModel();
+			case StandardPackage.POPULATION_MODEL_LABEL: return (EObject)createPopulationModelLabel();
+			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL: return (EObject)createStandardPopulationModelLabel();
+			case StandardPackage.POPULATION_MODEL_LABEL_VALUE: return (EObject)createPopulationModelLabelValue();
+			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE: return (EObject)createStandardPopulationModelLabelValue();
+			case StandardPackage.STOCHASTIC_STANDARD_POPULATION_MODEL: return (EObject)createStochasticStandardPopulationModel();
+			case StandardPackage.DEMOGRAPHIC_POPULATION_MODEL: return (EObject)createDemographicPopulationModel();
+			case StandardPackage.POPULATION_GROUP: return (EObject)createPopulationGroup();
+			case StandardPackage.STANDARD_POPULATION_INITIALIZER: return (EObject)createStandardPopulationInitializer();
+			case StandardPackage.SEASONAL_POPULATION_MODEL: return (EObject)createSeasonalPopulationModel();
+			case StandardPackage.YETI_POPULATION_INITIALIZER: return (EObject)createYetiPopulationInitializer();
+			case StandardPackage.MOSQUITO_POPULATION_MODEL: return (EObject)createMosquitoPopulationModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

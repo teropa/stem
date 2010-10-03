@@ -54,16 +54,6 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 */
 	protected static final double COUNT_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected double count = COUNT_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getIncidence() <em>Incidence</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,16 +62,6 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @ordered
 	 */
 	protected static final double INCIDENCE_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getIncidence() <em>Incidence</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIncidence()
-	 * @generated
-	 * @ordered
-	 */
-	protected double incidence = INCIDENCE_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getBirths() <em>Births</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,15 +72,6 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 */
 	protected static final double BIRTHS_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getBirths() <em>Births</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBirths()
-	 * @generated
-	 * @ordered
-	 */
-	protected double births = BIRTHS_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getDeaths() <em>Deaths</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,16 +80,6 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @ordered
 	 */
 	protected static final double DEATHS_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getDeaths() <em>Deaths</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeaths()
-	 * @generated
-	 * @ordered
-	 */
-	protected double deaths = DEATHS_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getDensity() <em>Density</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -154,7 +115,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public double getCount() {
-		return count;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT, true, true);
 	}
 
 	/**
@@ -163,10 +124,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public void setCount(double newCount) {
-		double oldCount = count;
-		count = newCount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT, oldCount, count));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT, newCount);
 	}
 
 	/**
@@ -175,7 +133,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public double getIncidence() {
-		return incidence;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE, true, true);
 	}
 
 	/**
@@ -184,10 +142,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public void setIncidence(double newIncidence) {
-		double oldIncidence = incidence;
-		incidence = newIncidence;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE, oldIncidence, incidence));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE, newIncidence);
 	}
 
 	/**
@@ -196,7 +151,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public double getBirths() {
-		return births;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS, true, true);
 	}
 
 	/**
@@ -205,10 +160,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public void setBirths(double newBirths) {
-		double oldBirths = births;
-		births = newBirths;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS, oldBirths, births));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS, newBirths);
 	}
 
 	/**
@@ -217,7 +169,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public double getDeaths() {
-		return deaths;
+		return (Double)eDynamicGet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS, true, true);
 	}
 
 	/**
@@ -226,10 +178,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated
 	 */
 	public void setDeaths(double newDeaths) {
-		double oldDeaths = deaths;
-		deaths = newDeaths;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS, oldDeaths, deaths));
+		eDynamicSet(StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS, StandardPackage.Literals.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS, newDeaths);
 	}
 
 	/**
@@ -238,7 +187,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated NOT
 	 */
 	public double getDensity() {
-		double population = this.count;
+		double population = this.getCount();
 		StandardPopulationModelLabel label = (StandardPopulationModelLabel)this.eContainer();
 		Node n= label.getNode();
 		double area = 0.0;
@@ -410,13 +359,13 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__COUNT:
-				return count != COUNT_EDEFAULT;
+				return getCount() != COUNT_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__INCIDENCE:
-				return incidence != INCIDENCE_EDEFAULT;
+				return getIncidence() != INCIDENCE_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__BIRTHS:
-				return births != BIRTHS_EDEFAULT;
+				return getBirths() != BIRTHS_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DEATHS:
-				return deaths != DEATHS_EDEFAULT;
+				return getDeaths() != DEATHS_EDEFAULT;
 			case StandardPackage.STANDARD_POPULATION_MODEL_LABEL_VALUE__DENSITY:
 				return isSetDensity();
 		}
@@ -434,69 +383,69 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (count: ");
-		result.append(count);
+		result.append(getCount());
 		result.append(", incidence: ");
-		result.append(incidence);
+		result.append(getIncidence());
 		result.append(", births: ");
-		result.append(births);
+		result.append(getBirths());
 		result.append(", deaths: ");
-		result.append(deaths);
+		result.append(getDeaths());
 		result.append(')');
 		return result.toString();
 	}
 
 	public IntegrationLabelValue abs() {
-		this.count = Math.abs(this.count);
-		this.births = Math.abs(this.births);
-		this.deaths = Math.abs(this.deaths);
+		setCount(Math.abs(getCount()));
+		setBirths(Math.abs(getBirths()));
+		setDeaths(Math.abs(getDeaths()));
 		return this;
 	}
 
 	public IntegrationLabelValue add(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
-		this.births += v.getBirths();
-		this.deaths += v.getDeaths();
-		this.count += v.getCount();
+		setBirths(getBirths() + v.getBirths());
+		setDeaths(getDeaths() + v.getDeaths());
+		setCount(getCount() + v.getCount());
 		return this;
 	}
 
 	public IntegrationLabelValue add(double addition) {
-		this.count += addition;
-		this.births += addition;
-		this.deaths += addition;
+		setCount(getCount() + addition);
+		setBirths(getBirths() + addition);
+		setDeaths(getDeaths() + addition);
 		return this;
 	}
 
 	public IntegrationLabelValue scale(double scaleFactor) {
-		this.count *= scaleFactor;
-		this.births *= scaleFactor;
-		this.deaths *= scaleFactor;
+		setCount(getCount() * scaleFactor);
+		setBirths(getBirths() * scaleFactor);
+		setDeaths(getDeaths() * scaleFactor);
 		return this;
 	}
 
 	public IntegrationLabelValue set(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
-		this.count = v.getCount();
-		this.births = v.getBirths();
-		this.deaths = v.getDeaths();
-		this.incidence = v.getIncidence();
+		setCount(v.getCount());
+		setBirths(v.getBirths());
+		setDeaths(v.getDeaths());
+		setIncidence(v.getIncidence());
 		return this;
 	}
 
 	public IntegrationLabelValue sub(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
-		this.births -= v.getBirths();
-		this.deaths -= v.getDeaths();
-		this.count -= v.getCount();
+		setBirths(getBirths() - v.getBirths());
+		setDeaths(getDeaths() - v.getDeaths());
+		setCount(getCount() - v.getCount());
 		return this;
 	}
 
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
 		
 		StandardPopulationModelLabelValue _scale = (StandardPopulationModelLabelValue)d;
-		double cScaled = Math.abs(count) / Math.abs(_scale.getCount());
-		double bScaled = Math.abs(births) / Math.abs(_scale.getBirths());
-		double dScaled = Math.abs(deaths) / Math.abs(_scale.getDeaths());
+		double cScaled = Math.abs(getCount()) / Math.abs(_scale.getCount());
+		double bScaled = Math.abs(getBirths()) / Math.abs(_scale.getBirths());
+		double dScaled = Math.abs(getDeaths()) / Math.abs(_scale.getDeaths());
 		setCount(cScaled);
 		setBirths(bScaled);
 		setDeaths(dScaled);
@@ -504,9 +453,9 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	}
 	
 	public double max() {
-		if(count > births && count > deaths) return count;
-		else if(births > deaths) return births;
-		else return deaths;
+		if(getCount() > getBirths() && getCount() > getDeaths()) return getCount();
+		else if(getBirths() > getDeaths()) return getBirths();
+		else return getDeaths();
 	}
 	
 	@Override

@@ -38,16 +38,6 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  */
 public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements PopulationModelLabel {
 	/**
-	 * The cached value of the '{@link #getPopulationLabel() <em>Population Label</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected PopulationLabel populationLabel;
-
-	/**
 	 * The default value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,16 +46,6 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * @ordered
 	 */
 	protected static final String POPULATION_IDENTIFIER_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getPopulationIdentifier() <em>Population Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPopulationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String populationIdentifier = POPULATION_IDENTIFIER_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,15 +71,7 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * @generated
 	 */
 	public PopulationLabel getPopulationLabel() {
-		if (populationLabel != null && populationLabel.eIsProxy()) {
-			InternalEObject oldPopulationLabel = (InternalEObject)populationLabel;
-			populationLabel = (PopulationLabel)eResolveProxy(oldPopulationLabel);
-			if (populationLabel != oldPopulationLabel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL, oldPopulationLabel, populationLabel));
-			}
-		}
-		return populationLabel;
+		return (PopulationLabel)eDynamicGet(StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL, StandardPackage.Literals.POPULATION_MODEL_LABEL__POPULATION_LABEL, true, true);
 	}
 
 	/**
@@ -108,7 +80,7 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * @generated
 	 */
 	public PopulationLabel basicGetPopulationLabel() {
-		return populationLabel;
+		return (PopulationLabel)eDynamicGet(StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL, StandardPackage.Literals.POPULATION_MODEL_LABEL__POPULATION_LABEL, false, true);
 	}
 
 	/**
@@ -117,10 +89,7 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * @generated
 	 */
 	public void setPopulationLabel(PopulationLabel newPopulationLabel) {
-		PopulationLabel oldPopulationLabel = populationLabel;
-		populationLabel = newPopulationLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL, oldPopulationLabel, populationLabel));
+		eDynamicSet(StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL, StandardPackage.Literals.POPULATION_MODEL_LABEL__POPULATION_LABEL, newPopulationLabel);
 	}
 
 	/**
@@ -129,7 +98,7 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * @generated
 	 */
 	public String getPopulationIdentifier() {
-		return populationIdentifier;
+		return (String)eDynamicGet(StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER, StandardPackage.Literals.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER, true, true);
 	}
 
 	/**
@@ -138,10 +107,7 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	 * @generated
 	 */
 	public void setPopulationIdentifier(String newPopulationIdentifier) {
-		String oldPopulationIdentifier = populationIdentifier;
-		populationIdentifier = newPopulationIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER, oldPopulationIdentifier, populationIdentifier));
+		eDynamicSet(StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER, StandardPackage.Literals.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER, newPopulationIdentifier);
 	}
 
 	/**
@@ -206,9 +172,9 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_LABEL:
-				return populationLabel != null;
+				return basicGetPopulationLabel() != null;
 			case StandardPackage.POPULATION_MODEL_LABEL__POPULATION_IDENTIFIER:
-				return POPULATION_IDENTIFIER_EDEFAULT == null ? populationIdentifier != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(populationIdentifier);
+				return POPULATION_IDENTIFIER_EDEFAULT == null ? getPopulationIdentifier() != null : !POPULATION_IDENTIFIER_EDEFAULT.equals(getPopulationIdentifier());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -223,7 +189,7 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(
-				populationIdentifier == null ? "null" : populationIdentifier);
+				getPopulationIdentifier() == null ? "null" : getPopulationIdentifier());
 		result.append(" [");
 		result.append(Math.floor(((StandardPopulationModelLabelValue)getCurrentValue()).getCount()));
 		result.append("]");
