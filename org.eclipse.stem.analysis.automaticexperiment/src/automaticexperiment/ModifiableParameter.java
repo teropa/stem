@@ -11,6 +11,7 @@ package automaticexperiment;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -35,9 +36,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *
  * @see automaticexperiment.AutomaticexperimentPackage#getModifiableParameter()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface ModifiableParameter extends EObject {
+public interface ModifiableParameter extends CDOObject {
 	/**
 	 * Returns the value of the '<em><b>Initial Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

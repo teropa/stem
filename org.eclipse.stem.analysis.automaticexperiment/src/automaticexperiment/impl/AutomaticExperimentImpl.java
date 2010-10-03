@@ -48,26 +48,6 @@ import automaticexperiment.ModifiableParameter;
  */
 public class AutomaticExperimentImpl extends IdentifiableImpl implements AutomaticExperiment {
 	/**
-	 * The cached value of the '{@link #getBaseScenario() <em>Base Scenario</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBaseScenario()
-	 * @generated
-	 * @ordered
-	 */
-	protected Scenario baseScenario;
-
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ModifiableParameter> parameters;
-
-	/**
 	 * The default value of the '{@link #getErrorAnalysisAlgorithm() <em>Error Analysis Algorithm</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,16 +56,6 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @ordered
 	 */
 	protected static final String ERROR_ANALYSIS_ALGORITHM_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getErrorAnalysisAlgorithm() <em>Error Analysis Algorithm</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorAnalysisAlgorithm()
-	 * @generated
-	 * @ordered
-	 */
-	protected String errorAnalysisAlgorithm = ERROR_ANALYSIS_ALGORITHM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getErrorFunction() <em>Error Function</em>}' attribute.
@@ -98,16 +68,6 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	protected static final String ERROR_FUNCTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getErrorFunction() <em>Error Function</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorFunction()
-	 * @generated
-	 * @ordered
-	 */
-	protected String errorFunction = ERROR_FUNCTION_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTolerance() <em>Tolerance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,16 +76,6 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @ordered
 	 */
 	protected static final double TOLERANCE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getTolerance() <em>Tolerance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTolerance()
-	 * @generated
-	 * @ordered
-	 */
-	protected double tolerance = TOLERANCE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getReferanceDataDir() <em>Referance Data Dir</em>}' attribute.
@@ -138,16 +88,6 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	protected static final String REFERANCE_DATA_DIR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReferanceDataDir() <em>Referance Data Dir</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferanceDataDir()
-	 * @generated
-	 * @ordered
-	 */
-	protected String referanceDataDir = REFERANCE_DATA_DIR_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getMaximumNumberOfIterations() <em>Maximum Number Of Iterations</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,16 +98,6 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	protected static final long MAXIMUM_NUMBER_OF_ITERATIONS_EDEFAULT = 0L;
 
 	/**
-	 * The cached value of the '{@link #getMaximumNumberOfIterations() <em>Maximum Number Of Iterations</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaximumNumberOfIterations()
-	 * @generated
-	 * @ordered
-	 */
-	protected long maximumNumberOfIterations = MAXIMUM_NUMBER_OF_ITERATIONS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isReInit() <em>Re Init</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,16 +106,6 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @ordered
 	 */
 	protected static final boolean RE_INIT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isReInit() <em>Re Init</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReInit()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean reInit = RE_INIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -212,15 +132,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public Scenario getBaseScenario() {
-		if (baseScenario != null && baseScenario.eIsProxy()) {
-			InternalEObject oldBaseScenario = (InternalEObject)baseScenario;
-			baseScenario = (Scenario)eResolveProxy(oldBaseScenario);
-			if (baseScenario != oldBaseScenario) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, oldBaseScenario, baseScenario));
-			}
-		}
-		return baseScenario;
+		return (Scenario)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, true, true);
 	}
 
 	/**
@@ -229,7 +141,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public Scenario basicGetBaseScenario() {
-		return baseScenario;
+		return (Scenario)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, false, true);
 	}
 
 	/**
@@ -238,10 +150,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public void setBaseScenario(Scenario newBaseScenario) {
-		Scenario oldBaseScenario = baseScenario;
-		baseScenario = newBaseScenario;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, oldBaseScenario, baseScenario));
+		eDynamicSet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__BASE_SCENARIO, newBaseScenario);
 	}
 
 	/**
@@ -249,11 +158,9 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<ModifiableParameter> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectResolvingEList<ModifiableParameter>(ModifiableParameter.class, this, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__PARAMETERS);
-		}
-		return parameters;
+		return (EList<ModifiableParameter>)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__PARAMETERS, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__PARAMETERS, true, true);
 	}
 
 	/**
@@ -262,7 +169,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public String getErrorAnalysisAlgorithm() {
-		return errorAnalysisAlgorithm;
+		return (String)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_ANALYSIS_ALGORITHM, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__ERROR_ANALYSIS_ALGORITHM, true, true);
 	}
 
 	/**
@@ -271,10 +178,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public void setErrorAnalysisAlgorithm(String newErrorAnalysisAlgorithm) {
-		String oldErrorAnalysisAlgorithm = errorAnalysisAlgorithm;
-		errorAnalysisAlgorithm = newErrorAnalysisAlgorithm;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_ANALYSIS_ALGORITHM, oldErrorAnalysisAlgorithm, errorAnalysisAlgorithm));
+		eDynamicSet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_ANALYSIS_ALGORITHM, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__ERROR_ANALYSIS_ALGORITHM, newErrorAnalysisAlgorithm);
 	}
 
 	/**
@@ -283,7 +187,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public String getErrorFunction() {
-		return errorFunction;
+		return (String)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_FUNCTION, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__ERROR_FUNCTION, true, true);
 	}
 
 	/**
@@ -292,10 +196,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public void setErrorFunction(String newErrorFunction) {
-		String oldErrorFunction = errorFunction;
-		errorFunction = newErrorFunction;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_FUNCTION, oldErrorFunction, errorFunction));
+		eDynamicSet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_FUNCTION, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__ERROR_FUNCTION, newErrorFunction);
 	}
 
 	/**
@@ -304,7 +205,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public double getTolerance() {
-		return tolerance;
+		return (Double)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__TOLERANCE, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__TOLERANCE, true, true);
 	}
 
 	/**
@@ -313,10 +214,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public void setTolerance(double newTolerance) {
-		double oldTolerance = tolerance;
-		tolerance = newTolerance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__TOLERANCE, oldTolerance, tolerance));
+		eDynamicSet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__TOLERANCE, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__TOLERANCE, newTolerance);
 	}
 
 	/**
@@ -325,7 +223,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public String getReferanceDataDir() {
-		return referanceDataDir;
+		return (String)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR, true, true);
 	}
 
 	/**
@@ -334,10 +232,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public void setReferanceDataDir(String newReferanceDataDir) {
-		String oldReferanceDataDir = referanceDataDir;
-		referanceDataDir = newReferanceDataDir;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR, oldReferanceDataDir, referanceDataDir));
+		eDynamicSet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR, newReferanceDataDir);
 	}
 
 	/**
@@ -346,7 +241,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public long getMaximumNumberOfIterations() {
-		return maximumNumberOfIterations;
+		return (Long)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS, true, true);
 	}
 
 	/**
@@ -355,10 +250,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public void setMaximumNumberOfIterations(long newMaximumNumberOfIterations) {
-		long oldMaximumNumberOfIterations = maximumNumberOfIterations;
-		maximumNumberOfIterations = newMaximumNumberOfIterations;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS, oldMaximumNumberOfIterations, maximumNumberOfIterations));
+		eDynamicSet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS, newMaximumNumberOfIterations);
 	}
 
 	/**
@@ -367,7 +259,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public boolean isReInit() {
-		return reInit;
+		return (Boolean)eDynamicGet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__RE_INIT, true, true);
 	}
 
 	/**
@@ -376,10 +268,7 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	 * @generated
 	 */
 	public void setReInit(boolean newReInit) {
-		boolean oldReInit = reInit;
-		reInit = newReInit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT, oldReInit, reInit));
+		eDynamicSet(AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT, AutomaticexperimentPackage.Literals.AUTOMATIC_EXPERIMENT__RE_INIT, newReInit);
 	}
 
 	/**
@@ -494,49 +383,23 @@ public class AutomaticExperimentImpl extends IdentifiableImpl implements Automat
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__BASE_SCENARIO:
-				return baseScenario != null;
+				return basicGetBaseScenario() != null;
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
+				return !getParameters().isEmpty();
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_ANALYSIS_ALGORITHM:
-				return ERROR_ANALYSIS_ALGORITHM_EDEFAULT == null ? errorAnalysisAlgorithm != null : !ERROR_ANALYSIS_ALGORITHM_EDEFAULT.equals(errorAnalysisAlgorithm);
+				return ERROR_ANALYSIS_ALGORITHM_EDEFAULT == null ? getErrorAnalysisAlgorithm() != null : !ERROR_ANALYSIS_ALGORITHM_EDEFAULT.equals(getErrorAnalysisAlgorithm());
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__ERROR_FUNCTION:
-				return ERROR_FUNCTION_EDEFAULT == null ? errorFunction != null : !ERROR_FUNCTION_EDEFAULT.equals(errorFunction);
+				return ERROR_FUNCTION_EDEFAULT == null ? getErrorFunction() != null : !ERROR_FUNCTION_EDEFAULT.equals(getErrorFunction());
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__TOLERANCE:
-				return tolerance != TOLERANCE_EDEFAULT;
+				return getTolerance() != TOLERANCE_EDEFAULT;
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__REFERANCE_DATA_DIR:
-				return REFERANCE_DATA_DIR_EDEFAULT == null ? referanceDataDir != null : !REFERANCE_DATA_DIR_EDEFAULT.equals(referanceDataDir);
+				return REFERANCE_DATA_DIR_EDEFAULT == null ? getReferanceDataDir() != null : !REFERANCE_DATA_DIR_EDEFAULT.equals(getReferanceDataDir());
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__MAXIMUM_NUMBER_OF_ITERATIONS:
-				return maximumNumberOfIterations != MAXIMUM_NUMBER_OF_ITERATIONS_EDEFAULT;
+				return getMaximumNumberOfIterations() != MAXIMUM_NUMBER_OF_ITERATIONS_EDEFAULT;
 			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT__RE_INIT:
-				return reInit != RE_INIT_EDEFAULT;
+				return isReInit() != RE_INIT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (errorAnalysisAlgorithm: ");
-		result.append(errorAnalysisAlgorithm);
-		result.append(", errorFunction: ");
-		result.append(errorFunction);
-		result.append(", tolerance: ");
-		result.append(tolerance);
-		result.append(", referanceDataDir: ");
-		result.append(referanceDataDir);
-		result.append(", maximumNumberOfIterations: ");
-		result.append(maximumNumberOfIterations);
-		result.append(", reInit: ");
-		result.append(reInit);
-		result.append(')');
-		return result.toString();
 	}
 
 } //AutomaticExperimentImpl

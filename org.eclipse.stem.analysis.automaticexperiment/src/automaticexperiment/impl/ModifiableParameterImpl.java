@@ -11,13 +11,10 @@ package automaticexperiment.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import automaticexperiment.AutomaticexperimentPackage;
 import automaticexperiment.ModifiableParameter;
@@ -41,7 +38,7 @@ import automaticexperiment.ModifiableParameter;
  *
  * @generated
  */
-public class ModifiableParameterImpl extends EObjectImpl implements ModifiableParameter {
+public class ModifiableParameterImpl extends CDOObjectImpl implements ModifiableParameter {
 	/**
 	 * The default value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -51,26 +48,6 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @ordered
 	 */
 	protected static final double INITIAL_VALUE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double initialValue = INITIAL_VALUE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeature()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature feature;
 
 	/**
 	 * The default value of the '{@link #getStep() <em>Step</em>}' attribute.
@@ -83,16 +60,6 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	protected static final double STEP_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getStep() <em>Step</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStep()
-	 * @generated
-	 * @ordered
-	 */
-	protected double step = STEP_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,16 +68,6 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @ordered
 	 */
 	protected static final String FEATURE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeatureName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String featureName = FEATURE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLowerBound() <em>Lower Bound</em>}' attribute.
@@ -123,16 +80,6 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	protected static final double LOWER_BOUND_EDEFAULT = -1.0;
 
 	/**
-	 * The cached value of the '{@link #getLowerBound() <em>Lower Bound</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLowerBound()
-	 * @generated
-	 * @ordered
-	 */
-	protected double lowerBound = LOWER_BOUND_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getUpperBound() <em>Upper Bound</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,16 +90,6 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	protected static final double UPPER_BOUND_EDEFAULT = -1.0;
 
 	/**
-	 * The cached value of the '{@link #getUpperBound() <em>Upper Bound</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUpperBound()
-	 * @generated
-	 * @ordered
-	 */
-	protected double upperBound = UPPER_BOUND_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,16 +98,6 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @ordered
 	 */
 	protected static final URI TARGET_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI targetURI = TARGET_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,8 +123,18 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public double getInitialValue() {
-		return initialValue;
+		return (Double)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__INITIAL_VALUE, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__INITIAL_VALUE, true, true);
 	}
 
 	/**
@@ -206,10 +143,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public void setInitialValue(double newInitialValue) {
-		double oldInitialValue = initialValue;
-		initialValue = newInitialValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__INITIAL_VALUE, oldInitialValue, initialValue));
+		eDynamicSet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__INITIAL_VALUE, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__INITIAL_VALUE, newInitialValue);
 	}
 
 	/**
@@ -218,15 +152,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public EStructuralFeature getFeature() {
-		if (feature != null && feature.eIsProxy()) {
-			InternalEObject oldFeature = (InternalEObject)feature;
-			feature = (EStructuralFeature)eResolveProxy(oldFeature);
-			if (feature != oldFeature) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE, oldFeature, feature));
-			}
-		}
-		return feature;
+		return (EStructuralFeature)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__FEATURE, true, true);
 	}
 
 	/**
@@ -235,7 +161,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public EStructuralFeature basicGetFeature() {
-		return feature;
+		return (EStructuralFeature)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__FEATURE, false, true);
 	}
 
 	/**
@@ -244,10 +170,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public void setFeature(EStructuralFeature newFeature) {
-		EStructuralFeature oldFeature = feature;
-		feature = newFeature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE, oldFeature, feature));
+		eDynamicSet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__FEATURE, newFeature);
 	}
 
 	/**
@@ -256,7 +179,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public double getStep() {
-		return step;
+		return (Double)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__STEP, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__STEP, true, true);
 	}
 
 	/**
@@ -265,10 +188,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public void setStep(double newStep) {
-		double oldStep = step;
-		step = newStep;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__STEP, oldStep, step));
+		eDynamicSet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__STEP, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__STEP, newStep);
 	}
 
 	/**
@@ -277,7 +197,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public String getFeatureName() {
-		return featureName;
+		return (String)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE_NAME, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__FEATURE_NAME, true, true);
 	}
 
 	/**
@@ -286,10 +206,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public void setFeatureName(String newFeatureName) {
-		String oldFeatureName = featureName;
-		featureName = newFeatureName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE_NAME, oldFeatureName, featureName));
+		eDynamicSet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE_NAME, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__FEATURE_NAME, newFeatureName);
 	}
 
 	/**
@@ -298,7 +215,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public double getLowerBound() {
-		return lowerBound;
+		return (Double)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__LOWER_BOUND, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__LOWER_BOUND, true, true);
 	}
 
 	/**
@@ -307,10 +224,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public void setLowerBound(double newLowerBound) {
-		double oldLowerBound = lowerBound;
-		lowerBound = newLowerBound;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__LOWER_BOUND, oldLowerBound, lowerBound));
+		eDynamicSet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__LOWER_BOUND, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__LOWER_BOUND, newLowerBound);
 	}
 
 	/**
@@ -319,7 +233,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public double getUpperBound() {
-		return upperBound;
+		return (Double)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__UPPER_BOUND, true, true);
 	}
 
 	/**
@@ -328,10 +242,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public void setUpperBound(double newUpperBound) {
-		double oldUpperBound = upperBound;
-		upperBound = newUpperBound;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND, oldUpperBound, upperBound));
+		eDynamicSet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__UPPER_BOUND, newUpperBound);
 	}
 
 	/**
@@ -340,7 +251,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public URI getTargetURI() {
-		return targetURI;
+		return (URI)eDynamicGet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__TARGET_URI, true, true);
 	}
 
 	/**
@@ -349,10 +260,7 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	 * @generated
 	 */
 	public void setTargetURI(URI newTargetURI) {
-		URI oldTargetURI = targetURI;
-		targetURI = newTargetURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI, oldTargetURI, targetURI));
+		eDynamicSet(AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI, AutomaticexperimentPackage.Literals.MODIFIABLE_PARAMETER__TARGET_URI, newTargetURI);
 	}
 
 	/**
@@ -457,47 +365,21 @@ public class ModifiableParameterImpl extends EObjectImpl implements ModifiablePa
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__INITIAL_VALUE:
-				return initialValue != INITIAL_VALUE_EDEFAULT;
+				return getInitialValue() != INITIAL_VALUE_EDEFAULT;
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE:
-				return feature != null;
+				return basicGetFeature() != null;
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__STEP:
-				return step != STEP_EDEFAULT;
+				return getStep() != STEP_EDEFAULT;
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__FEATURE_NAME:
-				return FEATURE_NAME_EDEFAULT == null ? featureName != null : !FEATURE_NAME_EDEFAULT.equals(featureName);
+				return FEATURE_NAME_EDEFAULT == null ? getFeatureName() != null : !FEATURE_NAME_EDEFAULT.equals(getFeatureName());
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__LOWER_BOUND:
-				return lowerBound != LOWER_BOUND_EDEFAULT;
+				return getLowerBound() != LOWER_BOUND_EDEFAULT;
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__UPPER_BOUND:
-				return upperBound != UPPER_BOUND_EDEFAULT;
+				return getUpperBound() != UPPER_BOUND_EDEFAULT;
 			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER__TARGET_URI:
-				return TARGET_URI_EDEFAULT == null ? targetURI != null : !TARGET_URI_EDEFAULT.equals(targetURI);
+				return TARGET_URI_EDEFAULT == null ? getTargetURI() != null : !TARGET_URI_EDEFAULT.equals(getTargetURI());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (initialValue: ");
-		result.append(initialValue);
-		result.append(", step: ");
-		result.append(step);
-		result.append(", featureName: ");
-		result.append(featureName);
-		result.append(", lowerBound: ");
-		result.append(lowerBound);
-		result.append(", upperBound: ");
-		result.append(upperBound);
-		result.append(", targetURI: ");
-		result.append(targetURI);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ModifiableParameterImpl

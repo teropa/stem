@@ -67,8 +67,8 @@ public class AutomaticexperimentFactoryImpl extends EFactoryImpl implements Auto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT: return createAutomaticExperiment();
-			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER: return createModifiableParameter();
+			case AutomaticexperimentPackage.AUTOMATIC_EXPERIMENT: return (EObject)createAutomaticExperiment();
+			case AutomaticexperimentPackage.MODIFIABLE_PARAMETER: return (EObject)createModifiableParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
