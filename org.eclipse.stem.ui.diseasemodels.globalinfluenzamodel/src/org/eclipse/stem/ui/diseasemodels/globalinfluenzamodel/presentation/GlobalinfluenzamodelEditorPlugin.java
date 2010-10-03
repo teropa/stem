@@ -24,6 +24,7 @@ import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
 
 import org.eclipse.stem.diseasemodels.standard.provider.DiseasemodelsEditPlugin;
+import org.eclipse.stem.populationmodels.standard.provider.StandardEditPlugin;
 
 /**
  * This is the central singleton for the Globalinfluenzamodel editor plugin.
@@ -61,6 +62,7 @@ public final class GlobalinfluenzamodelEditorPlugin extends EMFPlugin {
 				CoreEditPlugin.INSTANCE,
 				EcoreEditPlugin.INSTANCE,
 				DefinitionsEditPlugin.INSTANCE,
+				StandardEditPlugin.INSTANCE,
 			});
 	}
 

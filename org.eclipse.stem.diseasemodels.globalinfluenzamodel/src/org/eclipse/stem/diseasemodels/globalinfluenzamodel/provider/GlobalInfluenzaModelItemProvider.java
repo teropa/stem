@@ -208,7 +208,7 @@ public class GlobalInfluenzaModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GlobalInfluenzaModel)object).getURI().lastSegment();
+		String label = ((GlobalInfluenzaModel)object).getDiseaseName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GlobalInfluenzaModel_type") :
 			getString("_UI_GlobalInfluenzaModel_type") + " " + label;

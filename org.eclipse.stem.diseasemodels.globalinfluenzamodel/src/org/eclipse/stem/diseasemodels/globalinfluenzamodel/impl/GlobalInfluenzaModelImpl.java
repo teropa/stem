@@ -70,16 +70,6 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	
 
 	/**
-	 * The cached value of the '{@link #getLatitudeSigmoidWidth() <em>Latitude Sigmoid Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLatitudeSigmoidWidth()
-	 * @generated
-	 * @ordered
-	 */
-	protected double latitudeSigmoidWidth = LATITUDE_SIGMOID_WIDTH_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSeasonalModulationExponent() <em>Seasonal Modulation Exponent</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,16 +78,6 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @ordered
 	 */
 	protected static final double SEASONAL_MODULATION_EXPONENT_EDEFAULT = 2.0;
-
-	/**
-	 * The cached value of the '{@link #getSeasonalModulationExponent() <em>Seasonal Modulation Exponent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSeasonalModulationExponent()
-	 * @generated
-	 * @ordered
-	 */
-	protected double seasonalModulationExponent = SEASONAL_MODULATION_EXPONENT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
@@ -110,16 +90,6 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	protected static final double MODULATION_PERIOD_EDEFAULT = 365.256363051;
 
 	/**
-	 * The cached value of the '{@link #getModulationPeriod() <em>Modulation Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPeriod = MODULATION_PERIOD_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,16 +98,6 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @ordered
 	 */
 	protected static final double MODULATION_PHASE_SHIFT_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getModulationPhaseShift() <em>Modulation Phase Shift</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModulationPhaseShift()
-	 * @generated
-	 * @ordered
-	 */
-	protected double modulationPhaseShift = MODULATION_PHASE_SHIFT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSeasonalModulationFloor() <em>Seasonal Modulation Floor</em>}' attribute.
@@ -149,16 +109,6 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 */
 	protected static final double SEASONAL_MODULATION_FLOOR_EDEFAULT = 0.6;
 
-	/**
-	 * The cached value of the '{@link #getSeasonalModulationFloor() <em>Seasonal Modulation Floor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSeasonalModulationFloor()
-	 * @generated
-	 * @ordered
-	 */
-	protected double seasonalModulationFloor = SEASONAL_MODULATION_FLOOR_EDEFAULT;
-	
 	public static long firstDay = -1;
 
 	/**
@@ -288,7 +238,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 		// now compute the transmission rate
 		// with the seasonal forcing function
 		// adjusted by latitude
-		double latFactor  = seasonalModulationFloor/(1.0 + Math.exp((TROPIC_OF_CANCER_LATITUDE - Math.abs(latitude))/latitudeSigmoidWidth) );
+		double latFactor  = seasonalModulationFloor/(1.0 + Math.exp((TROPIC_OF_CANCER_LATITUDE - Math.abs(latitude))/getLatitudeSigmoidWidth()) );
 		latFactor *= Math.pow(Math.abs(Math.cos(phase + Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY))), seasonalModulationExponent);
 		double modulation = ( (1.0-(seasonalModulationFloor/2.0)) + (latFactor/2.0) );
 		// This is beta
@@ -397,7 +347,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public double getLatitudeSigmoidWidth() {
-		return latitudeSigmoidWidth;
+		return (Double)eDynamicGet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH, true, true);
 	}
 
 	/**
@@ -406,10 +356,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public void setLatitudeSigmoidWidth(double newLatitudeSigmoidWidth) {
-		double oldLatitudeSigmoidWidth = latitudeSigmoidWidth;
-		latitudeSigmoidWidth = newLatitudeSigmoidWidth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH, oldLatitudeSigmoidWidth, latitudeSigmoidWidth));
+		eDynamicSet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH, newLatitudeSigmoidWidth);
 	}
 
 	/**
@@ -418,7 +365,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public double getSeasonalModulationExponent() {
-		return seasonalModulationExponent;
+		return (Double)eDynamicGet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT, true, true);
 	}
 
 	/**
@@ -427,10 +374,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public void setSeasonalModulationExponent(double newSeasonalModulationExponent) {
-		double oldSeasonalModulationExponent = seasonalModulationExponent;
-		seasonalModulationExponent = newSeasonalModulationExponent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT, oldSeasonalModulationExponent, seasonalModulationExponent));
+		eDynamicSet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT, newSeasonalModulationExponent);
 	}
 
 	/**
@@ -439,7 +383,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public double getModulationPeriod() {
-		return modulationPeriod;
+		return (Double)eDynamicGet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD, true, true);
 	}
 
 	/**
@@ -448,10 +392,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public void setModulationPeriod(double newModulationPeriod) {
-		double oldModulationPeriod = modulationPeriod;
-		modulationPeriod = newModulationPeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD, oldModulationPeriod, modulationPeriod));
+		eDynamicSet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD, newModulationPeriod);
 	}
 
 	/**
@@ -460,7 +401,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public double getModulationPhaseShift() {
-		return modulationPhaseShift;
+		return (Double)eDynamicGet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT, true, true);
 	}
 
 	/**
@@ -469,10 +410,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public void setModulationPhaseShift(double newModulationPhaseShift) {
-		double oldModulationPhaseShift = modulationPhaseShift;
-		modulationPhaseShift = newModulationPhaseShift;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT, oldModulationPhaseShift, modulationPhaseShift));
+		eDynamicSet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT, newModulationPhaseShift);
 	}
 
 	/**
@@ -481,7 +419,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public double getSeasonalModulationFloor() {
-		return seasonalModulationFloor;
+		return (Double)eDynamicGet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR, true, true);
 	}
 
 	/**
@@ -490,10 +428,7 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	 * @generated
 	 */
 	public void setSeasonalModulationFloor(double newSeasonalModulationFloor) {
-		double oldSeasonalModulationFloor = seasonalModulationFloor;
-		seasonalModulationFloor = newSeasonalModulationFloor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR, oldSeasonalModulationFloor, seasonalModulationFloor));
+		eDynamicSet(GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR, GlobalinfluenzamodelPackage.Literals.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR, newSeasonalModulationFloor);
 	}
 
 	/**
@@ -505,15 +440,15 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH:
-				return new Double(getLatitudeSigmoidWidth());
+				return getLatitudeSigmoidWidth();
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT:
-				return new Double(getSeasonalModulationExponent());
+				return getSeasonalModulationExponent();
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD:
-				return new Double(getModulationPeriod());
+				return getModulationPeriod();
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT:
-				return new Double(getModulationPhaseShift());
+				return getModulationPhaseShift();
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR:
-				return new Double(getSeasonalModulationFloor());
+				return getSeasonalModulationFloor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -527,19 +462,19 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH:
-				setLatitudeSigmoidWidth(((Double)newValue).doubleValue());
+				setLatitudeSigmoidWidth((Double)newValue);
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT:
-				setSeasonalModulationExponent(((Double)newValue).doubleValue());
+				setSeasonalModulationExponent((Double)newValue);
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD:
-				setModulationPeriod(((Double)newValue).doubleValue());
+				setModulationPeriod((Double)newValue);
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT:
-				setModulationPhaseShift(((Double)newValue).doubleValue());
+				setModulationPhaseShift((Double)newValue);
 				return;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR:
-				setSeasonalModulationFloor(((Double)newValue).doubleValue());
+				setSeasonalModulationFloor((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -581,41 +516,17 @@ public class GlobalInfluenzaModelImpl extends StochasticSIRDiseaseModelImpl impl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__LATITUDE_SIGMOID_WIDTH:
-				return latitudeSigmoidWidth != LATITUDE_SIGMOID_WIDTH_EDEFAULT;
+				return getLatitudeSigmoidWidth() != LATITUDE_SIGMOID_WIDTH_EDEFAULT;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_EXPONENT:
-				return seasonalModulationExponent != SEASONAL_MODULATION_EXPONENT_EDEFAULT;
+				return getSeasonalModulationExponent() != SEASONAL_MODULATION_EXPONENT_EDEFAULT;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PERIOD:
-				return modulationPeriod != MODULATION_PERIOD_EDEFAULT;
+				return getModulationPeriod() != MODULATION_PERIOD_EDEFAULT;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__MODULATION_PHASE_SHIFT:
-				return modulationPhaseShift != MODULATION_PHASE_SHIFT_EDEFAULT;
+				return getModulationPhaseShift() != MODULATION_PHASE_SHIFT_EDEFAULT;
 			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL__SEASONAL_MODULATION_FLOOR:
-				return seasonalModulationFloor != SEASONAL_MODULATION_FLOOR_EDEFAULT;
+				return getSeasonalModulationFloor() != SEASONAL_MODULATION_FLOOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (latitudeSigmoidWidth: ");
-		result.append(latitudeSigmoidWidth);
-		result.append(", seasonalModulationExponent: ");
-		result.append(seasonalModulationExponent);
-		result.append(", modulationPeriod: ");
-		result.append(modulationPeriod);
-		result.append(", modulationPhaseShift: ");
-		result.append(modulationPhaseShift);
-		result.append(", seasonalModulationFloor: ");
-		result.append(seasonalModulationFloor);
-		result.append(')');
-		return result.toString();
 	}
 
 } //GlobalInfluenzaModelImpl

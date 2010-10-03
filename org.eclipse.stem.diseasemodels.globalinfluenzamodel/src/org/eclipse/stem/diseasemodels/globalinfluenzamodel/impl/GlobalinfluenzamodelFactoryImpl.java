@@ -65,7 +65,7 @@ public class GlobalinfluenzamodelFactoryImpl extends EFactoryImpl implements Glo
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL: return createGlobalInfluenzaModel();
+			case GlobalinfluenzamodelPackage.GLOBAL_INFLUENZA_MODEL: return (EObject)createGlobalInfluenzaModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

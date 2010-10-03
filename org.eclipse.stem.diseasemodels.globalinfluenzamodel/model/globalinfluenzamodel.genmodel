@@ -5,12 +5,14 @@
     editDirectory="/org.eclipse.stem.diseasemodels.globalinfluenzamodel/src" editorDirectory="/org.eclipse.stem.ui.diseasemodels.globalinfluenzamodel/src"
     modelPluginID="org.eclipse.stem.diseasemodels.globalinfluenzamodel" redirection=""
     modelName="Globalinfluenzamodel" editorPluginClass="org.eclipse.stem.ui.diseasemodels.globalinfluenzamodel.presentation.GlobalinfluenzamodelEditorPlugin"
+    rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     testsDirectory="/org.eclipse.stem.tests.diseasemodels.globalinfluenzamodel/src"
-    importerID="org.eclipse.emf.importer.java" complianceLevel="6.0" copyrightFields="false"
-    providerRootExtendsClass="" editorPluginID="org.eclipse.stem.ui.diseasemodels.globalinfluenzamodel.editor"
-    usedGenPackages="../../org.eclipse.stem.diseasemodels/model/diseasemodels.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels ../../org.eclipse.stem.core/model/core.genmodel#//solver"
+    importerID="org.eclipse.emf.importer.java" featureDelegation="Dynamic" complianceLevel="6.0"
+    copyrightFields="false" providerRootExtendsClass="" editorPluginID="org.eclipse.stem.ui.diseasemodels.globalinfluenzamodel.editor"
+    usedGenPackages="../../org.eclipse.stem.diseasemodels/model/diseasemodels.genmodel#//standard ../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//modifier platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels ../../org.eclipse.stem.core/model/core.genmodel#//solver ../../org.eclipse.stem.populationmodels/model/standard.genmodel#//standard"
     interfaceNamePattern="">
   <foreignModel>@model</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Globalinfluenzamodel" basePackage="org.eclipse.stem.diseasemodels"
       disposableProviderFactory="true" ecorePackage="globalinfluenzamodel.ecore#/">
     <genClasses ecoreClass="globalinfluenzamodel.ecore#//GlobalInfluenzaModel">
