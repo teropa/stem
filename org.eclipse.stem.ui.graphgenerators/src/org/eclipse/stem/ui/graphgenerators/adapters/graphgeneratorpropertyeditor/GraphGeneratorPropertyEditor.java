@@ -115,18 +115,6 @@ public class GraphGeneratorPropertyEditor extends org.eclipse.stem.ui.editors.Ge
 					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
 						((PajekNetGraphGenerator)graphGenerator).setArea(Double.parseDouble(entry.getValue().getText()));
 						break;
-					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR:
-						((PajekNetGraphGenerator)graphGenerator).setZoomFactor(Integer.parseInt(entry.getValue().getText()));
-						break;
-					case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA:
-						String number = entry.getValue().getText();
-						if (number != null && number.trim().length() > 0) {
-							int col = 0;
-							try {col = Integer.parseInt(number);}
-							catch (NumberFormatException e) {}
-							((PajekNetGraphGenerator)graphGenerator).setColArea(col);
-						}
-						break;
 				} // switch
 			}
 		}
