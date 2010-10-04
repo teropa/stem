@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="STEM" uid="org.eclipse.stem.ui.product" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" version="1.0.1" useFeatures="false" includeLaunchers="true">
+<product name="STEM" uid="org.eclipse.stem.ui.product" id="org.eclipse.stem.ui.product" application="org.eclipse.stem.ui.CoreEditorAdvisorApplication" version="1.1.0" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.stem.ui/branding/ohf64_64_32.gif"/>
@@ -25,6 +25,8 @@
       startupMessageRect="10,380,431,20"
       startupForegroundColor="FFFFFF" />
    <launcher name="STEM">
+      <linux icon="/org.eclipse.stem.ui/branding/STEM128_128_32.xpm"/>
+      <macosx icon="/org.eclipse.stem.ui/branding/STEM128_128_32.icns"/>
       <solaris/>
       <win useIco="false">
          <bmp
@@ -34,8 +36,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.ibm.icu"/>
