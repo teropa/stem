@@ -334,7 +334,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		
 		if(!this.isFrequencyDependent())  modulatedTransmissionRate *= getTransmissionRateScaleFactor(diseaseLabel);
 
-		synchronized(writtedTimes) {
+/*		synchronized(writtedTimes) {
 			if(!writtedTimes.contains(time.getTime().getTime())) {
 				try {
 				if(fw == null) fw = new FileWriter("beta.csv");
@@ -346,7 +346,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 				writtedTimes.add(time.getTime().getTime());
 			}
 		}
-
+*/
 		// The effective Infectious population  is a dimensionles number normalize by total
 		// population used in teh computation of bets*S*i where i = Ieffective/Pop.
 		// This includes a correction to the current
