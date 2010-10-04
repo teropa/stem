@@ -87,7 +87,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 		        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd"); 
 		        String dateStr = dateFormatter.format(c.getTime());
 		
-				title.setText(Messages.getString("NGGWiz.DC_SQ_TITLE"));
+				title.setText(Messages.getString("NGGWiz.DC_TITLE"));
 				title.setEnabled(true);
 				
 				description.setText(Messages.getString("NGGWiz.DC_DESCRIPTION"));
