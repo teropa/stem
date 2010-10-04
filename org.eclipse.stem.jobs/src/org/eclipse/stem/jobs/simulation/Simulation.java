@@ -265,7 +265,7 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 
 						}
 						// Make sure the decorators are set on the solver
-						if(scenario.getSolver().getDecorators() == null) scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
+						scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
 
 						if(!scenario.getSolver().isInitialized()) {
 							scenario.getSolver().initialize(scenario.getSequencer().getNextTime());
