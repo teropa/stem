@@ -144,10 +144,10 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 	private FileWriter fw;
 	//private FileWriter fw2;
 	
-	private static final int WINDOWSIZE = 30;
+	private static final int WINDOWSIZE = 60;
 	
 	enum HYP {H0, H1, H2};
-	HYP currentHypothesis = HYP.H2;
+	HYP currentHypothesis = HYP.H1;
 	
 	// private int [] whichGaussian = {0, 0, 0, 1, 0, 2, 0, 0, 2, 0, 1}; // 0=A/H3N2 1=A/H1N1 2=B
 	private int [] whichGaussian = {0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0}; // 0=A 1=B
