@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
@@ -218,7 +219,10 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	 * @generated NOT
 	 */
 	public void updateScenario(final Scenario scenario) {
-		modifyTarget(getTarget(scenario));
+		EObject t = getTarget(scenario);
+		if(t == null)
+			CorePlugin.logError("Modifier "+this.getURI()+" cannot find target "+targetURI+" in scenario "+scenario.getURI(), new Exception());
+		else modifyTarget(t);
 	} // updateScenario
 
 	private EObject getTarget(final Scenario scenario) {
