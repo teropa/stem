@@ -75,11 +75,11 @@ public class FiniteDifferenceItemProvider
 	 * This returns FiniteDifference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/FiniteDifference"));
+		return overlayImage(object, getResourceLocator().getImage("full/custom16/solver"));
 	}
 
 	/**
