@@ -69,8 +69,6 @@ public class PajekNetGraphGeneratorItemProvider
 
 			addDataFile_netPropertyDescriptor(object);
 			addAreaPropertyDescriptor(object);
-			addZoomFactorPropertyDescriptor(object);
-			addColAreaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,50 +118,6 @@ public class PajekNetGraphGeneratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Zoom Factor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addZoomFactorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PajekNetGraphGenerator_zoomFactor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PajekNetGraphGenerator_zoomFactor_feature", "_UI_PajekNetGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Col Area feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColAreaPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PajekNetGraphGenerator_colArea_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PajekNetGraphGenerator_colArea_feature", "_UI_PajekNetGraphGenerator_type"),
-				 GraphgeneratorsPackage.Literals.PAJEK_NET_GRAPH_GENERATOR__COL_AREA,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns PajekNetGraphGenerator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,8 +157,6 @@ public class PajekNetGraphGeneratorItemProvider
 		switch (notification.getFeatureID(PajekNetGraphGenerator.class)) {
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__DATA_FILE_NET:
 			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__AREA:
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR:
-			case GraphgeneratorsPackage.PAJEK_NET_GRAPH_GENERATOR__COL_AREA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

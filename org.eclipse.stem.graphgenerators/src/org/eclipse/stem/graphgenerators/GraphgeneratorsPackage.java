@@ -505,31 +505,13 @@ public interface GraphgeneratorsPackage extends EPackage {
 	int PAJEK_NET_GRAPH_GENERATOR__AREA = GRAPH_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Zoom Factor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR = GRAPH_GENERATOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Col Area</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAJEK_NET_GRAPH_GENERATOR__COL_AREA = GRAPH_GENERATOR_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Pajek Net Graph Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAJEK_NET_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 4;
+	int PAJEK_NET_GRAPH_GENERATOR_FEATURE_COUNT = GRAPH_GENERATOR_FEATURE_COUNT + 2;
 
 
 	/**
@@ -736,28 +718,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 	EAttribute getPajekNetGraphGenerator_Area();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getZoomFactor <em>Zoom Factor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Zoom Factor</em>'.
-	 * @see org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getZoomFactor()
-	 * @see #getPajekNetGraphGenerator()
-	 * @generated
-	 */
-	EAttribute getPajekNetGraphGenerator_ZoomFactor();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getColArea <em>Col Area</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Col Area</em>'.
-	 * @see org.eclipse.stem.graphgenerators.PajekNetGraphGenerator#getColArea()
-	 * @see #getPajekNetGraphGenerator()
-	 * @generated
-	 */
-	EAttribute getPajekNetGraphGenerator_ColArea();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -942,22 +902,6 @@ public interface GraphgeneratorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAJEK_NET_GRAPH_GENERATOR__AREA = eINSTANCE.getPajekNetGraphGenerator_Area();
-
-		/**
-		 * The meta object literal for the '<em><b>Zoom Factor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PAJEK_NET_GRAPH_GENERATOR__ZOOM_FACTOR = eINSTANCE.getPajekNetGraphGenerator_ZoomFactor();
-
-		/**
-		 * The meta object literal for the '<em><b>Col Area</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PAJEK_NET_GRAPH_GENERATOR__COL_AREA = eINSTANCE.getPajekNetGraphGenerator_ColArea();
 
 	}
 
