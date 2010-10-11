@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="vector"
+    nsURI="http:///org/eclipse/stem/diseasemodels/vector.ecore" nsPrefix="org.eclipse.stem.diseasemodels.vector">
+  <eClassifiers xsi:type="ecore:EClass" name="MacdonaldRossDiseaseModel" eSuperTypes="#//VectorDiseaseModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bitingRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.5"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infectiousBitingProportionHuman"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.5"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infectiousBitingProportionVector"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recoveryRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="3.33E-3"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorMortalityRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.05"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VectorDiseaseModel" abstract="true"
+      eSuperTypes="../../org.eclipse.stem.diseasemodels/model/standard.ecore#//StandardDiseaseModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorPopulationIdentifier"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral="anopheles"/>
+  </eClassifiers>
+</ecore:EPackage>
