@@ -208,10 +208,10 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			double newPopulation = scalingFactor * eFactor*rFactor*tFactor*vFactor;
 			
 			// TEST CODE
-			if(newPopulation > maxDen) {
-				maxDen = newPopulation;
-				System.out.println("found max mosquito density = "+maxDen);
-			}
+//			if(newPopulation > maxDen) {
+//				maxDen = newPopulation;
+//				System.out.println("found max mosquito density = "+maxDen);
+//			}
 			double pdelta = newPopulation - currentPopulation;
 			
 			
