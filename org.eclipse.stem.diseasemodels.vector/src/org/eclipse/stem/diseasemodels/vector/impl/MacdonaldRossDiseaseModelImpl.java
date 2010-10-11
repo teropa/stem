@@ -470,6 +470,9 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 			StandardDiseaseModelLabel diseaseLabel, long timeDelta,
 			DiseaseModelLabelValue returnValue) {
 		
+		// The method comes from Anderson & May Infectious Diseases of Humans
+		// chapter 14.3, page 394 "Basic model for Malaria"
+		
 		// There are two options here depending upon the population
 		// we are calculating a delta for. It's either the human
 		// or the vector population. Determine which one we're
