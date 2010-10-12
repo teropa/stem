@@ -7,7 +7,11 @@ package org.eclipse.stem.graphgenerators.impl;
 * which accompanies this distribution, and is available at
 * http://www.eclipse.org/legal/epl-v10.html
 *
-* Contributors: Armin Weiser, Matthias Filter, Federal Institute for Risk Assessment(BfR), Germany.
+* Contributors: Armin Weiser, Matthias Filter
+* Bundesinstitut für Risikobewertung
+* FG 43 - Epidemiologie und Zoonosen
+* Diedersdorfer Weg 1, 12277 Berlin
+*
 * IBM Corporation - initial API and implementation
 *******************************************************************************/
 
