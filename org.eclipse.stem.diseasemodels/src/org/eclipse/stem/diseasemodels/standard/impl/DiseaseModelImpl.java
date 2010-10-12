@@ -623,6 +623,8 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	@Override
 	public boolean decorateGraph(STEMTime time) {
 		if(this.isGraphDecorated()) return true;
+		// If we already have labels to update we're done
+		if(getLabelsToUpdate().size() > 0)  return true;
 		boolean success = false;
 				
 		for (final Iterator<PopulationModelLabel> populationModelLabelIter = getPopulationModelLabels(
