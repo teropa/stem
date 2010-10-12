@@ -210,7 +210,13 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	 */
 	@Override
 	public void updateLabels(STEMTime time, long timerPeriod, int cycle) {
-		modifyTarget(getTarget(getGraph()));
+		EObject target = getTarget(getGraph());
+		modifyTarget(target);
+		if(target instanceof Decorator) {
+			((Decorator)target).setGraphDecorated(false);
+			((Decorator)target).decorateGraph(time);
+			((Decorator)target).setGraphDecorated(true);
+		}
 	} // updateLabels
 
 	/**
