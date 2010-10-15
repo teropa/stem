@@ -21,7 +21,9 @@ import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;
+import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.EarthScienceLabel;
+import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
@@ -36,8 +38,8 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getScalingFactor <em>Scaling Factor</em>}</li>
- *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getTimePeriod <em>Time Period</em>}</li>
+ * Ê <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getScalingFactor <em>Scaling Factor</em>}</li>
+ * Ê <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getTimePeriod <em>Time Period</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,7 +56,9 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 */
 	protected static final double SCALING_FACTOR_EDEFAULT = 1.0;
 	
-	static double maxDen = 0.0;
+	static double maxPerPersonDen = 0.0;
+	static double maxAreaTrapCount = 0.0; // assuming 15m trap radius
+	static double maxPop = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getScalingFactor() <em>Scaling Factor</em>}' attribute.
@@ -98,7 +102,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	
 	@Override
 	public PopulationModelLabel createPopulationLabel() {
-		PopulationModelLabel retValue =  StandardFactory.eINSTANCE.createStandardPopulationModelLabel();
+		PopulationModelLabel retValue = StandardFactory.eINSTANCE.createStandardPopulationModelLabel();
 		retValue.setTypeURI(PopulationModelLabel.URI_TYPE_DYNAMIC_POPULATION_LABEL);
 		return retValue;
 	}
@@ -133,7 +137,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			if (nextMonth > 11) nextMonth = 0;
 			
 			double dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
-			double daysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);  
+			double daysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH); 
 			
 			double fraction = dayOfMonth/daysInMonth;
 			
@@ -151,7 +155,18 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			 double temperature1 = 0;
 			 double rainfall1 = 0;
 			 double vegetation1 = 0;
+			 double area = -1.0;
+			 double humans = 1.0;
 			 for(NodeLabel nl:n.getLabels()) {
+				 if(nl instanceof AreaLabel) {
+					 area = ((AreaLabel)nl).getCurrentAreaValue().getArea();
+				 }
+				 if(nl instanceof PopulationLabel) {
+					 String popType = ((PopulationLabel)nl).getPopulationIdentifier();
+					 if(popType.equalsIgnoreCase("human")) {
+						humans= ((PopulationLabel)nl).getCurrentPopulationValue().getCount();
+					 }
+				 }
 				 if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("elevation")) {
 					 elevation = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(0).doubleValue();
 				 } else if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("temperature")) {
@@ -180,10 +195,12 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			final double ELEVATION_SLOPE = 0.125;
 			final double ElEVATION_PEAK = 400.0;
 			double eFactor =0.0;
-			if(elevation <= ElEVATION_PEAK) {
+			if(elevation <= ElEVATION_PEAK) {			
 				eFactor = ELEVATION_SLOPE*elevation;
 			} else {
-				eFactor = Math.max(0.0,(ElEVATION_PEAK*ELEVATION_SLOPE) - (ELEVATION_SLOPE*(elevation-ElEVATION_PEAK)));
+				final double ELEVATION_DOWN_SLOPE = -0.0625; //down to 1200 meters (not 800) TOM
+				eFactor = Math.max(0.0,(ElEVATION_PEAK*ELEVATION_SLOPE) + (ELEVATION_DOWN_SLOPE*(elevation-ElEVATION_PEAK)));
+				//eFactor = Math.max(0.0,(ElEVATION_PEAK*ELEVATION_SLOPE) - (ELEVATION_SLOPE*(elevation-ElEVATION_PEAK)));
 			}
 			// RAINFALL - just make it linear
 			double rFactor = rainfall;
@@ -192,26 +209,51 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			// reference: http://www.cell.com/trends/parasitology/abstract/S0169-4758%2899%2901396-4
 			// Trends in Parasitology, Volume 15, Issue 3, 105-111, 1 March 1999
 			// A Climate-based Distribution Model of Malaria Transmission in Sub-Saharan Africa
-			// M.H. Craiga, *,  , R.W. Snowb and D. le Sueura
+			// M.H. Craiga, *, Ê, R.W. Snowb and D. le Sueura
 			
-			final double TAVG = 30;  // ref says 27C
+			final double TAVG = 30; // ref says 27C
 			final double sigma = 3.0;
 			double arg = -1.0*Math.pow((temperature - TAVG),2) / (2.0*sigma*sigma);
 			double tFactor = 1/Math.sqrt(2*Math.PI*sigma*sigma)*Math.exp(arg);
 			
+			tFactor = (temperature<15 || temperature>40)?0:tFactor;
+			
 			// vegetation linear model above 
 			double vFactor = Math.max(0.0, (vegetation-0.3));
 			
-			
+			//equalize all factors (Tom)
+//			eFactor*=1;
+//			rFactor*=.1;
+//			tFactor*=10000;
+//			vFactor*=100;
+			//Another idea: factor matrix of [elevation][rainfall][temperature][vegetation]
+			//	double [][][][] factorMatrix = new double[10][10][10][10];
 			
 			//double newPopulation = scalingFactor * temperature * rainfall / elevation;
-			double newPopulation = scalingFactor * eFactor*rFactor*tFactor*vFactor;
+			double newPopulation = scalingFactor * (eFactor*tFactor)*(vFactor*rFactor);
+			
+			// Other Factors
+			//Evapo-transpiration
+			//wind speed
+			//sunlight exposure
+			//size of still water
+			//size of region
+			//size of its food e.g. humans, cattles,
 			
 			// TEST CODE
-//			if(newPopulation > maxDen) {
-//				maxDen = newPopulation;
-//				System.out.println("found max mosquito density = "+maxDen);
-//			}
+			if(newPopulation > maxPop) {
+				maxPop = newPopulation;
+				double den = maxPop/(humans*24*10000);
+				if(den >=maxPerPersonDen) maxPerPersonDen = den;
+				
+				double trapped = (675*maxPop)/(area*1000000.0);
+				if(trapped > maxAreaTrapCount) {
+					maxAreaTrapCount=trapped;
+				}
+				System.out.println("mosquito Population = "+maxPop+" humans = "+humans);	
+				System.out.println("found maxperson Êmosquito density = "+maxPerPersonDen+ " expected trap count = "+maxAreaTrapCount);	
+				
+			}
 			double pdelta = newPopulation - currentPopulation;
 			
 			
