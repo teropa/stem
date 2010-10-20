@@ -33,6 +33,7 @@ public class EarthPropertyFileSpecification extends
 	public final static String DATATYPE = "DATA_TYPE";
 	public final static String DATAUNITS = "UNITS";
 	
+	
 	private String dataType;
 	private String dataUnits;
 	
@@ -54,7 +55,13 @@ public class EarthPropertyFileSpecification extends
 		
 		if(dataPropertyKey.equals(DATATYPE)) 
 			{this.dataType = propertyValue;
-			this.labelName = EARTH_LABEL_NAME+"_"+dataType;  
+			if(this.dataType.equals("elevation"))
+				this.labelName = EARTH_LABEL_NAME+"_"+dataType;  
+			else 
+				if(this.getDublinCore().getValid().startsWith("start="))
+					this.labelName = EARTH_LABEL_NAME+"_"+this.getDublinCore().getValid().substring(6)+"_"+dataType;
+				else
+					this.labelName = EARTH_LABEL_NAME+"_"+this.getDublinCore().getValid()+"_"+dataType;
 			return null;
 		}
 				
