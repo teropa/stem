@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+
+  <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="localWorkspace" failOnError="false" />
+  <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="stemsource" failOnError="true" />
+  <rm:locator pattern="" searchPathRef="eclipse3.6"/>
+  
+  <rm:searchPath name="localWorkspace">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature"
+        reader="local"
+        source="true"
+        mutable="true"
+        <rm:uri format="file:///{0}/{1}/">
+          <bc:propertyRef key="workspace.root"/>
+          <bc.propertyRef key="buckminster.component"/>
+        </rm:uri>
+     </rm:provider>
+  </rm:searchPath>
+  
+  <rm:searchPath name="stemsource">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" 
+      readerType="svn" 
+      resolutionFilter="">
+      <rm:uri format="http://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/{0}">
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+  
+  <rm:searchPath name="eclipse3.6">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" 
+        readerType="p2" 
+        source="false"
+        mutable="false"
+        resolutionFilter="">
+      <rm:uri format="http://download.eclipse.org/releases/helios"/>
+    </rm:provider>
+  </rm:searchPath>
+  
+</rm:rmap>
