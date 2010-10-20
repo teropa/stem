@@ -391,6 +391,9 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 			    	if (ttype == StreamTokenizer.TT_NUMBER)	{
 			    		z = tok.nval;
 			    	}
+			    	else {
+			    		tok.pushBack();
+			    	}
 
 			    	// shape
 		    		ttype = getNextToken(tok);
