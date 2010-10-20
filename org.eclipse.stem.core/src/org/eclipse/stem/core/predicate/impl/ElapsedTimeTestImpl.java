@@ -357,14 +357,17 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 			// Yes
 			final long elapsedTimeMS = time.getTime().getTime() - getReferenceTime().getTime().getTime();
 			// Has enough time gone by?
-			retValue = elapsedTimeMS > getElapsedMilliseconds();
+			retValue = elapsedTimeMS >= getElapsedMilliseconds();
 		} // if reference time valid?
 		else {
 			// No
 			// This must be the first time this has been called so this must be
 			// the start of the simulation. Remember the time value passed in as
 			// the reference value.
-			setReferenceTime((STEMTime)EcoreUtil.copy(time));
+			
+			STEMTime newTime = (STEMTime)EcoreUtil.copy(time);
+			newTime = newTime.addIncrement(-timerPeriod); // Substract one time period
+			setReferenceTime(newTime);
 			setReferenceTimeValid(true);			
 		} // else
 		
