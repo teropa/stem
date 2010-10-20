@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+<rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" 
+		 xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="localWorkspace" failOnError="false" />
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="stemsource" failOnError="true" />
@@ -7,12 +8,12 @@
   
   <rm:searchPath name="localWorkspace">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature"
-        reader="local"
+        readerType="local"
         source="true"
-        mutable="true"
+        mutable="true">
         <rm:uri format="file:///{0}/{1}/">
           <bc:propertyRef key="workspace.root"/>
-          <bc.propertyRef key="buckminster.component"/>
+          <bc:propertyRef key="buckminster.component"/>
         </rm:uri>
      </rm:provider>
   </rm:searchPath>
@@ -20,6 +21,8 @@
   <rm:searchPath name="stemsource">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" 
       readerType="svn" 
+      source="true"
+      mutable="true"
       resolutionFilter="">
       <rm:uri format="http://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/{0}">
         <bc:propertyRef key="buckminster.component"/>
