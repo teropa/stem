@@ -1,3 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><cq:componentQuery xmlns:cq="http://www.eclipse.org/buckminster/CQuery-1.0" resourceMap="./stem.rmap">
     <cq:rootRequest name="org.eclipse.stem.ui" componentType="osgi.bundle"/>
+    <cq:advisorNode namePattern="org.eclipse.swt.cocoa.macosx" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.core.filesystem.linux.x86_64" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.core.net.win32.x86_64" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.core.filesystem.win32.x86_64" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.ui.carbon" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.swt.gtk.linux.x86" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.core.filesystem.macosx" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.ui.cocoa" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.swt.win32.win32.x86_64" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.core.filesystem.linux.x86" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.stem.internal.data.geography.population" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.update.core.linux" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.equinox.security.macosx" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.core.resources.compatibility" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.swt.carbon.macosx" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.core.net.linux.x86" componentType="osgi.bundle" skipComponent="true"/>
+    <cq:advisorNode namePattern="org.eclipse.stem.ui" componentType="osgi.bundle" allowCircularDependency="true"/>
 </cq:componentQuery>
