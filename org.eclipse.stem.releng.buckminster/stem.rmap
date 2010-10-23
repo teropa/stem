@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" 
-		 xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+<rm:rmap xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0"
+		 xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns:pmp="http://www.eclipse.org/buckminster/PDEMapProvider-1.0"
+		 >
 
+  <rm:property key="ORBIT_REVISION" value="S20100831105311" />
+ 
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="localWorkspace" failOnError="false" />
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="stemsource" failOnError="true" />
-  <rm:locator pattern="" searchPathRef="eclipse3.6"/>
+  <rm:locator pattern="" searchPathRef="eclipse3.6" failOnError="false"/>
+  <rm:locator searchPathRef="orbit" failOnError="true"/>
   
   <rm:searchPath name="localWorkspace">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature"
@@ -16,6 +22,27 @@
           <bc:propertyRef key="buckminster.component"/>
         </rm:uri>
      </rm:provider>
+     
+      <rm:provider componentTypes="osgi.bundle"
+        readerType="local"
+        source="true"
+        mutable="true">
+        <rm:uri format="file:///{0}/plugins/{1}/">
+          <bc:propertyRef key="workspace.root"/>
+          <bc:propertyRef key="buckminster.component"/>
+        </rm:uri>
+     </rm:provider>
+     
+      <rm:provider componentTypes="eclipse.feature"
+        readerType="local"
+        source="true"
+        mutable="true">
+        <rm:uri format="file:///{0}/features/{1}/">
+          <bc:propertyRef key="workspace.root"/>
+          <bc:propertyRef key="buckminster.component"/>
+        </rm:uri>
+     </rm:provider>
+     
   </rm:searchPath>
   
   <rm:searchPath name="stemsource">
@@ -28,16 +55,54 @@
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
+    
+    <rm:provider componentTypes="osgi.bundle" 
+      readerType="svn" 
+      source="true"
+      mutable="true"
+      resolutionFilter="(buckminster.component=org.eclipse.stem.ui.diseasemodels.forcing.editor)">
+      <rm:uri format="http://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/org.eclipse.stem.ui.diseasemodels.forcing">
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
   </rm:searchPath>
   
   <rm:searchPath name="eclipse3.6">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" 
-        readerType="p2" 
-        source="false"
-        mutable="false"
-        resolutionFilter="">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" 
+      readerType="p2" 
+      source="false" 
+      mutable="false">
       <rm:uri format="http://download.eclipse.org/releases/helios"/>
     </rm:provider>
+    
+     <rm:provider componentTypes="osgi.bundle,eclipse.feature" 
+      readerType="p2" 
+      source="false" 
+      mutable="false">
+      <rm:uri format="http://download.eclipse.org/eclipse/updates/3.6"/>
+    </rm:provider>
+    
   </rm:searchPath>
+  
+  <rm:searchPath name="orbit">
+  
+  	<rm:provider componentTypes="osgi.bundle" 
+  		readerType="p2"    	
+    	source ="false" 
+    	mutable="false">
+    	<rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/${ORBIT_REVISION}/updateSite?importType=binary"/>
+    </rm:provider>
+    
+    <rm:provider xsi:type="pmp:PDEMapProvider" componentTypes="osgi.bundle,eclipse.feature" 
+      	readerType="cvs"  
+      	mutable="false" 
+      	source="true">
+		<rm:uri format=":pserver:anonymous@dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.eclipse.orbit.releng/maps">
+			<bc:propertyRef key="buckminster.component" />
+		</rm:uri>
+	</rm:provider>
+    
+  </rm:searchPath>
+
   
 </rm:rmap>
