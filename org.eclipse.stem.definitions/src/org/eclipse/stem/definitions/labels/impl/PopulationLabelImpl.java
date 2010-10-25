@@ -417,7 +417,7 @@ public class PopulationLabelImpl extends StaticNodeLabelImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(
-				name == null ? populationIdentifier : name);
+				getName() == null ? getPopulationIdentifier() : getName());
 		result.append(" [");
 		result.append(getCurrentPopulationValue().getCount());
 		// Was an area extend specified?

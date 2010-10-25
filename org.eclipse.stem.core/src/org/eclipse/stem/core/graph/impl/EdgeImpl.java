@@ -23,6 +23,7 @@ import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.GraphPackage;
+//import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 
 /**
@@ -46,9 +47,9 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	
 	
 	/**
-	 * The cached value of the '{@link #getA() <em>A</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getA() <em>A</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getA()
 	 * @generated
 	 * @ordered
@@ -66,8 +67,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #getNodeAURI() <em>Node AURI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNodeAURI()
 	 * @generated
 	 * @ordered
@@ -75,9 +75,9 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	protected URI nodeAURI = NODE_AURI_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getB() <em>B</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getB() <em>B</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getB()
 	 * @generated
 	 * @ordered
@@ -95,8 +95,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #getNodeBURI() <em>Node BURI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNodeBURI()
 	 * @generated
 	 * @ordered
@@ -105,8 +104,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -124,8 +122,7 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #isDirected() <em>Directed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isDirected()
 	 * @generated
 	 * @ordered

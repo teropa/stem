@@ -46,8 +46,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	protected static final double START_VALUE_EDEFAULT = -9.9999999E7;
 	/**
 	 * The cached value of the '{@link #getStartValue() <em>Start Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getStartValue()
 	 * @generated
 	 * @ordered
@@ -63,8 +62,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	protected static final double END_VALUE_EDEFAULT = -9.9999999E7;
 	/**
 	 * The cached value of the '{@link #getEndValue() <em>End Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndValue()
 	 * @generated
 	 * @ordered
@@ -80,13 +78,13 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	protected static final double INCREMENT_EDEFAULT = -9.9999999E7;
 	/**
 	 * The cached value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getIncrement()
 	 * @generated
 	 * @ordered
 	 */
 	protected double increment = INCREMENT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getNextValue() <em>Next Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -227,7 +225,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 				setNextValue(getEndValue());
 			} // else 
 		} // if 
-		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, Double.toString(retValue));
+		currentValueText = Double.toString(retValue);
 		return retValue;
 	} // getNextValue
 

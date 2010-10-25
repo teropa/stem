@@ -50,7 +50,6 @@ public class IdentifiablePredicateExpressionImpl extends IdentifiablePredicateIm
 	 * @ordered
 	 */
 	protected Predicate predicate;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

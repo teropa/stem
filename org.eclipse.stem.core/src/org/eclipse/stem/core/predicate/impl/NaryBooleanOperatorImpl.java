@@ -71,7 +71,6 @@ public abstract class NaryBooleanOperatorImpl extends BooleanOperatorImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<Predicate> getOperands() {
 		if (operands == null) {
 			operands = new EObjectContainmentEList<Predicate>(Predicate.class, this, PredicatePackage.NARY_BOOLEAN_OPERATOR__OPERANDS);

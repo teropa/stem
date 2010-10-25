@@ -201,9 +201,9 @@ public class RelativePhysicalRelationshipLabelValueImpl extends LabelValueImpl
 
 		StringBuffer result = new StringBuffer("");
 		result.append("adjacent: ");
-		result.append(adjacent);
+		result.append(isAdjacent());
 		result.append(", relationship: ");
-		result.append(relationship);
+		result.append(getRelationship());
 		return result.toString();
 	} // toString
 

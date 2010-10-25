@@ -40,8 +40,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		STEMTimeRangeModifier {
 	/**
 	 * The cached value of the '{@link #getStartValue() <em>Start Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getStartValue()
 	 * @generated
 	 * @ordered
@@ -49,8 +48,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	protected STEMTime startValue;
 	/**
 	 * The cached value of the '{@link #getEndValue() <em>End Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndValue()
 	 * @generated
 	 * @ordered
@@ -66,22 +64,22 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	protected static final long INCREMENT_EDEFAULT = 0L;
 	/**
 	 * The cached value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getIncrement()
 	 * @generated
 	 * @ordered
 	 */
 	protected long increment = INCREMENT_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getNextValue() <em>Next Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNextValue()
 	 * @generated
 	 * @ordered
 	 */
 	protected STEMTime nextValue;
+
 	/**
 	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -295,8 +293,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -340,7 +337,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 				setNextValue(getEndValue());
 			} // else
 		} // if
-		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
+		currentValueText = retValue.toString();
 		return retValue;
 
 	} // getNextValue

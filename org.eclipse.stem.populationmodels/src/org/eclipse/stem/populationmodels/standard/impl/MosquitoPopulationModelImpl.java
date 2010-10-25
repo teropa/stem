@@ -38,8 +38,8 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  * <p>
  * The following features are implemented:
  * <ul>
- * Ê <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getScalingFactor <em>Scaling Factor</em>}</li>
- * Ê <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getTimePeriod <em>Time Period</em>}</li>
+ * ÃŠ <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getScalingFactor <em>Scaling Factor</em>}</li>
+ * ÃŠ <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getTimePeriod <em>Time Period</em>}</li>
  * </ul>
  * </p>
  *
@@ -209,7 +209,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			// reference: http://www.cell.com/trends/parasitology/abstract/S0169-4758%2899%2901396-4
 			// Trends in Parasitology, Volume 15, Issue 3, 105-111, 1 March 1999
 			// A Climate-based Distribution Model of Malaria Transmission in Sub-Saharan Africa
-			// M.H. Craiga, *, Ê, R.W. Snowb and D. le Sueura
+			// M.H. Craiga, *, ÃŠ, R.W. Snowb and D. le Sueura
 			
 			final double TAVG = 30; // ref says 27C
 			final double sigma = 3.0;
@@ -230,7 +230,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			//	double [][][][] factorMatrix = new double[10][10][10][10];
 			
 			//double newPopulation = scalingFactor * temperature * rainfall / elevation;
-			double newPopulation = scalingFactor * (eFactor*tFactor)*(vFactor*rFactor);
+			double newPopulation = getScalingFactor() * (eFactor*tFactor)*(vFactor*rFactor);
 			
 			// Other Factors
 			//Evapo-transpiration
@@ -251,7 +251,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 					maxAreaTrapCount=trapped;
 				}
 				System.out.println("mosquito Population = "+maxPop+" humans = "+humans);	
-				System.out.println("found maxperson Êmosquito density = "+maxPerPersonDen+ " expected trap count = "+maxAreaTrapCount);	
+				System.out.println("found maxperson ÃŠmosquito density = "+maxPerPersonDen+ " expected trap count = "+maxAreaTrapCount);	
 				
 			}
 			double pdelta = newPopulation - currentPopulation;

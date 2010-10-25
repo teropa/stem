@@ -67,7 +67,6 @@ public class StringSequenceModifierImpl extends SequenceModifierImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<String> getSequence() {
 		if (sequence == null) {
 			sequence = new EDataTypeUniqueEList<String>(String.class, this, ModifierPackage.STRING_SEQUENCE_MODIFIER__SEQUENCE);
@@ -83,7 +82,7 @@ public class StringSequenceModifierImpl extends SequenceModifierImpl implements 
 		int index = getCurrentSequenceIndex();
 		final Object retValue = getSequence().get(index++);
 		setCurrentSequenceIndex(index);	
-		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
+		currentValueText = retValue.toString();
 		return retValue;
 	} // getNextValue
 	

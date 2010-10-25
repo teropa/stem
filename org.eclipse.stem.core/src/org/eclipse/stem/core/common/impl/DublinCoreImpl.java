@@ -68,8 +68,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -87,8 +86,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -106,8 +104,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -125,8 +122,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getCreator() <em>Creator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCreator()
 	 * @generated
 	 * @ordered
@@ -144,8 +140,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDate()
 	 * @generated
 	 * @ordered
@@ -163,8 +158,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFormat()
 	 * @generated
 	 * @ordered
@@ -182,8 +176,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPublisher()
 	 * @generated
 	 * @ordered
@@ -201,8 +194,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCoverage()
 	 * @generated
 	 * @ordered
@@ -220,8 +212,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getContributor() <em>Contributor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getContributor()
 	 * @generated
 	 * @ordered
@@ -239,8 +230,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getRelation() <em>Relation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRelation()
 	 * @generated
 	 * @ordered
@@ -258,8 +248,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getRights() <em>Rights</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRights()
 	 * @generated
 	 * @ordered
@@ -277,8 +266,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -296,8 +284,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSubject()
 	 * @generated
 	 * @ordered
@@ -315,8 +302,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -334,8 +320,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLanguage()
 	 * @generated
 	 * @ordered
@@ -353,8 +338,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getBibliographicCitation() <em>Bibliographic Citation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getBibliographicCitation()
 	 * @generated
 	 * @ordered
@@ -372,8 +356,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCreated()
 	 * @generated
 	 * @ordered
@@ -391,8 +374,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getLicense() <em>License</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLicense()
 	 * @generated
 	 * @ordered
@@ -410,8 +392,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRequired()
 	 * @generated
 	 * @ordered
@@ -429,8 +410,7 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getSpatial() <em>Spatial</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSpatial()
 	 * @generated
 	 * @ordered
@@ -447,16 +427,6 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 	protected static final String VALID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getValid() <em>Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected String valid = VALID_EDEFAULT;
-
-	/**
 	 * This is the string used in the {@link #valid} attribute to specify the
 	 * starting date of the valid date range.
 	 */
@@ -467,6 +437,15 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 	 * ending date of the valid date range.
 	 */
 	public static final String END = "end=";
+
+	/**
+	 * The cached value of the '{@link #getValid() <em>Valid</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getValid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String valid = VALID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

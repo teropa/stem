@@ -402,13 +402,13 @@ public abstract class SEIRImpl extends SIRImpl implements SEIR {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && incubationRate >= INCUBATION_RATE_EDEFAULT;
+		retValue = retValue && getIncubationRate() >= INCUBATION_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(incubationRate);
+		retValue = retValue && !Double.isInfinite(getIncubationRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(incubationRate);
+		retValue = retValue && !Double.isNaN(getIncubationRate());
 		assert retValue;
 		
 		return retValue;

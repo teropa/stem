@@ -67,7 +67,6 @@ public class IntegerSequenceModifierImpl extends SequenceModifierImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<Integer> getSequence() {
 		if (sequence == null) {
 			sequence = new EDataTypeUniqueEList<Integer>(Integer.class, this, ModifierPackage.INTEGER_SEQUENCE_MODIFIER__SEQUENCE);
@@ -82,8 +81,8 @@ public class IntegerSequenceModifierImpl extends SequenceModifierImpl implements
 	public Object getNextValue() {
 		int index = getCurrentSequenceIndex();
 		final Object retValue = getSequence().get(index++);
-		setCurrentSequenceIndex(index);
-		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
+		setCurrentSequenceIndex(index);	
+		currentValueText = retValue.toString();
 		return retValue;
 	} // getNextValue
 	

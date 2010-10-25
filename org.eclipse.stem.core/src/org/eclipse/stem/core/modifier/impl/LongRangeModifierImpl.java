@@ -90,6 +90,7 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 	 * @ordered
 	 */
 	protected long increment = INCREMENT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getNextValue() <em>Next Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -237,7 +238,7 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 				setNextValue(getEndValue());
 			} // else 
 		} // if 
-		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, Long.toString(retValue));
+		currentValueText = Long.toString(retValue);
 		return retValue;
 	} // getNextValue
 	
@@ -420,6 +421,8 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 		return result.toString();
 	}
 
+
+	
 	/**
 	 * @see org.eclipse.stem.core.common.SanityChecker#sane()
 	 */

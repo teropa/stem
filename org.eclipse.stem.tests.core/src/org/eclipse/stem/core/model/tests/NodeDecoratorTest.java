@@ -64,7 +64,9 @@ public class NodeDecoratorTest extends DecoratorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModelFactory.eINSTANCE.createNodeDecorator());
+		NodeDecorator d= ModelFactory.eINSTANCE.createNodeDecorator();
+		d.setURI(DECORATOR_URI);
+		setFixture(d);
 	}
 
 	/**

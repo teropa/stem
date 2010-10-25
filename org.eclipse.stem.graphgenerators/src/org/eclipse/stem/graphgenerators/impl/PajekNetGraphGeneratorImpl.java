@@ -8,7 +8,7 @@ package org.eclipse.stem.graphgenerators.impl;
 * http://www.eclipse.org/legal/epl-v10.html
 *
 * Contributors: Armin Weiser, Matthias Filter
-* Bundesinstitut fŸr Risikobewertung
+* Bundesinstitut fÂŸr Risikobewertung
 * FG 43 - Epidemiologie und Zoonosen
 * Diedersdorfer Weg 1, 12277 Berlin
 *
@@ -408,8 +408,8 @@ public class PajekNetGraphGeneratorImpl extends GraphGeneratorImpl implements Pa
 			    	}
 
 					/* other interesting parameters:
-					– s_size – default size
-					– bc – boundary color of vertex
+					Â– s_size Â– default size
+					Â– bc Â– boundary color of vertex
 					*/
 		    		while(ttype != StreamTokenizer.TT_EOF) {
 		    			ttype = getNextToken(tok);

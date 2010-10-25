@@ -13,6 +13,7 @@ package org.eclipse.stem.core.modifier.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.IntegerModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
@@ -198,6 +199,41 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 	}
 
 	/**
+	 * @see org.eclipse.stem.core.modifier.impl.FeatureModifierImpl#updateFeature()
+	 */
+	
+	@SuppressWarnings("boxing")
+	@Override
+	public void updateFeature() {
+		// Original value captured yet?
+		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
+			// No
+			setOriginalValue((Integer)target.eGet(getEStructuralFeature()));
+		} // if
+		target.eSet(getEStructuralFeature(), getValue());
+		complete = true;
+	} // updateFeature
+
+	
+	/**
+	 *reset
+	 */
+	@Override
+	public void reset() {
+		complete = false;
+		target.eSet(getEStructuralFeature(), getOriginalValue());
+	}
+	
+	
+	private boolean complete = false;
+	/**
+	 * isComplete
+	 */
+	@Override
+	public boolean isComplete() {
+		return complete;
+	}
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -213,42 +249,6 @@ public class IntegerModifierImpl extends SingleValueModifierImpl implements Inte
 		result.append(originalValue);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * @see org.eclipse.stem.core.modifier.impl.FeatureModifierImpl#updateFeature()
-	 */
-	
-	@SuppressWarnings("boxing")
-	@Override
-	public void updateFeature() {
-		// Original value captured yet?
-		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
-			// No
-			setOriginalValue((Integer)getTarget().eGet(getEStructuralFeature()));
-		} // if
-		getTarget().eSet(getEStructuralFeature(), getValue());
-		complete = true;
-	} // updateFeature
-
-	
-	/**
-	 *reset
-	 */
-	@Override
-	public void reset() {
-		complete = false;
-		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
-	}
-	
-	
-	private boolean complete = false;
-	/**
-	 * isComplete
-	 */
-	@Override
-	public boolean isComplete() {
-		return complete;
 	}
 
 } //IntegerModifierImpl

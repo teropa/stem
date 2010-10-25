@@ -199,7 +199,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 			graph = ((NodeDecorator)eContainer()).getGraph();
 		
 		// Do we need to look up the disease model from its name?
-		if (diseaseModel == null) {
+		if (getDiseaseModel() == null) {
 			// Yes
 			// There's a disease model out there with our name on it
 			// (maybe)...let's find it
@@ -213,7 +213,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 					if (diseaseModel.getDiseaseName().equalsIgnoreCase(
 							getDiseaseName())) {
 						// Yes
-						this.diseaseModel = diseaseModel;
+						setDiseaseModel(diseaseModel);
 						break;
 					}
 				}
@@ -221,7 +221,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		} // if look up disease model
 
 		// Did we find the disease model we're suppose to work for?
-		if (diseaseModel != null) {
+		if (getDiseaseModel() != null) {
 			// Yes
 			// Now try to find the node to be infected
 			final Node parent = graph.getNode(getTargetURI());
@@ -251,7 +251,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 								final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
 								// Yes
 								// Is it updated by this disease model?
-								if (diseaseModelLabel.getDecorator() == diseaseModel && diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
+								if (diseaseModelLabel.getDecorator() == getDiseaseModel() && diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(this.getPopulationIdentifier())) {
 									// Yes
 									doInitialization(diseaseModelLabel);
 									getLabelsToInfect().add(diseaseModelLabel);
@@ -273,7 +273,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		else {
 			// No
 			// The disease name was probably wrong
-			Activator.logError("The disease named \"" + diseaseName
+			Activator.logError("The disease named \"" + getDiseaseName()
 					+ "\" was not found.", null);
 		} // else node not found
 
@@ -369,14 +369,14 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	 * @generated NOT
 	 */
 	public void setDiseaseModel(StandardDiseaseModel newDiseaseModel) {
-		StandardDiseaseModel oldDiseaseModel = diseaseModel;
+		StandardDiseaseModel oldDiseaseModel = getDiseaseModel();
 		diseaseModel = newDiseaseModel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					StandardPackage.INFECTOR__DISEASE_MODEL, oldDiseaseModel,
-					diseaseModel));
+					getDiseaseModel()));
 		
-		setDiseaseName(diseaseModel != null? diseaseModel.getDiseaseName():null);
+		setDiseaseName(getDiseaseModel() != null? getDiseaseModel().getDiseaseName():null);
 	} // setDiseaseModel
 
 	
@@ -451,7 +451,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 		// Is it set?
 		if (targetURI == null) {
 			// No
-			targetURI = RegionImpl.createRegionNodeURI(targetISOKey);
+			targetURI = RegionImpl.createRegionNodeURI(getTargetISOKey());
 		}
 		return targetURI;
 	} // getTargetURI
@@ -720,13 +720,13 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (populationIdentifier: "); //$NON-NLS-1$
-		result.append(populationIdentifier != null ? populationIdentifier : "\"\"");
+		result.append(getPopulationIdentifier() != null ? getPopulationIdentifier() : "\"\"");
 		result.append(", targetURI: "); //$NON-NLS-1$
-		result.append(targetURI != null ? targetURI : "\"\"");
+		result.append(getTargetURI() != null ? getTargetURI() : "\"\"");
 		result.append(", diseaseName: "); //$NON-NLS-1$
-		result.append(diseaseName != null ? diseaseName : "\"\"");
+		result.append(getDiseaseName() != null ? getDiseaseName() : "\"\"");
 		result.append(", targetISOKey: "); //$NON-NLS-1$
-		result.append(targetISOKey != null ? targetISOKey : "\"\"");
+		result.append(getTargetISOKey() != null ? getTargetISOKey() : "\"\"");
 		result.append(')');
 		return result.toString();
 	} // toString
@@ -736,7 +736,7 @@ public abstract class InfectorImpl extends NodeDecoratorImpl implements
 	public boolean sane() {
 		boolean retValue = super.sane();
 		checkInfectorURIs();// issues warning if infector uri is not in the graph
-		retValue = retValue && !(targetISOKey == null && targetURI == null);
+		retValue = retValue && !(getTargetISOKey() == null && getTargetURI() == null);
 		assert retValue;
 		
 		return retValue;

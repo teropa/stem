@@ -64,7 +64,11 @@ public class EdgeDecoratorTest extends DecoratorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModelFactory.eINSTANCE.createEdgeDecorator());
+		
+		EdgeDecorator d = ModelFactory.eINSTANCE.createEdgeDecorator();
+		d.setURI(DECORATOR_URI);
+		
+		setFixture(d);
 	}
 
 	/**

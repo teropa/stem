@@ -102,7 +102,7 @@ public class TestIntegerLabelValueImpl extends LabelValueImpl implements
 	 * @generated NOT
 	 */
 	public void increment() {
-		i++;
+		setI(getI() + 1);
 	} // increment
 
 	/**

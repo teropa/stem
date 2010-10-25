@@ -79,7 +79,9 @@ public class DecoratorTest extends IdentifiableTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModelFactory.eINSTANCE.createDecorator());
+		final Decorator d = ModelFactory.eINSTANCE.createDecorator();
+		d.setURI(DECORATOR_URI);
+		setFixture(d);
 	}
 
 	/**

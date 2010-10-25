@@ -186,18 +186,18 @@ public class MultiPopulationSEIRDiseaseModelImpl extends MultiPopulationSIRDisea
 			
 		// now we know the index of the current population being integrated.
 		// Get the correct transmission rate list from the MATRIX
-		EList<DoubleValue> transmissionVector = transmissionRate.getValueLists().get(populationIndex).getValues();
+		EList<DoubleValue> transmissionVector = getTransmissionRate().getValueLists().get(populationIndex).getValues();
 		
 		// ALL the other disease parameters are also DoubleValueLists. We now iterate through all populations
 		// get the specific rate parameters from EACH list based on this population index
 		double thisRecoveryRate = 0.0;
-		if(recoveryRate != null) thisRecoveryRate = recoveryRate.getValues().get(populationIndex).getValue();
+		if(getRecoveryRate() != null) thisRecoveryRate = getRecoveryRate().getValues().get(populationIndex).getValue();
 		double thisImmunityLossRate = 0.0;
-		if(immunityLossRate != null)
-			thisImmunityLossRate = immunityLossRate.getValues().get(populationIndex).getValue();
+		if(getImmunityLossRate() != null)
+			thisImmunityLossRate = getImmunityLossRate().getValues().get(populationIndex).getValue();
 		double thisIncubationRate = 0.0;
-		if(incubationRate != null) 
-			thisIncubationRate = incubationRate.getValues().get(populationIndex).getValue();
+		if(getIncubationRate() != null) 
+			thisIncubationRate = getIncubationRate().getValues().get(populationIndex).getValue();
 		
 		//  NOW iterate over every population (including this one) to compute new infections
 		//  this includes infections within a population group
@@ -206,7 +206,7 @@ public class MultiPopulationSEIRDiseaseModelImpl extends MultiPopulationSIRDisea
 		double numberSusceptible = currentSEIR.getS();
 		Node thisNode = diseaseLabel.getNode();
 		
-		EList<StringValue> groupList = populationGroups.getValues();
+		EList<StringValue> groupList = getPopulationGroups().getValues();
 		
 		for(int i = 0; i< transmissionVector.size(); i ++) {
 			// We need to get the identifier of the ith population model

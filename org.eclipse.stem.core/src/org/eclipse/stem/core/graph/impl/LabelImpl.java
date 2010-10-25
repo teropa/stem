@@ -55,17 +55,16 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 
 	/**
 	 * The cached value of the '{@link #getURIOfIdentifiableToBeLabeled() <em>URI Of Identifiable To Be Labeled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getURIOfIdentifiableToBeLabeled()
 	 * @generated
 	 * @ordered
 	 */
 	protected URI uRIOfIdentifiableToBeLabeled = URI_OF_IDENTIFIABLE_TO_BE_LABELED_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getCurrentValue() <em>Current Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCurrentValue()
 	 * @generated
 	 * @ordered

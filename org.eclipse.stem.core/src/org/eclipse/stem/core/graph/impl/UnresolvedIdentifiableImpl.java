@@ -42,8 +42,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 		UnresolvedIdentifiable {
 	/**
 	 * The cached value of the '{@link #getScenario() <em>Scenario</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getScenario()
 	 * @generated
 	 * @ordered
@@ -52,8 +51,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModel()
 	 * @generated
 	 * @ordered
@@ -62,8 +60,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraph()
 	 * @generated
 	 * @ordered
@@ -72,8 +69,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getIdentifiable() <em>Identifiable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getIdentifiable()
 	 * @generated
 	 * @ordered
@@ -91,8 +87,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getUnresolvedURI() <em>Unresolved URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getUnresolvedURI()
 	 * @generated
 	 * @ordered
@@ -110,8 +105,7 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getFieldName() <em>Field Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFieldName()
 	 * @generated
 	 * @ordered

@@ -1075,34 +1075,34 @@ public abstract class SIImpl extends StandardDiseaseModelImpl implements SI {
 		boolean retValue = super.sane();
 		
 		// transmissionRate
-		retValue = retValue && transmissionRate >= TRANSMISSION_RATE_EDEFAULT;
+		retValue = retValue && getTransmissionRate() >= TRANSMISSION_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(transmissionRate);
+		retValue = retValue && !Double.isInfinite(getTransmissionRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(transmissionRate);
+		retValue = retValue && !Double.isNaN(getTransmissionRate());
 		assert retValue;
 		
 		// recoveryRate
-		retValue = retValue && recoveryRate >= RECOVERY_RATE_EDEFAULT;
+		retValue = retValue && getRecoveryRate() >= RECOVERY_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(recoveryRate);
+		retValue = retValue && !Double.isInfinite(getRecoveryRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(recoveryRate);
+		retValue = retValue && !Double.isNaN(getRecoveryRate());
 		assert retValue;
 		
 		// nonLinearityCoefficient
 		retValue = retValue
-				&& nonLinearityCoefficient >= 0.0;
+				&& getNonLinearityCoefficient() >= 0.0;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(nonLinearityCoefficient);
+		retValue = retValue && !Double.isInfinite(getNonLinearityCoefficient());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(nonLinearityCoefficient);
+		retValue = retValue && !Double.isNaN(getNonLinearityCoefficient());
 		assert retValue;
 		
 		return retValue;

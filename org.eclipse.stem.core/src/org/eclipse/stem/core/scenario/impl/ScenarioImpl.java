@@ -63,46 +63,6 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 
 	
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected Model model;
-
-	/**
-	 * The cached value of the '{@link #getSequencer() <em>Sequencer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSequencer()
-	 * @generated
-	 * @ordered
-	 */
-	protected Sequencer sequencer;
-
-	/**
-	 * The cached value of the '{@link #getScenarioDecorators() <em>Scenario Decorators</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScenarioDecorators()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Decorator> scenarioDecorators;
-
-	/**
-	 * The cached value of the '{@link #getCanonicalGraph() <em>Canonical Graph</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCanonicalGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected Graph canonicalGraph;
-
-	/**
 	 * This is the {@link URI} used to identify the canonical {@link Graph} used during the
 	 * simulation
 	 * 
@@ -131,6 +91,42 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	public static boolean reportNumberofUnresolvedIdentifiables = false;
 	
 	/**
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected Model model;
+
+	/**
+	 * The cached value of the '{@link #getSequencer() <em>Sequencer</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getSequencer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sequencer sequencer;
+
+	/**
+	 * The cached value of the '{@link #getScenarioDecorators() <em>Scenario Decorators</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getScenarioDecorators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Decorator> scenarioDecorators;
+
+	/**
+	 * The cached value of the '{@link #getCanonicalGraph() <em>Canonical Graph</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getCanonicalGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected Graph canonicalGraph;
+	
+	/**
 	 * The default value of the '{@link #getProgress() <em>Progress</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +146,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 */
 	protected double progress = PROGRESS_EDEFAULT;
 
+	
 	/**
 	 * The cached value of the '{@link #getSolver() <em>Solver</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -159,6 +156,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * @ordered
 	 */
 	protected Solver solver;
+
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -446,9 +444,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.
-		eDynamicSet(ScenarioPackage.SCENARIO__CANONICAL_GRAPH,
-				ScenarioPackage.Literals.SCENARIO__CANONICAL_GRAPH,
-				getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()), start));
+		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()), start);
 
 		getCanonicalGraph().setTime((STEMTime) EcoreUtil.copy(getSequencer()
 				.getCurrentTime()));
@@ -574,7 +570,6 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<Decorator> getScenarioDecorators() {
 		if (scenarioDecorators == null) {
 			scenarioDecorators = new EObjectResolvingEList<Decorator>(Decorator.class, this, ScenarioPackage.SCENARIO__SCENARIO_DECORATORS);

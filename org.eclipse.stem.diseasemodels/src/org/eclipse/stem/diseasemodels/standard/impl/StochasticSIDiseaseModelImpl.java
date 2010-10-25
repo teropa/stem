@@ -221,11 +221,11 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	 * @generated NOT
 	 */
 	public void setSeed(long newSeed) {
-		long oldSeed = seed;
+		long oldSeed = getSeed();
 		seed = newSeed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STOCHASTIC_SI_DISEASE_MODEL__SEED, oldSeed, seed));
-		randomGenerator.setSeed(newSeed);
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STOCHASTIC_SI_DISEASE_MODEL__SEED, oldSeed, getSeed()));
+		getRandomGenerator().setSeed(newSeed);
 	}
 
 	/**
@@ -265,7 +265,7 @@ public class StochasticSIDiseaseModelImpl extends SIImpl implements
 	 * @generated NOT
 	 */
 	public double computeNoise() {
-		return StandardStochasticDiseaseModelImpl.computeNoise(gain, randomGenerator);
+		return StandardStochasticDiseaseModelImpl.computeNoise(getGain(), getRandomGenerator());
 	}
 	
 

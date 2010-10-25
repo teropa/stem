@@ -38,8 +38,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 		DynamicNodeLabel {
 	/**
 	 * The cached value of the '{@link #getNode() <em>Node</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNode()
 	 * @generated
 	 * @ordered

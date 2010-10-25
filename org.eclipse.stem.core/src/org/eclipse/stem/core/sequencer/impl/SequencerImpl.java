@@ -66,8 +66,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getEndTime() <em>End Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndTime()
 	 * @generated
 	 * @ordered
@@ -76,8 +75,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getCurrentTime() <em>Current Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCurrentTime()
 	 * @generated
 	 * @ordered
@@ -95,8 +93,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getTimeDelta() <em>Time Delta</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTimeDelta()
 	 * @generated
 	 * @ordered
@@ -114,8 +111,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDuration()
 	 * @generated
 	 * @ordered
@@ -142,8 +138,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getWorkComplete() <em>Work Complete</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getWorkComplete()
 	 * @generated
 	 * @ordered
@@ -170,8 +165,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getCycle() <em>Cycle</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCycle()
 	 * @generated
 	 * @ordered
@@ -284,7 +278,6 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public STEMTime getCurrentTime() {
-		STEMTime currentTime = (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__CURRENT_TIME, SequencerPackage.Literals.SEQUENCER__CURRENT_TIME, true, true);
 		// Is the current time set yet?
 		if (currentTime == null) {
 			// No

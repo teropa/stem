@@ -13,6 +13,7 @@ package org.eclipse.stem.core.modifier.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.model.STEMTime;
@@ -43,6 +44,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @ordered
 	 */
 	protected STEMTime value;
+
 	/**
 	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -52,6 +54,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	 * @ordered
 	 */
 	protected STEMTime originalValue;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

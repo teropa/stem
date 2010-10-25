@@ -14,12 +14,17 @@ package org.eclipse.stem.core.common.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
@@ -72,7 +77,6 @@ public class StringValueListImpl extends EObjectImpl implements StringValueList 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<StringValue> getValues() {
 		if (values == null) {
 			values = new EObjectContainmentEList<StringValue>(StringValue.class, this, CommonPackage.STRING_VALUE_LIST__VALUES);

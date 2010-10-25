@@ -90,6 +90,7 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 	 * @ordered
 	 */
 	protected int increment = INCREMENT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getNextValue() <em>Next Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -236,8 +237,8 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 				// Yes
 				setNextValue(getEndValue());
 			} // else 
-		} // if
-		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, Integer.toString(retValue));
+		} // if 
+		currentValueText = Integer.toString(retValue);
 		return retValue;
 	} // getNextValue
 	

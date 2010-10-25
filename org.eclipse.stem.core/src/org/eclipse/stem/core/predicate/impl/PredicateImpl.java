@@ -12,9 +12,12 @@ package org.eclipse.stem.core.predicate.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
+
 import org.eclipse.stem.core.predicate.Predicate;
 import org.eclipse.stem.core.predicate.PredicatePackage;
 

@@ -863,11 +863,11 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 		if (eIsProxy())
 			return super.toString();
 		StringBuffer result = new StringBuffer();
-		result.append(transportMode);
+		result.append(getTransportMode());
 		result.append(", ");
-		result.append(populationIdentifier);
+		result.append(getPopulationIdentifier());
 		result.append(", \"");
-		result.append(transportIdentifier);
+		result.append(getTransportIdentifier());
 		result.append("\" ");
 		result.append(getCurrentTransportRelationshipLabelValue().toString());
 		return result.toString();
@@ -880,7 +880,7 @@ public class TransportRelationshipLabelImpl extends DynamicEdgeLabelImpl
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && rateTimePeriod >= 0;
+		retValue = retValue && getRateTimePeriod() >= 0;
 		assert retValue;
 
 		retValue = retValue

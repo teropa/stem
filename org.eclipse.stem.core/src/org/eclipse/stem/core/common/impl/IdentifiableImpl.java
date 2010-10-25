@@ -57,8 +57,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getURI() <em>URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getURI()
 	 * @generated
 	 * @ordered
@@ -76,8 +75,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getTypeURI() <em>Type URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTypeURI()
 	 * @generated
 	 * @ordered
@@ -86,8 +84,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 
 	/**
 	 * The cached value of the '{@link #getDublinCore() <em>Dublin Core</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDublinCore()
 	 * @generated
 	 * @ordered

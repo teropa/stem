@@ -13,9 +13,9 @@ package org.eclipse.stem.core.modifier.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 import java.util.List;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -66,8 +66,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 
 	/**
 	 * The cached value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTargetURI()
 	 * @generated
 	 * @ordered
@@ -75,9 +74,10 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	protected URI targetURI = TARGET_URI_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFeatureModifiers() <em>Feature Modifiers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFeatureModifiers()
+	 * <em>Feature Modifiers</em>}' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFeatureModifiers()
 	 * @generated
 	 * @ordered
@@ -141,7 +141,6 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<FeatureModifier> getFeatureModifiers() {
 		if (featureModifiers == null) {
 			featureModifiers = new EObjectContainmentEList<FeatureModifier>(FeatureModifier.class, this, ModifierPackage.MODIFIER__FEATURE_MODIFIERS);
@@ -492,8 +491,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

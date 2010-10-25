@@ -103,7 +103,7 @@ public class PlateCarreeGlobeGraphGeneratorImpl extends LatticeGraphGeneratorImp
 	@Override
 	public Graph getGraph() {
 		LatticeGeneratorUtilityImpl slgi = new LatticeGeneratorUtilityImpl(GraphLatticeGeneratorInterface.GLOBE_LATTICE_TYPE);
-		Graph g = slgi.getPlateCareeGraph(this.getAngularStep(), this.radius, this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
+		Graph g = slgi.getPlateCareeGraph(this.getAngularStep(), this.getRadius(), this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
 		
 		return g;
 		

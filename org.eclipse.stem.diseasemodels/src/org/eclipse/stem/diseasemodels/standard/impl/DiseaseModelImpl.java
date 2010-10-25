@@ -894,7 +894,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		final String title = getDublinCore().getTitle();
 		result.append(title == null ? "<disease model>" : title);
 		result.append("(");
-		result.append(populationIdentifier);
+		result.append(getPopulationIdentifier());
 		result.append(')');
 		return result.toString();
 	} // toString
@@ -906,20 +906,20 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && diseaseName != null;
+		retValue = retValue && getDiseaseName() != null;
 		assert retValue;
 
 		retValue = retValue
-				&& backgroundMortalityRate >= 0.0;
+				&& getBackgroundMortalityRate() >= 0.0;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(backgroundMortalityRate);
+		retValue = retValue && !Double.isInfinite(getBackgroundMortalityRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(backgroundMortalityRate);
+		retValue = retValue && !Double.isNaN(getBackgroundMortalityRate());
 		assert retValue;
 		
-		retValue = retValue && timePeriod >= TIME_PERIOD_EDEFAULT;
+		retValue = retValue && getTimePeriod() >= TIME_PERIOD_EDEFAULT;
 		assert retValue;
 
 	

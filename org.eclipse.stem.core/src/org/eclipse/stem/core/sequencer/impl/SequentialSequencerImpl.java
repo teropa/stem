@@ -45,8 +45,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 
 	/**
 	 * The cached value of the '{@link #getTimeIncrement() <em>Time Increment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTimeIncrement()
 	 * @generated
 	 * @ordered
@@ -279,8 +278,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

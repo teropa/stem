@@ -95,8 +95,8 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	public SILabelValueImpl(final double s, final double i, final double incidence,
 			final double diseaseDeaths) {
 		super(s, diseaseDeaths);
-		this.i = i;
-		this.incidence = incidence;
+		this.setI(i);
+		this.setIncidence(incidence);
 	} // SILabelValueImpl
 
 	
@@ -128,8 +128,8 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	public SILabelValueImpl(final double s, final double i, 
 			final double diseaseDeaths) {
 		super(s, diseaseDeaths);
-		this.incidence = 0.0;
-		this.i = i;
+		this.setIncidence(0.0);
+		this.setI(i);
 	} // SILabelValueImpl
 
 	
@@ -184,7 +184,7 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	 */
 	@Override
 	public double getPopulationCount() {
-		return super.getPopulationCount() + i;
+		return super.getPopulationCount() + getI();
 	} // getPopulationCount
 
 	
@@ -248,9 +248,9 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
 		SILabelValue _scale = (SILabelValue)d;
-		double sScaled = Math.abs(s) / Math.abs(_scale.getS());
-		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
-		double ddScaled = Math.abs(diseaseDeaths) / Math.abs(_scale.getDiseaseDeaths());
+		double sScaled = Math.abs(getS()) / Math.abs(_scale.getS());
+		double iScaled = Math.abs(getI()) / Math.abs(_scale.getI());
+		double ddScaled = Math.abs(getDiseaseDeaths()) / Math.abs(_scale.getDiseaseDeaths());
 
 		setS(sScaled);
 		setI(iScaled);
@@ -259,9 +259,9 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 	}
 	
 	public double max() {
-		if (s > i && s > diseaseDeaths) return s;
-		else if(i> diseaseDeaths) return i;
-		else return diseaseDeaths;
+		if (getS() > getI() && getS() > getDiseaseDeaths()) return getS();
+		else if(getI()> getDiseaseDeaths()) return getI();
+		else return getDiseaseDeaths();
 	}
 	/**
 	 * @see org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelLabelValueImpl#reset()
@@ -355,9 +355,9 @@ public class SILabelValueImpl extends StandardDiseaseModelLabelValueImpl
 
 		StringBuffer result = new StringBuffer();
 		result.append("s:"); //$NON-NLS-1$
-		result.append(getFormatter().format(s));
+		result.append(getFormatter().format(getS()));
 		result.append(", i:"); //$NON-NLS-1$
-		result.append(getFormatter().format(i));
+		result.append(getFormatter().format(getI()));
 		result.append(", DD:"); //$NON-NLS-1$
 		result.append(getFormatter().format(getDiseaseDeaths()));
 		return result.toString();

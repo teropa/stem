@@ -67,7 +67,6 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<Double> getSequence() {
 		if (sequence == null) {
 			sequence = new EDataTypeUniqueEList<Double>(Double.class, this, ModifierPackage.DOUBLE_SEQUENCE_MODIFIER__SEQUENCE);

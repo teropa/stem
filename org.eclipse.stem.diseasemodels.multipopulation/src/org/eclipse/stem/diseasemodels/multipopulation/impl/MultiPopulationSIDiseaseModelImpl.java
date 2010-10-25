@@ -305,8 +305,8 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		// next get it's INDEX in the model
 		// TODO we should encapsulate this code in a helper method
 		int populationIndex = this.getPopulationIndex(populationName);
-		if(infectiousMortalityRate != null)
-			return infectiousMortalityRate.getValues().get(populationIndex).getValue();
+		if(getInfectiousMortalityRate() != null)
+			return getInfectiousMortalityRate().getValues().get(populationIndex).getValue();
 		else return 0.0; //default if not specified
 	}
 
@@ -671,12 +671,12 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 			
 		// now we know the index of the current population being integrated.
 		// Get the correct transmission rate list from the MATRIX
-		EList<DoubleValue> transmissionVector = transmissionRate.getValueLists().get(populationIndex).getValues();
+		EList<DoubleValue> transmissionVector = getTransmissionRate().getValueLists().get(populationIndex).getValues();
 		
 		// ALL the other disease parameters are also DoubleValueLists. We now iterate through all populations
 		// get the specific rate parameters from EACH list based on this population index
 		double thisRecoveryRate = 0.0;
-		if(recoveryRate != null) thisRecoveryRate = recoveryRate.getValues().get(populationIndex).getValue();
+		if(getRecoveryRate() != null) thisRecoveryRate = getRecoveryRate().getValues().get(populationIndex).getValue();
 		
 		
 		//  NOW iterate over every population (including this one) to compute new infections
@@ -686,7 +686,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		double numberSusceptible = currentSI.getS();
 		Node thisNode = diseaseLabel.getNode();
 		
-		EList<StringValue> groupList = populationGroups.getValues();
+		EList<StringValue> groupList = getPopulationGroups().getValues();
 		
 		for(int i = 0; i< transmissionVector.size(); i ++) {
 			// We need to get the identifier of the ith population model
@@ -748,7 +748,7 @@ public class MultiPopulationSIDiseaseModelImpl extends StandardDiseaseModelImpl 
 		// next get it's INDEX in the model
 		// TODO we should encapsulate this code in a helper method
 		int populationIndex = -1;
-		EList<StringValue> groupList = populationGroups.getValues();
+		EList<StringValue> groupList = getPopulationGroups().getValues();
 		for(int i =0; i < groupList.size(); i ++) {
 			String nextPop = groupList.get(i).getValue();
 			if(nextPop.equalsIgnoreCase(thisPopulation)) {

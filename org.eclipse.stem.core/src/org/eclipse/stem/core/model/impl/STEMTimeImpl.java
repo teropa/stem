@@ -46,8 +46,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 
 	/**
 	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTime()
 	 * @generated
 	 * @ordered

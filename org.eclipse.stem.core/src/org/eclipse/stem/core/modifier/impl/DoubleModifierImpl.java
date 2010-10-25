@@ -13,6 +13,7 @@ package org.eclipse.stem.core.modifier.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.DoubleModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
@@ -50,6 +51,7 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 * @ordered
 	 */
 	protected double value = VALUE_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -68,6 +70,7 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	 * @ordered
 	 */
 	protected double originalValue = ORIGINAL_VALUE_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,6 +201,41 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 	}
 
 	/**
+	 * @see org.eclipse.stem.core.modifier.impl.FeatureModifierImpl#updateFeature()
+	 */
+	
+	@SuppressWarnings("boxing")
+	@Override
+	public void updateFeature() {
+		// Original value captured yet?
+		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
+			// No
+			setOriginalValue((Double)target.eGet(getEStructuralFeature()));
+		} // if
+		target.eSet(getEStructuralFeature(), getValue());
+		complete = true;
+	} // updateFeature
+
+	
+	/**
+	 *reset
+	 */
+	@Override
+	public void reset() {
+		complete = false;
+		target.eSet(getEStructuralFeature(), getOriginalValue());
+	}
+	
+	private boolean complete = false;
+	/**
+	 * isComplete
+	 */
+	@Override
+	public boolean isComplete() {
+		return complete;
+	}
+	
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -213,41 +251,6 @@ public class DoubleModifierImpl extends SingleValueModifierImpl implements Doubl
 		result.append(originalValue);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * @see org.eclipse.stem.core.modifier.impl.FeatureModifierImpl#updateFeature()
-	 */
-	
-	@SuppressWarnings("boxing")
-	@Override
-	public void updateFeature() {
-		// Original value captured yet?
-		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
-			// No
-			setOriginalValue((Double)getTarget().eGet(getEStructuralFeature()));
-		} // if
-		getTarget().eSet(getEStructuralFeature(), getValue());
-		complete = true;
-	} // updateFeature
-
-	
-	/**
-	 *reset
-	 */
-	@Override
-	public void reset() {
-		complete = false;
-		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
-	}
-	
-	private boolean complete = false;
-	/**
-	 * isComplete
-	 */
-	@Override
-	public boolean isComplete() {
-		return complete;
 	}
 
 } //DoubleModifierImpl

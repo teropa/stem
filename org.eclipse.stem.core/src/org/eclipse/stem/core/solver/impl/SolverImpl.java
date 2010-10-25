@@ -12,17 +12,22 @@ package org.eclipse.stem.core.solver.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
+
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
+
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.core.solver.SolverPackage;
@@ -51,6 +56,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @ordered
 	 */
 	protected EList<Decorator> decorators;
+
 	/**
 	 * The default value of the '{@link #isInitialized() <em>Initialized</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +75,7 @@ public class SolverImpl extends IdentifiableImpl implements Solver {
 	 * @ordered
 	 */
 	protected boolean initialized = INITIALIZED_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

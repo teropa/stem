@@ -75,7 +75,9 @@ public class SolverTest extends IdentifiableTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(SolverFactory.eINSTANCE.createSolver());
+		Solver s = SolverFactory.eINSTANCE.createSolver();
+		s.setURI(SOLVER_URI);
+		setFixture(s);
 	}
 
 	/**

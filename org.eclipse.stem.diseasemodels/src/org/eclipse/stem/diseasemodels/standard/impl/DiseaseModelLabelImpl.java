@@ -429,7 +429,7 @@ public abstract class DiseaseModelLabelImpl extends DynamicNodeLabelImpl
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && diseaseModelState != null ? diseaseModelState
+		retValue = retValue && getDiseaseModelState() != null ? getDiseaseModelState()
 				.sane() : true;
 		assert retValue;
 

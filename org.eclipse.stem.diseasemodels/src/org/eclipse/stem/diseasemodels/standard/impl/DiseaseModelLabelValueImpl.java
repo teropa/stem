@@ -113,7 +113,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 	 * <!-- end-user-doc -->
 	 */
 	protected DiseaseModelLabelValueImpl(final double diseaseDeaths) {
-		this.diseaseDeaths = diseaseDeaths;
+		setDiseaseDeaths(diseaseDeaths);
 	} // DiseaseModelLabelValueImpl
 
 	/**
@@ -289,16 +289,16 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 		boolean retValue = super.sane();
 				
 		// disease deaths
-		retValue = retValue && diseaseDeaths >= DISEASE_DEATHS_EDEFAULT;
+		retValue = retValue && getDiseaseDeaths() >= DISEASE_DEATHS_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && diseaseDeaths <= MAX_POPULATION_VALUE;
+		retValue = retValue && getDiseaseDeaths() <= MAX_POPULATION_VALUE;
 		assert retValue;
 		
-		retValue = retValue && !Double.isInfinite(diseaseDeaths);
+		retValue = retValue && !Double.isInfinite(getDiseaseDeaths());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(diseaseDeaths);
+		retValue = retValue && !Double.isNaN(getDiseaseDeaths());
 		assert retValue;
 		
 		return retValue;
@@ -408,7 +408,7 @@ public abstract class DiseaseModelLabelValueImpl extends LabelValueImpl
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append("(DD: "); //$NON-NLS-1$
-		result.append(diseaseDeaths);
+		result.append(getDiseaseDeaths());
 		result.append(')');
 		return result.toString();
 	} // toString

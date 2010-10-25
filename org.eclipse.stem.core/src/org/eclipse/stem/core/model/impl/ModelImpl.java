@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.DublinCore;
-import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.Edge;
@@ -63,44 +63,43 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getModels() <em>Models</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModels()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Model> models;
+
 	/**
 	 * The cached value of the '{@link #getGraphs() <em>Graphs</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphs()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Graph> graphs;
+
 	/**
 	 * The cached value of the '{@link #getGraphDecorators() <em>Graph Decorators</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphDecorators()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<GraphDecorator> graphDecorators;
+
 	/**
 	 * The cached value of the '{@link #getNodeDecorators() <em>Node Decorators</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNodeDecorators()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<NodeDecorator> nodeDecorators;
+
 	/**
 	 * The cached value of the '{@link #getEdgeDecorators() <em>Edge Decorators</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEdgeDecorators()
 	 * @generated
 	 * @ordered
@@ -132,7 +131,6 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<Model> getModels() {
 		if (models == null) {
 			models = new EObjectResolvingEList<Model>(Model.class, this, ModelPackage.MODEL__MODELS);
@@ -144,7 +142,6 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<Graph> getGraphs() {
 		if (graphs == null) {
 			graphs = new EObjectResolvingEList<Graph>(Graph.class, this, ModelPackage.MODEL__GRAPHS);
@@ -156,7 +153,6 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<GraphDecorator> getGraphDecorators() {
 		if (graphDecorators == null) {
 			graphDecorators = new EObjectResolvingEList<GraphDecorator>(GraphDecorator.class, this, ModelPackage.MODEL__GRAPH_DECORATORS);
@@ -168,7 +164,6 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<NodeDecorator> getNodeDecorators() {
 		if (nodeDecorators == null) {
 			nodeDecorators = new EObjectResolvingEList<NodeDecorator>(NodeDecorator.class, this, ModelPackage.MODEL__NODE_DECORATORS);
@@ -180,7 +175,6 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<EdgeDecorator> getEdgeDecorators() {
 		if (edgeDecorators == null) {
 			edgeDecorators = new EObjectResolvingEList<EdgeDecorator>(EdgeDecorator.class, this, ModelPackage.MODEL__EDGE_DECORATORS);

@@ -49,6 +49,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @ordered
 	 */
 	protected Predicate predicate;
+
 	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -58,6 +59,7 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	 * @ordered
 	 */
 	protected Decorator action;
+
 	protected Decorator actionCopy;
 	
 	/**

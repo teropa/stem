@@ -45,17 +45,16 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 
 	/**
 	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEdges()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Edge> edges;
+
 	/**
 	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLabels()
 	 * @generated
 	 * @ordered
@@ -87,7 +86,6 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<Edge> getEdges() {
 		if (edges == null) {
 			edges = new EObjectResolvingEList<Edge>(Edge.class, this, GraphPackage.NODE__EDGES);
@@ -99,7 +97,6 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public EList<NodeLabel> getLabels() {
 		if (labels == null) {
 			labels = new EObjectWithInverseResolvingEList<NodeLabel>(NodeLabel.class, this, GraphPackage.NODE__LABELS, GraphPackage.NODE_LABEL__NODE);
