@@ -69,9 +69,7 @@ public class TriggerTest extends DecoratorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		Trigger t = TriggerFactory.eINSTANCE.createTrigger();
-		t.setURI(TRIGGER_URI);
-		setFixture(t);
+		setFixture(TriggerFactory.eINSTANCE.createTrigger());
 	}
 
 	/**

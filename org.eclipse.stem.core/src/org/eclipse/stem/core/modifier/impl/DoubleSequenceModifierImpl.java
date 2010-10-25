@@ -67,6 +67,7 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Double> getSequence() {
 		if (sequence == null) {
 			sequence = new EDataTypeUniqueEList<Double>(Double.class, this, ModifierPackage.DOUBLE_SEQUENCE_MODIFIER__SEQUENCE);
@@ -102,7 +103,7 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 
@@ -112,7 +113,7 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 
 	/**

@@ -46,7 +46,8 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 
 	/**
 	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTime()
 	 * @generated
 	 * @ordered
@@ -86,7 +87,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * @generated NOT
 	 */
 	public void setTime(Date newTime) {
-		Date oldTime = time;
+		Date oldTime = getTime();
 		time = (Date)newTime.clone();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.STEM_TIME__TIME, oldTime, time));
@@ -100,7 +101,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	public STEMTime addIncrement(long timeIncrement) {
 		final STEMTime retValue = ModelFactory.eINSTANCE.createSTEMTime();
 
-		final long newTime = time.getTime() + timeIncrement;
+		final long newTime = getTime().getTime() + timeIncrement;
 		final Date newDate = new Date(newTime);
 
 		retValue.setTime(newDate);
@@ -115,7 +116,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * 
 	 */
 	public int compareTo(STEMTime otherTime) {
-		return time.compareTo(otherTime.getTime());
+		return getTime().compareTo(otherTime.getTime());
 	}
 
 	/**
@@ -126,7 +127,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	public int hashCode() {
 		final int PRIME = 31;
 		int result = 1;
-		result = PRIME * result + ((time == null) ? 0 : time.hashCode());
+		result = PRIME * result + ((getTime() == null) ? 0 : getTime().hashCode());
 		return result;
 	}
 
@@ -143,10 +144,10 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 		if (getClass() != obj.getClass())
 			return false;
 		final STEMTimeImpl other = (STEMTimeImpl) obj;
-		if (time == null) {
-			if (other.time != null)
+		if (getTime() == null) {
+			if (other.getTime() != null)
 				return false;
-		} else if (!time.equals(other.time))
+		} else if (!getTime().equals(other.getTime()))
 			return false;
 		return true;
 	}

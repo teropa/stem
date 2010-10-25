@@ -208,7 +208,7 @@ public abstract class SequenceModifierImpl extends FeatureModifierImpl implement
 		// Capture the original value?
 		if (getCurrentSequenceIndex() == CURRENT_SEQUENCE_INDEX_EDEFAULT) {
 			// Yes
-			setOriginalValue(target.eGet(getEStructuralFeature()));
+			setOriginalValue(getTarget().eGet(getEStructuralFeature()));
 		} // if
 	} // updateFeature
 

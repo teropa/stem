@@ -23,7 +23,6 @@ import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.GraphPackage;
-//import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 
 /**
@@ -47,9 +46,9 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	
 	
 	/**
-	 * The cached value of the '{@link #getA() <em>A</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getA() <em>A</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getA()
 	 * @generated
 	 * @ordered
@@ -67,7 +66,8 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #getNodeAURI() <em>Node AURI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNodeAURI()
 	 * @generated
 	 * @ordered
@@ -75,9 +75,9 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	protected URI nodeAURI = NODE_AURI_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getB() <em>B</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getB() <em>B</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getB()
 	 * @generated
 	 * @ordered
@@ -95,7 +95,8 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #getNodeBURI() <em>Node BURI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNodeBURI()
 	 * @generated
 	 * @ordered
@@ -104,7 +105,8 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -122,7 +124,8 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 	/**
 	 * The cached value of the '{@link #isDirected() <em>Directed</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDirected()
 	 * @generated
 	 * @ordered
@@ -503,8 +506,8 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 	 * @generated NOT
 	 */
 	public boolean isDirectedAt(Node node) {
-		return isDirected() && ( b != null && b.equals(node) 
-				|| b== null && nodeBURI.equals(node.getURI()));
+		return isDirected() && ( getB() != null && getB().equals(node) 
+				|| getB() == null && getNodeBURI().equals(node.getURI()));
 	} // isDirectedAt
 
 	/**
@@ -654,11 +657,11 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 
 		StringBuffer result = new StringBuffer("");
 
-		result.append(a != null ? a :  ( nodeAURI != null ? nodeAURI.toString() : "null"));
+		result.append(getA() != null ? getA() :  ( getNodeAURI() != null ? getNodeAURI().toString() : "null"));
 
-		result.append(directed ? " -> " : " -- ");
+		result.append(isDirected() ? " -> " : " -- ");
 
-		result.append(b != null ? b : ( nodeBURI != null ? nodeBURI.toString() : "null"));
+		result.append(getB() != null ? getB() : ( getNodeBURI() != null ? getNodeBURI().toString() : "null"));
 		return result.toString();
 	} // toString
 
@@ -671,55 +674,55 @@ public class EdgeImpl extends IdentifiableImpl implements Edge {
 		
 		boolean retValue = super.sane();
 
-		retValue = retValue && nodeAURI != null;
+		retValue = retValue && getNodeAURI() != null;
 		assert retValue;
 
-		retValue = retValue && nodeBURI != null;
+		retValue = retValue && getNodeBURI() != null;
 		assert retValue;
 
-		retValue = retValue && label != null;
+		retValue = retValue && getLabel() != null;
 		assert retValue;
 
 		// A node?
-		if (a != null) {
+		if (getA() != null) {
 			// Yes
 			// If this edge links to a node, then the node should have this edge
 			// as one of its edges
-			retValue = retValue && a.getEdges().contains(this);
+			retValue = retValue && getA().getEdges().contains(this);
 			assert retValue;
 
 			// This edge should be hooked up to the correct node too.
-			retValue = retValue && nodeAURI.equals(a.getURI());
+			retValue = retValue && getNodeAURI().equals(getA().getURI());
 			assert retValue;
 		} // if A Node
 
 		// B node?
-		if (b != null) {
+		if (getB() != null) {
 			// Yes
 			// If this edge links to a node, then the node should have this edge
 			// as one of its edges
-			retValue = retValue && b.getEdges().contains(this);
+			retValue = retValue && getB().getEdges().contains(this);
 			assert retValue;
 
 			// This edge should be hooked up to the correct node too.
-			retValue = retValue && nodeBURI.equals(b.getURI());
+			retValue = retValue && getNodeBURI().equals(getB().getURI());
 			assert retValue;
 		}
 
 		// Of course if one node is set, so should the other
 		retValue = retValue
-				&& ((a == null && b == null) || (a != null && b != null));
+				&& ((getA() == null && getB() == null) || (getA() != null && getB() != null));
 		assert retValue;
 
 		// The label should reference this edge with its URI
-		retValue = retValue && label.getURIOfIdentifiableToBeLabeled() != null;
+		retValue = retValue && getLabel().getURIOfIdentifiableToBeLabeled() != null;
 		assert retValue;
 		retValue = retValue
-				&& label.getURIOfIdentifiableToBeLabeled().equals(getURI());
+				&& getLabel().getURIOfIdentifiableToBeLabeled().equals(getURI());
 		assert retValue;
 
 		// And the label should be sane
-		retValue = retValue && label.sane();
+		retValue = retValue && getLabel().sane();
 		assert retValue;
 
 		return retValue;

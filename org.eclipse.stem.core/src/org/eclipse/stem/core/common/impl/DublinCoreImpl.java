@@ -68,7 +68,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -86,7 +87,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -104,7 +106,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -122,7 +125,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getCreator() <em>Creator</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCreator()
 	 * @generated
 	 * @ordered
@@ -140,7 +144,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDate()
 	 * @generated
 	 * @ordered
@@ -158,7 +163,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFormat()
 	 * @generated
 	 * @ordered
@@ -176,7 +182,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPublisher()
 	 * @generated
 	 * @ordered
@@ -194,7 +201,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCoverage()
 	 * @generated
 	 * @ordered
@@ -212,7 +220,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getContributor() <em>Contributor</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getContributor()
 	 * @generated
 	 * @ordered
@@ -230,7 +239,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getRelation() <em>Relation</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRelation()
 	 * @generated
 	 * @ordered
@@ -248,7 +258,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getRights() <em>Rights</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRights()
 	 * @generated
 	 * @ordered
@@ -266,7 +277,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -284,7 +296,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSubject()
 	 * @generated
 	 * @ordered
@@ -302,7 +315,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -320,7 +334,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLanguage()
 	 * @generated
 	 * @ordered
@@ -338,7 +353,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getBibliographicCitation() <em>Bibliographic Citation</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBibliographicCitation()
 	 * @generated
 	 * @ordered
@@ -356,7 +372,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCreated()
 	 * @generated
 	 * @ordered
@@ -374,7 +391,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getLicense() <em>License</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLicense()
 	 * @generated
 	 * @ordered
@@ -392,7 +410,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRequired()
 	 * @generated
 	 * @ordered
@@ -410,7 +429,8 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 
 	/**
 	 * The cached value of the '{@link #getSpatial() <em>Spatial</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSpatial()
 	 * @generated
 	 * @ordered
@@ -427,6 +447,16 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 	protected static final String VALID_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getValid() <em>Valid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String valid = VALID_EDEFAULT;
+
+	/**
 	 * This is the string used in the {@link #valid} attribute to specify the
 	 * starting date of the valid date range.
 	 */
@@ -437,15 +467,6 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 	 * ending date of the valid date range.
 	 */
 	public static final String END = "end=";
-
-	/**
-	 * The cached value of the '{@link #getValid() <em>Valid</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected String valid = VALID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -472,27 +493,26 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 	 * @generated NOT
 	 */
 	public DublinCoreImpl(IConfigurationElement configElement) {
-		title = configElement.getAttribute("title");
-		creator = configElement.getAttribute("creator");
-		subject = configElement.getAttribute("subject");
-		description = configElement.getAttribute("description");
-		publisher = configElement.getAttribute("publisher");
-		contributor = configElement.getAttribute("contributor");
-		date = configElement.getAttribute("date");
-		type = configElement.getAttribute("type");
-		format = configElement.getAttribute("format");
-		identifier = configElement.getAttribute("identifier");
-		source = configElement.getAttribute("source");
-		language = configElement.getAttribute("language");
-		relation = configElement.getAttribute("relation");
-		coverage = configElement.getAttribute("coverage");
-		bibliographicCitation = configElement
-				.getAttribute("bibliographicCitation");
-		created = configElement.getAttribute("created");
-		license = configElement.getAttribute("license");
-		required = configElement.getAttribute("required");
-		spatial = configElement.getAttribute("spatial");
-		valid = configElement.getAttribute("valid");
+		setTitle(configElement.getAttribute("title"));
+		setCreator(configElement.getAttribute("creator"));
+		setSubject(configElement.getAttribute("subject"));
+		setDescription(configElement.getAttribute("description"));
+		setPublisher(configElement.getAttribute("publisher"));
+		setContributor(configElement.getAttribute("contributor"));
+		setDate(configElement.getAttribute("date"));
+		setType(configElement.getAttribute("type"));
+		setFormat(configElement.getAttribute("format"));
+		setIdentifier(configElement.getAttribute("identifier"));
+		setSource(configElement.getAttribute("source"));
+		setLanguage(configElement.getAttribute("language"));
+		setRelation(configElement.getAttribute("relation"));
+		setCoverage(configElement.getAttribute("coverage"));
+		setBibliographicCitation(configElement.getAttribute("bibliographicCitation"));
+		setCreated(configElement.getAttribute("created"));
+		setLicense(configElement.getAttribute("license"));
+		setRequired(configElement.getAttribute("required"));
+		setSpatial(configElement.getAttribute("spatial"));
+		setValid(configElement.getAttribute("valid"));
 	} // DublinCoreImpl
 
 	/**
@@ -1449,113 +1469,113 @@ public class DublinCoreImpl extends EObjectImpl implements DublinCore {
 			return super.toString();
 
 		final StringBuilder result = new StringBuilder();
-		if (identifier != null && !identifier.equals("")) {
+		if (getIdentifier() != null && !getIdentifier().equals("")) {
 			result.append("identifier=\"");
-			result.append(identifier.trim());
+			result.append(getIdentifier().trim());
 			result.append("\" ");
 		}
-		if (type != null && !type.equals("")) {
+		if (getType() != null && !getType().equals("")) {
 			result.append("type=\"");
-			result.append(type.trim());
+			result.append(getType().trim());
 			result.append("\" ");
 		}
-		if (title != null && !title.equals("")) {
+		if (getTitle() != null && !getTitle().equals("")) {
 			result.append("title=\"");
-			result.append(title.trim());
+			result.append(getTitle().trim());
 			result.append("\" ");
 		}
 
-		if (creator != null && !creator.equals("")) {
+		if (getCreator() != null && !getCreator().equals("")) {
 			result.append("creator=\"");
-			result.append(creator.trim());
+			result.append(getCreator().trim());
 			result.append("\" ");
 		}
-		if (subject != null && !subject.equals("")) {
+		if (getSubject() != null && !getSubject().equals("")) {
 			result.append("subject=\"");
-			result.append(subject.trim());
+			result.append(getSubject().trim());
 			result.append("\" ");
 		}
-		if (description != null && !description.equals("")) {
+		if (getDescription() != null && !getDescription().equals("")) {
 			result.append("description=\"");
-			result.append(description.trim());
+			result.append(getDescription().trim());
 			result.append("\" ");
 		}
 
-		if (publisher != null && !publisher.equals("")) {
+		if (getPublisher() != null && !getPublisher().equals("")) {
 			result.append("publisher=\"");
-			result.append(publisher.trim());
+			result.append(getPublisher().trim());
 			result.append("\" ");
 		}
-		if (contributor != null && !contributor.equals("")) {
+		if (getContributor() != null && !getContributor().equals("")) {
 			result.append("contributor=\"");
-			result.append(contributor.trim());
+			result.append(getContributor().trim());
 			result.append("\" ");
 		}
-		if (date != null && !date.equals("")) {
+		if (getDate() != null && !getDate().equals("")) {
 			result.append("date=\"");
-			result.append(date.trim());
+			result.append(getDate().trim());
 			result.append("\" ");
 		}
 
-		if (format != null && !format.equals("")) {
+		if (getFormat() != null && !getFormat().equals("")) {
 			result.append("format=\"");
-			result.append(format.trim());
+			result.append(getFormat().trim());
 			result.append("\" ");
 		}
 
-		if (source != null && !source.equals("")) {
+		if (getSource() != null && !getSource().equals("")) {
 			result.append("source=\"");
-			result.append(source.trim());
+			result.append(getSource().trim());
 			result.append("\" ");
 		}
-		if (language != null && !language.equals("")) {
+		if (getLanguage() != null && !getLanguage().equals("")) {
 			result.append("language=\"");
-			result.append(language.trim());
+			result.append(getLanguage().trim());
 			result.append("\" ");
 		}
-		if (relation != null && !relation.equals("")) {
+		if (getRelation() != null && !getRelation().equals("")) {
 			result.append("relation=\"");
-			result.append(relation.trim());
+			result.append(getRelation().trim());
 			result.append("\" ");
 		}
-		if (coverage != null && !coverage.equals("")) {
+		if (getCoverage() != null && !getCoverage().equals("")) {
 			result.append("coverage=\"");
-			result.append(coverage.trim());
+			result.append(getCoverage().trim());
 			result.append("\" ");
 		}
-		if (rights != null && !rights.equals("")) {
+		if (getRights() != null && !getRights().equals("")) {
 			result.append("rights=\"");
-			result.append(rights.trim());
+			result.append(getRights().trim());
 			result.append("\" ");
 		}
-		if (bibliographicCitation != null && !bibliographicCitation.equals("")) {
+		if (getBibliographicCitation() != null && !getBibliographicCitation().equals("")) {
 			result.append("bibliographicCitation=\"");
-			result.append(bibliographicCitation.trim());
+			result.append(getBibliographicCitation().trim());
 			result.append("\" ");
 		}
-		if (created != null && !created.equals("")) {
+		if (getCreated() != null && !getCreated().equals("")) {
 			result.append("created=\"");
-			result.append(created.trim());
+			result.append(getCreated().trim());
 			result.append("\" ");
 		}
-		if (license != null && !license.equals("")) {
+		if (getLicense() != null && !getLicense().equals("")) {
 			result.append("license=\"");
-			result.append(license.trim());
+			result.append(getLicense().trim());
 			result.append("\" ");
 		}
-		if (required != null && !required.equals("")) {
+		if (getRequired() != null && !getRequired().equals("")) {
 			result.append("required=\"");
-			result.append(required.trim());
+			result.append(getRequired().trim());
 			result.append("\" ");
 		}
-		if (spatial != null && !spatial.equals("")) {
+		if (getSpatial() != null && !getSpatial().equals("")) {
 			result.append("spatial=\"");
-			result.append(spatial.trim());
+			result.append(getSpatial().trim());
 			result.append("\" ");
 		}
-		if (valid != null && !valid.equals("")) {
+		if (getValid() != null && !getValid().equals("")) {
 			result.append("valid=\"");
-			result.append(valid.trim());
+			result.append(getValid().trim());
 			result.append("\" ");
 		}
 

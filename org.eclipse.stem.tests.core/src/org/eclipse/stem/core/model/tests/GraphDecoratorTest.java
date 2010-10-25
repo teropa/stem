@@ -64,10 +64,7 @@ public class GraphDecoratorTest extends DecoratorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		
-		GraphDecorator d = ModelFactory.eINSTANCE.createGraphDecorator();
-		d.setURI(DECORATOR_URI);
-		setFixture(d);
+		setFixture(ModelFactory.eINSTANCE.createGraphDecorator());
 	}
 
 	/**

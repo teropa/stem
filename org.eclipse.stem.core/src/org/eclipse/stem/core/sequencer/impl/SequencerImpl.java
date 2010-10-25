@@ -66,7 +66,8 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getEndTime() <em>End Time</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getEndTime()
 	 * @generated
 	 * @ordered
@@ -75,7 +76,8 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getCurrentTime() <em>Current Time</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCurrentTime()
 	 * @generated
 	 * @ordered
@@ -93,7 +95,8 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getTimeDelta() <em>Time Delta</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTimeDelta()
 	 * @generated
 	 * @ordered
@@ -111,7 +114,8 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDuration()
 	 * @generated
 	 * @ordered
@@ -138,7 +142,8 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getWorkComplete() <em>Work Complete</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWorkComplete()
 	 * @generated
 	 * @ordered
@@ -165,7 +170,8 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * The cached value of the '{@link #getCycle() <em>Cycle</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCycle()
 	 * @generated
 	 * @ordered
@@ -278,6 +284,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public STEMTime getCurrentTime() {
+		STEMTime currentTime = (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__CURRENT_TIME, SequencerPackage.Literals.SEQUENCER__CURRENT_TIME, true, true);
 		// Is the current time set yet?
 		if (currentTime == null) {
 			// No
@@ -326,7 +333,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public STEMTime getNextTime() {
-		cycle++; // count this as a completed cycle
+		setCycle(getCycle() + 1); // count this as a completed cycle
 		return null;
 	}
 
@@ -348,8 +355,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 		if (duration == UNKNOWN_DURATION && getStartTime() != null
 				&& getEndTime() != null) {
 			// Yes
-			duration = getEndTime().getTime().getTime()
-					- getStartTime().getTime().getTime();
+			setDuration(getEndTime().getTime().getTime() - getStartTime().getTime().getTime());
 		}
 		return duration;
 	}
@@ -586,26 +592,26 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 		final StringBuffer result = new StringBuffer();
 		result.append(dateFormat.format(startTime.getTime()));
 
-		if (endTime != null) {
+		if (getEndTime() != null) {
 			result.append(" to ");
-			result.append(dateFormat.format(endTime.getTime()));
+			result.append(dateFormat.format(getEndTime().getTime()));
 		}
 
-		if (currentTime != null) {
+		if (getCurrentTime() != null) {
 			result.append(", current=");
-			result.append(dateFormat.format(currentTime.getTime()));
+			result.append(dateFormat.format(getCurrentTime().getTime()));
 		}
 
 		result.append(" (timeDelta: "); //$NON-NLS-1$
-		result.append(timeDelta);
+		result.append(getTimeDelta());
 		result.append(" (");
-		final long days = timeDelta / STEMTime.Units.DAY.getMilliseconds();
+		final long days = getTimeDelta() / STEMTime.Units.DAY.getMilliseconds();
 		result.append(days);
 		result.append(days == 1 ? " day)" : " days)");
 		result.append(", duration: "); //$NON-NLS-1$
-		result.append(duration);
+		result.append(getDuration());
 		result.append(", workComplete: "); //$NON-NLS-1$
-		result.append(workComplete);
+		result.append(getWorkComplete());
 		result.append(')');
 		return result.toString();
 	}

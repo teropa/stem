@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.graph.GraphPackage;
 
 /**
@@ -60,7 +59,6 @@ public class URIToIdentifiableMapEntryImpl extends EObjectImpl implements BasicE
 	 * @ordered
 	 */
 	protected URI key = KEY_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->

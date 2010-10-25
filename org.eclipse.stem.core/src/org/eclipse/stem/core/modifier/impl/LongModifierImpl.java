@@ -13,7 +13,6 @@ package org.eclipse.stem.core.modifier.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.modifier.LongModifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
@@ -51,7 +50,6 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 * @ordered
 	 */
 	protected long value = VALUE_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getOriginalValue() <em>Original Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,7 +68,6 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	 * @ordered
 	 */
 	protected long originalValue = ORIGINAL_VALUE_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -201,42 +198,6 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 	}
 
 	/**
-	 * @see org.eclipse.stem.core.modifier.impl.FeatureModifierImpl#updateFeature()
-	 */
-	
-	@SuppressWarnings("boxing")
-	@Override
-	public void updateFeature() {
-		// Original value captured yet?
-		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
-			// No
-			setOriginalValue((Long)target.eGet(getEStructuralFeature()));
-		} // if
-		target.eSet(getEStructuralFeature(), getValue());
-		complete = true;
-	} // updateFeature
-
-	
-	/**
-	 *reset
-	 */
-	@Override
-	public void reset() {
-		complete = false;
-		target.eSet(getEStructuralFeature(), getOriginalValue());
-	}
-	
-	
-	private boolean complete = false;
-	/**
-	 * isComplete
-	 */
-	@Override
-	public boolean isComplete() {
-		return complete;
-	}
-	
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -252,6 +213,42 @@ public class LongModifierImpl extends SingleValueModifierImpl implements LongMod
 		result.append(originalValue);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * @see org.eclipse.stem.core.modifier.impl.FeatureModifierImpl#updateFeature()
+	 */
+	
+	@SuppressWarnings("boxing")
+	@Override
+	public void updateFeature() {
+		// Original value captured yet?
+		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
+			// No
+			setOriginalValue((Long)getTarget().eGet(getEStructuralFeature()));
+		} // if
+		getTarget().eSet(getEStructuralFeature(), getValue());
+		complete = true;
+	} // updateFeature
+
+	
+	/**
+	 *reset
+	 */
+	@Override
+	public void reset() {
+		complete = false;
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
+	}
+	
+	
+	private boolean complete = false;
+	/**
+	 * isComplete
+	 */
+	@Override
+	public boolean isComplete() {
+		return complete;
 	}
 
 } //LongModifierImpl

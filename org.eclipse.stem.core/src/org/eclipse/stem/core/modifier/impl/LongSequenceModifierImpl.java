@@ -67,6 +67,7 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Long> getSequence() {
 		if (sequence == null) {
 			sequence = new EDataTypeUniqueEList<Long>(Long.class, this, ModifierPackage.LONG_SEQUENCE_MODIFIER__SEQUENCE);
@@ -82,7 +83,7 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 		int index = getCurrentSequenceIndex();
 		final Object retValue = getSequence().get(index++);
 		setCurrentSequenceIndex(index);	
-		currentValueText = retValue.toString();
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
 		return retValue;
 	} // getNextValue
 	
@@ -102,7 +103,7 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 	/**
@@ -111,7 +112,7 @@ public class LongSequenceModifierImpl extends SequenceModifierImpl implements Lo
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**

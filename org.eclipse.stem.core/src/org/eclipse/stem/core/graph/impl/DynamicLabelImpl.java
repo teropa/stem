@@ -51,22 +51,22 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 
 	/**
 	 * The cached value of the '{@link #isNextValueValid() <em>Next Value Valid</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isNextValueValid()
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean nextValueValid = NEXT_VALUE_VALID_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getNextValue() <em>Next Value</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNextValue()
 	 * @generated
 	 * @ordered
 	 */
 	protected LabelValue nextValue;
-
 	/**
 	 * The cached value of the '{@link #getDecorator() <em>Decorator</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -373,9 +373,9 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 		StringBuffer result = new StringBuffer(super.toString());
 
 		result.append(" [");
-		result.append(nextValue.toString());
+		result.append(getNextValue().toString());
 		result.append(" (");
-		result.append(nextValueValid ? "valid" : "invalid");
+		result.append(isNextValueValid() ? "valid" : "invalid");
 		result.append(")");
 		result.append("]");
 

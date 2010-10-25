@@ -13,17 +13,12 @@ package org.eclipse.stem.core.common.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
@@ -76,6 +71,7 @@ public class DoubleValueMatrixImpl extends EObjectImpl implements DoubleValueMat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<DoubleValueList> getValueLists() {
 		if (valueLists == null) {
 			valueLists = new EObjectContainmentEList<DoubleValueList>(DoubleValueList.class, this, CommonPackage.DOUBLE_VALUE_MATRIX__VALUE_LISTS);

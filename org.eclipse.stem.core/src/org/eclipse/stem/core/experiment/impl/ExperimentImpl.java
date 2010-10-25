@@ -13,9 +13,9 @@ package org.eclipse.stem.core.experiment.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import java.util.List;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -53,7 +53,6 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 * @ordered
 	 */
 	protected EList<Modifier> modifiers;
-
 	/**
 	 * The default value of the '{@link #isComplete() <em>Complete</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,7 +73,6 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 */
 	protected Scenario scenario;
 
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,6 +100,7 @@ public class ExperimentImpl extends IdentifiableImpl implements Experiment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Modifier> getModifiers() {
 		if (modifiers == null) {
 			modifiers = new EObjectResolvingEList<Modifier>(Modifier.class, this, ExperimentPackage.EXPERIMENT__MODIFIERS);

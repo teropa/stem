@@ -90,7 +90,6 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 	 * @ordered
 	 */
 	protected int increment = INCREMENT_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getNextValue() <em>Next Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -218,27 +217,27 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 		// Unset?
 		if (!eIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
-			nextValue = startValue;
+			setNextValue(getStartValue());
 		} // if
 		
 		final int retValue = nextValue;
-		complete = retValue == endValue;
+		complete = retValue == getEndValue();
 		
 		// Still incrementing?
 		if (!complete) {
 			// Yes
-			final int temp = retValue + increment;
+			final int temp = retValue + getIncrement();
 			// Would the new currentValue be equal or "past" the endValue?
-			if (Math.abs(temp) < Math.abs(endValue)) {
+			if (Math.abs(temp) < Math.abs(getEndValue())) {
 				// No
-				nextValue = temp;
+				setNextValue(temp);
 			} // if
 			else {
 				// Yes
-				nextValue = endValue;
+				setNextValue(getEndValue());
 			} // else 
-		} // if 
-		currentValueText = Integer.toString(retValue);
+		} // if
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, Integer.toString(retValue));
 		return retValue;
 	} // getNextValue
 	
@@ -284,9 +283,9 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((Integer)target.eGet(getEStructuralFeature()));
+			setOriginalValue((Integer)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(),getNextValue());
+		getTarget().eSet(getEStructuralFeature(),getNextValue());
 	}
 
 	/**
@@ -296,7 +295,7 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 	public void reset() {
 		super.reset();
 		eUnset(ModifierPackage.INTEGER_RANGE_MODIFIER__NEXT_VALUE);
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -420,7 +419,7 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	/**
 	 * @see org.eclipse.stem.core.common.SanityChecker#sane()
 	 */
@@ -429,10 +428,10 @@ public class IntegerRangeModifierImpl extends RangeModifierImpl implements Integ
 		boolean retValue = super.sane();
 		assert retValue;
 		
-		retValue = retValue && (endValue >= startValue);
+		retValue = retValue && (getEndValue() >= getStartValue());
 		assert retValue;
 		
-		retValue = retValue && (increment > 0);
+		retValue = retValue && (getIncrement() > 0);
 		assert retValue;
 		
 		return retValue;

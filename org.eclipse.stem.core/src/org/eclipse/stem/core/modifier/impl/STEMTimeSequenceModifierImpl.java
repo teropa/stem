@@ -68,6 +68,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<STEMTime> getSequence() {
 		if (sequence == null) {
 			sequence = new EObjectResolvingEList<STEMTime>(STEMTime.class, this, ModifierPackage.STEM_TIME_SEQUENCE_MODIFIER__SEQUENCE);
@@ -82,8 +83,8 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	public Object getNextValue() {
 		int index = getCurrentSequenceIndex();
 		final Object retValue = getSequence().get(index++);
-		setCurrentSequenceIndex(index);		
-		currentValueText = retValue.toString();
+		setCurrentSequenceIndex(index);
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
 		return retValue;
 	} // getNextValue
 	
@@ -103,7 +104,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 	/**
@@ -112,7 +113,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**

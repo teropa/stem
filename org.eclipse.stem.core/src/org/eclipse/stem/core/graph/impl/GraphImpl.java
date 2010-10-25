@@ -12,9 +12,8 @@ package org.eclipse.stem.core.graph.impl;
  *******************************************************************************/
  
 import java.util.Collection;
-import java.util.Comparator;
-
 import org.eclipse.emf.common.notify.Notification;
+import java.util.Comparator;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,10 +32,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-//import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
@@ -48,9 +46,7 @@ import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
-
 import org.eclipse.stem.core.model.Decorator;
-
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.STEMTime;
 
@@ -82,9 +78,9 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	
 	
 	/**
-	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' map. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getEdges()
 	 * @generated
 	 * @ordered
@@ -92,9 +88,9 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	protected EMap<URI, Edge> edges;
 
 	/**
-	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' map. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNodes()
 	 * @generated
 	 * @ordered
@@ -103,7 +99,8 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getGraphLabels() <em>Graph Labels</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getGraphLabels()
 	 * @generated
 	 * @ordered
@@ -112,7 +109,8 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getNodeLabels() <em>Node Labels</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNodeLabels()
 	 * @generated
 	 * @ordered
@@ -121,7 +119,8 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getDynamicLabels() <em>Dynamic Labels</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDynamicLabels()
 	 * @generated
 	 * @ordered
@@ -175,7 +174,8 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getUnresolvedIdentifiables() <em>Unresolved Identifiables</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUnresolvedIdentifiables()
 	 * @generated
 	 * @ordered
@@ -243,6 +243,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, Edge> getEdges() {
 		if (edges == null) {
 			edges = new EcoreEMap<URI,Edge>(GraphPackage.Literals.URI_TO_EDGE_MAP_ENTRY, URIToEdgeMapEntryImpl.class, this, GraphPackage.GRAPH__EDGES);
@@ -254,6 +255,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, Node> getNodes() {
 		if (nodes == null) {
 			nodes = new EcoreEMap<URI,Node>(GraphPackage.Literals.URI_TO_NODE_MAP_ENTRY, URIToNodeMapEntryImpl.class, this, GraphPackage.GRAPH__NODES);
@@ -265,6 +267,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<DynamicLabel> getDynamicLabels() {
 		if (dynamicLabels == null) {
 			dynamicLabels = new EObjectResolvingEList<DynamicLabel>(DynamicLabel.class, this, GraphPackage.GRAPH__DYNAMIC_LABELS);
@@ -276,6 +279,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, Label> getGraphLabels() {
 		if (graphLabels == null) {
 			graphLabels = new EcoreEMap<URI,Label>(GraphPackage.Literals.URI_TO_LABEL_MAP_ENTRY, URIToLabelMapEntryImpl.class, this, GraphPackage.GRAPH__GRAPH_LABELS);
@@ -287,6 +291,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<UnresolvedIdentifiable> getUnresolvedIdentifiables() {
 		if (unresolvedIdentifiables == null) {
 			unresolvedIdentifiables = new EObjectContainmentEList<UnresolvedIdentifiable>(UnresolvedIdentifiable.class, this, GraphPackage.GRAPH__UNRESOLVED_IDENTIFIABLES);
@@ -299,6 +304,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Decorator> getDecorators() {
 		if (decorators == null) {
 			decorators = new EObjectContainmentWithInverseEList<Decorator>(Decorator.class, this, GraphPackage.GRAPH__DECORATORS, ModelPackage.DECORATOR__GRAPH);
@@ -425,6 +431,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EMap<URI, NodeLabel> getNodeLabels() {
 		if (nodeLabels == null) {
 			nodeLabels = new EcoreEMap<URI,NodeLabel>(GraphPackage.Literals.URI_TO_NODE_LABEL_MAP_ENTRY, URIToNodeLabelMapEntryImpl.class, this, GraphPackage.GRAPH__NODE_LABELS);
@@ -438,7 +445,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumEdges() {
-		return edges == null ? 0 : getEdges().size();
+		return getEdges() == null ? 0 : getEdges().size();
 	} // getNumEdges
 
 	/**
@@ -447,7 +454,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumNodes() {
-		return nodes == null ? 0 : getNodes().size();
+		return getNodes() == null ? 0 : getNodes().size();
 	} // getNumNodes
 
 	/**
@@ -456,7 +463,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumGraphLabels() {
-		return graphLabels == null ? 0 : getGraphLabels().size();
+		return getGraphLabels() == null ? 0 : getGraphLabels().size();
 	} // getNumGraphLabels
 
 	/**
@@ -465,7 +472,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumNodeLabels() {
-		return nodeLabels == null ? 0 : getNodeLabels().size();
+		return getNodeLabels() == null ? 0 : getNodeLabels().size();
 	} // getNumNodeLabels
 
 	/**
@@ -474,7 +481,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumDynamicLabels() {
-		return dynamicLabels == null ? 0 : getDynamicLabels().size();
+		return getDynamicLabels() == null ? 0 : getDynamicLabels().size();
 	} // getNumDynamicLabels
 
 	/**
@@ -655,7 +662,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 */
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("\"" + dublinCore.getTitle()
+		final StringBuilder sb = new StringBuilder("\"" + getDublinCore().getTitle()
 				+ "\",\n");
 
 		// How many nodes?
@@ -685,7 +692,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		int dynamicLabelCount = 0;
 
 		// Nodes
-		if (nodes != null) {
+		if (getNodes() != null) {
 			// Yes
 			for (final Iterator<Node> nodeIter = getNodes().values().iterator(); nodeIter
 					.hasNext()
@@ -726,7 +733,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if
 
 		// Edges?
-		if (edges != null) {
+		if (getEdges() != null) {
 			// Yes
 			for (final Iterator<Edge> edgeIter = getEdges().values().iterator(); edgeIter
 					.hasNext()
@@ -744,7 +751,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if
 
 		// Node Labels?
-		if (nodeLabels != null) {
+		if (getNodeLabels() != null) {
 			// Yes
 			// The number of node labels should match the number we counted
 			// above...not true for graph fragments that might have labels for
@@ -761,7 +768,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			} // for each node label
 		} // if
 
-		if (graphLabels != null) {
+		if (getGraphLabels() != null) {
 			// Yes
 			for (final Iterator<Label> graphLabelIter = getGraphLabels().values()
 					.iterator(); graphLabelIter.hasNext();) {
@@ -776,7 +783,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if graphLabels
 
 		// Dynamic Labels?
-		if (dynamicLabels != null) {
+		if (getDynamicLabels() != null) {
 			// Yes
 			// The number of dynamic labels should equal the count
 			retValue = dynamicLabelCount == getNumDynamicLabels();

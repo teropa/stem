@@ -63,6 +63,46 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 
 	
 	/**
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected Model model;
+
+	/**
+	 * The cached value of the '{@link #getSequencer() <em>Sequencer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequencer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sequencer sequencer;
+
+	/**
+	 * The cached value of the '{@link #getScenarioDecorators() <em>Scenario Decorators</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScenarioDecorators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Decorator> scenarioDecorators;
+
+	/**
+	 * The cached value of the '{@link #getCanonicalGraph() <em>Canonical Graph</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCanonicalGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected Graph canonicalGraph;
+
+	/**
 	 * This is the {@link URI} used to identify the canonical {@link Graph} used during the
 	 * simulation
 	 * 
@@ -91,42 +131,6 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	public static boolean reportNumberofUnresolvedIdentifiables = false;
 	
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected Model model;
-
-	/**
-	 * The cached value of the '{@link #getSequencer() <em>Sequencer</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getSequencer()
-	 * @generated
-	 * @ordered
-	 */
-	protected Sequencer sequencer;
-
-	/**
-	 * The cached value of the '{@link #getScenarioDecorators() <em>Scenario Decorators</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getScenarioDecorators()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Decorator> scenarioDecorators;
-
-	/**
-	 * The cached value of the '{@link #getCanonicalGraph() <em>Canonical Graph</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getCanonicalGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected Graph canonicalGraph;
-	
-	/**
 	 * The default value of the '{@link #getProgress() <em>Progress</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,7 +150,6 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 */
 	protected double progress = PROGRESS_EDEFAULT;
 
-	
 	/**
 	 * The cached value of the '{@link #getSolver() <em>Solver</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -156,7 +159,6 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * @ordered
 	 */
 	protected Solver solver;
-
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -341,7 +343,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		if (!getSequencer().isTimeToStop()) {
 			// No
 			// Is there a canonical graph?
-			if (canonicalGraph == null) {
+			if (getCanonicalGraph() == null) {
 				// No
 				// Create one then...
 				initialize();
@@ -355,7 +357,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			
 			// First reset the progress of each decorator to 0. Necessary for the iteration progress
 			// bar
-			for (final Iterator<Decorator> decoratorIter = canonicalGraph
+			for (final Iterator<Decorator> decoratorIter = getCanonicalGraph()
 					.getDecorators().iterator(); decoratorIter.hasNext();) {
 				final Decorator decorator = decoratorIter.next();
 				decorator.setProgress(0.0);
@@ -363,7 +365,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			
 			
 			// Do the one step using the current solver
-			success = solver.step(currentTime, timeDelta, getSequencer().getCycle());
+			success = getSolver().step(currentTime, timeDelta, getSequencer().getCycle());
 						
 			// Everything should still be sane
 			assert sane();
@@ -371,7 +373,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			// Once everyone is done, we tell the graph to switch all the
 			// dynamic labels to their next value and then we're ready to do
 			// it all over again.
-			canonicalGraph.switchToNextValue(currentTime);
+			getCanonicalGraph().switchToNextValue(currentTime);
 		} // if sequencer finished
 		if(success) success = !getSequencer().isTimeToStop();
 		return success;
@@ -397,7 +399,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		ArrayList<Decorator>intDecorators = new ArrayList<Decorator>();
 		ArrayList<Decorator>otherDecorators = new ArrayList<Decorator>();
 		
-		for (final Iterator<Decorator> graphDecoratorIter = canonicalGraph.getDecorators()
+		for (final Iterator<Decorator> graphDecoratorIter = getCanonicalGraph().getDecorators()
 				.iterator(); graphDecoratorIter.hasNext();) {
 			final Decorator decorator = graphDecoratorIter
 					.next();
@@ -423,7 +425,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			// Reset the solver
 		} // for each decorator
 	
-		solver.reset();
+		getSolver().reset();
 	}// reset
 
 	/**
@@ -444,9 +446,11 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		
 		// Get the canonical graph that we'll use for the simulation. It
 		// maintains all state information during the simulation.
-		canonicalGraph = getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()), start);
+		eDynamicSet(ScenarioPackage.SCENARIO__CANONICAL_GRAPH,
+				ScenarioPackage.Literals.SCENARIO__CANONICAL_GRAPH,
+				getModel().getCanonicalGraph(CANONICAL_GRAPH_URI, new IdentifiableFilterImpl(getModel().getDublinCore().getCoverage()), start));
 
-		canonicalGraph.setTime((STEMTime) EcoreUtil.copy(getSequencer()
+		getCanonicalGraph().setTime((STEMTime) EcoreUtil.copy(getSequencer()
 				.getCurrentTime()));
 
 		//
@@ -455,17 +459,17 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		// unresolved identifiables do not resolve until the very end
 		// this method does that check on the FINAL canonicalGraph.
 		//
-		Iterator<UnresolvedIdentifiable> unresolved = canonicalGraph.getUnresolvedIdentifiables().iterator();
+		Iterator<UnresolvedIdentifiable> unresolved = getCanonicalGraph().getUnresolvedIdentifiables().iterator();
 		  while (unresolved.hasNext()) {
 		   UnresolvedIdentifiable temp = unresolved.next();
 		   
-		   if (canonicalGraph.getNodes().get(temp.getUnresolvedURI()) != null 
-		     || canonicalGraph.getEdges().get(temp.getUnresolvedURI()) != null) {
+		   if (getCanonicalGraph().getNodes().get(temp.getUnresolvedURI()) != null 
+		     || getCanonicalGraph().getEdges().get(temp.getUnresolvedURI()) != null) {
 		    unresolved.remove();
 		   }
 		}
 		// Just checking...
-		assert canonicalGraph.sane();
+		assert getCanonicalGraph().sane();
 
 		// Add the adaptors to keep track of the progress for each graph decorator
 		final double numDecorators = this.getCanonicalGraph().getDecorators().size();
@@ -511,12 +515,12 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			else otherDecorators.add(decorator);
 		}
 		for(Decorator decorator:intDecorators) {
-			canonicalGraph.getDecorators().add(decorator);
+			getCanonicalGraph().getDecorators().add(decorator);
 			decorator.decorateGraph(start);
 			decorator.setGraphDecorated(true);
 		} 
 		for(Decorator decorator:otherDecorators) {
-			canonicalGraph.getDecorators().add(decorator);
+			getCanonicalGraph().getDecorators().add(decorator);
 			decorator.decorateGraph(start);
 			decorator.setGraphDecorated(true);
 		} 
@@ -524,14 +528,14 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		
 		// Are there any unresolved identifiables in the canonical graph and 
 		// should we report them?
-		if ( reportEachUnresolvedIdentifiable && canonicalGraph.getUnresolvedIdentifiables().size() > 0) {
+		if ( reportEachUnresolvedIdentifiable && getCanonicalGraph().getUnresolvedIdentifiables().size() > 0) {
 			// Yes
 			logUnresolvedIdentifiables();
 		}
 		
 		// Are there any unresolved identifiables in the canonical graph and 
 		// should we report their number?
-		if ( reportNumberofUnresolvedIdentifiables && canonicalGraph.getUnresolvedIdentifiables().size() > 0) {
+		if ( reportNumberofUnresolvedIdentifiables && getCanonicalGraph().getUnresolvedIdentifiables().size() > 0) {
 			// Yes
 			logNumberOfUnresolvedIdentifiables();
 		}
@@ -545,8 +549,8 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 */
 	public String produceTitle() {
 		String retValue = "";
-		if (dublinCore != null) {
-			final String title = dublinCore.getTitle();
+		if (getDublinCore() != null) {
+			final String title = getDublinCore().getTitle();
 			retValue = title == null ? "" : title;
 		}
 		return retValue;
@@ -570,6 +574,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Decorator> getScenarioDecorators() {
 		if (scenarioDecorators == null) {
 			scenarioDecorators = new EObjectResolvingEList<Decorator>(Decorator.class, this, ScenarioPackage.SCENARIO__SCENARIO_DECORATORS);
@@ -581,7 +586,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * Report the unresolved Identifiables in the canonical graph
 	 */
 	private void logUnresolvedIdentifiables() {
-		for (Iterator<UnresolvedIdentifiable> unresolvedIter = canonicalGraph
+		for (Iterator<UnresolvedIdentifiable> unresolvedIter = getCanonicalGraph()
 				.getUnresolvedIdentifiables().iterator(); unresolvedIter
 				.hasNext();) {
 			final UnresolvedIdentifiable unresolvedID = unresolvedIter
@@ -607,7 +612,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		CorePlugin.logInformation("In scenario \""
 				+ produceTitle()
 				+ "\", there were "
-				+ canonicalGraph.getUnresolvedIdentifiables().size()
+				+ getCanonicalGraph().getUnresolvedIdentifiables().size()
 				+ " unresolved references."
 		, null);
 		
@@ -735,18 +740,18 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		if (retValue && model != null) {
-			retValue = retValue && model.sane();
+		if (retValue && getModel() != null) {
+			retValue = retValue && getModel().sane();
 			assert retValue;
 		}
 
-		if (retValue && canonicalGraph != null) {
-			retValue = retValue && canonicalGraph.sane();
+		if (retValue && getCanonicalGraph() != null) {
+			retValue = retValue && getCanonicalGraph().sane();
 			assert retValue;
 		}
 
-		if (retValue && sequencer != null) {
-			retValue = retValue && sequencer.sane();
+		if (retValue && getSequencer() != null) {
+			retValue = retValue && getSequencer().sane();
 			assert retValue;
 		}
 

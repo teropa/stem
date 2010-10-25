@@ -45,7 +45,8 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 
 	/**
 	 * The cached value of the '{@link #getTimeIncrement() <em>Time Increment</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTimeIncrement()
 	 * @generated
 	 * @ordered
@@ -113,13 +114,13 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	 * @generated NOT
 	 */
 	public void setTimeIncrement(long newTimeIncrement) {
-		long oldTimeIncrement = timeIncrement;
+		long oldTimeIncrement = getTimeIncrement();
 		timeIncrement = newTimeIncrement;
-		timeDelta = timeIncrement;
+		timeDelta = getTimeIncrement();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT,
-					oldTimeIncrement, timeIncrement));
+					oldTimeIncrement, getTimeIncrement()));
 	}
 
 	/**
@@ -278,7 +279,8 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

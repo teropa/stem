@@ -12,19 +12,15 @@ package org.eclipse.stem.core.graph.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Label;
 
@@ -62,7 +58,6 @@ public class URIToLabelMapEntryImpl extends EObjectImpl implements BasicEMap.Ent
 	 * @ordered
 	 */
 	protected URI key = KEY_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->

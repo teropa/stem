@@ -13,9 +13,9 @@ package org.eclipse.stem.core.modifier.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import java.util.List;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -66,7 +66,8 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 
 	/**
 	 * The cached value of the '{@link #getTargetURI() <em>Target URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTargetURI()
 	 * @generated
 	 * @ordered
@@ -74,10 +75,9 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	protected URI targetURI = TARGET_URI_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFeatureModifiers()
-	 * <em>Feature Modifiers</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getFeatureModifiers() <em>Feature Modifiers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFeatureModifiers()
 	 * @generated
 	 * @ordered
@@ -141,6 +141,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<FeatureModifier> getFeatureModifiers() {
 		if (featureModifiers == null) {
 			featureModifiers = new EObjectContainmentEList<FeatureModifier>(FeatureModifier.class, this, ModifierPackage.MODIFIER__FEATURE_MODIFIERS);
@@ -227,14 +228,14 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	public void updateScenario(final Scenario scenario) {
 		EObject t = getTarget(scenario);
 		if(t == null)
-			CorePlugin.logError("Modifier "+this.getURI()+" cannot find target "+targetURI+" in scenario "+scenario.getURI(), new Exception());
+			CorePlugin.logError("Modifier "+this.getURI()+" cannot find target "+getTargetURI()+" in scenario "+scenario.getURI(), new Exception());
 		else modifyTarget(t);
 	} // updateScenario
 
 	private EObject getTarget(final Scenario scenario) {
 		EObject retValue = null;
 		// Sequencer?
-		if (scenario.getSequencer().getURI().equals(targetURI)) {
+		if (scenario.getSequencer().getURI().equals(getTargetURI())) {
 			// Yes
 			retValue = scenario.getSequencer();
 		} // if
@@ -266,7 +267,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 		EObject retValue = null;
 		for (Decorator decorator : model.getNodeDecorators()) {
 			// Our target?
-			if (decorator.getURI().equals(targetURI)) {
+			if (decorator.getURI().equals(getTargetURI())) {
 				// Yes
 				retValue = decorator;
 				break;
@@ -302,7 +303,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 		EObject retValue = null;
 		for (Decorator decorator : graph.getDecorators()) {
 			// Our target?
-			if (decorator.getURI().equals(targetURI)) {
+			if (decorator.getURI().equals(getTargetURI())) {
 				// Yes
 				retValue = decorator;
 				break;
@@ -321,7 +322,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	private EObject findNodeLabel(Graph g) {
 		for (NodeLabel nodeLabel : g.getNodeLabels().values()) {
 			// Our target?
-			if (nodeLabel.getURI().equals(targetURI)) {
+			if (nodeLabel.getURI().equals(getTargetURI())) {
 				// Yes
 				return  nodeLabel;
 			} // if
@@ -333,7 +334,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	private EObject findEdgeLabel(Graph g) {
 		for (Edge edge : g.getEdges().values()) {
 			// Our target?
-			if (edge.getLabel().getURI().equals(targetURI)) {
+			if (edge.getLabel().getURI().equals(getTargetURI())) {
 				// Yes
 				return edge.getLabel();
 			} // if
@@ -491,7 +492,8 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

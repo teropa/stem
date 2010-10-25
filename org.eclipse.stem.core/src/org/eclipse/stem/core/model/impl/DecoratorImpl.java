@@ -62,13 +62,13 @@ import org.eclipse.stem.core.model.STEMTime;
 public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	/**
 	 * The cached value of the '{@link #getLabelsToUpdate() <em>Labels To Update</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLabelsToUpdate()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<DynamicLabel> labelsToUpdate;
-
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -105,8 +105,6 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @ordered
 	 */
 	protected boolean graphDecorated = GRAPH_DECORATED_EDEFAULT;
-
-	
 	/**
 	 * The default value of the '{@link #getProgress() <em>Progress</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -127,7 +125,6 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 */
 	protected double progress = PROGRESS_EDEFAULT;
 
-	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -149,6 +146,7 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<DynamicLabel> getLabelsToUpdate() {
 		if (labelsToUpdate == null) {
 			labelsToUpdate = new EObjectWithInverseResolvingEList<DynamicLabel>(DynamicLabel.class, this, ModelPackage.DECORATOR__LABELS_TO_UPDATE, GraphPackage.DYNAMIC_LABEL__DECORATOR);

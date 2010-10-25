@@ -40,7 +40,8 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		STEMTimeRangeModifier {
 	/**
 	 * The cached value of the '{@link #getStartValue() <em>Start Value</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getStartValue()
 	 * @generated
 	 * @ordered
@@ -48,7 +49,8 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	protected STEMTime startValue;
 	/**
 	 * The cached value of the '{@link #getEndValue() <em>End Value</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getEndValue()
 	 * @generated
 	 * @ordered
@@ -64,22 +66,22 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	protected static final long INCREMENT_EDEFAULT = 0L;
 	/**
 	 * The cached value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getIncrement()
 	 * @generated
 	 * @ordered
 	 */
 	protected long increment = INCREMENT_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getNextValue() <em>Next Value</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNextValue()
 	 * @generated
 	 * @ordered
 	 */
 	protected STEMTime nextValue;
-
 	/**
 	 * The cached value of the '{@link #getOriginalValue() <em>Original Value</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -293,7 +295,8 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -316,28 +319,28 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		// Unset?
 		if (!eIsSet(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
-			nextValue = startValue;
+			nextValue = getStartValue();
 		} // if
 
 		final STEMTime retValue = nextValue;
-		complete = retValue.equals(endValue);
+		complete = retValue.equals(getEndValue());
 
 		// Still incrementing?
 		if (!complete) {
 			// Yes
 			final STEMTime temp = ((STEMTime) EcoreUtil.copy(retValue))
-					.addIncrement(increment);
+					.addIncrement(getIncrement());
 			// Would the new currentValue be equal or "past" the endValue?
-			if (temp.getTime().before(endValue.getTime())) {
+			if (temp.getTime().before(getEndValue().getTime())) {
 				// No
-				nextValue = temp;
+				setNextValue(temp);
 			} // if
 			else {
 				// Yes
-				nextValue = endValue;
+				setNextValue(getEndValue());
 			} // else
 		} // if
-		currentValueText = retValue.toString();
+		eDynamicSet(ModifierPackage.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, ModifierPackage.Literals.FEATURE_MODIFIER__CURRENT_VALUE_TEXT, retValue.toString());
 		return retValue;
 
 	} // getNextValue
@@ -408,9 +411,9 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((STEMTime)target.eGet(getEStructuralFeature()));
+			setOriginalValue((STEMTime)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 
 	/**
@@ -420,7 +423,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	public void reset() {
 		super.reset();
 		eUnset(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE);
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -432,10 +435,10 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		assert retValue;
 
 		retValue = retValue
-				&& !((endValue).getTime().before((startValue).getTime()));
+				&& !((getEndValue()).getTime().before((getStartValue()).getTime()));
 		assert retValue;
 
-		retValue = retValue && increment > 0;
+		retValue = retValue && getIncrement() > 0;
 		assert retValue;
 
 		return retValue;
