@@ -86,7 +86,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * @generated NOT
 	 */
 	public void setTime(Date newTime) {
-		Date oldTime = getTime();
+		Date oldTime = time;
 		time = (Date)newTime.clone();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.STEM_TIME__TIME, oldTime, time));
