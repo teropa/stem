@@ -51,7 +51,7 @@
       source="true"
       mutable="true"
       resolutionFilter="">
-      <rm:uri format="http://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/{0}">
+      <rm:uri format="svn+ssh://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/{0}">
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
@@ -61,7 +61,7 @@
       source="true"
       mutable="true"
       resolutionFilter="(buckminster.component=org.eclipse.stem.ui.diseasemodels.forcing.editor)">
-      <rm:uri format="http://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/org.eclipse.stem.ui.diseasemodels.forcing">
+      <rm:uri format="svn+ssh://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/org.eclipse.stem.ui.diseasemodels.forcing">
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
