@@ -353,6 +353,33 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 		return super.eIsSet(featureID);
 	}
 
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Enforce identity semantics on equality to
+	 * comply with the general EMF contract.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public final boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Enforce identity semantics on hashCode to
+	 * comply with the general EMF contract.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public final int hashCode() {
+		return super.hashCode();
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

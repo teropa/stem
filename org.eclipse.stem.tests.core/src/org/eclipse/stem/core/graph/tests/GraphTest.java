@@ -701,7 +701,7 @@ public class GraphTest extends IdentifiableTest {
 		// DO IT!
 		mainGraph.switchToNextValue(SWITCH_TIME);
 
-		assertTrue(mainGraph.getTime().equals(SWITCH_TIME));
+		assertTrue(mainGraph.getTime().valueEquals(SWITCH_TIME));
 
 		// After the switch
 		// All of the dynamic label current values should be swapped

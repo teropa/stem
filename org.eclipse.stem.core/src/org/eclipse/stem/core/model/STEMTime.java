@@ -78,14 +78,11 @@ public interface STEMTime extends EObject, Comparable<STEMTime> {
 	STEMTime addIncrement(long timeIncrement);
 
 	/**
-	 * @see java.lang.Object#hashCode()
-	 * @model volatile="true" transient="true" changeable="false"
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
 	 */
-	int hashCode();
+	boolean valueEquals(STEMTime obj);
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 * @model volatile="true" transient="true" changeable="false"
-	 */
-	boolean equals(Object obj);
 } // STEMTime

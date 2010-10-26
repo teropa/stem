@@ -179,29 +179,14 @@ public class StringValueImpl extends EObjectImpl implements StringValue {
 	/**
 	 * Need to override to make sure modifiers can find
 	 */
-	@Override
-	public int hashCode() {
-		Identifiable id = findIdentifiable(this);
-		
-		
-		if(id!=null) 
-			return id.getURI().hashCode() ^
-			this.eContainingFeature().getName().hashCode();
-			
-		return this.hashCode();
-	}
-	
-	@Override
-	public boolean equals(Object o) {
-		if(!(o instanceof DoubleValueImpl)) return false;
-		DoubleValueImpl dvi = (DoubleValueImpl)o;
-		Identifiable id = findIdentifiable(dvi);
+	public boolean valueEquals(StringValueImpl svi) {
+		Identifiable id = findIdentifiable(svi);
 		Identifiable id2 = findIdentifiable(this);
 		if(!id.getURI().equals(id2.getURI())) return false;
 		
 		// Need to make sure that the path from the identifiable
 		// to here is the same
 		//... todo
-		return (super.equals(o));
+		return (super.equals(svi));
 	}
 } //StringValueImpl

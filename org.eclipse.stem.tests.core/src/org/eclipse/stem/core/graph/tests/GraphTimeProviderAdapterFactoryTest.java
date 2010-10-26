@@ -57,6 +57,6 @@ public class GraphTimeProviderAdapterFactoryTest extends
 		graphTime = tp.getTime();
 		
 		assertNotNull(graphTime);
-		assertTrue(graphTime.equals(TEST_TIME));
+		assertTrue(graphTime.valueEquals(TEST_TIME));
 	} // testAdaptGraph
 } // GraphTimeProviderAdapterFactoryTest

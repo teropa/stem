@@ -67,7 +67,7 @@ public class EdgeDecoratorTest extends DecoratorTest {
 		
 		EdgeDecorator d = ModelFactory.eINSTANCE.createEdgeDecorator();
 		d.setURI(DECORATOR_URI);
-		
+
 		setFixture(d);
 	}
 

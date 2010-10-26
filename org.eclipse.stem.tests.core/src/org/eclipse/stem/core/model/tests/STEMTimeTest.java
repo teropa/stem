@@ -24,8 +24,7 @@ import org.eclipse.stem.core.model.STEMTime;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.stem.core.model.STEMTime#addIncrement(long) <em>Add Increment</em>}</li>
- *   <li>{@link org.eclipse.stem.core.model.STEMTime#hashCode() <em>Hash Code</em>}</li>
- *   <li>{@link org.eclipse.stem.core.model.STEMTime#equals(java.lang.Object) <em>Equals</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.STEMTime#valueEquals(java.lang.Object) <em>Value Equals</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -117,31 +116,19 @@ public class STEMTimeTest extends TestCase {
 	} // testAddIncrement__long
 
 	/**
-	 * Tests the '{@link org.eclipse.stem.core.model.STEMTime#hashCode() <em>Hash Code</em>}' operation.
+	 * Tests the '{@link org.eclipse.stem.core.model.STEMTime#valueEquals(java.lang.Object) <em>Value Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.model.STEMTime#hashCode()
+	 * @see org.eclipse.stem.core.model.STEMTime#valueEquals(java.lang.Object)
 	 * @generated NOT
 	 */
-	public void testHashCode() {
+	public void testValueEquals__Object() {
 		final STEMTime time1 = getFixture();
 		final STEMTime time1a = getFixture();
-		assertTrue(time1.hashCode() == time1a.hashCode());
+		assertTrue(time1.valueEquals( time1a));
 		final STEMTime time2 = time1a.addIncrement(TEST_INCREMENT);
-		assertFalse(time1.hashCode() == time2.hashCode());
-	} // testHashCode
-
-	/**
-	 * Tests the '{@link org.eclipse.stem.core.model.STEMTime#equals(java.lang.Object) <em>Equals</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.stem.core.model.STEMTime#equals(java.lang.Object)
-	 * @generated NOT
-	 */
-	public void testEquals__Object() {
-		final STEMTime time1 = getFixture();
-		final STEMTime time1a = getFixture();
-		assertTrue(time1.equals( time1a));
-	} // testEquals__Object
+		assertFalse(time1.valueEquals( time2));
+		
+	}
 
 } // STEMTimeTest

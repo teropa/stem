@@ -149,15 +149,15 @@ public class SequentialSequencerTest extends SequencerTest {
 
 		final SequentialSequencer seqWithEndTime = getFixture();
 		// The first time should be the start time
-		assertTrue(seqWithEndTime.getNextTime().equals(START_TIME));
+		assertTrue(seqWithEndTime.getNextTime().valueEquals(START_TIME));
 		
-		assertTrue(seqWithEndTime.getNextTime().equals(nextTime));
-		assertFalse(seqWithEndTime.getNextTime().equals(nextTime));
+		assertTrue(seqWithEndTime.getNextTime().valueEquals(nextTime));
+		assertFalse(seqWithEndTime.getNextTime().valueEquals(nextTime));
 
 		final SequentialSequencer seqWithNoEndTime = sequencerWithNoEndTime;
-		assertTrue(seqWithNoEndTime.getNextTime().equals( START_TIME));
-		assertTrue(seqWithNoEndTime.getNextTime().equals(nextTime));
-		assertFalse(seqWithNoEndTime.getNextTime().equals(nextTime));
+		assertTrue(seqWithNoEndTime.getNextTime().valueEquals( START_TIME));
+		assertTrue(seqWithNoEndTime.getNextTime().valueEquals(nextTime));
+		assertFalse(seqWithNoEndTime.getNextTime().valueEquals(nextTime));
 	} // testGetNextTime
 
 	/**
@@ -236,13 +236,13 @@ public class SequentialSequencerTest extends SequencerTest {
 	@Override
 	public void testReset() {
 		final SequentialSequencer seqWithEndTime = getFixture();
-		assertTrue(seqWithEndTime.getStartTime().equals(
+		assertTrue(seqWithEndTime.getStartTime().valueEquals(
 				seqWithEndTime.getCurrentTime()));
 		final STEMTime time1 = seqWithEndTime.getNextTime();
-		assertTrue(seqWithEndTime.getStartTime().equals(
+		assertTrue(seqWithEndTime.getStartTime().valueEquals(
 				seqWithEndTime.getCurrentTime()));
 		seqWithEndTime.reset();
-		assertTrue(seqWithEndTime.getStartTime().equals(
+		assertTrue(seqWithEndTime.getStartTime().valueEquals(
 				seqWithEndTime.getCurrentTime()));
 	} // testReset
 
