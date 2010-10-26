@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cspecExtension
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0"
+	xmlns="http://www.eclipse.org/buckminster/CSpec-1.0">
+		<dependencies>
+		<dependency name="org.eclipse.stem.internal.data.geography" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.geography.population.human" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.geography.models" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.geography.infrastructure.transportation" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.geography.population.human" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.geography.population.human.models" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.diseasemodels.models" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.diseasemodels.scenarios" componentType="osgi.bundle"/>
+	</dependencies>
+	<generators>
+		<!-- Place your Generators here -->
+	</generators>
+	<artifacts>
+		<!-- Place your Artifacts here -->
+	</artifacts>
+	<actions>
+		<public name="create.datasets" actor="ant">
+			<actorProperties>
+				<property key="buildFile" value="update.xml"/>
+				<property key="targets" value="update_all"/>
+			</actorProperties>
+		</public>
+	</actions>
+	<groups>
+		<!-- Place your Groups here -->
+	</groups>
+	<alterDependencies>
+		<!-- Place your Dependency alterations here -->
+	</alterDependencies>
+	<alterArtifacts>
+		<!-- Place your Artifact alterations here -->
+	</alterArtifacts>
+	<alterActions>
+		<!-- Place your Action alterations here -->
+	</alterActions>
+	<alterGroups>
+		<!-- Place your Group alterations here -->
+	</alterGroups>
+</cspecExtension>
