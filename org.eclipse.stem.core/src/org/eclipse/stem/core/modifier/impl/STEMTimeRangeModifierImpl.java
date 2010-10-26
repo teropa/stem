@@ -320,7 +320,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		} // if
 
 		final STEMTime retValue = nextValue;
-		complete = retValue.equals(endValue);
+		complete = retValue.valueEquals(endValue);
 
 		// Still incrementing?
 		if (!complete) {
