@@ -5,11 +5,12 @@
 	xmlns="http://www.eclipse.org/buckminster/CSpec-1.0">
 		<dependencies>
 		<dependency name="org.eclipse.stem.internal.data.geography" componentType="osgi.bundle"/>
-		<dependency name="org.eclipse.stem.internal.data.geography.population.human" componentType="osgi.bundle"/>
-		<dependency name="org.eclipse.stem.internal.data.geography.models" componentType="osgi.bundle"/>
 		<dependency name="org.eclipse.stem.internal.data.geography.infrastructure.transportation" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.geography.models" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.geography.population" componentType="osgi.bundle"/>
 		<dependency name="org.eclipse.stem.internal.data.geography.population.human" componentType="osgi.bundle"/>
 		<dependency name="org.eclipse.stem.internal.data.geography.population.human.models" componentType="osgi.bundle"/>
+		<dependency name="org.eclipse.stem.internal.data.population.human" componentType="osgi.bundle"/>
 		<dependency name="org.eclipse.stem.internal.diseasemodels.models" componentType="osgi.bundle"/>
 		<dependency name="org.eclipse.stem.internal.diseasemodels.scenarios" componentType="osgi.bundle"/>
 	</dependencies>
