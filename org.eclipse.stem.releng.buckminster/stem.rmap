@@ -9,9 +9,11 @@
  
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="localWorkspace" failOnError="false" />
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="stemsource" failOnError="true" />
+  <!--
   <rm:locator pattern="" searchPathRef="eclipse3.6" failOnError="false"/>
   <rm:locator searchPathRef="orbit" failOnError="true"/>
-  
+    -->
+    
   <rm:searchPath name="localWorkspace">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature"
         readerType="local"
