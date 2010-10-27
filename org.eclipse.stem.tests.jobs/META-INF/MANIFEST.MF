@@ -8,6 +8,9 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.stem.jobs,
  org.eclipse.stem.tests.core,
- org.eclipse.emf.cdo
+ org.eclipse.emf.cdo,
+ org.eclipse.emf.cdo.net4j,
+ org.eclipse.net4j.db.mysql,
+ org.eclipse.net4j.tcp
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

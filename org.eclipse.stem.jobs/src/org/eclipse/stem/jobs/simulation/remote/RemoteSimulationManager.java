@@ -1,13 +1,14 @@
 package org.eclipse.stem.jobs.simulation.remote;
 
 
+import java.io.IOException;
+
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.net4j.CDOSessionConfiguration;
 import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.net4j.Net4jUtil;
@@ -47,7 +48,7 @@ public class RemoteSimulationManager {
 		CDOSession session = createSession("localhost:2036", "repo1");
 		try {
 			CDOTransaction tx = session.openTransaction();
-			Resource resource = tx.getResourceSet().createResource(URI.createURI("/stem/simulation"));
+			Resource resource = tx.createResource("/stem/simulation");
 			resource.getContents().add((Scenario)((Adapter)executable).getTarget());
 			tx.commit();
 			System.out.println("last upd: "+session.getLastUpdateTime());
