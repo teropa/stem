@@ -17,6 +17,5 @@
     <cq:advisorNode namePattern="org.eclipse.swt.carbon.macosx" componentType="osgi.bundle" skipComponent="true"/>
     <cq:advisorNode namePattern="org.eclipse.core.net.linux.x86" componentType="osgi.bundle" skipComponent="true"/>
     <cq:advisorNode namePattern="org.eclipse.stem.ui" componentType="osgi.bundle" allowCircularDependency="true"/>
-    <cq:advisorNode namePattern="org.eclipse.stem.internal.data.geography" componentType="osgi.bundle" skipComponent="true"/>
     <cq:advisorNode namePattern="org.eclipse.stem.internal.data" componentType="osgi.bundle" allowCircularDependency="true"/>
 </cq:componentQuery>
