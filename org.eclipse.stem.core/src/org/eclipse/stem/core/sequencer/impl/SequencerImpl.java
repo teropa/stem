@@ -127,8 +127,8 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 	 * @generated NOT
 	 */
 	public STEMTime getStartTime() {
-		STEMTime startTime = (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__START_TIME, SequencerPackage.Literals.SEQUENCER__START_TIME, true, true);
-		return (STEMTime) EcoreUtil.copy(startTime);
+		return (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__START_TIME, SequencerPackage.Literals.SEQUENCER__START_TIME, true, true);
+//		return (STEMTime) EcoreUtil.copy(startTime);
 	}
 
 	/**

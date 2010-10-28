@@ -93,7 +93,45 @@ public class CDOLearningTests  {
 			}
 		});
 	}
-	
+
+	@Test
+	public void multipleCommitsInTx() throws Exception {	
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) throws Exception {
+				Resource r = getResource(tx);			
+				Scenario scen = ScenarioFactory.eINSTANCE.createScenario();
+				r.getContents().add(scen);	
+			}
+		});
+		
+		final CDOView listeningView = session.openView();
+		final Scenario listeningScenario = (Scenario)listeningView.getResource("/stem/simulation").getContents().get(0);
+		
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) throws Exception {
+				Scenario scen = (Scenario)getResource(tx).getContents().get(0);
+				
+				scen.setProgress(1.0);
+				tx.commit();
+				
+				Thread.sleep(500);
+				assertEquals(1.0, listeningScenario.getProgress(), 1e-6);
+				
+				scen.setProgress(2.0);
+				tx.commit();
+				
+				Thread.sleep(500);
+				assertEquals(2.0, listeningScenario.getProgress(), 1e-6);
+				
+				scen.setProgress(3.0);
+				tx.commit();
+				
+				Thread.sleep(500);
+				assertEquals(3.0, listeningScenario.getProgress(), 1e-6);
+			}
+		});
+	}
+
 	@Test
 	public void withDublinCoreSaveLoadInView() throws Exception {
 		inTransaction(new Action() {
@@ -147,7 +185,7 @@ public class CDOLearningTests  {
 	
 	@Test
 	public void savingWithSTEMBuiltinModel() throws Exception {
-		final Model model = (Model)Utility.getIdentifiable(URI.createFileURI("/home/teroparv/devel/stem/org.eclipse.stem.data.geography.models/resources/data/country/AIA/AIA_0.model"));
+		final Model model = (Model)Utility.getIdentifiable(URI.createURI("platform:/plugin/org.eclipse.stem.data.geography.models/resources/data/country/AIA/AIA_0.model"));
 		assertNotNull(model);
 		inTransaction(new Action() {
 			public void run(CDOTransaction tx) {
@@ -168,7 +206,7 @@ public class CDOLearningTests  {
 	
 	@Test
 	public void savingCopyOfSTEMBuiltinModel() throws Exception {
-		final Model model = (Model)Utility.getIdentifiable(URI.createFileURI("/home/teroparv/devel/stem/org.eclipse.stem.data.geography.models/resources/data/country/AIA/AIA_0.model"));
+		final Model model = (Model)Utility.getIdentifiable(URI.createURI("platform:/plugin/org.eclipse.stem.data.geography.models/resources/data/country/AIA/AIA_0.model"));
 		assertNotNull(model);
 		assertNotNull(model.getDublinCore());
 		inTransaction(new Action() {

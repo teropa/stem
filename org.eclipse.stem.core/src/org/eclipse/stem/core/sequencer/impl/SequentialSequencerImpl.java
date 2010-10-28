@@ -123,7 +123,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 			// then the start time is the first value to return, we don't
 			// test for it relationship to the end time here.  This makes
 			// it possible that the value returned would be after the end time.
-			nextTime = getStartTime();
+			nextTime = EcoreUtil.copy(getStartTime());
 			getNextTimeNotCalled = false;
 		} // if first call
 		else {
@@ -152,7 +152,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 		} // else not first call
 		setCurrentTime(nextTime);
 		setWorkComplete(Math.min(getWorkComplete() + getWorkIncrement(), 100));
-		
+
 		return getCurrentTime();
 	} // getNextTime
 
