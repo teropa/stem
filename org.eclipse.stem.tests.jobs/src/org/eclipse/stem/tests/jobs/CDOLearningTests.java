@@ -1,11 +1,17 @@
 package org.eclipse.stem.tests.jobs;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.eclipse.emf.cdo.common.commit.CDOCommitInfo;
+import org.eclipse.emf.cdo.common.commit.CDOCommitInfoHandler;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.net4j.CDOSessionConfiguration;
@@ -20,6 +26,8 @@ import org.eclipse.net4j.tcp.ITCPConnector;
 import org.eclipse.net4j.tcp.TCPUtil;
 import org.eclipse.net4j.util.container.ContainerUtil;
 import org.eclipse.net4j.util.container.IManagedContainer;
+import org.eclipse.net4j.util.event.IEvent;
+import org.eclipse.net4j.util.event.IListener;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.CommonFactory;
@@ -37,9 +45,14 @@ public class CDOLearningTests  {
 	
 	@Before
 	public void setUp() throws Exception {
-		session = createSession("localhost:2036", "repo1");
-		session.options().setGeneratedPackageEmulationEnabled(true);
+		session = openSession();
 		clear();
+	}
+
+	private CDOSession openSession() {
+		CDOSession session = createSession("localhost:2036", "repo1");
+		session.options().setGeneratedPackageEmulationEnabled(true);
+		return session;
 	}
 	
 	@After
@@ -221,9 +234,131 @@ public class CDOLearningTests  {
 		s = (Scenario)res.getContents().get(0);
 		assertEquals(2.0, s.getProgress(), 1e-6);
 		view.close();
-
 	}
 	
+	
+	@Test
+	public void accessingRevisionsWithoutKnowingTimestamps() throws Exception {
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) throws Exception {
+				Resource r = getResource(tx);			
+				Scenario scen = ScenarioFactory.eINSTANCE.createScenario();
+				scen.setProgress(0);
+				r.getContents().add(scen);
+				tx.commit();
+			}
+		});
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) throws Exception {
+				Resource r = getResource(tx);
+				Scenario s = (Scenario)r.getContents().get(0);
+				s.setProgress(1);
+				tx.commit();
+			}
+		});
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) throws Exception {
+				Resource r = getResource(tx);
+				Scenario s = (Scenario)r.getContents().get(0);
+				s.setProgress(2);
+				tx.commit();
+			}
+		});
+
+		CDOView view = session.openTransaction();
+		final List<Long> commitTimes = new ArrayList<Long>();
+		session.getCommitInfoManager().getCommitInfos(view.getBranch(), new CDOCommitInfoHandler() {
+			public void handleCommitInfo(CDOCommitInfo commitInfo) {
+				commitTimes.add(commitInfo.getTimeStamp());
+			}
+		});
+		view.close();
+		assertTrue(commitTimes.size() > 3);
+
+		view = session.openView(commitTimes.get(commitTimes.size() - 3));
+		CDOResource res = view.getResource("/stem/simulation");
+		Scenario s = (Scenario)res.getContents().get(0);
+		assertEquals(0.0, s.getProgress(), 1e-6);
+		view.close();
+
+		view = session.openView(commitTimes.get(commitTimes.size() - 2));
+		res = view.getResource("/stem/simulation");
+		s = (Scenario)res.getContents().get(0);
+		assertEquals(1.0, s.getProgress(), 1e-6);
+		view.close();
+
+		view = session.openView(commitTimes.get(commitTimes.size() - 1));
+		res = view.getResource("/stem/simulation");
+		s = (Scenario)res.getContents().get(0);
+		assertEquals(2.0, s.getProgress(), 1e-6);
+		view.close();
+	}	
+
+	@Test
+	public void passiveUpdates() throws Exception {
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) throws Exception {
+				Resource r = getResource(tx);			
+				Scenario scen = ScenarioFactory.eINSTANCE.createScenario();
+				r.getContents().add(scen);
+				tx.commit();
+			}
+		});
+		
+		CDOSession secondSession = openSession();
+		try {
+			CDOView listeningView = secondSession.openView();
+			CDOTransaction changingTx = session.openTransaction();
+			
+			CDOResource listeningResource = listeningView.getResource("/stem/simulation");
+			Scenario listeningScenario = (Scenario)listeningResource.getContents().get(0);
+			
+			CDOResource changingResource = changingTx.getResource("/stem/simulation");
+			Scenario changingScenario = (Scenario)changingResource.getContents().get(0);
+			
+			assertNotSame(listeningScenario, changingScenario);
+			
+			changingScenario.setProgress(100.0);
+			
+			assertEquals(0.0, listeningScenario.getProgress(), 1e-6);
+			
+			changingTx.commit();
+			changingTx.close();
+			
+			Thread.sleep(500);
+			
+			assertEquals(100.0, listeningScenario.getProgress(), 1e-6);
+		} finally {
+			secondSession.close();
+		}
+	}
+
+	@Test
+	public void beingNotified() throws Exception {
+		CDOSession secondSession = openSession();
+		try {
+			final AtomicBoolean isNotified = new AtomicBoolean(false);
+			CDOView listeningView = secondSession.openView();
+			listeningView.addListener(new IListener() {
+				public void notifyEvent(IEvent event) {
+					System.out.println("Notified: "+event);
+					isNotified.set(true);					
+				}
+			});
+			inTransaction(new Action() {
+				public void run(CDOTransaction tx) throws Exception {
+					Resource r = getResource(tx);			
+					Scenario scen = ScenarioFactory.eINSTANCE.createScenario();
+					r.getContents().add(scen);
+					tx.commit();
+				}
+			});
+			Thread.sleep(500);
+			assertTrue(isNotified.get());
+		} finally {
+			secondSession.close();
+		}
+	}
 
 	private static interface Action {
 		public void run(CDOTransaction tx) throws Exception;
