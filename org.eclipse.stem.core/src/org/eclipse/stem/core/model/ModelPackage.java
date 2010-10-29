@@ -123,22 +123,13 @@ public interface ModelPackage extends EPackage {
 	int DECORATOR__GRAPH = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECORATOR__ENABLED = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR__GRAPH_DECORATED = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
+	int DECORATOR__GRAPH_DECORATED = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Progress</b></em>' attribute.
@@ -147,7 +138,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR__PROGRESS = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
+	int DECORATOR__PROGRESS = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECORATOR__ENABLED = CommonPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Decorator</em>' class.
@@ -214,15 +214,6 @@ public interface ModelPackage extends EPackage {
 	int EDGE_DECORATOR__GRAPH = DECORATOR__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDGE_DECORATOR__ENABLED = DECORATOR__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -239,6 +230,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int EDGE_DECORATOR__PROGRESS = DECORATOR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_DECORATOR__ENABLED = DECORATOR__ENABLED;
 
 	/**
 	 * The number of structural features of the '<em>Edge Decorator</em>' class.
@@ -305,15 +305,6 @@ public interface ModelPackage extends EPackage {
 	int GRAPH_DECORATOR__GRAPH = DECORATOR__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH_DECORATOR__ENABLED = DECORATOR__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -330,6 +321,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH_DECORATOR__PROGRESS = DECORATOR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_DECORATOR__ENABLED = DECORATOR__ENABLED;
 
 	/**
 	 * The number of structural features of the '<em>Graph Decorator</em>' class.
@@ -487,15 +487,6 @@ public interface ModelPackage extends EPackage {
 	int NODE_DECORATOR__GRAPH = DECORATOR__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_DECORATOR__ENABLED = DECORATOR__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -512,6 +503,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE_DECORATOR__PROGRESS = DECORATOR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DECORATOR__ENABLED = DECORATOR__ENABLED;
 
 	/**
 	 * The number of structural features of the '<em>Node Decorator</em>' class.

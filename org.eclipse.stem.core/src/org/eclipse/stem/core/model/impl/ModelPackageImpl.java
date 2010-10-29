@@ -239,7 +239,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EAttribute getDecorator_Enabled() {
-		return (EAttribute)decoratorEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)decoratorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -248,7 +248,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EAttribute getDecorator_GraphDecorated() {
-		return (EAttribute)decoratorEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)decoratorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -257,7 +257,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EAttribute getDecorator_Progress() {
-		return (EAttribute)decoratorEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)decoratorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -408,9 +408,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		decoratorEClass = createEClass(DECORATOR);
 		createEReference(decoratorEClass, DECORATOR__LABELS_TO_UPDATE);
 		createEReference(decoratorEClass, DECORATOR__GRAPH);
-		createEAttribute(decoratorEClass, DECORATOR__ENABLED);
 		createEAttribute(decoratorEClass, DECORATOR__GRAPH_DECORATED);
 		createEAttribute(decoratorEClass, DECORATOR__PROGRESS);
+		createEAttribute(decoratorEClass, DECORATOR__ENABLED);
 
 		edgeDecoratorEClass = createEClass(EDGE_DECORATOR);
 
@@ -481,10 +481,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(decoratorEClass, Decorator.class, "Decorator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDecorator_LabelsToUpdate(), theGraphPackage.getDynamicLabel(), theGraphPackage.getDynamicLabel_Decorator(), "labelsToUpdate", null, 0, -1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDecorator_Graph(), theGraphPackage.getGraph(), theGraphPackage.getGraph_Decorators(), "graph", null, 0, 1, Decorator.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getDecorator_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEReference(getDecorator_Graph(), theGraphPackage.getGraph(), theGraphPackage.getGraph_Decorators(), "graph", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDecorator_GraphDecorated(), ecorePackage.getEBoolean(), "graphDecorated", "false", 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getDecorator_Progress(), ecorePackage.getEDouble(), "progress", "0.0", 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getDecorator_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		EOperation op = addEOperation(decoratorEClass, theEcorePackage.getEBoolean(), "decorateGraph", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getSTEMTime(), "time", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$

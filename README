@@ -1,0 +1,7 @@
+Changes
+-------
+
+StandardPopulationModelImpl.handlePipeTransport() will call initPipeTransport() because the pipe transport maps are not EMF features and may have been initialized on the "other side".
+
+decorator->graph relatiopnship changed from transient to non-transient (caused ClassCastException with CDO).
+http://dev.eclipse.org/newslists/news.eclipse.tools.emf/msg23116.html

@@ -16,29 +16,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
-import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
-import org.eclipse.stem.definitions.edges.MigrationEdge;
 import org.eclipse.stem.definitions.transport.PipeTransportEdge;
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
 import org.eclipse.stem.definitions.transport.impl.PipeStyleTransportSystemImpl;
@@ -320,6 +313,10 @@ public class StandardPopulationModelImpl extends PopulationModelImpl implements 
 	
 	
 	protected void handlePipeTransport(StandardPopulationModelLabelImpl populationLabel, Map<Node, Double>arrivals,Map<Node, Double>departures, long timeDelta, StandardPopulationModelLabelValueImpl delta) {
+		if (pipeTransportationUpEdgesMap == null) {
+			initPipeTransport(this.getGraph());
+		}
+		
 		// Get the pipe transport edges to/from the node
 		Node node = populationLabel.getNode();
 		List<PipeTransportEdge>pedges = pipeTransportationNodeEdgesMap.get(node);

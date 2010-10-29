@@ -1,41 +1,29 @@
 package org.eclipse.stem.tests.jobs;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.cdo.common.commit.CDOCommitInfo;
-import org.eclipse.emf.cdo.common.commit.CDOCommitInfoHandler;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.net4j.CDOSessionConfiguration;
 import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
-import org.eclipse.emf.cdo.view.CDOView;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.net4j.Net4jUtil;
 import org.eclipse.net4j.tcp.ITCPConnector;
 import org.eclipse.net4j.tcp.TCPUtil;
 import org.eclipse.net4j.util.container.ContainerUtil;
 import org.eclipse.net4j.util.container.IManagedContainer;
-import org.eclipse.net4j.util.event.IEvent;
-import org.eclipse.net4j.util.event.IListener;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
-import org.eclipse.stem.core.common.CommonFactory;
-import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
@@ -46,14 +34,10 @@ import org.eclipse.stem.core.sequencer.SequencerFactory;
 import org.eclipse.stem.core.sequencer.SequentialSequencer;
 import org.eclipse.stem.diseasemodels.standard.DeterministicSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.SIInfector;
-import org.eclipse.stem.jobs.simulation.ISimulation;
-import org.eclipse.stem.jobs.simulation.Simulation;
-import org.eclipse.stem.jobs.simulation.SimulationManager;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.solvers.fd.FiniteDifference;
 import org.eclipse.stem.solvers.fd.impl.FdFactoryImpl;
-import org.eclipse.stem.solvers.fd.impl.FiniteDifferenceImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -109,6 +93,7 @@ public class CDOSimulationLearningTests  {
 				scenario.setSolver(fd);
 				
 				SIInfector infector = org.eclipse.stem.diseasemodels.standard.StandardFactory.eINSTANCE.createSIInfector();
+				infector.setURI(STEMURI.createURI("sIInfector" + "/" + STEMURI.generateUniquePart()));
 				infector.setDiseaseName("ExampleDisease");
 				infector.setTargetISOKey("FI-UU");
 				infector.setPopulationIdentifier("human");
@@ -144,8 +129,8 @@ public class CDOSimulationLearningTests  {
 				for (EObject e : object.eCrossReferences()) {
 					Resource resource = e.eResource();
 					if (resource == null || !isPlatformResource(resource)) {
-						System.out.println(e.getClass().getName());
 						if (e.eContainer() == null) {
+							System.out.println(e.getClass().getName() + " " + e.toString());
 							result.add(e);
 						}
 						result.addAll(getNonContainedNonPlatformObjects(e, visited));
@@ -181,13 +166,11 @@ public class CDOSimulationLearningTests  {
 				scenario.getSolver().initialize(sequencer.getNextTime());
 			}
 			
-			boolean success = scenario.step();
-			if(!success) {
-				throw new IllegalStateException("Scenario failed to step");
-			}
+			scenario.step();
 			
 			runnerTx.commit();
 		}
+		
 	}
 
 

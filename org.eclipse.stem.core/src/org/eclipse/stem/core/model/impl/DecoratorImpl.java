@@ -42,24 +42,15 @@ import org.eclipse.stem.core.model.STEMTime;
  * <ul>
  *   <li>{@link org.eclipse.stem.core.model.impl.DecoratorImpl#getLabelsToUpdate <em>Labels To Update</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.impl.DecoratorImpl#getGraph <em>Graph</em>}</li>
- *   <li>{@link org.eclipse.stem.core.model.impl.DecoratorImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.impl.DecoratorImpl#isGraphDecorated <em>Graph Decorated</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.impl.DecoratorImpl#getProgress <em>Progress</em>}</li>
+ *   <li>{@link org.eclipse.stem.core.model.impl.DecoratorImpl#isEnabled <em>Enabled</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class DecoratorImpl extends IdentifiableImpl implements Decorator {
-	/**
-	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isEnabled()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ENABLED_EDEFAULT = true;
 	/**
 	 * The default value of the '{@link #isGraphDecorated() <em>Graph Decorated</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -78,6 +69,15 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	 * @ordered
 	 */
 	protected static final double PROGRESS_EDEFAULT = 0.0;
+	/**
+	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLED_EDEFAULT = true;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -332,12 +332,12 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 				return getLabelsToUpdate();
 			case ModelPackage.DECORATOR__GRAPH:
 				return getGraph();
-			case ModelPackage.DECORATOR__ENABLED:
-				return isEnabled();
 			case ModelPackage.DECORATOR__GRAPH_DECORATED:
 				return isGraphDecorated();
 			case ModelPackage.DECORATOR__PROGRESS:
 				return getProgress();
+			case ModelPackage.DECORATOR__ENABLED:
+				return isEnabled();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -357,14 +357,14 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 			case ModelPackage.DECORATOR__GRAPH:
 				setGraph((Graph)newValue);
 				return;
-			case ModelPackage.DECORATOR__ENABLED:
-				setEnabled((Boolean)newValue);
-				return;
 			case ModelPackage.DECORATOR__GRAPH_DECORATED:
 				setGraphDecorated((Boolean)newValue);
 				return;
 			case ModelPackage.DECORATOR__PROGRESS:
 				setProgress((Double)newValue);
+				return;
+			case ModelPackage.DECORATOR__ENABLED:
+				setEnabled((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -383,14 +383,14 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 			case ModelPackage.DECORATOR__GRAPH:
 				setGraph((Graph)null);
 				return;
-			case ModelPackage.DECORATOR__ENABLED:
-				setEnabled(ENABLED_EDEFAULT);
-				return;
 			case ModelPackage.DECORATOR__GRAPH_DECORATED:
 				setGraphDecorated(GRAPH_DECORATED_EDEFAULT);
 				return;
 			case ModelPackage.DECORATOR__PROGRESS:
 				setProgress(PROGRESS_EDEFAULT);
+				return;
+			case ModelPackage.DECORATOR__ENABLED:
+				setEnabled(ENABLED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -407,12 +407,12 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 				return !getLabelsToUpdate().isEmpty();
 			case ModelPackage.DECORATOR__GRAPH:
 				return getGraph() != null;
-			case ModelPackage.DECORATOR__ENABLED:
-				return isEnabled() != ENABLED_EDEFAULT;
 			case ModelPackage.DECORATOR__GRAPH_DECORATED:
 				return isGraphDecorated() != GRAPH_DECORATED_EDEFAULT;
 			case ModelPackage.DECORATOR__PROGRESS:
 				return getProgress() != PROGRESS_EDEFAULT;
+			case ModelPackage.DECORATOR__ENABLED:
+				return isEnabled() != ENABLED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

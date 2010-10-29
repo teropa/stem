@@ -103,7 +103,7 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected SequencerImpl() {
 		super();
@@ -485,9 +485,10 @@ public abstract class SequencerImpl extends IdentifiableImpl implements
 			result.append(dateFormat.format(getEndTime().getTime()));
 		}
 
-		if (getCurrentTime() != null) {
+		STEMTime currentTime = (STEMTime)eDynamicGet(SequencerPackage.SEQUENCER__CURRENT_TIME, SequencerPackage.Literals.SEQUENCER__CURRENT_TIME, true, true);
+		if (currentTime != null) {
 			result.append(", current=");
-			result.append(dateFormat.format(getCurrentTime().getTime()));
+			result.append(dateFormat.format(currentTime.getTime()));
 		}
 
 		result.append(" (timeDelta: "); //$NON-NLS-1$

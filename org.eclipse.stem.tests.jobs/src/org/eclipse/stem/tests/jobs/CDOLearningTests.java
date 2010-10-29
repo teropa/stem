@@ -32,9 +32,13 @@ import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
+import org.eclipse.stem.diseasemodels.standard.SIInfector;
+import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -398,6 +402,32 @@ public class CDOLearningTests  {
 		}
 	}
 
+	@Test
+	public void graphDecorators() throws Exception {
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) {
+				Resource r = getResource(tx);			
+				Graph graph = GraphFactory.eINSTANCE.createGraph();
+				
+				SIInfector infector = StandardFactory.eINSTANCE.createSIInfector();
+				graph.getDecorators().add(infector);
+				assertNotNull(infector.eContainer());
+				
+				r.getContents().add(graph);					
+			}
+		});
+		inTransaction(new Action() {
+			public void run(CDOTransaction tx) {
+				Resource r = getResource(tx);			
+				Graph graph = (Graph)r.getContents().get(0);
+				assertNotNull(graph);
+				assertEquals(1, graph.getDecorators().size());
+				System.out.println("Clearing");
+				r.getContents().clear();
+			}
+		});		
+	}
+	
 	private static interface Action {
 		public void run(CDOTransaction tx) throws Exception;
 	}

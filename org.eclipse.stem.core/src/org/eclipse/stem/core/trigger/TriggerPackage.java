@@ -121,15 +121,6 @@ public interface TriggerPackage extends EPackage {
 	int TRIGGER__GRAPH = ModelPackage.DECORATOR__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIGGER__ENABLED = ModelPackage.DECORATOR__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +137,15 @@ public interface TriggerPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRIGGER__PROGRESS = ModelPackage.DECORATOR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__ENABLED = ModelPackage.DECORATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Predicate</b></em>' reference.

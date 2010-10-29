@@ -27,13 +27,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelsToUpdate" upperBound="-1"
         eType="ecore:EClass graph.ecore#//DynamicLabel" eOpposite="graph.ecore#//DynamicLabel/decorator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="ecore:EClass graph.ecore#//Graph"
-        transient="true" eOpposite="graph.ecore#//Graph/decorators"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
+        eOpposite="graph.ecore#//Graph/decorators"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDecorated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EdgeDecorator" eSuperTypes="#//Decorator"/>
   <eClassifiers xsi:type="ecore:EClass" name="GraphDecorator" eSuperTypes="#//Decorator"/>

@@ -1379,15 +1379,6 @@ public interface ModifierPackage extends EPackage {
 	int MODIFIER__GRAPH = ModelPackage.DECORATOR__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODIFIER__ENABLED = ModelPackage.DECORATOR__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Graph Decorated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1404,6 +1395,15 @@ public interface ModifierPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODIFIER__PROGRESS = ModelPackage.DECORATOR__PROGRESS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODIFIER__ENABLED = ModelPackage.DECORATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Target URI</b></em>' attribute.
