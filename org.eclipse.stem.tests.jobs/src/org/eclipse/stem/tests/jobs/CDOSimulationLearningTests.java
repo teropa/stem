@@ -4,15 +4,21 @@ import static org.junit.Assert.assertTrue;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.cdo.CDOInvalidationNotification;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.net4j.CDOSessionConfiguration;
 import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
+import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.cdo.view.CDOViewInvalidationEvent;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -21,6 +27,8 @@ import org.eclipse.net4j.tcp.ITCPConnector;
 import org.eclipse.net4j.tcp.TCPUtil;
 import org.eclipse.net4j.util.container.ContainerUtil;
 import org.eclipse.net4j.util.container.IManagedContainer;
+import org.eclipse.net4j.util.event.IEvent;
+import org.eclipse.net4j.util.event.IListener;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
@@ -34,6 +42,10 @@ import org.eclipse.stem.core.sequencer.SequencerFactory;
 import org.eclipse.stem.core.sequencer.SequentialSequencer;
 import org.eclipse.stem.diseasemodels.standard.DeterministicSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.SIInfector;
+import org.eclipse.stem.jobs.simulation.ISimulation;
+import org.eclipse.stem.jobs.simulation.ISimulationListener;
+import org.eclipse.stem.jobs.simulation.ISimulationListenerSync;
+import org.eclipse.stem.jobs.simulation.SimulationState;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
 import org.eclipse.stem.solvers.fd.FiniteDifference;
@@ -145,6 +157,20 @@ public class CDOSimulationLearningTests  {
 
 		});
 		
+		CDOView listeningView = session.openView();
+		listeningView.options().setInvalidationNotificationEnabled(true);
+		CDOResource listeningRes = listeningView.getResource("/stem/simulation");
+		final Scenario listeningScenario = (Scenario)listeningRes.getContents().get(0);
+		listeningScenario.getSequencer().eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				if (msg instanceof CDOInvalidationNotification) {
+					System.out.println("sequencer invalidated, current time: "+listeningScenario.getSequencer().getCurrentTime());
+				}
+			}
+		});
+		
+		
 		CDOSession runnerSession = openSession();
 		CDOTransaction runnerTx = runnerSession.openTransaction();
 		CDOResource res = runnerTx.getResource("/stem/simulation");
@@ -173,12 +199,12 @@ public class CDOSimulationLearningTests  {
 		
 	}
 
-
 	private STEMTime getSTEMTime(String string) throws Exception {
 		STEMTime theTime = ModelFactory.eINSTANCE.createSTEMTime();
 		theTime.setTime(new SimpleDateFormat("yyyyMMddHHmmss").parse(string));
 		return theTime;
 	}
+	
 	private static interface Action {
 		public void run(CDOTransaction tx) throws Exception;
 	}
