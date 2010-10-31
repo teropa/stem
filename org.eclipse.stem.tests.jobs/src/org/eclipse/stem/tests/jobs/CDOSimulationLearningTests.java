@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.cdo.CDOInvalidationNotification;
@@ -15,6 +17,7 @@ import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.net4j.CDOSessionConfiguration;
 import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
+import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.view.CDOView;
 import org.eclipse.emf.cdo.view.CDOViewInvalidationEvent;
 import org.eclipse.emf.common.notify.Notification;
@@ -22,6 +25,8 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.net4j.Net4jUtil;
 import org.eclipse.net4j.tcp.ITCPConnector;
 import org.eclipse.net4j.tcp.TCPUtil;
@@ -32,6 +37,8 @@ import org.eclipse.net4j.util.event.IListener;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.Utility;
+import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
@@ -77,6 +84,15 @@ public class CDOSimulationLearningTests  {
 	
 	@Test
 	public void testSimulationRun() throws Exception {
+		CDOView listeningView = session.openView();
+		listeningView.options().setInvalidationNotificationEnabled(true);
+		CDOResource listeningRes = listeningView.getResource("/stem/simulation");
+		listeningRes.eAdapters().add(new EContentAdapter() {
+			public void notifyChanged(Notification notification) {
+				System.out.println("Notified by "+notification.getClass().getName()+": "+notification);
+			};
+		});
+		
 		inTransaction(new Action() {
 			public void run(CDOTransaction tx) throws Exception {
 				Scenario scenario = ScenarioFactory.eINSTANCE.createScenario();
@@ -157,20 +173,31 @@ public class CDOSimulationLearningTests  {
 
 		});
 		
-		CDOView listeningView = session.openView();
-		listeningView.options().setInvalidationNotificationEnabled(true);
-		CDOResource listeningRes = listeningView.getResource("/stem/simulation");
-		final Scenario listeningScenario = (Scenario)listeningRes.getContents().get(0);
-		listeningScenario.getSequencer().eAdapters().add(new AdapterImpl() {
-			@Override
-			public void notifyChanged(Notification msg) {
-				if (msg instanceof CDOInvalidationNotification) {
-					System.out.println("sequencer invalidated, current time: "+listeningScenario.getSequencer().getCurrentTime());
-				}
-			}
-		});
+//		CDOView listeningView = session.openView();
+//		listeningView.options().setInvalidationNotificationEnabled(true);
+//		CDOResource listeningRes = listeningView.getResource("/stem/simulation");
+//		final Scenario listeningScenario = (Scenario)listeningRes.getContents().get(0);
+//		listeningScenario.getSequencer().eAdapters().add(new AdapterImpl() {
+//			@Override
+//			public void notifyChanged(Notification msg) {
+//				if (msg instanceof CDOInvalidationNotification) {
+//					System.out.println("sequencer invalidated");
+//					System.out.println("currentTime: "+listeningScenario.getSequencer().getCurrentTime());
+//					Iterator<EObject> graphContents = listeningScenario.getCanonicalGraph().eAllContents();
+//					while (graphContents.hasNext()) {
+//						EObject cnt = graphContents.next();
+//						System.out.println("\t" + cnt);
+//					}
+//				}
+//			}
+//		});
 		
 		
+		initRunner();
+		
+	}
+
+	private void initRunner() throws CommitException {
 		CDOSession runnerSession = openSession();
 		CDOTransaction runnerTx = runnerSession.openTransaction();
 		CDOResource res = runnerTx.getResource("/stem/simulation");
@@ -196,7 +223,6 @@ public class CDOSimulationLearningTests  {
 			
 			runnerTx.commit();
 		}
-		
 	}
 
 	private STEMTime getSTEMTime(String string) throws Exception {

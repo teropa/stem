@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="STEM Server" uid="org.eclipse.stem.server.product" id="org.eclipse.stem.server.product" application="org.eclipse.stem.server.ServerApplication" version="1.0.1.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="STEM Server" uid="s" id="org.eclipse.stem.server.product" application="org.eclipse.stem.server.ServerApplication" version="1.0.1.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="branding/ohf64_64_32.gif"/>
@@ -25,16 +25,31 @@
       startupProgressRect="0,413,431,15"
       startupMessageRect="10,380,431,20"
       startupForegroundColor="FFFFFF" />
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+
    <plugins>
+      <plugin id="javax.servlet"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.services"/>
    </plugins>
 
 
