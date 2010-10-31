@@ -1,35 +1,58 @@
 package org.eclipse.stem.server;
 
+import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.net4j.CDOSessionConfiguration;
 import org.eclipse.emf.cdo.session.CDOSession;
+import org.eclipse.emf.cdo.transaction.CDOTransaction;
+import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.net4j.Net4jUtil;
 import org.eclipse.net4j.jvm.IJVMConnector;
 import org.eclipse.net4j.jvm.JVMUtil;
-import org.eclipse.net4j.util.container.ContainerUtil;
 import org.eclipse.net4j.util.container.IManagedContainer;
 import org.eclipse.net4j.util.container.IPluginContainer;
-import org.eclipse.net4j.util.event.IEvent;
-import org.eclipse.net4j.util.event.IListener;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
+import org.eclipse.stem.server.server.ServerFactory;
+import org.eclipse.stem.server.server.Simulations;
 
 public class SimulationRunner {
 
 	private CDOSession session;
 	private CDOView view;
+	private CDOResource resource;
+	private Simulations simulations;
 	
-	public void start() {
+	public void start() throws Exception {
 		System.out.println("simulation runner starting");
 		session = createSession("repo1");
+		session.options().setGeneratedPackageEmulationEnabled(true);
+		ensureSimulations();
+		
 		view = session.openView();
-		view.addListener(new IListener() {
-			public void notifyEvent(IEvent event) {
-				System.out.println("Notified: "+event);
-			}
-		});
+		resource = view.getResource("/stem/simulations");
+		simulations = findSimulations(resource);
 	}
 	
+	private void ensureSimulations() throws CommitException {
+		CDOTransaction tx = session.openTransaction();
+		CDOResource res = tx.getOrCreateResource("/stem/simulations");
+		if (findSimulations(res) == null) {
+			Simulations sims = ServerFactory.eINSTANCE.createSimulations();
+			res.getContents().add(sims);
+			tx.commit();
+		}
+		tx.close();
+	}
+
+	private Simulations findSimulations(CDOResource res) {
+		if (!res.getContents().isEmpty()) {
+			return (Simulations)res.getContents().get(0);
+		}
+		return null;
+	}
+
 	public void stop() {
 		view.close();
 		session.close();

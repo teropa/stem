@@ -23,7 +23,7 @@ public class ServerApplication extends OSGiApplication {
 		cdoServer.start();
 	}
 	
-	private void startSimulationRunner() {
+	private void startSimulationRunner() throws Exception {
 		simRunner = new SimulationRunner();
 		simRunner.start();
 	}
