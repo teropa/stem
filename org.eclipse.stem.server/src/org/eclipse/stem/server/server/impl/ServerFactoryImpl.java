@@ -31,7 +31,7 @@ public class ServerFactoryImpl extends EFactoryImpl implements ServerFactory {
 	 */
 	public static ServerFactory init() {
 		try {
-			ServerFactory theServerFactory = (ServerFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/eclipse/stem/server"); 
+			ServerFactory theServerFactory = (ServerFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/eclipse/stem/server.ecore"); 
 			if (theServerFactory != null) {
 				return theServerFactory;
 			}

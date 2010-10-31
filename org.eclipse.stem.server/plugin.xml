@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///org/eclipse/stem/server.ecore"
+            class="org.eclipse.stem.server.server.ServerPackage"
+            genModel="model/server.genmodel"/>
+   </extension>
+
    <extension
          point="org.eclipse.core.runtime.applications"
          id="ServerApplication">

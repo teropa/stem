@@ -7,6 +7,8 @@ import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.net4j.Net4jUtil;
 import org.eclipse.net4j.jvm.IJVMConnector;
@@ -33,6 +35,12 @@ public class SimulationRunner {
 		view = session.openView();
 		resource = view.getResource("/stem/simulations");
 		simulations = findSimulations(resource);
+		simulations.eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				System.out.println("Simulations changed "+msg);
+			}
+		});
 	}
 	
 	private void ensureSimulations() throws CommitException {

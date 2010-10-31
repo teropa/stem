@@ -40,7 +40,7 @@ public interface ServerPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http:///org/eclipse/stem/server";
+	String eNS_URI = "http:///org/eclipse/stem/server.ecore";
 
 	/**
 	 * The package namespace name.
