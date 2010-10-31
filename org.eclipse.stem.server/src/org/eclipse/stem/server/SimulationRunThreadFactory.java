@@ -2,9 +2,9 @@ package org.eclipse.stem.server;
 
 import java.util.concurrent.ThreadFactory;
 
-public class ExceptionLoggingThreadFactory implements ThreadFactory {
+public class SimulationRunThreadFactory implements ThreadFactory {
 	
-	private ExceptionLoggingHandler HANDLER = new ExceptionLoggingHandler();
+	private Handler HANDLER = new Handler();
 	
 	public Thread newThread(Runnable r) {
 		Thread result = new Thread(r);
@@ -12,7 +12,7 @@ public class ExceptionLoggingThreadFactory implements ThreadFactory {
 		return result;
 	}
 
-	private static class ExceptionLoggingHandler implements Thread.UncaughtExceptionHandler {
+	private static class Handler implements Thread.UncaughtExceptionHandler {
 		public void uncaughtException(Thread thread, Throwable cause) {
 			cause.printStackTrace();
 		}

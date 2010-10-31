@@ -136,7 +136,7 @@ public class CDOSimulationLearningTests  {
 				
 				Resource r = tx.getResource("/stem/simulations");
 				Simulations sims = (Simulations)r.getContents().get(0);
-//				sims.cdoWriteLock().lock();
+				sims.cdoWriteLock().lock();
 				sims.getScenarios().add(scenario);
 				
 				Resource content = tx.getOrCreateResource("/stem/simulation1");

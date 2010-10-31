@@ -28,7 +28,7 @@ import org.eclipse.stem.server.server.Simulations;
 
 public class SimulationRunner {
 
-	private final ExecutorService runPool = Executors.newCachedThreadPool(new ExceptionLoggingThreadFactory());
+	private final ExecutorService runPool = Executors.newCachedThreadPool(new SimulationRunThreadFactory());
 	
 	private CDOSession session;
 	private CDOView view;
@@ -46,52 +46,26 @@ public class SimulationRunner {
 		resource = view.getResource("/stem/simulations");
 		simulations = findSimulations(resource);
 		simulations.eAdapters().add(new AdapterImpl() {
-			@Override public void notifyChanged(Notification msg) {
+			@Override
+			public void notifyChanged(Notification msg) {
 				if (msg instanceof CDOInvalidationNotification) {
-//					simulations.cdoReadLock().lock();
-					try {
-						for (final Scenario scenarioToRun : simulations.getScenarios()) {
-							runPool.submit(new Runnable() {
-								public void run() {
-									CDOTransaction runnerTx = session.openTransaction();
-									Scenario scenario = runnerTx.getObject(scenarioToRun);
-									final Sequencer sequencer = scenario.getSequencer();
-									
-									System.out.println("running simulation");
-									System.out.println("seq start "+sequencer.getStartTime());
-									System.out.println("seq end "+sequencer.getEndTime());
-									
-									while (!sequencer.isTimeToStop()) {
-										assert scenario.sane();
-										
-										final STEMTime currentTime = sequencer.getCurrentTime();
-										System.out.println("running at "+currentTime);
-										
-										if(scenario.getSolver().getDecorators() == null) scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
-										if(!scenario.getSolver().isInitialized()) {
-											scenario.getSolver().initialize(sequencer.getNextTime());
-										}
-										
-										scenario.step();
-										
-										try {
-											runnerTx.commit();
-										} catch (CommitException ce) {
-											throw new IllegalStateException("Failed to commit scenario step", ce);
-										}
-									}
-									System.out.println("ran simulation");
-								}
-							});
-						}
-					} finally {
-//						simulations.cdoReadLock().unlock();
-					}
+					startPendingSimulations();
 				}
 			}
 		});
 	}
 	
+	private void startPendingSimulations() {
+		simulations.cdoReadLock().lock();
+		try {
+			for (final Scenario scenarioToRun : simulations.getScenarios()) {
+				runPool.submit(new SimulationRun(scenarioToRun, session));
+			}
+		} finally {
+			simulations.cdoReadLock().unlock();
+		}
+	}
+
 	private void ensureSimulations() throws CommitException {
 		CDOTransaction tx = session.openTransaction();
 		CDOResource res = tx.getOrCreateResource("/stem/simulations");
