@@ -7,3 +7,7 @@ decorator->graph relatiopnship changed from transient to non-transient (caused C
 http://dev.eclipse.org/newslists/news.eclipse.tools.emf/msg23116.html
 
 Commented out dependency to UI FiniteDifferenceImpl.step(). Will have to find a way to get to the prefences without requiring UI.
+
+SequentialSequencerImpl.getEndTime() tests if end time less than *or equal* to current time
+
+Extracted Sceario.addDecoratorAdaptors() from init, so that the adaptors can be attached on the other side.

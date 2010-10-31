@@ -305,6 +305,8 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 
 		addEOperation(scenarioEClass, ecorePackage.getEString(), "produceTitle", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
+		addEOperation(scenarioEClass, null, "addDecoratorAdaptors", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
 		// Create resource
 		createResource(eNS_URI);
 	}

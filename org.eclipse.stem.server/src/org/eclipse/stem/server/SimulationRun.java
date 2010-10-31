@@ -19,6 +19,7 @@ public class SimulationRun implements Runnable {
 
 	public void run() {
 		try {
+			scenario.addDecoratorAdaptors();
 			final Sequencer sequencer = scenario.getSequencer();
 
 			System.out.println("running simulation");

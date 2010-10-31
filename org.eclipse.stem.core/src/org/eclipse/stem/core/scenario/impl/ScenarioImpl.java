@@ -378,31 +378,7 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 		assert getCanonicalGraph().sane();
 
 		// Add the adaptors to keep track of the progress for each graph decorator
-		final double numDecorators = this.getCanonicalGraph().getDecorators().size();
-		final Scenario self = this;
-		for (final Iterator<Decorator> scenarioDecorators = this.getCanonicalGraph().getDecorators()
-				.iterator(); scenarioDecorators.hasNext();) {
-			final Decorator decorator = scenarioDecorators.next();
-			decorator.eAdapters().add(
-					new AdapterImpl() {
-						/**
-						   * @override
-						   */
-						  public void notifyChanged(Notification msg)
-						  {
-							  Decorator decorator = (Decorator)msg.getNotifier();
-							  switch(msg.getFeatureID(Decorator.class)) {
-							  	case ModelPackage.DECORATOR__PROGRESS:
-							  		double newValue = ((Double)msg.getNewValue()).doubleValue();
-							  		double oldValue = ((Double)msg.getOldValue()).doubleValue();
-							  		double delta = (newValue - oldValue);
-							  		delta /= numDecorators;
-							  		self.setProgress(self.getProgress()+delta);
-							  }
-						  }
-					}
-			);
-		}
+		addDecoratorAdaptors();
 		
 		// The scenario decorators are regular decorators that are allowed to
 		// modified the state of the canonical graph to customize it for a
@@ -448,6 +424,39 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 			logNumberOfUnresolvedIdentifiables();
 		}
 	} // initialize
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void addDecoratorAdaptors() {
+		final double numDecorators = this.getCanonicalGraph().getDecorators().size();
+		final Scenario self = this;
+		for (final Iterator<Decorator> scenarioDecorators = this.getCanonicalGraph().getDecorators()
+				.iterator(); scenarioDecorators.hasNext();) {
+			final Decorator decorator = scenarioDecorators.next();
+			decorator.eAdapters().add(
+					new AdapterImpl() {
+						/**
+						   * @override
+						   */
+						  public void notifyChanged(Notification msg)
+						  {
+							  Decorator decorator = (Decorator)msg.getNotifier();
+							  switch(msg.getFeatureID(Decorator.class)) {
+							  	case ModelPackage.DECORATOR__PROGRESS:
+							  		double newValue = ((Double)msg.getNewValue()).doubleValue();
+							  		double oldValue = ((Double)msg.getOldValue()).doubleValue();
+							  		double delta = (newValue - oldValue);
+							  		delta /= numDecorators;
+							  		self.setProgress(self.getProgress()+delta);
+							  }
+						  }
+					}
+			);
+		}
+	}
 
 
 	/**

@@ -8,6 +8,7 @@
     <eOperations name="reset"/>
     <eOperations name="initialize"/>
     <eOperations name="produceTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="addDecoratorAdaptors"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="ecore:EClass model.ecore#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequencer" eType="ecore:EClass sequencer.ecore#//Sequencer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioDecorators" upperBound="-1"

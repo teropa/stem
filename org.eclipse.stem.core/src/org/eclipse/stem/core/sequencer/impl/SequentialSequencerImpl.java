@@ -141,6 +141,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 				nextTime = potentialNextTime;
 			} // else
 
+			System.out.println("next time "+nextTime);
 			// Are we returning a value equal to the specified end time?
 			if (nextTime.valueEquals(getEndTime())) {
 				// Yes
@@ -163,7 +164,7 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	 */
 	protected boolean isEndTimeBefore(STEMTime time) {
 		return getEndTime() != null
-				&& (getEndTime().getTime().before(time.getTime()));
+				&& (getEndTime().valueEquals(time) || getEndTime().getTime().before(time.getTime()));
 	} // isEndTimeBefore
 
 	/**

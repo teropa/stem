@@ -4,7 +4,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.eclipse.emf.cdo.CDOInvalidationNotification;
-import org.eclipse.emf.cdo.common.id.CDOID;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.net4j.CDOSessionConfiguration;
@@ -20,9 +19,7 @@ import org.eclipse.net4j.jvm.JVMUtil;
 import org.eclipse.net4j.util.container.IManagedContainer;
 import org.eclipse.net4j.util.container.IPluginContainer;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
-import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.scenario.Scenario;
-import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.server.server.ServerFactory;
 import org.eclipse.stem.server.server.Simulations;
 
