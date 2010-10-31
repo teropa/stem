@@ -31,7 +31,7 @@ public class SimulationRunner {
 	private final ExecutorService runPool = Executors.newCachedThreadPool(new ExceptionLoggingThreadFactory());
 	
 	private CDOSession session;
-	private CDOTransaction view;
+	private CDOView view;
 	private CDOResource resource;
 	private Simulations simulations;
 	
@@ -41,7 +41,7 @@ public class SimulationRunner {
 		session.options().setGeneratedPackageEmulationEnabled(true);
 		ensureSimulations();
 		
-		view = session.openTransaction();
+		view = session.openView();
 		view.options().setInvalidationNotificationEnabled(true);
 		resource = view.getResource("/stem/simulations");
 		simulations = findSimulations(resource);
@@ -50,12 +50,11 @@ public class SimulationRunner {
 				if (msg instanceof CDOInvalidationNotification) {
 //					simulations.cdoReadLock().lock();
 					try {
-						for (Scenario scenario : simulations.getScenarios()) {
-//							final CDOID id = scenario.cdoID();
-//							runPool.submit(new Runnable() {
-//								public void run() {
-//									CDOTransaction runnerTx = session.openTransaction();
-//									Scenario scenario = (Scenario)runnerTx.getObject(id);
+						for (final Scenario scenarioToRun : simulations.getScenarios()) {
+							runPool.submit(new Runnable() {
+								public void run() {
+									CDOTransaction runnerTx = session.openTransaction();
+									Scenario scenario = runnerTx.getObject(scenarioToRun);
 									final Sequencer sequencer = scenario.getSequencer();
 									
 									System.out.println("running simulation");
@@ -76,14 +75,14 @@ public class SimulationRunner {
 										scenario.step();
 										
 										try {
-											view.commit();
+											runnerTx.commit();
 										} catch (CommitException ce) {
 											throw new IllegalStateException("Failed to commit scenario step", ce);
 										}
 									}
 									System.out.println("ran simulation");
-//								}
-//							});
+								}
+							});
 						}
 					} finally {
 //						simulations.cdoReadLock().unlock();
