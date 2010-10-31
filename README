@@ -5,3 +5,5 @@ StandardPopulationModelImpl.handlePipeTransport() will call initPipeTransport() 
 
 decorator->graph relatiopnship changed from transient to non-transient (caused ClassCastException with CDO).
 http://dev.eclipse.org/newslists/news.eclipse.tools.emf/msg23116.html
+
+Commented out dependency to UI FiniteDifferenceImpl.step(). Will have to find a way to get to the prefences without requiring UI.

@@ -68,11 +68,12 @@ public class FiniteDifferenceImpl extends SolverImpl implements FiniteDifference
 	@Override
 	public boolean step(STEMTime time, long timeDelta, int cycle) {
 		
-		Activator act = org.eclipse.stem.ui.Activator.getDefault();
-		if(act != null) {
-			final Preferences preferences = act.getPluginPreferences();
-			num_threads = (short)preferences.getInt(org.eclipse.stem.ui.preferences.PreferenceConstants.SIMULATION_THREADS);
-		} else num_threads = 2; // Just so we can run inside junit test
+//		Activator act = org.eclipse.stem.ui.Activator.getDefault();
+//		if(act != null) {
+//			final Preferences preferences = act.getPluginPreferences();
+//			num_threads = (short)preferences.getInt(org.eclipse.stem.ui.preferences.PreferenceConstants.SIMULATION_THREADS);
+//		} else num_threads = 2; // Just so we can run inside junit test
+		num_threads = (short)Runtime.getRuntime().availableProcessors();
 		
 		// Find triggers and make sure they are invoked
 		for(Decorator decorator:this.getDecorators()) {

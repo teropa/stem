@@ -55,6 +55,7 @@ import org.eclipse.stem.jobs.simulation.ISimulationListenerSync;
 import org.eclipse.stem.jobs.simulation.SimulationState;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
+import org.eclipse.stem.server.server.Simulations;
 import org.eclipse.stem.solvers.fd.FiniteDifference;
 import org.eclipse.stem.solvers.fd.impl.FdFactoryImpl;
 import org.junit.After;
@@ -84,15 +85,6 @@ public class CDOSimulationLearningTests  {
 	
 	@Test
 	public void testSimulationRun() throws Exception {
-		CDOView listeningView = session.openView();
-		listeningView.options().setInvalidationNotificationEnabled(true);
-		CDOResource listeningRes = listeningView.getResource("/stem/simulation");
-		listeningRes.eAdapters().add(new EContentAdapter() {
-			public void notifyChanged(Notification notification) {
-				System.out.println("Notified by "+notification.getClass().getName()+": "+notification);
-			};
-		});
-		
 		inTransaction(new Action() {
 			public void run(CDOTransaction tx) throws Exception {
 				Scenario scenario = ScenarioFactory.eINSTANCE.createScenario();
@@ -142,9 +134,14 @@ public class CDOSimulationLearningTests  {
 				
 				scenario.initialize();
 				
-				CDOResource res = getResource(tx);
-				res.getContents().add(scenario);
-				res.getContents().addAll(getNonContainedNonPlatformObjects(scenario, new HashSet<EObject>()));
+				Resource r = tx.getResource("/stem/simulations");
+				Simulations sims = (Simulations)r.getContents().get(0);
+//				sims.cdoWriteLock().lock();
+				sims.getScenarios().add(scenario);
+				
+				Resource content = tx.getOrCreateResource("/stem/simulation1");
+				content.getContents().add(scenario);
+				content.getContents().addAll(getNonContainedNonPlatformObjects(scenario, new HashSet<EObject>()));
 			}
 
 			private List<EObject> getNonContainedNonPlatformObjects(EObject object, Set<EObject> visited) {
@@ -173,56 +170,25 @@ public class CDOSimulationLearningTests  {
 
 		});
 		
-//		CDOView listeningView = session.openView();
-//		listeningView.options().setInvalidationNotificationEnabled(true);
-//		CDOResource listeningRes = listeningView.getResource("/stem/simulation");
-//		final Scenario listeningScenario = (Scenario)listeningRes.getContents().get(0);
-//		listeningScenario.getSequencer().eAdapters().add(new AdapterImpl() {
-//			@Override
-//			public void notifyChanged(Notification msg) {
-//				if (msg instanceof CDOInvalidationNotification) {
-//					System.out.println("sequencer invalidated");
-//					System.out.println("currentTime: "+listeningScenario.getSequencer().getCurrentTime());
-//					Iterator<EObject> graphContents = listeningScenario.getCanonicalGraph().eAllContents();
-//					while (graphContents.hasNext()) {
-//						EObject cnt = graphContents.next();
-//						System.out.println("\t" + cnt);
-//					}
-//				}
-//			}
-//		});
-		
-		
-		initRunner();
-		
-	}
-
-	private void initRunner() throws CommitException {
-		CDOSession runnerSession = openSession();
-		CDOTransaction runnerTx = runnerSession.openTransaction();
-		CDOResource res = runnerTx.getResource("/stem/simulation");
-		
-		Scenario scenario = (Scenario)res.getContents().get(0);
-		final Sequencer sequencer = scenario.getSequencer();
-		
-		System.out.println("seq start "+sequencer.getStartTime());
-		System.out.println("seq end "+sequencer.getEndTime());
-		
-		while (!sequencer.isTimeToStop()) {
-			assertTrue(scenario.sane());
-			
-			final STEMTime currentTime = sequencer.getCurrentTime();
-			System.out.println("running at "+currentTime);
-			
-			if(scenario.getSolver().getDecorators() == null) scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
-			if(!scenario.getSolver().isInitialized()) {
-				scenario.getSolver().initialize(sequencer.getNextTime());
+		CDOView listeningView = session.openView();
+		listeningView.options().setInvalidationNotificationEnabled(true);
+		CDOResource listeningRes = listeningView.getResource("/stem/simulations");
+		final Scenario listeningScenario = ((Simulations)listeningRes.getContents().get(0)).getScenarios().get(0);
+		listeningScenario.getSequencer().eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				if (msg instanceof CDOInvalidationNotification) {
+					System.out.println("sequencer invalidated");
+					System.out.println("currentTime: "+listeningScenario.getSequencer().getCurrentTime());
+					Iterator<EObject> graphContents = listeningScenario.getCanonicalGraph().eAllContents();
+					while (graphContents.hasNext()) {
+						EObject cnt = graphContents.next();
+						System.out.println("\t" + cnt);
+					}
+				}
 			}
-			
-			scenario.step();
-			
-			runnerTx.commit();
-		}
+		});
+		Thread.sleep(5 * 60 * 1000);
 	}
 
 	private STEMTime getSTEMTime(String string) throws Exception {
@@ -245,22 +211,26 @@ public class CDOSimulationLearningTests  {
 	private void clear() throws Exception {
 		inTransaction(new Action() {
 			public void run(CDOTransaction tx) {
-				Resource r = getResource(tx);			
-				r.getContents().clear();					
+				Resource r = tx.getResource("/stem/simulations");
+				Simulations sims = (Simulations)r.getContents().get(0);
+				sims.getScenarios().clear();
+				
+				Resource content = tx.getOrCreateResource("/stem/simulation1");
+				content.getContents().clear();
 			}
 		});		
 	}
 
-	private CDOResource getResource(CDOTransaction tx) {
-		if (tx.hasResource("/stem/simulation")) {
-			CDOResource r = tx.getResource("/stem/simulation");
-			System.out.println("resource did exist, had "+r.getContents().size()+ " items");
-			return r;
-		} else {
-			System.out.println("resource did not exist");
-			return tx.createResource("/stem/simulation");
-		}
-	}
+//	private CDOResource getResource(CDOTransaction tx) {
+//		if (tx.hasResource("/stem/simulation")) {
+//			CDOResource r = tx.getResource("/stem/simulation");
+//			System.out.println("resource did exist, had "+r.getContents().size()+ " items");
+//			return r;
+//		} else {
+//			System.out.println("resource did not exist");
+//			return tx.createResource("/stem/simulation");
+//		}
+//	}
 	
 	private CDOSession createSession(String url, String repo) {
 		CDOSessionConfiguration config = CDONet4jUtil.createSessionConfiguration();
