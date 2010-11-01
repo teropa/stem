@@ -156,7 +156,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 */
 	public String getModificationSummary() {
 		try {
-			final StringBuilder sb = new StringBuilder(eStructuralFeature.getName());
+			final StringBuilder sb = new StringBuilder(getEStructuralFeature().getName());
 			sb.append(" = ");
 			sb.append(getCurrentValueText());
 			return sb.toString();
@@ -181,7 +181,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 		// Is it set yet?
 		if (!eIsSet(ModifierPackage.eINSTANCE.getFeatureModifier_EStructuralFeature())) {
 			// No
-			eStructuralFeature = target.eClass().getEStructuralFeature(getFeatureId());
+			setEStructuralFeature(getTarget().eClass().getEStructuralFeature(getFeatureId()));
 		} // if 
 		
 		return eStructuralFeature;
@@ -193,7 +193,7 @@ public abstract class FeatureModifierImpl extends EObjectImpl implements Feature
 	 * @generated NOT
 	 */
 	public void setEStructuralFeature(EStructuralFeature newEStructuralFeature) {
-		EStructuralFeature oldEStructuralFeature = eStructuralFeature;
+		EStructuralFeature oldEStructuralFeature = getEStructuralFeature();
 		eStructuralFeature = newEStructuralFeature;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModifierPackage.FEATURE_MODIFIER__ESTRUCTURAL_FEATURE, oldEStructuralFeature, eStructuralFeature));

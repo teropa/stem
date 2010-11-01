@@ -88,12 +88,12 @@ public class TriggerImpl extends DecoratorImpl implements Trigger {
 	@Override
 	public boolean decorateGraph(STEMTime time) {
 		// Do we have an action?
-		if (action != null) {
+		if (getAction() != null) {
 			// Yes
 			// Have we already made a copy of the action?
 			if (actionCopy == null ) {
 				// No
-				actionCopy = (Decorator) EcoreUtil.copy(action);
+				actionCopy = (Decorator) EcoreUtil.copy(getAction());
 				getGraph().getDecorators().add(actionCopy);
 			} // if
 			actionCopy.setEnabled(false);

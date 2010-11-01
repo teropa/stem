@@ -139,7 +139,7 @@ public class NodeImpl extends IdentifiableImpl implements Node {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		if (labels != null) {
+		if (getLabels() != null) {
 			// All the labels should be sane
 			for (final Iterator<NodeLabel> labelIter = getLabels().iterator(); labelIter
 					.hasNext()

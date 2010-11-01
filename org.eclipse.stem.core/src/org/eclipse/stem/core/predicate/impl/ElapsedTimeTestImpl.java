@@ -178,10 +178,10 @@ public class ElapsedTimeTestImpl extends TimeTestImpl implements ElapsedTimeTest
 	 * @generated NOT
 	 */
 	public void setNumberofDays(int newNumberofDays) {
-		int oldNumberofDays = numberofDays;
+		int oldNumberofDays = getNumberofDays();
 		numberofDays = newNumberofDays;
 		
-		elapsedMilliseconds = numberofDays * STEMTime.Units.DAY.getMilliseconds();
+		elapsedMilliseconds = getNumberofDays() * STEMTime.Units.DAY.getMilliseconds();
 		
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PredicatePackage.ELAPSED_TIME_TEST__NUMBEROF_DAYS, oldNumberofDays, numberofDays));

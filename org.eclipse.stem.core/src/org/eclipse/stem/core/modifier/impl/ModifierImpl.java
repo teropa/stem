@@ -227,14 +227,14 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	public void updateScenario(final Scenario scenario) {
 		EObject t = getTarget(scenario);
 		if(t == null)
-			CorePlugin.logError("Modifier "+this.getURI()+" cannot find target "+targetURI+" in scenario "+scenario.getURI(), new Exception());
+			CorePlugin.logError("Modifier "+this.getURI()+" cannot find target "+getTargetURI()+" in scenario "+scenario.getURI(), new Exception());
 		else modifyTarget(t);
 	} // updateScenario
 
 	private EObject getTarget(final Scenario scenario) {
 		EObject retValue = null;
 		// Sequencer?
-		if (scenario.getSequencer().getURI().equals(targetURI)) {
+		if (scenario.getSequencer().getURI().equals(getTargetURI())) {
 			// Yes
 			retValue = scenario.getSequencer();
 		} // if
@@ -266,7 +266,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 		EObject retValue = null;
 		for (Decorator decorator : model.getNodeDecorators()) {
 			// Our target?
-			if (decorator.getURI().equals(targetURI)) {
+			if (decorator.getURI().equals(getTargetURI())) {
 				// Yes
 				retValue = decorator;
 				break;
@@ -302,7 +302,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 		EObject retValue = null;
 		for (Decorator decorator : graph.getDecorators()) {
 			// Our target?
-			if (decorator.getURI().equals(targetURI)) {
+			if (decorator.getURI().equals(getTargetURI())) {
 				// Yes
 				retValue = decorator;
 				break;
@@ -321,7 +321,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	private EObject findNodeLabel(Graph g) {
 		for (NodeLabel nodeLabel : g.getNodeLabels().values()) {
 			// Our target?
-			if (nodeLabel.getURI().equals(targetURI)) {
+			if (nodeLabel.getURI().equals(getTargetURI())) {
 				// Yes
 				return  nodeLabel;
 			} // if
@@ -333,7 +333,7 @@ public class ModifierImpl extends DecoratorImpl implements Modifier {
 	private EObject findEdgeLabel(Graph g) {
 		for (Edge edge : g.getEdges().values()) {
 			// Our target?
-			if (edge.getLabel().getURI().equals(targetURI)) {
+			if (edge.getLabel().getURI().equals(getTargetURI())) {
 				// Yes
 				return edge.getLabel();
 			} // if

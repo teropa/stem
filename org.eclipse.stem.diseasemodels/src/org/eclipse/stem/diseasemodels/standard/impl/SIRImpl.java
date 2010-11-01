@@ -391,13 +391,13 @@ public abstract class SIRImpl extends SIImpl implements SIR {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && immunityLossRate >= IMMUNITY_LOSS_RATE_EDEFAULT;
+		retValue = retValue && getImmunityLossRate() >= IMMUNITY_LOSS_RATE_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(immunityLossRate);
+		retValue = retValue && !Double.isInfinite(getImmunityLossRate());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(immunityLossRate);
+		retValue = retValue && !Double.isNaN(getImmunityLossRate());
 		assert retValue;
 		
 		return retValue;

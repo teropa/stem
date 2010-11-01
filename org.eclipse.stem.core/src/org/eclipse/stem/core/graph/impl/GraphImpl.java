@@ -438,7 +438,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumEdges() {
-		return edges == null ? 0 : getEdges().size();
+		return getEdges() == null ? 0 : getEdges().size();
 	} // getNumEdges
 
 	/**
@@ -447,7 +447,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumNodes() {
-		return nodes == null ? 0 : getNodes().size();
+		return getNodes() == null ? 0 : getNodes().size();
 	} // getNumNodes
 
 	/**
@@ -456,7 +456,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumGraphLabels() {
-		return graphLabels == null ? 0 : getGraphLabels().size();
+		return getGraphLabels() == null ? 0 : getGraphLabels().size();
 	} // getNumGraphLabels
 
 	/**
@@ -465,7 +465,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumNodeLabels() {
-		return nodeLabels == null ? 0 : getNodeLabels().size();
+		return getNodeLabels() == null ? 0 : getNodeLabels().size();
 	} // getNumNodeLabels
 
 	/**
@@ -474,7 +474,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 * @generated NOT
 	 */
 	public int getNumDynamicLabels() {
-		return dynamicLabels == null ? 0 : getDynamicLabels().size();
+		return getDynamicLabels() == null ? 0 : getDynamicLabels().size();
 	} // getNumDynamicLabels
 
 	/**
@@ -655,7 +655,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 	 */
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("\"" + dublinCore.getTitle()
+		final StringBuilder sb = new StringBuilder("\"" + getDublinCore().getTitle()
 				+ "\",\n");
 
 		// How many nodes?
@@ -685,7 +685,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		int dynamicLabelCount = 0;
 
 		// Nodes
-		if (nodes != null) {
+		if (getNodes() != null) {
 			// Yes
 			for (final Iterator<Node> nodeIter = getNodes().values().iterator(); nodeIter
 					.hasNext()
@@ -726,7 +726,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if
 
 		// Edges?
-		if (edges != null) {
+		if (getEdges() != null) {
 			// Yes
 			for (final Iterator<Edge> edgeIter = getEdges().values().iterator(); edgeIter
 					.hasNext()
@@ -744,7 +744,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if
 
 		// Node Labels?
-		if (nodeLabels != null) {
+		if (getNodeLabels() != null) {
 			// Yes
 			// The number of node labels should match the number we counted
 			// above...not true for graph fragments that might have labels for
@@ -761,7 +761,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 			} // for each node label
 		} // if
 
-		if (graphLabels != null) {
+		if (getGraphLabels() != null) {
 			// Yes
 			for (final Iterator<Label> graphLabelIter = getGraphLabels().values()
 					.iterator(); graphLabelIter.hasNext();) {
@@ -776,7 +776,7 @@ public class GraphImpl extends IdentifiableImpl implements Graph {
 		} // if graphLabels
 
 		// Dynamic Labels?
-		if (dynamicLabels != null) {
+		if (getDynamicLabels() != null) {
 			// Yes
 			// The number of dynamic labels should equal the count
 			retValue = dynamicLabelCount == getNumDynamicLabels();

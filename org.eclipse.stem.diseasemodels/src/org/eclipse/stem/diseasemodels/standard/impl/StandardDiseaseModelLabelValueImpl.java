@@ -106,7 +106,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public StandardDiseaseModelLabelValueImpl(final double s,
 			final double diseaseDeaths) {
 		super(diseaseDeaths);
-		this.s = s;
+		this.setS(s);
 	} // StandardDiseaseModelLabelValueImpl
 
 	/**
@@ -150,7 +150,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	 */
 	@Override
 	public double getPopulationCount() {
-		return s;
+		return getS();
 	} // getPopulationCount
 
 	@Override
@@ -219,16 +219,16 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		retValue = retValue && s >= S_EDEFAULT;
+		retValue = retValue && getS() >= S_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && s <= MAX_POPULATION_VALUE;
+		retValue = retValue && getS() <= MAX_POPULATION_VALUE;
 		assert retValue;		
 		
-		retValue = retValue && !Double.isInfinite(s);
+		retValue = retValue && !Double.isInfinite(getS());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(s);
+		retValue = retValue && !Double.isNaN(getS());
 		assert retValue;
 		
 		return retValue;
@@ -324,7 +324,7 @@ public abstract class StandardDiseaseModelLabelValueImpl extends
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (s: "); //$NON-NLS-1$
-		result.append(getFormatter().format(s));
+		result.append(getFormatter().format(getS()));
 		result.append(')');
 		return result.toString();
 	} // toString

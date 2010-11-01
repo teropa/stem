@@ -184,7 +184,7 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 		
 		final double adjustedBirthRate = adjustRate(this.getBirthRate(), this.getTimePeriod(), timeDelta);
 		final double adjustedDeathRate = adjustRate(this.getDeathRate(), this.getTimePeriod(), timeDelta);
-		double localPhase = phase;
+		double localPhase = getPhase();
 		for(DynamicLabel label:labels) {
 			
 			StandardPopulationModelLabelImpl slabel = (StandardPopulationModelLabelImpl)label;
@@ -197,8 +197,8 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 			double latitude = EQUATOR_LATITUDE;
 			double currentMillis = time.getTime().getTime();
 			double latFactor = 1.0; // default = no dependence
-			localPhase = phase;
-			if(useLatitude) {
+			localPhase = getPhase();
+			if(isUseLatitude()) {
 				// center coords
 				double[] lat_long = null;
 				
@@ -234,13 +234,13 @@ public class SeasonalPopulationModelImpl extends StandardPopulationModelImpl imp
 				// based on a logistic (sigmoidal) function
 				latFactor  = 1.0/(1.0 + Math.exp((TROPIC_OF_CANCER_LATITUDE - Math.abs(latitude))/LATITUDE_SIGMOID_WIDTH) );
 				// seasons reverse in the southern hemisphere
-				if(latitude <= 0.0) localPhase = phase+Math.PI;
+				if(latitude <= 0.0) localPhase = getPhase()+Math.PI;
 			} //if useLatitude
 			
-			double modulation = modulationAmplitude*latFactor;
+			double modulation = getModulationAmplitude()*latFactor;
 			double floor = (1.0-modulation);
 				
-			double modulationPeriod = period; 
+			double modulationPeriod = getPeriod(); 
 			double oscCos = Math.cos(localPhase + 2.0*Math.PI*currentMillis/(modulationPeriod*MILLIS_PER_DAY) ); // 1==>-1 cosine
 			//  init default (phase 0)  seasonalBirthFactor  is 0.0 in winter. range is 0->1.0
 			seasonalBirthFactor =  (1.0+(-1.0*oscCos))/2.0;

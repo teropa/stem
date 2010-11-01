@@ -278,7 +278,7 @@ public class SquareLatticeGraphGeneratorImpl extends LatticeGraphGeneratorImpl i
 	public Graph getGraph() {
 		LatticeGeneratorUtilityImpl slgi = new LatticeGeneratorUtilityImpl(GraphLatticeGeneratorInterface.SQR_LATTICE_TYPE);
 		// Get the graph
-		Graph g = slgi.getGraph(this.getXSize(), this.getYSize(), this.area, this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
+		Graph g = slgi.getGraph(this.getXSize(), this.getYSize(), this.getArea(), this.isUseNearestNeighbors(), this.isUseNextNearestNeighbors(), this.isPeriodicBoundaries());
 		return g;
 	}
 } //SquareLatticeGraphGeneratorImpl

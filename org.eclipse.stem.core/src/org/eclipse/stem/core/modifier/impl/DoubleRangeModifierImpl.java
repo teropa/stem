@@ -204,25 +204,25 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 		// Unset?
 		if (!eIsSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
-			nextValue = startValue;
+			setNextValue(getStartValue());
 		} // if
 		
-		final double retValue = nextValue;
+		final double retValue = getNextValue();
 		
-		complete = (increment < 0.0)? (retValue <= endValue):(retValue >= endValue); 
+		complete = (getIncrement() < 0.0)? (retValue <= getEndValue()):(retValue >= getEndValue()); 
 		
 		// Still incrementing?
 		if (!complete) {
 			// Yes
-			final double temp = retValue + increment;
+			final double temp = retValue + getIncrement();
 			// Would the new currentValue be equal or "past" the endValue?
-			if ((increment >= 0 && temp < endValue) || (increment < 0 && temp > endValue)) {
+			if ((getIncrement() >= 0 && temp < getEndValue()) || (getIncrement() < 0 && temp > getEndValue())) {
 				// No
-				nextValue = temp;
+				setNextValue(temp);
 			} // if
 			else {
 				// Yes
-				nextValue = endValue;
+				setNextValue(getEndValue());
 			} // else 
 		} // if 
 		currentValueText = Double.toString(retValue);
@@ -271,9 +271,9 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.DOUBLE_RANGE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((Double)target.eGet(getEStructuralFeature()));
+			setOriginalValue((Double)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	} // updateFeature
 
 	
@@ -284,7 +284,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	public void reset() {
 		super.reset();
 		eUnset(ModifierPackage.DOUBLE_RANGE_MODIFIER__NEXT_VALUE);
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 
 	/**
@@ -382,7 +382,8 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -412,10 +413,10 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 		boolean retValue = super.sane();
 		assert retValue;
 
-		retValue = retValue && (endValue >= startValue);
+		retValue = retValue && (getEndValue() >= getStartValue());
 		assert retValue;
 
-		retValue = retValue && (increment > 0.0);
+		retValue = retValue && (getIncrement() > 0.0);
 		assert retValue;
 
 		return retValue;

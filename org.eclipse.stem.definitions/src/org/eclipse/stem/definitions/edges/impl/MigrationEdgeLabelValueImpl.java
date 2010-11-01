@@ -169,7 +169,7 @@ public class MigrationEdgeLabelValueImpl extends LabelValueImpl implements Migra
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	/**
 	 * Resets the value for this migration edge to the default value. Is this
 	 * really the correct behavior? do we really want to go to the model start

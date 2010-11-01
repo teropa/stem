@@ -100,7 +100,7 @@ public abstract class StandardStochasticDiseaseModelImpl extends StochasticDisea
 	 * @generated NOT
 	 */
 	public double computeNoise() {
-		return computeNoise(gain, randomGenerator);
+		return computeNoise(getGain(), getRandomGenerator());
 	}
 	
 

@@ -119,11 +119,11 @@ public abstract class StochasticDiseaseModelImpl extends DiseaseModelImpl implem
 	 * @generated NOT
 	 */
 	public void setSeed(long newSeed) {
-		long oldSeed = seed;
+		long oldSeed = getSeed();
 		seed = newSeed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STOCHASTIC_DISEASE_MODEL__SEED, oldSeed, seed));
-		randomGenerator.setSeed(newSeed);
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STOCHASTIC_DISEASE_MODEL__SEED, oldSeed, getSeed()));
+		getRandomGenerator().setSeed(newSeed);
 	} // setSeed
 
 	/**

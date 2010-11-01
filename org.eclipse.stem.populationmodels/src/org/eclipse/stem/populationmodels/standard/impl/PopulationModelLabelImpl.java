@@ -223,7 +223,7 @@ public class PopulationModelLabelImpl extends DynamicNodeLabelImpl implements Po
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(
-				populationIdentifier == null ? "null" : populationIdentifier);
+				getPopulationIdentifier() == null ? "null" : getPopulationIdentifier());
 		result.append(" [");
 		result.append(Math.floor(((StandardPopulationModelLabelValue)getCurrentValue()).getCount()));
 		result.append("]");

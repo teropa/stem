@@ -295,9 +295,9 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 		if(day % modulationPeriod < WINDOWSIZE || day % modulationPeriod > modulationPeriod-WINDOWSIZE) {
 			double pos;
 			double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-			double f1 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
-			double f2 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
-			double f3 = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+			double f1 = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+			double f2 = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+			double f3 = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
 
 
 			if((day % modulationPeriod) > modulationPeriod - WINDOWSIZE)
@@ -318,7 +318,7 @@ final SIRLabelValue currentSIR = (SIRLabelValue) currentState;
 			modulatedTransmissionRate = smooth;
 		} else {
 			double fday = ((day % modulationPeriod)-modulationPeriod/2.0)/modulationPeriod;
-			modulatedTransmissionRate = (getAdjustedTransmissionRate(timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+			modulatedTransmissionRate = (getAdjustedTransmissionRate(timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 		}
 		
 

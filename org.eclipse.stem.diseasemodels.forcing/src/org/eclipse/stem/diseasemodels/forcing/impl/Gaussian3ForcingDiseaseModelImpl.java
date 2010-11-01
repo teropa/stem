@@ -188,13 +188,13 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 		double f1=0;
 		switch(currentHypothesis) {
 			case H0:
-				f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+				f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 				break;	
 			case H1:
 				if(gaussian == 0) { // A
-					f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 				} else if(gaussian == 1) {
-					f1 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
+					f1 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday,2))/(2*sigma2)));
 				}
 				break;	
 			case H2:
@@ -226,18 +226,18 @@ public class Gaussian3ForcingDiseaseModelImpl extends Gaussian2ForcingDiseaseMod
 			switch(currentHypothesis) {
 				
 				case H0:
-					f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
-					f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+					f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+					f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
 					break;	
 				case H1:
 					if(nextGaussian == 0)
-						f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
 					else if(nextGaussian == 1) 
-						f2 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
+						f2 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday-1,2))/(2*sigma2)));
 					if(prevGaussian == 0)
-						f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));
 					else if(prevGaussian == 1)
-						f3 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (modulationFloor + (1-modulationFloor)*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));			
+						f3 = (getAdjustedTransmissionRate(getTransmissionRate2(),timeDelta))  * (getModulationFloor() + (1-getModulationFloor())*Math.exp(-(Math.pow(fday+1,2))/(2*sigma2)));			
 									
 					break;	
 				case H2:

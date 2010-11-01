@@ -230,7 +230,7 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			//	double [][][][] factorMatrix = new double[10][10][10][10];
 			
 			//double newPopulation = scalingFactor * temperature * rainfall / elevation;
-			double newPopulation = scalingFactor * (eFactor*tFactor)*(vFactor*rFactor);
+			double newPopulation = getScalingFactor() * (eFactor*tFactor)*(vFactor*rFactor);
 			
 			// Other Factors
 			//Evapo-transpiration

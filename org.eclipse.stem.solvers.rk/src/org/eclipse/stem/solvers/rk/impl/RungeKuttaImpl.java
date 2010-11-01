@@ -753,7 +753,7 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					
 					yerror.divide((IntegrationLabelValue)diseaseLabel.getErrorScale());
 					double error = yerror.max();
-					error /= relativeTolerance;
+					error /= getRelativeTolerance();
 					
 					if(error > maxerror) {
 						maxerror = error;

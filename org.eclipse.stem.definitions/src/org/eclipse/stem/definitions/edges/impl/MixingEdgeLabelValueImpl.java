@@ -169,7 +169,7 @@ public class MixingEdgeLabelValueImpl extends LabelValueImpl implements MixingEd
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	/**
 	 * for reset set the rate to the default rate.
 	 */

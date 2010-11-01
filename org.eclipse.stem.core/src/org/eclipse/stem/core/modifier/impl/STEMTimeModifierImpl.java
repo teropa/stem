@@ -210,9 +210,9 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.DOUBLE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((STEMTime)target.eGet(getEStructuralFeature()));
+			setOriginalValue((STEMTime)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getValue());
+		getTarget().eSet(getEStructuralFeature(), getValue());
 		complete = true;
 	} // updateFeature
 
@@ -223,7 +223,7 @@ public class STEMTimeModifierImpl extends SingleValueModifierImpl implements STE
 	@Override
 	public void reset() {
 		complete = false;
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	private boolean complete = false;

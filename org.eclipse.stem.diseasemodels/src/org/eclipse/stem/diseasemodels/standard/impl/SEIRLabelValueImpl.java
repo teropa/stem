@@ -98,7 +98,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 			final double r, 
 			final double diseaseDeaths) {
 		super(s, i, incidence, r, diseaseDeaths);
-		this.e = e;
+		this.setE(e);
 	} // SEIRLabelValueImpl
 	
 	/**
@@ -131,7 +131,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 			final double r, 
 			final double diseaseDeaths) {
 		super(s, i, 0.0, r, diseaseDeaths);
-		this.e = e;
+		this.setE(e);
 	} // SEIRLabelValueImpl
 
 	/**
@@ -176,7 +176,7 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	 */
 	@Override
 	public double getPopulationCount() {
-		return e + super.getPopulationCount();
+		return getE() + super.getPopulationCount();
 	} // getPopulationCount
 
 	
@@ -238,11 +238,11 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
 		SEIRLabelValue _scale = (SEIRLabelValue)d;
-		double sScaled = Math.abs(s) / Math.abs(_scale.getS());
-		double iScaled = Math.abs(i) / Math.abs(_scale.getI());
-		double rScaled = Math.abs(r) / Math.abs(_scale.getR());
-		double eScaled = Math.abs(e) / Math.abs(_scale.getE());
-		double ddScaled = Math.abs(diseaseDeaths) / Math.abs(_scale.getDiseaseDeaths());
+		double sScaled = Math.abs(getS()) / Math.abs(_scale.getS());
+		double iScaled = Math.abs(getI()) / Math.abs(_scale.getI());
+		double rScaled = Math.abs(getR()) / Math.abs(_scale.getR());
+		double eScaled = Math.abs(getE()) / Math.abs(_scale.getE());
+		double ddScaled = Math.abs(getDiseaseDeaths()) / Math.abs(_scale.getDiseaseDeaths());
 		setS(sScaled);
 		setI(iScaled);
 		setR(rScaled);
@@ -253,12 +253,12 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 	
 	public double max() {
 		double max;
-		if(s > i && s > r && s > e && s > diseaseDeaths)
-			max = s;
-		else if(i > r && i > e &&  i > diseaseDeaths) max = i;
-		else if(r > e && r >  diseaseDeaths) max = r;
-		else if(e  > diseaseDeaths) max = e;
-		else max = diseaseDeaths;
+		if(getS() > getI() && getS() > getR() && getS() > getE() && getS() > getDiseaseDeaths())
+			max = getS();
+		else if(getI() > getR() && getI() > getE() &&  getI() > getDiseaseDeaths()) max = getI();
+		else if(getR() > getE() && getR() >  getDiseaseDeaths()) max = getR();
+		else if(getE()  > getDiseaseDeaths()) max = getE();
+		else max = getDiseaseDeaths();
 		return max;  
 	}
 	
@@ -444,13 +444,13 @@ public class SEIRLabelValueImpl extends SIRLabelValueImpl implements
 
 		StringBuffer result = new StringBuffer();
 		result.append("s:"); //$NON-NLS-1$
-		result.append(getFormatter().format(s));
+		result.append(getFormatter().format(getS()));
 		result.append(", e:"); //$NON-NLS-1$
-		result.append(getFormatter().format(e));
+		result.append(getFormatter().format(getE()));
 		result.append(", i:"); //$NON-NLS-1$
-		result.append(getFormatter().format(i));
+		result.append(getFormatter().format(getI()));
 		result.append(", r:"); //$NON-NLS-1$
-		result.append(getFormatter().format(r));
+		result.append(getFormatter().format(getR()));
 		result.append(", DD:"); //$NON-NLS-1$
 		result.append(getFormatter().format(getDiseaseDeaths()));
 		return result.toString();

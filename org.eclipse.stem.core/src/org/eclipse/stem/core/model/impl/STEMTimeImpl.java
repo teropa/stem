@@ -100,7 +100,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	public STEMTime addIncrement(long timeIncrement) {
 		final STEMTime retValue = ModelFactory.eINSTANCE.createSTEMTime();
 
-		final long newTime = time.getTime() + timeIncrement;
+		final long newTime = getTime().getTime() + timeIncrement;
 		final Date newDate = new Date(newTime);
 
 		retValue.setTime(newDate);
@@ -115,7 +115,7 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * 
 	 */
 	public int compareTo(STEMTime otherTime) {
-		return time.compareTo(otherTime.getTime());
+		return getTime().compareTo(otherTime.getTime());
 	}
 
 	/**

@@ -425,11 +425,11 @@ public class UnresolvedIdentifiableImpl extends EObjectImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer();
-		result.append(identifiable.toString());
+		result.append(getIdentifiable().toString());
 		result.append(", unresolved URI: ");
-		result.append(unresolvedURI);
+		result.append(getUnresolvedURI());
 		result.append(", fieldName: ");
-		result.append(fieldName);
+		result.append(getFieldName());
 		return result.toString();
 	} // toString
 

@@ -125,18 +125,18 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetDublinCore(DublinCore newDublinCore, NotificationChain msgs) {
-		DublinCore oldDublinCore = dublinCore;
+		DublinCore oldDublinCore = getDublinCore();
 		dublinCore = newDublinCore;
 		
 		// A new DublinCore instance?
-		if (dublinCore != null) {
+		if (getDublinCore() != null) {
 			// Yes
 			// Make sure the identifier and format URI's match the Identifiable's
 			// Are they valid yet?
 			if (getURI() != null && getTypeURI() != null) {
 				// Yes
-				dublinCore.setIdentifier(getURI().toString());
-				dublinCore.setType(getTypeURI().toString());
+				getDublinCore().setIdentifier(getURI().toString());
+				getDublinCore().setType(getTypeURI().toString());
 			} // if 
 			
 		} // if 
@@ -183,15 +183,15 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated NOT
 	 */
 	public void setTypeURI(URI newTypeURI) {
-		URI oldTypeURI = typeURI;
+		URI oldTypeURI = getTypeURI();
 		typeURI = newTypeURI;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CommonPackage.IDENTIFIABLE__TYPE_URI, oldTypeURI, typeURI));
+					CommonPackage.IDENTIFIABLE__TYPE_URI, oldTypeURI, getTypeURI()));
 		// Update DublinCore?
-		if (dublinCore != null) {
+		if (getDublinCore() != null) {
 			// Yes
-			dublinCore.setType(newTypeURI.toString());
+			getDublinCore().setType(newTypeURI.toString());
 		}
 	} // setTypeURI
 
@@ -254,15 +254,15 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 	 * @generated NOT
 	 */
 	public void setURI(URI newURI) {
-		URI oldURI = uRI;
+		URI oldURI = getURI();
 		uRI = newURI;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CommonPackage.IDENTIFIABLE__URI, oldURI, uRI));
+					CommonPackage.IDENTIFIABLE__URI, oldURI, getURI()));
 		// Update DublinCore?
-		if (dublinCore != null) {
+		if (getDublinCore() != null) {
 			// Yes
-			dublinCore.setIdentifier(newURI.toString());
+			getDublinCore().setIdentifier(newURI.toString());
 		}
 	} // setURI
 
@@ -392,9 +392,9 @@ public abstract class IdentifiableImpl extends EObjectImpl implements
 
 		StringBuffer result = new StringBuffer();
 		result.append("(uRI: ");
-		result.append(uRI);
+		result.append(getURI());
 		result.append(", typeURI: ");
-		result.append(typeURI);
+		result.append(getTypeURI());
 		result.append(')');
 		return result.toString();
 	}

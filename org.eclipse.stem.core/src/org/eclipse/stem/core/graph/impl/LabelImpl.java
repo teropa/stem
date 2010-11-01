@@ -291,10 +291,10 @@ public abstract class LabelImpl extends IdentifiableImpl implements Label {
 	@Override
 	public boolean sane() {
 		boolean retValue = super.sane();
-		retValue = retValue && currentValue != null;
+		retValue = retValue && getCurrentValue() != null;
 		assert retValue;
 
-		retValue = retValue && currentValue.sane();
+		retValue = retValue && getCurrentValue().sane();
 		assert retValue : getURIOfIdentifiableToBeLabeled().toString();
 
 		return retValue;

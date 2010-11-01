@@ -132,15 +132,15 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 	 * @generated NOT
 	 */
 	public void setArea(double newArea) {
-		double oldArea = area;
+		double oldArea = getArea();
 		area = newArea;
-		if(area >= 1.0) {
-			setAverageExtent(Math.sqrt(area));
+		if(getArea() >= 1.0) {
+			setAverageExtent(Math.sqrt(getArea()));
 		} else {
 			setAverageExtent(1.0);
 		}
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.AREA_LABEL_VALUE__AREA, oldArea, area));
+			eNotify(new ENotificationImpl(this, Notification.SET, LabelsPackage.AREA_LABEL_VALUE__AREA, oldArea, getArea()));
 	}
 
 	/**
@@ -264,7 +264,7 @@ public class AreaLabelValueImpl extends LabelValueImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer();
-		result.append(area);
+		result.append(getArea());
 		result.append(" km^2");
 		return result.toString();
 	}

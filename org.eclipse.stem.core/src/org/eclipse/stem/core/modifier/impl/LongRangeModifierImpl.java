@@ -218,24 +218,24 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 		// Unset?
 		if (!eIsSet(ModifierPackage.LONG_RANGE_MODIFIER__NEXT_VALUE)) {
 			// Yes
-			nextValue = startValue;
+			setNextValue(getStartValue());
 		} // if
 		
 		final long retValue = nextValue;
-		complete = retValue == endValue;
+		complete = retValue == getEndValue();
 		
 		// Still incrementing?
 		if (!complete) {
 			// Yes
-			final long temp = retValue + increment;
+			final long temp = retValue + getIncrement();
 			// Would the new currentValue be equal or "past" the endValue?
-			if (Math.abs(temp) < Math.abs(endValue)) {
+			if (Math.abs(temp) < Math.abs(getEndValue())) {
 				// No
-				nextValue = temp;
+				setNextValue(temp);
 			} // if
 			else {
 				// Yes
-				nextValue = endValue;
+				setNextValue(getEndValue());
 			} // else 
 		} // if 
 		currentValueText = Long.toString(retValue);
@@ -284,9 +284,9 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((Long)target.eGet(getEStructuralFeature()));
+			setOriginalValue((Long)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(),getNextValue());
+		getTarget().eSet(getEStructuralFeature(),getNextValue());
 	}
 
 	/**
@@ -296,7 +296,7 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 	public void reset() {
 		super.reset();
 		eUnset(ModifierPackage.LONG_RANGE_MODIFIER__NEXT_VALUE);
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -431,10 +431,10 @@ public class LongRangeModifierImpl extends RangeModifierImpl implements LongRang
 		boolean retValue = super.sane();
 		assert retValue;
 		
-		retValue = retValue && (endValue >= startValue);
+		retValue = retValue && (getEndValue() >= getStartValue());
 		assert retValue;
 		
-		retValue = retValue && (increment > 0L);
+		retValue = retValue && (getIncrement() > 0L);
 		assert retValue;
 		
 		return retValue;

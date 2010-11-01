@@ -174,7 +174,7 @@ public abstract class DynamicNodeLabelImpl extends DynamicLabelImpl implements
 		final StringBuilder sb = new StringBuilder(super.toString());
 
 		sb.append(" Node:");
-		sb.append(node == null ? "null" : node.toString());
+		sb.append(getNode() == null ? "null" : getNode().toString());
 		return sb.toString();
 	} // toString
 

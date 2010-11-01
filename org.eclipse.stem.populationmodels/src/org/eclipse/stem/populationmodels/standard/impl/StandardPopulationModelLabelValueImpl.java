@@ -238,7 +238,7 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	 * @generated NOT
 	 */
 	public double getDensity() {
-		double population = this.count;
+		double population = this.getCount();
 		StandardPopulationModelLabel label = (StandardPopulationModelLabel)this.eContainer();
 		Node n= label.getNode();
 		double area = 0.0;
@@ -434,69 +434,69 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (count: ");
-		result.append(count);
+		result.append(getCount());
 		result.append(", incidence: ");
-		result.append(incidence);
+		result.append(getIncidence());
 		result.append(", births: ");
-		result.append(births);
+		result.append(getBirths());
 		result.append(", deaths: ");
-		result.append(deaths);
+		result.append(getDeaths());
 		result.append(')');
 		return result.toString();
 	}
 
 	public IntegrationLabelValue abs() {
-		this.count = Math.abs(this.count);
-		this.births = Math.abs(this.births);
-		this.deaths = Math.abs(this.deaths);
+		this.setCount(Math.abs(this.getCount()));
+		this.setBirths(Math.abs(this.getBirths()));
+		this.setDeaths(Math.abs(this.getDeaths()));
 		return this;
 	}
 
 	public IntegrationLabelValue add(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
-		this.births += v.getBirths();
-		this.deaths += v.getDeaths();
-		this.count += v.getCount();
+		this.setBirths(this.getBirths() + v.getBirths());
+		this.setDeaths(this.getDeaths() + v.getDeaths());
+		this.setCount(this.getCount() + v.getCount());
 		return this;
 	}
 
 	public IntegrationLabelValue add(double addition) {
-		this.count += addition;
-		this.births += addition;
-		this.deaths += addition;
+		this.setCount(this.getCount() + addition);
+		this.setBirths(this.getBirths() + addition);
+		this.setDeaths(this.getDeaths() + addition);
 		return this;
 	}
 
 	public IntegrationLabelValue scale(double scaleFactor) {
-		this.count *= scaleFactor;
-		this.births *= scaleFactor;
-		this.deaths *= scaleFactor;
+		this.setCount(this.getCount() * scaleFactor);
+		this.setBirths(this.getBirths() * scaleFactor);
+		this.setDeaths(this.getDeaths() * scaleFactor);
 		return this;
 	}
 
 	public IntegrationLabelValue set(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
-		this.count = v.getCount();
-		this.births = v.getBirths();
-		this.deaths = v.getDeaths();
-		this.incidence = v.getIncidence();
+		this.setCount(v.getCount());
+		this.setBirths(v.getBirths());
+		this.setDeaths(v.getDeaths());
+		this.setIncidence(v.getIncidence());
 		return this;
 	}
 
 	public IntegrationLabelValue sub(IntegrationLabelValue value) {
 		StandardPopulationModelLabelValue v = (StandardPopulationModelLabelValue)value;
-		this.births -= v.getBirths();
-		this.deaths -= v.getDeaths();
-		this.count -= v.getCount();
+		this.setBirths(this.getBirths() - v.getBirths());
+		this.setDeaths(this.getDeaths() - v.getDeaths());
+		this.setCount(this.getCount() - v.getCount());
 		return this;
 	}
 
 	public IntegrationLabelValue divide(IntegrationLabelValue d) {
 		
 		StandardPopulationModelLabelValue _scale = (StandardPopulationModelLabelValue)d;
-		double cScaled = Math.abs(count) / Math.abs(_scale.getCount());
-		double bScaled = Math.abs(births) / Math.abs(_scale.getBirths());
-		double dScaled = Math.abs(deaths) / Math.abs(_scale.getDeaths());
+		double cScaled = Math.abs(getCount()) / Math.abs(_scale.getCount());
+		double bScaled = Math.abs(getBirths()) / Math.abs(_scale.getBirths());
+		double dScaled = Math.abs(getDeaths()) / Math.abs(_scale.getDeaths());
 		setCount(cScaled);
 		setBirths(bScaled);
 		setDeaths(dScaled);
@@ -504,9 +504,9 @@ public class StandardPopulationModelLabelValueImpl extends PopulationModelLabelV
 	}
 	
 	public double max() {
-		if(count > births && count > deaths) return count;
-		else if(births > deaths) return births;
-		else return deaths;
+		if(getCount() > getBirths() && getCount() > getDeaths()) return getCount();
+		else if(getBirths() > getDeaths()) return getBirths();
+		else return getDeaths();
 	}
 	
 	@Override

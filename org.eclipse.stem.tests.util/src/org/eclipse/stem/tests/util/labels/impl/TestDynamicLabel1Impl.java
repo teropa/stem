@@ -37,8 +37,8 @@ public class TestDynamicLabel1Impl extends DynamicLabelImpl implements
 	 */
 	protected TestDynamicLabel1Impl() {
 		super();
-		currentValue = LabelsFactory.eINSTANCE.createTestIntegerLabelValue();
-		nextValue = LabelsFactory.eINSTANCE.createTestIntegerLabelValue();
+		setCurrentValue(LabelsFactory.eINSTANCE.createTestIntegerLabelValue());
+		setNextValue(LabelsFactory.eINSTANCE.createTestIntegerLabelValue());
 	} // TestDynamicLabel1Impl
 
 	

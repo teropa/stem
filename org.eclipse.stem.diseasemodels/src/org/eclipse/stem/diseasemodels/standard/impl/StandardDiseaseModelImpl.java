@@ -253,7 +253,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated NOT
 	 */
 	public void addToTotalPopulationCount(double populationCount) {
-		setTotalPopulationCount(totalPopulationCount + populationCount);
+		setTotalPopulationCount(getTotalPopulationCount() + populationCount);
 	} // addToTotalPopulationCount
 
 	/**
@@ -262,7 +262,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated NOT
 	 */
 	public double computeTotalPopulationCountReciprocal() {
-		return totalPopulationCountReciprocal = 1.0 / totalPopulationCount;
+		return totalPopulationCountReciprocal = 1.0 / getTotalPopulationCount();
 	} // computeTotalPopulationCountReciprocal
 
 	/**
@@ -271,7 +271,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 	 * @generated NOT
 	 */
 	public void addToTotalArea(double area) {
-		setTotalArea(totalArea + area);
+		setTotalArea(getTotalArea() + area);
 	} // addToTotalArea
 
 	/**
@@ -567,7 +567,7 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		final StandardDiseaseModelState sdms = (StandardDiseaseModelState) diseaseModelLabel
 				.getDiseaseModelState();
 		// Is there a population ?
-		if (totalPopulationCount > 0.0) {
+		if (getTotalPopulationCount() > 0.0) {
 			// Yes
 			double area = getArea(diseaseModelLabel.getPopulationLabel());
 			// Do we have a bad area value?
@@ -763,32 +763,32 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		boolean retValue = super.sane();
 
 		retValue = retValue
-				&& totalPopulationCount >= TOTAL_POPULATION_COUNT_EDEFAULT;
+				&& getTotalPopulationCount() >= TOTAL_POPULATION_COUNT_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(totalPopulationCount);
+		retValue = retValue && !Double.isInfinite(getTotalPopulationCount());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(totalPopulationCount);
+		retValue = retValue && !Double.isNaN(getTotalPopulationCount());
 		assert retValue;
 		
 		retValue = retValue
-				&& totalPopulationCountReciprocal >= TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT;
+				&& getTotalPopulationCountReciprocal() >= TOTAL_POPULATION_COUNT_RECIPROCAL_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(totalPopulationCountReciprocal);
+		retValue = retValue && !Double.isInfinite(getTotalPopulationCountReciprocal());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(totalPopulationCountReciprocal);
+		retValue = retValue && !Double.isNaN(getTotalPopulationCountReciprocal());
 		assert retValue;
 		
-		retValue = retValue && totalArea >= TOTAL_AREA_EDEFAULT;
+		retValue = retValue && getTotalArea() >= TOTAL_AREA_EDEFAULT;
 		assert retValue;
 
-		retValue = retValue && !Double.isInfinite(totalArea);
+		retValue = retValue && !Double.isInfinite(getTotalArea());
 		assert retValue;
 		
-		retValue = retValue && !Double.isNaN(totalArea);
+		retValue = retValue && !Double.isNaN(getTotalArea());
 		assert retValue;
 		
 		return retValue;

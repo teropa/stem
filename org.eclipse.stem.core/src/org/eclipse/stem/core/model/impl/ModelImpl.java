@@ -573,16 +573,16 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	 */
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("\"" + dublinCore.getTitle()
+		final StringBuilder sb = new StringBuilder("\"" + getDublinCore().getTitle()
 				+ "\"\n");
 
-		sb.append(models != null ? models.size() + " models\n" : "");
-		sb.append(graphs != null ? graphs.size() + " graphs\n" : "");
-		sb.append(graphDecorators != null ? graphDecorators.size()
+		sb.append(getModels() != null ? getModels().size() + " models\n" : "");
+		sb.append(getGraphs() != null ? getGraphs().size() + " graphs\n" : "");
+		sb.append(getGraphDecorators() != null ? getGraphDecorators().size()
 				+ " graph decorators\n" : "");
-		sb.append(nodeDecorators != null ? nodeDecorators.size()
+		sb.append(getNodeDecorators() != null ? getNodeDecorators().size()
 				+ " node decorators\n" : "");
-		sb.append(edgeDecorators != null ? edgeDecorators.size()
+		sb.append(getEdgeDecorators() != null ? getEdgeDecorators().size()
 				+ "edge decorators\n" : "");
 
 		return sb.toString();
@@ -596,8 +596,8 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 	public boolean sane() {
 		boolean retValue = super.sane();
 
-		if (retValue && models != null) {
-			for (final Iterator<Model> modelIter = models.iterator(); modelIter
+		if (retValue && getModels() != null) {
+			for (final Iterator<Model> modelIter = getModels().iterator(); modelIter
 					.hasNext()
 					&& retValue;) {
 				final Model model = (Model) modelIter.next();
@@ -606,8 +606,8 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			} // for each model
 		}
 
-		if (retValue && graphs != null) {
-			for (final Iterator<Graph> graphIter = graphs.iterator(); graphIter
+		if (retValue && getGraphs() != null) {
+			for (final Iterator<Graph> graphIter = getGraphs().iterator(); graphIter
 					.hasNext()
 					&& retValue;) {
 				final Graph graph = (Graph) graphIter.next();
@@ -616,8 +616,8 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			} // for each graph
 		}
 
-		if (retValue && graphDecorators != null) {
-			for (final Iterator<GraphDecorator> graphDecoratorIter = graphDecorators.iterator(); graphDecoratorIter
+		if (retValue && getGraphDecorators() != null) {
+			for (final Iterator<GraphDecorator> graphDecoratorIter = getGraphDecorators().iterator(); graphDecoratorIter
 					.hasNext()
 					&& retValue;) {
 				final GraphDecorator graphDecorator = (GraphDecorator) graphDecoratorIter
@@ -627,8 +627,8 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			} // for each graphDecorator
 		} // if
 
-		if (retValue && nodeDecorators != null) {
-			for (Iterator<NodeDecorator> nodeDecoratorIter = nodeDecorators.iterator(); nodeDecoratorIter
+		if (retValue && getNodeDecorators() != null) {
+			for (Iterator<NodeDecorator> nodeDecoratorIter = getNodeDecorators().iterator(); nodeDecoratorIter
 					.hasNext()
 					&& retValue;) {
 				NodeDecorator nodeDecorator = (NodeDecorator) nodeDecoratorIter
@@ -638,8 +638,8 @@ public class ModelImpl extends IdentifiableImpl implements Model {
 			} // for each noeDecorator
 		} // if
 
-		if (retValue && edgeDecorators != null) {
-			for (Iterator<EdgeDecorator> edgeDecoratorIter = edgeDecorators.iterator(); edgeDecoratorIter
+		if (retValue && getEdgeDecorators() != null) {
+			for (Iterator<EdgeDecorator> edgeDecoratorIter = getEdgeDecorators().iterator(); edgeDecoratorIter
 					.hasNext()
 					&& retValue;) {
 				EdgeDecorator edgeDecorator = (EdgeDecorator) edgeDecoratorIter

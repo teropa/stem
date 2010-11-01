@@ -103,7 +103,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 	/**
@@ -112,7 +112,7 @@ public class STEMTimeSequenceModifierImpl extends SequenceModifierImpl implement
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**

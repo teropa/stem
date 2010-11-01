@@ -127,7 +127,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 			graph = ((NodeDecorator)eContainer()).getGraph();
 	
 		// Do we need to look up the disease model from its name?
-		if (diseaseModel == null) {
+		if (getDiseaseModel() == null) {
 			// Yes
 			// There's a disease model out there with our name on it
 			// (maybe)...let's find it
@@ -141,7 +141,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 					if (diseaseModel.getDiseaseName().equalsIgnoreCase(
 							getDiseaseName())) {
 						// Yes
-						this.diseaseModel = diseaseModel;
+						setDiseaseModel(diseaseModel);
 						break;
 					}
 				}
@@ -149,7 +149,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 		} // if look up disease model
 
 		// Did we find the disease model we're suppose to work for?
-		if (diseaseModel != null) {
+		if (getDiseaseModel() != null) {
 			// Yes
 			// Now try to find the node to be infected
 			final Node parent = graph.getNode(getTargetURI());
@@ -177,8 +177,8 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 							final DiseaseModelLabel diseaseModelLabel = (DiseaseModelLabel) nodeLabel;
 							// Yes
 							// Is it updated by this disease model?
-							if (diseaseModelLabel.getDecorator() == diseaseModel &&
-									diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(diseaseModel.getPopulationIdentifier())) {
+							if (diseaseModelLabel.getDecorator() == getDiseaseModel() &&
+									diseaseModelLabel.getPopulationModelLabel().getPopulationIdentifier().equals(getDiseaseModel().getPopulationIdentifier())) {
 								// Yes
 								doInitialization(diseaseModelLabel);
 								getLabelsToInfect().add(diseaseModelLabel);
@@ -201,7 +201,7 @@ public class SIRInoculatorImpl extends SIInfectorImpl implements SIRInoculator {
 		else {
 			// No
 			// The disease name was probably wrong
-			Activator.logError("The disease named \"" + diseaseName
+			Activator.logError("The disease named \"" + getDiseaseName()
 					+ "\" was not found.", null);
 		} // else node not found
 

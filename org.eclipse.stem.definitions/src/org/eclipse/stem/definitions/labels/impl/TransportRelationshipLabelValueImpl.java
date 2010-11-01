@@ -105,7 +105,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 	public boolean sane() {
 		boolean retValue = true;
 
-		retValue = retValue && availableDepartureCapacityProportion >= 0 && availableDepartureCapacityProportion<= AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT;
+		retValue = retValue && getAvailableDepartureCapacityProportion() >= 0 && getAvailableDepartureCapacityProportion()<= AVAILABLE_DEPARTURE_CAPACITY_PROPORTION_EDEFAULT;
 		assert retValue;
 
 		return retValue;
@@ -177,7 +177,7 @@ public class TransportRelationshipLabelValueImpl extends LabelValueImpl
 
 		StringBuffer result = new StringBuffer();
 		result.append(" (available proportion: ");
-		result.append(availableDepartureCapacityProportion);
+		result.append(getAvailableDepartureCapacityProportion());
 		result.append(')');
 		return result.toString();
 	} // toString

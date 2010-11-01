@@ -373,9 +373,9 @@ public abstract class DynamicLabelImpl extends LabelImpl implements DynamicLabel
 		StringBuffer result = new StringBuffer(super.toString());
 
 		result.append(" [");
-		result.append(nextValue.toString());
+		result.append(getNextValue().toString());
 		result.append(" (");
-		result.append(nextValueValid ? "valid" : "invalid");
+		result.append(isNextValueValid() ? "valid" : "invalid");
 		result.append(")");
 		result.append("]");
 

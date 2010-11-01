@@ -113,13 +113,13 @@ public class SequentialSequencerImpl extends SequencerImpl implements
 	 * @generated NOT
 	 */
 	public void setTimeIncrement(long newTimeIncrement) {
-		long oldTimeIncrement = timeIncrement;
+		long oldTimeIncrement = getTimeIncrement();
 		timeIncrement = newTimeIncrement;
-		timeDelta = timeIncrement;
+		timeDelta = getTimeIncrement();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					SequencerPackage.SEQUENTIAL_SEQUENCER__TIME_INCREMENT,
-					oldTimeIncrement, timeIncrement));
+					oldTimeIncrement, getTimeIncrement()));
 	}
 
 	/**

@@ -408,9 +408,9 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		// Original value captured yet?
 		if (!eIsSet(ModifierPackage.INTEGER_RANGE_MODIFIER__ORIGINAL_VALUE)) {
 			// No
-			setOriginalValue((STEMTime)target.eGet(getEStructuralFeature()));
+			setOriginalValue((STEMTime)getTarget().eGet(getEStructuralFeature()));
 		} // if
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 
 	/**
@@ -420,7 +420,7 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 	public void reset() {
 		super.reset();
 		eUnset(ModifierPackage.STEM_TIME_RANGE_MODIFIER__NEXT_VALUE);
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 	
 	/**
@@ -432,10 +432,10 @@ public class STEMTimeRangeModifierImpl extends RangeModifierImpl implements
 		assert retValue;
 
 		retValue = retValue
-				&& !((endValue).getTime().before((startValue).getTime()));
+				&& !((getEndValue()).getTime().before((getStartValue()).getTime()));
 		assert retValue;
 
-		retValue = retValue && increment > 0;
+		retValue = retValue && getIncrement() > 0;
 		assert retValue;
 
 		return retValue;

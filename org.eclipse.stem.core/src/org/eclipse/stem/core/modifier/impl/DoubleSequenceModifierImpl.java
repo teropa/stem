@@ -102,7 +102,7 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void updateFeature() {
 		super.updateFeature();
-		target.eSet(getEStructuralFeature(), getNextValue());
+		getTarget().eSet(getEStructuralFeature(), getNextValue());
 	}
 	
 
@@ -112,7 +112,7 @@ public class DoubleSequenceModifierImpl extends SequenceModifierImpl implements 
 	@Override
 	public void reset() {
 		super.reset();
-		target.eSet(getEStructuralFeature(), getOriginalValue());
+		getTarget().eSet(getEStructuralFeature(), getOriginalValue());
 	}
 
 	/**
