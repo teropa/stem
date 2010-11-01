@@ -107,9 +107,9 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 
 		return retValue;
 	} // addIncrement
-	
-	
 
+	
+	
 	/**
 	 * compares STEMTimes
 	 * 
@@ -123,30 +123,15 @@ public class STEMTimeImpl extends EObjectImpl implements STEMTime {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public int hashCode() {
-		final int PRIME = 31;
-		int result = 1;
-		result = PRIME * result + ((time == null) ? 0 : time.hashCode());
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean equals(Object obj) {
+	public boolean valueEquals(STEMTime obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		final STEMTimeImpl other = (STEMTimeImpl) obj;
 		if (time == null) {
-			if (other.time != null)
+			if (obj.getTime() != null)
 				return false;
-		} else if (!time.equals(other.time))
+		} else if (!time.equals(obj.getTime()))
 			return false;
 		return true;
 	}

@@ -16,7 +16,6 @@
   <foreignModel>sequencer.ecore</foreignModel>
   <foreignModel>trigger.ecore</foreignModel>
   <foreignModel>solver.ecore</foreignModel>
-  <foreignModel>graphgenerator.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
       contentTypeIdentifier="" ecorePackage="common.ecore#/">
@@ -276,9 +275,8 @@
       <genOperations ecoreOperation="model.ecore#//STEMTime/addIncrement">
         <genParameters ecoreParameter="model.ecore#//STEMTime/addIncrement/timeIncrement"/>
       </genOperations>
-      <genOperations ecoreOperation="model.ecore#//STEMTime/hashCode"/>
-      <genOperations ecoreOperation="model.ecore#//STEMTime/equals">
-        <genParameters ecoreParameter="model.ecore#//STEMTime/equals/obj"/>
+      <genOperations ecoreOperation="model.ecore#//STEMTime/valueEquals">
+        <genParameters ecoreParameter="model.ecore#//STEMTime/valueEquals/obj"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//Comparable">

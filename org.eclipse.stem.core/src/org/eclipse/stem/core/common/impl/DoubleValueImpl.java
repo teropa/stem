@@ -233,22 +233,7 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 	/**
 	 * Need to override to make sure modifiers can find
 	 */
-	@Override
-	public int hashCode() {
-		Identifiable id = findIdentifiable(this);
-		
-		
-		if(id!=null) 
-			return id.getURI().hashCode() ^
-			this.eContainingFeature().getName().hashCode();
-			
-		return this.hashCode();
-	}
-	
-	@Override
-	public boolean equals(Object o) {
-		if(!(o instanceof DoubleValueImpl)) return false;
-		DoubleValueImpl dvi = (DoubleValueImpl)o;
+	public boolean valueEquals(DoubleValueImpl dvi) {
 		Identifiable id = findIdentifiable(dvi);
 		Identifiable id2 = findIdentifiable(this);
 		if(!id.getURI().equals(id2.getURI())) return false;
@@ -256,6 +241,6 @@ public class DoubleValueImpl extends EObjectImpl implements DoubleValue {
 		// Need to make sure that the path from the identifiable
 		// to here is the same
 		//... todo
-		return (super.equals(o));
+		return (super.equals(dvi));
 	}
 } //DoubleValueImpl

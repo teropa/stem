@@ -186,7 +186,7 @@ public class AbsoluteTimeTestImpl extends TimeTestImpl implements AbsoluteTimeTe
 	 */
 	@Override
 	public boolean evaluate(STEMTime time, long timerPeriod, Decorator action) {
-		return time.equals(getTime());
+		return time.valueEquals(getTime());
 	}
 	
 } //AbsoluteTimeTestImpl
