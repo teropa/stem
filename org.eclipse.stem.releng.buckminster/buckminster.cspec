@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="org.eclipse.stem.releng.buckminster" componentType="buckminster" version="1.0.0">
     <cs:dependencies>
-        <cs:dependency name="org.eclipse.stem.ui" componentType="osgi.bundle"/>
+        <cs:dependency name="STEMDataSets" componentType="unknown"/>
         <cs:dependency name="org.eclipse.stem.internal.data" componentType="osgi.bundle"/>
+        <cs:dependency name="org.eclipse.stem.ui" componentType="osgi.bundle"/>
     </cs:dependencies>
+    <cs:generators>
+        <cs:generator generates="STEMDataSets" attribute="create.datasets" component="org.eclipse.stem.internal.data" generatesType="unknown"/>
+    </cs:generators>
 </cs:cspec>
