@@ -5,14 +5,15 @@
 		 xmlns:pmp="http://www.eclipse.org/buckminster/PDEMapProvider-1.0"
 		 >
 
-  <rm:property key="ORBIT_REVISION" value="S20100831105311" />
+  <rm:property key="ORBIT_REVISION" value="S20101014084557" />
  
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="localWorkspace" failOnError="false" />
   <rm:locator pattern="^org\.eclipse\.stem\.(\..+)?" searchPathRef="stemsource" failOnError="true" />
   <!--
   <rm:locator pattern="" searchPathRef="eclipse3.6" failOnError="false"/>
+  -->
   <rm:locator searchPathRef="orbit" failOnError="true"/>
-    -->
+ 
     
   <rm:searchPath name="localWorkspace">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature"
@@ -48,6 +49,19 @@
   </rm:searchPath>
   
   <rm:searchPath name="stemsource">
+  
+  
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" 
+      readerType="svn" 
+      source="true"
+      mutable="true"
+      resolutionFilter="">
+      <rm:uri format="http://dev.eclipse.org/svnroot/technology/org.eclipse.stem/trunk/{0}">
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+    
+    <!--
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" 
       readerType="svn" 
       source="true"
@@ -57,6 +71,7 @@
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
+    -->
     
     <rm:provider componentTypes="osgi.bundle" 
       readerType="svn" 
