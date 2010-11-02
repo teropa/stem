@@ -633,7 +633,7 @@
            <visibleWhen
                  checkEnabled="false">
               <reference
-                    definitionId="org.eclipse.stem.ui.isexecutable">
+                    definitionId="org.eclipse.stem.ui.isremoteexecutable">
               </reference>
            </visibleWhen>
         </command>
@@ -853,7 +853,7 @@
         </activeWhen>
      </handler>
      <handler
-           class="org.eclipse.stem.ui.handlers.STEMExecutionCommandHandler$RunOnServerCommandHandler"
+           class="org.eclipse.stem.ui.handlers.STEMExecutionCommandHandler$RunCommandHandler"
            commandId="org.eclipse.stem.ui.command.runonserver">
         <activeWhen>
            <reference
@@ -1042,6 +1042,19 @@
            </iterate>
         </with>
      </definition>
+     <definition
+           id="org.eclipse.stem.ui.isremoteexecutable">
+        <with
+              variable="selection">
+           <iterate
+                 ifEmpty="false"
+                 operator="and">
+              <adapt
+                    type="org.eclipse.stem.jobs.execution.remote.IRemoteExecutable">
+              </adapt>
+           </iterate>
+        </with>
+     </definition>     
      <definition
            id="org.eclipse.stem.ui.isIdentifiableDelegate">
         <with

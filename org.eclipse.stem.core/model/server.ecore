@@ -5,6 +5,6 @@
     nsURI="http:///org/eclipse/stem/server.ecore" nsPrefix="org.eclipse.stem.server">
   <eClassifiers xsi:type="ecore:EClass" name="Simulations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="scenarios" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.stem.core/model/scenario.ecore#//Scenario"/>
+        eType="ecore:EClass scenario.ecore#//Scenario"/>
   </eClassifiers>
 </ecore:EPackage>

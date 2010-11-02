@@ -1,4 +1,4 @@
-// ExecutableRemoteExecutableAdapterFactory.java
+// IdentifiableExecutableAdapterFactory.java
 package org.eclipse.stem.jobs.adapters.executable;
 
 /*******************************************************************************
@@ -13,27 +13,24 @@ package org.eclipse.stem.jobs.adapters.executable;
  *******************************************************************************/
 
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.jobs.adapters.executable.emf.ExecutableAdapter;
 import org.eclipse.stem.jobs.execution.IExecutable;
 import org.eclipse.stem.jobs.execution.remote.IRemoteExecutable;
-import org.eclipse.stem.jobs.simulation.remote.RemoteSimulationManager;
 
 /**
  * This class is an {@link ExecutableAdapterFactory} that adapts
- * {@link Identifiable}s to {@link IExecutable}s.
+ * {@link Identifiable}s to {@link IRemoteExecutable}s.
  * <p>
  * This class serves as a "bridge" between the Eclipse {@link IAdapterManager}
  * and
- * {@link org.eclipse.stem.jobs.adapters.executable.emf.ExecutableAdapterFactory}
+ * {@link org.eclipse.stem.jobs.adapters.executable.emf.RemoteExecutableAdapterFactory}
  * which is the EMF {@link Adapter} implementation that adapts
- * {@link Identifiable}s to {@link IExecutable}s.
+ * {@link Identifiable}s to {@link IRemoteExecutable}s.
  * 
- * @see org.eclipse.stem.jobs.adapters.executable.emf.ExecutableAdapter
- * @see org.eclipse.stem.jobs.adapters.executable.emf.ScenarioExecutableAdapterFactory
- * @see org.eclipse.stem.jobs.adapters.executable.emf.ExperimentExecutableAdapterFactory
+ * @see org.eclipse.stem.jobs.adapters.executable.emf.RemoteExecutableAdapter
+ * @see org.eclipse.stem.jobs.adapters.executable.emf.ScenarioRemoteExecutableAdapterFactory
  */
-public class ExecutableRemoteExecutableAdapterFactory extends
-		ExecutableAdapterFactory {
+public class IdentifiableRemoteExecutableAdapterFactory extends
+		RemoteExecutableAdapterFactory {
 
 	/**
 	 * @see org.eclipse.core.runtime.IAdapterFactory#getAdapter(java.lang.Object,
@@ -43,26 +40,13 @@ public class ExecutableRemoteExecutableAdapterFactory extends
 			final Class adapterType) {
 		IRemoteExecutable retValue = null;
 		// It it what we're looking for?
-		if (adaptableObject instanceof IExecutable
+		if (adaptableObject instanceof Identifiable
 				&& adapterType.equals(IRemoteExecutable.class)) {
 			// Yes
-			retValue = new RemoteExecutableAdapter((IExecutable)adaptableObject);
+			retValue = (IRemoteExecutable) org.eclipse.stem.jobs.adapters.executable.emf.RemoteExecutableAdapterFactory.INSTANCE
+					.adapt(adaptableObject, IRemoteExecutable.class);
 		} // if
 		return retValue;
 	} // getAdapter
-	
-	protected static class RemoteExecutableAdapter extends ExecutableAdapter implements IRemoteExecutable {
 
-		private IExecutable executable;
-		
-		public RemoteExecutableAdapter(IExecutable executable) {
-			this.executable = executable;
-		}
-
-		@Override
-		public void run() {
-			RemoteSimulationManager.getManager().run(executable);
-		}
-	}
-
-} // IdentifiableExecutableAdapterFactory
+} // IdentifiableRemoteExecutableAdapterFactory

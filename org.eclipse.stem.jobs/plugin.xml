@@ -45,6 +45,19 @@
                    type="org.eclipse.stem.jobs.execution.IExecutable">
              </adapter>
           </factory>
+          <factory 
+            class="org.eclipse.stem.jobs.adapters.executable.IdentifiableRemoteExecutableAdapterFactory" 
+            adaptableType="org.eclipse.stem.core.Scenario">
+            <adapter type="org.eclipse.stem.jobs.execution.remote.IRemoteExecutable"/>
+         </factory>
+          <factory
+                adaptableType="org.eclipse.stem.core.scenario.impl.ScenarioImpl"
+                class="org.eclipse.stem.jobs.adapters.executable.IdentifiableRemoteExecutableAdapterFactory">
+             <adapter
+                   type="org.eclipse.stem.jobs.execution.remote.IRemoteExecutable">
+             </adapter>
+          </factory>
+
           <factory
                 adaptableType="org.eclipse.stem.jobs.simulation.ISimulation"
                 class="org.eclipse.stem.jobs.adapters.executable.SimulationExecutableAdapterFactory">
@@ -68,12 +81,7 @@
              <adapter
                    type="org.eclipse.stem.jobs.execution.IExecutable">
              </adapter>
-          </factory>
-          <factory 
-            class="org.eclipse.stem.jobs.adapters.executable.ExecutableRemoteExecutableAdapterFactory" 
-            adaptableType="org.eclipse.stem.jobs.execution.IExecutable">
-            <adapter type="org.eclipse.stem.jobs.execution.remote.IRemoteExecutable"/>
-         </factory>          
+          </factory>         
   </extension>
  <extension
        point="org.eclipse.core.runtime.adapters">

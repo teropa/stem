@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.server/src"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.core/src"
     modelPluginID="org.eclipse.stem.server" modelName="Server" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
     rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" importerID="org.eclipse.emf.importer.cdo"
-    featureDelegation="Dynamic" complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+    featureDelegation="Dynamic" complianceLevel="5.0" copyrightFields="false" usedGenPackages="core.genmodel#//common core.genmodel#//graph core.genmodel#//model core.genmodel#//modifier core.genmodel#//scenario core.genmodel#//sequencer core.genmodel#//solver platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    interfaceNamePattern="">
   <foreignModel>server.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Server" basePackage="org.eclipse.stem.server" disposableProviderFactory="true"

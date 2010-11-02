@@ -14,6 +14,7 @@ public class SimulationRunThreadFactory implements ThreadFactory {
 
 	private static class Handler implements Thread.UncaughtExceptionHandler {
 		public void uncaughtException(Thread thread, Throwable cause) {
+			System.out.println("Uncaught exception: "+cause);
 			cause.printStackTrace();
 		}
 	}

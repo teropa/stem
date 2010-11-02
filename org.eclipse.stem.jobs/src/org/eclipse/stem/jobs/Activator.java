@@ -15,6 +15,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.stem.jobs.adapters.executable.emf.ExperimentExecutableAdapterFactory;
 import org.eclipse.stem.jobs.adapters.executable.emf.ScenarioExecutableAdapterFactory;
+import org.eclipse.stem.jobs.adapters.executable.emf.ScenarioRemoteExecutableAdapterFactory;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -46,6 +47,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		new ScenarioExecutableAdapterFactory();
+		new ScenarioRemoteExecutableAdapterFactory();
 		new ExperimentExecutableAdapterFactory();
 	} // start
 

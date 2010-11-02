@@ -9,16 +9,18 @@ import org.eclipse.stem.core.sequencer.Sequencer;
 
 public class SimulationRun implements Runnable {
 
-	private final Scenario scenario;
-	private final CDOTransaction tx;
+	private Scenario scenario;
+	private final CDOSession activeSession;
 
 	public SimulationRun(Scenario scenarioToRun, CDOSession activeSession) {
-		tx = activeSession.openTransaction();
-		scenario = tx.getObject(scenarioToRun);
+		this.activeSession = activeSession;
+		this.scenario = scenarioToRun;
 	}
 
 	public void run() {
+		CDOTransaction tx = activeSession.openTransaction();
 		try {
+			scenario = tx.getObject(scenario);
 			scenario.addDecoratorAdaptors();
 			final Sequencer sequencer = scenario.getSequencer();
 
@@ -46,6 +48,8 @@ public class SimulationRun implements Runnable {
 				}
 			}
 			System.out.println("ran simulation");
+		} catch (Throwable t) {
+			t.printStackTrace();
 		} finally {
 			tx.close();
 		}

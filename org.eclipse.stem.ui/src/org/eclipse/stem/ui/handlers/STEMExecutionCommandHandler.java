@@ -61,8 +61,15 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 			for (final Object obj : ((StructuredSelection) selection).toList()) {
 				// IExecutable executable = (IExecutable) ExecutableAdapterFactory.INSTANCE
 				// .adapt(obj, IExecutable.class);
-				IExecutable executable = (IExecutable) Platform
-						.getAdapterManager().getAdapter(obj, IExecutable.class); 
+				
+				// TODO: Find a better way to determine whether this should be a remote executable
+				IExecutable executable = null;
+				if (executionEvent.getCommand().getId().equals("org.eclipse.stem.ui.command.runonserver")) {
+					executable = (IExecutable)Platform.getAdapterManager().getAdapter(obj, IRemoteExecutable.class);
+				} else {
+					executable = (IExecutable)Platform.getAdapterManager().getAdapter(obj, IExecutable.class);
+				}
+				 
 				
 				// Only switch to the Simulation Persepctive when the executable is a standard
 				// run (scenario). For other executables we may want to stay in other special
@@ -131,23 +138,6 @@ abstract public class STEMExecutionCommandHandler extends AbstractHandler
 			executable.run();
 		}
 	} // RunCommandHandler
-
-	/**
-	 * This class is a {@link STEMExecutionCommandHandler} that invokes
-	 * {@link IExecutable#run()} on a remote server.
-	 */
-	public static class RunOnServerCommandHandler extends STEMExecutionCommandHandler {
-
-		/**
-		 * @see org.eclipse.stem.ui.handlers.STEMExecutionCommandHandler#doit(org.eclipse.stem.jobs.execution.IExecutable)
-		 */
-		@Override
-		protected void doit(IExecutable executable) {
-			IRemoteExecutable remoteExecutable = (IRemoteExecutable)Platform.getAdapterManager().getAdapter(executable, IRemoteExecutable.class);
-			remoteExecutable.run();
-		}
-	} // RunCommandHandler
-
 	
 	/**
 	 * This class is a {@link STEMExecutionCommandHandler} that invokes
