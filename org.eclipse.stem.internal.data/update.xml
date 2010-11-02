@@ -32,9 +32,11 @@
     <target name="update_all" description="Run all of the child and files">
         <ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography" antfile="update.xml"/>
         <ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography.population.human" antfile="update.xml"/>
+    	<ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography.earthscience" antfile="update.xml"/>
     	<ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography.models" antfile="update.xml"/>
     	<ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography.infrastructure.transportation" antfile="update.xml"/>
     	<ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography.population.human.models" antfile="update.xml"/>
+    	<ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.data.geography.earthscience.models" antfile="update.xml"/>
     	<ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.diseasemodels.models" antfile="update.xml"/>
     	<ant dir="${pluginRootDirectory}/${ID_ROOT}.internal.diseasemodels.scenarios" antfile="update.xml"/>
     </target>
