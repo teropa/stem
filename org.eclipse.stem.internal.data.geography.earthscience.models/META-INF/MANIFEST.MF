@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: STEM Internal Earth Science Models
+Bundle-SymbolicName: org.eclipse.stem.internal.data.geography.earthscience.models
+Bundle-Version: 1.1.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.stem.core,
+ org.eclipse.stem.definitions,
+ org.eclipse.stem.data.geography,
+ org.eclipse.stem.data.geography.models,
+ org.eclipse.stem.internal.data,
+ org.eclipse.stem.internal.data.geography,
+ org.eclipse.stem.internal.data.geography.models,
+ org.eclipse.stem.internal.data.geography.earthscience,
+ org.eclipse.stem.data.geography.earthscience,
+ org.eclipse.stem.data.geography.earthscience.models
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: Eclipse.org
