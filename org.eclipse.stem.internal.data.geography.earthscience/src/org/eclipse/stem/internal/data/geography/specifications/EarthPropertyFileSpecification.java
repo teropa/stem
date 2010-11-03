@@ -99,5 +99,12 @@ public class EarthPropertyFileSpecification extends
 
 		return retValue;
 	} // createAreaLabel
+	
+	/**
+	 * Returns the plugin for which this file is mapped into
+	 */
+	protected String getTargetPluginId() {
+		return org.eclipse.stem.data.geography.earthscience.Activator.PLUGIN_ID;
+	}
 
 } // CountryAreaLabelPropertyFileSpecification
