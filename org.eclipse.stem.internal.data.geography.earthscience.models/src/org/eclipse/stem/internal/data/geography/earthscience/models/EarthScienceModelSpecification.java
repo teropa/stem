@@ -67,7 +67,7 @@ public class EarthScienceModelSpecification extends ModelSpecification implement
 				+ File.separator;
 
 		// The path to the earth science data project
-		final String GEOGRAPHY_GRAPHS_PROJECT_ROOT = WORKSPACE
+		final String GEOGRAPHY_EARTHSCIENCE_GRAPHS_PROJECT_ROOT = WORKSPACE
 				+ File.separator
 				+ org.eclipse.stem.data.geography.earthscience.Activator.PLUGIN_ID
 				+ File.separator;
@@ -84,8 +84,8 @@ public class EarthScienceModelSpecification extends ModelSpecification implement
 
 		platformResourceMap
 				.put(
-						org.eclipse.stem.data.geography.Activator.PLUGIN_ID,
-						URI.createFileURI(GEOGRAPHY_GRAPHS_PROJECT_ROOT));
+						org.eclipse.stem.data.geography.earthscience.Activator.PLUGIN_ID,
+						URI.createFileURI(GEOGRAPHY_EARTHSCIENCE_GRAPHS_PROJECT_ROOT));
 	} // static
 
 	/**

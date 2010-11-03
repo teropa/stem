@@ -107,10 +107,10 @@
 		</fileset>
 	</path>
 
-	<target name="update_all" depends="update_geography" />
+	<target name="update_all" depends="update_earthscience" />
 
 	<!-- Update the geography plugin with the latest definitions -->
-	<target name="update_geography" depends="update_earthscience_models, update_earthscience_plugin_xml, update_earthscience_plugin_properties" />
+	<target name="update_earthscience" depends="update_earthscience_models, update_earthscience_plugin_xml, update_earthscience_plugin_properties" />
 
 	<target name="update_earthscience_plugin_xml" depends="create_candidates">
 		<copy tofile="${file.target.pluginxml}" file="${file.util.pluginxml}" overwrite="true" />
