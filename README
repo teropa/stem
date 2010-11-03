@@ -1,12 +1,20 @@
-Changes
--------
+ToDo
+----
+
+* Explore and document the performance profile of remote runs
+* Reorganize the code to well-defined subprojects (especially get the server model out of core).
+
+Changes made to existing code
+-----------------------------
+
+The following changes have been made to existing code to get CDO runs working. Most of them are quick hacks, and proper solutions to the underlying problems should be explored:
 
 StandardPopulationModelImpl.handlePipeTransport() will call initPipeTransport() because the pipe transport maps are not EMF features and may have been initialized on the "other side".
 
 decorator->graph relatiopnship changed from transient to non-transient (caused ClassCastException with CDO).
 http://dev.eclipse.org/newslists/news.eclipse.tools.emf/msg23116.html
 
-Commented out dependency to UI FiniteDifferenceImpl.step(). Will have to find a way to get to the prefences without requiring UI.
+Commented out dependency to UI in FiniteDifferenceImpl.step(). Will have to find a way to get to the preferences without requiring UI.
 
 SequentialSequencerImpl.getEndTime() tests if end time less than *or equal* to current time
 
