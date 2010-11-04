@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="product_base"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.stem.ui.CoreEditorAdvisorApplication"
+            name="STEM">
+         <property
+               name="windowImages"
+               value="branding/ohf16_16_32.gif,branding/ohf32_32_32.gif,branding/ohf48_48_32.gif,branding/ohf64_64_32.gif,branding/ohf128_128_32.gif">
+         </property>
+         <property
+               name="aboutText"
+               value="Spatio-Temporal Epidemological/Event Modeler (STEM)">
+         </property>
+         <property
+               name="aboutImage"
+               value="branding/ohf64_64_32.gif">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="FFFFFF">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,413,431,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="10,380,431,20">
+         </property>
+         <property
+               name="appName"
+               value="STEM">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         
+                <!-- These are for the Welcome/intro.  See plugin.properties -->
+          <property
+            name="introTitle"
+            value="%introTitle">
+         </property>
+         
+         <property
+            name="introBrandingImage"
+            value="product:branding/ohf64_64_32.gif">
+         </property>
+
+         <property
+            name="introBrandingImageText"
+            value="%introBrandingImageText">
+         </property>
+         
+         <property
+            name="introDescription-overview"
+            value="%introDescription-overview">
+         </property>
+         <property
+            name="introDescription-firststeps"
+            value="%introDescription-firststeps">
+         </property>
+         <property
+            name="introDescription-tutorials"
+            value="%introDescription-tutorials">
+         </property>
+         <property
+            name="introDescription-samples"
+            value="%introDescription-samples">
+         </property>
+         <property
+            name="introDescription-whatsnew"
+            value="%introDescription-whatsnew">
+         </property>
+         <property
+            name="introDescription-migrate"
+            value="%introDescription-migrate">
+         </property>
+         <property
+            name="introDescription-webresources"
+            value="%introDescription-webresources">
+         </property>         
+            
+      </product>
+   </extension>
+
+</plugin>
