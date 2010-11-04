@@ -36,10 +36,8 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
       <plugin id="com.ibm.icu"/>
@@ -133,6 +131,8 @@
       <plugin id="org.eclipse.stem.data.diseasemodels.models"/>
       <plugin id="org.eclipse.stem.data.diseasemodels.scenarios"/>
       <plugin id="org.eclipse.stem.data.geography"/>
+      <plugin id="org.eclipse.stem.data.geography.earthscience"/>
+      <plugin id="org.eclipse.stem.data.geography.earthscience.models"/>
       <plugin id="org.eclipse.stem.data.geography.infrastructure.transportation"/>
       <plugin id="org.eclipse.stem.data.geography.models"/>
       <plugin id="org.eclipse.stem.data.geography.population.human"/>
@@ -151,6 +151,8 @@
       <plugin id="org.eclipse.stem.graphgenerators"/>
       <plugin id="org.eclipse.stem.internal.data"/>
       <plugin id="org.eclipse.stem.internal.data.geography"/>
+      <plugin id="org.eclipse.stem.internal.data.geography.earthscience"/>
+      <plugin id="org.eclipse.stem.internal.data.geography.earthscience.models"/>
       <plugin id="org.eclipse.stem.internal.data.geography.infrastructure.transportation"/>
       <plugin id="org.eclipse.stem.internal.data.geography.models"/>
       <plugin id="org.eclipse.stem.internal.data.geography.population"/>
