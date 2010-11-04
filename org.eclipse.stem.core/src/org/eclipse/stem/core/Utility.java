@@ -72,16 +72,20 @@ public class Utility {
 
 		try {
 			URI normalized = STEMURI.normalize(identifableURI);
-			Resource resource = resourceSet.getResource(normalized,
+			Resource resource = null;
+			synchronized(resourceSet) { // Resource set is not thread safe
+				resource = resourceSet.getResource(normalized,
 					true);
-			if(resource.isModified()) {				
-				resource.unload();
-				resource.load(null);
-				if(resource.getErrors().size() > 0) {
-					for(Resource.Diagnostic d: resource.getErrors()) 
-						CorePlugin.logError(d.getMessage(), new Exception());
+			
+				if(resource.isModified()) {				
+					resource.unload();
+					resource.load(null);
+					if(resource.getErrors().size() > 0) {
+						for(Resource.Diagnostic d: resource.getErrors()) 
+							CorePlugin.logError(d.getMessage(), new Exception());
+					}
 				}
-			}
+			} // Synchronized
 			EList<EObject>cont = resource.getContents();
 			if(cont.size() == 0) {
 				int maxretry = 10;
