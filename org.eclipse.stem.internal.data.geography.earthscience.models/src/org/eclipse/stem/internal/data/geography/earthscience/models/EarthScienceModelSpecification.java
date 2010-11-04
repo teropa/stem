@@ -111,18 +111,10 @@ public class EarthScienceModelSpecification extends ModelSpecification implement
 	@Override
 	protected Model createIdentifiableInstance() {
 		final Model retValue = super.createIdentifiableInstance();
-		// The generated Graphs etc., all have dublin core that references
-		// them as plugins. This is as it should be when STEM is running,
-		// but right now we're running stand-alone and want to access the
-		// plugins as projects (they aren't plugged into our running version
-		// of Eclipse). Substitute "resource" for "plugin" in the URI's we
-		// use and all will be well.
 
-		URI u = getIdentifiableProjectURI(countryGeographicModelDC);
-		Model m = (Model) Utility.getIdentifiable(u);
-		
-		retValue.getModels().add(m);
-
+//		URI u = getIdentifiableProjectURI(countryGeographicModelDC);
+//		Model m = (Model) Utility.getIdentifiable(u);
+//		retValue.getModels().add(m);
 		
 		if (earthScienceGraphsDC != null) {
 			for (DublinCore dc : earthScienceGraphsDC) {
