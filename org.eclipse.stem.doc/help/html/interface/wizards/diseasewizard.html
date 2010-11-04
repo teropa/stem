@@ -15,8 +15,9 @@ For example, for an SI model, the parameters are:
 	<li>Time Period (TP): In milliseconds, the reference time period all rates are in relation to.</li>
 	<li>Frequency Dependent: Yes or No. If No, the disease model assumes density dependency and transmission rates are scaled according to the local population density.</li>
 	<li>Reference Pop Density: PM/SQ KM. The reference density, only used when frequency dependent is No</li>
-	<li>Transmission Rate (&Beta;).  The transmission rate of the disease</li> 
-	<li>Non-Linearity Coefficient: Must be greater than or equal to 0.0. Incidence is (&Beta)*S*I^exp </li>
+	<li>Transmission Rate (&beta;).  This is the transmission (or contact) rate, not the basic reproductive number (R<sub>o</sub>).
+	If 's' represents the fraction of the population that is susceptible, R<sub>o</sub>~s&beta;/(&gamma; + &mu;).</li> 
+	<li>Non-Linearity Coefficient (&nu;): Typically &nu;=1. Must be greater than or equal to 0.0. Incidence is &beta;*S*I<sup>&nu;</sup> </li>
 	<li>Infectious Recovery Rate (&gamma;): PM/TP*</li>
 	<li>Infectious Mortality Rate (&mu; &iota;): PM/TP*</li>
 	<li>Characteristic Mixing Distance: In kilometers, the distance threshold where the population is assumed fully mixed.</li>
