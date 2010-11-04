@@ -28,11 +28,13 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -291,47 +293,60 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 		//String filename = uri.lastSegment();
 		String project = getProject(uri);
 		String type = getType(uri);
-		
-		for(Resource r:org.eclipse.stem.core.Utility.resourceSet.getResources()) {
-			String p_project = getProject(r.getURI());
-			if(!project.equals(p_project)) continue;
-			EList<EObject> content = r.getContents();
-			if(content == null || content.size() == 0) continue;
-			EObject first = content.get(0);
-			URI u = ((Identifiable)first).getURI();
-			if(u == null) continue;
-			String proj = getProject(u);
-			if(proj == null) continue;
-			if(!proj.equals(project)) continue; // wrong project
 
-			if(type.equals("models")) {
-				if(!(first instanceof Model) && !(first instanceof Scenario)
-						&& !(first instanceof Experiment)) continue; // only models,scenarios and experiments contain other models				
-				boolean modified = false;
-				if(first instanceof Model)
-					modified = checkModel((Model)first, uri);
-				else if(first instanceof Scenario)
-					modified = checkScenario((Scenario)first, uri);			
-				else if(first instanceof Experiment)
-					modified = checkExperiment((Experiment)first, uri);	
-				if(modified) r.setModified(true);						
-			} else if(type.equals("decorators")) {
-				if(!(first instanceof Model) && !(first instanceof Scenario)) continue; // only models and scenarios contain decorators				
-				boolean modified = false;
-				if(first instanceof Model)
-					modified = checkModelDecorators((Model)first, uri);
-				else if(first instanceof Scenario)
-					modified = checkScenarioDecorators((Scenario)first, uri);			
-				if(modified) r.setModified(true);						
-			} else if(type.equals("graphs")) {
-				if(!(first instanceof Model)) continue; // only models  contain graphs		
-				boolean modified = false;
-				modified = checkModelGraphs((Model)first, uri);
-				if(modified) r.setModified(true);	
-			}  
+		// We need to get a snapshot of the resources currently in the resource set since 
+		// the loop below could potentially add more elements to the list inside it.
+		
+		EList<Resource> resSnap = new BasicEList<Resource>();
+		synchronized(org.eclipse.stem.core.Utility.resourceSet) {			
+			for(Resource r:org.eclipse.stem.core.Utility.resourceSet.getResources()) resSnap.add(r);
+		
+			// The reason we do not release the synchronization lock here
+			// is that Utility.getIdentifiable(...) could be called asynchronously
+			// by the project explorer tree viewer, and the method will iterate
+			// over the resources searching for a match. That loop need to be
+			// protected by calls below adding new resources to the resource set.
 			
+			for(Resource r:resSnap) {
+				String p_project = getProject(r.getURI());
+				if(!project.equals(p_project)) continue;
+				EList<EObject> content = r.getContents();
+				if(content == null || content.size() == 0) continue;
+				EObject first = content.get(0);
+				URI u = ((Identifiable)first).getURI();
+				if(u == null) continue;
+				String proj = getProject(u);
+				if(proj == null) continue;
+				if(!proj.equals(project)) continue; // wrong project
+	
+				if(type.equals("models")) {
+					if(!(first instanceof Model) && !(first instanceof Scenario)
+							&& !(first instanceof Experiment)) continue; // only models,scenarios and experiments contain other models				
+					boolean modified = false;
+					if(first instanceof Model)
+						modified = checkModel((Model)first, uri);
+					else if(first instanceof Scenario)
+						modified = checkScenario((Scenario)first, uri);			
+					else if(first instanceof Experiment)
+						modified = checkExperiment((Experiment)first, uri);	
+					if(modified) r.setModified(true);						
+				} else if(type.equals("decorators")) {
+					if(!(first instanceof Model) && !(first instanceof Scenario)) continue; // only models and scenarios contain decorators				
+					boolean modified = false;
+					if(first instanceof Model)
+						modified = checkModelDecorators((Model)first, uri);
+					else if(first instanceof Scenario)
+						modified = checkScenarioDecorators((Scenario)first, uri);			
+					if(modified) r.setModified(true);						
+				} else if(type.equals("graphs")) {
+					if(!(first instanceof Model)) continue; // only models  contain graphs		
+					boolean modified = false;
+					modified = checkModelGraphs((Model)first, uri);
+					if(modified) r.setModified(true);	
+				}  	
+			} // for each resource
 		}
-	}
+	} // resourceSet is not thread safe
 	
 	private boolean checkModel(Model model, URI modifiedURI) {
 		if(model == null || modifiedURI == null) 
