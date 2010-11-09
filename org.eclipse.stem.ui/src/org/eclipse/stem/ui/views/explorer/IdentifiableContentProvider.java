@@ -35,7 +35,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
+import org.eclipse.jface.viewers.IElementComparer;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreePath;
@@ -50,8 +52,15 @@ import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.ui.Activator;
 import org.eclipse.stem.ui.Utility;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.navigator.CommonNavigator;
 import org.eclipse.ui.navigator.CommonViewer;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.progress.UIJob;
 
 /**
@@ -164,6 +173,26 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = viewer;
+		
+		((StructuredViewer)viewer).setComparer(new IElementComparer() {
+			
+			public int hashCode(Object element) {
+				return element.hashCode();
+			}
+			
+			public boolean equals(Object a, Object b) {
+				Object aRep=a, bRep=b;
+				while(aRep instanceof DelegatingWrapperItemProvider)
+					aRep = ((DelegatingWrapperItemProvider)aRep).getValue();
+				while(bRep instanceof DelegatingWrapperItemProvider)
+					bRep = ((DelegatingWrapperItemProvider)bRep).getValue();
+				
+				if(aRep instanceof Identifiable && bRep instanceof Identifiable)
+					return ((Identifiable)aRep).getURI().toString().equals(((Identifiable)bRep).getURI().toString());
+				
+				return aRep.equals(bRep);
+			}
+		});
 	}
 
 	/**
@@ -228,9 +257,8 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 				new UIJob("Update Folder") { 
 					public IStatus runInUIThread(IProgressMonitor monitor) { 
 						if (viewer != null 
-								&& !viewer.getControl().isDisposed()) { 
-							((StructuredViewer)viewer).refresh(f); 
-						
+								&& !viewer.getControl().isDisposed()) {
+							refreshViewer((CommonViewer)viewer, f);						
 						} 
 						return Status.OK_STATUS; 
 					} 
@@ -241,7 +269,7 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 				public IStatus runInUIThread(IProgressMonitor monitor) { 
 					if (viewer != null 
 							&& !viewer.getControl().isDisposed()) { 
-						((StructuredViewer)viewer).refresh(source); 
+						refreshViewer((CommonViewer)viewer, source);
 					} 
 					return Status.OK_STATUS; 
 				} 
@@ -253,7 +281,7 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 				public IStatus runInUIThread(IProgressMonitor monitor) { 
 					if (viewer != null 
 							&& !viewer.getControl().isDisposed()) { 
-						((StructuredViewer)viewer).refresh(project); 
+						refreshViewer((CommonViewer)viewer, project);
 					} 
 					return Status.OK_STATUS; 
 				} 
@@ -269,7 +297,7 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 				{ 
 					if (viewer != null 
 							&& !viewer.getControl().isDisposed()) { 
-						((StructuredViewer)viewer).refresh(file); 
+						refreshViewer((CommonViewer)viewer, file);
 					} 
 					return Status.OK_STATUS; 
 				} 
@@ -281,6 +309,85 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 		return true; 		
 	} // visit
 
+	private void refreshViewer(CommonViewer v, Object elm) {
+		TreePath [] expPaths = v.getExpandedTreePaths();
+		v.refresh(elm); 
+		// The last element in the tree paths containing models, scenarios etc. have
+		// potentially been reloaded in the viewer, so the values in expPaths are 
+		// wrong. We need to find the new ones and expand those.
+		
+		ArrayList<TreeItem>allItems = new ArrayList<TreeItem>();
+		getAllItems(v.getControl(), allItems);
+		ArrayList<TreePath> newPathsToExpand = new ArrayList<TreePath>();
+		for(TreePath tp:expPaths) {
+			Object lastSeg = tp.getLastSegment();
+			while(lastSeg instanceof DelegatingWrapperItemProvider)
+				lastSeg = ((DelegatingWrapperItemProvider)lastSeg).getValue();
+
+			System.out.println("Processing "+lastSeg);
+
+			if(lastSeg instanceof Identifiable) {
+				// See if we can find the new identifiable object in the list of items
+				boolean foundNewPath = false;
+				for(TreeItem ti:allItems) {
+					Object data = ti.getData();
+					while(data instanceof DelegatingWrapperItemProvider)
+						data = ((DelegatingWrapperItemProvider)data).getValue();
+					
+//					System.out.println("Comparing "+data+" with "+lastSeg);
+					if(data instanceof Identifiable && 
+							((Identifiable)data).getURI().equals(((Identifiable)lastSeg).getURI()) &&
+							!data.equals(lastSeg))
+					{
+						Object [] segments = new Object[tp.getSegmentCount()];
+						int i = 0;
+						for(i=0;i<tp.getSegmentCount()-1;++i) segments[i] = tp.getSegment(i);
+						segments[i] = ti.getData();
+						TreePath newPath = new TreePath(segments);
+						newPathsToExpand.add(newPath);
+						foundNewPath = true;
+					}
+				}
+				if(!foundNewPath) {
+					// Try and expand anyway using the old object
+					Object [] segments = new Object[tp.getSegmentCount()];
+					int i=0;
+					for(i=0;i<tp.getSegmentCount();++i) segments[i] = tp.getSegment(i);
+					TreePath newPath = new TreePath(segments);
+					newPathsToExpand.add(newPath);
+				}
+			}
+		}
+		v.setExpandedTreePaths(expPaths);
+		for(TreePath tp:newPathsToExpand)
+			v.expandToLevel(tp, 1);
+	}
+	
+	private void getAllItems(Object o, ArrayList<TreeItem>items) {
+		
+		if(o instanceof Tree)
+			for(TreeItem t:((Tree)o).getItems()) {
+				items.add(t);
+				for(TreeItem t2:t.getItems())
+					getAllItems(t2, items);
+			}
+		
+		if(o instanceof TreeItem) 
+			for(TreeItem t:((TreeItem)o).getItems()) {
+				items.add(t);
+				getAllItems(t, items);
+			}
+	}
+	
+	private static class MyRunnable implements Runnable {
+		public IEditorReference [] references;
+		public void run() {
+			references = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+		}
+		public IEditorReference [] getReferences() {
+			return references;
+		}
+	}
 	/**
 	 * In STEM, models contain other models and graphs, and scenarios contain other models etc. When a resource is changed, we need to see
 	 * what other resources are potentially affected and need to be marked as modified
@@ -293,7 +400,14 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 		//String filename = uri.lastSegment();
 		String project = getProject(uri);
 		String type = getType(uri);
-
+		MyRunnable runnable = new MyRunnable();
+		
+		final IEditorReference [] editorReferences;
+		Display.getDefault().syncExec(runnable);
+		
+		editorReferences = runnable.getReferences();
+	
+		
 		// We need to get a snapshot of the resources currently in the resource set since 
 		// the loop below could potentially add more elements to the list inside it.
 		
@@ -318,11 +432,10 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 				String proj = getProject(u);
 				if(proj == null) continue;
 				if(!proj.equals(project)) continue; // wrong project
-	
+				boolean modified = false;
 				if(type.equals("models")) {
 					if(!(first instanceof Model) && !(first instanceof Scenario)
 							&& !(first instanceof Experiment)) continue; // only models,scenarios and experiments contain other models				
-					boolean modified = false;
 					if(first instanceof Model)
 						modified = checkModel((Model)first, uri);
 					else if(first instanceof Scenario)
@@ -332,21 +445,37 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 					if(modified) r.setModified(true);						
 				} else if(type.equals("decorators")) {
 					if(!(first instanceof Model) && !(first instanceof Scenario)) continue; // only models and scenarios contain decorators				
-					boolean modified = false;
 					if(first instanceof Model)
 						modified = checkModelDecorators((Model)first, uri);
 					else if(first instanceof Scenario)
 						modified = checkScenarioDecorators((Scenario)first, uri);			
-					if(modified) r.setModified(true);						
 				} else if(type.equals("graphs")) {
 					if(!(first instanceof Model)) continue; // only models  contain graphs		
-					boolean modified = false;
 					modified = checkModelGraphs((Model)first, uri);
-					if(modified) r.setModified(true);	
 				}  	
+				if(modified) 
+					r.setModified(true);
 			} // for each resource
+			
+			// Finally check any editors open that needs to be reloaded
+			checkEditors(editorReferences, uri);
 		}
 	} // resourceSet is not thread safe
+	
+	private void checkEditors(IEditorReference [] editorReferences, URI uri) {
+/*		for(IEditorReference ier:editorReferences) {
+			System.out.println(ier);
+			try {
+				IEditorInput input = ier.getEditorInput();
+				FileEditorInput fei = (FileEditorInput)input;
+				IEditorPart editor = ier.getEditor(false);
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+*/
+	}
 	
 	private boolean checkModel(Model model, URI modifiedURI) {
 		if(model == null || modifiedURI == null) 
