@@ -222,10 +222,7 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 			// $ANALYSIS-IGNORE
 			monitor.worked((int) sequencer.getWorkComplete());
 			final Simulation self = this;
-			adapter = new AdapterImpl() {
-				/**
-				 * @override
-				 */
+/*			adapter = new AdapterImpl() {
 				@Override
 				public void notifyChanged(Notification msg)
 				{
@@ -239,7 +236,10 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 
 				}
 			}; 
+			
 			scenario.eAdapters().add(adapter);
+			*/
+
 			//ScenarioItemProvider sip = (ScenarioItemProvider)scenarioItemProviderAdapterFactory.adapt(this, ScenarioItemProvider.class);
 
 			//scenarioItemProviderAdapterFactory.addListener(this); // ugh
