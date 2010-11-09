@@ -112,10 +112,9 @@ public class ModelItemProvider
 	 * @generated NOT
 	 */
 	@Override
-	/*protected EStructuralFeature getChildFeature(Object object, Object child) {
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
-		
 		Object temp = child;
 		if (child instanceof IFile) {
 			// Yes
@@ -142,14 +141,15 @@ public class ModelItemProvider
 			return super.getChildFeature(object, temp);
 		} else
 			return super.getChildFeature(object, child);
+
 	} // getChildFeature
-*/
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
+	protected EStructuralFeature getChildFeatureGen(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
