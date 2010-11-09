@@ -14,11 +14,13 @@ package org.eclipse.stem.core.common.presentation;
 import java.io.File;
 import java.net.URL;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.ui.URIEditorInput;
@@ -784,17 +786,22 @@ public final class CoreEditorAdvisor extends WorkbenchAdvisor {
 		IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 		IWorkbenchPage page = workbenchWindow.getActivePage();
 	
-		IEditorDescriptor editorDescriptor = workbench.getEditorRegistry().getDefaultEditor(fileURI.toFileString());
-		if (editorDescriptor == null) {
-			MessageDialog.openError(
-			workbenchWindow.getShell(),
-			getString("_UI_Error_title"),  //$NON-NLS-1$
-			getString("_WARN_No_Editor", fileURI.toFileString()));  //$NON-NLS-1$
-			return false;
-		}
-		else {
+//		IEditorDescriptor editorDescriptor = workbench.getEditorRegistry().getDefaultEditor(fileURI.toFileString());
+//		if (editorDescriptor == null) {
+//			MessageDialog.openError(
+//			workbenchWindow.getShell(),
+//			getString("_UI_Error_title"),  //$NON-NLS-1$
+//			getString("_WARN_No_Editor", fileURI.toFileString()));  //$NON-NLS-1$
+//			return false;
+//		}
+//		else {
 			try {
-				page.openEditor(new URIEditorInput(fileURI), editorDescriptor.getId());
+				final IPath path = new Path(fileURI.toPlatformString(true));
+				
+				IFile f = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
+				
+				IDE.openEditor(page, f, true);
+				//page.openEditor(f, editorDescriptor.getId(), true);
 			}
 			catch (PartInitException exception) {
 				MessageDialog.openError(
@@ -803,7 +810,7 @@ public final class CoreEditorAdvisor extends WorkbenchAdvisor {
 				exception.getMessage());
 				return false;
 			}
-		}
+	//	}
 	
 		return true;
 	}
