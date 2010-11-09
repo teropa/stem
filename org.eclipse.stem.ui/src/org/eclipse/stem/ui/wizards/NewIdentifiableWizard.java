@@ -190,8 +190,10 @@ abstract public class NewIdentifiableWizard extends Wizard implements
 				// Ignore
 			}
 			// Now open up the appropriate editor for the new Identifiable.
-			return CoreEditorAdvisor.openEditor(workbench, CommonPlugin
-					.asLocalURI(serializationURI));
+//			return CoreEditorAdvisor.openEditor(workbench, CommonPlugin
+//					.asLocalURI(serializationURI));
+			return CoreEditorAdvisor.openEditor(workbench, serializationURI);
+
 		} // try
 		catch (final InvocationTargetException e) {
 			Activator.logError(Activator.PLUGIN_ID, e);
