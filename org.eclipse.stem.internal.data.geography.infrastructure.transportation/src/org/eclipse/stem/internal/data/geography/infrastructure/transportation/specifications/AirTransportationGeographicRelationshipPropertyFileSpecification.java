@@ -291,6 +291,7 @@ public class AirTransportationGeographicRelationshipPropertyFileSpecification
 		populationLabel.getCurrentPopulationValue().setCount(startingPop);
 		populationLabel.setIdentifiable(retValue);
 		populationLabel.setPopulatedArea(1.0);
+		populationLabel.setURI(STEMURI.createURI(PopulationLabel.URI_TYPE_POPULATION_LABEL_SEGMENT+"/"+getPopulationIdentifier()+"/"+systemISOKey));
 		retValue.getLabels().add(populationLabel);
 
 		retValue.setMaxCapacity(maxCapacity);
