@@ -193,7 +193,7 @@ public class PlatformLatLongDataProviderTest extends LatLongDataProviderTest {
 	 */
 	public void testDataSanity() {
 		final PlatformLatLongDataProvider fixture = getFixture();
-		final String URI_STRING = "platform:/plugin/org.eclipse.stem.geography/resources/data/geo/country/USA/USA_2_MAP.xml";
+		final String URI_STRING = "platform:/plugin/org.eclipse.stem.data.geography/resources/data/geo/country/USA/USA_2_MAP.xml";
 		assertTrue(true);
 		// polygonCheck(fixture, URI_STRING);
 

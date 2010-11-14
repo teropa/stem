@@ -172,7 +172,7 @@ public class WorldScenarioCreator {
 		resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap().put(
 				"platform", new XMIResourceFactoryImpl());
 
-		final String uriStringPrefix = "../org.eclipse.stem.geography/"
+		final String uriStringPrefix = "../org.eclipse.stem.data.geography/"
 				+ "resources/data/models/world/WORLD/";
 
 		final String[] modelFileNames = new String[] { "WORLD_0_1_2.model",
