@@ -43,7 +43,9 @@
       <plugin id="javax.servlet.jsp"/>
       <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.el"/>
+      <plugin id="org.apache.commons.httpclient"/>
       <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.derby"/>
       <plugin id="org.apache.jasper"/>
       <plugin id="org.apache.lucene"/>
       <plugin id="org.apache.lucene.analysis"/>
@@ -75,6 +77,7 @@
       <plugin id="org.eclipse.core.net.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
+      <plugin id="org.eclipse.core.resources.spysupport" fragment="true"/>
       <plugin id="org.eclipse.core.resources.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
@@ -87,7 +90,12 @@
       <plugin id="org.eclipse.ecf.ssl" fragment="true"/>
       <plugin id="org.eclipse.emf.cdo"/>
       <plugin id="org.eclipse.emf.cdo.common"/>
+      <plugin id="org.eclipse.emf.cdo.common.db"/>
+      <plugin id="org.eclipse.emf.cdo.defs"/>
       <plugin id="org.eclipse.emf.cdo.net4j"/>
+      <plugin id="org.eclipse.emf.cdo.server"/>
+      <plugin id="org.eclipse.emf.cdo.server.db"/>
+      <plugin id="org.eclipse.emf.cdo.server.net4j"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.common.ui"/>
       <plugin id="org.eclipse.emf.ecore"/>
@@ -126,12 +134,20 @@
       <plugin id="org.eclipse.ltk.core.refactoring"/>
       <plugin id="org.eclipse.ltk.ui.refactoring"/>
       <plugin id="org.eclipse.net4j"/>
+      <plugin id="org.eclipse.net4j.db"/>
+      <plugin id="org.eclipse.net4j.db.derby"/>
+      <plugin id="org.eclipse.net4j.defs"/>
+      <plugin id="org.eclipse.net4j.http"/>
+      <plugin id="org.eclipse.net4j.http.common"/>
+      <plugin id="org.eclipse.net4j.jvm"/>
       <plugin id="org.eclipse.net4j.tcp"/>
       <plugin id="org.eclipse.net4j.util"/>
+      <plugin id="org.eclipse.net4j.util.defs"/>
       <plugin id="org.eclipse.osgi"/>
       <plugin id="org.eclipse.osgi.services"/>
       <plugin id="org.eclipse.stem.analysis"/>
       <plugin id="org.eclipse.stem.analysis.automaticexperiment"/>
+      <plugin id="org.eclipse.stem.cdoserver"/>
       <plugin id="org.eclipse.stem.core"/>
       <plugin id="org.eclipse.stem.data.diseasemodels.models"/>
       <plugin id="org.eclipse.stem.data.diseasemodels.scenarios"/>
@@ -218,8 +234,12 @@
       <plugin id="org.junit"/>
       <plugin id="org.mortbay.jetty.server"/>
       <plugin id="org.mortbay.jetty.util"/>
-      <plugin id="org.mozilla.rhino"/>
+      <plugin id="org.mozilla.javascript"/>
+      <plugin id="org.mozilla.rhino" fragment=""/>
    </plugins>
 
+   <configurations>
+      <plugin id="org.eclipse.stem.cdoserver" autoStart="true" startLevel="0" />
+   </configurations>
 
 </product>
