@@ -10,6 +10,7 @@
    <extension-point id="predicate" name="%EP_Predicate" schema="schema/predicate.exsd"/>
    <extension-point id="experiment" name="%EP_Experiment" schema="schema/experiment.exsd"/>
    <extension-point id="solver" name="%EP_Solver" schema="schema/solver.exsd"/>
+   <extension-point id="simulation" name="%EP_Simulation" schema="schema/simulation.exsd"/>
  
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
