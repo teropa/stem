@@ -66,8 +66,6 @@ import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
-import simulation.SimulationPackage;
-import simulation.impl.SimulationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

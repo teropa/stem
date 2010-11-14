@@ -35,7 +35,6 @@ import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
-
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
 import org.eclipse.stem.core.simulation.SimulationPackage;
 import org.eclipse.stem.core.simulation.impl.SimulationPackageImpl;
@@ -43,8 +42,6 @@ import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
-import simulation.SimulationPackage;
-import simulation.impl.SimulationPackageImpl;
 
 //import org.eclipse.stem.core.sequencer.Sequencer;
 

@@ -10,17 +10,14 @@ package org.eclipse.stem.core.common.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
 
-import java.lang.Comparable;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValue;
@@ -28,30 +25,22 @@ import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
 import org.eclipse.stem.core.experiment.ExperimentPackage;
 import org.eclipse.stem.core.experiment.impl.ExperimentPackageImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
-
 import org.eclipse.stem.core.graph.impl.GraphPackageImpl;
-
 import org.eclipse.stem.core.model.ModelPackage;
-
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
-
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.impl.ModifierPackageImpl;
 import org.eclipse.stem.core.predicate.PredicatePackage;
 import org.eclipse.stem.core.predicate.impl.PredicatePackageImpl;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
-
 import org.eclipse.stem.core.scenario.impl.ScenarioPackageImpl;
-
 import org.eclipse.stem.core.sequencer.SequencerPackage;
-
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
 import org.eclipse.stem.core.simulation.SimulationPackage;
 import org.eclipse.stem.core.simulation.impl.SimulationPackageImpl;
@@ -59,8 +48,6 @@ import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
-import simulation.SimulationPackage;
-import simulation.impl.SimulationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

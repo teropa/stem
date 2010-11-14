@@ -11,7 +11,6 @@ package org.eclipse.stem.core.model.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
  
-import java.lang.Comparable;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -41,9 +40,7 @@ import org.eclipse.stem.core.predicate.PredicatePackage;
 import org.eclipse.stem.core.predicate.impl.PredicatePackageImpl;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.scenario.impl.ScenarioPackageImpl;
-
 import org.eclipse.stem.core.sequencer.SequencerPackage;
-
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
 import org.eclipse.stem.core.simulation.SimulationPackage;
 import org.eclipse.stem.core.simulation.impl.SimulationPackageImpl;
@@ -51,8 +48,6 @@ import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
-import simulation.SimulationPackage;
-import simulation.impl.SimulationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

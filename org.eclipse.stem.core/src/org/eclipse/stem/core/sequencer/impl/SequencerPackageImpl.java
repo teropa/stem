@@ -15,32 +15,22 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.stem.core.common.CommonPackage;
-
 import org.eclipse.stem.core.common.impl.CommonPackageImpl;
-
 import org.eclipse.stem.core.experiment.ExperimentPackage;
 import org.eclipse.stem.core.experiment.impl.ExperimentPackageImpl;
 import org.eclipse.stem.core.graph.GraphPackage;
-
 import org.eclipse.stem.core.graph.impl.GraphPackageImpl;
-
 import org.eclipse.stem.core.model.ModelPackage;
-
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
-
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.impl.ModifierPackageImpl;
 import org.eclipse.stem.core.predicate.PredicatePackage;
 import org.eclipse.stem.core.predicate.impl.PredicatePackageImpl;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
-
 import org.eclipse.stem.core.scenario.impl.ScenarioPackageImpl;
-
 import org.eclipse.stem.core.sequencer.RealTimeSequencer;
 import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.SequencerFactory;
@@ -52,8 +42,6 @@ import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.TriggerPackage;
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
-import simulation.SimulationPackage;
-import simulation.impl.SimulationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
