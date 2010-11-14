@@ -5,8 +5,9 @@
     editDirectory="/org.eclipse.stem.core/src" editorDirectory="/org.eclipse.stem.ui/src"
     modelPluginID="org.eclipse.stem.core" modelName="Core" modelPluginClass="" editorPluginClass="org.eclipse.stem.core.common.presentation.CoreEditorPlugin"
     nonNLSMarkers="true" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
-    rootImplementsInterface="" testsDirectory="/org.eclipse.stem.tests.core/src" importerID="org.eclipse.emf.importer.ecore"
+    rootImplementsInterface="" testsDirectory="/org.eclipse.stem.tests.core/src" importerID="org.eclipse.emf.importer.cdo"
     featureDelegation="Dynamic" complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>simulation.ecore</foreignModel>
   <foreignModel>common.ecore</foreignModel>
   <foreignModel>experiment.ecore</foreignModel>
   <foreignModel>graph.ecore</foreignModel>
@@ -15,10 +16,15 @@
   <foreignModel>predicate.ecore</foreignModel>
   <foreignModel>scenario.ecore</foreignModel>
   <foreignModel>sequencer.ecore</foreignModel>
-  <foreignModel>trigger.ecore</foreignModel>
   <foreignModel>solver.ecore</foreignModel>
-  <foreignModel>graphgenerator.ecore</foreignModel>
+  <foreignModel>trigger.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="Simulation" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      ecorePackage="simulation.ecore#/">
+    <genClasses ecoreClass="simulation.ecore#//SimulationData">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//SimulationData/currentTime"/>
+    </genClasses>
+  </genPackages>
   <genPackages prefix="Common" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
       contentTypeIdentifier="" ecorePackage="common.ecore#/">
@@ -234,9 +240,9 @@
       <genFeatures property="None" notify="false" children="true" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Decorator/labelsToUpdate"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Decorator/graph"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/enabled"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/graphDecorated"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/progress"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Decorator/enabled"/>
       <genOperations ecoreOperation="model.ecore#//Decorator/decorateGraph">
         <genParameters ecoreParameter="model.ecore#//Decorator/decorateGraph/time"/>
       </genOperations>
@@ -278,9 +284,8 @@
       <genOperations ecoreOperation="model.ecore#//STEMTime/addIncrement">
         <genParameters ecoreParameter="model.ecore#//STEMTime/addIncrement/timeIncrement"/>
       </genOperations>
-      <genOperations ecoreOperation="model.ecore#//STEMTime/hashCode"/>
-      <genOperations ecoreOperation="model.ecore#//STEMTime/equals">
-        <genParameters ecoreParameter="model.ecore#//STEMTime/equals/obj"/>
+      <genOperations ecoreOperation="model.ecore#//STEMTime/valueEquals">
+        <genParameters ecoreParameter="model.ecore#//STEMTime/valueEquals/other"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//Comparable">
@@ -475,16 +480,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sequencer.ecore#//SequentialSequencer/timeIncrement"/>
     </genClasses>
   </genPackages>
-  <genPackages prefix="Trigger" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
-      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
-      ecorePackage="trigger.ecore#/">
-    <genClasses ecoreClass="trigger.ecore#//Trigger">
-      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference trigger.ecore#//Trigger/predicate"/>
-      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference trigger.ecore#//Trigger/action"/>
-    </genClasses>
-  </genPackages>
   <genPackages prefix="Solver" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
       ecorePackage="solver.ecore#/">
     <genClasses ecoreClass="solver.ecore#//Solver">
@@ -496,6 +491,16 @@
         <genParameters ecoreParameter="solver.ecore#//Solver/step/cycle"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Solver/reset"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Trigger" basePackage="org.eclipse.stem.core" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="trigger.ecore#/">
+    <genClasses ecoreClass="trigger.ecore#//Trigger">
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference trigger.ecore#//Trigger/predicate"/>
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference trigger.ecore#//Trigger/action"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

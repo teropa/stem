@@ -1,48 +1,61 @@
-package org.eclipse.stem.core.experiment.impl;
-
-/*******************************************************************************
- * Copyright (c) 2008 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+/**
+ * <copyright>
+ * </copyright>
  *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *******************************************************************************/
+ * $Id$
+ */
+package org.eclipse.stem.core.simulation.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipse.stem.core.common.CommonPackage;
+
 import org.eclipse.stem.core.common.impl.CommonPackageImpl;
-import org.eclipse.stem.core.experiment.Experiment;
-import org.eclipse.stem.core.experiment.ExperimentFactory;
+
 import org.eclipse.stem.core.experiment.ExperimentPackage;
+
+import org.eclipse.stem.core.experiment.impl.ExperimentPackageImpl;
+
 import org.eclipse.stem.core.graph.GraphPackage;
+
 import org.eclipse.stem.core.graph.impl.GraphPackageImpl;
+
 import org.eclipse.stem.core.model.ModelPackage;
+
 import org.eclipse.stem.core.model.impl.ModelPackageImpl;
+
 import org.eclipse.stem.core.modifier.ModifierPackage;
+
 import org.eclipse.stem.core.modifier.impl.ModifierPackageImpl;
+
 import org.eclipse.stem.core.predicate.PredicatePackage;
+
 import org.eclipse.stem.core.predicate.impl.PredicatePackageImpl;
+
 import org.eclipse.stem.core.scenario.ScenarioPackage;
+
 import org.eclipse.stem.core.scenario.impl.ScenarioPackageImpl;
+
 import org.eclipse.stem.core.sequencer.SequencerPackage;
+
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
+
+import org.eclipse.stem.core.simulation.SimulationData;
+import org.eclipse.stem.core.simulation.SimulationFactory;
 import org.eclipse.stem.core.simulation.SimulationPackage;
-import org.eclipse.stem.core.simulation.impl.SimulationPackageImpl;
+
 import org.eclipse.stem.core.solver.SolverPackage;
+
 import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
+
 import org.eclipse.stem.core.trigger.TriggerPackage;
+
 import org.eclipse.stem.core.trigger.impl.TriggerPackageImpl;
-import simulation.SimulationPackage;
-import simulation.impl.SimulationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,20 +63,13 @@ import simulation.impl.SimulationPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPackage {
+public class SimulationPackageImpl extends EPackageImpl implements SimulationPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass experimentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType uriEDataType = null;
+	private EClass simulationDataEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -76,12 +82,12 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.eclipse.stem.core.experiment.ExperimentPackage#eNS_URI
+	 * @see org.eclipse.stem.core.simulation.SimulationPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private ExperimentPackageImpl() {
-		super(eNS_URI, ExperimentFactory.eINSTANCE);
+	private SimulationPackageImpl() {
+		super(eNS_URI, SimulationFactory.eINSTANCE);
 	}
 
 	/**
@@ -94,7 +100,7 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link ExperimentPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link SimulationPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,11 +109,11 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static ExperimentPackage init() {
-		if (isInited) return (ExperimentPackage)EPackage.Registry.INSTANCE.getEPackage(ExperimentPackage.eNS_URI);
+	public static SimulationPackage init() {
+		if (isInited) return (SimulationPackage)EPackage.Registry.INSTANCE.getEPackage(SimulationPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ExperimentPackageImpl theExperimentPackage = (ExperimentPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ExperimentPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ExperimentPackageImpl());
+		SimulationPackageImpl theSimulationPackage = (SimulationPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimulationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SimulationPackageImpl());
 
 		isInited = true;
 
@@ -115,8 +121,8 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		SimulationPackageImpl theSimulationPackage = (SimulationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SimulationPackage.eNS_URI) instanceof SimulationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SimulationPackage.eNS_URI) : SimulationPackage.eINSTANCE);
 		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
+		ExperimentPackageImpl theExperimentPackage = (ExperimentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentPackage.eNS_URI) instanceof ExperimentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentPackage.eNS_URI) : ExperimentPackage.eINSTANCE);
 		GraphPackageImpl theGraphPackage = (GraphPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) instanceof GraphPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) : GraphPackage.eINSTANCE);
 		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
 		ModifierPackageImpl theModifierPackage = (ModifierPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModifierPackage.eNS_URI) instanceof ModifierPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModifierPackage.eNS_URI) : ModifierPackage.eINSTANCE);
@@ -127,9 +133,9 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		TriggerPackageImpl theTriggerPackage = (TriggerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) instanceof TriggerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TriggerPackage.eNS_URI) : TriggerPackage.eINSTANCE);
 
 		// Create package meta-data objects
-		theExperimentPackage.createPackageContents();
 		theSimulationPackage.createPackageContents();
 		theCommonPackage.createPackageContents();
+		theExperimentPackage.createPackageContents();
 		theGraphPackage.createPackageContents();
 		theModelPackage.createPackageContents();
 		theModifierPackage.createPackageContents();
@@ -140,9 +146,9 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		theTriggerPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theExperimentPackage.initializePackageContents();
 		theSimulationPackage.initializePackageContents();
 		theCommonPackage.initializePackageContents();
+		theExperimentPackage.initializePackageContents();
 		theGraphPackage.initializePackageContents();
 		theModelPackage.initializePackageContents();
 		theModifierPackage.initializePackageContents();
@@ -153,12 +159,12 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		theTriggerPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theExperimentPackage.freeze();
+		theSimulationPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(ExperimentPackage.eNS_URI, theExperimentPackage);
-		return theExperimentPackage;
+		EPackage.Registry.INSTANCE.put(SimulationPackage.eNS_URI, theSimulationPackage);
+		return theSimulationPackage;
 	}
 
 	/**
@@ -166,8 +172,8 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExperiment() {
-		return experimentEClass;
+	public EClass getSimulationData() {
+		return simulationDataEClass;
 	}
 
 	/**
@@ -175,8 +181,8 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperiment_Modifiers() {
-		return (EReference)experimentEClass.getEStructuralFeatures().get(0);
+	public EReference getSimulationData_CurrentTime() {
+		return (EReference)simulationDataEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -184,35 +190,8 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExperiment_Complete() {
-		return (EAttribute)experimentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getExperiment_Scenario() {
-		return (EReference)experimentEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getURI() {
-		return uriEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExperimentFactory getExperimentFactory() {
-		return (ExperimentFactory)getEFactoryInstance();
+	public SimulationFactory getSimulationFactory() {
+		return (SimulationFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -234,13 +213,8 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		isCreated = true;
 
 		// Create classes and their features
-		experimentEClass = createEClass(EXPERIMENT);
-		createEReference(experimentEClass, EXPERIMENT__MODIFIERS);
-		createEAttribute(experimentEClass, EXPERIMENT__COMPLETE);
-		createEReference(experimentEClass, EXPERIMENT__SCENARIO);
-
-		// Create data types
-		uriEDataType = createEDataType(URI);
+		simulationDataEClass = createEClass(SIMULATION_DATA);
+		createEReference(simulationDataEClass, SIMULATION_DATA__CURRENT_TIME);
 	}
 
 	/**
@@ -267,32 +241,20 @@ public class ExperimentPackageImpl extends EPackageImpl implements ExperimentPac
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
-		ModifierPackage theModifierPackage = (ModifierPackage)EPackage.Registry.INSTANCE.getEPackage(ModifierPackage.eNS_URI);
-		ScenarioPackage theScenarioPackage = (ScenarioPackage)EPackage.Registry.INSTANCE.getEPackage(ScenarioPackage.eNS_URI);
+		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		experimentEClass.getESuperTypes().add(theCommonPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(experimentEClass, Experiment.class, "Experiment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getExperiment_Modifiers(), theModifierPackage.getModifier(), null, "modifiers", null, 0, -1, Experiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getExperiment_Complete(), ecorePackage.getEBoolean(), "complete", null, 0, 1, Experiment.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getExperiment_Scenario(), theScenarioPackage.getScenario(), null, "scenario", null, 0, 1, Experiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		addEOperation(experimentEClass, theScenarioPackage.getScenario(), "updateScenario", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		addEOperation(experimentEClass, theScenarioPackage.getScenario(), "initScenario", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		// Initialize data types
-		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(simulationDataEClass, SimulationData.class, "SimulationData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSimulationData_CurrentTime(), theModelPackage.getSTEMTime(), null, "currentTime", null, 0, 1, SimulationData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);
 	}
 
-} //ExperimentPackageImpl
+} //SimulationPackageImpl

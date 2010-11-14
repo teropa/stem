@@ -48,11 +48,15 @@ import org.eclipse.stem.core.sequencer.SequencerPackage;
 
 import org.eclipse.stem.core.sequencer.impl.SequencerPackageImpl;
 
+import org.eclipse.stem.core.simulation.SimulationPackage;
+import org.eclipse.stem.core.simulation.impl.SimulationPackageImpl;
 import org.eclipse.stem.core.solver.SolverPackage;
 import org.eclipse.stem.core.solver.impl.SolverPackageImpl;
 import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.core.trigger.TriggerFactory;
 import org.eclipse.stem.core.trigger.TriggerPackage;
+import simulation.SimulationPackage;
+import simulation.impl.SimulationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -118,6 +122,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
+		SimulationPackageImpl theSimulationPackage = (SimulationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SimulationPackage.eNS_URI) instanceof SimulationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SimulationPackage.eNS_URI) : SimulationPackage.eINSTANCE);
 		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 		ExperimentPackageImpl theExperimentPackage = (ExperimentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentPackage.eNS_URI) instanceof ExperimentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentPackage.eNS_URI) : ExperimentPackage.eINSTANCE);
 		GraphPackageImpl theGraphPackage = (GraphPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) instanceof GraphPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) : GraphPackage.eINSTANCE);
@@ -130,6 +135,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 
 		// Create package meta-data objects
 		theTriggerPackage.createPackageContents();
+		theSimulationPackage.createPackageContents();
 		theCommonPackage.createPackageContents();
 		theExperimentPackage.createPackageContents();
 		theGraphPackage.createPackageContents();
@@ -142,6 +148,7 @@ public class TriggerPackageImpl extends EPackageImpl implements TriggerPackage {
 
 		// Initialize created meta-data
 		theTriggerPackage.initializePackageContents();
+		theSimulationPackage.initializePackageContents();
 		theCommonPackage.initializePackageContents();
 		theExperimentPackage.initializePackageContents();
 		theGraphPackage.initializePackageContents();
