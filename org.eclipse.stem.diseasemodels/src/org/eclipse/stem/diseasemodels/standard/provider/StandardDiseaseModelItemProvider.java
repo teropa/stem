@@ -67,6 +67,8 @@ public class StandardDiseaseModelItemProvider extends DiseaseModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 			addReferencePopulationDensityPropertyDescriptor(object);
+			addRoadNetworkInfectiousProportionPropertyDescriptor(object);
+			addCharacteristicMixingDistancePropertyDescriptor(object);
 			//addTotalPopulationCountPropertyDescriptor(object);
 			//addTotalPopulationCountReciprocalPropertyDescriptor(object);
 			//addTotalAreaPropertyDescriptor(object);
@@ -93,6 +95,8 @@ public class StandardDiseaseModelItemProvider extends DiseaseModelItemProvider
 			addTotalPopulationCountReciprocalPropertyDescriptor(object);
 			addTotalAreaPropertyDescriptor(object);
 			addReferencePopulationDensityPropertyDescriptor(object);
+			addRoadNetworkInfectiousProportionPropertyDescriptor(object);
+			addCharacteristicMixingDistancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -186,6 +190,50 @@ public class StandardDiseaseModelItemProvider extends DiseaseModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Road Network Infectious Proportion feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRoadNetworkInfectiousProportionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StandardDiseaseModel_roadNetworkInfectiousProportion_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_StandardDiseaseModel_roadNetworkInfectiousProportion_feature", "_UI_StandardDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Characteristic Mixing Distance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCharacteristicMixingDistancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StandardDiseaseModel_characteristicMixingDistance_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_StandardDiseaseModel_characteristicMixingDistance_feature", "_UI_StandardDiseaseModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 StandardPackage.Literals.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc
 	 * -->
@@ -223,6 +271,8 @@ public class StandardDiseaseModelItemProvider extends DiseaseModelItemProvider
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL:
 			case StandardPackage.STANDARD_DISEASE_MODEL__TOTAL_AREA:
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
+			case StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
+			case StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

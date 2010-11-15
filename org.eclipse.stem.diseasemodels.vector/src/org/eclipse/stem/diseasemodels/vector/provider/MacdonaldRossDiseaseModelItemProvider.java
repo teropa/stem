@@ -69,7 +69,6 @@ public class MacdonaldRossDiseaseModelItemProvider
 			addInfectiousBitingProportionHumanPropertyDescriptor(object);
 			addInfectiousBitingProportionVectorPropertyDescriptor(object);
 			addRecoveryRatePropertyDescriptor(object);
-			addVectorMortalityRatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -163,28 +162,6 @@ public class MacdonaldRossDiseaseModelItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Vector Mortality Rate feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVectorMortalityRatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MacdonaldRossDiseaseModel_vectorMortalityRate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MacdonaldRossDiseaseModel_vectorMortalityRate_feature", "_UI_MacdonaldRossDiseaseModel_type"),
-				 VectorPackage.Literals.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns MacdonaldRossDiseaseModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,7 +202,6 @@ public class MacdonaldRossDiseaseModelItemProvider
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__INFECTIOUS_BITING_PROPORTION_HUMAN:
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__INFECTIOUS_BITING_PROPORTION_VECTOR:
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE:
-			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

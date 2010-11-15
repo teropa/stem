@@ -14,8 +14,6 @@
         defaultValueLiteral="1.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="recoveryRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="3.33E-3"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorMortalityRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-        defaultValueLiteral="0.05"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VectorDiseaseModel" abstract="true"
       eSuperTypes="../../org.eclipse.stem.diseasemodels/model/standard.ecore#//StandardDiseaseModel">

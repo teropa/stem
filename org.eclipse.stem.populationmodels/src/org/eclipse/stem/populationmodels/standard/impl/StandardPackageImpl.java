@@ -696,6 +696,15 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMosquitoPopulationModel_MortalityRate() {
+		return (EAttribute)mosquitoPopulationModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StandardFactory getStandardFactory() {
 		return (StandardFactory)getEFactoryInstance();
 	}
@@ -786,6 +795,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		mosquitoPopulationModelEClass = createEClass(MOSQUITO_POPULATION_MODEL);
 		createEAttribute(mosquitoPopulationModelEClass, MOSQUITO_POPULATION_MODEL__SCALING_FACTOR);
 		createEAttribute(mosquitoPopulationModelEClass, MOSQUITO_POPULATION_MODEL__TIME_PERIOD);
+		createEAttribute(mosquitoPopulationModelEClass, MOSQUITO_POPULATION_MODEL__MORTALITY_RATE);
 	}
 
 	/**
@@ -915,6 +925,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEClass(mosquitoPopulationModelEClass, MosquitoPopulationModel.class, "MosquitoPopulationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMosquitoPopulationModel_ScalingFactor(), theEcorePackage.getEDouble(), "scalingFactor", "1.0", 0, 1, MosquitoPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMosquitoPopulationModel_TimePeriod(), theEcorePackage.getELong(), "timePeriod", "86400000", 0, 1, MosquitoPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMosquitoPopulationModel_MortalityRate(), theEcorePackage.getEDouble(), "mortalityRate", "0.05", 0, 1, MosquitoPopulationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

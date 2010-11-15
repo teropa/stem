@@ -25,8 +25,6 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.SI#getAdjustedInfectiousMortalityRate(long) <em>Get Adjusted Infectious Mortality Rate</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.SI#getAdjustedTransmissionRate(long) <em>Get Adjusted Transmission Rate</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.SI#getAdjustedRecoveryRate(long) <em>Get Adjusted Recovery Rate</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.SI#getEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double) <em>Get Effective Infectious</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.standard.SI#getNormalizedEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double) <em>Get Normalized Effective Infectious</em>}</li>
  * </ul>
  * </p>
  * @generated

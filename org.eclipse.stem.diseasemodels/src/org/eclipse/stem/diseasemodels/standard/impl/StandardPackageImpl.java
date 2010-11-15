@@ -880,26 +880,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSI_RoadNetworkInfectiousProportion() {
-		return (EAttribute)siEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSI_InfectiousMortality() {
-		return (EAttribute)siEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSI_CharacteristicMixingDistance() {
-		return (EAttribute)siEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)siEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1134,6 +1116,24 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 	 */
 	public EAttribute getStandardDiseaseModel_ReferencePopulationDensity() {
 		return (EAttribute)standardDiseaseModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStandardDiseaseModel_RoadNetworkInfectiousProportion() {
+		return (EAttribute)standardDiseaseModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStandardDiseaseModel_CharacteristicMixingDistance() {
+		return (EAttribute)standardDiseaseModelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1536,9 +1536,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(siEClass, SI__RECOVERY_RATE);
 		createEAttribute(siEClass, SI__INFECTIOUS_MORTALITY_RATE);
 		createEAttribute(siEClass, SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION);
-		createEAttribute(siEClass, SI__ROAD_NETWORK_INFECTIOUS_PROPORTION);
 		createEAttribute(siEClass, SI__INFECTIOUS_MORTALITY);
-		createEAttribute(siEClass, SI__CHARACTERISTIC_MIXING_DISTANCE);
 
 		siDiseaseModelStateEClass = createEClass(SI_DISEASE_MODEL_STATE);
 
@@ -1573,6 +1571,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		createEAttribute(standardDiseaseModelEClass, STANDARD_DISEASE_MODEL__TOTAL_POPULATION_COUNT_RECIPROCAL);
 		createEAttribute(standardDiseaseModelEClass, STANDARD_DISEASE_MODEL__TOTAL_AREA);
 		createEAttribute(standardDiseaseModelEClass, STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY);
+		createEAttribute(standardDiseaseModelEClass, STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION);
+		createEAttribute(standardDiseaseModelEClass, STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE);
 
 		standardDiseaseModelLabelEClass = createEClass(STANDARD_DISEASE_MODEL_LABEL);
 
@@ -1814,9 +1814,7 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getSI_RecoveryRate(), ecorePackage.getEDouble(), "recoveryRate", "0.0", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getSI_InfectiousMortalityRate(), ecorePackage.getEDouble(), "infectiousMortalityRate", "0.0", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getSI_PhysicallyAdjacentInfectiousProportion(), ecorePackage.getEDouble(), "physicallyAdjacentInfectiousProportion", "0.05", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(getSI_RoadNetworkInfectiousProportion(), ecorePackage.getEDouble(), "roadNetworkInfectiousProportion", "0.01", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getSI_InfectiousMortality(), theEcorePackage.getEDouble(), "infectiousMortality", null, 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getSI_CharacteristicMixingDistance(), theEcorePackage.getEDouble(), "characteristicMixingDistance", "2.25", 0, 1, org.eclipse.stem.diseasemodels.standard.SI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		op = addEOperation(siEClass, ecorePackage.getEDouble(), "getAdjustedInfectiousMortalityRate", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, ecorePackage.getELong(), "timeDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -1826,16 +1824,6 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		op = addEOperation(siEClass, ecorePackage.getEDouble(), "getAdjustedRecoveryRate", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, ecorePackage.getELong(), "timeDelta", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		op = addEOperation(siEClass, ecorePackage.getEDouble(), "getEffectiveInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theGraphPackage.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, this.getStandardDiseaseModelLabel(), "diseaseLabel", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, ecorePackage.getEDouble(), "onsiteInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		op = addEOperation(siEClass, ecorePackage.getEDouble(), "getNormalizedEffectiveInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theGraphPackage.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, this.getStandardDiseaseModelLabel(), "diseaseLabel", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, ecorePackage.getEDouble(), "onsiteInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(siDiseaseModelStateEClass, SIDiseaseModelState.class, "SIDiseaseModelState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
@@ -1873,6 +1861,8 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 		initEAttribute(getStandardDiseaseModel_TotalPopulationCountReciprocal(), ecorePackage.getEDouble(), "totalPopulationCountReciprocal", null, 0, 1, StandardDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getStandardDiseaseModel_TotalArea(), ecorePackage.getEDouble(), "totalArea", "0", 0, 1, StandardDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(getStandardDiseaseModel_ReferencePopulationDensity(), ecorePackage.getEDouble(), "referencePopulationDensity", "100", 0, 1, StandardDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getStandardDiseaseModel_RoadNetworkInfectiousProportion(), theEcorePackage.getEDouble(), "roadNetworkInfectiousProportion", "0.01", 0, 1, StandardDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getStandardDiseaseModel_CharacteristicMixingDistance(), theEcorePackage.getEDouble(), "characteristicMixingDistance", "2.25", 0, 1, StandardDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		op = addEOperation(standardDiseaseModelEClass, null, "addToTotalPopulationCount", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, ecorePackage.getEDouble(), "populationCount", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -1892,6 +1882,16 @@ public class StandardPackageImpl extends EPackageImpl implements StandardPackage
 
 		op = addEOperation(standardDiseaseModelEClass, null, "doModelSpecificAdjustments", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getStandardDiseaseModelLabelValue(), "label", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		op = addEOperation(standardDiseaseModelEClass, ecorePackage.getEDouble(), "getEffectiveInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theGraphPackage.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, this.getStandardDiseaseModelLabel(), "diseaseLabel", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, ecorePackage.getEDouble(), "onsiteInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		op = addEOperation(standardDiseaseModelEClass, ecorePackage.getEDouble(), "getNormalizedEffectiveInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theGraphPackage.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, this.getStandardDiseaseModelLabel(), "diseaseLabel", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, ecorePackage.getEDouble(), "onsiteInfectious", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(standardDiseaseModelLabelEClass, StandardDiseaseModelLabel.class, "StandardDiseaseModelLabel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

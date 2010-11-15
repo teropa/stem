@@ -37,6 +37,8 @@ import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelState;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#addToTotalArea(double) <em>Add To Total Area</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#calculateDelta(org.eclipse.stem.core.model.STEMTime, long, org.eclipse.emf.common.util.EList) <em>Calculate Delta</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#doModelSpecificAdjustments(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue) <em>Do Model Specific Adjustments</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double) <em>Get Effective Infectious</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getNormalizedEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double) <em>Get Normalized Effective Infectious</em>}</li>
  *   <li>{@link org.eclipse.stem.core.model.IntegrationDecorator#isDeterministic() <em>Is Deterministic</em>}</li>
  * </ul>
  * </p>
@@ -150,6 +152,32 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 	 * @generated
 	 */
 	public void testDoModelSpecificAdjustments__StandardDiseaseModelLabelValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double) <em>Get Effective Infectious</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double)
+	 * @generated
+	 */
+	public void testGetEffectiveInfectious__Node_StandardDiseaseModelLabel_double() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getNormalizedEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double) <em>Get Normalized Effective Infectious</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getNormalizedEffectiveInfectious(org.eclipse.stem.core.graph.Node, org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel, double)
+	 * @generated
+	 */
+	public void testGetNormalizedEffectiveInfectious__Node_StandardDiseaseModelLabel_double() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

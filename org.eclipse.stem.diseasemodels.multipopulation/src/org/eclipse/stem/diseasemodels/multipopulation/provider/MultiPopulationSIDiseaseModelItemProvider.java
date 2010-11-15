@@ -77,8 +77,6 @@ public class MultiPopulationSIDiseaseModelItemProvider
 			addTransmissionRatePropertyDescriptor(object);
 			addRecoveryRatePropertyDescriptor(object);
 			addInfectiousMortalityRatePropertyDescriptor(object);
-			addRoadNetworkInfectiousProportionPropertyDescriptor(object);
-			addCharacteristicMixingDistancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -172,50 +170,6 @@ public class MultiPopulationSIDiseaseModelItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Road Network Infectious Proportion feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRoadNetworkInfectiousProportionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MultiPopulationSIDiseaseModel_roadNetworkInfectiousProportion_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MultiPopulationSIDiseaseModel_roadNetworkInfectiousProportion_feature", "_UI_MultiPopulationSIDiseaseModel_type"),
-				 MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Characteristic Mixing Distance feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCharacteristicMixingDistancePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MultiPopulationSIDiseaseModel_characteristicMixingDistance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MultiPopulationSIDiseaseModel_characteristicMixingDistance_feature", "_UI_MultiPopulationSIDiseaseModel_type"),
-				 MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -299,8 +253,6 @@ public class MultiPopulationSIDiseaseModelItemProvider
 
 		switch (notification.getFeatureID(MultiPopulationSIDiseaseModel.class)) {
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
-			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
-			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MultipopulationPackage.MULTI_POPULATION_SI_DISEASE_MODEL__POPULATION_GROUPS:

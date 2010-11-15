@@ -19,12 +19,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="physicallyAdjacentInfectiousProportion"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.01"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadNetworkInfectiousProportion"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-        defaultValueLiteral="0.05"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="characteristicMixingDistance"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-        defaultValueLiteral="2.25"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultiPopulationSIRDiseaseModel" eSuperTypes="#//MultiPopulationSIDiseaseModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="immunityLossRate" lowerBound="1"

@@ -3,6 +3,7 @@ package org.eclipse.stem.diseasemodels.standard;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.STEMTime;
 
@@ -92,6 +93,60 @@ public interface StandardDiseaseModel extends DiseaseModel, IntegrationDecorator
 	void setReferencePopulationDensity(double value);
 
 	/**
+	 * Returns the value of the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * The default value is <code>"0.01"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Road Network Infectious Proportion</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Road Network Infectious Proportion</em>' attribute.
+	 * @see #setRoadNetworkInfectiousProportion(double)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getStandardDiseaseModel_RoadNetworkInfectiousProportion()
+	 * @model default="0.01"
+	 * @generated
+	 */
+	double getRoadNetworkInfectiousProportion();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getRoadNetworkInfectiousProportion <em>Road Network Infectious Proportion</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Road Network Infectious Proportion</em>' attribute.
+	 * @see #getRoadNetworkInfectiousProportion()
+	 * @generated
+	 */
+	void setRoadNetworkInfectiousProportion(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * The default value is <code>"2.25"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Characteristic Mixing Distance</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Characteristic Mixing Distance</em>' attribute.
+	 * @see #setCharacteristicMixingDistance(double)
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getStandardDiseaseModel_CharacteristicMixingDistance()
+	 * @model default="2.25"
+	 * @generated
+	 */
+	double getCharacteristicMixingDistance();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Characteristic Mixing Distance</em>' attribute.
+	 * @see #getCharacteristicMixingDistance()
+	 * @generated
+	 */
+	void setCharacteristicMixingDistance(double value);
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#getTotalPopulationCount <em>Total Population Count</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Total Population Count</em>' attribute.
@@ -149,6 +204,22 @@ public interface StandardDiseaseModel extends DiseaseModel, IntegrationDecorator
 	 * @generated
 	 */
 	void doModelSpecificAdjustments(StandardDiseaseModelLabelValue label);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	double getEffectiveInfectious(Node node, StandardDiseaseModelLabel diseaseLabel, double onsiteInfectious);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	double getNormalizedEffectiveInfectious(Node node, StandardDiseaseModelLabel diseaseLabel, double onsiteInfectious);
 
 	/**
 	 * @return the total area (km^2) occupied by the population whose disease

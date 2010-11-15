@@ -67,10 +67,7 @@ public class StochasticPoissonSIDiseaseModelTest extends SITest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		DiseaseModel d = StandardFactory.eINSTANCE.createStochasticPoissonSIDiseaseModel();
-		d.setDiseaseName("test");
-		d.setURI(DISEASEMODEL_URI);
-		setFixture(d);
+		setFixture(StandardFactory.eINSTANCE.createStochasticPoissonSIDiseaseModel());
 	}
 
 	/**

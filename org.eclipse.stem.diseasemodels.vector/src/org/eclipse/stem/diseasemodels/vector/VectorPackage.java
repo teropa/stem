@@ -251,6 +251,24 @@ public interface VectorPackage extends EPackage {
 	int VECTOR_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY;
 
 	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Vector Population Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,6 +477,24 @@ public interface VectorPackage extends EPackage {
 	int MACDONALD_ROSS_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY = VECTOR_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY;
 
 	/**
+	 * The feature id for the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACDONALD_ROSS_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION = VECTOR_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION;
+
+	/**
+	 * The feature id for the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACDONALD_ROSS_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE = VECTOR_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE;
+
+	/**
 	 * The feature id for the '<em><b>Vector Population Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -504,22 +540,13 @@ public interface VectorPackage extends EPackage {
 	int MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE = VECTOR_DISEASE_MODEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Vector Mortality Rate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE = VECTOR_DISEASE_MODEL_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Macdonald Ross Disease Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MACDONALD_ROSS_DISEASE_MODEL_FEATURE_COUNT = VECTOR_DISEASE_MODEL_FEATURE_COUNT + 5;
+	int MACDONALD_ROSS_DISEASE_MODEL_FEATURE_COUNT = VECTOR_DISEASE_MODEL_FEATURE_COUNT + 4;
 
 
 	/**
@@ -575,17 +602,6 @@ public interface VectorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMacdonaldRossDiseaseModel_RecoveryRate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.stem.diseasemodels.vector.MacdonaldRossDiseaseModel#getVectorMortalityRate <em>Vector Mortality Rate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Vector Mortality Rate</em>'.
-	 * @see org.eclipse.stem.diseasemodels.vector.MacdonaldRossDiseaseModel#getVectorMortalityRate()
-	 * @see #getMacdonaldRossDiseaseModel()
-	 * @generated
-	 */
-	EAttribute getMacdonaldRossDiseaseModel_VectorMortalityRate();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.stem.diseasemodels.vector.VectorDiseaseModel <em>Disease Model</em>}'.
@@ -667,13 +683,6 @@ public interface VectorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE = eINSTANCE.getMacdonaldRossDiseaseModel_RecoveryRate();
-		/**
-		 * The meta object literal for the '<em><b>Vector Mortality Rate</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE = eINSTANCE.getMacdonaldRossDiseaseModel_VectorMortalityRate();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.stem.diseasemodels.vector.impl.VectorDiseaseModelImpl <em>Disease Model</em>}' class.
 		 * <!-- begin-user-doc -->

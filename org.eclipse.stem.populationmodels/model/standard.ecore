@@ -91,5 +91,7 @@
         defaultValueLiteral="1.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timePeriod" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
         defaultValueLiteral="86400000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mortalityRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.05"/>
   </eClassifiers>
 </ecore:EPackage>

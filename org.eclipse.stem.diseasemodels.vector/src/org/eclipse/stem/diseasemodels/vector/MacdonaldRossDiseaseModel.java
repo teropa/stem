@@ -122,31 +122,4 @@ public interface MacdonaldRossDiseaseModel extends VectorDiseaseModel{
 	 */
 	void setRecoveryRate(double value);
 
-	/**
-	 * Returns the value of the '<em><b>Vector Mortality Rate</b></em>' attribute.
-	 * The default value is <code>"0.05"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Vector Mortality Rate</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vector Mortality Rate</em>' attribute.
-	 * @see #setVectorMortalityRate(double)
-	 * @see org.eclipse.stem.diseasemodels.vector.VectorPackage#getMacdonaldRossDiseaseModel_VectorMortalityRate()
-	 * @model default="0.05"
-	 * @generated
-	 */
-	double getVectorMortalityRate();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.vector.MacdonaldRossDiseaseModel#getVectorMortalityRate <em>Vector Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Vector Mortality Rate</em>' attribute.
-	 * @see #getVectorMortalityRate()
-	 * @generated
-	 */
-	void setVectorMortalityRate(double value);
-
 }

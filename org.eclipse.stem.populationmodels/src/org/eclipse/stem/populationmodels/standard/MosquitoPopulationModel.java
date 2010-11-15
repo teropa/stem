@@ -19,6 +19,7 @@ import org.eclipse.stem.core.model.IntegrationDecorator;
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getScalingFactor <em>Scaling Factor</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getTimePeriod <em>Time Period</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getMortalityRate <em>Mortality Rate</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,5 +81,32 @@ public interface MosquitoPopulationModel extends PopulationModel, IntegrationDec
 	 * @generated
 	 */
 	void setTimePeriod(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Mortality Rate</b></em>' attribute.
+	 * The default value is <code>"0.05"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mortality Rate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mortality Rate</em>' attribute.
+	 * @see #setMortalityRate(double)
+	 * @see org.eclipse.stem.populationmodels.standard.StandardPackage#getMosquitoPopulationModel_MortalityRate()
+	 * @model default="0.05"
+	 * @generated
+	 */
+	double getMortalityRate();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getMortalityRate <em>Mortality Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mortality Rate</em>' attribute.
+	 * @see #getMortalityRate()
+	 * @generated
+	 */
+	void setMortalityRate(double value);
 
 } // MosquitoPopulationModel

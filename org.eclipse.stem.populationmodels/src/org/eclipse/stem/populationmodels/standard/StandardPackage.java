@@ -1886,13 +1886,22 @@ public interface StandardPackage extends EPackage {
 	int MOSQUITO_POPULATION_MODEL__TIME_PERIOD = POPULATION_MODEL_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Mortality Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOSQUITO_POPULATION_MODEL__MORTALITY_RATE = POPULATION_MODEL_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Mosquito Population Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOSQUITO_POPULATION_MODEL_FEATURE_COUNT = POPULATION_MODEL_FEATURE_COUNT + 2;
+	int MOSQUITO_POPULATION_MODEL_FEATURE_COUNT = POPULATION_MODEL_FEATURE_COUNT + 3;
 
 
 	/**
@@ -2431,6 +2440,17 @@ public interface StandardPackage extends EPackage {
 	EAttribute getMosquitoPopulationModel_TimePeriod();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getMortalityRate <em>Mortality Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mortality Rate</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getMortalityRate()
+	 * @see #getMosquitoPopulationModel()
+	 * @generated
+	 */
+	EAttribute getMosquitoPopulationModel_MortalityRate();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2887,6 +2907,14 @@ public interface StandardPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MOSQUITO_POPULATION_MODEL__TIME_PERIOD = eINSTANCE.getMosquitoPopulationModel_TimePeriod();
+
+		/**
+		 * The meta object literal for the '<em><b>Mortality Rate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOSQUITO_POPULATION_MODEL__MORTALITY_RATE = eINSTANCE.getMosquitoPopulationModel_MortalityRate();
 
 	}
 

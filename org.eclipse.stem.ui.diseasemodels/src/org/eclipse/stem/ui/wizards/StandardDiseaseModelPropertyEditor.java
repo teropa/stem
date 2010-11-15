@@ -84,6 +84,7 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 	 */
 	public void populate(final DiseaseModel diseaseModel) {
 		super.populate(diseaseModel);
+		double dVal;
 		
 		for (final Map.Entry<EStructuralFeature, Text> entry : map.entrySet()) {
 			switch (entry.getKey().getFeatureID()) {
@@ -92,6 +93,14 @@ public class StandardDiseaseModelPropertyEditor extends DiseaseModelPropertyEdit
 						.setReferencePopulationDensity(Double.parseDouble(entry
 								.getValue().getText()));
 				break;
+			case StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
+				dVal = (new Double(entry.getValue().getText())).doubleValue();
+				((StandardDiseaseModel) diseaseModel).setRoadNetworkInfectiousProportion(dVal);
+				break;	
+			case StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				dVal = (new Double(entry.getValue().getText())).doubleValue();
+				((StandardDiseaseModel) diseaseModel).setCharacteristicMixingDistance(dVal);
+				break;	
 			}
 		}
 		if(diseaseModel instanceof SI)

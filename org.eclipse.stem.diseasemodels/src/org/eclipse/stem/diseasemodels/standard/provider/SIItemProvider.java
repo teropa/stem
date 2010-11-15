@@ -73,8 +73,6 @@ public class SIItemProvider extends StandardDiseaseModelItemProvider implements
 			addRecoveryRatePropertyDescriptor(object);
 			addInfectiousMortalityRatePropertyDescriptor(object);
 			// addPhysicallyAdjacentInfectiousProportionPropertyDescriptor(object); Deprecated!
-			addCharacteristicMixingDistancePropertyDescriptor(object);
-			addRoadNetworkInfectiousProportionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,8 +96,6 @@ public class SIItemProvider extends StandardDiseaseModelItemProvider implements
 			addNonLinearityCoefficientPropertyDescriptor(object);
 			addRecoveryRatePropertyDescriptor(object);
 			addInfectiousMortalityRatePropertyDescriptor(object);
-			addRoadNetworkInfectiousProportionPropertyDescriptor(object);
-			addCharacteristicMixingDistancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -171,50 +167,6 @@ public class SIItemProvider extends StandardDiseaseModelItemProvider implements
 	}
 
 	/**
-	 * This adds a property descriptor for the Road Network Infectious Proportion feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRoadNetworkInfectiousProportionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SI_roadNetworkInfectiousProportion_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SI_roadNetworkInfectiousProportion_feature", "_UI_SI_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Characteristic Mixing Distance feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCharacteristicMixingDistancePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SI_characteristicMixingDistance_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SI_characteristicMixingDistance_feature", "_UI_SI_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 StandardPackage.Literals.SI__CHARACTERISTIC_MIXING_DISTANCE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Non Linearity Coefficient feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,9 +227,7 @@ public class SIItemProvider extends StandardDiseaseModelItemProvider implements
 			case StandardPackage.SI__RECOVERY_RATE:
 			case StandardPackage.SI__INFECTIOUS_MORTALITY_RATE:
 			case StandardPackage.SI__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION:
-			case StandardPackage.SI__ROAD_NETWORK_INFECTIOUS_PROPORTION:
 			case StandardPackage.SI__INFECTIOUS_MORTALITY:
-			case StandardPackage.SI__CHARACTERISTIC_MIXING_DISTANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

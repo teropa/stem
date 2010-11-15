@@ -514,13 +514,10 @@ public final class DiseasemodelsEditorAdvisor extends WorkbenchAdvisor {
 			String filename = path + filenames[i];
 			if (extension != null) {
 				int dot = filename.lastIndexOf('.');
-				StringBuilder str = new StringBuilder(filename);
 				if (dot == -1 || !Arrays.asList(fileExtensionFilters).contains("*" + filename.substring(dot))) //$NON-NLS-1$
 				{
-					str.append(extension);
-					//filename += extension;
+					filename += extension;
 				}
-				filename = str.toString();
 			}
 			result[i] = filename;
 		}

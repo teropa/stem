@@ -279,7 +279,7 @@ public class MultiPopulationDiseaseModelPropertyEditor extends
 		if (retValue) {
 					// Yes
 					Text text = map
-							.get(MultipopulationPackage.Literals.MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION);
+							.get(StandardPackage.Literals.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION);
 					if (text != null) {
 						// Yes
 						retValue = !text.getText().equals(""); //$NON-NLS-1$

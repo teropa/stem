@@ -109,16 +109,6 @@
     <eOperations name="getAdjustedRecoveryRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eParameters name="timeDelta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     </eOperations>
-    <eOperations name="getEffectiveInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eParameters name="node" eType="ecore:EClass ../../org.eclipse.stem.core/model/graph.ecore#//Node"/>
-      <eParameters name="diseaseLabel" eType="#//StandardDiseaseModelLabel"/>
-      <eParameters name="onsiteInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eOperations>
-    <eOperations name="getNormalizedEffectiveInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eParameters name="node" eType="ecore:EClass ../../org.eclipse.stem.core/model/graph.ecore#//Node"/>
-      <eParameters name="diseaseLabel" eType="#//StandardDiseaseModelLabel"/>
-      <eParameters name="onsiteInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transmissionRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nonLinearityCoefficient"
@@ -129,12 +119,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="physicallyAdjacentInfectiousProportion"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.05"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadNetworkInfectiousProportion"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.01"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="infectiousMortality" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="characteristicMixingDistance"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-        defaultValueLiteral="2.25"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SIDiseaseModelState" eSuperTypes="#//StandardDiseaseModelState"/>
   <eClassifiers xsi:type="ecore:EClass" name="SIInfector" eSuperTypes="#//StandardInfector">
@@ -189,6 +174,16 @@
     <eOperations name="doModelSpecificAdjustments">
       <eParameters name="label" eType="#//StandardDiseaseModelLabelValue"/>
     </eOperations>
+     <eOperations name="getEffectiveInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="node" eType="ecore:EClass ../../org.eclipse.stem.core/model/graph.ecore#//Node"/>
+      <eParameters name="diseaseLabel" eType="#//StandardDiseaseModelLabel"/>
+      <eParameters name="onsiteInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="getNormalizedEffectiveInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="node" eType="ecore:EClass ../../org.eclipse.stem.core/model/graph.ecore#//Node"/>
+      <eParameters name="diseaseLabel" eType="#//StandardDiseaseModelLabel"/>
+      <eParameters name="onsiteInfectious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPopulationCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPopulationCountReciprocal"
@@ -197,6 +192,12 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="referencePopulationDensity"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadNetworkInfectiousProportion"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.01"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="characteristicMixingDistance"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="2.25"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StandardDiseaseModelLabel" abstract="true"
       eSuperTypes="#//DiseaseModelLabel #//IntegrationLabel"/>

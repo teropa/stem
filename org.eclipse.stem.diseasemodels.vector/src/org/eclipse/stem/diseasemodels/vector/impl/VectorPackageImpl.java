@@ -155,15 +155,6 @@ public class VectorPackageImpl extends EPackageImpl implements VectorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMacdonaldRossDiseaseModel_VectorMortalityRate() {
-		return (EAttribute)macdonaldRossDiseaseModelEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getVectorDiseaseModel() {
 		return vectorDiseaseModelEClass;
 	}
@@ -210,7 +201,6 @@ public class VectorPackageImpl extends EPackageImpl implements VectorPackage {
 		createEAttribute(macdonaldRossDiseaseModelEClass, MACDONALD_ROSS_DISEASE_MODEL__INFECTIOUS_BITING_PROPORTION_HUMAN);
 		createEAttribute(macdonaldRossDiseaseModelEClass, MACDONALD_ROSS_DISEASE_MODEL__INFECTIOUS_BITING_PROPORTION_VECTOR);
 		createEAttribute(macdonaldRossDiseaseModelEClass, MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE);
-		createEAttribute(macdonaldRossDiseaseModelEClass, MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE);
 
 		vectorDiseaseModelEClass = createEClass(VECTOR_DISEASE_MODEL);
 		createEAttribute(vectorDiseaseModelEClass, VECTOR_DISEASE_MODEL__VECTOR_POPULATION_IDENTIFIER);
@@ -257,7 +247,6 @@ public class VectorPackageImpl extends EPackageImpl implements VectorPackage {
 		initEAttribute(getMacdonaldRossDiseaseModel_InfectiousBitingProportionHuman(), theEcorePackage.getEDouble(), "infectiousBitingProportionHuman", "0.5", 0, 1, MacdonaldRossDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMacdonaldRossDiseaseModel_InfectiousBitingProportionVector(), theEcorePackage.getEDouble(), "infectiousBitingProportionVector", "1.0", 0, 1, MacdonaldRossDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMacdonaldRossDiseaseModel_RecoveryRate(), theEcorePackage.getEDouble(), "recoveryRate", "3.33E-3", 0, 1, MacdonaldRossDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMacdonaldRossDiseaseModel_VectorMortalityRate(), theEcorePackage.getEDouble(), "vectorMortalityRate", "0.05", 0, 1, MacdonaldRossDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vectorDiseaseModelEClass, VectorDiseaseModel.class, "VectorDiseaseModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVectorDiseaseModel_VectorPopulationIdentifier(), theEcorePackage.getEString(), "vectorPopulationIdentifier", "anopheles", 0, 1, VectorDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

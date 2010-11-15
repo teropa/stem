@@ -448,14 +448,6 @@ public interface SI extends StandardDiseaseModel {
 	double getAdjustedRecoveryRate(final long timeDelta);
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	double getEffectiveInfectious(Node node, StandardDiseaseModelLabel diseaseLabel, double onsiteInfectious);
-
-	/**
 	 * Two <code>Node</code>s that share a border exchange population members
 	 * through otherwise un-modeled transportation routes. This is the proportion
 	 * of the infectious population members in any adjacent <code>Node</code>
@@ -499,16 +491,6 @@ public interface SI extends StandardDiseaseModel {
 	double getRoadNetworkInfectiousProportion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SI#getRoadNetworkInfectiousProportion <em>Road Network Infectious Proportion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Road Network Infectious Proportion</em>' attribute.
-	 * @see #getRoadNetworkInfectiousProportion()
-	 * @generated
-	 */
-	void setRoadNetworkInfectiousProportion(double value);
-
-	/**
 	 * Returns the value of the '<em><b>Infectious Mortality</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -533,33 +515,6 @@ public interface SI extends StandardDiseaseModel {
 	 * @generated
 	 */
 	void setInfectiousMortality(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
-	 * The default value is <code>"2.25"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Characteristic Mixing Distance</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Characteristic Mixing Distance</em>' attribute.
-	 * @see #setCharacteristicMixingDistance(double)
-	 * @see org.eclipse.stem.diseasemodels.standard.StandardPackage#getSI_CharacteristicMixingDistance()
-	 * @model default="2.25"
-	 * @generated
-	 */
-	double getCharacteristicMixingDistance();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.standard.SI#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Characteristic Mixing Distance</em>' attribute.
-	 * @see #getCharacteristicMixingDistance()
-	 * @generated
-	 */
-	void setCharacteristicMixingDistance(double value);
 
 	/**
 	 * This method replaces the onsiteInfectious value with an effectiveInfectious population

@@ -54,7 +54,6 @@ import org.eclipse.stem.populationmodels.standard.impl.StandardFactoryImpl;
  *   <li>{@link org.eclipse.stem.diseasemodels.vector.impl.MacdonaldRossDiseaseModelImpl#getInfectiousBitingProportionHuman <em>Infectious Biting Proportion Human</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.vector.impl.MacdonaldRossDiseaseModelImpl#getInfectiousBitingProportionVector <em>Infectious Biting Proportion Vector</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.vector.impl.MacdonaldRossDiseaseModelImpl#getRecoveryRate <em>Recovery Rate</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.vector.impl.MacdonaldRossDiseaseModelImpl#getVectorMortalityRate <em>Vector Mortality Rate</em>}</li>
  * </ul>
  * </p>
  *
@@ -133,26 +132,6 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 	 * @ordered
 	 */
 	protected double recoveryRate = RECOVERY_RATE_EDEFAULT;
-
-
-	/**
-	 * The default value of the '{@link #getVectorMortalityRate() <em>Vector Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVectorMortalityRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double VECTOR_MORTALITY_RATE_EDEFAULT = 0.05;
-	/**
-	 * The cached value of the '{@link #getVectorMortalityRate() <em>Vector Mortality Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVectorMortalityRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double vectorMortalityRate = VECTOR_MORTALITY_RATE_EDEFAULT;
 
 
 	/**
@@ -310,29 +289,6 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getVectorMortalityRate() {
-		return vectorMortalityRate;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVectorMortalityRate(double newVectorMortalityRate) {
-		double oldVectorMortalityRate = vectorMortalityRate;
-		vectorMortalityRate = newVectorMortalityRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE, oldVectorMortalityRate, vectorMortalityRate));
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -344,8 +300,6 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 				return getInfectiousBitingProportionVector();
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE:
 				return getRecoveryRate();
-			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE:
-				return getVectorMortalityRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -370,9 +324,6 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 				return;
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE:
 				setRecoveryRate((Double)newValue);
-				return;
-			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE:
-				setVectorMortalityRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -399,9 +350,6 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE:
 				setRecoveryRate(RECOVERY_RATE_EDEFAULT);
 				return;
-			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE:
-				setVectorMortalityRate(VECTOR_MORTALITY_RATE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -423,8 +371,6 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 				return infectiousBitingProportionVector != INFECTIOUS_BITING_PROPORTION_VECTOR_EDEFAULT;
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__RECOVERY_RATE:
 				return recoveryRate != RECOVERY_RATE_EDEFAULT;
-			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE:
-				return vectorMortalityRate != VECTOR_MORTALITY_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -448,8 +394,6 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 		result.append(infectiousBitingProportionVector);
 		result.append(", recoveryRate: ");
 		result.append(recoveryRate);
-		result.append(", vectorMortalityRate: ");
-		result.append(vectorMortalityRate);
 		result.append(')');
 		return result.toString();
 	}
@@ -505,24 +449,46 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 				return  (StandardDiseaseModelLabelValue)returnValue;
 			}
 			
-			SILabelValue vectorValue = vecPop.getProbeValue();
+			SILabelValue vectorValue = vecPop.getTempValue(); // temp value since probe is not yet set.
 			double totalVectorPop = vectorValue.getPopulationCount();
 			
 			double adjustedRecoveryRate = this.getRecoveryRate() * ((double) timeDelta / (double) getTimePeriod());
 			double adjustedBitingRate = this.getBitingRate() * ((double)timeDelta / (double)getTimePeriod());
 			
-			double fracIChange = 
+			// The effective Infectious population  is a dimensionles number normalize by total
+			// population used in teh computation of bets*S*i where i = Ieffective/Pop.
+			// This includes a correction to the current
+			// infectious population (Ieffective) based on the conserved exchange of people (circulation)
+			// between regions. Note that this is no the "arrivals" and "departures" which are
+			// a different process.
+
+//			final double effectiveInfectiousHuman = getNormalizedEffectiveInfectious(diseaseLabel.getNode(), diseaseLabel, siVal.getI());
+	
+			double dydt = 
 				(adjustedBitingRate*this.getInfectiousBitingProportionHuman()*totalVectorPop/totalHumanPop)* 
-				(vectorValue.getI()/totalVectorPop)*(1-siVal.getI()/totalHumanPop)-adjustedRecoveryRate*siVal.getI() / totalHumanPop;
+				(vectorValue.getI()/totalVectorPop)*(1-siVal.getI());
+
+			dydt = (Double.isNaN(dydt))? 0:dydt;
 			
+			if(dydt > 1.0)
+				dydt = 1.0;
+
+			if(dydt < -1.0)
+				dydt = -1.0;
+
+			double fracSChange = -dydt + adjustedRecoveryRate*siVal.getI() / totalHumanPop;
+			double fracIChange =  dydt - adjustedRecoveryRate*siVal.getI()/totalHumanPop;
+				
 			double absIChange = fracIChange * totalHumanPop;
+			double absSChange = fracSChange * totalHumanPop;
 			
-			double susceptibleToInfectious = absIChange;
+			if(absIChange + absSChange != 0.0)
+				System.out.println("Mismatch");
 			
 			SILabelValue retV = (SILabelValue)returnValue;
-			retV.setI(susceptibleToInfectious);
-			retV.setS(-susceptibleToInfectious);
-			retV.setIncidence(susceptibleToInfectious);
+			retV.setI(absIChange);
+			retV.setS(absSChange);
+			retV.setIncidence(dydt*totalHumanPop);
 			
 		} else if (popIdentifier.equals(this.getVectorPopulationIdentifier())) {
 			// We're dealing with the vector
@@ -547,17 +513,22 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 				return  (StandardDiseaseModelLabelValue)returnValue;
 			}
 			
-			SILabelValue siVal = humanPop.getProbeValue();
-			double totalHumanPop = siVal.getPopulationCount();
+			SILabelValue siVal = humanPop.getTempValue(); // Temp value since it's safe to use
 			
-			double adjustedRecoveryRate = this.getRecoveryRate() * ((double) timeDelta / (double) getTimePeriod());
 			double adjustedBitingRate = this.getBitingRate() * ((double)timeDelta / (double)getTimePeriod());
-			double adjustedMortalityRate = this.getVectorMortalityRate() * ((double)timeDelta / (double)getTimePeriod());
+			
+			
+			final double effectiveInfectiousHuman = getNormalizedEffectiveInfectious(humanPop.getNode(), humanPop, siVal.getI());
+
 			
 			double fracIChange = 
-				adjustedBitingRate*this.getInfectiousBitingProportionVector()*(siVal.getI()/totalHumanPop)*
-						(1-vectorVal.getI()/totalVectorPop)-adjustedMortalityRate*vectorVal.getI()/totalVectorPop;
+				adjustedBitingRate*this.getInfectiousBitingProportionVector()*(effectiveInfectiousHuman)*
+						(1-vectorVal.getI()/totalVectorPop);
 				
+			fracIChange = (Double.isNaN(fracIChange))? 0:fracIChange;
+			
+			if(fracIChange >1.0) 
+				fracIChange = 1.0;
 			double absIChange = fracIChange * totalVectorPop;
 			
 			double susceptibleToInfectious = absIChange;
@@ -570,6 +541,10 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 		} else {
 			Activator.logError("Cannot determine what to do with "+popIdentifier+" on node "+diseaseLabel.getNode(), new Exception());
 		}
+		
+		if(((SILabelValue)returnValue).getI() + ((SILabelValue)currentState).getI() < 0 ||
+			((SILabelValue)returnValue).getS() + ((SILabelValue)currentState).getS() < 0)
+			System.out.println("Error Negative");
 		
 		return (StandardDiseaseModelLabelValue)returnValue;
 	}
@@ -603,14 +578,17 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 		// Iterate through all of the population labels in the graph
 		EList<NodeLabel> labels = graph.getNodeLabelsByTypeURI(
 				PopulationModelLabel.URI_TYPE_DYNAMIC_POPULATION_LABEL);
+		
+		boolean foundHuman = false, foundVector = false;
 		for (NodeLabel pl:labels) {
 			final PopulationModelLabel populationLabel = (PopulationModelLabel) pl;
 			// Is this label for the population we're looking for?
 			boolean keep = false;
-			if(populationLabel.getPopulationIdentifier().equals(populationIdentifier)) keep=true;
-			else if(populationLabel.getPopulationIdentifier().equals(getVectorPopulationIdentifier())) keep=true;
-			
-					
+			if(populationLabel.getPopulationIdentifier().equals(populationIdentifier)) 
+				{keep=true;foundHuman = true;}
+			else if(populationLabel.getPopulationIdentifier().equals(getVectorPopulationIdentifier())) 
+				{keep=true;foundVector = true;}
+				
 			if (keep) {
 				// Yes
 				// If there is a problem with the "node uri" of the population
@@ -627,6 +605,11 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 			} // if the population we're looking for
 		} // for each population label
 
+		// If we didn't find both humans and the vector, return an empty list.
+		// This will force a retry creating disease labels after all population model labels have
+		// had time to decorate the graph
+		if(!foundHuman || !foundVector) retValue.clear();
+		
 		return retValue;
 	} // getPopulationLabels
 
@@ -660,8 +643,7 @@ public class MacdonaldRossDiseaseModelImpl extends VectorDiseaseModelImpl implem
 	
 	@Override
 	public void applyExternalDeltas(STEMTime time, long timeDelta, EList<DynamicLabel> labels) {
-		// We need to think about how to deal with external events in this model.
-		// For now, call the superclass method (so that air transport/migration works)
+		// Superclass handles external births/deaths
 		super.applyExternalDeltas(time, timeDelta, labels);
 	}
 		 

@@ -32,8 +32,6 @@ import org.eclipse.stem.populationmodels.standard.PopulationGroup;
  *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getRecoveryRate <em>Recovery Rate</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getInfectiousMortalityRate <em>Infectious Mortality Rate</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getPhysicallyAdjacentInfectiousProportion <em>Physically Adjacent Infectious Proportion</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getRoadNetworkInfectiousProportion <em>Road Network Infectious Proportion</em>}</li>
- *   <li>{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,60 +145,6 @@ public interface MultiPopulationSIDiseaseModel extends StandardDiseaseModel {
 	 * @generated
 	 */
 	void setPhysicallyAdjacentInfectiousProportion(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Road Network Infectious Proportion</b></em>' attribute.
-	 * The default value is <code>"0.05"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Road Network Infectious Proportion</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Road Network Infectious Proportion</em>' attribute.
-	 * @see #setRoadNetworkInfectiousProportion(double)
-	 * @see org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage#getMultiPopulationSIDiseaseModel_RoadNetworkInfectiousProportion()
-	 * @model default="0.05"
-	 * @generated
-	 */
-	double getRoadNetworkInfectiousProportion();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getRoadNetworkInfectiousProportion <em>Road Network Infectious Proportion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Road Network Infectious Proportion</em>' attribute.
-	 * @see #getRoadNetworkInfectiousProportion()
-	 * @generated
-	 */
-	void setRoadNetworkInfectiousProportion(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Characteristic Mixing Distance</b></em>' attribute.
-	 * The default value is <code>"2.25"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Characteristic Mixing Distance</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Characteristic Mixing Distance</em>' attribute.
-	 * @see #setCharacteristicMixingDistance(double)
-	 * @see org.eclipse.stem.diseasemodels.multipopulation.MultipopulationPackage#getMultiPopulationSIDiseaseModel_CharacteristicMixingDistance()
-	 * @model default="2.25"
-	 * @generated
-	 */
-	double getCharacteristicMixingDistance();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.stem.diseasemodels.multipopulation.MultiPopulationSIDiseaseModel#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Characteristic Mixing Distance</em>' attribute.
-	 * @see #getCharacteristicMixingDistance()
-	 * @generated
-	 */
-	void setCharacteristicMixingDistance(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Population Groups</b></em>' containment reference.

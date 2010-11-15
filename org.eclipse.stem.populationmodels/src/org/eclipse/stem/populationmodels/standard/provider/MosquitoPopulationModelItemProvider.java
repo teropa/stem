@@ -64,6 +64,7 @@ public class MosquitoPopulationModelItemProvider
 
 			addScalingFactorPropertyDescriptor(object);
 			addTimePeriodPropertyDescriptor(object);
+			addMortalityRatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -113,6 +114,28 @@ public class MosquitoPopulationModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Mortality Rate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMortalityRatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MosquitoPopulationModel_mortalityRate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MosquitoPopulationModel_mortalityRate_feature", "_UI_MosquitoPopulationModel_type"),
+				 StandardPackage.Literals.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns MosquitoPopulationModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,6 +174,7 @@ public class MosquitoPopulationModelItemProvider
 		switch (notification.getFeatureID(MosquitoPopulationModel.class)) {
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__SCALING_FACTOR:
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

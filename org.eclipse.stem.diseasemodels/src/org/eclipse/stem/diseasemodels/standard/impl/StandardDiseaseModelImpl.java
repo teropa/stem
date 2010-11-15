@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.IntegrationLabelValue;
 import org.eclipse.stem.core.graph.Node;
@@ -29,10 +31,16 @@ import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
+import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImpl;
+import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelImpl;
+import org.eclipse.stem.definitions.labels.impl.RoadTransportRelationshipLabelValueImpl;
+import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
+import org.eclipse.stem.diseasemodels.standard.SI;
+import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
@@ -49,6 +57,8 @@ import org.eclipse.stem.diseasemodels.standard.StandardPackage;
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getTotalPopulationCountReciprocal <em>Total Population Count Reciprocal</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getTotalArea <em>Total Area</em>}</li>
  *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getReferencePopulationDensity <em>Reference Population Density</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getRoadNetworkInfectiousProportion <em>Road Network Infectious Proportion</em>}</li>
+ *   <li>{@link org.eclipse.stem.diseasemodels.standard.impl.StandardDiseaseModelImpl#getCharacteristicMixingDistance <em>Characteristic Mixing Distance</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,6 +142,46 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 
 	
 		
+	/**
+	 * The default value of the '{@link #getRoadNetworkInfectiousProportion() <em>Road Network Infectious Proportion</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoadNetworkInfectiousProportion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT = 0.01;
+
+	/**
+	 * The cached value of the '{@link #getRoadNetworkInfectiousProportion() <em>Road Network Infectious Proportion</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoadNetworkInfectiousProportion()
+	 * @generated
+	 * @ordered
+	 */
+	protected double roadNetworkInfectiousProportion = ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristicMixingDistance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT = 2.25;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristicMixingDistance() <em>Characteristic Mixing Distance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristicMixingDistance()
+	 * @generated
+	 * @ordered
+	 */
+	protected double characteristicMixingDistance = CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
+
 	/**
 	 * We only need one of these.
 	 * 
@@ -245,6 +295,48 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		referencePopulationDensity = newReferencePopulationDensity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY, oldReferencePopulationDensity, referencePopulationDensity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRoadNetworkInfectiousProportion() {
+		return roadNetworkInfectiousProportion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRoadNetworkInfectiousProportion(double newRoadNetworkInfectiousProportion) {
+		double oldRoadNetworkInfectiousProportion = roadNetworkInfectiousProportion;
+		roadNetworkInfectiousProportion = newRoadNetworkInfectiousProportion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION, oldRoadNetworkInfectiousProportion, roadNetworkInfectiousProportion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getCharacteristicMixingDistance() {
+		return characteristicMixingDistance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCharacteristicMixingDistance(double newCharacteristicMixingDistance) {
+		double oldCharacteristicMixingDistance = characteristicMixingDistance;
+		characteristicMixingDistance = newCharacteristicMixingDistance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE, oldCharacteristicMixingDistance, characteristicMixingDistance));
 	}
 
 	/**
@@ -436,6 +528,10 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				return getTotalArea();
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
 				return getReferencePopulationDensity();
+			case StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
+				return getRoadNetworkInfectiousProportion();
+			case StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				return getCharacteristicMixingDistance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -455,6 +551,12 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				return;
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
 				setReferencePopulationDensity((Double)newValue);
+				return;
+			case StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
+				setRoadNetworkInfectiousProportion((Double)newValue);
+				return;
+			case StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				setCharacteristicMixingDistance((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -476,6 +578,12 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
 				setReferencePopulationDensity(REFERENCE_POPULATION_DENSITY_EDEFAULT);
 				return;
+			case StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
+				setRoadNetworkInfectiousProportion(ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT);
+				return;
+			case StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				setCharacteristicMixingDistance(CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -495,6 +603,10 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 				return totalArea != TOTAL_AREA_EDEFAULT;
 			case StandardPackage.STANDARD_DISEASE_MODEL__REFERENCE_POPULATION_DENSITY:
 				return referencePopulationDensity != REFERENCE_POPULATION_DENSITY_EDEFAULT;
+			case StandardPackage.STANDARD_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION:
+				return roadNetworkInfectiousProportion != ROAD_NETWORK_INFECTIOUS_PROPORTION_EDEFAULT;
+			case StandardPackage.STANDARD_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE:
+				return characteristicMixingDistance != CHARACTERISTIC_MIXING_DISTANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -582,6 +694,183 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		}
 	} // initializeDiseaseState
 
+	
+	/**
+	 * This method replaces the onsiteInfectious value with an effectiveInfectious population
+	 * size based on mixing with neighboring sites. In this implementation the edges are bidirectional
+	 * and have a fixed weight based on getPhysicallyAdjacentInfectiousProportion() (called in the helper method
+	 * getInfectiousChangeFromMixing(). But the mixing is also weighted by the areas and populations of a site relative
+	 * to the area and population of it's neighbors. Note that the value returned must be NORMALIZED by the total
+	 * population because the product beta * S * Ieffective must have units of persons. Since S has units of persons
+	 * the Ieffective must be dimensionless (normalized to the population). beta is the infection rate and has units
+	 * of inverse time.
+	 * @see org.eclipse.stem.diseasemodels.standard.SI.getNormalizedEffectiveInfectious
+	 * @param node the node we are currently looking at to compute the next disease state
+	 * @param diseaseLabel the label for the current disease computation
+	 * @param onsiteInfectious the number of infectious people on site (at the node above)
+	 * @generated NOT
+	 */
+	public double getNormalizedEffectiveInfectious(final Node node, final StandardDiseaseModelLabel diseaseLabel, final double onsiteInfectious) {
+        // running tally of changes from mixing with other nodes
+		double infectiousChangeFromMixing = 0.0;
+		double borderDivisor = 0.0;
+		double roadDivisor = 0.0;
+		
+		for (final Iterator<Edge> commonBorderEdgeIter = CommonBorderRelationshipLabelImpl
+				.getCommonBorderEdgesFromNode(node).iterator(); commonBorderEdgeIter
+				.hasNext();) {
+			final Edge borderEdge = commonBorderEdgeIter.next();
+			// If it exists, we're looking for the label this disease model
+			// updates on the node at the other end of the border edge.
+			final Node otherNode = borderEdge.getOtherNode(node);
+			StandardDiseaseModelLabel neighborLabel = null;
+			// sum up the changes from each connected node.
+			// NOTE: some of these changes could be negative
+			
+			double characteristicMixingDistance = getCharacteristicMixingDistance();
+			
+			double mixingFactor = 0.0; 
+			if (otherNode instanceof Region) {
+				double otherAvgExtent = -1.0;
+				for (final Iterator<NodeLabel> labelIter = otherNode.getLabels().iterator(); labelIter.hasNext();) {
+					final NodeLabel nodeLabel = labelIter.next();
+					// Is this an area label?
+					if (nodeLabel instanceof AreaLabel) {
+						// Yes
+						final AreaLabel areaLabel = (AreaLabel) nodeLabel;
+						otherAvgExtent = areaLabel.getCurrentAreaValue().getAverageExtent();
+						break;
+					}
+				} // for
+				// IF we have a valid area 
+				if(otherAvgExtent >= 0.0) {
+					mixingFactor = (characteristicMixingDistance/otherAvgExtent) ;
+					if(mixingFactor > 1.0) mixingFactor = 1.0;
+				}
+			}
+			
+			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, diseaseLabel, onsiteInfectious, mixingFactor);
+			borderDivisor += mixingFactor*this.getLocalPopulation(this, otherNode);
+		} // for each border edge
+		
+		for (final Iterator<Edge> roadEdgeIter = RoadTransportRelationshipLabelImpl.getRoadEdgesFromNode(node).iterator(); 	roadEdgeIter.hasNext();) {
+			final Edge roadEdge = roadEdgeIter.next();
+			
+			// find the number of edges from the road edge - could be more than one
+			// also, roads have differenct capacities
+			final EdgeLabel edgeLabel = roadEdge.getLabel();
+			// init the number of crossings or total road connections across the border
+			double numCrossings = 1.0;
+		
+			if (edgeLabel instanceof RoadTransportRelationshipLabelImpl) {
+				RoadTransportRelationshipLabelValueImpl roadLabelValue = (RoadTransportRelationshipLabelValueImpl)(edgeLabel.getCurrentValue());
+				numCrossings = roadLabelValue.getNumberCrossings();
+			}
+			double infectiousProportion = getRoadNetworkInfectiousProportion() * numCrossings;
+			
+			// must never be greater than 1
+			if(infectiousProportion > 1.0) infectiousProportion = 1.0;
+			
+			// If it exists, we're looking for the label this disease model
+			// updates on the node at the other end of the border edge.
+			final Node otherNode = roadEdge.getOtherNode(node);
+			StandardDiseaseModelLabel neighborLabel = null;
+			// sum up the changes from each connected node.
+			// NOTE: some of these changes could be negative
+			infectiousChangeFromMixing += getInfectiousChangeFromMixing(this, otherNode, diseaseLabel, onsiteInfectious, infectiousProportion);
+			
+			roadDivisor += infectiousProportion*this.getLocalPopulation(this, otherNode);
+		} // for each road edge
+		
+	
+		// return the sum normalized to the total population
+		double denom = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount() + borderDivisor + roadDivisor;
+		double retVal = 0.0;
+		if (denom > 0.0) {
+			retVal = ( onsiteInfectious + infectiousChangeFromMixing ) / denom;
+		}
+			
+		return retVal;
+
+	} // getNormalizedEffectiveInfectious
+
+	/**
+	 * 
+	 * @param diseaseModel
+	 * @param node
+	 * @return
+	 */
+    private double getLocalPopulation(final StandardDiseaseModel diseaseModel, Node node) {
+    	for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter.hasNext();) {
+    		final NodeLabel nodeLabel = labelIter.next();
+    		// Is this a disease label?
+    		if (nodeLabel instanceof StandardDiseaseModelLabel) {
+    			final IntegrationLabel otherSILabel = (IntegrationLabel) nodeLabel;
+    			// Yes
+    			// Is it updated by this disease model?
+    			if (diseaseModel == otherSILabel.getDecorator()) 
+    		     return ((StandardDiseaseModelLabelValue)otherSILabel.getTempValue()).getPopulationCount();
+    		}
+    	}
+    	return 0.0;
+    }
+    
+    
+    
+	/**
+	 * This method correctly computes the mixing of the infectious population (onsite) with the infectious population
+	 * at neighboring nodes
+	 * @param diseaseModel
+	 * @param the node
+	 * @param diseaseLabel
+	 * @param onsiteInfectious
+	 * @param connectedInfectiousProportion (this is the weight given to the edge connection)
+	 * @return the number of population members at a node infected by the disease modeled by diseaseModel
+	 */
+	protected double getInfectiousChangeFromMixing(final StandardDiseaseModel diseaseModel,
+			final Node node, final StandardDiseaseModelLabel diseaseLabel, final double onsiteInfectious, double connectedInfectiousProportion) {
+		double retValue = 0.0;
+
+		// the local area
+		//double a0 = getArea(diseaseLabel.getPopulationLabel());
+		// the local population
+
+		//double p0 = ((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()).getPopulationCount();
+		
+		// infectious from other sites mixing here at site 0
+		double mixing = 0.0;
+			
+		for (final Iterator<NodeLabel> labelIter = node.getLabels().iterator(); labelIter
+				.hasNext();) {
+			final NodeLabel nodeLabel = labelIter.next();
+			// Is this a disease label?
+			if (nodeLabel instanceof StandardDiseaseModelLabel) {
+				final StandardDiseaseModelLabel otherSILabel = (StandardDiseaseModelLabel) nodeLabel;
+				// Yes
+				// Is it updated by this disease model?
+				if (diseaseModel == otherSILabel.getDecorator() && otherSILabel.getPopulationLabel().getPopulationIdentifier().equals(diseaseLabel.getPopulationLabel().getPopulationIdentifier())) {
+					if(this.isFrequencyDependent()) {
+						double Iother = (((SILabelValue)otherSILabel.getTempValue())).getI();
+						//double Iother = otherSILabel.getCurrentSIValue().getI();
+						double mixingFactor = connectedInfectiousProportion;					
+						mixing = Iother * mixingFactor;
+					} else {
+//						double a1 = getArea(otherSILabel.getPopulationLabel());
+//						double p1 = ((StandardDiseaseModelLabelValue)otherSILabel.getTempValue()).getPopulationCount();
+//						double Iother = (otherSILabel.getTempValue()).getI();
+//						double mixingFactor = (a0*p1 + a1*p0)* connectedInfectiousProportion /(a1* (p1+p0)) ;
+					
+//						mixing = Iother * mixingFactor;
+					}
+					
+					break;
+				} // if
+			}
+		} // for
+
+		return mixing;
+	} // getInfectiousChangeFromMixing
+	
 	/**
 	 * @param populationLabel
 	 *            the population label that labels the node
@@ -655,6 +944,17 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 			final StandardDiseaseModelLabelValue currentState) {
 		// Do nothing here. Sub-classes override this method to make changes
 	} // doModelSpecificAdjustments
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getEffectiveInfectious(Node node, StandardDiseaseModelLabel diseaseLabel, double onsiteInfectious) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -751,6 +1051,10 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 		result.append(totalArea);
 		result.append(", referencePopulationDensity: "); //$NON-NLS-1$
 		result.append(referencePopulationDensity);
+		result.append(", roadNetworkInfectiousProportion: "); //$NON-NLS-1$
+		result.append(roadNetworkInfectiousProportion);
+		result.append(", characteristicMixingDistance: "); //$NON-NLS-1$
+		result.append(characteristicMixingDistance);
 		result.append(')');
 		return result.toString();
 	}

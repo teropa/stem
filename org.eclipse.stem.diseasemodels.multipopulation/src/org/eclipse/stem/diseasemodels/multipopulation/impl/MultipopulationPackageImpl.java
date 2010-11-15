@@ -168,24 +168,6 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMultiPopulationSIDiseaseModel_RoadNetworkInfectiousProportion() {
-		return (EAttribute)multiPopulationSIDiseaseModelEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMultiPopulationSIDiseaseModel_CharacteristicMixingDistance() {
-		return (EAttribute)multiPopulationSIDiseaseModelEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMultiPopulationSIRDiseaseModel() {
 		return multiPopulationSIRDiseaseModelEClass;
 	}
@@ -260,8 +242,6 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 		createEReference(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__RECOVERY_RATE);
 		createEReference(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__INFECTIOUS_MORTALITY_RATE);
 		createEAttribute(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__PHYSICALLY_ADJACENT_INFECTIOUS_PROPORTION);
-		createEAttribute(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__ROAD_NETWORK_INFECTIOUS_PROPORTION);
-		createEAttribute(multiPopulationSIDiseaseModelEClass, MULTI_POPULATION_SI_DISEASE_MODEL__CHARACTERISTIC_MIXING_DISTANCE);
 
 		multiPopulationSIRDiseaseModelEClass = createEClass(MULTI_POPULATION_SIR_DISEASE_MODEL);
 		createEReference(multiPopulationSIRDiseaseModelEClass, MULTI_POPULATION_SIR_DISEASE_MODEL__IMMUNITY_LOSS_RATE);
@@ -314,8 +294,6 @@ public class MultipopulationPackageImpl extends EPackageImpl implements Multipop
 		initEReference(getMultiPopulationSIDiseaseModel_RecoveryRate(), theCommonPackage.getDoubleValueList(), null, "recoveryRate", null, 1, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMultiPopulationSIDiseaseModel_InfectiousMortalityRate(), theCommonPackage.getDoubleValueList(), null, "infectiousMortalityRate", null, 1, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultiPopulationSIDiseaseModel_PhysicallyAdjacentInfectiousProportion(), theEcorePackage.getEDouble(), "physicallyAdjacentInfectiousProportion", "0.01", 0, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMultiPopulationSIDiseaseModel_RoadNetworkInfectiousProportion(), theEcorePackage.getEDouble(), "roadNetworkInfectiousProportion", "0.05", 0, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMultiPopulationSIDiseaseModel_CharacteristicMixingDistance(), theEcorePackage.getEDouble(), "characteristicMixingDistance", "2.25", 0, 1, MultiPopulationSIDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiPopulationSIRDiseaseModelEClass, MultiPopulationSIRDiseaseModel.class, "MultiPopulationSIRDiseaseModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultiPopulationSIRDiseaseModel_ImmunityLossRate(), theCommonPackage.getDoubleValueList(), null, "immunityLossRate", null, 1, 1, MultiPopulationSIRDiseaseModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

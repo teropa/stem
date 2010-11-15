@@ -90,10 +90,6 @@ public class VectorDiseaseModelPropertyEditor extends
 				dVal = (new Double(entry.getValue().getText())).doubleValue();
 				((MacdonaldRossDiseaseModel) diseaseModel).setRecoveryRate(dVal);
 				break;	
-			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_MORTALITY_RATE:
-				dVal = (new Double(entry.getValue().getText())).doubleValue();
-				((MacdonaldRossDiseaseModel) diseaseModel).setVectorMortalityRate(dVal);
-				break;
 			case VectorPackage.MACDONALD_ROSS_DISEASE_MODEL__VECTOR_POPULATION_IDENTIFIER:
 				sVal = entry.getValue().getText().trim();
 				((MacdonaldRossDiseaseModel) diseaseModel).setVectorPopulationIdentifier(sVal);
