@@ -351,16 +351,15 @@ public class PlatformLatLongDataProvider implements LatLongDataProvider {
 	 * @see #sampleFrequency
 	 */
 	private void setPreferences() {
-		final Preferences perferences = Activator.getDefault()
+		final Preferences preferences = Activator.getDefault()
 				.getPluginPreferences();
-		isSampling = perferences
-				.getBoolean(PreferenceConstants.DOWN_SAMPLE_LAT_LONG_DATA_BOOLEAN_PREFERENCE);
-		sampleFrequency = perferences
-				.getInt(PreferenceConstants.LAT_LONG_SAMPLE_FREQUENCY_INTEGER_PREFERENCE);
-		reportIOExceptions = perferences
-				.getBoolean(PreferenceConstants.REPORT_IO_EXCEPTIONS_BOOLEAN_PREFERENCE);
-		useLowerResolutionLatLongData = perferences
-				.getBoolean(PreferenceConstants.USE_LOWER_RESOLUTION_LAT_LONG_DATA_BOOLEAN_PREFERENCE);
+		if(preferences !=null) {
+			isSampling = preferences.getBoolean(PreferenceConstants.DOWN_SAMPLE_LAT_LONG_DATA_BOOLEAN_PREFERENCE);
+			sampleFrequency = preferences.getInt(PreferenceConstants.LAT_LONG_SAMPLE_FREQUENCY_INTEGER_PREFERENCE);
+			reportIOExceptions = preferences.getBoolean(PreferenceConstants.REPORT_IO_EXCEPTIONS_BOOLEAN_PREFERENCE);
+			useLowerResolutionLatLongData = preferences.getBoolean(PreferenceConstants.USE_LOWER_RESOLUTION_LAT_LONG_DATA_BOOLEAN_PREFERENCE);
+		}
+		
 	} // setPerferences
 
 	/**

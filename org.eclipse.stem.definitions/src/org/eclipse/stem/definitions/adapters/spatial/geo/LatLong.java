@@ -18,6 +18,8 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.stem.definitions.Activator;
+
 /**
  * This class is a collection of latitude/longitude data pairs partitioned into
  * one or more "segments". Each segment is a sequence of latitude/longitude data
@@ -135,12 +137,14 @@ public class LatLong {
 		 * @param longitudeString
 		 *            a double longitude value represented as a
 		 *            <code>String</code>
+		 * @throws NumberFormatException
 		 */
-		public void add(final String latitudeString,
-				final String longitudeString) {
-			add(Double.parseDouble(latitudeString), Double
-					.parseDouble(longitudeString));
+		public void add(final String latitudeString,final String longitudeString) throws NumberFormatException {
+			double dLat = Double.parseDouble(latitudeString);
+			double dLng = Double.parseDouble(longitudeString);
+			add(dLat,dLng);
 		} // add
+
 
 		/**
 		 * @param latitude

@@ -99,8 +99,8 @@ public class InlineLatLongDataProvider implements LatLongDataProvider {
 			} // for each segment
 		} // try
 		catch (final NumberFormatException nfe) {
-			Activator.logError(
-					"Inline lat/long data is not properly formatted", nfe);
+			Activator.logInformation(
+					"Inline lat/long data is not properly formatted"+ nfe.getMessage());
 		} // catch
 		return retValue;
 	} // getLatLong
