@@ -324,7 +324,6 @@ public class IdentifiableContentProvider implements ITreeContentProvider,
 			while(lastSeg instanceof DelegatingWrapperItemProvider)
 				lastSeg = ((DelegatingWrapperItemProvider)lastSeg).getValue();
 
-			System.out.println("Processing "+lastSeg);
 
 			if(lastSeg instanceof Identifiable) {
 				// See if we can find the new identifiable object in the list of items
