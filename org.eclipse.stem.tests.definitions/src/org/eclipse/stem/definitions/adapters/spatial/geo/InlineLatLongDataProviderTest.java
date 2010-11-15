@@ -35,7 +35,7 @@ public class InlineLatLongDataProviderTest extends LatLongDataProviderTest {
 	 * Test string
 	 */
 	public static String TEST_INLINE_LAT_LONG_URI_STRING1 = InlineLatLongDataProvider.INLINE_SCHEME
-			+ ":///0.00,0.00,90.00,90.00,0.00,90.00/10.00,15.00,10.00,20.00,20.00,20.00,40.00,40.00";
+			+ ":///0.0,0.0,90.0,90.0,0.0,90.0/10.0,15.0,10.0,20.0,20.0,20.0,40.0,40.0";
 
 	@SuppressWarnings("unqualified-field-access")
 	private InlineLatLongDataProvider getFixture() {
@@ -144,9 +144,13 @@ public class InlineLatLongDataProviderTest extends LatLongDataProviderTest {
 			LatLong result1 = fixture
 					.getLatLong(URI
 							.createURI(TEST_INLINE_LAT_LONG_URI_STRING_NUMBER_FORMAT_ERROR));
+			System.out.println("result1= "+result1);
 			assertTrue(result1.size() == 0);
 		} // try
 		catch (NullPointerException npe) {
+			// expected
+		}
+		catch (NumberFormatException nfe) {
 			// expected
 		}
 

@@ -63,6 +63,7 @@ public class LatLongProviderAdapterFactoryTest extends
 				.adapt(node, LatLongProvider.class);
 
 		final LatLong result = latLongProvider.getLatLong();
+		System.out.println("result = "+result);
 		InlineLatLongDataProviderTest.verifyInlineLatLongResult(result);
 	} // testCreateAdapterNotifier
 
