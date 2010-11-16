@@ -63,17 +63,19 @@ public class TestNodeDecorator1Impl extends NodeDecoratorImpl implements
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
-		final TestNodeDecorator1 tnd = DecoratorsFactory.eINSTANCE
-		.createTestNodeDecorator1();
+		if (isGraphDecorated()) return true;
+		
 		//getGraph().getDecorators().add(tnd);
 		for (final Iterator nodeIter = getGraph().getNodes().values().iterator(); nodeIter
 				.hasNext();) {
 			final Node node = (Node) nodeIter.next();
-			final DynamicNodeLabel dynamicNodeLabel = TestUtil.createDynamicNodeLabel(node.getURI(), tnd);
+			final DynamicNodeLabel dynamicNodeLabel = TestUtil.createDynamicNodeLabel(node.getURI(), this);
 			getGraph().putNodeLabel(dynamicNodeLabel);
 			getLabelsToUpdate().add(dynamicNodeLabel);
 			node.getLabels().add(dynamicNodeLabel);
 		} // for
+		
+		setGraphDecorated(true);
 		return true;
 	} // decorateGraph
 

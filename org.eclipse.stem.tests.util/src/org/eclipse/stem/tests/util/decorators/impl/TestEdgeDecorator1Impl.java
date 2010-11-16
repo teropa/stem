@@ -276,14 +276,13 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
+		if (isGraphDecorated()) return true;
+		
 		final Node nodeA = getGraph().getNode(getNodeAURI());
 		final Node nodeB = getGraph().getNode(getNodeBURI());
-
-		final TestEdgeDecorator1 ted = DecoratorsFactory.eINSTANCE
-		.createTestEdgeDecorator1();
 		
 		final Edge edge = TestUtil.createDynamicallyLabeledEdge(getNodeAURI(),
-				getNodeBURI(),getEdgeURI(), ted);
+				getNodeBURI(),getEdgeURI(), this);
 		edge.setA(nodeA);
 		edge.setB(nodeB);
 		nodeA.getEdges().add(edge);
@@ -295,6 +294,8 @@ public class TestEdgeDecorator1Impl extends EdgeDecoratorImpl implements
 		getGraph().putEdge(edge);
 
 		assert edge.sane();
+		
+		setGraphDecorated(true);
 		return true;
 	} // decorateGraph
 

@@ -395,12 +395,15 @@ public class TestScenarioGraphDecorator1Impl extends GraphDecoratorImpl
 	 */
 	@Override
 	public boolean decorateGraph(STEMTime time) {
+		if (isGraphDecorated()) return true;
 		final DynamicLabel dynamicLabel = TestUtil.createDynamicLabel(getGraph()
 				.getURI());
 		dynamicLabel.setURI(LABEL_URI);
 		getLabelsToUpdate().add(dynamicLabel);
 		getGraph().putGraphLabel(dynamicLabel);
 //		getGraph().addDynamicLabel(dynamicLabel);
+		
+		setGraphDecorated(true);
 		return true;
 	} // decorateGraph
 
