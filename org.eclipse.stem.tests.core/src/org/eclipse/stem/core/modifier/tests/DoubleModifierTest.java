@@ -26,6 +26,10 @@ import org.eclipse.stem.core.modifier.ModifierFactory;
  * @generated
  */
 public class DoubleModifierTest extends SingleValueModifierTest {
+	
+	private static final double ORIGINAL_VAUE = 1.0;
+	private static final double NEW_VAUE = 2.0;
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,8 +66,8 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 	 */
 	public DoubleModifier createFixture() {
 		final DoubleModifier retValue = ModifierFactory.eINSTANCE.createDoubleModifier();
-		retValue.setOriginalValue(1.0);
-		retValue.setValue(2.0);
+		retValue.setOriginalValue(ORIGINAL_VAUE);
+		retValue.setValue(NEW_VAUE);
 		retValue.setFeatureName("DoubleModifier_singleTest");
 		retValue.setEStructuralFeature(getTestObject().eClass()
 				.getEStructuralFeatures().get(0));
@@ -106,10 +110,10 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 	}
 
 	@Override
-		protected EClassifier getTestAttributeEType() {
-			return EcorePackage.eINSTANCE.getEDouble();
-		} // getTestAttributeEType
-	
+	protected EClassifier getTestAttributeEType() {
+		return EcorePackage.eINSTANCE.getEDouble();
+	} // getTestAttributeEType
+
 	
 	/**
 	 * @see org.eclipse.stem.core.modifier.tests.FeatureModifierTest#validateFeatureValue(int)
