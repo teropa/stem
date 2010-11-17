@@ -14,6 +14,9 @@ package org.eclipse.stem.core.modifier.tests;
 import junit.textui.TestRunner;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.stem.core.model.ModelFactory;
+import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.modifier.ModifierFactory;
 import org.eclipse.stem.core.modifier.STEMTimeModifier;
 
@@ -24,6 +27,11 @@ import org.eclipse.stem.core.modifier.STEMTimeModifier;
  * @generated
  */
 public class STEMTimeModifierTest extends SingleValueModifierTest {
+	
+	private static STEMTime ORIGINAL_VALUE;
+	private static STEMTime NEW_VALUE;
+	// One day's worth of milliseconds
+	private static final long TEST_INCREMENT = 24 * 60 * 60 * 1000;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -56,15 +64,34 @@ public class STEMTimeModifierTest extends SingleValueModifierTest {
 	}
 
 	/**
+	 * @return a {@link STEMTimeModifier} ready for testing.
+	 */
+	public STEMTimeModifier createFixture() {
+		final STEMTimeModifier retValue = ModifierFactory.eINSTANCE.createSTEMTimeModifier();
+		ORIGINAL_VALUE = ModelFactory.eINSTANCE.createSTEMTime();
+		retValue.setOriginalValue(ORIGINAL_VALUE);
+		NEW_VALUE = ORIGINAL_VALUE.addIncrement(TEST_INCREMENT);
+		retValue.setValue(NEW_VALUE);
+		retValue.setFeatureName("STEMTimeModifierTest");
+		retValue.setEStructuralFeature(getTestObject().eClass()
+				.getEStructuralFeatures().get(0));
+		
+		return retValue;
+	} // createFixture
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModifierFactory.eINSTANCE.createSTEMTimeModifier());
+		super.setUp();
+		setFixture(createFixture());
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,22 +104,40 @@ public class STEMTimeModifierTest extends SingleValueModifierTest {
 		setFixture(null);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#getNumberOfModifications()
+	 * @generated NOT
+	 */
 	@Override
 	int getNumberOfModifications() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
-	@Override
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#getTestAttributeEType()
+	 * @generated NOT
+	 */
 	protected EClassifier getTestAttributeEType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return EcorePackage.eINSTANCE.getEObject();
+	} // getTestAttributeEType
 
+
+	/**
+	 * @see org.eclipse.stem.core.modifier.tests.FeatureModifierTest#validateFeatureValue(int)
+	 */
 	@Override
 	protected boolean validateFeatureValue(int i) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		assertTrue(i >= 0);
+		
+		final STEMTimeModifier fixture = getFixture();
+		Object currentValue = getTestObject().eGet(fixture.getEStructuralFeature());
+
+		return (currentValue instanceof STEMTime);
+	} // validateFeatureValue
 
 } //STEMTimeModifierTest

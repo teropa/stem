@@ -12,7 +12,6 @@ package org.eclipse.stem.core.common.tests;
  *******************************************************************************/
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.eclipse.stem.core.common.CommonFactory;

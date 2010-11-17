@@ -11,11 +11,11 @@ package org.eclipse.stem.core.common.tests;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import junit.framework.TestCase;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.Identifiable;
-
-import junit.framework.TestCase;
 
 
 /**

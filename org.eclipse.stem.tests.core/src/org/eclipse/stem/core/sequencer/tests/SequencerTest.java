@@ -12,7 +12,6 @@ package org.eclipse.stem.core.sequencer.tests;
  *******************************************************************************/
 
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
-
 import org.eclipse.stem.core.sequencer.Sequencer;
 
 /**

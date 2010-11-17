@@ -101,7 +101,7 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
+	 * @see junit.framework.TestCase#getNumberOfModifications()
 	 * @generated NOT
 	 */
 	@Override
@@ -113,7 +113,7 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
+	 * @see junit.framework.TestCase#getTestAttributeEType()
 	 * @generated NOT
 	 */
 	protected EClassifier getTestAttributeEType() {

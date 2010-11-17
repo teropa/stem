@@ -12,17 +12,13 @@ package org.eclipse.stem.core.common.tests;
  *******************************************************************************/
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
 import org.eclipse.stem.core.common.impl.CommonFactoryImpl;
-import org.eclipse.stem.core.common.impl.DoubleValueMatrixImpl;
-import org.eclipse.stem.core.modifier.FeatureModifier;
 
 /**
  * <!-- begin-user-doc -->

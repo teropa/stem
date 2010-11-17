@@ -19,7 +19,6 @@ import java.util.Map;
 
 import junit.textui.TestRunner;
 
-import org.eclipse.stem.core.model.tests.DecoratorTest;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -29,9 +28,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
-//import org.eclipse.stem.core.common.tests.IdentifiableTest;
 import org.eclipse.stem.core.experiment.tests.ExperimentTest;
 import org.eclipse.stem.core.model.ModelPackage;
+import org.eclipse.stem.core.model.tests.DecoratorTest;
 import org.eclipse.stem.core.modifier.DoubleRangeModifier;
 import org.eclipse.stem.core.modifier.FeatureModifier;
 import org.eclipse.stem.core.modifier.IntegerRangeModifier;

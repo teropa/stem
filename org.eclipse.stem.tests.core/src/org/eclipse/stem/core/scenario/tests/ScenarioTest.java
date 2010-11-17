@@ -12,7 +12,6 @@ package org.eclipse.stem.core.scenario.tests;
  *******************************************************************************/
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 

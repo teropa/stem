@@ -14,13 +14,10 @@ package org.eclipse.stem.core.graph.tests;
 import java.util.Map;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.GraphPackage;
 

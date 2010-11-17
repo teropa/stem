@@ -16,7 +16,6 @@ import junit.textui.TestRunner;
 
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
-//import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.tests.util.TestUtil;
 

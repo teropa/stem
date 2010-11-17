@@ -13,18 +13,14 @@ package org.eclipse.stem.core.common.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 import org.eclipse.stem.core.experiment.tests.ExperimentTests;
 import org.eclipse.stem.core.graph.tests.GraphTests;
-
 import org.eclipse.stem.core.model.tests.ModelTests;
-
 import org.eclipse.stem.core.modifier.tests.ModifierTests;
 import org.eclipse.stem.core.predicate.tests.PredicateTests;
 import org.eclipse.stem.core.scenario.tests.ScenarioTests;
-
 import org.eclipse.stem.core.sequencer.tests.SequencerTests;
 import org.eclipse.stem.core.solver.tests.SolverTests;
 import org.eclipse.stem.core.trigger.tests.TriggerTests;

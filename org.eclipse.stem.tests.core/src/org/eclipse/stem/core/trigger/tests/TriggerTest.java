@@ -16,7 +16,6 @@ import junit.textui.TestRunner;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.model.tests.DecoratorTest;
-
 import org.eclipse.stem.core.trigger.Trigger;
 import org.eclipse.stem.core.trigger.TriggerFactory;
 

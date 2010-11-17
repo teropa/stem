@@ -15,8 +15,8 @@ import junit.textui.TestRunner;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.stem.core.modifier.IntegerModifier;
 import org.eclipse.stem.core.modifier.LongModifier;
+import org.eclipse.stem.core.modifier.LongRangeModifier;
 import org.eclipse.stem.core.modifier.ModifierFactory;
 
 /**
@@ -61,7 +61,7 @@ public class LongModifierTest extends SingleValueModifierTest {
 	}
 
 	/**
-	 * @return a {@link DoubleRangeModifier} ready for testing.
+	 * @return a {@link LongRangeModifier} ready for testing.
 	 */
 	public LongModifier createFixture() {
 		final LongModifier retValue = ModifierFactory.eINSTANCE.createLongModifier();
@@ -102,7 +102,7 @@ public class LongModifierTest extends SingleValueModifierTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
+	 * @see junit.framework.TestCase#getNumberOfModifications()
 	 * @generated NOT
 	 */
 	int getNumberOfModifications() {
@@ -112,7 +112,7 @@ public class LongModifierTest extends SingleValueModifierTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
+	 * @see junit.framework.TestCase#getTestAttributeEType()
 	 * @generated NOT
 	 */
 	protected EClassifier getTestAttributeEType() {

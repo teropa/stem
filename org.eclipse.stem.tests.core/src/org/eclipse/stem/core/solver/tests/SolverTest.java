@@ -17,7 +17,6 @@ import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.ModelFactory;

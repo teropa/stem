@@ -13,7 +13,6 @@ package org.eclipse.stem.core.solver.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 /**
