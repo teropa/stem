@@ -207,7 +207,7 @@ public class DoubleRangeModifierImpl extends RangeModifierImpl implements
 			setNextValue(getStartValue());
 		} // if
 		
-		final double retValue = getNextValue();
+		final double retValue = nextValue;
 		
 		complete = (getIncrement() < 0.0)? (retValue <= getEndValue()):(retValue >= getEndValue()); 
 		
