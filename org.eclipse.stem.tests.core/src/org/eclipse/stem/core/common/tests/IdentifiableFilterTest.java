@@ -15,7 +15,11 @@ import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import org.eclipse.stem.core.common.CommonFactory;
+import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.IdentifiableFilter;
+import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
+import org.eclipse.stem.core.model.ModelFactory;
+import org.eclipse.stem.core.model.STEMTime;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +28,8 @@ import org.eclipse.stem.core.common.IdentifiableFilter;
  * @generated
  */
 public class IdentifiableFilterTest extends TestCase {
+	
+	private static final String INITIAL_VALUE = "US";
 
 	/**
 	 * The fixture for this Identifiable Filter test case.
@@ -76,12 +82,25 @@ public class IdentifiableFilterTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CommonFactory.eINSTANCE.createIdentifiableFilter());
+		// use the Impl for testing, should accept the String argument
+		IdentifiableFilterImpl testValue = new IdentifiableFilterImpl(INITIAL_VALUE);;
+		setFixture(testValue);
 	}
+	
+	/**
+	 *
+	 */
+	public void testIsValid() {
+		IdentifiableFilter filter = getFixture();
+		//TODO what is there to test here?
+		// Nothing to test. No Sane Method implemented yet
+		assertTrue(true);
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
