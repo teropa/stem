@@ -79,7 +79,7 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
@@ -109,7 +109,13 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 		return 1;
 	}
 
-	@Override
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
 	protected EClassifier getTestAttributeEType() {
 		return EcorePackage.eINSTANCE.getEDouble();
 	} // getTestAttributeEType

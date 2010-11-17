@@ -14,6 +14,8 @@ package org.eclipse.stem.core.modifier.tests;
 import junit.textui.TestRunner;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.stem.core.modifier.IntegerModifier;
 import org.eclipse.stem.core.modifier.LongModifier;
 import org.eclipse.stem.core.modifier.ModifierFactory;
 
@@ -24,6 +26,9 @@ import org.eclipse.stem.core.modifier.ModifierFactory;
  * @generated
  */
 public class LongModifierTest extends SingleValueModifierTest {
+	
+	private static final long ORIGINAL_VAUE = 1;
+	private static final long NEW_VAUE = 2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -56,15 +61,32 @@ public class LongModifierTest extends SingleValueModifierTest {
 	}
 
 	/**
+	 * @return a {@link DoubleRangeModifier} ready for testing.
+	 */
+	public LongModifier createFixture() {
+		final LongModifier retValue = ModifierFactory.eINSTANCE.createLongModifier();
+		retValue.setOriginalValue(ORIGINAL_VAUE);
+		retValue.setValue(NEW_VAUE);
+		retValue.setFeatureName("LongModifier_singleTest");
+		retValue.setEStructuralFeature(getTestObject().eClass()
+				.getEStructuralFeatures().get(0));
+		
+		return retValue;
+	} // createFixture
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModifierFactory.eINSTANCE.createLongModifier());
+		super.setUp();
+		setFixture(createFixture());
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,22 +99,37 @@ public class LongModifierTest extends SingleValueModifierTest {
 		setFixture(null);
 	}
 
-	@Override
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
 	int getNumberOfModifications() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
-	@Override
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
 	protected EClassifier getTestAttributeEType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return EcorePackage.eINSTANCE.getELong();
+	} // getTestAttributeEType
 
+	/**
+	 * @see org.eclipse.stem.core.modifier.tests.FeatureModifierTest#validateFeatureValue(int)
+	 */
 	@Override
 	protected boolean validateFeatureValue(int i) {
-		// TODO Auto-generated method stub
-		return false;
+		assertTrue(i >= 0);
+		
+		final LongModifier fixture = getFixture();
+		Object currentValue = getTestObject().eGet(fixture.getEStructuralFeature());
+
+		return (currentValue instanceof Long);
 	}
 
 } //LongModifierTest
