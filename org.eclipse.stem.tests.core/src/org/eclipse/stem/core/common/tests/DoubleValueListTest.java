@@ -14,7 +14,9 @@ package org.eclipse.stem.core.common.tests;
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.stem.core.common.CommonFactory;
+import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.DoubleValueList;
 
 /**
@@ -24,6 +26,11 @@ import org.eclipse.stem.core.common.DoubleValueList;
  * @generated
  */
 public class DoubleValueListTest extends TestCase {
+	
+	private static final String LIST_NAME = "DoubleValueListTestList";
+	private static final int NUMVALUES = 2;
+	private static final double firstDValue = 1.0;
+	private static final double secondDValue = 17.0;
 
 	/**
 	 * The fixture for this Double Value List test case.
@@ -76,12 +83,35 @@ public class DoubleValueListTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CommonFactory.eINSTANCE.createDoubleValueList());
+		DoubleValueList dvl = CommonFactory.eINSTANCE.createDoubleValueList();
+		dvl.setIdentifier(LIST_NAME);
+		EList<DoubleValue> dList = dvl.getValues();
+		DoubleValue dv1 = CommonFactory.eINSTANCE.createDoubleValue();
+		dv1.setValue(firstDValue);
+		DoubleValue dv2 = CommonFactory.eINSTANCE.createDoubleValue();
+		dv2.setValue(secondDValue);
+		dList.add(dv1);
+		dList.add(dv2);
+		setFixture(dvl);
 	}
+	
+	/**
+	 * 
+	 */
+	public void testIsValid() {
+		DoubleValueList fixture = getFixture();
+		EList<DoubleValue> dList = fixture.getValues();
+		assertTrue(dList.size()==NUMVALUES);
+		DoubleValue dv1 = dList.get(0);
+		DoubleValue dv2 = dList.get(1);
+		
+		assertTrue(dv1.getValue()==firstDValue);
+		assertTrue(dv2.getValue()==secondDValue);
+	} // testIsComplete
 
 	/**
 	 * <!-- begin-user-doc -->

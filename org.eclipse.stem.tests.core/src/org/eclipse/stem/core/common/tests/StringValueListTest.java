@@ -14,7 +14,9 @@ package org.eclipse.stem.core.common.tests;
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.stem.core.common.CommonFactory;
+import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
 
 /**
@@ -24,7 +26,11 @@ import org.eclipse.stem.core.common.StringValueList;
  * @generated
  */
 public class StringValueListTest extends TestCase {
-
+	
+	private static final int NUM_VALUES = 2;
+	private static final String INITIAL_VALUE = "First Test String";
+	private static final String NEXT_VALUE = "Second $#% Test String";
+	
 	/**
 	 * The fixture for this String Value List test case.
 	 * <!-- begin-user-doc -->
@@ -76,13 +82,35 @@ public class StringValueListTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CommonFactory.eINSTANCE.createStringValueList());
+		StringValueList svl = CommonFactory.eINSTANCE.createStringValueList();
+		EList<StringValue> dList = svl.getValues();
+		StringValue sv1 = CommonFactory.eINSTANCE.createStringValue();
+		sv1.setValue(INITIAL_VALUE);
+		StringValue sv2 = CommonFactory.eINSTANCE.createStringValue();
+		sv2.setValue(NEXT_VALUE);
+		dList.add(sv1);
+		dList.add(sv2);
+		setFixture(svl);
 	}
 
+	/**
+	 * 
+	 */
+	public void testIsValid() {
+		StringValueList fixture = getFixture();
+		EList<StringValue> dList = fixture.getValues();
+		assertTrue(dList.size()==NUM_VALUES);
+		StringValue sv1 = dList.get(0);
+		StringValue sv2 = dList.get(1);
+		
+		assertTrue(sv1.getValue().equals(INITIAL_VALUE));
+		assertTrue(sv2.getValue().equals(NEXT_VALUE));
+	} // testIsComplete
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
