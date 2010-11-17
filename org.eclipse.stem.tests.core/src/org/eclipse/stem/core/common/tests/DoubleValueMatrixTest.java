@@ -15,8 +15,14 @@ import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.CommonFactory;
+import org.eclipse.stem.core.common.DoubleValueList;
 import org.eclipse.stem.core.common.DoubleValueMatrix;
+import org.eclipse.stem.core.common.impl.CommonFactoryImpl;
+import org.eclipse.stem.core.common.impl.DoubleValueMatrixImpl;
+import org.eclipse.stem.core.modifier.FeatureModifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,11 +73,23 @@ public class DoubleValueMatrixTest extends TestCase {
 	 * Returns the fixture for this Double Value Matrix test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected DoubleValueMatrix getFixture() {
+		CommonFactory factory = CommonFactoryImpl.init();
+		fixture = factory.createDoubleValueMatrix();
 		return fixture;
 	}
+	
+	/**
+	 *
+	 * @generated NOT
+	 */
+	public void testDoubleValueMatrix() {
+		DoubleValueMatrix dvm= getFixture();
+		EList<DoubleValueList> dvList = dvm.getValueLists();
+		assertTrue(dvList != null);
+	} 
 
 	/**
 	 * <!-- begin-user-doc -->
