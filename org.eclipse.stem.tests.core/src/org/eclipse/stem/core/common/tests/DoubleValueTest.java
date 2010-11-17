@@ -17,6 +17,7 @@ import junit.textui.TestRunner;
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.DoubleValue;
 
+
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Double Value</b></em>'.
@@ -24,6 +25,9 @@ import org.eclipse.stem.core.common.DoubleValue;
  * @generated
  */
 public class DoubleValueTest extends TestCase {
+	
+	private static final double INITIAL_VALUE = 0.0;
+	private static final double NEXT_VALUE = 1.0;
 
 	/**
 	 * The fixture for this Double Value test case.
@@ -76,12 +80,25 @@ public class DoubleValueTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CommonFactory.eINSTANCE.createDoubleValue());
+		DoubleValue testValue = CommonFactory.eINSTANCE.createDoubleValue();
+		testValue.setValue(INITIAL_VALUE);
+		setFixture(testValue);
 	}
+	
+	/**
+	 * 
+	 */
+	public void testIsValid() {
+		DoubleValue fixture = getFixture();
+		assertTrue(fixture.getValue()==INITIAL_VALUE);
+		fixture.setValue(NEXT_VALUE);
+		assertTrue(fixture.getValue()==NEXT_VALUE);
+	} // testIsComplete
+
 
 	/**
 	 * <!-- begin-user-doc -->

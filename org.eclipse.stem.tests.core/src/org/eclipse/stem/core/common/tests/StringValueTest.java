@@ -24,6 +24,9 @@ import org.eclipse.stem.core.common.StringValue;
  * @generated
  */
 public class StringValueTest extends TestCase {
+	
+	private static final String TEST_VALUE = "testStringValue";
+	private static final String NEXT_VALUE = "testNextString";
 
 	/**
 	 * The fixture for this String Value test case.
@@ -76,12 +79,25 @@ public class StringValueTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	protected void setUp() throws Exception {
-		setFixture(CommonFactory.eINSTANCE.createStringValue());
+	protected void setUp() throws Exception { 
+		StringValue testValue = CommonFactory.eINSTANCE.createStringValue();
+		testValue.setValue(TEST_VALUE);
+		setFixture(testValue);
 	}
+	
+
+	/**
+	 * 
+	 */
+	public void testIsValid() {
+		StringValue fixture = getFixture();
+		assertTrue(fixture.getValue().equals(TEST_VALUE));
+		fixture.setValue(NEXT_VALUE);
+		assertTrue(fixture.getValue().equals(NEXT_VALUE));
+	} // testIsComplete
 
 	/**
 	 * <!-- begin-user-doc -->
