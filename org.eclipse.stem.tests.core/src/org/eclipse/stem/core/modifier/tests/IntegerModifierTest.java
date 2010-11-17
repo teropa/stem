@@ -14,6 +14,7 @@ package org.eclipse.stem.core.modifier.tests;
 import junit.textui.TestRunner;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.stem.core.modifier.IntegerModifier;
 import org.eclipse.stem.core.modifier.ModifierFactory;
 
@@ -24,6 +25,9 @@ import org.eclipse.stem.core.modifier.ModifierFactory;
  * @generated
  */
 public class IntegerModifierTest extends SingleValueModifierTest {
+	
+	private static final int ORIGINAL_VAUE = 1;
+	private static final int NEW_VAUE = 2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -54,6 +58,21 @@ public class IntegerModifierTest extends SingleValueModifierTest {
 	protected IntegerModifier getFixture() {
 		return (IntegerModifier)fixture;
 	}
+	
+
+	/**
+	 * @return a {@link DoubleRangeModifier} ready for testing.
+	 */
+	public IntegerModifier createFixture() {
+		final IntegerModifier retValue = ModifierFactory.eINSTANCE.createIntegerModifier();
+		retValue.setOriginalValue(ORIGINAL_VAUE);
+		retValue.setValue(NEW_VAUE);
+		retValue.setFeatureName("IntegerModifier_singleTest");
+		retValue.setEStructuralFeature(getTestObject().eClass()
+				.getEStructuralFeatures().get(0));
+		
+		return retValue;
+	} // createFixture
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,7 +82,8 @@ public class IntegerModifierTest extends SingleValueModifierTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModifierFactory.eINSTANCE.createIntegerModifier());
+		super.setUp();
+		setFixture(createFixture());
 	}
 
 	/**
@@ -79,20 +99,26 @@ public class IntegerModifierTest extends SingleValueModifierTest {
 
 	@Override
 	int getNumberOfModifications() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
+	
 	@Override
 	protected EClassifier getTestAttributeEType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return EcorePackage.eINSTANCE.getEInt();
+	} // getTestAttributeEType
 
+	/**
+	 * @see org.eclipse.stem.core.modifier.tests.FeatureModifierTest#validateFeatureValue(int)
+	 */
 	@Override
 	protected boolean validateFeatureValue(int i) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		assertTrue(i >= 0);
+		
+		final IntegerModifier fixture = getFixture();
+		Object currentValue = getTestObject().eGet(fixture.getEStructuralFeature());
+
+		return (currentValue instanceof Integer);
+	} // validateFeatureValue
 
 } //IntegerModifierTest
