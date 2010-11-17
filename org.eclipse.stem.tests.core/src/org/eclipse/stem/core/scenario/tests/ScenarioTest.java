@@ -89,7 +89,7 @@ public class ScenarioTest extends IdentifiableTest {
 	/**
 	 * URI for the Decorator in the test scenario
 	 */
-	private static final URI DECOARTOR_URI = URI.createURI("decorator/decorator1.decorator");
+	private static final URI DECORATOR_URI = URI.createURI("decorator/decorator1.decorator");
 		
 	
 	private static final URI CANONICAL_GRAPH__URI = STEMURI
@@ -137,6 +137,7 @@ public class ScenarioTest extends IdentifiableTest {
 
 	/**
 	 * @return a scenario
+	 * @generated NOT
 	 */
 	public static Scenario createFixture() {
 		final Scenario scenario = ScenarioFactory.eINSTANCE.createScenario();
@@ -144,7 +145,7 @@ public class ScenarioTest extends IdentifiableTest {
 		scenario.setSequencer(getTestSequencer());
 		scenario.setURI(SCENARIO_URI);
 		final Decorator decorator = DecoratorsFactory.eINSTANCE.createTestScenarioGraphDecorator1();
-		decorator.setURI(DECOARTOR_URI);
+		decorator.setURI(DECORATOR_URI);
 		scenario.getScenarioDecorators().add(decorator);
 		scenario.getDublinCore().populate();
 		scenario.getDublinCore().setTitle(TEST_SCENARIO_TITLE);
@@ -154,11 +155,6 @@ public class ScenarioTest extends IdentifiableTest {
 		Solver solver = FdFactory.eINSTANCE.createFiniteDifference();
 		solver.setDecorators(scenario.getScenarioDecorators());
 		scenario.setSolver(solver);
-		
-		
-		
-		
-		
 		
 		return scenario;
 	} // createFixture
