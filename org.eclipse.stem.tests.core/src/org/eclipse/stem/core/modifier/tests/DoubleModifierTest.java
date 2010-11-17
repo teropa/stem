@@ -14,7 +14,9 @@ package org.eclipse.stem.core.modifier.tests;
 import junit.textui.TestRunner;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.stem.core.modifier.DoubleModifier;
+import org.eclipse.stem.core.modifier.DoubleRangeModifier;
 import org.eclipse.stem.core.modifier.ModifierFactory;
 
 /**
@@ -54,6 +56,20 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 	protected DoubleModifier getFixture() {
 		return (DoubleModifier)fixture;
 	}
+	
+	/**
+	 * @return a {@link DoubleRangeModifier} ready for testing.
+	 */
+	public DoubleModifier createFixture() {
+		final DoubleModifier retValue = ModifierFactory.eINSTANCE.createDoubleModifier();
+		retValue.setOriginalValue(1.0);
+		retValue.setValue(2.0);
+		retValue.setFeatureName("DoubleModifier_singleTest");
+		retValue.setEStructuralFeature(getTestObject().eClass()
+				.getEStructuralFeatures().get(0));
+		
+		return retValue;
+	} // createFixture
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,7 +79,8 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ModifierFactory.eINSTANCE.createDoubleModifier());
+		super.setUp();
+		setFixture(createFixture());
 	}
 
 	/**
@@ -77,22 +94,34 @@ public class DoubleModifierTest extends SingleValueModifierTest {
 		setFixture(null);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
 	@Override
 	int getNumberOfModifications() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override
-	protected EClassifier getTestAttributeEType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+		protected EClassifier getTestAttributeEType() {
+			return EcorePackage.eINSTANCE.getEDouble();
+		} // getTestAttributeEType
+	
+	
+	/**
+	 * @see org.eclipse.stem.core.modifier.tests.FeatureModifierTest#validateFeatureValue(int)
+	 */
 	@Override
 	protected boolean validateFeatureValue(int i) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		assertTrue(i >= 0);
+		
+		final DoubleModifier fixture = getFixture();
+		Object currentValue = getTestObject().eGet(fixture.getEStructuralFeature());
+
+		return (currentValue instanceof Double);
+	} // validateFeatureValue
 
 } //DoubleModifierTest
