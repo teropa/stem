@@ -45,10 +45,10 @@ public class StandardRelativeValueProviderAdapterFactoryTest extends
 	public static final int NUM_DISEASE_MODEL_LABEL_VALUE_PROPERTIES = 2;
 
 	/**
-	 * The number of properties in a SI disease model label value (S, I, IR, IF, incidence +
+	 * The number of properties in a SI disease model label value (I +
 	 * DMLVP)
 	 */
-	public static final int NUM_SI_DISEASE_MODEL_LABEL_VALUE_PROPERTIES = 5 + NUM_DISEASE_MODEL_LABEL_VALUE_PROPERTIES;
+	public static final int NUM_SI_DISEASE_MODEL_LABEL_VALUE_PROPERTIES = 1 + NUM_DISEASE_MODEL_LABEL_VALUE_PROPERTIES;
 
 	/**
 	 * The number of properties in a SIR disease model label value (S, I, IR, IF, incidence +
