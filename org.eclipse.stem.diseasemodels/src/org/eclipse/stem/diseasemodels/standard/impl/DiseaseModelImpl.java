@@ -919,7 +919,7 @@ public abstract class DiseaseModelImpl extends NodeDecoratorImpl implements
 		retValue = retValue && !Double.isNaN(getBackgroundMortalityRate());
 		assert retValue;
 		
-		retValue = retValue && getTimePeriod() >= TIME_PERIOD_EDEFAULT;
+		retValue = retValue && getTimePeriod() >= 0.0;
 		assert retValue;
 
 	
