@@ -178,10 +178,10 @@ public class SequentialSequencerTest extends SequencerTest {
 	@Override
 	public void testGetWorkIncrement() {
 		final SequentialSequencer seqWithEndTime = getFixture();
-		assertTrue(seqWithEndTime.getWorkIncrement() == 10);
+		assertTrue(seqWithEndTime.getDuration() > 0);
 
 		final SequentialSequencer seqWithNoEndTime = sequencerWithNoEndTime;
-		assertTrue(seqWithNoEndTime.getWorkIncrement() == 0);
+		assertTrue(seqWithNoEndTime.getDuration() == -1);
 	} // testGetWorkIncrement
 
 	/**
