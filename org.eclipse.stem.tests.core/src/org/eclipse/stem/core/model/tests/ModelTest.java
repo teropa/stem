@@ -11,6 +11,7 @@ package org.eclipse.stem.core.model.tests;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.util.Calendar;
 import java.util.Iterator;
 
 import junit.textui.TestRunner;
@@ -200,6 +201,15 @@ public class ModelTest extends IdentifiableTest {
 
 	// Dynamic Edges
 	public static final URI DE4_URI = STEMURI.createTypeURI(EDGE + "/" + "de4");
+	
+	// FOR Filter testing
+	public static final URI M0_1_URI = STEMURI.createURI(MODEL + "/" + "m0_1");
+	public static final URI M0_2_URI = STEMURI.createURI(MODEL + "/" + "m0_2");
+	private static final URI G0_1_URI = STEMURI.createURI(GRAPH + "/" + "g0_1");
+	private static final URI G0_2_URI = STEMURI.createURI(GRAPH + "/" + "g0_2");
+	private static final URI N0_1_URI = STEMURI.createURI(NODE + "/" + "n0_1");
+	private static final URI N0_2_URI = STEMURI.createURI(NODE + "/" + "n0_2");
+	
 
 	/**
 	 * This fixture is of a model with unresolved references.
@@ -609,14 +619,52 @@ public class ModelTest extends IdentifiableTest {
 	/**
 	 * Tests the '{@link org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter, org.eclipse.stem.core.model.STEMTime) <em>Get Canonical Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
+	 * Check that the filter works - extract a node
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.core.model.Model#getCanonicalGraph(org.eclipse.emf.common.util.URI, org.eclipse.stem.core.common.IdentifiableFilter, org.eclipse.stem.core.model.STEMTime)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testGetCanonicalGraph__URI_IdentifiableFilter_STEMTime() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		
+
+		final Model model = createModel(M0_URI);
+		model.getDublinCore().setTitle("m0");
+		
+		final Model m0_1 = createModel(M0_1_URI);
+		m0_1.getDublinCore().setTitle("m0_1");
+		
+		final Model m0_2 = createModel(M0_2_URI);
+		m0_2.getDublinCore().setTitle("m0_2");
+		
+
+		// Graph G0_1
+		final Graph g0_1 = createGraph(G0_1_URI);
+		g0_1.getDublinCore().setTitle("g0_1");
+		final Node n0a = TestUtil.createStaticallyLabeledNode(N0_1_URI);
+		g0_1.putNode(n0a);
+		
+		// Graph G0_2
+		final Graph g0_2 = createGraph(G0_2_URI);
+		g0_2.getDublinCore().setTitle("g0_2");
+		final Node n0b = TestUtil.createStaticallyLabeledNode(N0_2_URI);
+		g0_2.putNode(n0b);
+
+
+
+		// *** Graphs to Models0 ***
+		m0_1.getGraphs().add(g0_1);
+		m0_2.getGraphs().add(g0_2);
+		
+		// ** Models to Models
+		model.getModels().add(m0_1);
+		model.getModels().add(m0_2);
+		
+		STEMTime time = ModelFactory.eINSTANCE.createSTEMTime();
+		final Graph canonicalGraph = model
+				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl("_1"), time);
+		// TODO Stefan, please check the filter syntax. Method IdentifiableFilterImpl.restrict is blank
+		assert(canonicalGraph.sane());
+
 	}
 
 	/**
@@ -624,12 +672,14 @@ public class ModelTest extends IdentifiableTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.core.model.Model#prepare(org.eclipse.stem.core.model.STEMTime)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testPrepare__STEMTime() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		int cYear = Calendar.getInstance().getTime().getYear();
+		STEMTime now = ModelFactory.eINSTANCE.createSTEMTime();
+		int STEMyear = now.getTime().getYear();
+		boolean test = (now != null)&&(Math.abs(cYear-STEMyear)<=1);
+		assertTrue(test); 
 	}
 
 	/**
@@ -664,8 +714,7 @@ public class ModelTest extends IdentifiableTest {
 
 		final Model model = getFixture();
 		STEMTime time = ModelFactory.eINSTANCE.createSTEMTime();
-		final Graph canonicalGraph = model
-				.getCanonicalGraph(CANONICAL_GRAPH1_URI, new IdentifiableFilterImpl(model.getDublinCore().getCoverage()), time);
+		final Graph canonicalGraph = model.getCanonicalGraph(CANONICAL_GRAPH1_URI, null, time);
 
 		assertTrue(canonicalGraph.sane());
 
