@@ -65,6 +65,7 @@ public class ExperimentTest extends IdentifiableTest {
 
 	public static final Boolean BSM_START_VALUE = Boolean.TRUE;
 	public static final Boolean BSM_END_VALUE = Boolean.FALSE;
+	protected static final int MAX_TEST_CYCLES = 11;
 
 	static protected Scenario baseScenario;
 
@@ -165,9 +166,14 @@ public class ExperimentTest extends IdentifiableTest {
 	 */
 	public void testUpdateScenario() {
 		final Experiment fixture = getFixture();
-		while (!fixture.isComplete()) {
-			final Scenario updatedScenario = fixture.updateScenario();
-			assertTrue(updatedScenario.sane());
+		//while (!fixture.isComplete()) {
+		for (int i = 0; i < MAX_TEST_CYCLES; i ++) {
+		
+			if  (!fixture.isComplete()) {
+				final Scenario updatedScenario = fixture.updateScenario();
+				assertTrue(updatedScenario.sane());
+			}
+			
 		} // while !fixture.isComplete()
 	}
 
