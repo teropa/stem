@@ -13,13 +13,18 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.framework.TestCase;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.Infector;
+import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>Disease Model</b></em>'.
@@ -115,7 +120,14 @@ public abstract class DiseaseModelTest extends TestCase {
 	 * test the sanity of the fixture
 	 */
 	public void testFixtureSanity() {
-		final DiseaseModel fixture = getFixture();
+		final DiseaseModel dModel = getFixture();
+		/// must set the dublin core and URI to pass sanity
+		// TODO each model fixture should probably do this.
+		if(dModel.getURI()==null) {
+			dModel.setURI(TestUtilities.DEFAULT_URI);
+			DublinCore dc = dModel.getDublinCore();
+			dc.setIdentifier(dModel.getURI().toString());
+		}
 		assertTrue(fixture.sane());
 	} // testFixtureSanity
 
@@ -215,9 +227,13 @@ public abstract class DiseaseModelTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetAdjustedBackgroundBirthRate__long() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		DiseaseModel dModel = getFixture();
+		double oneDayRate     = dModel.getAdjustedBackgroundBirthRate(TestUtilities.TIME_ONE_DAY);
+		double twoDayRate = dModel.getAdjustedBackgroundBirthRate(TestUtilities.TIME_TWO_DAY);
+		long delta = Math.round(twoDayRate/oneDayRate);
+		long expected = TestUtilities.TIME_TWO_DAY/TestUtilities.TIME_ONE_DAY;
+		
+		assertTrue(delta==expected);
 	}
 
 	/**

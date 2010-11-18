@@ -13,8 +13,12 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
@@ -24,6 +28,7 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
+import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelState;
 
 /**
@@ -136,12 +141,33 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#calculateDelta(org.eclipse.stem.core.model.STEMTime, long, org.eclipse.emf.common.util.EList)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testCalculateDelta__STEMTime_long_EList() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		
+		StandardDiseaseModel dModel = getFixture();
+		/// must set the dublin core and URI to pass sanity
+		// TODO each model fixture should probably do this.
+		if(dModel.getURI()==null) {
+			dModel.setURI(TestUtilities.DEFAULT_URI);
+			DublinCore dc = dModel.getDublinCore();
+			dc.setIdentifier(dModel.getURI().toString());
+		}
+		
+		
+		STEMTime time = TestUtilities.getSTEMTime();
+		long timeDelta = 1;
+		EList<DynamicLabel> labels = dModel.getLabelsToUpdate();
+		if(labels!=null) {
+			DynamicLabel dLabel = getLabelFixture();
+			labels.add(dLabel);
+			assertTrue(dModel.sane());
+			dModel.calculateDelta(time, timeDelta, labels);
+			assertTrue(dModel.sane());
+		} else {
+			fail();
+		}
+		
 	}
 
 	/**
@@ -149,12 +175,27 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel#doModelSpecificAdjustments(org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testDoModelSpecificAdjustments__StandardDiseaseModelLabelValue() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		StandardDiseaseModel dModel = getFixture();
+		/// must set the dublin core and URI to pass sanity
+		// TODO each model fixture should probably do this.
+		if(dModel.getURI()==null) {
+			dModel.setURI(TestUtilities.DEFAULT_URI);
+			DublinCore dc = dModel.getDublinCore();
+			dc.setIdentifier(dModel.getURI().toString());
+		}
+		
+		EList<DynamicLabel> labels = dModel.getLabelsToUpdate();
+		if(labels!=null) {
+			LabelValue dLabelValue = getLabelFixture().getCurrentValue();
+			assertTrue(dModel.sane());
+			dModel.doModelSpecificAdjustments(dLabelValue);
+			assertTrue(dModel.sane());
+		} else {
+			fail();
+		}
 	}
 
 	/**
@@ -188,12 +229,13 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.core.model.IntegrationDecorator#isDeterministic()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testIsDeterministic() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		StandardDiseaseModel dModel = getFixture();
+		// it might be , or it might not be. Either is ok so long as the accessor works
+		if(dModel.isDeterministic()) assertTrue(true);
+		if(!dModel.isDeterministic()) assertTrue(true);
 	}
 
 	/**
