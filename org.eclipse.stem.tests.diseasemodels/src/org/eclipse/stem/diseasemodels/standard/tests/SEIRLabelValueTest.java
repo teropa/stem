@@ -15,8 +15,6 @@ import junit.textui.TestRunner;
 
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
-//import org.eclipse.stem.diseasemodels.standard.StandardFactory;
-
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelValueImpl;
 

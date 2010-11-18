@@ -49,9 +49,9 @@ import org.eclipse.stem.diseasemodels.standard.Infector;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.tests.DeterministicSIDiseaseModelTest;
 import org.eclipse.stem.diseasemodels.standard.tests.SIDiseaseModelScenarioTest;
+import org.eclipse.stem.tests.util.CountryDirectoryUtilities.CountryCode;
 import org.eclipse.stem.tests.util.CountryGraphCreator;
 import org.eclipse.stem.tests.util.CountryModelCreator;
-import org.eclipse.stem.tests.util.CountryDirectoryUtilities.CountryCode;
 
 /**
  * This class creates disease model scenarios.

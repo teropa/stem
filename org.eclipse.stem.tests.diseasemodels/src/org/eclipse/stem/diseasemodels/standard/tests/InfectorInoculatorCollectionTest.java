@@ -7,7 +7,6 @@
 package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.eclipse.stem.diseasemodels.standard.InfectorInoculatorCollection;

@@ -13,11 +13,8 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.framework.TestCase;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.stem.core.common.DublinCore;
-import org.eclipse.stem.core.graph.DynamicLabel;
-import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
@@ -224,7 +221,7 @@ public abstract class DiseaseModelTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.diseasemodels.standard.DiseaseModel#getAdjustedBackgroundBirthRate(long)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testGetAdjustedBackgroundBirthRate__long() {
 		DiseaseModel dModel = getFixture();

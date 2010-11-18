@@ -28,7 +28,6 @@ import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
-import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelState;
 
 /**
@@ -260,7 +259,9 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 
 	/**
 	 * test getTransportEdgesToNode
+	 * @generated NOT
 	 */
+	
 	public void testGetTransportEdgesToNode() {
 		final Graph fixture = DiseaseModelTestUtil.createLatticeGraph(2, 2,
 				DiseaseModelTestUtil.TEST_POPULATION_COUNT,

@@ -20,9 +20,9 @@ import junit.framework.TestCase;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.impl.NodeImpl;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
+import org.eclipse.stem.diseasemodels.standard.impl.SIDiseaseModelStateImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.SILabelImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl;
-import org.eclipse.stem.diseasemodels.standard.impl.SIDiseaseModelStateImpl;
 
 public abstract class SILabelValueTestUtil extends TestCase{
 	

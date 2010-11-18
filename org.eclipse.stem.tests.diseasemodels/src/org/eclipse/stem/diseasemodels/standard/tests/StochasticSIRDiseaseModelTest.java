@@ -15,10 +15,8 @@ import java.util.Random;
 
 import junit.textui.TestRunner;
 
-//import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
-import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.SIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;

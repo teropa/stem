@@ -14,8 +14,6 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 import junit.textui.TestRunner;
 
 import org.eclipse.stem.diseasemodels.standard.DeterministicSIRDiseaseModel;
-//import org.eclipse.stem.diseasemodels.standard.StandardFactory;
-
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.impl.DeterministicSIRDiseaseModelImpl;
