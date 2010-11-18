@@ -148,13 +148,13 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 		/// must set the dublin core and URI to pass sanity
 		// TODO each model fixture should probably do this.
 		if(dModel.getURI()==null) {
-			dModel.setURI(TestUtilities.DEFAULT_URI);
+			dModel.setURI(DiseaseModelTestUtil.DEFAULT_URI);
 			DublinCore dc = dModel.getDublinCore();
 			dc.setIdentifier(dModel.getURI().toString());
 		}
 		
 		
-		STEMTime time = TestUtilities.getSTEMTime();
+		STEMTime time = DiseaseModelTestUtil.getSTEMTime();
 		long timeDelta = 1;
 		EList<DynamicLabel> labels = dModel.getLabelsToUpdate();
 		if(labels!=null) {
@@ -181,7 +181,7 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 		/// must set the dublin core and URI to pass sanity
 		// TODO each model fixture should probably do this.
 		if(dModel.getURI()==null) {
-			dModel.setURI(TestUtilities.DEFAULT_URI);
+			dModel.setURI(DiseaseModelTestUtil.DEFAULT_URI);
 			DublinCore dc = dModel.getDublinCore();
 			dc.setIdentifier(dModel.getURI().toString());
 		}

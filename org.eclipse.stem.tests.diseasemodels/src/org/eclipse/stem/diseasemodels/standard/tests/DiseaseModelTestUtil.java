@@ -152,6 +152,24 @@ public class DiseaseModelTestUtil {
 	 * The difference between two double values that constitutes inequality
 	 */
 	public static final double DOUBLE_EQUALITY_TOLERANCE = 0.02;
+	
+	public static final double TRANSMISSION_RATE_TO_TEST = 2.0;
+	public static final double S_TO_TEST = 100.0;
+	public static final double I_TO_TEST = 1.0;
+	public static final double E_TO_TEST = 0.0;
+	public static final double R_TO_TEST = 0.0;
+	public static final double P_TO_TEST = S_TO_TEST+E_TO_TEST+I_TO_TEST+R_TO_TEST;
+	public static final double GAIN_TO_TEST = 0.0; // noise zero for testing
+	// Disease Model Test URI's
+	public static final String MODEL = "DISEASEMODEL";
+	public static final URI DEFAULT_URI = STEMURI.createURI(MODEL + "/" + "defaultTestURI");
+	public static long TIME_ONE_DAY = 1;
+	public static long TIME_TWO_DAY = 2;
+	
+	public static STEMTime getSTEMTime() {
+		return ModelFactory.eINSTANCE.createSTEMTime();
+	}
+
 
 	/**
 	 * @param v1

@@ -121,7 +121,7 @@ public abstract class DiseaseModelTest extends TestCase {
 		/// must set the dublin core and URI to pass sanity
 		// TODO each model fixture should probably do this.
 		if(dModel.getURI()==null) {
-			dModel.setURI(TestUtilities.DEFAULT_URI);
+			dModel.setURI(DiseaseModelTestUtil.DEFAULT_URI);
 			DublinCore dc = dModel.getDublinCore();
 			dc.setIdentifier(dModel.getURI().toString());
 		}
@@ -225,10 +225,10 @@ public abstract class DiseaseModelTest extends TestCase {
 	 */
 	public void testGetAdjustedBackgroundBirthRate__long() {
 		DiseaseModel dModel = getFixture();
-		double oneDayRate     = dModel.getAdjustedBackgroundBirthRate(TestUtilities.TIME_ONE_DAY);
-		double twoDayRate = dModel.getAdjustedBackgroundBirthRate(TestUtilities.TIME_TWO_DAY);
+		double oneDayRate     = dModel.getAdjustedBackgroundBirthRate(DiseaseModelTestUtil.TIME_ONE_DAY);
+		double twoDayRate = dModel.getAdjustedBackgroundBirthRate(DiseaseModelTestUtil.TIME_TWO_DAY);
 		long delta = Math.round(twoDayRate/oneDayRate);
-		long expected = TestUtilities.TIME_TWO_DAY/TestUtilities.TIME_ONE_DAY;
+		long expected = DiseaseModelTestUtil.TIME_TWO_DAY/DiseaseModelTestUtil.TIME_ONE_DAY;
 		
 		assertTrue(delta==expected);
 	}
