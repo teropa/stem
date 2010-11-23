@@ -15,6 +15,9 @@ import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
+import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel;
 
@@ -27,6 +30,7 @@ import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSEIRDiseaseModel
 public class StochasticPoissonSEIRDiseaseModelTest extends SEIRTest {
 
 	public static final URI DISEASEMODEL_URI = STEMURI.createURI("diseaseModels/testStochasticPoissonSEIRDiseaseModel.decorator");
+	public static final String DISEASE_NAME = "StochasticPoissonSIDiseaseModel";
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,6 +71,15 @@ public class StochasticPoissonSEIRDiseaseModelTest extends SEIRTest {
 	@Override
 	protected void setUp() throws Exception {
 		setFixture(StandardFactory.eINSTANCE.createStochasticPoissonSEIRDiseaseModel());
+		StandardDiseaseModelLabel dml = createLabelFixture();
+		DiseaseModelState dms = getFixture().createDiseaseModelState();
+		dml.setDiseaseModelState(dms);
+		setLabelFixture(dml);
+		fixture.setDiseaseName(DISEASE_NAME);
+		fixture.setURI(DISEASEMODEL_URI);
+		DublinCore dc = fixture.getDublinCore();
+		dc.setIdentifier(fixture.getURI().toString());
+		fixture.initializeDiseaseState(dms, dml);
 	}
 
 	/**

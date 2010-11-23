@@ -15,6 +15,9 @@ import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.DublinCore;
+import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
+import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel;
 
@@ -27,7 +30,7 @@ import org.eclipse.stem.diseasemodels.standard.StochasticPoissonSIDiseaseModel;
 public class StochasticPoissonSIDiseaseModelTest extends SITest {
 
 	public static final URI DISEASEMODEL_URI = STEMURI.createURI("diseaseModels/testStochasticPoissonSIDiseaseModel.decorator");
-	
+	public static final String DISEASE_NAME = "StochasticPoissonSIDiseaseModel";
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,6 +62,17 @@ public class StochasticPoissonSIDiseaseModelTest extends SITest {
 	}
 
 	/**
+	 * Tests the '{@link org.eclipse.stem.diseasemodels.standard.StandardStochasticDiseaseModel#computeNoise() <em>Compute Noise</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.stem.diseasemodels.standard.StandardStochasticDiseaseModel#computeNoise()
+	 * @generated NOT
+	 */
+	public void testComputeNoise() {
+		StandardStochasticDiseaseModelTest.staticComputeNoiseTest();
+	}
+	
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
@@ -67,6 +81,15 @@ public class StochasticPoissonSIDiseaseModelTest extends SITest {
 	@Override
 	protected void setUp() throws Exception {
 		setFixture(StandardFactory.eINSTANCE.createStochasticPoissonSIDiseaseModel());
+		StandardDiseaseModelLabel dml = createLabelFixture();
+		DiseaseModelState dms = getFixture().createDiseaseModelState();
+		dml.setDiseaseModelState(dms);
+		setLabelFixture(dml);
+		fixture.setDiseaseName(DISEASE_NAME);
+		fixture.setURI(DISEASEMODEL_URI);
+		DublinCore dc = fixture.getDublinCore();
+		dc.setIdentifier(fixture.getURI().toString());
+		fixture.initializeDiseaseState(dms, dml);
 	}
 
 	/**

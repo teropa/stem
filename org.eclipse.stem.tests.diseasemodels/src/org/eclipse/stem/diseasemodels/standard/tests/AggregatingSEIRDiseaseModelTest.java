@@ -62,7 +62,8 @@ public class AggregatingSEIRDiseaseModelTest extends AggregatingSIRDiseaseModelT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(StandardFactory.eINSTANCE.createAggregatingSEIRDiseaseModel());
+		AggregatingSEIRDiseaseModel admodel = StandardFactory.eINSTANCE.createAggregatingSEIRDiseaseModel();		
+		setFixture(admodel);
 	}
 
 	/**

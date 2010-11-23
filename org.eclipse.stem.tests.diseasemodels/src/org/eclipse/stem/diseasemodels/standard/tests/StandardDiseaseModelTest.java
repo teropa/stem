@@ -23,7 +23,9 @@ import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.impl.TransportRelationshipLabelImpl;
+import org.eclipse.stem.diseasemodels.standard.AggregatingSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
+import org.eclipse.stem.diseasemodels.standard.AggregatingSIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModel;
@@ -153,19 +155,29 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 			dc.setIdentifier(dModel.getURI().toString());
 		}
 		
+		// if this is the aggregating disease model, there is no calculateDelta method to test
+		boolean aggregatingModel = false;
 		
-		STEMTime time = DiseaseModelTestUtil.getSTEMTime();
-		long timeDelta = 1;
-		EList<DynamicLabel> labels = dModel.getLabelsToUpdate();
-		if(labels!=null) {
-			DynamicLabel dLabel = getLabelFixture();
-			labels.add(dLabel);
-			assertTrue(dModel.sane());
-			dModel.calculateDelta(time, timeDelta, labels);
-			assertTrue(dModel.sane());
-		} else {
-			fail();
+		if( (dModel instanceof AggregatingSIDiseaseModel) ||
+			(dModel instanceof AggregatingSIRDiseaseModel)||
+			(dModel instanceof AggregatingSEIRDiseaseModel) ) aggregatingModel = true;
+		
+		if(!aggregatingModel) {
+			// ALL other models
+			STEMTime time = DiseaseModelTestUtil.getSTEMTime();
+			long timeDelta = 1;
+			EList<DynamicLabel> labels = dModel.getLabelsToUpdate();
+			if(labels!=null) {
+				DynamicLabel dLabel = getLabelFixture();
+				labels.add(dLabel);
+				assertTrue(dModel.sane());
+				dModel.calculateDelta(time, timeDelta, labels);
+				assertTrue(dModel.sane());
+			} else {
+				fail();
+			}
 		}
+		
 		
 	}
 
@@ -186,15 +198,28 @@ public abstract class StandardDiseaseModelTest extends DiseaseModelTest {
 			dc.setIdentifier(dModel.getURI().toString());
 		}
 		
-		EList<DynamicLabel> labels = dModel.getLabelsToUpdate();
-		if(labels!=null) {
-			LabelValue dLabelValue = getLabelFixture().getCurrentValue();
-			assertTrue(dModel.sane());
-			dModel.doModelSpecificAdjustments(dLabelValue);
-			assertTrue(dModel.sane());
-		} else {
-			fail();
+		// if this is the aggregating disease model, there is no calculateDelta method to test
+		boolean aggregatingModel = false;
+		
+		
+		if( (dModel instanceof AggregatingSIDiseaseModel) ||
+			(dModel instanceof AggregatingSIRDiseaseModel)||
+			(dModel instanceof AggregatingSEIRDiseaseModel) ) aggregatingModel = true;
+		
+		if(!aggregatingModel) {
+			// ALL other models
+			EList<DynamicLabel> labels = dModel.getLabelsToUpdate();
+			if(labels!=null) {
+				LabelValue dLabelValue = getLabelFixture().getCurrentValue();
+				assertTrue(dModel.sane());
+				dModel.doModelSpecificAdjustments(dLabelValue);
+				assertTrue(dModel.sane());
+			} else {
+				fail();
+			}
 		}
+		
+		
 	}
 
 	/**
