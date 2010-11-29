@@ -100,6 +100,7 @@ public abstract class DiseaseModelScenarioTest extends TestCase {
 	 * @return a scenario with nodes in a lattice with a disease model.
 	 */
 	public Scenario createFixture(final int numRows, final int numColumns) {
+		
 		final Collection<NodeDecorator> DISEASE_MODELS = new ArrayList<NodeDecorator>();
 		DISEASE_MODELS.addAll(getDiseaseModelsToTest());
 
@@ -107,10 +108,11 @@ public abstract class DiseaseModelScenarioTest extends TestCase {
 				DISEASE_MODELS, numRows, numColumns,
 				DiseaseModelTestUtil.TEST_POPULATION_COUNT,
 				DiseaseModelTestUtil.TEST_AREA);
-
+		
+		// ??? getScenarioDecorators(model).addAll(DISEASE_MODELS);
 		final Scenario retValue = DiseaseModelTestUtil.createLatticeScenario(
 				getScenarioDecorators(model), model);
-
+		
 		assert retValue.sane();
 
 		return retValue;

@@ -33,6 +33,7 @@ import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.sequencer.tests.SequentialSequencerTest;
+import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.definitions.adapters.spatial.geo.InlineLatLongDataProvider;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong.SegmentBuilder;
@@ -46,6 +47,7 @@ import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImp
 import org.eclipse.stem.definitions.labels.impl.TransportRelationshipLabelImpl;
 import org.eclipse.stem.definitions.nodes.NodesFactory;
 import org.eclipse.stem.definitions.nodes.Region;
+import org.eclipse.stem.solvers.fd.FdFactory;
 import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
 import org.eclipse.stem.tests.util.decorators.TestEdgeDecorator1;
 
@@ -166,6 +168,11 @@ public class DiseaseModelTestUtil {
 	public static long TIME_ONE_DAY = 1;
 	public static long TIME_TWO_DAY = 2;
 	
+	/**
+	 * URI for the Solver
+	 */
+	public static URI SOLVER_URI = STEMURI.createURI("solver/solverTest.solver");
+	
 	public static STEMTime getSTEMTime() {
 		return ModelFactory.eINSTANCE.createSTEMTime();
 	}
@@ -202,6 +209,13 @@ public class DiseaseModelTestUtil {
 
 		// Scenario Decorators
 		retValue.getScenarioDecorators().addAll(scenarioDecorators);
+		
+
+		// every scenario needs a solver
+		// use the finite differnce solver here
+		Solver solver = FdFactory.eINSTANCE.createFiniteDifference();
+		solver.setURI(SOLVER_URI);
+		retValue.setSolver(solver);
 
 		return retValue;
 	} // createLatticeScenario

@@ -15,8 +15,16 @@ import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.GraphFactory;
+import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
 import org.eclipse.stem.diseasemodels.standard.SIRInoculator;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
+import org.eclipse.stem.tests.util.TestUtil;
+import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
+import org.eclipse.stem.tests.util.decorators.TestNodeDecorator1;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +36,8 @@ import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 public class SIRInoculatorTest extends SIInfectorTest {
 
 	public static final URI INOCULATOR_URI = STEMURI.createURI("innoculator/testInoculator.decorator");
+	
+	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,10 +77,15 @@ public class SIRInoculatorTest extends SIInfectorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		SIRInoculator temp = StandardFactory.eINSTANCE.createSIRInoculator();
-		temp.setTargetISOKey("US");
-		temp.setURI(INOCULATOR_URI);
-		setFixture(temp);
+		SIRInoculator innoculator = StandardFactory.eINSTANCE.createSIRInoculator();
+		// get test graph from abstract superclass
+		Graph g = getTestGraph();
+		innoculator.setGraph(g);
+		
+		// target the innoculator
+		innoculator.setTargetISOKey(ISO_TARGET);
+		innoculator.setURI(INOCULATOR_URI);
+		setFixture(innoculator);
 	}
 
 	/**

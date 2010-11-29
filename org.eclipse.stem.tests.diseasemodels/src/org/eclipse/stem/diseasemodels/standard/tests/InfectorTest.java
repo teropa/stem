@@ -13,7 +13,16 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.framework.TestCase;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.GraphFactory;
+import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
 import org.eclipse.stem.diseasemodels.standard.Infector;
+import org.eclipse.stem.tests.util.TestUtil;
+import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
+import org.eclipse.stem.tests.util.decorators.TestNodeDecorator1;
 
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>Infector</b></em>'.
@@ -21,6 +30,22 @@ import org.eclipse.stem.diseasemodels.standard.Infector;
  * @generated
  */
 public abstract class InfectorTest extends TestCase {
+	
+	/**
+	 * URI for testing
+	 */
+	protected static final URI GRAPH_TARGET_URI = STEMURI.createURI("graph/US");
+	
+	/**
+	 * URI for testing
+	 */
+	protected static final String ISO_TARGET = "US";
+	
+	/**
+	 * URI for testing
+	 */
+	protected static final URI NODE_TARGET_URI = RegionImpl.createRegionNodeURI(ISO_TARGET);
+	
 	/**
 	 * The fixture for this Infector test case.
 	 * <!-- begin-user-doc --> <!--
@@ -69,4 +94,20 @@ public abstract class InfectorTest extends TestCase {
 		final Infector fixture = getFixture();
 		assertTrue(fixture.sane());
 	} // testFixtureSanity
+	
+	/**
+	 * create a graph including a node to test with infectors and innoculators
+	 * @return
+	 */
+	public static final Graph getTestGraph() {
+		// create at test graph with a node and nodeURI== the target URI for the innoculator
+		final Graph g = GraphFactory.eINSTANCE.createGraph();
+		g.setURI(GRAPH_TARGET_URI);
+		final TestNodeDecorator1 nodeDecorator = DecoratorsFactory.eINSTANCE.createTestNodeDecorator1();
+		final Node nodeA = TestUtil.createDynamicalyLabeledNode(nodeDecorator);
+		nodeA.setURI(NODE_TARGET_URI);
+		g.putNode(nodeA);
+		return g;	
+	}// get graph for testing
+	
 } // InfectorTest

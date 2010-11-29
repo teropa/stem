@@ -15,6 +15,7 @@ import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.diseasemodels.standard.SIInfector;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
 
@@ -72,10 +73,15 @@ public class SIInfectorTest extends StandardInfectorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		SIInfector temp = StandardFactory.eINSTANCE.createSIInfector();
-		temp.setTargetISOKey("US");
-		temp.setURI(INFECTOR_URI);
-		setFixture(temp);
+		SIInfector infector = StandardFactory.eINSTANCE.createSIInfector();
+		// get test graph from abstract superclass
+		Graph g = getTestGraph();
+		infector.setGraph(g);
+		// target the infector
+		infector.setTargetISOKey(ISO_TARGET);
+		
+		infector.setURI(INFECTOR_URI);
+		setFixture(infector);
 	}
 
 	/**
