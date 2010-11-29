@@ -15,16 +15,9 @@ import junit.textui.TestRunner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.GraphFactory;
-import org.eclipse.stem.core.graph.Node;
-import org.eclipse.stem.definitions.nodes.impl.RegionImpl;
 import org.eclipse.stem.diseasemodels.standard.SIRInoculator;
 import org.eclipse.stem.diseasemodels.standard.StandardFactory;
-import org.eclipse.stem.tests.util.TestUtil;
-import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
-import org.eclipse.stem.tests.util.decorators.TestNodeDecorator1;
 
 /**
  * <!-- begin-user-doc -->

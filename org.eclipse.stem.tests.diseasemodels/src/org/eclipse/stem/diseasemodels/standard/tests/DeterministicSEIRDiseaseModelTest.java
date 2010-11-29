@@ -13,6 +13,9 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.diseasemodels.standard.DeterministicSEIRDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabel;
@@ -27,7 +30,10 @@ import org.eclipse.stem.diseasemodels.standard.impl.DeterministicSEIRDiseaseMode
 @SuppressWarnings("all")
 public class DeterministicSEIRDiseaseModelTest extends SEIRTest {
 	private static final String TEST_DETERMINISTIC_SEIR_DISEASE_NAME = "Deterministic SEIR Disease Model";
-
+	
+	private static final String DISEASE_IDENTIFIER = "DeterministicSEIRDiseaseModel";
+	public static final URI DISEASE_URI = STEMURI.createURI("diseasemodel" + "/" + DISEASE_IDENTIFIER);
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * 
@@ -101,13 +107,18 @@ public class DeterministicSEIRDiseaseModelTest extends SEIRTest {
 	 * @return a disease model instance for test purposes
 	 */
 	public static DeterministicSEIRDiseaseModel createFixture() {
-		return DeterministicSEIRDiseaseModelImpl
+		DeterministicSEIRDiseaseModel diseaseModel = DeterministicSEIRDiseaseModelImpl
 				.createDeterministicSEIRDiseaseModel(
 						TEST_DETERMINISTIC_SEIR_DISEASE_NAME, MORTALITY_RATE,
 						INFECTIOUS_MORTALITY_RATE,
 						TRANSMISSION_RATE, RECOVERY_RATE, IMMUNITY_LOSS_RATE,
 						INCUBATION_RATE, NON_LINEARITY_COEFFICIENT,
 						TEST_TIME_PERIOD, TEST_POPULATION_IDENTIFIER);
+		
+		final DublinCore dc = diseaseModel.getDublinCore();
+		diseaseModel.setURI(DISEASE_URI);
+		dc.setIdentifier(diseaseModel.getURI().toString());
+		return diseaseModel;
 	} // createFixture
 
 } // DeterministicSEIRDiseaseModelTest

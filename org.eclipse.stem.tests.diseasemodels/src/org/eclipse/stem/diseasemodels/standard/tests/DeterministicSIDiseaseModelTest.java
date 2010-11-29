@@ -13,6 +13,9 @@ package org.eclipse.stem.diseasemodels.standard.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.diseasemodels.standard.DeterministicSIDiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
@@ -26,6 +29,8 @@ import org.eclipse.stem.diseasemodels.standard.impl.DeterministicSIDiseaseModelI
 @SuppressWarnings("all")
 public class DeterministicSIDiseaseModelTest extends SITest {
 	private static final String TEST_DETERMINISTIC_SI_DISEASE_NAME = "Deterministic SI Disease Model";
+	private static final String DISEASE_IDENTIFIER = "DeterministicSIDiseaseModel";
+	public static final URI DISEASE_URI = STEMURI.createURI("diseasemodel" + "/" + DISEASE_IDENTIFIER);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,12 +98,17 @@ public class DeterministicSIDiseaseModelTest extends SITest {
 	 * @return a disease model instance for test purposes
 	 */
 	public static DeterministicSIDiseaseModel createFixture() {
-		return DeterministicSIDiseaseModelImpl
+		DeterministicSIDiseaseModel diseaseModel = DeterministicSIDiseaseModelImpl
 				.createDeterministicSIDiseaseModel(
 						TEST_DETERMINISTIC_SI_DISEASE_NAME, MORTALITY_RATE,
 						INFECTIOUS_MORTALITY_RATE,
 						TRANSMISSION_RATE, RECOVERY_RATE,
 						NON_LINEARITY_COEFFICIENT, TEST_TIME_PERIOD,
 						TEST_POPULATION_IDENTIFIER);
+		final DublinCore dc = diseaseModel.getDublinCore();
+		diseaseModel.setURI(DISEASE_URI);
+		dc.setIdentifier(diseaseModel.getURI().toString());
+		return diseaseModel;
 	} // createFixture
+	
 } // DeterministicSIDiseaseModelTest

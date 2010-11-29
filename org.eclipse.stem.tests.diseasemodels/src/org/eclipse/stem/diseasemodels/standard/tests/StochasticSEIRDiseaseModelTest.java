@@ -15,7 +15,10 @@ import java.util.Random;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.diseasemodels.standard.DiseaseModelState;
 import org.eclipse.stem.diseasemodels.standard.SEIRLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
@@ -41,6 +44,9 @@ public class StochasticSEIRDiseaseModelTest extends SEIRTest {
 
 	public static final long RANDOM_SEED = 1l;
 	public static final double TEST_GAIN = 0.01d;
+	private static final String DISEASE_IDENTIFIER = "StochasticSEIRDiseaseModel";
+	public static final URI DISEASE_URI = STEMURI.createURI("diseasemodel" + "/" + DISEASE_IDENTIFIER);
+	
 	
 	/**
 	 * The name of the test disease (an instance of a disease model)
@@ -134,11 +140,16 @@ public class StochasticSEIRDiseaseModelTest extends SEIRTest {
 	 * @return a disease model instance for test purposes
 	 */
 	public static StochasticSEIRDiseaseModel createFixture(double newGain) {
-		return StochasticSEIRDiseaseModelImpl.createStochasticSEIRDiseaseModel(
+		StochasticSEIRDiseaseModel diseaseModel = StochasticSEIRDiseaseModelImpl.createStochasticSEIRDiseaseModel(
 				TEST_SEIR_DISEASE_NAME, MORTALITY_RATE,
 				INFECTIOUS_MORTALITY_RATE, TRANSMISSION_RATE, RECOVERY_RATE,
 				IMMUNITY_LOSS_RATE, INCUBATION_RATE, NON_LINEARITY_COEFFICIENT,
 				TEST_TIME_PERIOD, TEST_POPULATION_IDENTIFIER, newGain);
+		
+		final DublinCore dc = diseaseModel.getDublinCore();
+		diseaseModel.setURI(DISEASE_URI);
+		dc.setIdentifier(diseaseModel.getURI().toString());
+		return diseaseModel;
 		
 		
 	} // createFixture

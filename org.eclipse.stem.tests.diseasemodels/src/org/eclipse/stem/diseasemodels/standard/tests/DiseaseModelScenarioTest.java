@@ -217,6 +217,10 @@ public abstract class DiseaseModelScenarioTest extends TestCase {
 				final LabelValue labelValue = expectedDiseaseModelState[row][column];
 				final LabelValue dmLabelValue = getCurrentDiseaseModelLabelValue(
 						region, diseaseModel);
+				
+				System.out.println("row= "+row+", col= "+column+" comparing "+labelValue.toString()+"  to dmValue=  "+dmLabelValue.toString());
+				
+				
 				assertTrue("Disease model \""
 						+ diseaseModel.getDublinCore().getTitle() + "\" ("
 						+ scenarioDiseaseKey + ") step: " + step + " [" + row
@@ -241,7 +245,6 @@ public abstract class DiseaseModelScenarioTest extends TestCase {
 		boolean retValue = true;
 		final DiseaseModelLabelValue dmLV1 = (DiseaseModelLabelValue) lableValue1;
 		final DiseaseModelLabelValue dmLV2 = (DiseaseModelLabelValue) lableValue2;
-
 		retValue = retValue
 				&& DiseaseModelTestUtil.closeEnough(dmLV1.getDiseaseDeaths(),
 						dmLV2.getDiseaseDeaths());

@@ -77,6 +77,14 @@ public class InfectorInoculatorCollectionTest extends TestCase {
 	protected void setUp() throws Exception {
 		setFixture(StandardFactory.eINSTANCE.createInfectorInoculatorCollection());
 	}
+	
+	/**
+	 * TODO: Implement this method. This should be done as part of a larger Scenario integration test.
+	 * InfectorInnoculatorCollections are read from a user defined File
+	 */
+	public void testCreateInfectorInnoculatorCollectionFromFile() {
+		assertTrue(true);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
