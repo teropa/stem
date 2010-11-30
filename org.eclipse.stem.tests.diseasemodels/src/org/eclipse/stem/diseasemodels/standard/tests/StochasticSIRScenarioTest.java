@@ -36,6 +36,7 @@ public class StochasticSIRScenarioTest extends SIRDiseaseModelScenarioTest {
 	static {
 
 		// These were copied from DeterministicSIRScenarioTest
+		// for test purposes we are checking with noise = 0
 		// 1x1
 		expectedDiseaseModelStates.put(TEST_SCENARIO1x1_KEY,
 				new SIRLabelValue[][][] {

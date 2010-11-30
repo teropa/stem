@@ -220,8 +220,9 @@ public abstract class DiseaseModelScenarioTest extends TestCase {
 				final LabelValue dmLabelValue = getCurrentDiseaseModelLabelValue(
 						region, diseaseModel);
 				
-				System.out.println("row= "+row+", col= "+column+" comparing "+labelValue.toString()+"  to dmValue=  "+dmLabelValue.toString());
-				
+				// TODO when DEBUG ONLY
+				// System.out.println("row= "+row+", col= "+column+" comparing "+labelValue.toString()+"  to dmValue=  "+dmLabelValue.toString());
+				//////////////
 				
 				assertTrue("Disease model \""
 						+ diseaseModel.getDublinCore().getTitle() + "\" ("

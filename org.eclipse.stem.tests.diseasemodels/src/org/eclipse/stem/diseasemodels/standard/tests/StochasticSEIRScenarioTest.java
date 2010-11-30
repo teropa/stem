@@ -36,6 +36,7 @@ public class StochasticSEIRScenarioTest extends SEIRDiseaseModelScenarioTest {
 	static {
 
 		// These were copied from DeterministicSEIRScenarioTest
+		// for test purposes we are checking with noise = 0
 		// 1x1
 		expectedDiseaseModelStates.put(TEST_SCENARIO1x1_KEY,
 				new SEIRLabelValue[][][] {

@@ -43,28 +43,7 @@ import org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl;
  * members.
  * 
  * 
- * Computed as a function of the "background mortality rate"
- * {@link DiseaseModel#getBackgroundMortalityRate()}. We use the death rate
- * because we assume that the population was in equilibrium before the onset of
- * the disease (i.e., neither naturally growing or shrinking much over the time
- * period of the simulation). The value used for the test is . Initialized to 0.
- * </li>
- * 
- * 
- * <li>D - The total number of <code>Deaths</code> of all types of population
- * members. Just like the births, this is computed as a function of the
- * "background mortality rate" {@link DiseaseModel#getBackgroundMortalityRate()}.
- * The rate used for the test is {@link DiseaseModelTest#MORTALITY_RATE} = 0.01.
- * However, it also includes the additional deaths of <code>Infectious</code>
- * population members (i.e., DD below) due to the disease. Initialized to 0.</li>
- * <li>DD - The total number of <code>Disease Deaths</code> of
- * <code>Infectious</code> population members. It is a function of the which
- * is not a rate, but rather the fraction of <code>Infectious</code>
- * population members that eventually die from the disease (i.e., it's the
- * mortality of the disease, how many who get it die from it).
- * {@link SIImpl#computeInfectiousMortalityRate(double, double)}. Initialized
- * to 0. </li>
- * </ul>
+  * </ul>
  * <ul>
  * <li>&mu; = {@link DiseaseModelTest#MORTALITY_RATE} = 0.01</li>
  * <li>&beta; = {@link SITest#TRANSMISSION_RATE} = 0.1</li>
@@ -76,109 +55,6 @@ import org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl;
  * <li>P = S + I = {@link DiseaseModelTestUtil#TEST_POPULATION_COUNT} = 100</li>
  * </ul>
  * <h2>1x1 Deterministic SI Scenario</h2>
- * <h3>Initial State</h3>
- * <p>
- * S= 99.0, I<sup>R</sup>=1.0, I<sup>F</sup>=0.0, B=0.0, D=0.0, DD=0.0
- * </p>
- * <h3>SI 1x1 Step 0</h3>
- * 
- * <ul>
- * <li><em>TSF<sub>l</sub> = (1/P)*(Area/Area<sub>l</sub>)</em></li>
- * <li><em>TSF<sub>l</sub> = (1/100)*(1/1)</em></li>
- * <li><em>TSF<sub>l</sub> = 0.01</em></li>
- * </ul>
- * <ul>
- * <li><em>&beta;<sup>*</sup> = &beta; TSF<sub>l</sub></em></li>
- * <li><em>&beta;<sup>*</sup> = 0.1 * 0.01</em></li>
- * <li><em>&beta;<sup>*</sup> = 0.001</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;B = &mu; * (S + I<sup>R</sup> + I<sup>F</sup>)</em></li>
- * <li><em>&Delta;B = 0.01 * (99+1+0) </em> </li>
- * <li><em>&Delta;B = 1.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;DD = &mu;<sub>i</sub> I<sup>F</sup>  </em> </li>
- * <li><em>&Delta;DD= 0.1 * 0</em> </li>
- * <li><em>&Delta;DD= 0.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;D = &mu; S + (&mu; + &mu;<sub>i</sub> )I<sup>F</sup> + &mu; I<sup>R</sup> </em>
- * </li>
- * <li><em>&Delta;D = 0.01 * 99 + (0.01 + 0.1 ) 0 + 0.01 * 1 </em> </li>
- * <li><em>&Delta;D= 1</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;S = &mu; (S + I) - &beta;<sup>*</sup> S I + &sigma; I<sup>R</sup> - &mu; S</em></li>
- * <li><em>&Delta;S = 0.01 (99+(1+0)) - 0.001 * 99 * (1+0) + 0.01 * 1 - 0.01 * 99</em></li>
- * <li><em>&Delta;S = 1.0 - 0.099 + 0.01 - 0.99</em></li>
- * <li><em>&Delta;S = -0.079</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>R</sup> = (1-x)&beta;<sup>*</sup> S I - &sigma; I<sup>R</sup> - &mu; I<sup>R</sup></em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.9 * 0.001 * 99 * 1 -  0.01 * 1 - 0.01 * 1</em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.0891 - .01 - .01</em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.0691</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>F</sup> = x&beta;<sup>*</sup> S I  - (&mu; + &mu;<sub>i</sub>) I<sup>F</sup></em></li>
- * <li><em>&Delta;I<sup>F</sup> = 0.1 * 0.001 * 99 * 1  - (0.01 + 0.1) * 0</em></li>
- * <li><em>&Delta;I<sup>F</sup> = .0099</em></li>
- * </ul>
- * <p>
- * S= 98.921, I<sup>R</sup>=1.0691, I<sup>F</sup>=0.0099, B=1.0, D=1.0,
- * DD=0.0
- * </p>
- * 
- * <h3>SI 1x1 Step 1</h3>
- * <ul>
- * <li><em>TSF<sub>l</sub> = (1/P)*(Area/Area<sub>l</sub>)</em></li>
- * <li><em>TSF<sub>l</sub> = (1/100)*(1/1)</em></li>
- * <li><em>TSF<sub>l</sub> = 0.01</em></li>
- * </ul>
- * <ul>
- * <li><em>&beta;<sup>*</sup> = &beta; TSF<sub>l</sub></em></li>
- * <li><em>&beta;<sup>*</sup> = 0.1 * 0.01</em></li>
- * <li><em>&beta;<sup>*</sup> = 0.001</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;B = &mu; * (S + I<sup>R</sup> + I<sup>F</sup>)</em></li>
- * <li><em>&Delta;B = 0.01 * (100) </em> </li>
- * <li><em>&Delta;B = 1.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;DD = &mu;<sub>i</sub> I<sup>F</sup>  </em> </li>
- * <li><em>&Delta;DD= 0.1 * 0.01</em> </li>
- * <li><em>&Delta;DD= 0.001</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;D = &mu; S + (&mu; + &mu;<sub>i</sub> )I<sup>F</sup> + &mu; I<sup>R</sup> </em>
- * </li>
- * <li><em>&Delta;D = 0.01 * 98.921 + (0.01 + 0.1 )0.0099 + 0.01 * 1.0691 </em>
- * </li>
- * <li><em>&Delta;D= 1.00099</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;S = &mu; (S + I) - &beta;<sup>*</sup> S I + &sigma; I<sup>R</sup> - &mu; S</em></li>
- * <li><em>&Delta;S = 0.01 * 100 - 0.001 * 98.921 * (1.0691+0.0099) + 0.01 * 1.0691 - 0.01 * 98.921</em></li>
- * <li><em>&Delta;S = 1.0 - 0.10596859 + 0.010691 - 0.98921</em></li>
- * <li><em>&Delta;S = -0.08448759</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>R</sup> = (1-x)&beta;<sup>*</sup> S I - &sigma; I<sup>R</sup> - &mu; I<sup>R</sup></em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.9 * 0.001 * 98.921 * (1.0691+0.0099) -  0.01 * 1.0691 - 0.01 * 1.0691</em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.095371731 - .010691 - .010691</em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.073989731</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>F</sup> = x&beta;<sup>*</sup> S I  - (&mu; + &mu;<sub>i</sub>) I<sup>F</sup></em></li>
- * <li><em>&Delta;I<sup>F</sup> = 0.1 * 0.001 * 98.921 * (1.0691+0.0099)  - (0.01 + 0.1) * 0.0099</em></li>
- * <li><em>&Delta;I<sup>F</sup> = .009507859</em></li>
- * </ul>
- * <p>
- * S= 98.83651241, I<sup>R</sup>=1.143089731, I<sup>F</sup>=0.019407859 ,
- * B=2.0, D=2.00099, DD=0.001
- * </p> <
  * 
  * @see DiseaseModelTestUtil#TEST_POPULATION_COUNT
  * @see SIDiseaseModelScenarioTest#NUMBER_TO_INFECT

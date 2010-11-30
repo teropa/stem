@@ -37,7 +37,7 @@ public class StochasticSIScenarioTest extends SIDiseaseModelScenarioTest {
 
 		// 1x1
 		// These are copied from DeterministicSIScenarioTest and used because
-		// the Stochastic disease models have not been enabled and do exactly the
+		// for test purposes we are checking with noise = 0
 		// same thing as the deterministic
 //		 1x1
 		expectedDiseaseModelStates.put(TEST_SCENARIO1x1_KEY,
