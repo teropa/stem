@@ -19,7 +19,6 @@ import java.util.Map;
 
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.model.NodeDecorator;
-import org.eclipse.stem.diseasemodels.standard.DiseaseModel;
 import org.eclipse.stem.diseasemodels.standard.SILabelValue;
 import org.eclipse.stem.diseasemodels.standard.impl.SIImpl;
 import org.eclipse.stem.diseasemodels.standard.impl.SILabelValueImpl;
