@@ -41,137 +41,7 @@ import org.eclipse.stem.diseasemodels.standard.impl.SEIRLabelValueImpl;
  * <li>Area = 1.0</li>
  * <li>P = S + I = {@link DiseaseModelTestUtil#TEST_POPULATION_COUNT} = 100</li>
  * </ul>
- * <h2>1x1 Deterministic SIR Scenario</h2>
- * <h3>Initial State</h3>
- * <p>
- * S= 99.0, I<sup>R</sup>=1.0, I<sup>F</sup>=0.0, R=0.0, B=0.0, D=0.0,
- * DD=0.0
- * </p>
- * <h3>SEIR 1x1 Step 0</h3>
- * 
- * <ul>
- * <li><em>TSF<sub>l</sub> = (1/P)*(Area/Area<sub>l</sub>)</em></li>
- * <li><em>TSF<sub>l</sub> = (1/100)*(1/1)</em></li>
- * <li><em>TSF<sub>l</sub> = 0.01</em></li>
- * </ul>
- * <ul>
- * <li><em>&beta;<sup>*</sup> = &beta; TSF<sub>l</sub></em></li>
- * <li><em>&beta;<sup>*</sup> = 0.1 * 0.01</em></li>
- * <li><em>&beta;<sup>*</sup> = 0.001</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;B = &mu; * (S + +E +I<sup>R</sup> + I<sup>F</sup> +R)</em></li>
- * <li><em>&Delta;B = 0.01 * (99+0+1+0) </em> </li>
- * <li><em>&Delta;B = 1.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;DD = &mu;<sub>i</sub> I<sup>F</sup>  </em> </li>
- * <li><em>&Delta;DD= 0.1 * 0</em> </li>
- * <li><em>&Delta;DD= 0.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;D = &mu;S + &mu;E +(&mu; + &mu;<sub>i</sub> )I<sup>F</sup> + &mu; I<sup>R</sup> + &mu;R </em>
- * </li>
- * <li><em>&Delta;D = 0.01 * 99 + 0.01 * 0 + (0.01 + 0.1 ) 0 + 0.01 * 1 + 0.01 * 0</em>
- * </li>
- * <li><em>&Delta;D= 1</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;S = &mu; (S + E +I + R) - &beta;<sup>*</sup> S I + &gamma;R - &mu; S</em></li>
- * <li><em>&Delta;S = 0.01 (99+(1+0+0)+0) - 0.001 * 99 * (1+0+0) + 0.01 * 0 - 0.01 * 99</em></li>
- * <li><em>&Delta;S = 1.0 - 0.099 + 0.01 - 0.99</em></li>
- * <li><em>&Delta;S = -0.089</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;E = &beta;<sup>*</sup>SI - &phi;E - &mu;E</sup></em></li>
- * <li><em>&Delta;E = 0.001 * 99 * 1 -  0.1 * 0 - 0.01 * 0</em></li>
- * <li><em>&Delta;E = 0.099</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>R</sup> = (1-x)&phi;E - &sigma; I<sup>R</sup> - &mu; I<sup>R</sup></em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.9 * 0  -  0.01 * 1 - 0.01 * 1</em></li>
- * <li><em>&Delta;I<sup>R</sup> = - 0.01 - 0.01</em></li>
- * <li><em>&Delta;I<sup>R</sup> = -0.02</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>F</sup> = x&phi;E  - (&mu; + &mu;<sub>i</sub>) I<sup>F</sup></em></li>
- * <li><em>&Delta;I<sup>F</sup> = 0.1 * 0  - (0.01 + 0.1) * 0</em></li>
- * <li><em>&Delta;I<sup>F</sup> = 0.0</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;R = &sigma; I<sup>R</sup>  - &gamma;R - &mu; R</em></li>
- * <li><em>&Delta;R = 0.01 * 1  - 0.01 * 0 - 0.01 * 0</em></li>
- * <li><em>&Delta;R = .01</em></li>
- * </ul>
- * <p>
- * S= 98.911, E=0.099 , I<sup>R</sup>=0.98, I<sup>F</sup>=0.0, R=0.01,
- * B=1.0, D=1.0, DD=0.0
- * </p>
- * 
- * <h3>SEIR 1x1 Step 1</h3>
- * 
- * <ul>
- * <li><em>TSF<sub>l</sub> = (1/P)*(Area/Area<sub>l</sub>)</em></li>
- * <li><em>TSF<sub>l</sub> = (1/100)*(1/1)</em></li>
- * <li><em>TSF<sub>l</sub> = 0.01</em></li>
- * </ul>
- * <ul>
- * <li><em>&beta;<sup>*</sup> = &beta; TSF<sub>l</sub></em></li>
- * <li><em>&beta;<sup>*</sup> = 0.1 * 0.01</em></li>
- * <li><em>&beta;<sup>*</sup> = 0.001</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;B = &mu; * (S + E + I<sup>R</sup> + I<sup>F</sup> +R)</em></li>
- * <li><em>&Delta;B = 0.01 * 100 </em> </li>
- * <li><em>&Delta;B = 1.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;DD = &mu;<sub>i</sub> I<sup>F</sup>  </em> </li>
- * <li><em>&Delta;DD= 0.1 * 0</em> </li>
- * <li><em>&Delta;DD= 0.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;D = &mu;S + &mu;E + (&mu; + &mu;<sub>i</sub> )I<sup>F</sup> + &mu; I<sup>R</sup> + &mu; R </em>
- * </li>
- * <li><em>&Delta;D = 0.01 * 98.911 + 0.01 * 0.099 + (0.01 + 0.1) * 0 + 0.01 * 0.98 + 0.01 * 0.01</em>
- * </li>
- * <li><em>&Delta;D= 1.0</em> </li>
- * </ul>
- * <ul>
- * <li><em>&Delta;S = &mu; (S + E +I + R) - &beta;<sup>*</sup> S I + &gamma;R - &mu; S</em></li>
- * <li><em>&Delta;S = 0.01 (99.911+ 0.988 (0.980+0)+0.01) - 0.001 * 98.911 * 0.98 + 0.1 * 0.01 - 0.01 * 98.911</em></li>
- * <li><em>&Delta;S = 1.0 - 0.09693278 + 0.001 - 0.98911</em></li>
- * <li><em>&Delta;S = -0.085704278</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;E = &beta;<sup>*</sup>SI - &phi;E - &mu;E</sup></em></li>
- * <li><em>&Delta;E = 0.001 * 98.911 * 0.98 -  0.1 * 0.099 - 0.01 * 0.099</em></li>
- * <li><em>&Delta;E = 0.09693278 -  0.0099 - 0.00099</em></li>
- * <li><em>&Delta;E = 0.08604278</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>R</sup> = (1-x)&phi;E - &sigma; I<sup>R</sup> - &mu; I<sup>R</sup></em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.9 * 0.0099  -  0.01 * 0.98 - 0.01 * 0.98</em></li>
- * <li><em>&Delta;I<sup>R</sup> = 0.00891 - 0.0098 - 0.0098</em></li>
- * <li><em>&Delta;I<sup>R</sup> = -0.01069</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;I<sup>F</sup> = x&phi;E  - (&mu; + &mu;<sub>i</sub>) I<sup>F</sup></em></li>
- * <li><em>&Delta;I<sup>F</sup> = 0.1 * 0.099  - (0.01 + 0.1) * 0.0</em></li>
- * <li><em>&Delta;I<sup>F</sup> = 0.0099</em></li>
- * </ul>
- * <ul>
- * <li><em>&Delta;R = &sigma; I<sup>R</sup>  - &gamma;R - &mu; R</em></li>
- * <li><em>&Delta;R = 0.01 * 0.98  - 0.1 * 0.01 - 0.01 * 0.01</em></li>
- * <li><em>&Delta;R = .0087</em></li>
- * </ul>
- *  S= 98.911, E=0.099 , I<sup>R</sup>=0.98, I<sup>F</sup>=0.0, R=0.01,
- * B=1.0, D=1.0, DD=0.0
- * 
- * <p>
- * S= 98.82505722, E=0.18504278, I<sup>R</sup>=0.96931, I<sup>F</sup>=0.0099,
- * R=0.0187, B=2.0, D=2.0, DD=0.0
- * </p>
+ * <h2>1x1 Deterministic SEIR Scenario</h2>
  * 
  */
 public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest {
@@ -190,13 +60,12 @@ public class DeterministicSEIRScenarioTest extends SEIRDiseaseModelScenarioTest 
 				// Step 0
 						{ {
 						// N[0,0]
-						new SEIRLabelValueImpl(99.01, 0.0, 0.98, 0, 0.01,
-								0.0) } },
+						new SEIRLabelValueImpl(98.90, 0.10, 0.89, 0.01,	0.10) } },
 
 						// Step 1
 						{ {
 						// N[0,0]
-						new SEIRLabelValueImpl(99.02, 0.0, 0.96, 0.0, 0.02, 0) } } } // new
+						new SEIRLabelValueImpl(98.81, 0.18, 0.80, 0.02, 0.19) } } } 
 				// SEIRLabelValue
 
 				); // put(TEST_SCENARIO1x1_KEY)
