@@ -208,8 +208,7 @@ public class DiseaseModelTestUtil {
 		// use the finite differnce solver here
 		Solver solver = FdFactory.eINSTANCE.createFiniteDifference();
 		solver.setURI(SOLVER_URI);
-		// TODO why do we need to do this?
-		solver.setDecorators(scenario.getScenarioDecorators());
+		 
 		scenario.setSolver(solver);
 
 		return scenario;
