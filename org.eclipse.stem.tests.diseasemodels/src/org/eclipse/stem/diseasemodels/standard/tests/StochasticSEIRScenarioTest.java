@@ -42,14 +42,12 @@ public class StochasticSEIRScenarioTest extends SEIRDiseaseModelScenarioTest {
 				// Step 0
 						{ {
 						// N[0,0]
-						new SEIRLabelValueImpl(99.01, 0.0, 0.98, 0.0, 0.01,
-								0) } },
+						new SEIRLabelValueImpl(98.90, 0.10, 0.89, 0.01, 0.1) } },
 
 						// Step 1
 						{ {
 						// N[0,0]
-						new SEIRLabelValueImpl(99.02, 0.0,
-								0.96, 0.00, 0.02, 0) } } } // new
+						new SEIRLabelValueImpl(98.81, 0.18, 0.80, 0.02, 0.19) } } }
 				// SEIRLabelValue
 
 				); // put(TEST_SCENARIO1x1_KEY)
