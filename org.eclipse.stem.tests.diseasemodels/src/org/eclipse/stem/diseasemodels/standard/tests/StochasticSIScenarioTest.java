@@ -45,13 +45,12 @@ public class StochasticSIScenarioTest extends SIDiseaseModelScenarioTest {
 				// Step 0
 						{ {
 						// N[0,0]
-						new SILabelValueImpl(98.99, 0.99 , 0.01,
-								0.0) } },
+						new SILabelValueImpl(98.91, 0.99 , 0.0,	0.1) } },
 								
 						// Step 1
 						{ {
 						// N[0,0]
-						new SILabelValueImpl(99.0 , 0.98 , 0.02 , 0.00) } } } // new
+						new SILabelValueImpl(98.82 , 0.98 , 0.0 , 0.2) } } } 
 				// SILabelValue
 
 				); // put(TEST_SCENARIO1x1_KEY)
