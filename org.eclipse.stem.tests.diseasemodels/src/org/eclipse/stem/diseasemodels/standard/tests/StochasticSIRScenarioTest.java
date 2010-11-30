@@ -42,15 +42,12 @@ public class StochasticSIRScenarioTest extends SIRDiseaseModelScenarioTest {
 				// Step 0
 						{ {
 						// N[0,0]
-						new SIRLabelValueImpl(99.01, 0.98, 0.00, 0.01,
-								0.0) } },
+						new SIRLabelValueImpl(98.90, 0.99, 0.01, 0.10) } },
 
 						// Step 1
 						{ {
 						// N[0,0]
-						new SIRLabelValueImpl(99.02, 0.96,
-								0.0, 0.02, 
-								0.00) } } } // new
+						new SIRLabelValueImpl(98.80, 0.98, 0.02, 0.20) } } } 
 				// SIRLabelValue
 
 				); // put(TEST_SCENARIO1x1_KEY)
