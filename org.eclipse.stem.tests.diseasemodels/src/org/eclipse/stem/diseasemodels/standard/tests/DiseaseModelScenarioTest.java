@@ -110,12 +110,14 @@ public abstract class DiseaseModelScenarioTest extends TestCase {
 				DiseaseModelTestUtil.TEST_AREA);
 		
 		// ??? getScenarioDecorators(model).addAll(DISEASE_MODELS);
-		final Scenario retValue = DiseaseModelTestUtil.createLatticeScenario(
+		final Scenario scenario = DiseaseModelTestUtil.createLatticeScenario(
 				getScenarioDecorators(model), model);
 		
-		assert retValue.sane();
+		scenario.initialize();
+		scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
+		assert scenario.sane();
 
-		return retValue;
+		return scenario;
 	} // createFixture
 
 	/**
