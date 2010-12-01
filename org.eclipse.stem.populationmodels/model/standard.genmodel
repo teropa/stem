@@ -4,7 +4,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.stem.populationmodels/src"
     editDirectory="/org.eclipse.stem.populationmodels/src" editorDirectory="/org.eclipse.stem.ui.populationmodels/src"
     modelPluginID="org.eclipse.stem.populationmodels" modelName="Standard" testsDirectory="/org.eclipse.stem.tests.populationmodels/src"
-    testSuiteClass="org.eclipse.stem.populationmodels.standard.tests.DiseasemodelsAllTests"
+    testSuiteClass="org.eclipse.stem.populationmodels.standard.tests.PopulationmodelsAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editorPluginID="org.eclipse.stem.ui.populationmodels" testsPluginID="org.eclipse.stem.tests.populationmodels"
     usedGenPackages="../../org.eclipse.stem.core/model/core.genmodel#//common ../../org.eclipse.stem.core/model/core.genmodel#//graph ../../org.eclipse.stem.core/model/core.genmodel#//model ../../org.eclipse.stem.core/model/core.genmodel#//modifier ../../org.eclipse.stem.core/model/core.genmodel#//scenario ../../org.eclipse.stem.core/model/core.genmodel#//sequencer ../../org.eclipse.stem.core/model/core.genmodel#//solver ../../org.eclipse.stem.definitions/model/definitions.genmodel#//labels platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
@@ -58,17 +58,24 @@
     </genClasses>
     <genClasses ecoreClass="standard.ecore#//PopulationInitializer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationInitializer/targetISOKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//PopulationInitializer/populationIdentifier"/>
     </genClasses>
     <genClasses ecoreClass="standard.ecore#//StandardPopulationInitializer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardPopulationInitializer/individuals"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardPopulationInitializer/useDensity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//StandardPopulationInitializer/populationIdentifier"/>
     </genClasses>
     <genClasses ecoreClass="standard.ecore#//SeasonalPopulationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/phase"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/modulationAmplitude"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/period"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//SeasonalPopulationModel/useLatitude"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="standard.ecore#//EarthSciencePopulationInitializer"/>
+    <genClasses ecoreClass="standard.ecore#//YetiPopulationInitializer"/>
+    <genClasses ecoreClass="standard.ecore#//MosquitoPopulationModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//MosquitoPopulationModel/scalingFactor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//MosquitoPopulationModel/timePeriod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute standard.ecore#//MosquitoPopulationModel/mortalityRate"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
