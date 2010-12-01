@@ -11,7 +11,9 @@ package org.eclipse.stem.tests.diseasemodels;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -59,5 +61,28 @@ public class Activator extends Plugin {
 	public static Activator getDefault() {
 		return plugin;
 	}
+	
+	/**
+	 * Log information to the ILog for this plugin
+	 * The method is overloaded to allow for logInformation without an error 
+	 * method sets the error to null. This should be used instead of System.out.println
+	 * throughout the code.
+	 * @param message
+	 *            the localized information message text
+	 *
+	 */
+	public static void logInformation(String message) {
+		// Do we have a plugin?
+		if (plugin != null) {
+			// Yes
+			plugin.getLog().log(
+					new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
+							0, message, null));
+		}
+		else {
+			// No
+			System.out.println(message);
+		}
+	} // logInformation
 
 }
