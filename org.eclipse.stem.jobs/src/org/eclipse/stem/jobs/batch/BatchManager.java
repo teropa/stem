@@ -374,7 +374,7 @@ public class BatchManager extends ExecutableManager implements IBatchListener {
 	 * allocated one. This method is primarily intended to be used by JUnit test
 	 * cases that need a {@link BatchManager} with a known initial state.
 	 */
-	static void resetBatchManager() {
+	public static void resetBatchManager() {
 		INSTANCE = new BatchManager();
 	} // resetBatchManager
 
