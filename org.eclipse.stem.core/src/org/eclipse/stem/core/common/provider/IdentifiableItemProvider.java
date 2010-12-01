@@ -189,9 +189,7 @@ public class IdentifiableItemProvider
 	@Override
 	public String getText(Object object) {
 		
-		return ((Identifiable)object).getURI().lastSegment();
-/*		Commented out SED 4/14/10. Always use last part of URI
- *      // Use the dublin core title if it's available, otherwise use
+       // Use the dublin core title if it's available, otherwise use
 		// the URI
 		final Identifiable identifiable = (Identifiable)object;
 		
@@ -202,9 +200,9 @@ public class IdentifiableItemProvider
 			return title;
 		}
 		else {
-			return identifiable.getURI().toString();
+			return identifiable.getURI().lastSegment();
 		}
-		*/
+		
 	} // getText
 
 	/**
