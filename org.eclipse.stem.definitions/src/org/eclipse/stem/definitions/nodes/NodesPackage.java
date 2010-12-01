@@ -13,7 +13,6 @@ package org.eclipse.stem.definitions.nodes;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.stem.core.graph.GraphPackage;
 
 /**

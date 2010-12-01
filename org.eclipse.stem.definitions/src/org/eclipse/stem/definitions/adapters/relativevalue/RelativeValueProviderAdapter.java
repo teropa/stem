@@ -14,7 +14,6 @@ package org.eclipse.stem.definitions.adapters.relativevalue;
 
 import java.util.List;
 
-//import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;

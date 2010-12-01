@@ -12,7 +12,6 @@ package org.eclipse.stem.definitions;
  *******************************************************************************/
 
 import org.eclipse.core.runtime.IStatus;
-//import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.stem.core.Constants;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

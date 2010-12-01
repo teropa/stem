@@ -11,15 +11,8 @@ package org.eclipse.stem.definitions.edges.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.graph.impl.EdgeLabelImpl;
-
 import org.eclipse.stem.definitions.edges.EdgesFactory;
 import org.eclipse.stem.definitions.edges.EdgesPackage;
 import org.eclipse.stem.definitions.edges.MixingEdgeLabel;

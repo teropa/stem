@@ -1,20 +1,14 @@
 package org.eclipse.stem.definitions.lattice.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
-import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.Node;
-import org.eclipse.stem.core.graph.impl.EdgeImpl;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabel;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
-import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
 import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImpl;
 import org.eclipse.stem.definitions.lattice.GraphLatticeGeneratorInterface;
 import org.eclipse.stem.definitions.nodes.NodesFactory;

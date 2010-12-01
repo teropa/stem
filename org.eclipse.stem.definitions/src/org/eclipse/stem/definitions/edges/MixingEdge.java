@@ -11,7 +11,6 @@ package org.eclipse.stem.definitions.edges;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import org.eclipse.stem.core.graph.Edge;
 
 /**
  * A mixing edge. A mixing edge must have the property that:

@@ -1,40 +1,27 @@
 package org.eclipse.stem.definitions.lattice.impl;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
-import java.util.List;
 
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
-import org.eclipse.stem.core.graph.impl.EdgeImpl;
-import org.eclipse.stem.core.graph.impl.NodeImpl;
-import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.Activator;
 import org.eclipse.stem.definitions.adapters.spatial.geo.InlineLatLongDataProvider;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong;
+import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong.SegmentBuilder;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProvider;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapter;
 import org.eclipse.stem.definitions.adapters.spatial.geo.LatLongProviderAdapterFactory;
-import org.eclipse.stem.definitions.adapters.spatial.geo.LatLong.SegmentBuilder;
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
-import org.eclipse.stem.definitions.labels.PopulationLabel;
-import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
-import org.eclipse.stem.definitions.labels.TransportMode;
-import org.eclipse.stem.definitions.labels.impl.CommonBorderRelationshipLabelImpl;
-import org.eclipse.stem.definitions.labels.impl.TransportRelationshipLabelImpl;
-import org.eclipse.stem.definitions.lattice.GraphLatticeGeneratorInterface;
-import org.eclipse.stem.definitions.nodes.NodesFactory;
 import org.eclipse.stem.definitions.nodes.Region;
 
 

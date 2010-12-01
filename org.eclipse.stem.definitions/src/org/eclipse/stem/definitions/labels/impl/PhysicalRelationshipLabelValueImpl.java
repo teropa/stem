@@ -12,9 +12,7 @@ package org.eclipse.stem.definitions.labels.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.graph.impl.LabelValueImpl;
-
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabelValue;
 

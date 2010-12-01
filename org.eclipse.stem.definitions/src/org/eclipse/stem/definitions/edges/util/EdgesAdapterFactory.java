@@ -13,21 +13,23 @@ package org.eclipse.stem.definitions.edges.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
-
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;
-
 import org.eclipse.stem.core.modifier.Modifiable;
-import org.eclipse.stem.definitions.edges.*;
+import org.eclipse.stem.definitions.edges.EdgesPackage;
+import org.eclipse.stem.definitions.edges.MigrationEdge;
+import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
+import org.eclipse.stem.definitions.edges.MigrationEdgeLabelValue;
+import org.eclipse.stem.definitions.edges.MixingEdge;
+import org.eclipse.stem.definitions.edges.MixingEdgeLabel;
+import org.eclipse.stem.definitions.edges.MixingEdgeLabelValue;
+import org.eclipse.stem.definitions.edges.PopulationEdge;
 
 /**
  * <!-- begin-user-doc -->

@@ -12,13 +12,8 @@ package org.eclipse.stem.definitions.adapters.spatial.geo;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.eclipse.stem.definitions.Activator;
 
 /**
  * This class is a collection of latitude/longitude data pairs partitioned into

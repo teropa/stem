@@ -27,18 +27,21 @@ import org.eclipse.stem.core.graph.StaticEdgeLabel;
 import org.eclipse.stem.core.graph.StaticLabel;
 import org.eclipse.stem.core.graph.StaticNodeLabel;
 import org.eclipse.stem.core.modifier.Modifiable;
-import org.eclipse.stem.definitions.labels.*;
-
 import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.AreaLabelValue;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabel;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabelValue;
+import org.eclipse.stem.definitions.labels.EarthScienceLabel;
+import org.eclipse.stem.definitions.labels.EarthScienceLabelValue;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
+import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabelValue;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabelValue;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
 import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabelValue;
+import org.eclipse.stem.definitions.labels.RoadTransportRelationshipLabel;
+import org.eclipse.stem.definitions.labels.RoadTransportRelationshipLabelValue;
 import org.eclipse.stem.definitions.labels.TransportRelationshipLabel;
 import org.eclipse.stem.definitions.labels.TransportRelationshipLabelValue;
 

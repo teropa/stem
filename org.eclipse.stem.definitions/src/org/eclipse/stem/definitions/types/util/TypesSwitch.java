@@ -15,8 +15,9 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.stem.definitions.types.*;
+import org.eclipse.stem.definitions.types.CategorizedType;
+import org.eclipse.stem.definitions.types.Rate;
+import org.eclipse.stem.definitions.types.TypesPackage;
 
 /**
  * <!-- begin-user-doc -->

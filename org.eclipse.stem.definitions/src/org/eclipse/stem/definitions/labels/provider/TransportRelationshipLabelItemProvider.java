@@ -29,18 +29,10 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
-import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.provider.DynamicEdgeLabelItemProvider;
-
-//import org.eclipse.stem.core.graph.provider.LabelItemProvider;
-import org.eclipse.stem.definitions.labels.LabelsFactory;
-//import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
-import org.eclipse.stem.definitions.edges.EdgesFactory;
-import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabel;
-import org.eclipse.stem.definitions.labels.LabelsPackage;
-//import org.eclipse.stem.definitions.labels.PopulationLabel;
-import org.eclipse.stem.definitions.labels.TransportRelationshipLabel;
 import org.eclipse.stem.data.geography.GeographicNames;
+import org.eclipse.stem.definitions.labels.LabelsPackage;
+import org.eclipse.stem.definitions.labels.TransportRelationshipLabel;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.stem.definitions.labels.TransportRelationshipLabel} object.

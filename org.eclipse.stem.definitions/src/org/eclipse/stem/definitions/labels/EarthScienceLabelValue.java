@@ -11,7 +11,6 @@
 package org.eclipse.stem.definitions.labels;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.stem.core.graph.LabelValue;
 
 /**

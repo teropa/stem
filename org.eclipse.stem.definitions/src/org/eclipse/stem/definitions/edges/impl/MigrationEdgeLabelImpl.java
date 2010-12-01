@@ -16,17 +16,14 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.impl.EdgeLabelImpl;
-
 import org.eclipse.stem.definitions.edges.EdgesFactory;
 import org.eclipse.stem.definitions.edges.EdgesPackage;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
 import org.eclipse.stem.definitions.edges.MigrationEdgeLabelValue;
-import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabel;
 
 /**
  * <!-- begin-user-doc -->

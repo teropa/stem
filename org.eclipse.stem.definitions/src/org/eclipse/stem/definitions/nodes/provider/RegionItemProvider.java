@@ -17,23 +17,15 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-//import org.eclipse.stem.core.graph.Node;
-import org.eclipse.stem.core.graph.Edge;
-import org.eclipse.stem.core.graph.EdgeLabel;
-import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
-import org.eclipse.stem.definitions.labels.provider.DefinitionsEditPlugin;
-
-import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.data.geography.GeographicNames;
+import org.eclipse.stem.definitions.nodes.Region;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.stem.definitions.nodes.Region} object.

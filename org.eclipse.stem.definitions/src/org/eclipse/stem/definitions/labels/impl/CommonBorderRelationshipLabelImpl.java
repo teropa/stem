@@ -18,14 +18,12 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
-//import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.impl.EdgeImpl;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabel;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabelValue;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
-//import org.eclipse.stem.definitions.labels.TransportRelationshipLabel;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Common Border Relationship Label</b></em>'.

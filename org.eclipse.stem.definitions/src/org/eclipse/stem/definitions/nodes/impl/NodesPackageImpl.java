@@ -18,7 +18,6 @@ import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.model.ModelPackage;
-
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;

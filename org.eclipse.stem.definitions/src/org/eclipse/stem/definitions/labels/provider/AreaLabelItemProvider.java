@@ -26,16 +26,10 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.provider.StaticNodeLabelItemProvider;
-//import org.eclipse.stem.definitions.edges.provider.DefinitionsEditPlugin;
-import org.eclipse.stem.definitions.edges.EdgesFactory;
-import org.eclipse.stem.definitions.labels.AreaLabel;
-import org.eclipse.stem.definitions.labels.LabelsFactory;
-import org.eclipse.stem.definitions.labels.LabelsPackage;
-import org.eclipse.stem.definitions.nodes.GeographicFeature;
-//import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.data.geography.GeographicNames;
+import org.eclipse.stem.definitions.labels.AreaLabel;
+import org.eclipse.stem.definitions.labels.LabelsPackage;
 
 /**
  * This is the item provider adapter for a

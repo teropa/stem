@@ -15,16 +15,10 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.stem.core.common.CommonPackage;
-
 import org.eclipse.stem.core.graph.GraphPackage;
-
 import org.eclipse.stem.core.model.ModelPackage;
-
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
@@ -37,14 +31,10 @@ import org.eclipse.stem.definitions.edges.MigrationEdgeLabelValue;
 import org.eclipse.stem.definitions.edges.MixingEdge;
 import org.eclipse.stem.definitions.edges.MixingEdgeLabel;
 import org.eclipse.stem.definitions.edges.MixingEdgeLabelValue;
-
 import org.eclipse.stem.definitions.edges.PopulationEdge;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
-
 import org.eclipse.stem.definitions.labels.impl.LabelsPackageImpl;
-
 import org.eclipse.stem.definitions.nodes.NodesPackage;
-
 import org.eclipse.stem.definitions.nodes.impl.NodesPackageImpl;
 import org.eclipse.stem.definitions.types.TypesPackage;
 import org.eclipse.stem.definitions.types.impl.TypesPackageImpl;

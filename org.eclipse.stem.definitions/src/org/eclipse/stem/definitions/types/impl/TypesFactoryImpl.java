@@ -14,12 +14,10 @@ package org.eclipse.stem.definitions.types.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.definitions.types.*;
+import org.eclipse.stem.definitions.types.TypesFactory;
+import org.eclipse.stem.definitions.types.TypesPackage;
 
 /**
  * <!-- begin-user-doc -->

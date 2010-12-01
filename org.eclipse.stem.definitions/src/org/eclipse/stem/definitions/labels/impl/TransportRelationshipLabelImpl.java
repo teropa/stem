@@ -18,19 +18,16 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.impl.DynamicEdgeLabelImpl;
+import org.eclipse.stem.core.graph.impl.EdgeImpl;
 import org.eclipse.stem.core.model.EdgeDecorator;
 import org.eclipse.stem.core.model.STEMTime;
-
-import org.eclipse.stem.core.graph.impl.EdgeImpl;
 import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.definitions.labels.TransportMode;

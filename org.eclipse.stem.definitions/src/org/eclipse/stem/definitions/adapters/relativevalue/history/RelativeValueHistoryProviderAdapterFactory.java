@@ -12,10 +12,12 @@ package org.eclipse.stem.definitions.adapters.relativevalue.history;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
+import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProviderAdapterFactory;
 
 /**
  * This interface is implemented by classes that create adapters that adapt

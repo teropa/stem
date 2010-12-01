@@ -13,6 +13,7 @@ package org.eclipse.stem.definitions.types;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.stem.core.model.Decorator;
 
 /**
  * A <code>CatagorizedType</code> is a marker interface for the types of

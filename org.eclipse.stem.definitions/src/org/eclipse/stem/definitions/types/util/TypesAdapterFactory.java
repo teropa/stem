@@ -13,12 +13,11 @@ package org.eclipse.stem.definitions.types.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.stem.definitions.types.*;
+import org.eclipse.stem.definitions.types.CategorizedType;
+import org.eclipse.stem.definitions.types.Rate;
+import org.eclipse.stem.definitions.types.TypesPackage;
 
 /**
  * <!-- begin-user-doc -->

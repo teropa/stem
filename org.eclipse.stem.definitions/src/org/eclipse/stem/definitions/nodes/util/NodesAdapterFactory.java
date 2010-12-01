@@ -17,10 +17,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.graph.Node;
-//import org.eclipse.stem.definitions.nodes.*;
-
 import org.eclipse.stem.definitions.nodes.GeographicFeature;
 import org.eclipse.stem.definitions.nodes.NodesPackage;
 import org.eclipse.stem.definitions.nodes.Region;

@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.stem.definitions.labels.CommonBorderRelationshipLabelValue;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
-//import org.eclipse.stem.definitions.labels.RelativePhysicalRelationship;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Common Border Relationship Label Value</b></em>'.

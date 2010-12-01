@@ -14,12 +14,17 @@ package org.eclipse.stem.definitions.edges.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.definitions.edges.*;
+import org.eclipse.stem.definitions.edges.EdgesFactory;
+import org.eclipse.stem.definitions.edges.EdgesPackage;
+import org.eclipse.stem.definitions.edges.MigrationEdge;
+import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
+import org.eclipse.stem.definitions.edges.MigrationEdgeLabelValue;
+import org.eclipse.stem.definitions.edges.MixingEdge;
+import org.eclipse.stem.definitions.edges.MixingEdgeLabel;
+import org.eclipse.stem.definitions.edges.MixingEdgeLabelValue;
+import org.eclipse.stem.definitions.edges.PopulationEdge;
 
 /**
  * <!-- begin-user-doc -->

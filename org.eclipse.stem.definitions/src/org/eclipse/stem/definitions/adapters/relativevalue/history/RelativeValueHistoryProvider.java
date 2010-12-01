@@ -14,7 +14,6 @@ package org.eclipse.stem.definitions.adapters.relativevalue.history;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.adapters.relativevalue.RelativeValueProvider;
 

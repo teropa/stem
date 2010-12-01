@@ -16,19 +16,6 @@ package org.eclipse.stem.definitions.labels.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.stem.core.graph.impl.StaticEdgeLabelImpl;
-
-//import org.eclipse.stem.core.graph.impl.DynamicEdgeLabelImpl;
-//
-//import org.eclipse.emf.ecore.InternalEObject;
-//
-//import org.eclipse.emf.ecore.impl.ENotificationImpl;
-//
-//import org.eclipse.emf.ecore.util.EcoreUtil;
-//
-//import org.eclipse.stem.core.graph.Edge;
-//import org.eclipse.stem.core.graph.GraphPackage;
-//
-//import org.eclipse.stem.core.graph.impl.LabelImpl;
 import org.eclipse.stem.definitions.labels.LabelsPackage;
 import org.eclipse.stem.definitions.labels.PhysicalRelationshipLabel;
 
