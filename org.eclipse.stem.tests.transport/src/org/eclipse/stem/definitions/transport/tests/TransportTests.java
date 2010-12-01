@@ -47,6 +47,9 @@ public class TransportTests extends TestSuite {
 		suite.addTestSuite(PipeStyleTransportSystemTest.class);
 		suite.addTestSuite(PacketTransportLabelValueTest.class);
 		suite.addTestSuite(PacketStyleTransportSystemDecoratorTest.class);
+		suite.addTestSuite(PipeTransportEdgeTest.class);
+		suite.addTestSuite(PipeTransportEdgeLabelTest.class);
+		suite.addTestSuite(PipeTransportEdgeLabelValueTest.class);
 		return suite;
 	}
 
