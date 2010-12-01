@@ -7,7 +7,6 @@
 package org.eclipse.stem.populationmodels.standard.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;

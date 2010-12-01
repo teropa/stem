@@ -11,30 +11,17 @@ package org.eclipse.stem.populationmodels.standard.impl;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.stem.core.Utility;
-import org.eclipse.stem.core.graph.Edge;
-import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
-import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.definitions.labels.AreaLabel;
-import org.eclipse.stem.definitions.labels.LabelsFactory;
 import org.eclipse.stem.definitions.labels.PopulationLabel;
 import org.eclipse.stem.definitions.labels.PopulationLabelValue;
-import org.eclipse.stem.definitions.labels.RelativePhysicalRelationshipLabel;
-import org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl;
 import org.eclipse.stem.populationmodels.Activator;
-import org.eclipse.stem.populationmodels.standard.PopulationModel;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationInitializer;
 

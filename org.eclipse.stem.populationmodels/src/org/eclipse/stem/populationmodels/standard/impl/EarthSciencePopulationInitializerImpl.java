@@ -7,10 +7,6 @@
 package org.eclipse.stem.populationmodels.standard.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.stem.core.model.STEMTime;
-import org.eclipse.stem.definitions.labels.PopulationLabel;
-import org.eclipse.stem.definitions.labels.PopulationLabelValue;
 import org.eclipse.stem.populationmodels.standard.EarthSciencePopulationInitializer;
 import org.eclipse.stem.populationmodels.standard.StandardPackage;
 
