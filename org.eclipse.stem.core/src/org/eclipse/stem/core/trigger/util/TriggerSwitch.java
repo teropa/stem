@@ -15,12 +15,10 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.model.Decorator;
-
-import org.eclipse.stem.core.trigger.*;
+import org.eclipse.stem.core.trigger.Trigger;
+import org.eclipse.stem.core.trigger.TriggerPackage;
 
 /**
  * <!-- begin-user-doc -->

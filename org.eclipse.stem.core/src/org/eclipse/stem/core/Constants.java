@@ -20,6 +20,7 @@ import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.sequencer.Sequencer;
+import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.core.trigger.Trigger;
 
 /**

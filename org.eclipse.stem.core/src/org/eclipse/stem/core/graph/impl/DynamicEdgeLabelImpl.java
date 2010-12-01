@@ -13,22 +13,15 @@ package org.eclipse.stem.core.graph.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.DynamicEdgeLabel;
-//import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.GraphPackage;
-//import org.eclipse.stem.core.graph.LabelValue;
-//import org.eclipse.stem.core.graph.Node;
 
 //import org.eclipse.stem.core.model.Decorator;
 //import org.eclipse.stem.core.model.ModelPackage;

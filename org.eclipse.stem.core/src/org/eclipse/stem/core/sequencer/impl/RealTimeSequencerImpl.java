@@ -12,7 +12,6 @@ package org.eclipse.stem.core.sequencer.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;

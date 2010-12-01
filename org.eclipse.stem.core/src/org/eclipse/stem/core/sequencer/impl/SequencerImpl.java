@@ -15,18 +15,13 @@ import java.text.SimpleDateFormat;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
-
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
-
 import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.SequencerPackage;
 

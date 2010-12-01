@@ -29,15 +29,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-//import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-//import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-//import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.Identifiable;
@@ -48,9 +45,9 @@ import org.eclipse.stem.core.model.Model;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
+import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.SequencerFactory;
 import org.eclipse.stem.core.solver.SolverFactory;
-import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.swt.dnd.DND;
 
 /**

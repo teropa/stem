@@ -12,13 +12,10 @@ package org.eclipse.stem.core.common.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.StringValue;

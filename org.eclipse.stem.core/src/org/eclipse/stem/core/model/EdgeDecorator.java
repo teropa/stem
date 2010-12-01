@@ -1,6 +1,8 @@
 // EdgeDecorator.java
 package org.eclipse.stem.core.model;
 
+import org.eclipse.stem.core.graph.Edge;
+
 /*******************************************************************************
  * Copyright (c) 2006 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials

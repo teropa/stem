@@ -14,12 +14,11 @@ package org.eclipse.stem.core.scenario.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.core.scenario.*;
+import org.eclipse.stem.core.scenario.Scenario;
+import org.eclipse.stem.core.scenario.ScenarioFactory;
+import org.eclipse.stem.core.scenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->

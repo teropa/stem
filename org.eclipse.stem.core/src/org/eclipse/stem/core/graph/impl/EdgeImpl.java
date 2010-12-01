@@ -23,7 +23,6 @@ import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.GraphFactory;
 import org.eclipse.stem.core.graph.GraphPackage;
-//import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 
 /**

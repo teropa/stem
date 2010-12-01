@@ -21,7 +21,6 @@ import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.ResettableAdapter;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
-//import org.eclipse.stem.core.model.impl.STEMTimeImpl;
 
 /**
  * This class is a {@link HistoryProvider}.

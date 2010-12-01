@@ -16,11 +16,8 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
-//import org.eclipse.stem.core.scenario.*;
-
 import org.eclipse.stem.core.scenario.Scenario;
 import org.eclipse.stem.core.scenario.ScenarioPackage;
-//import org.eclipse.stem.core.sequencer.Sequencer;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It

@@ -16,9 +16,7 @@ import java.util.StringTokenizer;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.graph.Edge;

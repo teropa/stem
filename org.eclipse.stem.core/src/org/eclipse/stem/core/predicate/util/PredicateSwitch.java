@@ -14,10 +14,27 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
-import org.eclipse.stem.core.predicate.*;
+import org.eclipse.stem.core.predicate.AbsoluteTimeTest;
+import org.eclipse.stem.core.predicate.And;
+import org.eclipse.stem.core.predicate.BooleanExpression;
+import org.eclipse.stem.core.predicate.BooleanOperator;
+import org.eclipse.stem.core.predicate.ElapsedTimeTest;
+import org.eclipse.stem.core.predicate.False;
+import org.eclipse.stem.core.predicate.IdentifiablePredicate;
+import org.eclipse.stem.core.predicate.IdentifiablePredicateExpression;
+import org.eclipse.stem.core.predicate.IdentifiableTest;
+import org.eclipse.stem.core.predicate.NaryBooleanOperator;
+import org.eclipse.stem.core.predicate.Not;
+import org.eclipse.stem.core.predicate.Or;
+import org.eclipse.stem.core.predicate.Predicate;
+import org.eclipse.stem.core.predicate.PredicateExpression;
+import org.eclipse.stem.core.predicate.PredicatePackage;
+import org.eclipse.stem.core.predicate.PredicateReference;
+import org.eclipse.stem.core.predicate.Test;
+import org.eclipse.stem.core.predicate.TimeTest;
+import org.eclipse.stem.core.predicate.True;
+import org.eclipse.stem.core.predicate.UnaryBooleanOperator;
 
 /**
  * <!-- begin-user-doc -->

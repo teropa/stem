@@ -13,16 +13,12 @@ package org.eclipse.stem.core.trigger.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.model.Decorator;
-
-import org.eclipse.stem.core.trigger.*;
+import org.eclipse.stem.core.trigger.Trigger;
+import org.eclipse.stem.core.trigger.TriggerPackage;
 
 /**
  * <!-- begin-user-doc -->

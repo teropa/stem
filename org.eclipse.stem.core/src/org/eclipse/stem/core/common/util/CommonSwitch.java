@@ -15,7 +15,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.DoubleValueList;
@@ -26,7 +25,6 @@ import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
 import org.eclipse.stem.core.modifier.Modifiable;
-//import org.eclipse.stem.core.common.*;
 
 /**
  * <!-- begin-user-doc -->

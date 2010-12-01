@@ -15,11 +15,11 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
-//import org.eclipse.stem.core.modifier.Modifiable;
-import org.eclipse.stem.core.sequencer.*;
+import org.eclipse.stem.core.sequencer.RealTimeSequencer;
+import org.eclipse.stem.core.sequencer.Sequencer;
+import org.eclipse.stem.core.sequencer.SequencerPackage;
+import org.eclipse.stem.core.sequencer.SequentialSequencer;
 
 /**
  * <!-- begin-user-doc -->

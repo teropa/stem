@@ -12,7 +12,6 @@ package org.eclipse.stem.core.modifier;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.lang.String;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;

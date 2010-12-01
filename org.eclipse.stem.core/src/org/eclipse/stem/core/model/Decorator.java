@@ -15,6 +15,7 @@ package org.eclipse.stem.core.model;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.graph.DynamicLabel;
+import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.Graph;
 
 /**

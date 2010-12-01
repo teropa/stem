@@ -13,10 +13,9 @@ package org.eclipse.stem.core.graph.impl;
  
 import java.util.Collection;
 import java.util.Comparator;
-
-import org.eclipse.emf.common.notify.Notification;
 import java.util.Iterator;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
@@ -33,10 +32,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-//import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.CorePlugin;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
@@ -48,9 +46,7 @@ import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
-
 import org.eclipse.stem.core.model.Decorator;
-
 import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.core.model.STEMTime;
 

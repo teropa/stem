@@ -14,12 +14,11 @@ package org.eclipse.stem.core.solver.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.core.solver.*;
+import org.eclipse.stem.core.solver.Solver;
+import org.eclipse.stem.core.solver.SolverFactory;
+import org.eclipse.stem.core.solver.SolverPackage;
 
 /**
  * <!-- begin-user-doc -->

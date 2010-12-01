@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
-//import org.eclipse.stem.core.experiment.*;
 import org.eclipse.stem.core.experiment.Experiment;
 import org.eclipse.stem.core.experiment.ExperimentPackage;
 

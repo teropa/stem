@@ -12,22 +12,17 @@ package org.eclipse.stem.core.solver.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.IntegrationLabel;
 import org.eclipse.stem.core.graph.SimpleDataExchangeLabelValue;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.IntegrationDecorator;
-
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.solver.Solver;
 import org.eclipse.stem.core.solver.SolverPackage;

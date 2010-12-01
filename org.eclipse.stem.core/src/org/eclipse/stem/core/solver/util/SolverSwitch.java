@@ -15,10 +15,9 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
-import org.eclipse.stem.core.solver.*;
+import org.eclipse.stem.core.solver.Solver;
+import org.eclipse.stem.core.solver.SolverPackage;
 
 /**
  * <!-- begin-user-doc -->

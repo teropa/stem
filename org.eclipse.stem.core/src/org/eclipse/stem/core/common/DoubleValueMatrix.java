@@ -11,7 +11,6 @@ package org.eclipse.stem.core.common;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

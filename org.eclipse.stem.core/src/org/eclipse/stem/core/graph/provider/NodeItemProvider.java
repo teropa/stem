@@ -28,7 +28,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.core.common.provider.IdentifiableItemProvider;
 import org.eclipse.stem.core.graph.GraphPackage;
-//import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.Node;
 
 /**

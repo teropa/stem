@@ -12,7 +12,6 @@ package org.eclipse.stem.core.predicate.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.predicate.PredicatePackage;
 import org.eclipse.stem.core.predicate.Test;
 

@@ -12,16 +12,12 @@ package org.eclipse.stem.core.common.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.stem.core.common.CommonFactory;
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValue;
@@ -31,7 +27,6 @@ import org.eclipse.stem.core.common.DublinCore;
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
-//import org.eclipse.stem.core.common.*;
 
 /**
  * <!-- begin-user-doc -->

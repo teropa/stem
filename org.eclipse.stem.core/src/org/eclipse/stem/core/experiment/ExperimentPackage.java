@@ -11,13 +11,11 @@ package org.eclipse.stem.core.experiment;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.lang.String;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.stem.core.common.CommonPackage;
 
 /**

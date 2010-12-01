@@ -13,14 +13,11 @@ package org.eclipse.stem.core.solver.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
-import org.eclipse.stem.core.solver.*;
+import org.eclipse.stem.core.solver.Solver;
+import org.eclipse.stem.core.solver.SolverPackage;
 
 /**
  * <!-- begin-user-doc -->

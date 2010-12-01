@@ -14,12 +14,12 @@ package org.eclipse.stem.core.sequencer.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.core.sequencer.*;
+import org.eclipse.stem.core.sequencer.RealTimeSequencer;
+import org.eclipse.stem.core.sequencer.SequencerFactory;
+import org.eclipse.stem.core.sequencer.SequencerPackage;
+import org.eclipse.stem.core.sequencer.SequentialSequencer;
 
 /**
  * <!-- begin-user-doc -->

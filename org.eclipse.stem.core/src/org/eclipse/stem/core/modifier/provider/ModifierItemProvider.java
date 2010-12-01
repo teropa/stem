@@ -31,7 +31,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.core.model.provider.DecoratorItemProvider;
-//import org.eclipse.stem.core.common.provider.IdentifiableItemProvider;
 import org.eclipse.stem.core.modifier.Modifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 

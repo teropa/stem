@@ -15,11 +15,34 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.model.Decorator;
-import org.eclipse.stem.core.modifier.*;
+import org.eclipse.stem.core.modifier.DoubleModifier;
+import org.eclipse.stem.core.modifier.DoubleNOPModifier;
+import org.eclipse.stem.core.modifier.DoubleRangeModifier;
+import org.eclipse.stem.core.modifier.DoubleSequenceModifier;
+import org.eclipse.stem.core.modifier.FeatureModifier;
+import org.eclipse.stem.core.modifier.IntegerModifier;
+import org.eclipse.stem.core.modifier.IntegerNOPModifier;
+import org.eclipse.stem.core.modifier.IntegerRangeModifier;
+import org.eclipse.stem.core.modifier.IntegerSequenceModifier;
+import org.eclipse.stem.core.modifier.LongModifier;
+import org.eclipse.stem.core.modifier.LongNOPModifier;
+import org.eclipse.stem.core.modifier.LongRangeModifier;
+import org.eclipse.stem.core.modifier.LongSequenceModifier;
+import org.eclipse.stem.core.modifier.Modifiable;
+import org.eclipse.stem.core.modifier.Modifier;
+import org.eclipse.stem.core.modifier.ModifierPackage;
+import org.eclipse.stem.core.modifier.NOPModifier;
+import org.eclipse.stem.core.modifier.RangeModifier;
+import org.eclipse.stem.core.modifier.STEMTimeModifier;
+import org.eclipse.stem.core.modifier.STEMTimeNOPModifier;
+import org.eclipse.stem.core.modifier.STEMTimeRangeModifier;
+import org.eclipse.stem.core.modifier.STEMTimeSequenceModifier;
+import org.eclipse.stem.core.modifier.SequenceModifier;
+import org.eclipse.stem.core.modifier.SingleValueModifier;
+import org.eclipse.stem.core.modifier.StringNOPModifier;
+import org.eclipse.stem.core.modifier.StringSequenceModifier;
 
 /**
  * <!-- begin-user-doc -->

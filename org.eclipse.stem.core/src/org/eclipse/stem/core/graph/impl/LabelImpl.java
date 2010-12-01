@@ -17,13 +17,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-//import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.core.STEMURI;
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.common.impl.IdentifiableImpl;
-//import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;

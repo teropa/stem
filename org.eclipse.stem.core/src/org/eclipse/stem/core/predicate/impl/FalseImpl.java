@@ -12,7 +12,6 @@ package org.eclipse.stem.core.predicate.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.predicate.False;

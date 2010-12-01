@@ -13,11 +13,8 @@ package org.eclipse.stem.core.common.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.CommonPackage;
 import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.DoubleValueList;
@@ -28,7 +25,6 @@ import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.StringValue;
 import org.eclipse.stem.core.common.StringValueList;
 import org.eclipse.stem.core.modifier.Modifiable;
-//import org.eclipse.stem.core.common.*;
 
 /**
  * <!-- begin-user-doc -->

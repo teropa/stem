@@ -16,21 +16,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-//import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-//import org.eclipse.stem.core.common.provider.CoreEditPlugin;
-
 import org.eclipse.stem.core.sequencer.RealTimeSequencer;
-//import org.eclipse.stem.core.sequencer.SequencerPackage;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.stem.core.sequencer.RealTimeSequencer} object.

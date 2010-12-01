@@ -12,7 +12,6 @@ package org.eclipse.stem.core.modifier.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.modifier.ModifierPackage;
 import org.eclipse.stem.core.modifier.SingleValueModifier;
 

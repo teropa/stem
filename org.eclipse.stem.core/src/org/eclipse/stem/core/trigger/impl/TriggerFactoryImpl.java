@@ -14,12 +14,11 @@ package org.eclipse.stem.core.trigger.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.core.trigger.*;
+import org.eclipse.stem.core.trigger.Trigger;
+import org.eclipse.stem.core.trigger.TriggerFactory;
+import org.eclipse.stem.core.trigger.TriggerPackage;
 
 /**
  * <!-- begin-user-doc -->

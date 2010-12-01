@@ -14,18 +14,21 @@ package org.eclipse.stem.core.graph.impl;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.stem.core.common.Identifiable;
-import org.eclipse.stem.core.graph.*;
+import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.GraphFactory;
+import org.eclipse.stem.core.graph.GraphPackage;
+import org.eclipse.stem.core.graph.Label;
+import org.eclipse.stem.core.graph.Node;
+import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
 
 /**
  * <!-- begin-user-doc -->

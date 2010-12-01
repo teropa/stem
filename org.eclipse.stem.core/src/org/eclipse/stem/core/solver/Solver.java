@@ -13,7 +13,6 @@ package org.eclipse.stem.core.solver;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.STEMTime;
 

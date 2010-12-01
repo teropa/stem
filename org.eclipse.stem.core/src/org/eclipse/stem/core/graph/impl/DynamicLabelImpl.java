@@ -21,7 +21,6 @@ import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.ResettableAdapter;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.ModelPackage;
 

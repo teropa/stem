@@ -12,9 +12,7 @@ package org.eclipse.stem.core.graph.provider;
  *******************************************************************************/
  
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.stem.core.common.provider.CommonEditPlugin;
 

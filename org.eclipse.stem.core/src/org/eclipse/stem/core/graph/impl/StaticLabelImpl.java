@@ -12,7 +12,6 @@ package org.eclipse.stem.core.graph.impl;
  *******************************************************************************/
  
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.StaticLabel;
 

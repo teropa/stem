@@ -16,8 +16,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
-//import org.eclipse.stem.core.model.*;
-
 import org.eclipse.stem.core.model.Decorator;
 import org.eclipse.stem.core.model.EdgeDecorator;
 import org.eclipse.stem.core.model.GraphDecorator;

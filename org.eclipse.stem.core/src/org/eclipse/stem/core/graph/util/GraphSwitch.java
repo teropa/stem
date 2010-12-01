@@ -19,20 +19,22 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.SanityChecker;
-
-import org.eclipse.stem.core.graph.*;
-
-import org.eclipse.stem.core.modifier.Modifiable;
+import org.eclipse.stem.core.graph.DynamicEdgeLabel;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.DynamicNodeLabel;
 import org.eclipse.stem.core.graph.Edge;
+import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.Graph;
+import org.eclipse.stem.core.graph.GraphPackage;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.graph.StaticEdgeLabel;
+import org.eclipse.stem.core.graph.StaticLabel;
 import org.eclipse.stem.core.graph.StaticNodeLabel;
 import org.eclipse.stem.core.graph.UnresolvedIdentifiable;
+import org.eclipse.stem.core.modifier.Modifiable;
 
 /**
  * <!-- begin-user-doc -->
