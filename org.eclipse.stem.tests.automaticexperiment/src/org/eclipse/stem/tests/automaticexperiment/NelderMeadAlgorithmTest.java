@@ -22,9 +22,14 @@ import org.eclipse.stem.analysis.impl.ErrorResultImpl;
 import junit.framework.TestCase;
 
 public class NelderMeadAlgorithmTest extends TestCase {
+	boolean debug = false;
 
 	public void testExecute() {
 		NelderMeadAlgorithm nelder = new NelderMeadAlgorithm();
+		double[] min = {0.0,0.0};
+		double[] max = {999999.0,99999.0};
+		nelder.setParameterLimits(0, 0.0, 9999999.0);
+		nelder.setParameterLimits(1, 0.0, 9999999.0);
 		double[] initStart = { 1.8, 1.2 };
 		double[] step = { 0.5, 0.5 };
 		nelder.execute(new SampleFunction(), initStart, step, 0.01, -1);
@@ -48,7 +53,10 @@ public class NelderMeadAlgorithmTest extends TestCase {
 			result -= y;
 			result -= x * y;
 			result += Math.pow(y, 2);
-			System.out.println("Function value for x=" + x + ", y=" + y + " is: " + result);
+			if(debug) {
+				System.out.println("Function value for x=" + x + ", y=" + y + " is: " + result);
+			}
+			
 			ErrorResult res = AnalysisPackage.eINSTANCE.getAnalysisFactory().createErrorResult();
 			res.setError(result);
 			return res;
