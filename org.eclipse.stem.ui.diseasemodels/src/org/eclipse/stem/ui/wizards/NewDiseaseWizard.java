@@ -123,9 +123,11 @@ public class NewDiseaseWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(DiseaseWizardMessages
-					.getString("NDiseaseWiz.DC_DESCRIPTION"), //$NON-NLS-1$
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+//			return MessageFormat.format(DiseaseWizardMessages
+//					.getString("NDiseaseWiz.DC_DESCRIPTION"), //$NON-NLS-1$
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 		@Override

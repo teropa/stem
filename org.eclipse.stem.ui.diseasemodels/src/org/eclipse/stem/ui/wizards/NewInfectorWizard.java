@@ -249,10 +249,14 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
+			// Leave description/title blank
+			return "";
+			/*
 			if(!idc.isFromFile()) {
 				if(idc.isInfectorMode()) {
 					return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION"), //$NON-NLS-1$
-							new Object[] { Double.valueOf(idc.getNumber()),
+							new Object[] { serializationFileNameField.getText(), 
+											Double.valueOf(idc.getNumber()),
 											idc.getPopulation(), 
 											idc.getDiseaseName(),
 											GeographicNames.getReverseHierarchyName(idc.getIsoKey()), idc.getIsoKey() 
@@ -260,7 +264,8 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 				} 
 				// else inoculator
 				return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION2"), //$NON-NLS-1$
-						new Object[] { Double.valueOf(idc.getNumber()),
+						new Object[] { serializationFileNameField.getText(),
+										Double.valueOf(idc.getNumber()),
 										idc.getPopulation(), 
 										idc.getDiseaseName(),
 										GeographicNames.getReverseHierarchyName(idc.getIsoKey()), idc.getIsoKey() 
@@ -268,14 +273,17 @@ public class NewInfectorWizard extends NewIdentifiableWizard {
 			} else {
 				if(idc.isInfectorMode()) {
 					return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION_FROM_FILE"), //$NON-NLS-1$
-							new Object[] { idc.getImportFolder() 
+							new Object[] { serializationFileNameField.getText(),
+							idc.getImportFolder() 
 											});
 				} 
 				// else inoculator
 				return MessageFormat.format(DiseaseWizardMessages.getString("NInfectorWiz.DC_DESCRIPTION2_FROM_FILE"), //$NON-NLS-1$
-						new Object[] { idc.getImportFolder()  
+						new Object[] { serializationFileNameField.getText(),
+							idc.getImportFolder()  
 										});
 			}
+			*/
 		} // getDCDescription
 
 		@Override
