@@ -359,7 +359,9 @@ public class ErrorResultImpl extends EObjectImpl implements ErrorResult {
 		res.setError(this.getError());
 		res.setValidationError(this.getValidationError());
 		EList<Double>newlist = new BasicEList<Double>();
-		for(double d:this.getErrorByTimeStep())newlist.add(d);
+		if(this.getErrorByTimeStep()!=null) {
+			for(double d:this.getErrorByTimeStep())newlist.add(d);
+		}
 		res.setErrorByTimeStep(newlist);
 		return res;
 	}
