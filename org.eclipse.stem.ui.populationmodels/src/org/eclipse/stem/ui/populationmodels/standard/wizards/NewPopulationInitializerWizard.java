@@ -127,9 +127,11 @@ public class NewPopulationInitializerWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(PopulationModelWizardMessages
-					.getString("NPopulationInitializerWiz.DC_DESCRIPTION"), //$NON-NLS-1$
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+//			return MessageFormat.format(PopulationModelWizardMessages
+//					.getString("NPopulationInitializerWiz.DC_DESCRIPTION"), //$NON-NLS-1$
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 		@Override
