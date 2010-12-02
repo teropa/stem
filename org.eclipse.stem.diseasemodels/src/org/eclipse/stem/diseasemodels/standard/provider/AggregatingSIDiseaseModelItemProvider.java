@@ -75,10 +75,7 @@ public class AggregatingSIDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AggregatingSIDiseaseModel)object).getURI().lastSegment().toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AggregatingSIDiseaseModel_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 
 	/**

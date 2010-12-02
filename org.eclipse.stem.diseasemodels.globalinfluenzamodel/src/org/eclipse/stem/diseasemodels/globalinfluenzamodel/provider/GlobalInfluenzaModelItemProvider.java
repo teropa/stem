@@ -204,14 +204,11 @@ public class GlobalInfluenzaModelItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GlobalInfluenzaModel)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_GlobalInfluenzaModel_type") :
-			getString("_UI_GlobalInfluenzaModel_type") + " " + label;
+		return super.getText(object);
 	}
 	
 	/**

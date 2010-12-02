@@ -186,10 +186,7 @@ public class ForcingDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ForcingDiseaseModel)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ForcingDiseaseModel_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 
 	/**

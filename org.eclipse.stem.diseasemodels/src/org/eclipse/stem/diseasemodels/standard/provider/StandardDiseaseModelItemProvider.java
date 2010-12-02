@@ -242,14 +242,11 @@ public class StandardDiseaseModelItemProvider extends DiseaseModelItemProvider
 	 * @return
 	 * 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StandardDiseaseModel)object).getDiseaseName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StandardDiseaseModel_type") : //$NON-NLS-1$
-			getString("_UI_StandardDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 
 	/**

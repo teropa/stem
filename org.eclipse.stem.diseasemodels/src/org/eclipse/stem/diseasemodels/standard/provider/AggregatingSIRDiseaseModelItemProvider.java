@@ -75,10 +75,7 @@ public class AggregatingSIRDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AggregatingSIRDiseaseModel)object).getDiseaseName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AggregatingSIRDiseaseModel_type") : //$NON-NLS-1$
-			getString("_UI_AggregatingSIRDiseaseModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 
 	/**

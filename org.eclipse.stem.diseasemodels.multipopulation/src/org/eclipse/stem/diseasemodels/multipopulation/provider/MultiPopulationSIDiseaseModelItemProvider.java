@@ -221,10 +221,7 @@ public class MultiPopulationSIDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MultiPopulationSIDiseaseModel)object).getURI().lastSegment().toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_MultiPopulationSIDiseaseModel_type") :
-			label;
+		return super.getText(object);
 	}
 
 	/**

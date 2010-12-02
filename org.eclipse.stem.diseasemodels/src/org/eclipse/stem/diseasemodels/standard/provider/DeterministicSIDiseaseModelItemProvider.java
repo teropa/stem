@@ -79,10 +79,7 @@ public class DeterministicSIDiseaseModelItemProvider extends SIItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DeterministicSIDiseaseModel)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DeterministicSIDiseaseModel_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 	
 	/**

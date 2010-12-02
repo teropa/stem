@@ -254,14 +254,11 @@ public class InfectorItemProvider extends NodeDecoratorItemProvider implements
 	 * @return
 	 * 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Infector)object).getDiseaseName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Infector_type") : //$NON-NLS-1$
-			getString("_UI_Infector_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 
 	/**

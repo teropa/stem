@@ -79,10 +79,7 @@ public class StandardInfectorItemProvider extends InfectorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StandardInfector)object).getDiseaseName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StandardInfector_type") : //$NON-NLS-1$
-			getString("_UI_StandardInfector_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 
 	/**

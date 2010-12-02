@@ -180,10 +180,7 @@ public class MacdonaldRossDiseaseModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MacdonaldRossDiseaseModel)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_MacdonaldRossDiseaseModel_type") :
-			label;
+		return super.getText(object);
 	}
 
 	/**
