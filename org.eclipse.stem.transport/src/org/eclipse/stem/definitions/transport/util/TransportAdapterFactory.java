@@ -95,36 +95,12 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 	protected TransportSwitch<Adapter> modelSwitch =
 		new TransportSwitch<Adapter>() {
 			@Override
-			public Adapter caseLoadUnloadEdge(LoadUnloadEdge object) {
-				return createLoadUnloadEdgeAdapter();
-			}
-			@Override
-			public Adapter caseLoadUnloadEdgeLabel(LoadUnloadEdgeLabel object) {
-				return createLoadUnloadEdgeLabelAdapter();
-			}
-			@Override
-			public Adapter casePacketStyleTransportSystem(PacketStyleTransportSystem object) {
-				return createPacketStyleTransportSystemAdapter();
-			}
-			@Override
-			public Adapter casePacketTransportLabel(PacketTransportLabel object) {
-				return createPacketTransportLabelAdapter();
-			}
-			@Override
 			public Adapter casePipeStyleTransportSystem(PipeStyleTransportSystem object) {
 				return createPipeStyleTransportSystemAdapter();
 			}
 			@Override
 			public Adapter caseTransportSystem(TransportSystem object) {
 				return createTransportSystemAdapter();
-			}
-			@Override
-			public Adapter casePacketTransportLabelValue(PacketTransportLabelValue object) {
-				return createPacketTransportLabelValueAdapter();
-			}
-			@Override
-			public Adapter casePacketStyleTransportSystemDecorator(PacketStyleTransportSystemDecorator object) {
-				return createPacketStyleTransportSystemDecoratorAdapter();
 			}
 			@Override
 			public Adapter casePipeTransportEdge(PipeTransportEdge object) {
@@ -147,6 +123,10 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 				return createIdentifiableAdapter();
 			}
 			@Override
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
+			}
+			@Override
 			public Adapter caseModifiable(Modifiable object) {
 				return createModifiableAdapter();
 			}
@@ -159,10 +139,6 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 				return createPopulationEdgeAdapter();
 			}
 			@Override
-			public Adapter caseMigrationEdge(MigrationEdge object) {
-				return createMigrationEdgeAdapter();
-			}
-			@Override
 			public Adapter caseLabel(Label object) {
 				return createLabelAdapter();
 			}
@@ -171,36 +147,12 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 				return createEdgeLabelAdapter();
 			}
 			@Override
-			public Adapter caseMigrationEdgeLabel(MigrationEdgeLabel object) {
-				return createMigrationEdgeLabelAdapter();
-			}
-			@Override
-			public Adapter caseDynamicLabel(DynamicLabel object) {
-				return createDynamicLabelAdapter();
-			}
-			@Override
-			public Adapter caseNode(Node object) {
-				return createNodeAdapter();
-			}
-			@Override
-			public Adapter caseNodeLabel(NodeLabel object) {
-				return createNodeLabelAdapter();
-			}
-			@Override
 			public Adapter caseSanityChecker(SanityChecker object) {
 				return createSanityCheckerAdapter();
 			}
 			@Override
 			public Adapter caseLabelValue(LabelValue object) {
 				return createLabelValueAdapter();
-			}
-			@Override
-			public Adapter caseDecorator(Decorator object) {
-				return createDecoratorAdapter();
-			}
-			@Override
-			public Adapter caseEdgeDecorator(EdgeDecorator object) {
-				return createEdgeDecoratorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -221,62 +173,6 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.transport.LoadUnloadEdge <em>Load Unload Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.transport.LoadUnloadEdge
-	 * @generated
-	 */
-	public Adapter createLoadUnloadEdgeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.transport.LoadUnloadEdgeLabel <em>Load Unload Edge Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.transport.LoadUnloadEdgeLabel
-	 * @generated
-	 */
-	public Adapter createLoadUnloadEdgeLabelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.transport.PacketStyleTransportSystem <em>Packet Style Transport System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.transport.PacketStyleTransportSystem
-	 * @generated
-	 */
-	public Adapter createPacketStyleTransportSystemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.transport.PacketTransportLabel <em>Packet Transport Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.transport.PacketTransportLabel
-	 * @generated
-	 */
-	public Adapter createPacketTransportLabelAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.transport.PipeStyleTransportSystem <em>Pipe Style Transport System</em>}'.
@@ -303,34 +199,6 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTransportSystemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.transport.PacketTransportLabelValue <em>Packet Transport Label Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.transport.PacketTransportLabelValue
-	 * @generated
-	 */
-	public Adapter createPacketTransportLabelValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.transport.PacketStyleTransportSystemDecorator <em>Packet Style Transport System Decorator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.transport.PacketStyleTransportSystemDecorator
-	 * @generated
-	 */
-	public Adapter createPacketStyleTransportSystemDecoratorAdapter() {
 		return null;
 	}
 
@@ -447,20 +315,6 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.edges.MigrationEdge <em>Migration Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.edges.MigrationEdge
-	 * @generated
-	 */
-	public Adapter createMigrationEdgeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.graph.Label <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -489,34 +343,6 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.definitions.edges.MigrationEdgeLabel <em>Migration Edge Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.definitions.edges.MigrationEdgeLabel
-	 * @generated
-	 */
-	public Adapter createMigrationEdgeLabelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.graph.DynamicLabel <em>Dynamic Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.core.graph.DynamicLabel
-	 * @generated
-	 */
-	public Adapter createDynamicLabelAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.graph.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -527,20 +353,6 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNodeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.graph.NodeLabel <em>Node Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.core.graph.NodeLabel
-	 * @generated
-	 */
-	public Adapter createNodeLabelAdapter() {
 		return null;
 	}
 
@@ -569,34 +381,6 @@ public class TransportAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLabelValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.model.Decorator <em>Decorator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.core.model.Decorator
-	 * @generated
-	 */
-	public Adapter createDecoratorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.stem.core.model.EdgeDecorator <em>Edge Decorator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.stem.core.model.EdgeDecorator
-	 * @generated
-	 */
-	public Adapter createEdgeDecoratorAdapter() {
 		return null;
 	}
 

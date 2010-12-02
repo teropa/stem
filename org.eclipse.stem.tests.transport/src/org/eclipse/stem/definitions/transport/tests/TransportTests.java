@@ -40,13 +40,7 @@ public class TransportTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new TransportTests("transport Tests");
-		suite.addTestSuite(LoadUnloadEdgeTest.class);
-		suite.addTestSuite(LoadUnloadEdgeLabelTest.class);
-		suite.addTestSuite(PacketStyleTransportSystemTest.class);
-		suite.addTestSuite(PacketTransportLabelTest.class);
 		suite.addTestSuite(PipeStyleTransportSystemTest.class);
-		suite.addTestSuite(PacketTransportLabelValueTest.class);
-		suite.addTestSuite(PacketStyleTransportSystemDecoratorTest.class);
 		suite.addTestSuite(PipeTransportEdgeTest.class);
 		suite.addTestSuite(PipeTransportEdgeLabelTest.class);
 		suite.addTestSuite(PipeTransportEdgeLabelValueTest.class);

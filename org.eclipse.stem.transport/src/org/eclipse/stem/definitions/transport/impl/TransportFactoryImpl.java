@@ -65,13 +65,7 @@ public class TransportFactoryImpl extends EFactoryImpl implements TransportFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TransportPackage.LOAD_UNLOAD_EDGE: return createLoadUnloadEdge();
-			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL: return createLoadUnloadEdgeLabel();
-			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM: return createPacketStyleTransportSystem();
-			case TransportPackage.PACKET_TRANSPORT_LABEL: return createPacketTransportLabel();
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM: return createPipeStyleTransportSystem();
-			case TransportPackage.PACKET_TRANSPORT_LABEL_VALUE: return createPacketTransportLabelValue();
-			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM_DECORATOR: return createPacketStyleTransportSystemDecorator();
 			case TransportPackage.PIPE_TRANSPORT_EDGE: return createPipeTransportEdge();
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL: return createPipeTransportEdgeLabel();
 			case TransportPackage.PIPE_TRANSPORT_EDGE_LABEL_VALUE: return createPipeTransportEdgeLabelValue();
@@ -85,69 +79,9 @@ public class TransportFactoryImpl extends EFactoryImpl implements TransportFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoadUnloadEdge createLoadUnloadEdge() {
-		LoadUnloadEdgeImpl loadUnloadEdge = new LoadUnloadEdgeImpl();
-		return loadUnloadEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LoadUnloadEdgeLabel createLoadUnloadEdgeLabel() {
-		LoadUnloadEdgeLabelImpl loadUnloadEdgeLabel = new LoadUnloadEdgeLabelImpl();
-		return loadUnloadEdgeLabel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PacketStyleTransportSystem createPacketStyleTransportSystem() {
-		PacketStyleTransportSystemImpl packetStyleTransportSystem = new PacketStyleTransportSystemImpl();
-		return packetStyleTransportSystem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PacketTransportLabel createPacketTransportLabel() {
-		PacketTransportLabelImpl packetTransportLabel = new PacketTransportLabelImpl();
-		return packetTransportLabel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public PipeStyleTransportSystem createPipeStyleTransportSystem() {
 		PipeStyleTransportSystemImpl pipeStyleTransportSystem = new PipeStyleTransportSystemImpl();
 		return pipeStyleTransportSystem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PacketTransportLabelValue createPacketTransportLabelValue() {
-		PacketTransportLabelValueImpl packetTransportLabelValue = new PacketTransportLabelValueImpl();
-		return packetTransportLabelValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PacketStyleTransportSystemDecorator createPacketStyleTransportSystemDecorator() {
-		PacketStyleTransportSystemDecoratorImpl packetStyleTransportSystemDecorator = new PacketStyleTransportSystemDecoratorImpl();
-		return packetStyleTransportSystemDecorator;
 	}
 
 	/**

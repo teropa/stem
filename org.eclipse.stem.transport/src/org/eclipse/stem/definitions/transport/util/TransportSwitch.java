@@ -110,50 +110,6 @@ public class TransportSwitch<T1> {
 	 */
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TransportPackage.LOAD_UNLOAD_EDGE: {
-				LoadUnloadEdge loadUnloadEdge = (LoadUnloadEdge)theEObject;
-				T1 result = caseLoadUnloadEdge(loadUnloadEdge);
-				if (result == null) result = caseMigrationEdge(loadUnloadEdge);
-				if (result == null) result = casePopulationEdge(loadUnloadEdge);
-				if (result == null) result = caseEdge(loadUnloadEdge);
-				if (result == null) result = caseIdentifiable(loadUnloadEdge);
-				if (result == null) result = caseModifiable(loadUnloadEdge);
-				if (result == null) result = caseComparable(loadUnloadEdge);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransportPackage.LOAD_UNLOAD_EDGE_LABEL: {
-				LoadUnloadEdgeLabel loadUnloadEdgeLabel = (LoadUnloadEdgeLabel)theEObject;
-				T1 result = caseLoadUnloadEdgeLabel(loadUnloadEdgeLabel);
-				if (result == null) result = caseMigrationEdgeLabel(loadUnloadEdgeLabel);
-				if (result == null) result = caseDynamicLabel(loadUnloadEdgeLabel);
-				if (result == null) result = caseEdgeLabel(loadUnloadEdgeLabel);
-				if (result == null) result = caseLabel(loadUnloadEdgeLabel);
-				if (result == null) result = caseIdentifiable(loadUnloadEdgeLabel);
-				if (result == null) result = caseComparable(loadUnloadEdgeLabel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM: {
-				PacketStyleTransportSystem packetStyleTransportSystem = (PacketStyleTransportSystem)theEObject;
-				T1 result = casePacketStyleTransportSystem(packetStyleTransportSystem);
-				if (result == null) result = caseTransportSystem(packetStyleTransportSystem);
-				if (result == null) result = caseNode(packetStyleTransportSystem);
-				if (result == null) result = caseIdentifiable(packetStyleTransportSystem);
-				if (result == null) result = caseComparable(packetStyleTransportSystem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransportPackage.PACKET_TRANSPORT_LABEL: {
-				PacketTransportLabel packetTransportLabel = (PacketTransportLabel)theEObject;
-				T1 result = casePacketTransportLabel(packetTransportLabel);
-				if (result == null) result = caseNodeLabel(packetTransportLabel);
-				if (result == null) result = caseLabel(packetTransportLabel);
-				if (result == null) result = caseIdentifiable(packetTransportLabel);
-				if (result == null) result = caseComparable(packetTransportLabel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TransportPackage.PIPE_STYLE_TRANSPORT_SYSTEM: {
 				PipeStyleTransportSystem pipeStyleTransportSystem = (PipeStyleTransportSystem)theEObject;
 				T1 result = casePipeStyleTransportSystem(pipeStyleTransportSystem);
@@ -170,24 +126,6 @@ public class TransportSwitch<T1> {
 				if (result == null) result = caseNode(transportSystem);
 				if (result == null) result = caseIdentifiable(transportSystem);
 				if (result == null) result = caseComparable(transportSystem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransportPackage.PACKET_TRANSPORT_LABEL_VALUE: {
-				PacketTransportLabelValue packetTransportLabelValue = (PacketTransportLabelValue)theEObject;
-				T1 result = casePacketTransportLabelValue(packetTransportLabelValue);
-				if (result == null) result = caseLabelValue(packetTransportLabelValue);
-				if (result == null) result = caseSanityChecker(packetTransportLabelValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransportPackage.PACKET_STYLE_TRANSPORT_SYSTEM_DECORATOR: {
-				PacketStyleTransportSystemDecorator packetStyleTransportSystemDecorator = (PacketStyleTransportSystemDecorator)theEObject;
-				T1 result = casePacketStyleTransportSystemDecorator(packetStyleTransportSystemDecorator);
-				if (result == null) result = caseEdgeDecorator(packetStyleTransportSystemDecorator);
-				if (result == null) result = caseDecorator(packetStyleTransportSystemDecorator);
-				if (result == null) result = caseIdentifiable(packetStyleTransportSystemDecorator);
-				if (result == null) result = caseComparable(packetStyleTransportSystemDecorator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -225,66 +163,6 @@ public class TransportSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Load Unload Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Load Unload Edge</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseLoadUnloadEdge(LoadUnloadEdge object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Load Unload Edge Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Load Unload Edge Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseLoadUnloadEdgeLabel(LoadUnloadEdgeLabel object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Packet Style Transport System</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Packet Style Transport System</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 casePacketStyleTransportSystem(PacketStyleTransportSystem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Packet Transport Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Packet Transport Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 casePacketTransportLabel(PacketTransportLabel object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Pipe Style Transport System</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -311,36 +189,6 @@ public class TransportSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseTransportSystem(TransportSystem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Packet Transport Label Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Packet Transport Label Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 casePacketTransportLabelValue(PacketTransportLabelValue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Packet Style Transport System Decorator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Packet Style Transport System Decorator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 casePacketStyleTransportSystemDecorator(PacketStyleTransportSystemDecorator object) {
 		return null;
 	}
 
@@ -465,21 +313,6 @@ public class TransportSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Migration Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Migration Edge</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseMigrationEdge(MigrationEdge object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -510,36 +343,6 @@ public class TransportSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Migration Edge Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Migration Edge Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseMigrationEdgeLabel(MigrationEdgeLabel object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dynamic Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dynamic Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseDynamicLabel(DynamicLabel object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -551,21 +354,6 @@ public class TransportSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseNode(Node object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Node Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Node Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseNodeLabel(NodeLabel object) {
 		return null;
 	}
 
@@ -596,36 +384,6 @@ public class TransportSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseLabelValue(LabelValue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Decorator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Decorator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseDecorator(Decorator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Edge Decorator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Edge Decorator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEdgeDecorator(EdgeDecorator object) {
 		return null;
 	}
 

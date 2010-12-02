@@ -31,42 +31,6 @@ public interface TransportFactory extends EFactory {
 	TransportFactory eINSTANCE = org.eclipse.stem.definitions.transport.impl.TransportFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Load Unload Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Load Unload Edge</em>'.
-	 * @generated
-	 */
-	LoadUnloadEdge createLoadUnloadEdge();
-
-	/**
-	 * Returns a new object of class '<em>Load Unload Edge Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Load Unload Edge Label</em>'.
-	 * @generated
-	 */
-	LoadUnloadEdgeLabel createLoadUnloadEdgeLabel();
-
-	/**
-	 * Returns a new object of class '<em>Packet Style Transport System</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Packet Style Transport System</em>'.
-	 * @generated
-	 */
-	PacketStyleTransportSystem createPacketStyleTransportSystem();
-
-	/**
-	 * Returns a new object of class '<em>Packet Transport Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Packet Transport Label</em>'.
-	 * @generated
-	 */
-	PacketTransportLabel createPacketTransportLabel();
-
-	/**
 	 * Returns a new object of class '<em>Pipe Style Transport System</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,24 +38,6 @@ public interface TransportFactory extends EFactory {
 	 * @generated
 	 */
 	PipeStyleTransportSystem createPipeStyleTransportSystem();
-
-	/**
-	 * Returns a new object of class '<em>Packet Transport Label Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Packet Transport Label Value</em>'.
-	 * @generated
-	 */
-	PacketTransportLabelValue createPacketTransportLabelValue();
-
-	/**
-	 * Returns a new object of class '<em>Packet Style Transport System Decorator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Packet Style Transport System Decorator</em>'.
-	 * @generated
-	 */
-	PacketStyleTransportSystemDecorator createPacketStyleTransportSystemDecorator();
 
 	/**
 	 * Returns a new object of class '<em>Pipe Transport Edge</em>'.

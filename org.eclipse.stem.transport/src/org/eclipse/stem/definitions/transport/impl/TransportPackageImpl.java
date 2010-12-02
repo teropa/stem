@@ -27,12 +27,7 @@ import org.eclipse.stem.core.model.ModelPackage;
 
 import org.eclipse.stem.definitions.edges.EdgesPackage;
 
-import org.eclipse.stem.definitions.transport.LoadUnloadEdge;
-import org.eclipse.stem.definitions.transport.LoadUnloadEdgeLabel;
-import org.eclipse.stem.definitions.transport.PacketStyleTransportSystem;
-import org.eclipse.stem.definitions.transport.PacketStyleTransportSystemDecorator;
-import org.eclipse.stem.definitions.transport.PacketTransportLabel;
-import org.eclipse.stem.definitions.transport.PacketTransportLabelValue;
+
 import org.eclipse.stem.definitions.transport.PipeStyleTransportSystem;
 import org.eclipse.stem.definitions.transport.PipeTransportEdge;
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
@@ -53,34 +48,6 @@ public class TransportPackageImpl extends EPackageImpl implements TransportPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass loadUnloadEdgeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass loadUnloadEdgeLabelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass packetStyleTransportSystemEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass packetTransportLabelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass pipeStyleTransportSystemEClass = null;
 
 	/**
@@ -89,20 +56,6 @@ public class TransportPackageImpl extends EPackageImpl implements TransportPacka
 	 * @generated
 	 */
 	private EClass transportSystemEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass packetTransportLabelValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass packetStyleTransportSystemDecoratorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,105 +147,6 @@ public class TransportPackageImpl extends EPackageImpl implements TransportPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLoadUnloadEdge() {
-		return loadUnloadEdgeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLoadUnloadEdge_LoadingEdge() {
-		return (EAttribute)loadUnloadEdgeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLoadUnloadEdgeLabel() {
-		return loadUnloadEdgeLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLoadUnloadEdgeLabel_ActivationTime() {
-		return (EReference)loadUnloadEdgeLabelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLoadUnloadEdgeLabel_DeactivationTime() {
-		return (EReference)loadUnloadEdgeLabelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLoadUnloadEdgeLabel_ActivatedRate() {
-		return (EAttribute)loadUnloadEdgeLabelEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPacketStyleTransportSystem() {
-		return packetStyleTransportSystemEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPacketStyleTransportSystem_PacketTransportLabel() {
-		return (EReference)packetStyleTransportSystemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPacketStyleTransportSystem_LoadingEdges() {
-		return (EReference)packetStyleTransportSystemEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPacketStyleTransportSystem_UnloadingEdges() {
-		return (EReference)packetStyleTransportSystemEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPacketTransportLabel() {
-		return packetTransportLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPipeStyleTransportSystem() {
 		return pipeStyleTransportSystemEClass;
 	}
@@ -331,33 +185,6 @@ public class TransportPackageImpl extends EPackageImpl implements TransportPacka
 	 */
 	public EClass getTransportSystem() {
 		return transportSystemEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPacketTransportLabelValue() {
-		return packetTransportLabelValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPacketTransportLabelValue_Capacity() {
-		return (EAttribute)packetTransportLabelValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPacketStyleTransportSystemDecorator() {
-		return packetStyleTransportSystemDecoratorEClass;
 	}
 
 	/**
@@ -433,32 +260,12 @@ public class TransportPackageImpl extends EPackageImpl implements TransportPacka
 		isCreated = true;
 
 		// Create classes and their features
-		loadUnloadEdgeEClass = createEClass(LOAD_UNLOAD_EDGE);
-		createEAttribute(loadUnloadEdgeEClass, LOAD_UNLOAD_EDGE__LOADING_EDGE);
-
-		loadUnloadEdgeLabelEClass = createEClass(LOAD_UNLOAD_EDGE_LABEL);
-		createEReference(loadUnloadEdgeLabelEClass, LOAD_UNLOAD_EDGE_LABEL__ACTIVATION_TIME);
-		createEReference(loadUnloadEdgeLabelEClass, LOAD_UNLOAD_EDGE_LABEL__DEACTIVATION_TIME);
-		createEAttribute(loadUnloadEdgeLabelEClass, LOAD_UNLOAD_EDGE_LABEL__ACTIVATED_RATE);
-
-		packetStyleTransportSystemEClass = createEClass(PACKET_STYLE_TRANSPORT_SYSTEM);
-		createEReference(packetStyleTransportSystemEClass, PACKET_STYLE_TRANSPORT_SYSTEM__PACKET_TRANSPORT_LABEL);
-		createEReference(packetStyleTransportSystemEClass, PACKET_STYLE_TRANSPORT_SYSTEM__LOADING_EDGES);
-		createEReference(packetStyleTransportSystemEClass, PACKET_STYLE_TRANSPORT_SYSTEM__UNLOADING_EDGES);
-
-		packetTransportLabelEClass = createEClass(PACKET_TRANSPORT_LABEL);
-
 		pipeStyleTransportSystemEClass = createEClass(PIPE_STYLE_TRANSPORT_SYSTEM);
 		createEReference(pipeStyleTransportSystemEClass, PIPE_STYLE_TRANSPORT_SYSTEM__IN_TRANSPORT_EDGES);
 		createEReference(pipeStyleTransportSystemEClass, PIPE_STYLE_TRANSPORT_SYSTEM__OUT_TRANSPORT_EDGES);
 		createEAttribute(pipeStyleTransportSystemEClass, PIPE_STYLE_TRANSPORT_SYSTEM__MAX_CAPACITY);
 
 		transportSystemEClass = createEClass(TRANSPORT_SYSTEM);
-
-		packetTransportLabelValueEClass = createEClass(PACKET_TRANSPORT_LABEL_VALUE);
-		createEAttribute(packetTransportLabelValueEClass, PACKET_TRANSPORT_LABEL_VALUE__CAPACITY);
-
-		packetStyleTransportSystemDecoratorEClass = createEClass(PACKET_STYLE_TRANSPORT_SYSTEM_DECORATOR);
 
 		pipeTransportEdgeEClass = createEClass(PIPE_TRANSPORT_EDGE);
 
@@ -493,56 +300,28 @@ public class TransportPackageImpl extends EPackageImpl implements TransportPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		EdgesPackage theEdgesPackage = (EdgesPackage)EPackage.Registry.INSTANCE.getEPackage(EdgesPackage.eNS_URI);
-		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
-		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
+		EdgesPackage theEdgesPackage = (EdgesPackage)EPackage.Registry.INSTANCE.getEPackage(EdgesPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		loadUnloadEdgeEClass.getESuperTypes().add(theEdgesPackage.getMigrationEdge());
-		loadUnloadEdgeLabelEClass.getESuperTypes().add(theEdgesPackage.getMigrationEdgeLabel());
-		loadUnloadEdgeLabelEClass.getESuperTypes().add(theGraphPackage.getDynamicLabel());
-		packetStyleTransportSystemEClass.getESuperTypes().add(this.getTransportSystem());
-		packetTransportLabelEClass.getESuperTypes().add(theGraphPackage.getNodeLabel());
 		pipeStyleTransportSystemEClass.getESuperTypes().add(this.getTransportSystem());
 		transportSystemEClass.getESuperTypes().add(theGraphPackage.getNode());
-		packetTransportLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
-		packetStyleTransportSystemDecoratorEClass.getESuperTypes().add(theModelPackage.getEdgeDecorator());
 		pipeTransportEdgeEClass.getESuperTypes().add(theEdgesPackage.getPopulationEdge());
 		pipeTransportEdgeLabelEClass.getESuperTypes().add(theGraphPackage.getEdgeLabel());
 		pipeTransportEdgeLabelValueEClass.getESuperTypes().add(theGraphPackage.getLabelValue());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(loadUnloadEdgeEClass, LoadUnloadEdge.class, "LoadUnloadEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLoadUnloadEdge_LoadingEdge(), ecorePackage.getEBoolean(), "loadingEdge", "false", 0, 1, LoadUnloadEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(loadUnloadEdgeLabelEClass, LoadUnloadEdgeLabel.class, "LoadUnloadEdgeLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLoadUnloadEdgeLabel_ActivationTime(), theModelPackage.getSTEMTime(), null, "activationTime", null, 0, 1, LoadUnloadEdgeLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLoadUnloadEdgeLabel_DeactivationTime(), theModelPackage.getSTEMTime(), null, "deactivationTime", null, 0, 1, LoadUnloadEdgeLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLoadUnloadEdgeLabel_ActivatedRate(), ecorePackage.getEDouble(), "activatedRate", null, 0, 1, LoadUnloadEdgeLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(packetStyleTransportSystemEClass, PacketStyleTransportSystem.class, "PacketStyleTransportSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPacketStyleTransportSystem_PacketTransportLabel(), this.getPacketTransportLabel(), null, "packetTransportLabel", null, 0, 1, PacketStyleTransportSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPacketStyleTransportSystem_LoadingEdges(), this.getLoadUnloadEdge(), null, "loadingEdges", null, 0, -1, PacketStyleTransportSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPacketStyleTransportSystem_UnloadingEdges(), this.getLoadUnloadEdge(), null, "unloadingEdges", null, 0, -1, PacketStyleTransportSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(packetTransportLabelEClass, PacketTransportLabel.class, "PacketTransportLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(pipeStyleTransportSystemEClass, PipeStyleTransportSystem.class, "PipeStyleTransportSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPipeStyleTransportSystem_InTransportEdges(), this.getPipeTransportEdge(), null, "inTransportEdges", null, 0, -1, PipeStyleTransportSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPipeStyleTransportSystem_OutTransportEdges(), this.getPipeTransportEdge(), null, "outTransportEdges", null, 0, -1, PipeStyleTransportSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPipeStyleTransportSystem_MaxCapacity(), theEcorePackage.getEDouble(), "maxCapacity", null, 0, 1, PipeStyleTransportSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transportSystemEClass, TransportSystem.class, "TransportSystem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(packetTransportLabelValueEClass, PacketTransportLabelValue.class, "PacketTransportLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPacketTransportLabelValue_Capacity(), ecorePackage.getEDouble(), "capacity", null, 0, 1, PacketTransportLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(packetStyleTransportSystemDecoratorEClass, PacketStyleTransportSystemDecorator.class, "PacketStyleTransportSystemDecorator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pipeTransportEdgeEClass, PipeTransportEdge.class, "PipeTransportEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
