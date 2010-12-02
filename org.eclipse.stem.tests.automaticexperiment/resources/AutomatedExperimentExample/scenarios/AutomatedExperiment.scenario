@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.scenario:Scenario xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.scenario="http:///org/eclipse/stem/core/scenario.ecore" xmlns:org.eclipse.stem.core.sequencer="http:///org/eclipse/stem/core/sequencer.ecore" xmlns:org.eclipse.stem.solvers.rk="http:///org/eclipse/stem/solvers/rk" uRI="platform:/resource/AutomatedExperimentExample/scenarios/AutomatedExperiment.scenario" typeURI="stemtype://org.eclipse.stem/Scenario">
+  <dublinCore title="Scenario &quot;AutomatedExperiment&quot;" identifier="platform:/resource/AutomatedExperimentExample/scenarios/AutomatedExperiment.scenario" description="Scenario &quot;AutomatedExperiment&quot;" creator="edlund" format="http:///org/eclipse/stem/core/scenario.ecore" type="stemtype://org.eclipse.stem/Scenario" created="2010-09-01"/>
+  <model href="platform:/resource/AutomatedExperimentExample/models/Model1.model#/"/>
+  <sequencer xsi:type="org.eclipse.stem.core.sequencer:SequentialSequencer" href="platform:/resource/AutomatedExperimentExample/sequencers/Sequencer.sequencer#/"/>
+  <scenarioDecorators href="platform:/resource/AutomatedExperimentExample/decorators/SIRInoculator.standard#/"/>
+  <scenarioDecorators href="platform:/resource/AutomatedExperimentExample/decorators/SIRInfector.standard#/"/>
+  <solver xsi:type="org.eclipse.stem.solvers.rk:RungeKutta" uRI="stem://org.eclipse.stem/RungeKuttaSolver/DFCBB61C1C56C592" typeURI="stemtype://org.eclipse.stem/Solver">
+    <dublinCore identifier="stem://org.eclipse.stem/RungeKuttaSolver/DFCBB61C1C56C592" type="stemtype://org.eclipse.stem/Solver"/>
+  </solver>
+</org.eclipse.stem.core.scenario:Scenario>
