@@ -74,6 +74,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 	 */
 	@Override
 	protected DublinCorePage createDublinCorePage() {
+		
 		return new DublinCorePage() {
 			@Override
 			protected void initializeDCAttributes() {
@@ -98,6 +99,7 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 				source.setEnabled(true);
 				date.setText(dateStr);
 				date.setEnabled(true);
+
 				
 			}
 		};
@@ -150,9 +152,11 @@ public class NewGraphWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(Messages
-					.getString("NGGWiz.DC_DESCRIPTION"), //$NON-NLS-1$
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+//			return MessageFormat.format(Messages
+//					.getString("NGraphWiz.DC_DESCRIPTION"), //$NON-NLS-1$
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 		@Override
