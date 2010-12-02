@@ -15,10 +15,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.stem.core.graph.GraphPackage;
-
-import org.eclipse.stem.core.model.ModelPackage;
 import org.eclipse.stem.definitions.edges.EdgesPackage;
 
 /**

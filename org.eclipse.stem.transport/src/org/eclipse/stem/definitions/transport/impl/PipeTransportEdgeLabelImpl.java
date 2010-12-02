@@ -12,9 +12,7 @@ package org.eclipse.stem.definitions.transport.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.stem.core.graph.impl.EdgeLabelImpl;
-
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
 import org.eclipse.stem.definitions.transport.TransportPackage;
 

@@ -12,7 +12,6 @@ package org.eclipse.stem.definitions.transport;
  *******************************************************************************/
 
 import org.eclipse.stem.definitions.edges.PopulationEdge;
-import org.eclipse.stem.core.graph.Edge;
 
 /**
  * <!-- begin-user-doc -->

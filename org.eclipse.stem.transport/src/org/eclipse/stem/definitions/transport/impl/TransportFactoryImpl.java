@@ -14,12 +14,14 @@ package org.eclipse.stem.definitions.transport.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.stem.definitions.transport.*;
+import org.eclipse.stem.definitions.transport.PipeStyleTransportSystem;
+import org.eclipse.stem.definitions.transport.PipeTransportEdge;
+import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
+import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
+import org.eclipse.stem.definitions.transport.TransportFactory;
+import org.eclipse.stem.definitions.transport.TransportPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -13,30 +13,23 @@ package org.eclipse.stem.definitions.transport.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.stem.core.common.Identifiable;
-
 import org.eclipse.stem.core.common.SanityChecker;
-import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Edge;
 import org.eclipse.stem.core.graph.EdgeLabel;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
-
-import org.eclipse.stem.core.graph.NodeLabel;
-import org.eclipse.stem.core.model.Decorator;
-import org.eclipse.stem.core.model.EdgeDecorator;
 import org.eclipse.stem.core.modifier.Modifiable;
-import org.eclipse.stem.definitions.edges.MigrationEdge;
-import org.eclipse.stem.definitions.edges.MigrationEdgeLabel;
-
 import org.eclipse.stem.definitions.edges.PopulationEdge;
-import org.eclipse.stem.definitions.transport.*;
+import org.eclipse.stem.definitions.transport.PipeStyleTransportSystem;
+import org.eclipse.stem.definitions.transport.PipeTransportEdge;
+import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
+import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
+import org.eclipse.stem.definitions.transport.TransportPackage;
+import org.eclipse.stem.definitions.transport.TransportSystem;
 
 /**
  * <!-- begin-user-doc -->

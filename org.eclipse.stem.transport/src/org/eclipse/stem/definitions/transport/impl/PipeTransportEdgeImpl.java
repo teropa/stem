@@ -12,11 +12,8 @@ package org.eclipse.stem.definitions.transport.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.stem.definitions.edges.impl.PopulationEdgeImpl;
 import org.eclipse.stem.core.STEMURI;
-import org.eclipse.stem.core.graph.impl.EdgeImpl;
-
+import org.eclipse.stem.definitions.edges.impl.PopulationEdgeImpl;
 import org.eclipse.stem.definitions.transport.PipeTransportEdge;
 import org.eclipse.stem.definitions.transport.TransportFactory;
 import org.eclipse.stem.definitions.transport.TransportPackage;

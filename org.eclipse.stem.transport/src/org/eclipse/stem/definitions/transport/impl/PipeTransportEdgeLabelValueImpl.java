@@ -12,13 +12,9 @@ package org.eclipse.stem.definitions.transport.impl;
  *******************************************************************************/
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.stem.core.graph.impl.LabelValueImpl;
-
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
 import org.eclipse.stem.definitions.transport.TransportPackage;
 

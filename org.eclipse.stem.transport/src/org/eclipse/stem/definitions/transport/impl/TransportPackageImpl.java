@@ -15,19 +15,10 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-//import org.eclipse.stem.core.common.CommonPackage;
-
 import org.eclipse.stem.core.graph.GraphPackage;
-
-import org.eclipse.stem.core.model.ModelPackage;
-
 import org.eclipse.stem.definitions.edges.EdgesPackage;
-
-
 import org.eclipse.stem.definitions.transport.PipeStyleTransportSystem;
 import org.eclipse.stem.definitions.transport.PipeTransportEdge;
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabel;
