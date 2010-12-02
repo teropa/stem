@@ -119,9 +119,11 @@ public class NewModelWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(Messages
-					.getString("NModelWiz.DC_DESCRIPTION"),
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+//			return MessageFormat.format(Messages
+//					.getString("NModelWiz.DC_DESCRIPTION"),
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 	} // NewModelPage

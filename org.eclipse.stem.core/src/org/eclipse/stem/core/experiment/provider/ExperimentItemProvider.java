@@ -156,10 +156,7 @@ public class ExperimentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Experiment)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Experiment_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 	
 	/**

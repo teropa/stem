@@ -17,7 +17,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -26,7 +25,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.core.common.provider.IdentifiableItemProvider;
-import org.eclipse.stem.core.predicate.IdentifiablePredicate;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.stem.core.predicate.IdentifiablePredicate} object.
@@ -71,15 +69,11 @@ public class IdentifiablePredicateItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		URI labelValue = ((IdentifiablePredicate)object).getURI();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_IdentifiablePredicate_type") : //$NON-NLS-1$
-			getString("_UI_IdentifiablePredicate_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return super.getText(object);
 	}
 
 	/**

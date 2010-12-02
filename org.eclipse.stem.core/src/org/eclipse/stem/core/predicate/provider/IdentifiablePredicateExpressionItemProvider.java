@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.provider.IdentifiableItemProvider;
 import org.eclipse.stem.core.predicate.IdentifiablePredicateExpression;
 import org.eclipse.stem.core.predicate.PredicateFactory;
@@ -130,7 +129,7 @@ public class IdentifiablePredicateExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return ((Identifiable)object).getURI().lastSegment();
+		return super.getText(object);
 	}
 	
 	/**

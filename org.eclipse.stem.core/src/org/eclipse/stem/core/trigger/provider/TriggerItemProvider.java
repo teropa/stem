@@ -139,11 +139,8 @@ public class TriggerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Trigger)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Trigger_type") : //$NON-NLS-1$
-			label; //$NON-NLS-1$ //$NON-NLS-2$
-	}
+		return super.getText(object);
+		}
 	
 	/**
 	 * This returns the label text for the adapted class.

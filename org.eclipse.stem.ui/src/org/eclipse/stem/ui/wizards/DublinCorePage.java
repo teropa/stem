@@ -378,10 +378,12 @@ public class DublinCorePage extends WizardPage {
 		setErrorMessage(null);
 
 		// Is there a title?
-		if (title.getText() == null || title.getText().equals("")) { //$NON-NLS-1$
-			setErrorMessage(Messages.getString("NDublinCore.titleErr")); //$NON-NLS-1$
-			retValue = false;
-		} // if title
+		
+		// Title not mandatory any longer
+//		if (title.getText() == null || title.getText().equals("")) { //$NON-NLS-1$
+//			setErrorMessage(Messages.getString("NDublinCore.titleErr")); //$NON-NLS-1$
+//			retValue = false;
+//		} // if title
 
 		// Is there a created date?
 		if (retValue == true

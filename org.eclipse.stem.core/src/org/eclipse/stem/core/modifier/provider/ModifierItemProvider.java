@@ -28,9 +28,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.stem.core.common.Identifiable;
 import org.eclipse.stem.core.common.provider.CoreEditPlugin;
 import org.eclipse.stem.core.model.provider.DecoratorItemProvider;
+//import org.eclipse.stem.core.common.provider.IdentifiableItemProvider;
 import org.eclipse.stem.core.modifier.Modifier;
 import org.eclipse.stem.core.modifier.ModifierPackage;
 
@@ -163,8 +163,7 @@ public class ModifierItemProvider extends DecoratorItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		final String title = ((Identifiable)object).getURI().lastSegment();
-		return title;
+		return super.getText(object);
 	}
 
 	/**

@@ -445,7 +445,9 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 			 */
 			@Override
 			protected String getDCTitle() {
-				String retValue = null;
+				// Leave description/title blank
+				return "";
+/*				String retValue = null;
 				final String startDateString = DublinCoreImpl
 						.createISO8601DateString(getStartDate());
 				final Date endDate = getEndDate();
@@ -457,17 +459,16 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 					// Yes
 					retValue = MessageFormat.format(Messages
 							.getString("NSeqSequencerWiz.DC_TITLE1"),
-							new Object[] { startDateString, endDateString,
-									getCycleDurationDescription() });
+							new Object[] { serializationFileNameField.getText() });
 				} // if end date
 				else {
 					// No
 					retValue = MessageFormat.format(Messages
 							.getString("NSeqSequencerWiz.DC_TITLE2"),
-							new Object[] { startDateString,
-									getCycleDurationDescription() });
+							new Object[] { serializationFileNameField.getText()});
 				} // else
 				return retValue;
+*/
 			} // getDCTitle
 
 			/**
@@ -487,14 +488,14 @@ abstract public class NewSequentialSequencerWizard extends NewSequencerWizard {
 					// Yes
 					retValue = MessageFormat.format(Messages
 							.getString("NSeqSequencerWiz.DC_DESCRIPTION1"),
-							new Object[] { startDateString, endDateString,
+							new Object[] { serializationFileNameField.getText(), startDateString, endDateString,
 									getCycleDurationDescription() });
 				} // if end date
 				else {
 					// No
 					retValue = MessageFormat.format(Messages
 							.getString("NSeqSequencerWiz.DC_DESCRIPTION2"),
-							new Object[] { startDateString,
+							new Object[] { serializationFileNameField.getText(), startDateString,
 									getCycleDurationDescription() });
 				} // else
 

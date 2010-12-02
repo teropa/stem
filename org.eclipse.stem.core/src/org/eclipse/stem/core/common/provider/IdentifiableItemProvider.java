@@ -197,7 +197,7 @@ public class IdentifiableItemProvider
 		// Was a title specified?
 		if (title != null && !title.equals("")) {
 			// Yes
-			return title;
+			return identifiable.getURI().lastSegment()+" "+title;
 		}
 		else {
 			return identifiable.getURI().lastSegment();

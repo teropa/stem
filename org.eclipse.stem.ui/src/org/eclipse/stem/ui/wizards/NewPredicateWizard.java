@@ -118,9 +118,11 @@ public class NewPredicateWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(Messages
-					.getString("NPredicateWiz.DC_DESCRIPTION"),
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+//			return MessageFormat.format(Messages
+//					.getString("NPredicateWiz.DC_DESCRIPTION"),
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 	} // NewPredicatePage

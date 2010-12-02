@@ -194,9 +194,12 @@ public class NewScenarioWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(Messages
-					.getString("NScenarioWiz.DC_DESCRIPTION"),
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+			
+//			return MessageFormat.format(Messages
+//					.getString("NScenarioWiz.DC_DESCRIPTION"),
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 		/**

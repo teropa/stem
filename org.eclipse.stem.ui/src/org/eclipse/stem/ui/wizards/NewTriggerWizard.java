@@ -119,9 +119,11 @@ public class NewTriggerWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(Messages
-					.getString("NTriggerWiz.DC_DESCRIPTION"),
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+//			return MessageFormat.format(Messages
+//					.getString("NTriggerWiz.DC_DESCRIPTION"),
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 	} // NewTriggerPage

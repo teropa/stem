@@ -88,6 +88,7 @@ public class NewExperimentWizard extends NewIdentifiableWizard {
 	@Override
 	protected Identifiable createIdentifiable() {
 		Identifiable retValue = ExperimentFactory.eINSTANCE.createExperiment();
+		retValue.setDublinCore(newDublinCorePage.createDublinCore());
 		return retValue;
 	} // createSpecificIdentifiable
 
@@ -127,9 +128,11 @@ public class NewExperimentWizard extends NewIdentifiableWizard {
 		 */
 		@Override
 		protected String getDCDescription() {
-			return MessageFormat.format(Messages
-					.getString("NExperimentWiz.DC_DESCRIPTION"),
-					new Object[] { serializationFileNameField.getText() });
+			// Leave description/title blank
+			return "";
+//			return MessageFormat.format(Messages
+//					.getString("NExperimentWiz.DC_DESCRIPTION"),
+//					new Object[] { serializationFileNameField.getText() });
 		} // getDCDescription
 
 	} // NewExperimentPage
