@@ -7,11 +7,10 @@
 package org.eclipse.stem.definitions.transport.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
+import org.eclipse.stem.definitions.transport.PipeTransportEdge;
 import org.eclipse.stem.definitions.transport.PipeTransportEdgeLabelValue;
-import org.eclipse.stem.definitions.transport.TransportFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,15 +68,33 @@ public class PipeTransportEdgeLabelValueTest extends TestCase {
 	}
 
 	/**
+	 * create the fixture
+	 **/
+	private static PipeTransportEdgeLabelValue createFixture() {
+		PipeTransportEdge edge = PipeTransportEdgeTest.createFixture();
+		PipeTransportEdgeLabelValue  edgeLabelValue = (PipeTransportEdgeLabelValue)edge.getLabel().getCurrentValue();
+					
+		return edgeLabelValue;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TransportFactory.eINSTANCE.createPipeTransportEdgeLabelValue());
+		setFixture(createFixture());
 	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public void testPipeTransportEdgeLabelValue() {
+		assertTrue(getFixture().sane());
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
