@@ -71,4 +71,8 @@ public class MosquitoPopulationModelTest extends PopulationModelTest {
 		setFixture(null);
 	}
 
+	public void testMosquitoPopModel() {
+		// ToDO: Implement
+		assert(true);
+	}
 } //MosquitoPopulationModelTest

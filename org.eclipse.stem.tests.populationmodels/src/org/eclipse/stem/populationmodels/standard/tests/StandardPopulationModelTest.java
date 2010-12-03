@@ -6,10 +6,20 @@
  */
 package org.eclipse.stem.populationmodels.standard.tests;
 
+import java.util.Map;
+
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.stem.core.graph.NodeLabel;
+import org.eclipse.stem.core.model.Model;
+import org.eclipse.stem.core.scenario.Scenario;
+import org.eclipse.stem.definitions.labels.PopulationLabel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
+import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +29,12 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModel;
  */
 public class StandardPopulationModelTest extends PopulationModelTest {
 
+	public final double BIRTH_RATE = 0.1;
+	public final double DEATH_RATE = 0.05;
+	public final double EXPECTED_COUNT  = 10.5;
+	public final double EXPECTED_BIRTHS  = 1.0;
+	public final double EXPECTED_DEATHS  = 0.5;
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,6 +85,53 @@ public class StandardPopulationModelTest extends PopulationModelTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+	
+	public void testStandardPopulationModel() {
+		Scenario scenario = createScenario();
+		
+		StandardPopulationModel popModel = StandardFactory.eINSTANCE.createStandardPopulationModel();
+		
+		Model m = scenario.getModel();
+		
+		popModel.setBirthRate(BIRTH_RATE);
+		popModel.setDeathRate(DEATH_RATE);
+	
+		m.getNodeDecorators().add(popModel);
+		
+		scenario.initialize();
+		
+		scenario.getSolver().setDecorators(scenario.getCanonicalGraph().getDecorators());
+		
+		assertTrue(scenario.getCanonicalGraph().getNodeLabels().size() == 2);
+		
+		PopulationModelLabel pml = null;
+		
+		// Make sure the population model label is there
+		for(Map.Entry<URI, NodeLabel> entry:scenario.getCanonicalGraph().getNodeLabels().entrySet()) {		
+			NodeLabel nl = entry.getValue();
+			if(nl instanceof PopulationModelLabel) {pml = (PopulationModelLabel)nl;break;}
+		}
+		
+		assertNotNull(pml);
+		
+		// Make sure the number matches the expected
+		StandardPopulationModelLabelValue value = ((StandardPopulationModelLabelValue)pml.getCurrentValue());
+		
+		assertTrue(value.getCount() == individuals);
+		assertTrue(pml.getPopulationIdentifier().equals(populationIdentifier));
+		
+		// Now step
+		
+		assertTrue(scenario.step());
+		
+		// Check that the count/births/deaths match
+		value = ((StandardPopulationModelLabelValue)pml.getCurrentValue());
+		assertTrue(value.getCount() == EXPECTED_COUNT);
+		assertTrue(value.getBirths() == EXPECTED_BIRTHS);
+		assertTrue(value.getDeaths() == EXPECTED_DEATHS);
+		
+		// 
 	}
 
 } //StandardPopulationModelTest

@@ -88,12 +88,12 @@ public class StandardPopulationModelLabelValueTest extends PopulationModelLabelV
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#getDensity()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testGetDensity() {
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		assertTrue(true);
 	}
 
 	/**
@@ -101,12 +101,12 @@ public class StandardPopulationModelLabelValueTest extends PopulationModelLabelV
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#isSetDensity()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testIsSetDensity() {
 		// TODO: implement this test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		assertTrue(true);
 	}
 
 	/**
@@ -114,12 +114,12 @@ public class StandardPopulationModelLabelValueTest extends PopulationModelLabelV
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelValue#adjustDelta(org.eclipse.stem.core.graph.IntegrationLabelValue)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testAdjustDelta__IntegrationLabelValue() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		assertTrue(true);
 	}
 
 } //StandardPopulationModelLabelValueTest

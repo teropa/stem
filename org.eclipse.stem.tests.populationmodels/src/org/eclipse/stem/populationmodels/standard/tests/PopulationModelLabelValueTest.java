@@ -90,4 +90,7 @@ public class PopulationModelLabelValueTest extends TestCase {
 		setFixture(null);
 	}
 
+	public void testPopulationModelLabelValue() {
+		assertTrue(true);
+	}
 } //PopulationModelLabelValueTest

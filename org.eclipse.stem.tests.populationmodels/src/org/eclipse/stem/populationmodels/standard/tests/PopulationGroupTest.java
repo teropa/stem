@@ -90,4 +90,8 @@ public class PopulationGroupTest extends TestCase {
 		setFixture(null);
 	}
 
+	public void testPopulationGroup() {
+		// TODO: Implement test
+		assertTrue(true);
+	}
 } //PopulationGroupTest

@@ -42,11 +42,12 @@ public class YetiPopulationInitializerTest extends EarthSciencePopulationInitial
 	 * Returns the fixture for this Yeti Population Initializer test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected YetiPopulationInitializer getFixture() {
-		return (YetiPopulationInitializer)fixture;
+		YetiPopulationInitializer retValue = StandardFactory.eINSTANCE.createYetiPopulationInitializer();
+		return retValue;
 	}
 
 	/**
@@ -71,4 +72,9 @@ public class YetiPopulationInitializerTest extends EarthSciencePopulationInitial
 		setFixture(null);
 	}
 
+	
+	public void testInitializeRegion() {
+		// TODO: Implement test
+		assertTrue(true);
+	}
 } //YetiPopulationInitializerTest

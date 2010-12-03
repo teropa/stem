@@ -10,6 +10,9 @@ import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.stem.definitions.labels.PopulationLabel;
+import org.eclipse.stem.definitions.labels.impl.PopulationLabelImpl;
+import org.eclipse.stem.definitions.nodes.Region;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 
@@ -90,4 +93,14 @@ public class PopulationModelLabelTest extends TestCase {
 		setFixture(null);
 	}
 
+	protected static void labelRegion(final PopulationModelLabel popLabel,
+			final Region region) {
+		popLabel.setURIOfIdentifiableToBeLabeled(region.getURI());
+		region.getLabels().add(popLabel);
+	} // labelRegion
+	
+	public void testPopulationModelLabel() {
+		// TODO: Implement test
+		assertTrue(true);
+	}
 } //PopulationModelLabelTest

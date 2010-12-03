@@ -14,5 +14,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.definitions;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.junit;visibility:=reexport
+ org.junit;visibility:=reexport,
+ org.eclipse.stem.solvers.fd;bundle-version="1.1.0"
 Bundle-ActivationPolicy: lazy

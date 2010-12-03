@@ -8,6 +8,8 @@ package org.eclipse.stem.populationmodels.standard.tests;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.stem.definitions.nodes.Region;
+import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.StandardFactory;
 import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabel;
 
@@ -71,4 +73,8 @@ public class StandardPopulationModelLabelTest extends PopulationModelLabelTest {
 		setFixture(null);
 	}
 
+	public void testStandardPopulationModelLabel() {
+		// TODO: Implement test
+		assertTrue(true);
+	}
 } //StandardPopulationModelLabelTest
