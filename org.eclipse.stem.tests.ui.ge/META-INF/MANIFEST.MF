@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ge
+Bundle-SymbolicName: org.eclipse.stem.tests.ui.ge
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.stem.tests.ui.ge.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.stem.ui.ge,
+ org.eclipse.stem.definitions,
+ org.junit,
+ org.eclipse.help.ui,
+ org.eclipse.stem.jobs;bundle-version="1.1.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
