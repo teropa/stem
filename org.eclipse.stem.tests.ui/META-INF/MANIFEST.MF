@@ -11,5 +11,7 @@ Require-Bundle: org.eclipse.stem.tests.util,
  org.eclipse.stem.ui,
  org.eclipse.stem.definitions,
  org.eclipse.stem.data.geography
-Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.stem.tests.ui,
+ org.eclipse.stem.ui.views.map
