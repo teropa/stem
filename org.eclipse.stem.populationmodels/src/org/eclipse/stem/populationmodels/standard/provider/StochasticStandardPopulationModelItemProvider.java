@@ -111,10 +111,7 @@ public class StochasticStandardPopulationModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StochasticStandardPopulationModel)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StochasticStandardPopulationModel_type") :
-			label;
+		return super.getText(object);
 	}
 
 	/**

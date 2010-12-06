@@ -140,10 +140,7 @@ public class DemographicPopulationModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DemographicPopulationModel)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DemographicPopulationModel_type") :
-			label;
+		return super.getText(object);
 	}
 	
 	/**

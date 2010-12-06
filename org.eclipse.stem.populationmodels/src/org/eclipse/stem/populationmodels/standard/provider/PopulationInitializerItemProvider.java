@@ -132,15 +132,11 @@ public class PopulationInitializerItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		URI labelValue = ((PopulationInitializer)object).getURI();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_PopulationInitializer_type") :
-			getString("_UI_PopulationInitializer_type") + " " + label;
+		return super.getText(object);
 	}
 
 	/**

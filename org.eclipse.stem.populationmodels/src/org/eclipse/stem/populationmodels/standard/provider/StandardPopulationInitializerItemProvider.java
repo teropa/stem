@@ -134,10 +134,7 @@ public class StandardPopulationInitializerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StandardPopulationInitializer)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StandardPopulationInitializer_type") :
-			label;
+		return super.getText(object);
 	}
 
 	/**

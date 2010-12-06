@@ -157,10 +157,7 @@ public class StandardPopulationModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StandardPopulationModel)object).getURI().lastSegment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StandardPopulationModel_type") :
-			label;
+		return super.getText(object);
 	}
 
 	/**
