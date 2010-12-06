@@ -17,6 +17,8 @@ import java.util.EventObject;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Graph;
@@ -483,7 +485,14 @@ public class PropertySelector extends Composite {
 		if (decorators != null) {
 			// Yes
 			for (final Decorator decorator : decorators) {
-				retValue.add(decorator.getDublinCore().getTitle());
+				final ComposedAdapterFactory itemProviderFactory = new ComposedAdapterFactory(
+						ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+				final IItemLabelProvider lp = (IItemLabelProvider) itemProviderFactory.adapt(
+						decorator, IItemLabelProvider.class);
+				String title = lp.getText(decorator);
+				title = title == null ? "null" : title;
+				retValue.add(title);
 			} // for each decorator
 		} // if
 		return retValue.toArray(new String[] {});
