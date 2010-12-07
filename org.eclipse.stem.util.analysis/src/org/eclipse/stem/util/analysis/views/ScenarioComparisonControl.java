@@ -49,15 +49,18 @@ public class ScenarioComparisonControl extends AnalysisControl {
 	
 	/**
 	 * used to identify user preferences for this class
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String CONSUMER = "SCENARIOCOMPARISON_CONTROL";
 	
 	/**
 	 * used to remember the primary directory in the user preferences
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String PRIMARY_FOLDER_KEY = CONSUMER+"_PRIMARY";
 	/**
 	 * used to remember the secondary directory in the user preferences
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String SECONDARY_FOLDER_KEY = CONSUMER+"_SECONDARY";
 
@@ -336,7 +339,7 @@ public class ScenarioComparisonControl extends AnalysisControl {
 				comparisonValues.clear();
 				timeSeriesCanvas.draw();
 				// reinitialize the status label
-				statusLabel.setText(AnalysisControl.STATUS_TEXT);
+				statusLabel.setText(Messages.getString("COMMON.STATUS"));
 				
 				
 				String referenceDirectory  = text1.getText();
@@ -464,7 +467,7 @@ public class ScenarioComparisonControl extends AnalysisControl {
 	
 
 	protected void updateStatusLabel() {
-		statusLabel.setText(AnalysisControl.STATUS_TEXT);
+		statusLabel.setText(Messages.getString("COMMON.STATUS"));
 	}
 	
 	

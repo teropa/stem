@@ -235,7 +235,7 @@ public class XYSeriesCanvas extends Canvas {
 		try {
 			idr = PluginSettings.instance().getDevice("dv.SWT"); //$NON-NLS-1$			
 		} catch (final ChartException pex) {
-			Activator.logError("Problem initializing chart", pex); //$NON-NLS-1$
+			Activator.logError(Messages.getString("COMMON.ERRORINIT"), pex); //$NON-NLS-1$
 			return;
 		}
 
@@ -310,7 +310,7 @@ public class XYSeriesCanvas extends Canvas {
 		try {
 			idr = PluginSettings.instance().getDevice("dv.SWT"); //$NON-NLS-1$			
 		} catch (final ChartException pex) {
-			Activator.logError("Problem initializing chart", pex); //$NON-NLS-1$
+			Activator.logError(Messages.getString("COMMON.ERRORINIT"), pex); //$NON-NLS-1$
 			return;
 		}
 
@@ -342,7 +342,7 @@ public class XYSeriesCanvas extends Canvas {
 							null, null, null));
 					pe.gc.drawImage(imgChart, d.x, d.y);
 				} catch (final ChartException ce) {
-					Activator.logError("Problem rendering chart", ce); //$NON-NLS-1$
+					Activator.logError(Messages.getString("COMMON.ERRORINIT"), ce); //$NON-NLS-1$
 				}
 			} // paintControl
 		} // PaintListener

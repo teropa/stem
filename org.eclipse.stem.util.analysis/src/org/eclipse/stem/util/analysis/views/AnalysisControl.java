@@ -42,8 +42,6 @@ abstract public class AnalysisControl extends Composite  {
 	 */
 	MonitorPreferences prefs = new MonitorPreferences();
 
-	protected static final String CLEAR_TEXT = "clear monitors";
-
 	protected Label simulationNameLabel;
 
 	/**
@@ -51,17 +49,35 @@ abstract public class AnalysisControl extends Composite  {
 	 */
 	static final String ROOT_PATH =  Platform.getLocation().toOSString();
 	
-	/**
-	 * Status text
-	 */
-	public static final String STATUS_TEXT = "status";
-	
+		
 	protected static Map<String,Object> controlParametersMap = new HashMap<String,Object>();
 	
 	/** 
 	 * a string for setting user feedback messages
 	 */
 	protected String userMessage = "";
+	
+	/**
+	 * NLS'd String
+	 */
+	public static final String INCIDENCE   = Messages.getString("COMMON.INCIDENCE");
+	/**
+	 * NLS'd String
+	 */
+	public static final String DELTABIRTHS = Messages.getString("COMMON.DELTABIRTHS");
+	/**
+	 * NLS'd String
+	 */
+	public static final String DELTADEATHS = Messages.getString("COMMON.DELTADEATHS");
+	/**
+	 * NLS'd String
+	 */
+	public static final String TIME        = Messages.getString("COMMON.TIME");
+	/**
+	 * NLS'd String
+	 */
+	public static final String ITERATION   = Messages.getString("COMMON.ITERATION");
+	
 	
 	/**
 	 * a label to display messages

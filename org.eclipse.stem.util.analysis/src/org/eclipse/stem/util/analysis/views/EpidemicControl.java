@@ -56,21 +56,25 @@ public class EpidemicControl extends AnalysisControl {
 	
 	/**
 	 * used to identify user preferences for this class
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String CONSUMER = "EPIDEMIC_CONTROL";
 	
 	/**
 	 * used to remember the aggregate directory in the user preferences
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String AGGREGATE_FOLDER_KEY = CONSUMER+"_AGGREGATE";
 	
 	/**
 	 * used to remember the reference directory in the user preferences
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String REFERENCE_FOLDER_KEY = CONSUMER+"_REFERENCE";
 	
 	/**
 	 * used to remember the incidence directory in the user preferences
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String INCIDENCE_FOLDER_KEY = CONSUMER+"_INCIDENCE";
 
@@ -138,10 +142,13 @@ public class EpidemicControl extends AnalysisControl {
 	/**
      * possible states with parameters to fit
      */
-	protected static final String[] incidenceStates = {"Incidence","deltaBirths","deltaDeaths"};
+	protected static final String[] incidenceStates = {AnalysisControl.INCIDENCE,AnalysisControl.DELTABIRTHS,AnalysisControl.DELTADEATHS};
+	
+	
 	
 	// these are not y axis numeric data and should not be plotted in the aggregate plot
-	private static final String[] OMIT_LIST = {"time","#iteration","Incidence"};
+	private static final String[] OMIT_LIST = {AnalysisControl.TIME,AnalysisControl.ITERATION,AnalysisControl.INCIDENCE};
+		
 	
 	/**
 	 * Colors for the time series chart
@@ -156,7 +163,7 @@ public class EpidemicControl extends AnalysisControl {
 	
 	ScenarioAnalysisSuite analyzer = new ScenarioAnalysisSuite(this);
 	
-	private static String TITLE_TEXT = "Aggregate data view";
+	private static String TITLE_TEXT = Messages.getString("COMMON.AGGREGATE_TITLE");
 	
 	/**
 	 * Store the aggregate data for the states
@@ -725,7 +732,7 @@ public class EpidemicControl extends AnalysisControl {
 	
 
 	protected void updateStatusLabel() {
-		statusLabel.setText(AnalysisControl.STATUS_TEXT);
+		statusLabel.setText(Messages.getString("COMMON.STATUS"));
 	}
 	
 

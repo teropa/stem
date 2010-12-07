@@ -63,6 +63,7 @@ public class EstimatorControl extends AnalysisControl {
 	
 	/**
 	 * used to identify user preferences for this class
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String CONSUMER = "ESTIMATOR_CONTROL";
 
@@ -921,7 +922,7 @@ public class EstimatorControl extends AnalysisControl {
 	
 
 	protected void updateStatusLabel() {
-		statusLabel.setText(AnalysisControl.STATUS_TEXT);
+		statusLabel.setText(Messages.getString("COMMON.STATUS"));
 	}
 	
 

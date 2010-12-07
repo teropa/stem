@@ -50,15 +50,18 @@ public class LyapunovControl extends AnalysisControl {
 		
 	/**
 	 * used to identify user preferences for this class
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String CONSUMER = "LYAPUNOV_CONTROL";
 	
 	/**
 	 * used to remember the primary directory in the user preferences
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String PRIMARY_FOLDER_KEY = CONSUMER+"_PRIMARY";
 	/**
 	 * used to remember the secondary directory in the user preferences
+	 * This String is not human readable so does not need to be NLS'd. It is a key in a map
 	 */
 	private static final String SECONDARY_FOLDER_KEY = CONSUMER+"_SECONDARY";
 
@@ -138,9 +141,9 @@ public class LyapunovControl extends AnalysisControl {
 	 */
 	List<EList<Double>> cumulativeDeviation = new ArrayList<EList<Double>>();
 	
-	private static final String LYAPUNOV_FILE_PREFIX = "LyapunovAnalysis";
-	private static final String LYAPUNOV_DEVIATION_FILE_PREFIX = "LyapunovDeviation";
-	private static final String SELECT_FOLDER_DIALOG_TEXT = "Pick a scenario folder";
+	private static final String LYAPUNOV_FILE_PREFIX = Messages.getString("LYA.TITLE");
+	private static final String LYAPUNOV_DEVIATION_FILE_PREFIX = Messages.getString("LYA.DEVIATION");
+	private static final String SELECT_FOLDER_DIALOG_TEXT = Messages.getString("LYA.SELECTFOLDERDIALG");
 	
 	ScenarioAnalysisSuite analyzer = new ScenarioAnalysisSuite(this);
 	
@@ -517,7 +520,7 @@ public class LyapunovControl extends AnalysisControl {
 	
 
 	protected void updateStatusLabel() {
-		statusLabel.setText(AnalysisControl.STATUS_TEXT);
+		statusLabel.setText(Messages.getString("COMMON.STATUS"));
 	}
 	
 	

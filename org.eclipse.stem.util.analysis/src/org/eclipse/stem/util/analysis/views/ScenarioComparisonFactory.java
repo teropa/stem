@@ -27,7 +27,7 @@ public class ScenarioComparisonFactory implements AnalysisControlFactory {
 	/**
 	 * Constants 
 	 */
-	public static final String ANALYSIS_TYPE = "PhaseSynchronizer";
+	public static final String ANALYSIS_TYPE = Messages.getString("COMMON.SYNCHRONIZER");
 	
 
 	/**

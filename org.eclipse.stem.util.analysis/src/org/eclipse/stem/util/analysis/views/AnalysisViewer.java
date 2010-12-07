@@ -43,19 +43,6 @@ public class AnalysisViewer extends Viewer  {
 	
 
 
-	
-
-	
-
-	// get the path
-	//private static final IPath PATH = Activator.getDefault().getStateLocation();
-
-	//private static final String sep = File.separator;
-	
-	//private static final String pathSuffix = "analysis"+sep;
-	
-	
-
 	/**
 	 * This factory is used to create instances of {@link AnalysisControl} in the
 	 * method {@link #populateView()}
