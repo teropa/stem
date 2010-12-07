@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.stem.definitions.labels.PopulationLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabel;
 import org.eclipse.stem.diseasemodels.standard.StandardDiseaseModelLabelValue;
 import org.eclipse.stem.diseasemodels.standard.StandardPackage;
@@ -57,9 +58,9 @@ public abstract class StandardDiseaseModelLabelImpl extends
 			// Ok, set the susceptible population to the count of the number of
 			// population members
 			final StandardDiseaseModelLabelValue sValue = (StandardDiseaseModelLabelValue)getCurrentValue();
-
-			sValue.setS(((StandardPopulationModelLabelValue)getPopulationModelLabel().getCurrentValue())
-					.getCount());
+			
+			// Use the population label (not population model label).
+			sValue.setS(((PopulationLabelValue)getPopulationModelLabel().getPopulationLabel().getCurrentValue()).getCount());
 		} // if
 
 	} // reset
