@@ -20,7 +20,6 @@ import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.stem.analysis.ScenarioInitializationException;
 import org.eclipse.stem.diseasemodels.Activator;
 import org.eclipse.stem.util.analysis.CSVAnalysisWriter;
@@ -141,9 +140,9 @@ public class LyapunovControl extends AnalysisControl {
 	 */
 	List<EList<Double>> cumulativeDeviation = new ArrayList<EList<Double>>();
 	
-	private static final String LYAPUNOV_FILE_PREFIX = Messages.getString("LYA.TITLE");
-	private static final String LYAPUNOV_DEVIATION_FILE_PREFIX = Messages.getString("LYA.DEVIATION");
-	private static final String SELECT_FOLDER_DIALOG_TEXT = Messages.getString("LYA.SELECTFOLDERDIALG");
+	protected static final String LYAPUNOV_FILE_PREFIX = Messages.getString("LYA.TITLE");
+	protected static final String LYAPUNOV_DEVIATION_FILE_PREFIX = Messages.getString("LYA.DEVIATION");
+	protected static final String SELECT_FOLDER_DIALOG_TEXT = Messages.getString("LYA.SELECTFOLDERDIALG");
 	
 	ScenarioAnalysisSuite analyzer = new ScenarioAnalysisSuite(this);
 	

@@ -12,12 +12,10 @@ package org.eclipse.stem.util.analysis.views;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl;

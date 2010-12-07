@@ -107,13 +107,7 @@ public class ScenarioParameterEstimator {
 	 */
 	private static final String SPECIES = "human";
 	
-	/**
-	 * TODO make gui item
-	 * syntax is 
-	 *  stem://org.eclipse.stem/label/population/ISR/2/human/2006/IL-05-623
-	 */
-	private static final String YEAR = "2006";
-	
+		
 	/**
 	 * analysis mode using ALL data including zeros
 	 */
