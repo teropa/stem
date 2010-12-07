@@ -75,6 +75,10 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.forms.events.ExpansionAdapter;
+import org.eclipse.ui.forms.events.ExpansionEvent;
+import org.eclipse.ui.forms.widgets.ExpandableComposite;
+import org.eclipse.ui.forms.widgets.FormToolkit;
 
 /**
  * This class represents a visualization of the geographic attributes of a
@@ -85,6 +89,17 @@ abstract public class GeographicControl extends Composite implements
 		IPropertyChangeListener, ISelectionChangedListener,
 		GeoViewOptionsBar.PropertySelectionListener {
 
+	
+	/**
+	 * contains expandable composites and other tools
+	 */
+	private FormToolkit toolkit;
+	
+	/**
+	 * remember the expansion state
+	 */
+	public boolean expansionState = true;
+	
 	/**
 	 * The width of the layout margin.
 	 */
@@ -704,10 +719,27 @@ abstract public class GeographicControl extends Composite implements
 	 * @return
 	 */
 	protected Composite createBottomComposite(final Composite parent) {
+			
+//		toolkit = new FormToolkit(parent.getDisplay());
+//		ExpandableComposite ec =  toolkit.createExpandableComposite(parent, ExpandableComposite.TREE_NODE);
+//		ec.setText("Map Controls");
+//		ec.setExpanded(expansionState);
+//		ec.addExpansionListener(new ExpansionAdapter() {
+//			public void expansionStateChanged(ExpansionEvent e) {
+//				//System.out.println("toggle me now");
+//			}
+//		});
+//		optionsBar = new GeoViewOptionsBar(ec, SWT.NONE);
+		
 		optionsBar = new GeoViewOptionsBar(parent, SWT.NONE);
+		
 		optionsBar.addColorProviderChangedListener(this);
 		optionsBar.addPropertySelectionListener(this);
-		return optionsBar;
+		
+//		ec.setClient(optionsBar);
+//	    return ec;
+		
+		 return optionsBar;
 	} // createBottomComposite
 
 	/**
