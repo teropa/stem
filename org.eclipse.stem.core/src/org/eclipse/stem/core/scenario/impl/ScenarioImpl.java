@@ -544,12 +544,10 @@ public class ScenarioImpl extends IdentifiableImpl implements Scenario {
 	 * @generated NOT
 	 */
 	public String produceTitle() {
-		String retValue = "";
-		if (getDublinCore() != null) {
-			final String title = getDublinCore().getTitle();
-			retValue = title == null ? "" : title;
-		}
-		return retValue;
+		String retValue = this.getURI().lastSegment();
+		if(retValue.contains("."))
+			return retValue.substring(0, retValue.indexOf("."));
+		else return retValue;	
 	} // produceTitle
 
 	/**
