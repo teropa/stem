@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.stem.analysis.automaticexperiment:AutomaticExperiment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.eclipse.stem.analysis.automaticexperiment="http:///org/eclipse/stem/core/automaticexperiment.ecore" uRI="platform:/resource/AutomatedExperimentExample/experiments/AutomatedExperiment.automaticexperiment" typeURI="stemtype://org.eclipse.stem/identifiable209" errorAnalysisAlgorithm="Nedler-Mead Algorithm" errorFunction="Simple error function" tolerance="1E-6" referanceDataDir="platform:/resource/AutomatedExperimentExample/Recorded Simulations/Reference" reInit="true" maximumNumberOfIterations="5">
+  <dublinCore title="Automatic Experiment Example" identifier="platform:/resource/AutomatedExperimentExample/experiments/AutomatedExperiment.automaticexperiment" description="An example automated experiment" creator="mesika" format="http:///org/eclipse/stem/core/experiment.ecore" type="stemtype://org.eclipse.stem/identifiable209" created="2010-09-01"/>
+  <baseScenario href="../scenarios/AutomatedExperiment.scenario#/"/>
+    <parameters initialValue="0.8" step="0.2" featureName="transmissionRate" lowerBound="0.001" upperBound="10.0" targetURI="platform:/resource/AutomatedExperimentExample/decorators/SIR.standard" /> 
+    <parameters initialValue="0.2" step="0.3" featureName="recoveryRate" lowerBound="0.001" upperBound="2.0" targetURI="platform:/resource/AutomatedExperimentExample/decorators/SIR.standard" /> 
+    <parameters initialValue="20" step="30" featureName="inoculatedPercentage" lowerBound="0" upperBound="100" targetURI="platform:/resource/AutomatedExperimentExample/decorators/SIRInoculator.standard"/>
+</org.eclipse.stem.analysis.automaticexperiment:AutomaticExperiment>
