@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: STEM Automatic Experiment Test Suite
-Bundle-SymbolicName: org.eclipse.stem.tests.automaticexperiment
+Bundle-SymbolicName: org.eclipse.stem.tests.automaticexperiment;singleton:=true
 Bundle-Version: 1.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.emf.ecore,
@@ -10,5 +10,7 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.stem.core,
  org.eclipse.stem.tests.core,
  org.eclipse.stem.tests.diseasemodels,
- org.eclipse.stem.analysis.automaticexperiment
+ org.eclipse.stem.analysis.automaticexperiment,
+ org.eclipse.core.runtime;bundle-version="3.6.0"
 Bundle-Vendor: Eclipse.org
+Export-Package: org.eclipse.stem.tests.automaticexperiment

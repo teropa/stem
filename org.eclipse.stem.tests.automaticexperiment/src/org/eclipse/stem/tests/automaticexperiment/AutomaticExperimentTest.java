@@ -11,11 +11,14 @@ package org.eclipse.stem.tests.automaticexperiment;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -30,8 +33,14 @@ import automaticexperiment.AutomaticExperiment;
 public class AutomaticExperimentTest 
 	extends IdentifiableTest {
 	
-	private final static String AUTOMATIC_EXPERIMENT_FILE = "./resources/AutomatedExperimentExample/experiments/AutomatedExperiment.automaticexperiment"; //$NON-NLS-1$
+	static final String RUNTIME_WORKSPACE_PATH =  Platform.getLocation().toOSString();
+	private final static String REFERENCE_DIR = "./resources/"; //$NON-NLS-1$
+	private final static String AUTOMATED_EXPERIMENT_EXAMPLE = "AutomatedExperimentExample";//$NON-NLS-1$
+	private final static String sep = File.separator;
+	private final static String AUTOMATIC_EXPERIMENT_RUN_TARGET = "/experiments/AutomatedExperiment.automaticexperiment"; //$NON-NLS-1$
+	private static File targetDirectory = null;
 
+	
 	public static void main(String[] args) {
 		TestRunner.run(AutomaticExperimentTest.class);
 	}
@@ -70,6 +79,14 @@ public class AutomaticExperimentTest
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	    //// clean up ////
+		try {
+			assertTrue(TestUtil.removeDirectory(targetDirectory));
+		} catch(CoreException ce) {
+			ce.printStackTrace();
+			fail();
+		}	
+		/////////////////////
 	}
 
 	/**
@@ -88,23 +105,45 @@ public class AutomaticExperimentTest
 			ErrorAnalysisAlgorithmFactory.INSTANCE.createErrorAnalysisAlgorithm(algorithmName);
 		assertNotNull(algorithm);
 		algorithm.init(automaticExperiment, algorithm);
-		
-		// TODO at this point we have read in the automated experimetn
-		// TODO and the Scenario but have not successfully initialized the
-		// TODO the model from the project files in the resouces folder
-		// TODO we need to find a way to set up that folder as the Eclipse runtime workspace
-		
-		/////////////////////
+		algorithm.execute();
 		assertTrue(true);
-		// algorithm.execute();
-		/////////////////////
 	}
 
 	/**
 	 * @return an {@link AutomaticExperiment} for testing.
 	 */
 	public static AutomaticExperiment createFixture() {
-		return loadAutomaticExperiment(AUTOMATIC_EXPERIMENT_FILE);
+		// 1. copy the project folders for the experiment to run 
+		//    FROM the source directory TO the runtime workspace where ever that is
+		File refDirectory = new File(REFERENCE_DIR);
+		if (refDirectory.isDirectory()) {
+			// should always be true
+			File[] projects = refDirectory.listFiles();
+			if(projects==null) fail("Error:AutomatedExperiment projects not found !!");//$NON-NLS-1$
+			for (int i = 0; i < projects.length; i ++) {
+				if(projects[i].isDirectory()) {
+					String runProjectName = RUNTIME_WORKSPACE_PATH+sep+projects[i].getName();
+					if(projects[i].getName().equalsIgnoreCase(AUTOMATED_EXPERIMENT_EXAMPLE)) {
+						targetDirectory = new File(runProjectName);
+						try {
+							TestUtil.importProject(projects[i], targetDirectory);
+							// 2. there is only one in this test. Integration tests will provide for more.
+							
+								return loadAutomaticExperiment(runProjectName+AUTOMATIC_EXPERIMENT_RUN_TARGET);
+							
+						} catch (Exception ioe) {
+							System.out.println("Copy failed "+ioe.getMessage());
+							ioe.printStackTrace();
+							fail("Error:AutomatedExperiment failed to copy test project  !!");//$NON-NLS-1$
+						}
+					}
+				}// if project directory
+			}//for
+	
+		}// if
+		// else we faile
+		fail("Error:AutomatedExperiment failed to initialize test project  !!");//$NON-NLS-1$
+		return null;
 	}
 	
 	static AutomaticExperiment loadAutomaticExperiment(final String filename) {

@@ -13,21 +13,22 @@ package org.eclipse.stem.tests.automaticexperiment;
 
 import java.util.Arrays;
 
+import junit.framework.TestCase;
+
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.ErrorResult;
 import org.eclipse.stem.analysis.automaticexperiment.NelderMeadAlgorithm;
 import org.eclipse.stem.analysis.automaticexperiment.SimplexFunction;
-import org.eclipse.stem.analysis.impl.ErrorResultImpl;
-
-import junit.framework.TestCase;
 
 public class NelderMeadAlgorithmTest extends TestCase {
 	boolean debug = false;
+	
+	public NelderMeadAlgorithmTest(String name) {
+		super(name);
+	}
 
 	public void testExecute() {
 		NelderMeadAlgorithm nelder = new NelderMeadAlgorithm();
-		double[] min = {0.0,0.0};
-		double[] max = {999999.0,99999.0};
 		nelder.setParameterLimits(0, 0.0, 9999999.0);
 		nelder.setParameterLimits(1, 0.0, 9999999.0);
 		double[] initStart = { 1.8, 1.2 };
