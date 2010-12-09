@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.ErrorFunction;
 import org.eclipse.stem.analysis.ErrorResult;

@@ -13,12 +13,14 @@ package org.eclipse.stem.analysis.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.stem.analysis.*;
+import org.eclipse.stem.analysis.AnalysisPackage;
+import org.eclipse.stem.analysis.ErrorFunction;
+import org.eclipse.stem.analysis.ErrorResult;
+import org.eclipse.stem.analysis.ReferenceScenarioDataMap;
+import org.eclipse.stem.analysis.SimpleErrorFunction;
+import org.eclipse.stem.analysis.ThresholdErrorFunction;
 
 /**
  * <!-- begin-user-doc -->

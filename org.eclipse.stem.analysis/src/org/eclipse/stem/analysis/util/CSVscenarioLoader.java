@@ -16,12 +16,9 @@ package org.eclipse.stem.analysis.util;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,8 +30,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.stem.analysis.Activator;
 import org.eclipse.stem.analysis.AnalysisFactory;
 import org.eclipse.stem.analysis.DiseaseType;
@@ -51,17 +46,28 @@ import org.eclipse.stem.analysis.impl.ReferenceScenarioDataMapImpl.ReferenceScen
 
 public class CSVscenarioLoader {
 
-	private String directory="";
+	private String directory="";//$NON-NLS-1$
 
 	// These are the keys in the map
-	public static final String S_KEY = "S";
-	public static final String E_KEY = "E";
-	public static final String I_KEY = "I";
-	public static final String R_KEY = "R";
-	public static final String POP_COUNT_KEY = "Population Count";
-
-
-	private static final String CSV_EXTENSION = ".csv";
+	public static final String S_KEY = "S";//$NON-NLS-1$
+	public static final String E_KEY = "E";//$NON-NLS-1$
+	public static final String I_KEY = "I";//$NON-NLS-1$
+	public static final String R_KEY = "R";//$NON-NLS-1$
+	public static final String POP_COUNT_KEY = "Population Count";//$NON-NLS-1$
+	
+	public static final String PLATFORM = "platform:";//$NON-NLS-1$
+	public static final String FILE = "file:";//$NON-NLS-1$
+	
+	/**
+	 * Error Messages
+	 */
+	public static final String IO_EXCEPTION_ERROR_MSG = "CVSscenarioLoader: IOException error!";//$NON-NLS-1$
+	public static final String NO_FILE_MSG = "CVSscenarioLoader: Cannot find FILE: ";//$NON-NLS-1$
+	public static final String NO_DIR_MSG = "CVSscenarioLoader: Cannot find DIRECTORY: ";//$NON-NLS-1$
+	public static final String UNKNOWN_DISEASE_MSG = "CVSscenarioLoader: Disease type not recognized in directory: ";//$NON-NLS-1$
+	public static final String FORMAT_ERR_MSG = "CVSscenarioLoader: Mismatch between columns and values in run parameter file: ";//$NON-NLS-1$
+	
+	private static final String CSV_EXTENSION = ".csv";//$NON-NLS-1$
 
 	private List<File> diseaseData = new ArrayList<File>();
 	private final Map<String, String> runParameters = new HashMap<String, String>();
@@ -69,8 +75,8 @@ public class CSVscenarioLoader {
 	/**
 	 * Name of all run parameter files (one per disease folder
 	 */
-	public static final String RUN_PARAMETER_FILE_NAME = "runparameters.csv";
-	public static final String RUN_PARAMETER_FILE_NAME_OLD = "runparamters.csv";
+	public static final String RUN_PARAMETER_FILE_NAME = "runparameters.csv";//$NON-NLS-1$
+	public static final String RUN_PARAMETER_FILE_NAME_OLD = "runparamters.csv";//$NON-NLS-1$
 
 	private AnalysisFactory aFactory = new AnalysisFactoryImpl();
 
@@ -105,7 +111,8 @@ public class CSVscenarioLoader {
 		File[] files;
 		URL fURL=null;
 		File dir = null;
-		if(directory.startsWith("platform:") || directory.startsWith("file:")) {
+	 
+		if(directory.startsWith(PLATFORM) || directory.startsWith(FILE)) {
 			try {
 				URL inURL = new URL(directory);
 				fURL = FileLocator.toFileURL(inURL);
@@ -117,14 +124,14 @@ public class CSVscenarioLoader {
 		
 		if(dir.exists()&&dir.isDirectory()) {
 			files = dir.listFiles();
-		} else throw new ScenarioInitializationException("Cannot find file: "+dir);
+		} else throw new ScenarioInitializationException(NO_FILE_MSG+dir);
 
 		for (int i = 0; i < files.length; i ++)  {
 			File f = files[i];
 			if (this.isDataFile(f)) dataFiles.add(f);
 			if (this.isRunParameterFile(f)) readRunParameters(f);
 		}
-		if(dataFiles.size() == 0) throw new ScenarioInitializationException("No data files found in directory :"+directory);
+		if(dataFiles.size() == 0) throw new ScenarioInitializationException(NO_DIR_MSG+directory);
 
 		return dataFiles;
 	}// getDataFiles
@@ -179,8 +186,8 @@ public class CSVscenarioLoader {
 				StringTokenizer vals = null;
 				int line = 0;
 				while (EOF(buffer = reader.readLine()) != true) {
-					if(line == 0) headers = new StringTokenizer(buffer, ",");
-					else vals = new StringTokenizer(buffer, ",");
+					if(line == 0) headers = new StringTokenizer(buffer, ",");//$NON-NLS-1$
+					else vals = new StringTokenizer(buffer, ",");//$NON-NLS-1$
 					++line;
 				}
 				while(headers.hasMoreTokens()) {
@@ -188,7 +195,7 @@ public class CSVscenarioLoader {
 					try {
 						val = vals.nextToken();
 					} catch(NoSuchElementException e) {
-						Activator.logError("Mismatch between columns and values in run parameter file", e);
+						Activator.logError(FORMAT_ERR_MSG, e);
 						return;
 					}
 
@@ -197,13 +204,9 @@ public class CSVscenarioLoader {
 			}
 		} catch (FileNotFoundException fnfe) {
 			Activator
-			.logError(
-					"CVSscenarioLoader.readRunParametersFile() run parameters file not found: ",
-					fnfe);
+			.logError(NO_FILE_MSG,fnfe);
 		} catch (IOException ioe) {
-			Activator.logError(
-					"CVSscenarioLoader.readRunParametersFile() io exception: ",
-					ioe);
+			Activator.logError(IO_EXCEPTION_ERROR_MSG, ioe);
 		} finally {
 			try {
 				reader.close();
@@ -230,7 +233,7 @@ public class CSVscenarioLoader {
 		for(int i = 0; i < diseaseData.size(); i ++) {
 			File f = diseaseData.get(i);
 			String name = f.getName();
-			if(f.getName().startsWith(".")) continue;
+			if(f.getName().startsWith(".")) continue;//$NON-NLS-1$
 			int _idx = name.lastIndexOf('_');
 			int dotidx = name.lastIndexOf('.');
 			if(_idx <0 || dotidx < 0 || dotidx < _idx) continue; // not a data file
@@ -244,20 +247,20 @@ public class CSVscenarioLoader {
 
 		DiseaseType type;
 
-		if(states.contains("S") &&
-				states.contains("E") &&
-				states.contains("I") &&
-				states.contains("R")) 
+		if(states.contains(S_KEY) &&
+				states.contains(E_KEY) &&
+				states.contains(I_KEY) &&
+				states.contains(R_KEY)) 
 			type = DiseaseType.SEIR;
-		else  if(states.contains("S") &&
-				states.contains("I") &&
-				states.contains("R"))
+		else  if(states.contains(S_KEY) &&
+				states.contains(I_KEY) &&
+				states.contains(R_KEY))
 			type = DiseaseType.SIR;
-		else if(states.contains("S") &&
-				states.contains("I"))
+		else if(states.contains(S_KEY) &&
+				states.contains(I_KEY))
 			type = DiseaseType.SI;
 		else {
-			throw new ScenarioInitializationException("Disease type not recognized in directory: "+this.directory);
+			throw new ScenarioInitializationException(UNKNOWN_DISEASE_MSG+this.directory);
 		}
 		scenarioDataMap.setType(type);
 		return scenarioDataMap;
@@ -282,7 +285,7 @@ public class CSVscenarioLoader {
 			File f = diseaseData.get(i);
 			String name = f.getName();
 
-			if(name.startsWith(".")) continue; //skip system files
+			if(name.startsWith(".")) continue; //$NON-NLS-1$ //skip system files
 			int _idx = name.lastIndexOf('_');
 			int dotidx = name.lastIndexOf('.');
 			if(_idx <0 || dotidx < 0 || dotidx < _idx) continue; // not a data file
@@ -296,20 +299,20 @@ public class CSVscenarioLoader {
 
 		DiseaseType type;
 
-		if(states.contains("S") &&
-				states.contains("E") &&
-				states.contains("I") &&
-				states.contains("R")) 
+		if(states.contains(S_KEY) &&
+				states.contains(E_KEY) &&
+				states.contains(I_KEY) &&
+				states.contains(R_KEY)) 
 			type = DiseaseType.SEIR;
-		else  if(states.contains("S") &&
-				states.contains("I") &&
-				states.contains("R"))
+		else  if(states.contains(S_KEY) &&
+				states.contains(I_KEY) &&
+				states.contains(R_KEY))
 			type = DiseaseType.SIR;
-		else if(states.contains("S") &&
-				states.contains("I"))
+		else if(states.contains(S_KEY) &&
+				states.contains(I_KEY))
 			type = DiseaseType.SI;
 		else {
-			throw new ScenarioInitializationException("Disease type not recognized in directory: "+this.directory);
+			throw new ScenarioInitializationException(UNKNOWN_DISEASE_MSG+this.directory);
 		}
 		scenarioDataMap.setType(type);
 		return scenarioDataMap;
@@ -347,20 +350,20 @@ public class CSVscenarioLoader {
 
 		DiseaseType type;
 
-		if(states.contains("S") &&
-				states.contains("E") &&
-				states.contains("I") &&
-				states.contains("R")) 
+		if(states.contains(S_KEY) &&
+				states.contains(E_KEY) &&
+				states.contains(I_KEY) &&
+				states.contains(R_KEY)) 
 			type = DiseaseType.SEIR;
-		else  if(states.contains("S") &&
-				states.contains("I") &&
-				states.contains("R"))
+		else  if(states.contains(S_KEY) &&
+				states.contains(I_KEY) &&
+				states.contains(R_KEY))
 			type = DiseaseType.SIR;
-		else if(states.contains("S") &&
-				states.contains("I"))
+		else if(states.contains(S_KEY) &&
+				states.contains(I_KEY))
 			type = DiseaseType.SI;
 		else {
-			throw new ScenarioInitializationException("Disease type not recognized in directory: "+this.directory);
+			throw new ScenarioInitializationException(UNKNOWN_DISEASE_MSG+this.directory);
 		}
 		return type;
 	}
@@ -434,7 +437,7 @@ public class CSVscenarioLoader {
 			//
 			if ( (header=reader.readLine()) != null ) { 
 
-				StringTokenizer st = new StringTokenizer(header, ",");
+				StringTokenizer st = new StringTokenizer(header, ",");//$NON-NLS-1$
 
 				while (st.hasMoreTokens()) {
 					String val = st.nextToken().trim();
@@ -469,7 +472,7 @@ public class CSVscenarioLoader {
 			while ( (record=reader.readLine()) != null ) { 
 				recCount++; 
 
-				StringTokenizer st = new StringTokenizer(record,",");
+				StringTokenizer st = new StringTokenizer(record,",");//$NON-NLS-1$
 				int tcount = 0;
 				while (st.hasMoreTokens() && tcount < headerElements.size() ) {// just to make sure
 					String val = st.nextToken();
@@ -485,7 +488,7 @@ public class CSVscenarioLoader {
 			} // while file has data
 		} catch (IOException e) { 
 			// catch io errors from FileInputStream or readLine()
-			Activator.logError(" IOException error!", e);
+			Activator.logError(IO_EXCEPTION_ERROR_MSG, e);
 			throw new ScenarioInitializationException(e);
 		} finally {
 			try {
@@ -526,7 +529,7 @@ public class CSVscenarioLoader {
 				// Read the file header (iter, time, locations...)
 				//
 				if ( (header= reader.readLine()) != null ) { 
-					StringTokenizer st = new StringTokenizer(header, ",");
+					StringTokenizer st = new StringTokenizer(header, ",");//$NON-NLS-1$
 					while (st.hasMoreTokens()) {
 						String val = st.nextToken().trim();
 						headerElements.add(val);
@@ -543,7 +546,7 @@ public class CSVscenarioLoader {
 				} // while file has data
 			} catch (IOException e) { 
 				// catch io errors from FileInputStream or readLine()
-				Activator.logError(" IOException error!", e);
+				Activator.logError(IO_EXCEPTION_ERROR_MSG, e);
 				throw new ScenarioInitializationException(e);
 			} finally {
 				try {
@@ -584,7 +587,7 @@ public class CSVscenarioLoader {
 			//
 			if ( (header=reader.readLine()) != null ) { 
 
-				StringTokenizer st = new StringTokenizer(header, ",");
+				StringTokenizer st = new StringTokenizer(header, ",");//$NON-NLS-1$
 
 				while (st.hasMoreTokens()) {
 					String val = st.nextToken().trim();
@@ -622,7 +625,7 @@ public class CSVscenarioLoader {
 			while ( (record=reader.readLine()) != null ) { 
 				recCount++; 
 
-				StringTokenizer st = new StringTokenizer(record,",");
+				StringTokenizer st = new StringTokenizer(record,",");//$NON-NLS-1$
 				int tcount = 0;
 				while (st.hasMoreTokens() && tcount < headerElements.size() ) {// just to make sure
 					String val = st.nextToken();
@@ -641,7 +644,7 @@ public class CSVscenarioLoader {
 			} // while file has data
 		} catch (IOException e) { 
 			// catch io errors from FileInputStream or readLine()
-			Activator.logError(" IOException error!", e);
+			Activator.logError(IO_EXCEPTION_ERROR_MSG, e);
 			throw new ScenarioInitializationException(e);
 		} finally {
 			try {
@@ -662,7 +665,7 @@ public class CSVscenarioLoader {
 		ReferenceScenarioDataMapImpl scenarioDataMap = (ReferenceScenarioDataMapImpl)aFactory.createReferenceScenarioDataMap();
 		File f = new File(file);
 		String name = f.getName();  // Disease name
-		int idx = name.indexOf(".");
+		int idx = name.indexOf(".");//$NON-NLS-1$
 		String id = name.substring(0,idx);
 
 		HashMap<String, List<String>> data = new HashMap<String,List<String>>();
@@ -682,7 +685,7 @@ public class CSVscenarioLoader {
 				StringTokenizer st = new StringTokenizer(header );
 
 				while (st.hasMoreTokens()) {
-					String val = st.nextToken(",");
+					String val = st.nextToken(",");//$NON-NLS-1$
 					headerElements.add(val.trim());
 				}
 			} // read the header
@@ -704,7 +707,7 @@ public class CSVscenarioLoader {
 				StringTokenizer st = new StringTokenizer(record );
 				int tcount = 0;
 				while (st.hasMoreTokens()) {
-					String val = st.nextToken(",");
+					String val = st.nextToken(",");//$NON-NLS-1$
 					String key = headerElements.get(tcount);
 					(data.get(key)).add(val.trim());
 					tcount ++;
@@ -712,7 +715,7 @@ public class CSVscenarioLoader {
 			} // while file has data
 		} catch (IOException e) { 
 			// catch io errors from FileInputStream or readLine()
-			Activator.logError(" IOException error!", e);
+			Activator.logError(IO_EXCEPTION_ERROR_MSG, e);
 			throw new ScenarioInitializationException(e);
 		} finally {
 			try {
@@ -757,7 +760,7 @@ public class CSVscenarioLoader {
 				StringTokenizer st = new StringTokenizer(header );
 
 				while (st.hasMoreTokens()) {
-					String val = st.nextToken(",");
+					String val = st.nextToken(",");//$NON-NLS-1$
 					headerElements.add(val.trim());
 				}
 			} // read the header
@@ -785,7 +788,7 @@ public class CSVscenarioLoader {
 				StringTokenizer st = new StringTokenizer(record );
 				int tcount = 0;
 				while (st.hasMoreTokens()) {
-					String val = st.nextToken(",");
+					String val = st.nextToken(",");//$NON-NLS-1$
 					String key = headerElements.get(tcount);
 					(data.get(key)).add(val.trim());
 					tcount ++;
@@ -793,7 +796,7 @@ public class CSVscenarioLoader {
 			} // while file has data
 		} catch (IOException e) { 
 			// catch io errors from FileInputStream or readLine()
-			Activator.logError(" IOException error!", e);
+			Activator.logError(IO_EXCEPTION_ERROR_MSG, e);
 			throw new ScenarioInitializationException(e);
 		} finally {
 			try {

@@ -15,11 +15,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.ErrorResult;
 

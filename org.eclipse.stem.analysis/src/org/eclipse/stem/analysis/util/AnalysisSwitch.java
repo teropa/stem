@@ -15,8 +15,12 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.stem.analysis.*;
+import org.eclipse.stem.analysis.AnalysisPackage;
+import org.eclipse.stem.analysis.ErrorFunction;
+import org.eclipse.stem.analysis.ErrorResult;
+import org.eclipse.stem.analysis.ReferenceScenarioDataMap;
+import org.eclipse.stem.analysis.SimpleErrorFunction;
+import org.eclipse.stem.analysis.ThresholdErrorFunction;
 
 /**
  * <!-- begin-user-doc -->

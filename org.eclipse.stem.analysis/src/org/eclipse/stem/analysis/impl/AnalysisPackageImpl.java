@@ -16,9 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.stem.analysis.AnalysisFactory;
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.ErrorFunction;
