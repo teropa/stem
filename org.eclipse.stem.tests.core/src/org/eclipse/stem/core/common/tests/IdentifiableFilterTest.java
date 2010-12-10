@@ -14,12 +14,8 @@ package org.eclipse.stem.core.common.tests;
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
-import org.eclipse.stem.core.common.CommonFactory;
-import org.eclipse.stem.core.common.DoubleValue;
 import org.eclipse.stem.core.common.IdentifiableFilter;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
-import org.eclipse.stem.core.model.ModelFactory;
-import org.eclipse.stem.core.model.STEMTime;
 
 /**
  * <!-- begin-user-doc -->
