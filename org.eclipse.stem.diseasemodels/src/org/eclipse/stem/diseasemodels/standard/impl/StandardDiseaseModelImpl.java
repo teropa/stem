@@ -477,11 +477,14 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 							double inflow = entry.getValue().doubleValue();
 							// Find the corresponding disease label on the other node
 							for(NodeLabel nl:entry.getKey().getLabels())
-								if(nl instanceof StandardDiseaseModelLabel && ((StandardDiseaseModelLabel)nl).getDecorator().equals(this)) {
+								if(nl instanceof StandardDiseaseModelLabel && 
+										((StandardDiseaseModelLabel)nl).getDecorator().equals(this) && 
+										((StandardDiseaseModelLabel)nl).getPopulationModelLabel().getPopulationIdentifier().equals(diseaseLabel.getIdentifier())) {
 									StandardDiseaseModelLabelValue value = (StandardDiseaseModelLabelValue)EcoreUtil.copy(((StandardDiseaseModelLabel)nl).getTempValue()); 
 									
-									if(value.getPopulationCount() > 0.0)
+									if(value.getPopulationCount() > 0.0) {
 										value.scale(inflow/value.getPopulationCount());
+									} 
 									
 									myDelta.add((IntegrationLabelValue)value);
 								}
@@ -499,18 +502,18 @@ public abstract class StandardDiseaseModelImpl extends DiseaseModelImpl
 							currentState = (StandardDiseaseModelLabelValue)EcoreUtil.copy((StandardDiseaseModelLabelValue)diseaseLabel.getTempValue()); // Need to use temp value for migration or an inbalance will occyr
 					
 						double populationCount = currentState.getPopulationCount();
+						
 						double outflow = entry.getValue().doubleValue();
 						double factor = outflow/populationCount;
 						if(Double.isNaN(factor) || Double.isInfinite(factor)) factor = 0.0; //safe					
 						currentState.scale(factor);
 							// Remember disease deaths since they will be overwritten by sub
 						myDelta.sub((IntegrationLabelValue)currentState);
+
 					}	
 				}
 			}
-
 		}
- 		
 	}
 	
 	/**
