@@ -380,7 +380,7 @@ public class TimeSeriesCanvas extends Canvas {
 					for (int cycleNumber = 0; cycleNumber < doubleValues.length; cycleNumber++) {
 						Double value;
 						double displayValue = doubleValues[cycleNumber];
-						if (displayValue <= minLogScaleValue) {
+						if (displayValue <= minLogScaleValue && !useLinearTimeScale) {
 							// Log(0.0) is negative infinity so for display purposes only
 							// we set the minimum axis value at 0.1/POPULATION
 							displayValue = minLogScaleValue;
