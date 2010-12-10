@@ -388,6 +388,12 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 		for(Decorator sdm:iDecorators) {
 			Iterator<DynamicLabel> iter = sdm.getLabelsToUpdate(threadnum, num_threads)
 					.iterator();
+			if(!iter.hasNext()) {
+				Activator.logError("Problem detected: Decorator "+sdm+" had no labels to update. Please check your scenario.", new Exception());
+				++n;
+				continue;
+			}
+
 			IntegrationLabel firstLabel = (IntegrationLabel)iter.next();
 			// Initialize temporary place holders just by creating dups of the first label available
 			_k1[n] = (IntegrationLabelValue)EcoreUtil.copy(firstLabel.getCurrentValue());
@@ -755,6 +761,9 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 					double error = yerror.max();
 					error /= getRelativeTolerance();
 					
+					if(((org.eclipse.stem.core.graph.DynamicNodeLabel)diseaseLabel).getNode().getURI().toString().contains("27.5_72.08"))
+						System.out.println(diseaseLabel);
+					
 					if(error > maxerror) {
 						maxerror = error;
 					}
@@ -787,9 +796,10 @@ public class RungeKuttaImpl extends SolverImpl implements RungeKutta {
 				// Check to make sure
 				if(this.smallestH > h)
 					Activator.logError("Error, h was less than the smallest, perhaps barrier process failed to execute? h:"+h+" vs "+this.smallestH, new Exception());
-				
+
 				// Yes, hurrah, advance x using the step size h
 				x+=h;
+
 				if(this.maximumError > ERRCON)
 					h = SAFETY*h*Math.pow(this.maximumError, PGROW);
 				else
