@@ -11,17 +11,23 @@ package org.eclipse.stem.core.scenario.tests;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
+import java.util.List;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.stem.core.STEMURI;
+import org.eclipse.stem.core.STEMXMIResourceFactoryImpl;
 import org.eclipse.stem.core.Utility;
 import org.eclipse.stem.core.common.impl.IdentifiableFilterImpl;
 import org.eclipse.stem.core.common.tests.IdentifiableTest;
@@ -93,6 +99,17 @@ public class ScenarioTest extends IdentifiableTest {
 	
 	private static final URI CANONICAL_GRAPH__URI = STEMURI
 			.createURI("GRAPH/testcanonicalgraph");
+	
+
+	/**
+	 * for testing scenarios from files
+	 */
+	protected final static String sep = File.separator;
+	protected final static String SCENARIO_FOLDER = sep+"scenarios";//$NON-NLS-1$
+	static List<String> scenarioNameList = null;
+	private List<File> allProjects = null;
+
+	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -131,9 +148,36 @@ public class ScenarioTest extends IdentifiableTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
+		
+		// set up for the unit tests
 		setFixture(createFixture());
 	} // setUp
 
+	/**
+	 * runs all the integration tests
+	 */
+	public void testAllIntegrationTest() {
+		// set up the workspace for all the integration tests
+		allProjects = this.setUpWorkspace();
+		scenarioNameList = this.readScenarios(allProjects);
+		
+		for (int i = 0; i < scenarioNameList.size(); i ++) {
+			String scenarioToTest = scenarioNameList.get(i);
+			System.out.println("now loading "+scenarioToTest);
+			Scenario scenario = loadScenario(scenarioToTest);
+			fixture = scenario;
+			scenario.initialize(); // This step can be slow
+			assertTrue(scenario.sane());
+			// TODO Next we have to run each scenario for a few steps
+			// and compate the output to prestored outputs
+			
+		}
+		
+		
+		
+	}
+	
+	
 	/**
 	 * @return a scenario
 	 * @generated NOT
@@ -166,6 +210,19 @@ public class ScenarioTest extends IdentifiableTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+		//// clean up ////
+		if(allProjects != null) {
+			try {
+				for(int i = 0; i < allProjects.size(); i ++){
+					File project = allProjects.get(i);
+					assertTrue(IntegrationTestUtil.removeDirectory(project));
+				}
+			} catch(CoreException ce) {
+				ce.printStackTrace();
+				fail();
+			}	
+		}
+		/////////////////////
 	}
 
 	/**
@@ -549,5 +606,111 @@ public class ScenarioTest extends IdentifiableTest {
 		retValue.setTime(calendar.getTime());
 		return retValue;
 	} // createSTEMTime
+	
+	/**
+	 * @return an {@link Scenario} for testing.
+	 */
+	public static List<File> setUpWorkspace() {
+		
+		List<File> projectDirectories = new ArrayList<File>();
+		// 1. copy the project folders for the experiment to run 
+		//    FROM the source directory TO the runtime workspace where ever that is
+		File refDirectory = new File(IntegrationTestUtil.REFERENCE_DIR);
+		if (refDirectory.isDirectory()) {
+			// should always be true
+			File[] projects = refDirectory.listFiles();
+			if(projects==null) {
+				System.out.println("Error:AutomatedExperiment projects not found !!");//$NON-NLS-1$
+				System.exit(1);
+			}
+			for (int i = 0; i < projects.length; i ++) {
+				if(projects[i].isDirectory()) {
+					// check that this is not a system directory with name beginning with "."
+					String nameStr = projects[i].getName();
+					
+					if(!nameStr.substring(0,1).equals(".")) {//$NON-NLS-1$
+						// this is a good directory
+						String runProjectName = IntegrationTestUtil.RUNTIME_WORKSPACE_PATH+sep+nameStr;
+						File targetDirectory = new File(runProjectName);
+							try {
+								// 1. create the project and folder
+								IntegrationTestUtil.importProject(projects[i], targetDirectory);
+								// 2. remember it
+								projectDirectories.add(targetDirectory);
+								System.out.println("found "+targetDirectory.getAbsolutePath());
+								
+							} catch (Exception e) {
+								System.out.println("Project Copy failed "+e.getMessage());//$NON-NLS-1$
+								e.printStackTrace();
+								
+							}
+						}
+						
+						
+					}// if good dir name
+					
+				}// for all projects
+		}//if
+		return projectDirectories;
+	}// setUpWorkspace
+	
+	/**
+	 * 
+	 * @param projects
+	 * @return
+	 */
+	public static List<String> readScenarios(List<File> projects) {
+			List<String> scenarioList = new ArrayList<String>();
+			for (int i=0; i < projects.size(); i ++ ) {
+				File project = projects.get(i);
+				String path = project.getAbsolutePath();
+				File scenarioFolder = new File(path+SCENARIO_FOLDER);
+				if(scenarioFolder.exists()&&scenarioFolder.isDirectory()) {
+					File[] scenariosToRun = scenarioFolder.listFiles();
+					if(scenariosToRun != null) {
+						for (int j = 0; j <scenariosToRun.length; j++) {
+							File scenario = scenariosToRun[j];
+							if(scenario.getName().indexOf(".scenario")>=1) {
+								// this really is a scenario file
+								scenarioList.add(scenario.getAbsolutePath());
+							}//if scenario
+						}// for all
+					}//  list not null
+					
+				}// if scenario folder
+			}// for all projects
+			
+			return scenarioList;
+	}//readScenarios
+
+	
+	/**
+	 * 
+	 * @param filename
+	 * @return
+	 */
+	static Scenario loadScenario(final String filename) {
+		final ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", //$NON-NLS-1$
+				STEMXMIResourceFactoryImpl.INSTANCE);
+		resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap().put("platform", //$NON-NLS-1$
+				STEMXMIResourceFactoryImpl.INSTANCE);
+		final Resource resource = resourceSet.getResource(URI.createFileURI(filename), true);
+		try 
+		{			
+			resource.load(null);
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		Scenario toReturn = (Scenario)resource.getContents().get(0);
+		return toReturn;
+	}
+
 
 } // ScenarioTest
