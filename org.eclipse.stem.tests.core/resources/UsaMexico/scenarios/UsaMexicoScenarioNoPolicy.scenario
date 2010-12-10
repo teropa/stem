@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.stem.core.scenario:Scenario xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.scenario="http:///org/eclipse/stem/core/scenario.ecore" xmlns:org.eclipse.stem.core.sequencer="http:///org/eclipse/stem/core/sequencer.ecore" uRI="platform:/resource/UsaMexico/scenarios/UsaMexicoScenarioNoPolicy.scenario" typeURI="stemtype://org.eclipse.stem/Scenario">
+  <dublinCore title="" identifier="platform:/resource/UsaMexico/scenarios/UsaMexicoScenarioNoPolicy.scenario" description="Scenario &quot;UsaMexicoScenarioNoPolicy&quot;" creator="edlund" format="http:///org/eclipse/stem/core/scenario.ecore" type="stemtype://org.eclipse.stem/Scenario" created="2009-04-29" spatial=""/>
+  <model href="platform:/resource/UsaMexico/models/USAMexicoInfluenza.model#/"/>
+  <sequencer xsi:type="org.eclipse.stem.core.sequencer:SequentialSequencer" href="platform:/resource/UsaMexico/sequencers/SwineFlu8MonthSequencer.sequencer#/"/>
+  <scenarioDecorators href="platform:/resource/UsaMexico/decorators/SwineFluInfector.standard#/"/>
+  <scenarioDecorators href="platform:/resource/UsaMexico/decorators/InnoculateMex.standard#/"/>
+  <scenarioDecorators href="platform:/resource/UsaMexico/decorators/InnoculateUS.standard#/"/>
+</org.eclipse.stem.core.scenario:Scenario>

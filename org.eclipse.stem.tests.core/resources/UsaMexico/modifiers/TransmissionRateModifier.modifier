@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.stem.core.modifier:Modifier xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.stem.core.modifier="http:///org/eclipse/stem/core/modifier.ecore" uRI="platform:/resource/UsaMexico/modifiers/TransmissionRateModifier.modifier" typeURI="stemtype://org.eclipse.stem/Modifier" targetURI="platform:/resource/UsaMexico/decorators/SwineFlu.standard">
+  <dublinCore title="" identifier="platform:/resource/UsaMexico/modifiers/TransmissionRateModifier.modifier" description="Modifier &quot;TransmissionRateModifier&quot;" creator="edlund" format="http:///org/eclipse/stem/core/modifier.ecore" type="stemtype://org.eclipse.stem/Modifier" created="2010-02-16"/>
+  <featureModifiers xsi:type="org.eclipse.stem.core.modifier:DoubleModifier" featureName="transmissionRate" featureId="20" value="0.3125">
+    <target href="platform:/resource/UsaMexico/decorators/SwineFlu.standard#/"/>
+  </featureModifiers>
+</org.eclipse.stem.core.modifier:Modifier>
