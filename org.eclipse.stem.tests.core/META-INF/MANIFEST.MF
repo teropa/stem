@@ -18,7 +18,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.stem.core;visibility:=reexport,
  org.eclipse.stem.tests.util,
  org.junit;visibility:=reexport,
- org.eclipse.stem.solvers.fd
+ org.eclipse.stem.solvers.fd,
+ org.eclipse.stem.jobs;bundle-version="1.1.0",
+ org.eclipse.stem.diseasemodels;bundle-version="1.1.0",
+ org.eclipse.stem.util.loggers;bundle-version="1.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Import-Package: org.eclipse.core.resources
