@@ -22,6 +22,7 @@ import java.util.List;
 import junit.textui.TestRunner;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -35,6 +36,7 @@ import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.Graph;
 import org.eclipse.stem.core.graph.Label;
 import org.eclipse.stem.core.model.Decorator;
+import org.eclipse.stem.core.model.IntegrationDecorator;
 import org.eclipse.stem.core.model.ModelFactory;
 import org.eclipse.stem.core.model.STEMTime;
 import org.eclipse.stem.core.model.tests.ModelTest;
@@ -43,10 +45,16 @@ import org.eclipse.stem.core.scenario.ScenarioFactory;
 import org.eclipse.stem.core.sequencer.Sequencer;
 import org.eclipse.stem.core.sequencer.impl.SequencerImpl;
 import org.eclipse.stem.core.solver.Solver;
+import org.eclipse.stem.diseasemodels.standard.AggregatingSIDiseaseModel;
+import org.eclipse.stem.jobs.simulation.ISimulation;
+import org.eclipse.stem.jobs.simulation.Simulation;
 import org.eclipse.stem.solvers.fd.FdFactory;
 import org.eclipse.stem.tests.util.decorators.DecoratorsFactory;
 import org.eclipse.stem.tests.util.decorators.TestScenarioGraphDecorator1;
 import org.eclipse.stem.tests.util.labels.TestIntegerLabelValue;
+import org.eclipse.stem.util.loggers.views.CSVLoggerFactory;
+import org.eclipse.stem.util.loggers.views.LoggerControlFactory;
+import org.eclipse.stem.util.loggers.views.NewCSVLogWriter;
 
 /**
  * <!-- begin-user-doc --> A test case for the model object '<em><b>Scenario</b></em>'.
@@ -164,17 +172,43 @@ public class ScenarioTest extends IdentifiableTest {
 		for (int i = 0; i < scenarioNameList.size(); i ++) {
 			String scenarioToTest = scenarioNameList.get(i);
 			System.out.println("now loading "+scenarioToTest);
+			String logDir = getLogDir(scenarioToTest);
 			Scenario scenario = loadScenario(scenarioToTest);
 			fixture = scenario;
 			scenario.initialize(); // This step can be slow
 			assertTrue(scenario.sane());
-			// TODO Next we have to run each scenario for a few steps
-			// and compate the output to prestored outputs
+			List<NewCSVLogWriter> allLoggers = new ArrayList<NewCSVLogWriter>();
+			// Next we have to create a simulation and logger(s) for the scenario
+			// and compute the output to prestored outputs
+			ISimulation sim = new Simulation(scenario,0);
+			LoggerControlFactory lcf = CSVLoggerFactory.INSTANCE;
+			EList<Decorator> decorators = sim.getScenario().getCanonicalGraph().getDecorators();
+			for(Decorator dec:decorators) {
+				if(dec instanceof IntegrationDecorator && !(dec instanceof AggregatingSIDiseaseModel)) {
+					IntegrationDecorator dm = (IntegrationDecorator)dec;
+					//String diseaseName = dm.getDiseaseName();
+					NewCSVLogWriter logWriter = new NewCSVLogWriter(logDir,sim,dm);
+					allLoggers.add(logWriter);
+				} // DiseaseModel
+			} // For each decorator
+	
+			//TODO run the simulation and log the data
 			
 		}
 		
+	
 		
 		
+		
+	}// TestAllIntegrationTest
+		
+	
+	public static String getLogDir(String scenarioFolder)  {
+		
+		int idx = scenarioFolder.indexOf("scenarios");
+		String path = scenarioFolder.substring(0,idx);
+		String retVal = path+"Recorded Simulations"+sep+"IntegrationTest";
+		return retVal;	
 	}
 	
 	
