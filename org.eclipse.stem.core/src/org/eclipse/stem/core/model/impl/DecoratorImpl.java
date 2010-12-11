@@ -11,6 +11,7 @@ package org.eclipse.stem.core.model.impl;
  *     IBM Corporation - initial API and implementation 
  *******************************************************************************/
  
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -154,7 +155,10 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 	protected int numThreads = -1;
 	
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Figure out the labels to assign to a thread. The thread number is 'partition' and 'max' is the total number of threads
+	 * used to run a simulation.
+	 * 
+	 * The labelsToUpdate is assumed sorted alphabetically according to the node URI the label is associated with.
 	 * 
 	 * @param partition Which partition
 	 * @param max Max partition
@@ -172,13 +176,30 @@ public class DecoratorImpl extends IdentifiableImpl implements Decorator {
 		
 		EList<DynamicLabel> temp = new BasicEList<DynamicLabel>(); 
 			
-		int size = labelsToUpdate.size();
-		int labelsPerPartition = size / max;
-		int start =  partition*labelsPerPartition;
+		// Find the node and partition the labels according to their node.
+		
+		ArrayList<String>nodeURIs = new ArrayList<String>();
+		for(DynamicLabel lab:getLabelsToUpdate()) {
+			String uri = lab.getIdentifiable().getURI().toString();
+			if(!nodeURIs.contains(uri)) nodeURIs.add(uri);
+		}
+		
+		int size = nodeURIs.size();
+		int nodesPerPartition = size / max;
+		int start =  partition*nodesPerPartition;
 		int end;
 		if(partition == max -1) end = size; // The last threads grabs all nodes until the last one
-		else end = start + labelsPerPartition;
-		for(int i=start;i<end;++i) temp.add(labelsToUpdate.get(i));
+		else end = start + nodesPerPartition;
+		for(int i=start;i<end;++i) {
+			String uri = nodeURIs.get(i);
+			boolean found = false;
+			for(DynamicLabel dl:getLabelsToUpdate()) {
+				if(dl.getIdentifiable().getURI().toString().equals(uri)) {
+					temp.add(dl);
+					found = true;
+				} else if(found) break; //  We can skip the rest since labels are sorted according to the Node URI.
+			}
+		}
 		
 		if(labelPartitionMap == null) labelPartitionMap = new HashMap<Integer, EList<DynamicLabel>>();
 		labelPartitionMap.put(partition, temp);
