@@ -9,6 +9,7 @@ import java.io.OutputStream;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
@@ -85,6 +86,19 @@ public class IntegrationTestUtil {
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(description.getName());
         project.create(description, null);
         project.open(null);
+     }//copyDirectory
+    
+    /**
+     * @param projectDirectory
+     * @throws IOException
+     * @throws CoreException
+     */
+    public static void refreshProject(File projectDirectory)  throws IOException, CoreException {
+    	 // refresh the project
+        String pathSTR = projectDirectory.getAbsolutePath()+"/.project";//$NON-NLS-1$
+        IProjectDescription description = ResourcesPlugin.getWorkspace().loadProjectDescription(new Path(pathSTR));
+        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(description.getName());
+        project.refreshLocal(IResource.DEPTH_INFINITE, null);
      }//copyDirectory
     
     /**

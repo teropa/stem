@@ -11,7 +11,9 @@ package org.eclipse.stem.core.tests;
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -33,6 +35,36 @@ public class Activator extends Plugin {
 	public Activator() {
 		plugin = this;
 	}
+	
+	/**
+	 * Log information to the ILog for this plugin
+	 * The method is overloaded to allow for logInformation without an error 
+	 * method sets the error to null. This should be used instead of System.out.println
+	 * throughout the code.
+	 * @param message
+	 *            the localized information message text
+	 *
+	 */
+	public static void logInformation(String message) {
+		plugin.getLog().log(
+				new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
+						0, message, null));
+		
+	} // logInformation
+
+	/**
+	 * Log information to the ILog for this plugin
+	 * 
+	 * @param message
+	 *            the localized information message text
+	 * @param exception
+	 *            the associated exception, or null
+	 */
+	public static void logError(String message, Throwable exception) {
+		plugin.getLog().log(
+				new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
+						0, message, exception));
+	} // logInformation
 
 	/**
 	 * @param context
