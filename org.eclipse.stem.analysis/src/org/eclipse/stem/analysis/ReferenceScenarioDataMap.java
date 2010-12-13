@@ -22,4 +22,18 @@ import org.eclipse.emf.ecore.EObject;
 */
 @SuppressWarnings("all")
 public interface ReferenceScenarioDataMap extends EObject {		
+	
+	/**
+	 * Is this map (and the model that created it) sane?
+	 * @return
+	 */
+	public boolean sane();
+	
+	/**
+	 * Is this map consistent with another map?
+	 * This is like "equal" but allows for small differences when comparing double(s)
+	 * @param other
+	 * @return
+	 */
+	public boolean consistentWith(ReferenceScenarioDataMap other);
 }

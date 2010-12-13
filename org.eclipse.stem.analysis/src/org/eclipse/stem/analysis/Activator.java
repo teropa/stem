@@ -35,6 +35,22 @@ public class Activator extends Plugin {
 	 */
 	public Activator() {
 	}
+	
+	/**
+	 * Log information to the ILog for this plugin
+	 * The method is overloaded to allow for logInformation without an error 
+	 * method sets the error to null. This should be used instead of System.out.println
+	 * throughout the code.
+	 * @param message
+	 *            the localized information message text
+	 *
+	 */
+	public static void logInformation(String message) {
+		plugin.getLog().log(
+				new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(),
+						0, message, null));
+		
+	} // logInformation
 
 	/**
 	 * Log an error to the ILog for this plugin

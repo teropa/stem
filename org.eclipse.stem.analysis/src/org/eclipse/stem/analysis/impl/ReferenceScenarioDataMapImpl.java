@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.stem.analysis.Activator;
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.DiseaseType;
 import org.eclipse.stem.analysis.ReferenceScenarioDataMap;
@@ -523,6 +524,8 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 			return data;
 		}
 		
+		
+		
 		/**
 		 * 
 		 * @return maxS
@@ -566,4 +569,30 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 			return this.instance.values().iterator().next().size();
 		}
 	}
+
+
+	/**
+	 * TODO implement this method
+	 * This method insures that the output of a disease model (or the output of a population model) is sane!
+	 * @return
+	 */
+	@Override
+	public boolean sane() {
+		System.out.println("TODO   ReferenceScenarioDataMapImpl.sane() must be fully implemented !!!"); //$NON-NLS-1$
+		return true;
+	}
+	
+	/**
+	 * Is this map consistent with another map?
+	 * This is like "equal" but allows for small differences when comparing double(s)
+	 * @param other
+	 * @return
+	 */
+	@Override
+	public boolean consistentWith(ReferenceScenarioDataMap other) {
+		System.out.println("TODO   ReferenceScenarioDataMapImpl.consistentWith(ReferenceScenarioDataMap other) must be fully implemented !!!");//$NON-NLS-1$
+		return true;
+	}
+	
+
 } //ReferenceScenarioDataMapImpl
