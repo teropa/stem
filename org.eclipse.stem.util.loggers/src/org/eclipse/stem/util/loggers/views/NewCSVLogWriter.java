@@ -73,7 +73,15 @@ public class NewCSVLogWriter extends LogWriter {
 
 	private static final String CSV_EXT = ".csv";
 	
+	/**
+	 * 
+	 */
 	private String directoryName;
+	
+	/**
+	 * 
+	 */
+	private String logDataObjectName;
 
 	//private final static String DUBLIN_CORE_CLASS = "DublinCore";
 	
@@ -132,18 +140,17 @@ public class NewCSVLogWriter extends LogWriter {
 			}
 		}
 		// Ugh
-		String diseaseName = null;
 		//String populationName = null;
 		if(dm instanceof DiseaseModel) {
-			diseaseName = ((DiseaseModel)dm).getDiseaseName();
+			logDataObjectName = ((DiseaseModel)dm).getDiseaseName().trim();
 			//populationName = ((DiseaseModel)dm).getPopulationIdentifier();
 		}
 		else if (dm instanceof PopulationModel) {
-			diseaseName = ((PopulationModel)dm).getName();
+			logDataObjectName = ((PopulationModel)dm).getName().trim();
 			//populationName = ((PopulationModel)dm).getPopulationIdentifier();
 		}
 		
-		if (diseaseName == null) {
+		if (logDataObjectName == null) {
 			Activator.logError("Failed to find a disease or population model.  Cannot create CSV Logger", null);
 			return;
 		}
@@ -152,7 +159,7 @@ public class NewCSVLogWriter extends LogWriter {
 		if(!d.exists())
 			d.mkdirs();
 		
-		this.directoryName = dirName + sep+uniqueID + sep + diseaseName.trim() + sep;
+		this.directoryName = dirName + sep+uniqueID + sep + logDataObjectName + sep;
 		
 		// remove illegal strings
 		directoryName= directoryName.replaceAll("\"", "");
@@ -829,4 +836,23 @@ public class NewCSVLogWriter extends LogWriter {
 		}
 		return populationModelItemProviderFactory;
 	} // getItemProviderFactory
+	
+	/**
+	 * get the output folder name
+	 * @return the log directory name
+	 */
+	public String getDirectoryName() {
+		return directoryName;
+	}
+	
+	
+	/**
+	 * name of the data object being logged.
+	 * e.g. The Disease Name
+	 * @return the logged object name 
+	 */
+
+	public String getLogDataObjectName() {
+		return logDataObjectName;
+	}
 }

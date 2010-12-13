@@ -150,6 +150,20 @@ public abstract class LogWriter {
 
 	
 	}
+	
+	
+	/**
+	 * get the output folder name
+	 * @return
+	 */
+	public abstract String getDirectoryName() ;
+
+	/**
+	 * name of the data object being logged.
+	 * e.g. The Disease Name
+	 * @return
+	 */
+	public abstract String getLogDataObjectName() ;
 
 }
 

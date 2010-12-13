@@ -218,4 +218,21 @@ public class CustomCSVLogger
 			simulation.removeSimulationListenerSync(this);
 		} // if
 	}
+	
+	/**
+	 * get the output folder name
+	 * @return the log directory name
+	 */
+	public String getDirectoryName() {
+		return logWriter.getDirectoryName();
+	}
+
+	/**
+	 * name of the data object being logged.
+	 * e.g. The Disease Name
+	 * @return the logged object name 
+	 */
+	public String getLogDataObjectName() {
+		return logWriter.getLogDataObjectName();
+	}
 }
