@@ -70,6 +70,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 	public static final String TIME_KEY = "time";
 	private double maxIncidence = 0.0;
 	private String maxIncidenceLocation;
+	private static final double PPM = 1.0/1000000.0;
 	
 	
 	/**
@@ -579,7 +580,64 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 	@Override
 	public boolean sane() {
 		System.out.println("TODO   ReferenceScenarioDataMapImpl.sane() must be fully implemented !!!"); //$NON-NLS-1$
+		
+		Iterator<String> locationIter = getLocations().iterator();
+		while(locationIter!=null && locationIter.hasNext()) {
+			String locationID = locationIter.next();
+			ReferenceScenarioDataInstance instance = getLocation(locationID);
+			// Get the data. Always have at least S and I
+			List<String>popData = instance.getData(States.statesToFit[States.POPULATION]);
+			List<String>sData = instance.getData(States.statesToFit[States.SUSCEPTIBLE]);
+			List<String>eData = null;
+			List<String>iData = instance.getData(States.statesToFit[States.INFECTIOUS]);
+			List<String>rData = null;
+			
+			// If E state
+			if(instance.dataMap.getType()== DiseaseType.SEIR)  {
+				eData = instance.getData(States.statesToFit[States.EXPOSED]);
+			}
+			// If have R state (i.e., not an SI model
+			if(instance.dataMap.getType()!= DiseaseType.SI)  {
+				rData = instance.getData(States.statesToFit[States.RECOVERED]);
+			}
+			
+			// check that three things are true at every time step.
+			// 0. All existing lists have the same length
+			// 1. No data label should ever go negative
+			// 2. The sum of the disease states = the total population at that time.
+			int length = popData.size();
+			if((sData.size() != length)||(iData.size() != length)) return false;
+			if((eData != null)&&(eData.size() != length)) return false;
+			if((rData != null)&&(rData.size() != length)) return false;
+			
+			for (int t = 0; t < length; t ++) {
+				double sum = 0.0;
+				double s = new Double(sData.get(t)).doubleValue();
+				double i = new Double(iData.get(t)).doubleValue();
+				double r = 0.0;
+				double e = 0.0;
+				if(eData != null) e = new Double(eData.get(t)).doubleValue();
+				if(rData != null) r = new Double(rData.get(t)).doubleValue();
+				if((s < 0)||(i<0)||(e<0)||(r<0)) return false; //1
+				sum = s+e+i+r;
+				if(!closeEnough(sum,new Double(popData.get(t)).doubleValue())) return false; // 2
+			}
+			
+		}
 		return true;
+	}
+	
+	/**
+	 * Are two values within 1ppm ?
+	 * @param dbl1
+	 * @param dbl2
+	 * @return
+	 */
+	boolean closeEnough(double d1, double d2) {
+		boolean retVal = true;
+		double diff = (Math.abs(2.0*(d1-d2)/(d1+d2)));
+		if(diff > PPM) retVal = false;
+		return retVal;
 	}
 	
 	/**
