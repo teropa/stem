@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.stem.analysis.Activator;
 import org.eclipse.stem.analysis.AnalysisPackage;
 import org.eclipse.stem.analysis.DiseaseType;
 import org.eclipse.stem.analysis.ReferenceScenarioDataMap;
@@ -62,12 +61,12 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 		return AnalysisPackage.Literals.REFERENCE_SCENARIO_DATA_MAP;
 	}
 
-	public static final String ITERATION_KEY = "iteration";
+	public static final String ITERATION_KEY = "iteration";//$NON-NLS-1$
 	/**
 	 * key for incidence data
 	 */
-	public static final String INCIDENCE_KEY = "Incidence";
-	public static final String TIME_KEY = "time";
+	public static final String INCIDENCE_KEY = "Incidence";//$NON-NLS-1$
+	public static final String TIME_KEY = "time";//$NON-NLS-1$
 	private double maxIncidence = 0.0;
 	private String maxIncidenceLocation;
 	private static final double PPM = 1.0/1000000.0;
@@ -210,7 +209,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 		
 		IRunnableWithProgress aggregateTask = new IRunnableWithProgress() {
             public void run(IProgressMonitor progress) {
-            	progress.beginTask("Aggregating data...", referenceScenarioDataMap.size());   	
+            	progress.beginTask("Aggregating data...", referenceScenarioDataMap.size());   	//$NON-NLS-1$
             	Iterator<String> iter = referenceScenarioDataMap.keySet().iterator();
             	while((iter!=null)&&(iter.hasNext())) {
             		progress.worked(1);
@@ -360,7 +359,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 					} else {
 						// create it if it doesn't exist
 						for(int i = 0; i < valueList.size(); i ++) {
-							aggregatedList.add("0.0");
+							aggregatedList.add("0.0");//$NON-NLS-1$
 						}
 						this.instance.put(state,aggregatedList);
 					}
@@ -387,7 +386,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 							} else {
 								oldVal = val;
 							}
-							aggregatedList.set(i,""+oldVal);
+							aggregatedList.set(i,""+oldVal);//$NON-NLS-1$
 							this.instance.put(state,aggregatedList);
 						} else {
 							// just copy the strings
@@ -517,7 +516,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 			
 			for(String state : instance.keySet()) {
 				ArrayList<Double> list = new ArrayList<Double>();
-				if(state.equalsIgnoreCase("time"))continue;
+				if(state.equalsIgnoreCase("time"))continue;//$NON-NLS-1$
 				for(String sd : instance.get(state)) 
 					list.add(Double.parseDouble(sd));
 				data.put(state, list);
@@ -587,7 +586,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 			ReferenceScenarioDataInstance instance = getLocation(locationID);
 			// Get the data. Always have at least S and I
 			List<String>popData = instance.getData(States.statesToFit[States.POPULATION]);
-			if(popData == null) popData =  instance.getData("Population Count");
+			if(popData == null) popData =  instance.getData("Population Count");//$NON-NLS-1$
 			
 			List<String>sData = instance.getData(States.statesToFit[States.SUSCEPTIBLE]);
 			List<String>eData = null;
