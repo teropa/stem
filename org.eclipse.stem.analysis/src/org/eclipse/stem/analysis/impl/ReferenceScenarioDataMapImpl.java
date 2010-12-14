@@ -587,6 +587,8 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 			ReferenceScenarioDataInstance instance = getLocation(locationID);
 			// Get the data. Always have at least S and I
 			List<String>popData = instance.getData(States.statesToFit[States.POPULATION]);
+			if(popData == null) popData =  instance.getData("Population Count");
+			
 			List<String>sData = instance.getData(States.statesToFit[States.SUSCEPTIBLE]);
 			List<String>eData = null;
 			List<String>iData = instance.getData(States.statesToFit[States.INFECTIOUS]);
