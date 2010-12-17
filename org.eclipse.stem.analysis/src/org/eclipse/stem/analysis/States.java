@@ -14,7 +14,7 @@ public class States {
 	/**
      * possible states with parameters to fit
      */
-	public static final String[] statesToFit= {"S","E","I","R","P", "Incidence"};
+	public static final String[] statesToFit= {"S","E","I","R","P", "Incidence","Disease Deaths"};
 	/**
 	 *  Susceptible index (for statesToFit)
 	 */
@@ -39,4 +39,8 @@ public class States {
 	 *  Incidence
 	 */
 	public static final int INCIDENCE = 5;
+	/**
+	 *  Disease Deaths
+	 */
+	public static final int DISEASE_DEATHS = 6;
 }
