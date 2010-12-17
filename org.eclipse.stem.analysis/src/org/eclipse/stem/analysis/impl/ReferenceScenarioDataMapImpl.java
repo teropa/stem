@@ -576,7 +576,6 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 	 * This method insures that the output of a disease model (or the output of a population model) is sane!
 	 * @return
 	 */
-	@Override
 	public boolean sane() {
 		System.out.println("TODO   ReferenceScenarioDataMapImpl.sane() must be fully implemented !!!"); //$NON-NLS-1$
 		
@@ -592,6 +591,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 			List<String>eData = null;
 			List<String>iData = instance.getData(States.statesToFit[States.INFECTIOUS]);
 			List<String>rData = null;
+			List<String>ddData = instance.getData(States.statesToFit[States.DISEASE_DEATHS]);
 			
 			// If E state
 			if(instance.dataMap.getType()== DiseaseType.SEIR)  {
@@ -607,7 +607,7 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 			// 1. No data label should ever go negative
 			// 2. The sum of the disease states = the total population at that time.
 			int length = popData.size();
-			if((sData.size() != length)||(iData.size() != length)) return false;
+			if((sData.size() != length)||(iData.size() != length)||(ddData.size() != length)) return false;
 			if((eData != null)&&(eData.size() != length)) return false;
 			if((rData != null)&&(rData.size() != length)) return false;
 			
@@ -615,13 +615,22 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 				double sum = 0.0;
 				double s = new Double(sData.get(t)).doubleValue();
 				double i = new Double(iData.get(t)).doubleValue();
+				double dd = new Double(ddData.get(t)).doubleValue();
 				double r = 0.0;
 				double e = 0.0;
 				if(eData != null) e = new Double(eData.get(t)).doubleValue();
 				if(rData != null) r = new Double(rData.get(t)).doubleValue();
-				if((s < 0)||(i<0)||(e<0)||(r<0)) return false; //1
-				sum = s+e+i+r;
+				if((s < 0)||(i<0)||(e<0)||(r<0)||(dd<0)) {
+					System.out.println("Negative value found at time = "+t+" dd= "+dd);
+					return false; //1
+				}
+				sum = s+e+i+r+dd;
 				if(!closeEnough(sum,new Double(popData.get(t)).doubleValue())) return false; // 2
+				// or exact equality but we need to check across different processors
+				if(sum != new Double(popData.get(t)).doubleValue()) {
+					System.out.println("Sum not exactly correct at time = "+t+" difference is "+(sum-new Double(popData.get(t)).doubleValue()));
+					
+				}
 			}
 			
 		}
@@ -647,9 +656,11 @@ public class ReferenceScenarioDataMapImpl extends EObjectImpl implements Referen
 	 * @param other
 	 * @return
 	 */
-	@Override
 	public boolean consistentWith(ReferenceScenarioDataMap other) {
 		System.out.println("TODO   ReferenceScenarioDataMapImpl.consistentWith(ReferenceScenarioDataMap other) must be fully implemented !!!");//$NON-NLS-1$
+		
+		
+		
 		return true;
 	}
 	
