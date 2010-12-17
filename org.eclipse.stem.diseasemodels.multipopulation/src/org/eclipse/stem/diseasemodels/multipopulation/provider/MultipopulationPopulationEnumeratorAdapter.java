@@ -25,10 +25,9 @@ public class MultipopulationPopulationEnumeratorAdapter extends
 		
 		StringValueList list = dm.getPopulationGroups();
 		EList<org.eclipse.stem.core.common.StringValue> vals = list.getValues();
-		String [] res = new String[vals.size()+1];
-		res[0] = dm.getPopulationIdentifier();
-		for(int i=1;i<vals.size()+1;++i)
-			res[i] = vals.get(i-1).getValue();
+		String [] res = new String[vals.size()];
+		for(int i=0;i<vals.size();++i)
+			res[i] = vals.get(i).getValue();
 		return res;
 	}
 }
