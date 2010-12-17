@@ -262,12 +262,12 @@ public class NewCSVLogWriter extends LogWriter {
 				 populationIdentifiers.add(((DiseaseModel)dm).getPopulationIdentifier());
 				 PopulationEnumeratorAdapter en = (PopulationEnumeratorAdapter)PopulationEnumeratorAdapterFactory.INSTANCE.adapt(dm, PopulationEnumerator.class);
 				 if(en != null) {
+					 // Clear the one from DiseaseModel class, it's not used
+					 populationIdentifiers.clear();
 					 en.setTarget(dm);
 					 String [] pops = en.getPopulationIdentifiers();
-					 // Skip first one, it's already been added.
-					 if(pops.length > 1)
-						 for(int i=1;i<pops.length;++i)
-							 populationIdentifiers.add(pops[i]);
+					 for(int i=0;i<pops.length;++i)
+						 populationIdentifiers.add(pops[i]);
 				 }
 			} else if (dm instanceof PopulationModel) {
 				org.eclipse.stem.populationmodels.standard.provider.StandardItemProviderAdapterFactory itemProviderFactory = getPopulationModelItemProviderFactory();
@@ -469,9 +469,8 @@ public class NewCSVLogWriter extends LogWriter {
 							 en.setTarget(dm);
 							 String []subpops1 = en.getPopulationIdentifiers();
 							 String labelPop = ((DiseaseModelLabel)label).getPopulationModelLabel().getPopulationIdentifier();
-							 if(subpops1.length > 1)
-								 for(int j=1;j<subpops1.length;++j)
-									 if(labelPop.equals(subpops1[j])) {matchSubPop = true;break;}
+							 for(int j=0;j<subpops1.length;++j)
+								 if(labelPop.equals(subpops1[j])) {matchSubPop = true;break;}
 						}
 						
 						if(matchSubPop) {
