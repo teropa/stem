@@ -86,6 +86,8 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 	 */
 	private SimulationState simulationState;
 
+	private SimulationHistory simulationHistory;
+	
 	/**
 	 * This is the {@link Scenario} being simulated. It contains all of the
 	 * {@link SimulationState} information.
@@ -256,6 +258,10 @@ public class Simulation extends Executable implements ISimulation, IPropertyChan
 						if(scenario.getCanonicalGraph() == null)
 							scenario.initialize();
 
+						if (simulationHistory == null) {
+							simulationHistory = new SimulationHistory(this);
+						}
+						
 						if(scenario.getSolver() == null) {
 							Solver [] solvers = this.getSolvers();
 							// Use the default finite difference when not available
