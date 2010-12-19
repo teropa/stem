@@ -1,10 +1,8 @@
 package org.eclipse.stem.jobs.simulation;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -39,7 +37,9 @@ public class SimulationHistory implements ISimulationListener {
 	}
 	
 	private final Simulation simulation;
-	private PersistentHashMap labels = PersistentHashMap.EMPTY;
+	
+	private PersistentHashMap currentLabels = PersistentHashMap.EMPTY;
+	private Map<Integer, PersistentHashMap> labelHistory = new HashMap<Integer, PersistentHashMap>();
 	
 	public SimulationHistory(Simulation sim) {
 		this.simulation = sim;
@@ -52,41 +52,36 @@ public class SimulationHistory implements ISimulationListener {
 	}
 
 	private void registerDynamicLabels() {
-		ITransientMap work = labels.asTransient();
 		Iterator<EObject> contentIt = this.simulation.getScenario().getCanonicalGraph().eAllContents();
+		ITransientMap workingCopy = currentLabels.asTransient();
 		while (contentIt.hasNext()) {
 			EObject nxt = contentIt.next();
 			if (nxt instanceof DynamicLabel) {
 				DynamicLabel label = (DynamicLabel)nxt;
-				work = work.assoc(label, new DynamicLabelState(label.getCurrentValue(), label.getNextValue()));
+				workingCopy = workingCopy.assoc(label, new DynamicLabelState(label.getCurrentValue(), label.getNextValue()));
 			}
 		}
-		labels = (PersistentHashMap)work.persistent();
+		currentLabels = (PersistentHashMap)workingCopy.persistent();
 	}
 	
 	public void simulationChanged(SimulationEvent event) {
-		System.out.println(simulation.getScenario().getSequencer().getCurrentTime());
-		ITransientMap work = labels.asTransient();
-		for (Object entry : labels.entrySet()) {
-			DynamicLabel label = (DynamicLabel)((Map.Entry)entry).getKey();
-			DynamicLabelState state = (DynamicLabelState)((Map.Entry)entry).getValue();
-			if (!state.matches(label)) {
-				work.assoc(label, new DynamicLabelState(label.getCurrentValue(), label.getNextValue()));
-			}
+		if (event.getSimulationState() == SimulationState.COMPLETED_CYCLE) {
+			System.out.println(simulation.getScenario().getSequencer().getCycle());
+			currentLabels = getNewLabels();
+			labelHistory.put(new Integer(simulation.getScenario().getSequencer().getCycle()), currentLabels);
 		}
-		labels = (PersistentHashMap)work.persistent();
 	}
-
-	private Set<DynamicLabel> getChangedLabels() {
-		Set<DynamicLabel> changed = new HashSet<DynamicLabel>();
-		for (Object entry : labels.entrySet()) {
+	
+	private PersistentHashMap getNewLabels() {
+		ITransientMap workingCopy = currentLabels.asTransient();
+		for (Object entry : currentLabels.entrySet()) {
 			DynamicLabel label = (DynamicLabel)((Map.Entry)entry).getKey();
 			DynamicLabelState state = (DynamicLabelState)((Map.Entry)entry).getValue();
 			if (!state.matches(label)) {
-				changed.add(label);
+				workingCopy = workingCopy.assoc(label, new DynamicLabelState(label.getCurrentValue(), label.getNextValue()));
 			}
 		}
-		return changed;
+		return (PersistentHashMap)workingCopy.persistent();
 	}
 	
 }
