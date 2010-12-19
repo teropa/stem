@@ -11,16 +11,28 @@ import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+<<<<<<< HEAD
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+=======
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.LabelValue;
 import org.eclipse.stem.core.graph.Node;
 import org.eclipse.stem.core.graph.NodeLabel;
 import org.eclipse.stem.core.model.STEMTime;
+<<<<<<< HEAD
+import org.eclipse.stem.definitions.labels.AreaLabel;
 import org.eclipse.stem.definitions.labels.EarthScienceLabel;
+import org.eclipse.stem.definitions.labels.PopulationLabel;
+=======
+import org.eclipse.stem.definitions.labels.EarthScienceLabel;
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 import org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabel;
 import org.eclipse.stem.populationmodels.standard.PopulationModelLabelValue;
@@ -37,6 +49,10 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getScalingFactor <em>Scaling Factor</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getTimePeriod <em>Time Period</em>}</li>
+<<<<<<< HEAD
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getMortalityRate <em>Mortality Rate</em>}</li>
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
  * </ul>
  * </p>
  *
@@ -53,7 +69,14 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 */
 	protected static final double SCALING_FACTOR_EDEFAULT = 1.0;
 	
+<<<<<<< HEAD
+	static double maxPerPersonDen = 0.0;
+	static double maxAreaTrapCount = 0.0; // assuming 15m trap radius
+	static double maxPop = 0.0;
+	static double maxHumans = 1.0;
+=======
 	static double maxDen = 0.0;
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 
 	/**
 	 * The cached value of the '{@link #getScalingFactor() <em>Scaling Factor</em>}' attribute.
@@ -86,6 +109,29 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	protected long timePeriod = TIME_PERIOD_EDEFAULT;
 
 	/**
+<<<<<<< HEAD
+	 * The default value of the '{@link #getMortalityRate() <em>Mortality Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMortalityRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MORTALITY_RATE_EDEFAULT = 0.05;
+
+	/**
+	 * The cached value of the '{@link #getMortalityRate() <em>Mortality Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMortalityRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected double mortalityRate = MORTALITY_RATE_EDEFAULT;
+
+	/**
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -97,7 +143,11 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	
 	@Override
 	public PopulationModelLabel createPopulationLabel() {
+<<<<<<< HEAD
+		PopulationModelLabel retValue = StandardFactory.eINSTANCE.createStandardPopulationModelLabel();
+=======
 		PopulationModelLabel retValue =  StandardFactory.eINSTANCE.createStandardPopulationModelLabel();
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 		retValue.setTypeURI(PopulationModelLabel.URI_TYPE_DYNAMIC_POPULATION_LABEL);
 		return retValue;
 	}
@@ -132,7 +182,11 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			if (nextMonth > 11) nextMonth = 0;
 			
 			double dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+<<<<<<< HEAD
+			double daysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH); 
+=======
 			double daysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);  
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 			
 			double fraction = dayOfMonth/daysInMonth;
 			
@@ -150,7 +204,22 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			 double temperature1 = 0;
 			 double rainfall1 = 0;
 			 double vegetation1 = 0;
+<<<<<<< HEAD
+			 double area = -1.0;
+			 double humans = 1.0;
 			 for(NodeLabel nl:n.getLabels()) {
+				 if(nl instanceof AreaLabel) {
+					 area = ((AreaLabel)nl).getCurrentAreaValue().getArea();
+				 }
+				 if(nl instanceof PopulationLabel) {
+					 String popType = ((PopulationLabel)nl).getPopulationIdentifier();
+					 if(popType.equalsIgnoreCase("human")) {
+						humans= ((PopulationLabel)nl).getCurrentPopulationValue().getCount();
+					 }
+				 }
+=======
+			 for(NodeLabel nl:n.getLabels()) {
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 				 if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("elevation")) {
 					 elevation = ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getData().get(0).doubleValue();
 				 } else if(nl instanceof EarthScienceLabel && ((EarthScienceLabel)nl).getCurrentEarthScienceValue().getDataType().equals("temperature")) {
@@ -179,10 +248,19 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			final double ELEVATION_SLOPE = 0.125;
 			final double ElEVATION_PEAK = 400.0;
 			double eFactor =0.0;
+<<<<<<< HEAD
+			if(elevation <= ElEVATION_PEAK) {			
+				eFactor = ELEVATION_SLOPE*elevation;
+			} else {
+				final double ELEVATION_DOWN_SLOPE = -0.0625; //down to 1200 meters (not 800) TOM
+				eFactor = Math.max(0.0,(ElEVATION_PEAK*ELEVATION_SLOPE) + (ELEVATION_DOWN_SLOPE*(elevation-ElEVATION_PEAK)));
+				//eFactor = Math.max(0.0,(ElEVATION_PEAK*ELEVATION_SLOPE) - (ELEVATION_SLOPE*(elevation-ElEVATION_PEAK)));
+=======
 			if(elevation <= ElEVATION_PEAK) {
 				eFactor = ELEVATION_SLOPE*elevation;
 			} else {
 				eFactor = Math.max(0.0,(ElEVATION_PEAK*ELEVATION_SLOPE) - (ELEVATION_SLOPE*(elevation-ElEVATION_PEAK)));
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 			}
 			// RAINFALL - just make it linear
 			double rFactor = rainfall;
@@ -191,13 +269,59 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			// reference: http://www.cell.com/trends/parasitology/abstract/S0169-4758%2899%2901396-4
 			// Trends in Parasitology, Volume 15, Issue 3, 105-111, 1 March 1999
 			// A Climate-based Distribution Model of Malaria Transmission in Sub-Saharan Africa
+<<<<<<< HEAD
+			// M.H. Craiga, *, Ê, R.W. Snowb and D. le Sueura
+			
+			final double TAVG = 30; // ref says 27C
+=======
 			// M.H. Craiga, *,  , R.W. Snowb and D. le Sueura
 			
 			final double TAVG = 30;  // ref says 27C
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 			final double sigma = 3.0;
 			double arg = -1.0*Math.pow((temperature - TAVG),2) / (2.0*sigma*sigma);
 			double tFactor = 1/Math.sqrt(2*Math.PI*sigma*sigma)*Math.exp(arg);
 			
+<<<<<<< HEAD
+			tFactor = (temperature<15 || temperature>40)?0:tFactor;
+			
+			// vegetation linear model above 
+			double vFactor = Math.max(0.0, (vegetation-0.3));
+			
+			//equalize all factors (Tom)
+//			eFactor*=1;
+//			rFactor*=.1;
+//			tFactor*=10000;
+//			vFactor*=100;
+			//Another idea: factor matrix of [elevation][rainfall][temperature][vegetation]
+			//	double [][][][] factorMatrix = new double[10][10][10][10];
+			
+			//double newPopulation = scalingFactor * temperature * rainfall / elevation;
+			double newPopulation = getScalingFactor() * (eFactor*tFactor)*(vFactor*rFactor);
+			
+			// Other Factors
+			//Evapo-transpiration
+			//wind speed
+			//sunlight exposure
+			//size of still water
+			//size of region
+			//size of its food e.g. humans, cattles,
+			
+			// TEST CODE
+			if(newPopulation > maxPop) {
+				maxHumans = humans;
+				maxPop = newPopulation;
+				double den = maxPop/(humans*24*10000);
+				if(den >=maxPerPersonDen) maxPerPersonDen = den;
+				
+				double trapped = (675*maxPop)/(area*1000000.0);
+				if(trapped > maxAreaTrapCount) {
+					maxAreaTrapCount=trapped;
+				}
+				System.out.println("mosquito Population = "+maxPop+" humans = "+humans);	
+				System.out.println("found maxperson Êmosquito density = "+maxPerPersonDen+ " expected trap count = "+maxAreaTrapCount+" mosqoutos / person max:"+maxPop/maxHumans+" "+0.05*maxPop/maxHumans);	
+				
+=======
 			// vegetation linear model above 
 			double vFactor = Math.max(0.0, (vegetation-0.3));
 			
@@ -210,14 +334,37 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			if(newPopulation > maxDen) {
 				maxDen = newPopulation;
 				System.out.println("found max mosquito density = "+maxDen);
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 			}
 			double pdelta = newPopulation - currentPopulation;
 			
 			
+<<<<<<< HEAD
+			// Births and deaths are set to the current population times the mosquito mortality rate.
+			// Then we adjust either the births or deaths to grow or shrink the population
+					
+			double adjustedMortalityRate = this.getMortalityRate() * (timeDelta/getTimePeriod());
+			
+			double births = current.getCount() * adjustedMortalityRate;
+			double deaths = births;
+			
+			
+			if(pdelta > 0) 
+				births += pdelta;
+				else {
+					births -=pdelta;
+					if(births < 0) {
+						deaths -=births;
+						births = 0;
+					}
+				}
+			
+=======
 			double births = 0;
 			double deaths = 0;
 			
 			if(pdelta > 0) births = pdelta; else deaths = -pdelta;
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 			
 			delta.setIncidence(0); // What is incidence???
 			delta.setCount(pdelta);
@@ -301,6 +448,32 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
+	public double getMortalityRate() {
+		return mortalityRate;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMortalityRate(double newMortalityRate) {
+		double oldMortalityRate = mortalityRate;
+		mortalityRate = newMortalityRate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE, oldMortalityRate, mortalityRate));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -308,6 +481,11 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 				return getScalingFactor();
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				return getTimePeriod();
+<<<<<<< HEAD
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				return getMortalityRate();
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +504,12 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				setTimePeriod((Long)newValue);
 				return;
+<<<<<<< HEAD
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				setMortalityRate((Double)newValue);
+				return;
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -344,6 +528,12 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				setTimePeriod(TIME_PERIOD_EDEFAULT);
 				return;
+<<<<<<< HEAD
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				setMortalityRate(MORTALITY_RATE_EDEFAULT);
+				return;
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 		}
 		super.eUnset(featureID);
 	}
@@ -360,6 +550,11 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 				return scalingFactor != SCALING_FACTOR_EDEFAULT;
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				return timePeriod != TIME_PERIOD_EDEFAULT;
+<<<<<<< HEAD
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				return mortalityRate != MORTALITY_RATE_EDEFAULT;
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 		}
 		return super.eIsSet(featureID);
 	}
@@ -378,8 +573,17 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 		result.append(scalingFactor);
 		result.append(", timePeriod: ");
 		result.append(timePeriod);
+<<<<<<< HEAD
+		result.append(", mortalityRate: ");
+		result.append(mortalityRate);
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 		result.append(')');
 		return result.toString();
 	}
 
+<<<<<<< HEAD
 } //MosquitoPopulationModelImpl
+=======
+} //MosquitoPopulationModelImpl
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5

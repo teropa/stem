@@ -1886,6 +1886,7 @@ public interface StandardPackage extends EPackage {
 	int MOSQUITO_POPULATION_MODEL__TIME_PERIOD = POPULATION_MODEL_FEATURE_COUNT + 1;
 
 	/**
+<<<<<<< HEAD
 	 * The feature id for the '<em><b>Mortality Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1895,13 +1896,19 @@ public interface StandardPackage extends EPackage {
 	int MOSQUITO_POPULATION_MODEL__MORTALITY_RATE = POPULATION_MODEL_FEATURE_COUNT + 2;
 
 	/**
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 	 * The number of structural features of the '<em>Mosquito Population Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< HEAD
 	int MOSQUITO_POPULATION_MODEL_FEATURE_COUNT = POPULATION_MODEL_FEATURE_COUNT + 3;
+=======
+	int MOSQUITO_POPULATION_MODEL_FEATURE_COUNT = POPULATION_MODEL_FEATURE_COUNT + 2;
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 
 
 	/**
@@ -2440,6 +2447,20 @@ public interface StandardPackage extends EPackage {
 	EAttribute getMosquitoPopulationModel_TimePeriod();
 
 	/**
+<<<<<<< HEAD
+	 * Returns the meta object for the attribute '{@link org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getMortalityRate <em>Mortality Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mortality Rate</em>'.
+	 * @see org.eclipse.stem.populationmodels.standard.MosquitoPopulationModel#getMortalityRate()
+	 * @see #getMosquitoPopulationModel()
+	 * @generated
+	 */
+	EAttribute getMosquitoPopulationModel_MortalityRate();
+
+	/**
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2897,6 +2918,17 @@ public interface StandardPackage extends EPackage {
 		 */
 		EAttribute MOSQUITO_POPULATION_MODEL__TIME_PERIOD = eINSTANCE.getMosquitoPopulationModel_TimePeriod();
 
+<<<<<<< HEAD
+		/**
+		 * The meta object literal for the '<em><b>Mortality Rate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOSQUITO_POPULATION_MODEL__MORTALITY_RATE = eINSTANCE.getMosquitoPopulationModel_MortalityRate();
+
+=======
+>>>>>>> ff9a1e1e756f379e268687a631b126433db789e5
 	}
 
 } //StandardPackage
