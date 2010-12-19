@@ -68,7 +68,7 @@ public class StandardPopulationInitializerTest extends PopulationInitializerTest
 	 */
 	@Override
 	protected StandardPopulationInitializer getFixture() {
-		return (StandardPopulationInitializer) fixture;
+		return (StandardPopulationInitializer)fixture;
 	}
 
 	/**

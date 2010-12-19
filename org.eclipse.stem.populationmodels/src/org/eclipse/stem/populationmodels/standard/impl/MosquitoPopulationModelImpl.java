@@ -37,6 +37,7 @@ import org.eclipse.stem.populationmodels.standard.StandardPopulationModelLabelVa
  * <ul>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getScalingFactor <em>Scaling Factor</em>}</li>
  *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getTimePeriod <em>Time Period</em>}</li>
+ *   <li>{@link org.eclipse.stem.populationmodels.standard.impl.MosquitoPopulationModelImpl#getMortalityRate <em>Mortality Rate</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +85,26 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * @ordered
 	 */
 	protected long timePeriod = TIME_PERIOD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMortalityRate() <em>Mortality Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMortalityRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MORTALITY_RATE_EDEFAULT = 0.05;
+
+	/**
+	 * The cached value of the '{@link #getMortalityRate() <em>Mortality Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMortalityRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected double mortalityRate = MORTALITY_RATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,6 +322,29 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getMortalityRate() {
+		return mortalityRate;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMortalityRate(double newMortalityRate) {
+		double oldMortalityRate = mortalityRate;
+		mortalityRate = newMortalityRate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE, oldMortalityRate, mortalityRate));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -308,6 +352,8 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 				return getScalingFactor();
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				return getTimePeriod();
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				return getMortalityRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -325,6 +371,9 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 				return;
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				setTimePeriod((Long)newValue);
+				return;
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				setMortalityRate((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -344,6 +393,9 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				setTimePeriod(TIME_PERIOD_EDEFAULT);
 				return;
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				setMortalityRate(MORTALITY_RATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -360,6 +412,8 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 				return scalingFactor != SCALING_FACTOR_EDEFAULT;
 			case StandardPackage.MOSQUITO_POPULATION_MODEL__TIME_PERIOD:
 				return timePeriod != TIME_PERIOD_EDEFAULT;
+			case StandardPackage.MOSQUITO_POPULATION_MODEL__MORTALITY_RATE:
+				return mortalityRate != MORTALITY_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -378,6 +432,8 @@ public class MosquitoPopulationModelImpl extends PopulationModelImpl implements 
 		result.append(scalingFactor);
 		result.append(", timePeriod: ");
 		result.append(timePeriod);
+		result.append(", mortalityRate: ");
+		result.append(mortalityRate);
 		result.append(')');
 		return result.toString();
 	}
