@@ -11,6 +11,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.stem.core.graph.DynamicLabel;
 import org.eclipse.stem.core.graph.LabelValue;
 
+import clojure.lang.ITransientMap;
+import clojure.lang.PersistentHashMap;
+
 public class SimulationHistory implements ISimulationListener {
 	
 	private static class DynamicLabelState {
@@ -36,7 +39,7 @@ public class SimulationHistory implements ISimulationListener {
 	}
 	
 	private final Simulation simulation;
-	private final Map<DynamicLabel, DynamicLabelState> curr = new HashMap<DynamicLabel, DynamicLabelState>();
+	private PersistentHashMap labels = PersistentHashMap.EMPTY;
 	
 	public SimulationHistory(Simulation sim) {
 		this.simulation = sim;
@@ -49,27 +52,36 @@ public class SimulationHistory implements ISimulationListener {
 	}
 
 	private void registerDynamicLabels() {
+		ITransientMap work = labels.asTransient();
 		Iterator<EObject> contentIt = this.simulation.getScenario().getCanonicalGraph().eAllContents();
 		while (contentIt.hasNext()) {
 			EObject nxt = contentIt.next();
 			if (nxt instanceof DynamicLabel) {
 				DynamicLabel label = (DynamicLabel)nxt;
-				curr.put(label, new DynamicLabelState(label.getCurrentValue(), label.getNextValue()));
+				work = work.assoc(label, new DynamicLabelState(label.getCurrentValue(), label.getNextValue()));
 			}
 		}
+		labels = (PersistentHashMap)work.persistent();
 	}
 	
 	public void simulationChanged(SimulationEvent event) {
 		System.out.println(simulation.getScenario().getSequencer().getCurrentTime());
-		Set<DynamicLabel> changed = getChangedLabels();
-		System.out.println(changed.size() + " changed of "+curr.size());
+		ITransientMap work = labels.asTransient();
+		for (Object entry : labels.entrySet()) {
+			DynamicLabel label = (DynamicLabel)((Map.Entry)entry).getKey();
+			DynamicLabelState state = (DynamicLabelState)((Map.Entry)entry).getValue();
+			if (!state.matches(label)) {
+				work.assoc(label, new DynamicLabelState(label.getCurrentValue(), label.getNextValue()));
+			}
+		}
+		labels = (PersistentHashMap)work.persistent();
 	}
 
 	private Set<DynamicLabel> getChangedLabels() {
 		Set<DynamicLabel> changed = new HashSet<DynamicLabel>();
-		for (Map.Entry<DynamicLabel, DynamicLabelState> entry : curr.entrySet()) {
-			DynamicLabel label = entry.getKey();
-			DynamicLabelState state = entry.getValue();
+		for (Object entry : labels.entrySet()) {
+			DynamicLabel label = (DynamicLabel)((Map.Entry)entry).getKey();
+			DynamicLabelState state = (DynamicLabelState)((Map.Entry)entry).getValue();
 			if (!state.matches(label)) {
 				changed.add(label);
 			}
